@@ -1,1 +1,99 @@
 \chapter{Semisimple algebras}
+
+\begin{definition}
+	An \textbf{algebra} (over the field $K$) is a vector space (over $K$) 
+	with an associative multiplication $A\times A\to A$ such that
+	$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ and
+	$(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)$ for all $a,b,c\in A$, and 
+	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.   
+\end{definition}
+
+Note that an algebra over $K$ is a ring $A$ that is a vector space
+(over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
+
+\begin{definition}
+	An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
+\end{definition}
+
+\begin{example}
+	The field $\R$ is a real algebra and similarly 
+	$\C$ is a complex algebra. Moreover, $\C$ is a real algebra. 
+\end{example}
+
+Any field $K$ is an algebra over $K$.
+
+\begin{example}
+	Let $K$ be a field. Then $K[X]$, $K[X,Y]$ and $K[[X]]$ are algebras over $K$.
+\end{example}
+
+\begin{example}
+	If $A$ is an algebra, then $M_n(A)$ is an algebra. 	
+\end{example}
+
+The dimension of an algebra is by 
+definition the dimension of the 
+underlying vector space. 
+
+\begin{definition}
+	Let $A$ and $B$ be algebras. A map $f\colon A\to B$ is an \textbf{algebra homomorphism} 
+	if $f$ is linear and it is a ring homomorphism.  	
+\end{definition}
+
+The map $\C\to\C$, $z\mapsto\overline{z}$, is a ring homomorphism that
+is not $\C$-linear, so it is not an $\C$-algebra homomorphism. 
+
+\begin{example}
+	Let $G$ be a finite group. The vector space 
+	$\C[G]$ with basis $\{g:g\in G\}$
+	is an algebra with multiplication
+	\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+	\] 	
+	Note that $\dim\C[G]=|G|$ and
+	$\C[G]$ is commutative if and only $G$ is abelian. 
+	This is the \textbf{complex group algebra} of $G$. 
+\end{example}
+
+Two basic exercises about group algebras.
+ 
+\begin{exercise}
+	Let $G$ be a non-trivial finite group. 
+	Then $\C[G]$ has zero divisors. 
+\end{exercise}
+
+\begin{exercise}
+	Let $A$ be an algebra and $G$ be a finite group. 
+	If $f\colon G\to\mathcal{U}(R)$ is a group homomorphism, 
+	then there exists an algebra homomorphism 
+	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
+\end{exercise}
+
+
+\begin{definition}
+	Let $A$ be an algebra. An (left) \textbf{ideal} of $A$ is an 
+	(left) ideal of the ring $A$ that is also a subspace. 
+\end{definition}
+
+Let $A$ be an algebra over $K$. If $I$ is a left ideal of the ring $A$, then 
+$I$ is a subspace (over $K$), as $\lambda a=\lambda(1_Aa)=(\lambda 1_A)a$ 
+for all $\lambda\in K$ and $a\in A$.  
+%
+%If $I$ is an ideal of $A$, then $A/I$ is an algebra and 
+%the canonical map $\pi\colon A\to A/I$, $a\mapsto a+I$, is a surjective
+%algebra homomorphism such that $\ker\pi=I$. 
+
+\begin{definition}
+	Let $A$ be an algebra. A \textbf{module} over $A$ is a module $M$ of the ring $A$. 
+\end{definition}
+
+Note that if $M$ is a module over $A$, 
+then $M$ is a vector space 
+with $\lambda m=(\lambda 1_A)m$ for all $\lambda\in K$ and $m\in M$. 
+%
+%\begin{fact}
+%	In this chapter we will work with finite-dimensional algebras and
+%	finite-dimensional modules.  	
+%\end{fact}
+
+
