@@ -1,29 +1,50 @@
 \chapter{Semisimple algebras}
 
-Let $K$ be a field. A vector space $A$ (over $K$) is an \textbf{algebra} if it has an associative multiplication
-$A\times A\to A$, $(a,b)\mapsto ab$, such that 
-$(\lambda a+\mu b)c=\lambda(ac)+\mu(bc)$ and  
-$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ 
-for all $a,b,c\in A$ and $\lambda,\mu\in K$. Sometimes we will consider algebras with identities, i.e. 
-an element $1_A\in A$ such that $1_Aa=a1_A=a$
-for all $a\in A$. The identity will be usually denoted by $1$. 
+% \begin{definition}
+% Let $K$ be a field. A vector space $A$ (over $K$) is an \textbf{algebra} if it has an associative multiplication
+% $A\times A\to A$, $(a,b)\mapsto ab$, such that 
+% \[
+% (\lambda a+\mu b)c=\lambda(ac)+\mu(bc),\quad
+% a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)
+% \]
+% for all $a,b,c\in A$ and $\lambda,\mu\in K$. We will consider algebras with identity, that is with  
+% for all $a\in A$. The identity will be usually denoted by $1$. 
+% an element $1_A\in A$ such that $1_Aa=a1_A=a$
+% \end{definition}
 
-\index{Algebra!conmutative}
-An algebra $A$ is \textbf{conmutative} if $ab=ba$ for all $a,b\in A$. 
+
+\begin{definition}
+	An \textbf{algebra} (over the field $K$) is a vector space (over $K$) 
+	with an associative multiplication $A\times A\to A$ such that
+	$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ and
+	$(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)$ for all $a,b,c\in A$, and 
+	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.   
+\end{definition}
+
+Note that an algebra over $K$ is a ring $A$ that is a vector space
+(over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
+
+\begin{definition}
+\index{Algebra!commutative}
+An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
+\end{definition}
 
 \index{Algebra!dimension}
 The \textbf{dimension} of an algebra $A$ is the dimension of $A$ as a vector space. This is why we want to consider algebras, as 
-they are linear version of rings. Quite often our arguments will use the dimension of the underying vector space.  
+they are linear version of rings. Quite often our arguments will use the dimension of the underlying vector space.  
 
 \begin{example}
-	Every field $K$ an algebra over $K$. 
+	The field $\R$ is a real algebra and similarly 
+	$\C$ is a complex algebra. Moreover, $\C$ is a real algebra. 
 \end{example}
+
+Any field $K$ is an algebra over $K$.
 
 \begin{example}
 	If $K$ is a field, then $K[X]$ is an algebra over $K$. 
 \end{example}
 
-Similarly, the polynomial ring $K[X,Y]$ and the ring $K[[X]]$ of power series are examples of algebrs over $K$. 
+Similarly, the polynomial ring $K[X,Y]$ and the ring $K[[X]]$ of power series are examples of algebra over $K$. 
 
 \begin{example}
 	If $A$ is an algebra, then  $M_n(A)$ is an algebra. 
@@ -33,18 +54,55 @@ Similarly, the polynomial ring $K[X,Y]$ and the ring $K[[X]]$ of power series ar
     The set of continuous maps $[0,1]\to\R$ is a real algebra with the usual point-wise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
 \end{example}
 
-\index{Homomorphism!of algebrass}
-An algebra \textbf{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a linear map. The complex conjugation map  
+\begin{example}
+    Let $n\in\N$. Then $K[X]/(X^n)$ is a finite-dimensional algebra. 
+    It is the \textbf{truncated polynomial algebra}.  
+\end{example}
+
+\begin{example}
+	Let $G$ be a finite group. The vector space 
+	$\C[G]$ with basis $\{g:g\in G\}$
+	is an algebra with multiplication
+	\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+	\] 	
+	Note that $\dim\C[G]=|G|$ and
+	$\C[G]$ is commutative if and only $G$ is abelian. 
+	This is the \textbf{complex group algebra} of $G$. 
+\end{example}
+
+Two basic exercises about group algebras.
+ 
+\begin{exercise}
+	Let $G$ be a non-trivial finite group. 
+	Then $\C[G]$ has zero divisors. 
+\end{exercise}
+
+\begin{exercise}
+	Let $A$ be an algebra and $G$ be a finite group. 
+	If $f\colon G\to\mathcal{U}(R)$ is a group homomorphism, 
+	then there exists an algebra homomorphism 
+	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
+\end{exercise}
+
+\begin{definition}
+    \index{Homomorphism!of algebras}
+    An algebra \textbf{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a linear map. 
+\end{definition}
+
+The complex conjugation map  
 $\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebra homomorphism over $\C$. 
 
 \begin{definition}
-	\index{Algebra!ideal}
-	An \textbf{ideal} of an algebra is an ideal of the underlying ring that is also a subspace.
+ 	\index{Algebra!ideal}
+ 	An \textbf{ideal} of an algebra is an ideal of the underlying ring that is also a subspace.
 \end{definition}
 
 Similarly one defines left and right ideals of an algebra.
 
-If $A$ is an algebra, then every left ideal of the ring $A$ is a left ideal of the algebra $A$. Indeed, if $L$ is a left ideal of $A$ 
+If $A$ is an algebra, then every left ideal of the ring $A$ is a left ideal of the algebra $A$. 
+Indeed, if $L$ is a left ideal of $A$ 
 and $\lambda\in K$ and $x\in L$, then 
 \[
 	\lambda x=\lambda (1_Ax)=(\lambda 1_A)x.
@@ -52,26 +110,21 @@ and $\lambda\in K$ and $x\in L$, then
 Since $\lambda 1_A\in A$, it follows that  $\lambda L=(\lambda
 1_A)L\subseteq L$. Similarly, every right ideal of the ring $A$ is a right ideal of the algebra $A$.
 
-% \begin{exercise}
-% 	Demuestre que si $A$ es un álgebra, entonces todo ideal a derecha
-% 	del anillo $A$ es un ideal a derecha del álgebra $A$.
-% \end{exercise}
-
 If $A$ is an algebra and $I$ is an ideal of $A$, then the quotient ring $A/I$ has a unique algebra
 structure such that the canonical map  
 $A\to A/I$, $a\mapsto a+I$, is an algebra homomorphism. 
 
-\begin{example}
-Let $n\in\N$. Then $K[X]/(X^n)$ is a finite-dimensional algebra. It is the \textbf{truncated polynomial algebra}.  
-\end{example}
+\begin{definition}
+    \index{Algebraic element}
+    \index{Algebra!algebraic}
+    Let $A$ be an algebra over the field $K$. An element $a\in A$ is 
+    \textbf{algebraic} over $K$ if there exists a non-zero polynomial $f\in K[X]$
+    such that $f(a)=0$. 
+\end{definition}
 
-\index{Algebraic element}
-\index{Algebra!algebraic}
-Let $A$ be an algebra over the field $K$. An element $a\in A$ is 
-\textbf{algebraic} over $K$ if there exists a non-zero polynomial $f\in K[X]$
-such that $f(a)=0$. If every element of $A$ is algebraic, then $A$ is said to be \text{algebraic}. As an example, in 
-the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}$ is a root of the polynomial $X^2-2\in\Q[X]$. A famous theorem of Lindemann proves that   
-$\pi$ is not algebraic over $\Q$. Every element of the real algebra $\R$ is algebraic.
+If every element of $A$ is algebraic, then $A$ is said to be \text{algebraic} 
+
+In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}$ is a root of the polynomial $X^2-2\in\Q[X]$. A famous theorem of Lindemann proves that $\pi$ is not algebraic over $\Q$. Every element of the real algebra $\R$ is algebraic.
 
 \begin{proposition}
 	\label{lem:algebraic}
@@ -84,76 +137,82 @@ $\pi$ is not algebraic over $\Q$. Every element of the real algebra $\R$ is alge
 	a non-zero polynomial $f\in K[X]$ such that $f(a)=0$.
 \end{proof}
 
-Let $A$ be a finite-dimensional algebra. If $M$ is a module over $A$, then $M$ is a vector space with  
+\begin{definition}
+    A \textbf{module} $M$ over an algebra $A$ is a module over the ring $A$ that is also a vector space. 
+\end{definition}
+
+Let $A$ be a finite-dimensional algebra. 
+If $M$ is a module over the ring $A$, then $M$ is a vector space with  
 \[
 \lambda m=(\lambda 1_A)\cdot m, 
 \]
-where 
-$\lambda\in K$ and $m\in M$. 
-Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
+where $\lambda\in K$ and $m\in M$. Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
 
-Trabajemos con $A$-módulos finitamente generados. 
+In this chapter we will work with finitely generated modules. 
 
-\index{Representación!regular de un álgebra}
-Observemos que $A$ es un $A$-módulo con la multiplicación a izquierda, es decir $a\cdot b=ab$, $a,b\in A$.
-Este módulo se conoce como la \textbf{representación regular} de $A$. 
+\begin{example}
+An algebra  $A$ is a module over $A$ with left multiplication, that is $a\cdot b=ab$, $a,b\in A$.
+This module is the (left) \textbf{regular representation} of $A$ and it will be denoted by $\prescript{}{A}{A}$. 
+\end{example}
 
 \begin{definition}
-\index{Módulo!simple}
-Diremos que un $A$-módulo $M$ es
-\textbf{simple} si $M\ne\{0\}$ y los únicos submodulos de $M$ son $\{0\}$ y $M$. 
+	Let $A$ be an algebra and $M$ be a module over $A$. Then 
+	$M$ is \textbf{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
+	are the only submodules of $M$.	
 \end{definition}
 
 \begin{definition}
-\index{Módulo!semisimple}
-Diremos que $M$ es \textbf{semisimple} si $M\ne\{0\}$ y además $M$
-es suma directa de finitos submódulos simples. 
+	Let $A$ be a finite-dimensional 
+	algebra and $M$ be a finite-dimensional module over $A$. Then 
+	$M$ is \textbf{semisimple} if $M$ is a direct sum of 
+	finitely many simple submodules.  
 \end{definition}
 
-La suma directa de módulos semisimples es semisimple. 
+Clearly, a finite direct sum of semisimples is semisimple. 
 
 \begin{lemma}[Schur]
-\index{Lema!de Schur}
-Si $S$ y $T$ son $A$-módulos simples y $f\colon S\to T$ es un morfismo no nulo, entonces
-$f$ es un isomorfismo. 	
+	Let $A$ be an algebra. If $S$ and $T$ are
+	simple modules and $f\colon S\to T$ is a non-zero module homomorphism, 
+	then $f$ is an isomorphism. 
 \end{lemma}
 
 \begin{proof}
-Como $f\ne 0$, $\ker f$ es un submódulo propio de $S$. Como $S$ es simple, entonces $\ker f=\{0\}$. Similarmente $f(S)$ 
-es un submódulo no nulo de $T$ y luego $f(S)=T$ por la simplicidad de $T$. 	
+Since $f\ne 0$, $\ker f$ is a proper submodule of $S$. Since $S$ is simple, it follows 
+that $\ker f=\{0\}$. Similarly, $f(S)$ 
+is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple. 	
 \end{proof}
 
 \begin{proposition}
-    Si $A$ es un álgebra de dimensión finita y $S$ es un módulo simple 
-    entonces $S$ es de dimensión finita.
+    If $A$ is a finite-dimensional algebra and $S$ is a simple module, then $S$ is finite-dimensional. 
 \end{proposition}
 
 \begin{proof}
-    Sea $s\in S\setminus\{0\}$. Como $S$ es simple, $\varphi\colon A\to S$, $a\mapsto a\cdot s$, es
-    un epimorfismo. En particular, $A/\ker\varphi\simeq S$ y luego $\dim S=\dim (A/\ker\varphi)\leq \dim A$. 
+    Let $s\in S\setminus\{0\}$. Since $S$ is simple, $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective homomorphism. 
+    In particular, $A/\ker\varphi\simeq S$ and hence $\dim S=\dim (A/\ker\varphi)\leq \dim A$. 
 \end{proof}
 
-Veamos una caracterización de la semisimplicidad.
- 
 \begin{proposition}
 \label{pro:semisimple}
-	Sea $M$ un $A$-módulo de dimensión finita. Las siguientes afirmaciones son equivalentes:
+	Let $M$ be a finite-dimensional module. The following statements are equivalent.
 	\begin{enumerate}
-		\item $M$ es semisimple.
-		\item $M=\sum_{i=1}^k S_i$, donde los $S_i$ son submódulos simples de $M$.
-		\item Si $S$ es un submódulo de $M$, existe un submódulo $T$ de $M$ tal que $M=S\oplus T$.    
+		\item $M$ is semisimple.
+		\item $M=\sum_{i=1}^k S_i$, where each $S_i$ is a simple submodule of $M$. 
+		\item If $S$ is a submodule of $M$, then there is a submodule $T$ of $M$ such that $M=S\oplus T$.    
 	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	Demostremos que $(2)\implies(3)$.
-	Sea $N\ne\{0\}$ un submódulo de $M$. Como $N\ne\{0\}$ y $\dim M<\infty$, existe
-	un submódulo no nulo $T$ de $M$ de dimensión maximal
-	tal que $N\cap T=\{0\}$. Si $S_i\subseteq N\oplus T$ para todo $i\in\{1,\dots,k\}$, entonces, como $M$ es suma de los $S_i$, tenemos $M=N\oplus T$. 
-	Si, en cambio, existe algún $i\in\{1,\dots,k\}$ tal que $S_i\not\subseteq N\oplus T$, entonces $S_i\cap (N\oplus T)\subseteq S_i$. Como $S_i$ es simple,
-	se tiene que $S_i\cap (N\oplus T)=\{0\}$. Luego $N\cap (S_i\oplus T)=\{0\}$, una contradicción a la maximalidad de $T$.  
+	We first prove that $2)\implies3)$.
+	Let $N\ne\{0\}$ be a submodule of $M$. Since $N\ne\{0\}$ and $\dim M<\infty$, there exists a non-zero submodule 
+	$T$ of $M$ of maximal dimension such that 
+	$N\cap T=\{0\}$. If $S_i\subseteq N\oplus T$ for all $i\in\{1,\dots,k\}$, then, as $M$ is the sum of the $S_i$, it follows that
+	$M=N\oplus T$. 
+	If, however, there exists $i\in\{1,\dots,k\}$ such that $S_i\not\subseteq N\oplus T$, then $S_i\cap (N\oplus T)\subseteq S_i$. 
+	Since $S_i$ is simple,
+	it follows that $S_i\cap (N\oplus T)=\{0\}$. Thus $N\cap (S_i\oplus T)=\{0\}$, a contradiction to the maximality of
+	$\dim T$.  
 	
-	La implicación $(1)\implies(2)$ es trivial. 
+	The implication  $1)\implies2)$ is trivial. 
 	
 	Veamos ahora que $(2)\implies(1)$. Sea $J$ un subconjunto de $\{1,\dots,k\}$ maximal tal que 
 	la suma de los $S_j$ con $j\in J$ es directa. Sea $N=\oplus_{j\in J}S_j$. Veamos que $M=N$. 
@@ -624,141 +683,26 @@ Sea $A$ un álgebra de dimensión finita. Si $A$ es simple, entonces $A$ es semi
 
 
 \begin{proof}
-%	Veamos que $(2)\implies(3)$. Como $A$ es semisimple, el teorema de Artin--Wedderburn implica que $A\simeq\prod_{i=1}^k M_{n_i}(\C)$ 
-%	y que $A$ tiene $k$ clases de isomorfismos de $A$-módulos simples. Luego $k=1$ y entonces
-%	$A\simeq M_n(\C)$ para algún $n\in\N$. 
 	Como $A$ es simple, entonces $A$ es semisimple. El teorema de Artin--Wedderburn implica que $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
 	para ciertos $n_1,\dots,n_k$ y ciertas álgebras de división $D_1,\dots,D_k$. Además $A$ tiene
 	$k$ clases de isomorfismos de módulos simples. Como $A$ es simple,
 	$A$ tiene solamente una clase de isomorfismos de módulos simples. Luego $k=1$ y entonce
 	$A\simeq M_n(D)$ para algún $n\in\N$ y alguna álgebra de división $D$. 
-	%	Veamos que $(1)\implies(2)$. Sea $M$ un $A$-módulo simple y fiel. Sea $K$ un ideal de 
-%	$A$ de dimensión mínima tal que $K$ es el núcleo de algún morfismo $f\colon A\to nM$. Si $a\in\ker f$ es tal que $a\ne 0$, entonces 
-%	existe $m\in M$ tal que $a\cdot m\ne 0$, pues $\Ann(M)=\{0\}$. Luego
-%	\[
-%	g\colon A\to nM\oplus M=(n+1)m,\quad
-%	x\mapsto (f(x),x\cdot m),
-%	\]
-%	es un morfismo de $A$-módulos tal que $a\ker f\setminus\ker g$, una contradicción a la minimalidad de $K$. 
-=======
-\begin{definition}
-	An \textbf{algebra} (over the field $K$) is a vector space (over $K$) 
-	with an associative multiplication $A\times A\to A$ such that
-	$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ and
-	$(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)$ for all $a,b,c\in A$, and 
-	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.   
-\end{definition}
-
-Note that an algebra over $K$ is a ring $A$ that is a vector space
-(over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
-
-\begin{definition}
-	An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
-\end{definition}
-
-\begin{example}
-	The field $\R$ is a real algebra and similarly 
-	$\C$ is a complex algebra. Moreover, $\C$ is a real algebra. 
-\end{example}
-
-Any field $K$ is an algebra over $K$.
-
-\begin{example}
-	Let $K$ be a field. Then $K[X]$, $K[X,Y]$ and $K[[X]]$ are algebras over $K$.
-\end{example}
-
-\begin{example}
-	If $A$ is an algebra, then $M_n(A)$ is an algebra. 	
-\end{example}
-
-The dimension of an algebra is by 
-definition the dimension of the 
-underlying vector space. 
-
-\begin{definition}
-	Let $A$ and $B$ be algebras. A map $f\colon A\to B$ is an \textbf{algebra homomorphism} 
-	if $f$ is linear and it is a ring homomorphism.  	
-\end{definition}
-
-The map $\C\to\C$, $z\mapsto\overline{z}$, is a ring homomorphism that
-is not $\C$-linear, so it is not an $\C$-algebra homomorphism. 
-
-\begin{example}
-	Let $G$ be a finite group. The vector space 
-	$\C[G]$ with basis $\{g:g\in G\}$
-	is an algebra with multiplication
-	\[
-	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
-	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
-	\] 	
-	Note that $\dim\C[G]=|G|$ and
-	$\C[G]$ is commutative if and only $G$ is abelian. 
-	This is the \textbf{complex group algebra} of $G$. 
-\end{example}
-
-Two basic exercises about group algebras.
- 
-\begin{exercise}
-	Let $G$ be a non-trivial finite group. 
-	Then $\C[G]$ has zero divisors. 
-\end{exercise}
-
-\begin{exercise}
-	Let $A$ be an algebra and $G$ be a finite group. 
-	If $f\colon G\to\mathcal{U}(R)$ is a group homomorphism, 
-	then there exists an algebra homomorphism 
-	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
-\end{exercise}
+\end{proof}
 
 
-\begin{definition}
-	Let $A$ be an algebra. An (left) \textbf{ideal} of $A$ is an 
-	(left) ideal of the ring $A$ that is also a subspace. 
-\end{definition}
+
+
+
+
+
 
 Let $A$ be an algebra over $K$. If $I$ is a left ideal of the ring $A$, then 
 $I$ is a subspace (over $K$), as $\lambda a=\lambda(1_Aa)=(\lambda 1_A)a$ 
 for all $\lambda\in K$ and $a\in A$.  
-%
-%If $I$ is an ideal of $A$, then $A/I$ is an algebra and 
-%the canonical map $\pi\colon A\to A/I$, $a\mapsto a+I$, is a surjective
-%algebra homomorphism such that $\ker\pi=I$. 
 
-\begin{definition}
-	Let $A$ be an algebra. A \textbf{module} over $A$ is a module $M$ of the ring $A$. 
-\end{definition}
 
-Note that if $M$ is a module over $A$, 
-then $M$ is a vector space 
-with $\lambda m=(\lambda 1_A)m$ for all $\lambda\in K$ and $m\in M$. 
- 	
-\begin{exercise}
-	Let $A$ be an algebra and $M$ be a module over $A$. 
-	Then $M$ is finitely generated if and only if $M$ is finite-dimensional.
-\end{exercise}
 
 An important example of a module is given by the left representation. The 
 algebra $A$ is a module over $A$ with the left multiplication. 
-
-\begin{definition}
-	Let $A$ be an algebra and $M$ be a module over $A$. Then 
-	$M$ is \textbf{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
-	are the only submodules of $M$.	
-\end{definition}
-
-\begin{definition}
-	Let $A$ be a finite-dimensional 
-	algebra and $M$ be a finite-dimensional module over $A$. Then 
-	$M$ is \textbf{semisimple} if $M$ is a direct sum of 
-	finitely many simple submodules.  
-\end{definition}
-
-Clearly, a finite direct sum of semisimples is semisimple. 
-
-\begin{lemma}[Schur]
-	Let $A$ be an algebra. If $S$ and $T$ are
-	simple modules and $f\colon S\to T$ is a non-zero module homomorphism, 
-	then $f$ is an isomorphism. 
-\end{lemma}
-
 
