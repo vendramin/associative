@@ -1,5 +1,6 @@
-\chapter{The Jacobson radical}
-\label{radical}
+\chapter{}
+
+\section*{Jacobson radical}
 
 We will consider rings possibly without identity. Thus  
 a \textbf{ring} is an abelian group $R$ with an associative multiplication 
@@ -37,9 +38,13 @@ $rI\subseteq I$ (resp. $Ir\subseteq I$) for all $r\in R$. An \textbf{ideal}
 	$a$ is $RaR+Ra+aR+\Z a$.
 \end{example}
 
+\begin{definition}
 A ring $R$ is said to be \textbf{simple} if $R^2\ne\{0\}$ and the only ideals of 
-$R$ are $0$ and $R$. The condition $R^2\ne\{0\}$ is trivially satisfied in the case of rings
-with identity, as $1\in R^2$. 
+$R$ are $\{0\}$ and $R$.  
+\end{definition}
+
+The condition $R^2\ne\{0\}$ is trivially satisfied in the case of rings
+with identity, as $1\in R^2=\{r_1r_2:r_1,r_2\in R\}$.
 
 \begin{example}
 	Division rings are simple.
@@ -68,10 +73,12 @@ for all $r,s\in R$, $m,n\in M$.  If $R$ has an identity
 $1$ and $1m=m$ holds for all $m\in M$, the module $M$ is said to be 
 \textbf{unitary}.  If $M$ is a unitary module, then $M=RM\ne\{0\}$.
 
-
-The module $M$ is said to be 
+\begin{definition}
+A module $M$ is said to be 
 \textbf{simple} if $RM\ne\{0\}$ and the only submodules of $M$ are $0$ and $M$.
 If $M$ is a simple module, then $M\ne\{0\}$.
+\end{definition}
+
 
 %\begin{remark}
 %	Si $R$ es unitario y $M$ es un módulo simple, entonces $M$ es unitario.
@@ -110,8 +117,12 @@ If $M$ is a simple module, then $M\ne\{0\}$.
 	Thus $M_{n}(D)$ is a simple ring that is not a simple $M_n(D)$-module.
 \end{example}
 
+\begin{definition}
 A left ideal $L$ of a ring $R$ is said to be \textbf{minimal} if $L\ne\{0\}$ and 
-$L$ does not strictly contain other left ideals of $R$. Similarly one defines
+$L$ does not strictly contain other left ideals of $R$. 
+\end{definition}
+
+Similarly one defines
 right minimal ideals and minimal ideals. 
 
 \begin{example}
@@ -124,14 +135,22 @@ right minimal ideals and minimal ideals.
 	$L$ is minimal if and only if $L$ is a simple $R$-module. 
 \end{example}
 
+\begin{definition}
 A left (resp. right) ideal $L$ of $R$ is said to be \textbf{regular} if
-there exists $e\in R$ such that $r-re\in L$ (resp.  $r-er\in L$) for all $r\in R$. 
+there exists $e\in R$ such that $r-re\in L$ (resp.  $r-er\in L$) for all $r\in R$.
+\end{definition}
+
 If $R$ is a ring with identity, every left (or right) ideal is regular. 
+
+\begin{definition}
 A left (resp. right) ideal $I$ of $R$ is said to be \textbf{maximal} if $I\ne M$ and $I$ is not properly contained 
 in any other left (resp. right) ideal of $R$. 
+\end{definition}
+
+Similarly one defines maximal ideals. 
+
 A standard
 application of Zorn's lemma proves that every unitary ring contains a maximal left (or right) ideal.  
-Similarly one defines maximal ideals. 
 
 % \begin{exercise}
 % Prove that every ring with identity contains a maximal ideal.
@@ -315,8 +334,6 @@ we define the \textbf{annihilator} of $N$ as the subset
 	$\Ann_{\Z}(\Z/n)=n\Z$.
 \end{example}
 
-The following exercise is standard. 
-
 \begin{exercise}
     Let $R$ be a ring and $M$ be a module. If $N\subseteq M$ is a subset, then 
 	$\Ann_R(N)$ is a left ideal of $R$. If $N\subseteq M$ is a submodule of $R$, then 
@@ -340,8 +357,9 @@ The following exercise is standard.
 % 	$(sr)n=s(rn)=0$.
 % \end{proof}
 
-
+\begin{definition}
 A module $M$ is said to be \textbf{faithful} if $\Ann_R(M)=\{0\}$. 
+\end{definition}
 
 \begin{example}
 	If $K$ is a field, then $K^n$ is a faithful unitary $M_n(K)$-module.
@@ -351,9 +369,13 @@ A module $M$ is said to be \textbf{faithful} if $\Ann_R(M)=\{0\}$.
 	If $V$ is vector space over a field $K$, then $V$ is faithful unitary $\End_K(V)$-module.
 \end{example}
 
+\begin{definition}
 \index{Ring!primitive}
-A ring $R$ is said to be \textbf{primitive} if there exists a faithful simple $R$-módulo. Since 
-we are considering left modules, our definition of primitive rings is that of left primitive rings. 
+A ring $R$ is said to be \textbf{primitive} if there exists a faithful simple $R$-module.  
+\end{definition}
+
+Since 
+we are considering left modules, our definition of primitive rings is that of left primitive rings.
 By convention, a primitive ring
 will always mean a left primitive ring. 
 The use 
@@ -392,9 +414,11 @@ of right modules yields to the notion of right primitive rings.
 	The ring $\Z$ is not primitive. 
 \end{example}
 
+\begin{definition}
 \index{Ideal!primitive}
 An ideal $P$ of a ring $R$ is said to be \textbf{primitive} if $P=\Ann_R(M)$
 for some simple $R$-module $M$. 
+\end{definition}
 
 \begin{lemma}
 	\label{lemma:primitivo}
@@ -496,22 +520,39 @@ for some simple $R$-module $M$.
 
 Let us discuss the Jacobson radical and radical rings. 
 
+\begin{definition}
+
 Let $R$ be a ring. The \textbf{Jacobson radical} $J(R)$
 is the intersection of all the annihilators of simple left $R$-modules. If $R$ does not
-have simple left $R$-modules, then $J(R)=R$. From the definition it follows
+have simple left $R$-modules, then $J(R)=R$. 
+\end{definition}
+
+From the definition it follows
 that $J(R)$ is an ideal. Moreover, 
 	\[
 		J(R)=\bigcap\{P:\text{$P$ left primitive ideal}\}.
 	\]
 
 If $I$ is an ideal of $R$ and $n\in\N$, $I^n$ is the additive subgroup of $R$ 
-generated by the set $\{y_1\dots y_n:y_j\in I\}$. An ideal $I$ of $R$ is \textbf{nilpotent} 
-if $I^n=\{0\}$ for some $n\in\N$. Similarly one defines right or left nil ideals. 
+generated by the set $\{y_1\dots y_n:y_j\in I\}$. 
+
+\begin{definition}
+An ideal $I$ of $R$ is \textbf{nilpotent} 
+if $I^n=\{0\}$ for some $n\in\N$.
+\end{definition}
+
+Similarly one defines right or left nil ideals. 
 Note that an ideal $I$ is nilpotent if and only if there exists $n\in\N$ such that 
 $x_1x_2\cdots x_n=0$ for all $x_1,\dots,x_n\in I$.  
 
+\begin{definition}
 An element $x$ of a ring is said to be \textbf{nil} (or nilpotent) if $x^n=0$ for some $n\in\N$. 
+\end{definition}
+
+\begin{definition}
 An ideal $I$ of a ring is said to be \text{nil} if every element of $I$ is nil. 
+\end{definition}
+
 Every nilpotent ideal is nil, as $I^n=0$ implies $x^n=0$ for all 
 $x\in I$.
 
@@ -540,9 +581,11 @@ $x\in I$.
 	$k\geq1$, a contradiction since $rx\in I$ (resp. $xr\in I$) is a nilpotent element. 
 \end{proof}
 
+\begin{definition}
 Let $R$ be a ring. An element $a\in R$ is said to be 
 \textbf{left quasi-regular} if there exists $r\in R$ such that $r+a+ra=0$. Similarly, 
 $a$ is said to be \textbf{right quasi-regular} if there exists $r\in R$ such that $a+r+ar=0$. 
+\end{definition}
 
 \begin{exercise}
 	\label{exercise:circ}
@@ -581,10 +624,14 @@ Conversely, if there exists $y\in R$ such that $y(1+x)=1$, then
 	define al elemento $y$ es finita y cumple que $y+(-x)+y(-x)=0$.  
 \end{example}
 
+\begin{definition}
 A left ideal $I$ of $R$ is said to be 
 \textbf{left quasi-regular} (resp. right quasi-regular) if every element of $I$ is
 left quasi-regular (resp. right quasi-regular). A left ideal 
-is said to be \textbf{quasi-regular} if it is left and right quasi-regular. Similarly 
+is said to be \textbf{quasi-regular} if it is left and right quasi-regular. 
+\end{definition}
+
+Similarly 
 one defines right quasi-regular ideals and quasi-regular ideals. 
 
 \begin{lemma}
@@ -604,13 +651,12 @@ one defines right quasi-regular ideals and quasi-regular ideals.
 \end{proof}
 
 \index{Lemma!Zorn}
-Let $(A,\leq)$ be a partially order set, this means that $A$ is a set together with a 
+Let $(A,\leq)$ be a \textbf{partially order set}, this means that $A$ is a set together with a 
 reflexive, transitive and anti-symmetric binary relation
 $R$ en $A\times A$, where $a\leq b$ if and only if $(a,b)\in R$. 
 Recall that the relation is reflexive if $a\leq a$ for all $a\in A$, the relation is transitive if 
 $a\leq b$ and $b\leq c$ imply that 
 $a\leq c$ and the relation is anti-symmetric if $a\leq b$ and $b\leq a$ imply $a=b$.
-
 The elements $a,b\in A$ are said to be \textbf{comparable} if $a\leq b$ or $b\leq
 a$. An element $a\in A$ is said to be \textbf{maximal} if 
 $c\leq a$ 
@@ -657,7 +703,7 @@ Our application of Zorn's lemma:
 	T\subseteq M$), it follows that $x\not\in\Ann_R(R/M)$.
 \end{proof}
 
-If $x\in R$ is not left quasi-regular, Lemma~\ref{lemma:maxreg} implies that there exists 
+If $x\in R$ is not left quasi-regular, the lemma implies that there exists 
 a simple $R$-module $M$ such $x\not\in\Ann_R(M)$. Thus 
 $x\not\in J(R)$.
 
@@ -799,318 +845,4 @@ The following result is somewhat what we all had in mind.
 %	Sea $D$ un anillo de división y sea $R=D[x_1,\dots,x_n]$. Si $f\in J(R)$
 %	entonces\dots Luego $J(R)=0$. 
 %\end{example}
-
-We now review some basic results useful to compute radicals. 
-
-\begin{proposition}
-	Let $\{R_i:i\in I\}$ be a family of rings. Then 
-	\[
-	J\left(\prod_{i\in I}R_i\right)=\prod_{i\in I}J(R_i).
-	\]
-\end{proposition}
-
-\begin{proof}
-	Let $R=\prod_{i\in I}R_i$ and $x=(x_i)_{i\in I}\in R$.  The left ideal 
-    $Rx$ is quasi-regular if and only if each left ideal $R_ix_i$
-	is quasi-regular in $R_i$, as $x$ is quasi-regular in $R$ if and only if each 
-	$x_i$ is quasi-regular in $R_i$. Thus $x\in J(R)$ if and only if $x_i\in
-	J(R_i)$ for all $i\in I$.
-\end{proof}
-
-For the next result we shall need a lemma.
-
-\begin{lemma}
-	\label{lemma:trickJ1}
-	Let $R$ be a ring and $x\in R$. 
-	If $-x^2$ is a left quasi-regular element, then $x$ también. 
-\end{lemma}
-
-\begin{proof}
-	Sea $r\in R$ tal que $r+(-x^2)+r(-x^2)=0$ y sea $s=r-x-rx$. Entonces $x$ es
-	casi-regular a izquierda pues 
-	\begin{align*}
-		s+x+sx&=(r-x-rx)+x+(r-x-rx)x\\
-		&=r-x-rx+x+rx-x^2-rx^2=r-x^2-rx^2=0.\qedhere 
-\end{align*}
-\end{proof}
-
-%\begin{lemma}
-%	\label{lemma:trickJ2}
-%	Sea $R$ un anillo. Entonces $x\in J(R)$ si y sólo si $Rx$ es un ideal a
-%	izquierda casi-regular a izquierda.
-%\end{lemma}
-%
-%\begin{proof}
-%	Si $x\in J(R)$ entonces $Rx\subseteq J(R)$ y luego todo elemento de $Rx$ es
-%	casi-regular a izquierda. Recíprocamente, si $Rx$ es casi-regular a
-%	izquierda, $Rx+\Z x$ es un ideal a izquierda de $R$. Si $s=rx+nx\in Rx+\Z
-%	x$, entonces $-s^2$ es casi-regular a izquierda (pues $-s^2\in Rx$). Por el
-%	lema~\ref{lemma:trickJ1}, $s$ es casi-regular a izquierda; en particular,
-%	$x$ es casi-regular a izquierda y luego $x\in J(R)$. 
-%\end{proof}
-
-\begin{proposition}
-	\label{proposition:J(I)}
-	If $I$ is an ideal of $R$, then $J(I)=I\cap J(R)$. 
-\end{proposition}
-
-\begin{proof}
-	Since $I\cap J(R)$ if an ideal of $I$, if $x\in I\cap J(R)$, then $x$ is
-	left quasi-regular in $R$. Let $r\in R$ be such that $r+x+rx=0$. 
-	Since $r=-x-rx\in I$, $x$ is left quasi-regular 
-	in $I$. Thus $I\cap J(R)\subseteq J(I)$. 
-
-	Let $x\in J(I)$ and $r\in R$. Since $-(rx)^2=(-rxr)x\in
-	I(J(I))\subseteq J(I)$, the element $-(rx)^2$ is left quasi-regular a izquierda
-	en $I$. Thus $rx$ is left quasi-regular by
-	Lemma~\ref{lemma:trickJ1}.
-\end{proof}
-
-\index{Ring!radical}
-A ring $R$ is said to be \textbf{radical} if $J(R)=R$. 
-
-\begin{example}
-	If $R$ is a ring, then $J(R)$ is a radical ring, by Proposition~\ref{proposition:J(I)}.
-\end{example}
-
-\begin{example}
-	The Jacobson radical of $\Z/8$ is $\{0,2,4,6\}$. 
-\end{example}
-
-There are several characterizations of radical rings. 
-
-\begin{theorem}
-	\label{theorem:anillo_radical}
-	Let $R$ be ring. The following statements are equivalent: 
-	\begin{enumerate}
-		\item $R$ is radical.
-		\item $R$ admits no simple $R$-modules. 
-		\item $R$ no tiene ideales a izquierda maximales y regulares.
-		\item $R$ no tiene ideales a izquierda primitivos.
-		\item Every element of $R$ is quasi-regular. 
-		\item $(R,\circ)$ is a group. 
-	\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-	The equivalence $(1)\Longleftrightarrow(5)$ follows from 
-	Theorem~\ref{thm:casireg_eq}. 
-    
-    The equivalence $(5)\Longleftrightarrow(6)$ is left as an exercise. 
-
-	Let us prove that $(1)\implies(2)$. Assume that there exists a simple $R$-module $N$. Since 
-	$R=J(R)\subseteq\Ann_R(N)$, $R=\Ann_S(N)$. 
-	Hence $RN=\{0\}$, a contradiction to the simplicity of $N$.
-	
-	To prove $(2)\implies(3)$ we note that for each regular and maximal left ideal 
-	$I$, the quotient $R/I$ is a simple $R$-module by
-	Proposición~\ref{proposition:R/I}. 
-	
-	To prove $(3)\implies(4)$ assume that there is a primitive left ideal 
-	$I=\Ann_R(M)$, where $M$ is some simple $R$-module. Since $R=J(R)\subseteq I$, it follows that  
-    $I=R$, a contradiction to the simplicity of $M$.
-    %$RM=\{0\}$.
-
-	Finally we prove $(4)\implies(2)$. If $M$ is a simple $R$-module, then 
-	$\Ann_R(M)$ is a primitive left ideal.
-\end{proof}
-
-\begin{example}
-	Let 
-	\[
-	A=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}.
-	\]
-	Then $A$ is a radical ring, as the inverse of the element $\frac{2x}{2y+1}$
-	with respect to the circle operation 
-	$\circ$ is 
-	\[
-	\left(\frac{2x}{2y+1}\right)'=\frac{-2x}{2(x+y)+1}.
-	\]
-\end{example}
-
-\index{Ring!nil}
-A ring $R$ is said to be \textbf{nil} if for every $x\in R$ there
-exists $n=n(x)$ such that $x^n=0$. 
-
-\begin{exercise}
-    Prove that a nil ring is a radical ring. 
-\end{exercise}
-
-\begin{exercise}
-    Let $\R[X]$ be the ring of power series with real coefficients. Prove that the ideal 
-    $X\R[X]$ consisting of power series with zero constant term is a radical ring
-    that is not nil. 
-\end{exercise}
-
-The following problem is maybe the most important open 
-problem in non-commutative ring theory. 
-
-
-The conjecture is known to be true in several cases.
-\framebox{Exercises?}
-
-\begin{theorem}
-	\label{thm:Jnilpotente}
-	If $R$ is a left artinian ring, then $J(R)$ is nilpotent. 
-\end{theorem}
-
-\begin{proof}
-	Let $J=J(R)$. Since $R$ is a left artinian ring, the sequence 
-	$(J^m)_{m\in\N}$ of left ideals stabilizes. There exists 
-	$k\in\N$ such that $J^k=J^l$ for all $l\geq k$. We claim that $J^k=\{0\}$. If
-	$J^k\ne\{0\}$ let $\mathcal{S}$ the set of left ideals 
-	$I$ such that $J^kI\ne\{0\}$. Since 
-	\[
-	J^kJ^k=J^{2k}=J^k\ne\{0\},
-	\]
-	the set $\mathcal{S}$ is non-empty. 
-	Since $R$ is left artinian, $\mathcal{S}$ has a minimal element $I_0$. Since $J^kI_0\ne\{0\}$, let $x\in
-	I_0\setminus\{0\}$ be such that $J^kx\ne\{0\}$. Moreover, $J^kx$ is a left ideal of $R$ 
-	contained in $I_0$ and such that $J^kx\in\mathcal{S}$, as 
-	$J^k(J^kx)=J^{2k}x=J^kx\ne\{0\}$. The minimality of $I_0$ implies that, $J^kx=I_0$. In particular, 
-	there exists $r\in J^k\subseteq J(R)$ such that $rx=x$. Since $-r\in
-	J(R)$ is left quasi-regular, there exists $s\in R$ such that $s-r-sr=0$.
-	Thus 
-	\[
-		x=rx=(s-sr)x=sx-s(rx)=sx-sx=0,
-	\]
-	a contradiction.
-\end{proof}
-
-\begin{corollary}
-	Let $R$ be a left artinian ring. Each nil left ideal is nilpotent and 
-	$J(R)$ is the unique maximal nilpotent ideal of $R$. 
-\end{corollary}
-
-\begin{proof}
-	Let $L$ be a nil left ideal of $R$. By Proposition~\ref{pro:nilJ}, $L$
-	is contained in $J(R)$. Thus $L$ is nilpotent, as $J(R)$ 
-	is nilpotent by Theorem~\ref{thm:Jnilpotente}. 
-\end{proof}
-
-\begin{theorem}
-	Let $R$ be a ring and $n\in\N$. Then $J(M_n(R))=M_n(J(R))$. 
-\end{theorem}
-
-\begin{proof}
-	We first prove that $J(M_n(R))\subseteq M_n(J(R))$. 
-	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
-	$J=J(R)$. 
-	If $M$ is a simple $R$-module, then $M^n$ is a simple $M_n(R)$-module with the usual multiplication. 
-	Let $x=(x_{ij})\in J(M_n(R))$ and $m_1,\dots,m_n\in M$. Then
-	\[
-		x\colvec{3}{m_1}{\vdots}{m_n}=0.
-	\]
-	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,\dots,n\}$. Hence 
-	$x\in M_n(J)$. 
-
-	We now prove that $M_n(J)\subseteq J(M_n(R))$. Let 
-	\[
-		J_1=\begin{pmatrix}
-			J & 0 & \cdots & 0\\
-			J & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			J & 0 & \cdots & 0
-		\end{pmatrix}
-		\quad\text{and}\quad
-		x=\begin{pmatrix}
-			x_1 & 0 & \cdots & 0\\
-			x_2 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			x_n & 0 & \cdots & 0
-		\end{pmatrix}\in J_1.
-	\]
-	Since $x_1$ es quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
-	If
-	\[
-		y=\begin{pmatrix}
-			y_1 & 0 & \cdots & 0\\
-			0 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			0 & 0 & \cdots & 0
-		\end{pmatrix}, 
-	\]
-	then $u=x+y+xy$ is lower triangular, as  
-	\[
-		u=\begin{pmatrix}
-			0 & 0 & \cdots & 0\\
-			x_2y_1 & 0 & \cdots & 0\\
-			x_3y_1 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			x_ny_1 & 0 & \cdots & 0
-		\end{pmatrix}.
-	\]
-	Since  
-	$u^n=0$, the element
-	\[
-	v=-u+u^2-u^3+\cdots+(-1)^{n-1} u^{n-1}
-	\]
-	is such that 
-	$u+v+uv=0$. Thus $x$ is right quasi-regular, as  
-	\begin{align*}
-		x+(y+v+yv)+x(y+v+yv)&=0,
-	\end{align*}
-	and therefore $J_1$ is right quasi-regular. Similarly one proves that 
-	each $J_i$ is right quasi-regular and hence $J_i\subseteq J(M_n(R))$ for all 
-	$i\in\{1,\dots,n\}$. In conclusion, 
-	\[
-	J_1+\cdots+J_n\subseteq J(M_n(R))
-	\]
-	and therefore $M_n(J)\subseteq J(M_n(R))$.
-\end{proof}
-
-For completeness we recall basic results on the Jacobson radical in the case
-of unitary rings. 
-
-\begin{exercise}
-	Let $R$ be a unitary ring. Then  
-	\[
-	J(R)=\bigcap\{M:\text{$M$ is a left maximal ideal}\}.
-	\]
-\end{exercise}
-
-\begin{exercise}
-	Let $R$ be a unitary ring. The
-	following statements are equivalent: 
-	\begin{enumerate}
-		\item $x\in J(R)$.
-		\item $xM=0$ for all simple $R$-module $M$.
-		\item $x\in P$ for all primitive left ideal $P$.
-		\item $1+rx$ is invertible for all $r\in R$.
-		\item $1+\sum_{i=1}^n r_ixs_i$ is invertible for all $n\in\N$ and all $r_i,s_i\in R$.
-		\item $x$ belongs to every left maximal ideal maximal. 
-	\end{enumerate}
-\end{exercise}
-
-\begin{problem}[K\"othe]
-\label{prob:Koethe}
-Let $R$ be a ring. Is the sum 
-of two arbitrary nil left ideals of $R$ is nil?
-\end{problem}
-
-\section*{Notes}
-
-The material on non-commutative ring theory is standard, see for example~\cite{MR3308118}.
-Radical rings were introduced by Jacobson in~\cite{MR12271}. Nil rings were
-used by Zelmanov in his solution to Burnside's problem, see for example~\cite{MR1199575}. 
-
-Open problem~\ref{prob:Koethe} is the well-known K\"othe's conjecture. 
-The conjecture was first formulated in 1930, see \cite{MR1545158}. It is known to be true
-in several cases. In full generality, the problem is still open. In~\cite{MR306251} 
-Krempa proved that
-the following statements are equivalent:
-\begin{enumerate}
-    \item K\"othe's conjecture is true.  
-    \item If $R$ is a nil ring, then $R[X]$ is a radical ring. 
-    \item If $R$ is a nil ring, then $M_2(R)$ is a nil ring. 
-    \item Let $n\geq2$. If $R$ is a nil ring, then $M_n(R)$ is a nil ring. 
-\end{enumerate}
-
-In 1956 Amitsur formulated the following conjecture, see for example
-\cite{MR0347873}: If $R$ is a nil ring, then $R[X]$ is a nil ring. In~\cite{MR1793911} 
-Smoktunowicz found a counterexample to Amitsur's conjecture. 
-This counterexample suggests that K\"othe's conjecture might be false. 
-A simplification of Smoktunowicz's example
-appears in~\cite{MR3169522}. See \cite{MR1879880,MR2275597} for more
-information on K\"othe's conjecture and related topics. 
 

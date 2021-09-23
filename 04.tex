@@ -1,0 +1,458 @@
+\chapter{}
+
+We now review some basic results useful to compute radicals. 
+
+\begin{proposition}
+	Let $\{R_i:i\in I\}$ be a family of rings. Then 
+	\[
+	J\left(\prod_{i\in I}R_i\right)=\prod_{i\in I}J(R_i).
+	\]
+\end{proposition}
+
+\begin{proof}
+	Let $R=\prod_{i\in I}R_i$ and $x=(x_i)_{i\in I}\in R$.  The left ideal 
+    $Rx$ is quasi-regular if and only if each left ideal $R_ix_i$
+	is quasi-regular in $R_i$, as $x$ is quasi-regular in $R$ if and only if each 
+	$x_i$ is quasi-regular in $R_i$. Thus $x\in J(R)$ if and only if $x_i\in
+	J(R_i)$ for all $i\in I$.
+\end{proof}
+
+For the next result we shall need a lemma.
+
+\begin{lemma}
+	\label{lemma:trickJ1}
+	Let $R$ be a ring and $x\in R$. 
+	If $-x^2$ is a left quasi-regular element, then $x$ también. 
+\end{lemma}
+
+\begin{proof}
+	Sea $r\in R$ tal que $r+(-x^2)+r(-x^2)=0$ y sea $s=r-x-rx$. Entonces $x$ es
+	casi-regular a izquierda pues 
+	\begin{align*}
+		s+x+sx&=(r-x-rx)+x+(r-x-rx)x\\
+		&=r-x-rx+x+rx-x^2-rx^2=r-x^2-rx^2=0.\qedhere 
+\end{align*}
+\end{proof}
+
+%\begin{lemma}
+%	\label{lemma:trickJ2}
+%	Sea $R$ un anillo. Entonces $x\in J(R)$ si y sólo si $Rx$ es un ideal a
+%	izquierda casi-regular a izquierda.
+%\end{lemma}
+%
+%\begin{proof}
+%	Si $x\in J(R)$ entonces $Rx\subseteq J(R)$ y luego todo elemento de $Rx$ es
+%	casi-regular a izquierda. Recíprocamente, si $Rx$ es casi-regular a
+%	izquierda, $Rx+\Z x$ es un ideal a izquierda de $R$. Si $s=rx+nx\in Rx+\Z
+%	x$, entonces $-s^2$ es casi-regular a izquierda (pues $-s^2\in Rx$). Por el
+%	lema~\ref{lemma:trickJ1}, $s$ es casi-regular a izquierda; en particular,
+%	$x$ es casi-regular a izquierda y luego $x\in J(R)$. 
+%\end{proof}
+
+\begin{proposition}
+	\label{proposition:J(I)}
+	If $I$ is an ideal of $R$, then $J(I)=I\cap J(R)$. 
+\end{proposition}
+
+\begin{proof}
+	Since $I\cap J(R)$ if an ideal of $I$, if $x\in I\cap J(R)$, then $x$ is
+	left quasi-regular in $R$. Let $r\in R$ be such that $r+x+rx=0$. 
+	Since $r=-x-rx\in I$, $x$ is left quasi-regular 
+	in $I$. Thus $I\cap J(R)\subseteq J(I)$. 
+
+	Let $x\in J(I)$ and $r\in R$. Since $-(rx)^2=(-rxr)x\in
+	I(J(I))\subseteq J(I)$, the element $-(rx)^2$ is left quasi-regular a izquierda
+	en $I$. Thus $rx$ is left quasi-regular by
+	Lemma~\ref{lemma:trickJ1}.
+\end{proof}
+
+\begin{definition}
+\index{Ring!radical}
+A ring $R$ is said to be \textbf{radical} if $J(R)=R$. 
+\end{definition}
+
+\begin{example}
+	If $R$ is a ring, then $J(R)$ is a radical ring, by Proposition~\ref{proposition:J(I)}.
+\end{example}
+
+\begin{example}
+	The Jacobson radical of $\Z/8$ is $\{0,2,4,6\}$. 
+\end{example}
+
+There are several characterizations of radical rings. 
+
+\begin{theorem}
+	\label{theorem:anillo_radical}
+	Let $R$ be ring. The following statements are equivalent: 
+	\begin{enumerate}
+		\item $R$ is radical.
+		\item $R$ admits no simple $R$-modules. 
+		\item $R$ no tiene ideales a izquierda maximales y regulares.
+		\item $R$ no tiene ideales a izquierda primitivos.
+		\item Every element of $R$ is quasi-regular. 
+		\item $(R,\circ)$ is a group. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	The equivalence $(1)\Longleftrightarrow(5)$ follows from 
+	Theorem~\ref{thm:casireg_eq}. 
+    
+    The equivalence $(5)\Longleftrightarrow(6)$ is left as an exercise. 
+
+	Let us prove that $(1)\implies(2)$. Assume that there exists a simple $R$-module $N$. Since 
+	$R=J(R)\subseteq\Ann_R(N)$, $R=\Ann_S(N)$. 
+	Hence $RN=\{0\}$, a contradiction to the simplicity of $N$.
+	
+	To prove $(2)\implies(3)$ we note that for each regular and maximal left ideal 
+	$I$, the quotient $R/I$ is a simple $R$-module by
+	Proposición~\ref{proposition:R/I}. 
+	
+	To prove $(3)\implies(4)$ assume that there is a primitive left ideal 
+	$I=\Ann_R(M)$, where $M$ is some simple $R$-module. Since $R=J(R)\subseteq I$, it follows that  
+    $I=R$, a contradiction to the simplicity of $M$.
+    %$RM=\{0\}$.
+
+	Finally we prove $(4)\implies(2)$. If $M$ is a simple $R$-module, then 
+	$\Ann_R(M)$ is a primitive left ideal.
+\end{proof}
+
+\begin{example}
+	Let 
+	\[
+	A=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}.
+	\]
+	Then $A$ is a radical ring, as the inverse of the element $\frac{2x}{2y+1}$
+	with respect to the circle operation 
+	$\circ$ is 
+	\[
+	\left(\frac{2x}{2y+1}\right)'=\frac{-2x}{2(x+y)+1}.
+	\]
+\end{example}
+
+\begin{definition}
+\index{Ring!nil}
+A ring $R$ is said to be \textbf{nil} if for every $x\in R$ there
+exists $n=n(x)$ such that $x^n=0$. 
+\end{definition}
+
+\begin{exercise}
+    Prove that a nil ring is a radical ring. 
+\end{exercise}
+
+\begin{exercise}
+    Let $\R[X]$ be the ring of power series with real coefficients. Prove that the ideal 
+    $X\R[X]$ consisting of power series with zero constant term is a radical ring
+    that is not nil. 
+\end{exercise}
+
+
+\begin{theorem}
+	\label{thm:Jnilpotente}
+	If $R$ is a left artinian ring, then $J(R)$ is nilpotent. 
+\end{theorem}
+
+\begin{proof}
+	Let $J=J(R)$. Since $R$ is a left artinian ring, the sequence 
+	$(J^m)_{m\in\N}$ of left ideals stabilizes. There exists 
+	$k\in\N$ such that $J^k=J^l$ for all $l\geq k$. We claim that $J^k=\{0\}$. If
+	$J^k\ne\{0\}$ let $\mathcal{S}$ the set of left ideals 
+	$I$ such that $J^kI\ne\{0\}$. Since 
+	\[
+	J^kJ^k=J^{2k}=J^k\ne\{0\},
+	\]
+	the set $\mathcal{S}$ is non-empty. 
+	Since $R$ is left artinian, $\mathcal{S}$ has a minimal element $I_0$. Since $J^kI_0\ne\{0\}$, let $x\in
+	I_0\setminus\{0\}$ be such that $J^kx\ne\{0\}$. Moreover, $J^kx$ is a left ideal of $R$ 
+	contained in $I_0$ and such that $J^kx\in\mathcal{S}$, as 
+	$J^k(J^kx)=J^{2k}x=J^kx\ne\{0\}$. The minimality of $I_0$ implies that, $J^kx=I_0$. In particular, 
+	there exists $r\in J^k\subseteq J(R)$ such that $rx=x$. Since $-r\in
+	J(R)$ is left quasi-regular, there exists $s\in R$ such that $s-r-sr=0$.
+	Thus 
+	\[
+		x=rx=(s-sr)x=sx-s(rx)=sx-sx=0,
+	\]
+	a contradiction.
+\end{proof}
+
+\begin{corollary}
+	Let $R$ be a left artinian ring. Each nil left ideal is nilpotent and 
+	$J(R)$ is the unique maximal nilpotent ideal of $R$. 
+\end{corollary}
+
+\begin{proof}
+	Let $L$ be a nil left ideal of $R$. By Proposition~\ref{pro:nilJ}, $L$
+	is contained in $J(R)$. Thus $L$ is nilpotent, as $J(R)$ 
+	is nilpotent by Theorem~\ref{thm:Jnilpotente}. 
+\end{proof}
+
+\begin{theorem}
+	Let $R$ be a ring and $n\in\N$. Then $J(M_n(R))=M_n(J(R))$. 
+\end{theorem}
+
+\begin{proof}
+	We first prove that $J(M_n(R))\subseteq M_n(J(R))$. 
+	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
+	$J=J(R)$. 
+	If $M$ is a simple $R$-module, then $M^n$ is a simple $M_n(R)$-module with the usual multiplication. 
+	Let $x=(x_{ij})\in J(M_n(R))$ and $m_1,\dots,m_n\in M$. Then
+	\[
+		x\colvec{3}{m_1}{\vdots}{m_n}=0.
+	\]
+	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,\dots,n\}$. Hence 
+	$x\in M_n(J)$. 
+
+	We now prove that $M_n(J)\subseteq J(M_n(R))$. Let 
+	\[
+		J_1=\begin{pmatrix}
+			J & 0 & \cdots & 0\\
+			J & 0 & \cdots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			J & 0 & \cdots & 0
+		\end{pmatrix}
+		\quad\text{and}\quad
+		x=\begin{pmatrix}
+			x_1 & 0 & \cdots & 0\\
+			x_2 & 0 & \cdots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			x_n & 0 & \cdots & 0
+		\end{pmatrix}\in J_1.
+	\]
+	Since $x_1$ es quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
+	If
+	\[
+		y=\begin{pmatrix}
+			y_1 & 0 & \cdots & 0\\
+			0 & 0 & \cdots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			0 & 0 & \cdots & 0
+		\end{pmatrix}, 
+	\]
+	then $u=x+y+xy$ is lower triangular, as  
+	\[
+		u=\begin{pmatrix}
+			0 & 0 & \cdots & 0\\
+			x_2y_1 & 0 & \cdots & 0\\
+			x_3y_1 & 0 & \cdots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			x_ny_1 & 0 & \cdots & 0
+		\end{pmatrix}.
+	\]
+	Since  
+	$u^n=0$, the element
+	\[
+	v=-u+u^2-u^3+\cdots+(-1)^{n-1} u^{n-1}
+	\]
+	is such that 
+	$u+v+uv=0$. Thus $x$ is right quasi-regular, as  
+	\begin{align*}
+		x+(y+v+yv)+x(y+v+yv)&=0,
+	\end{align*}
+	and therefore $J_1$ is right quasi-regular. Similarly one proves that 
+	each $J_i$ is right quasi-regular and hence $J_i\subseteq J(M_n(R))$ for all 
+	$i\in\{1,\dots,n\}$. In conclusion, 
+	\[
+	J_1+\cdots+J_n\subseteq J(M_n(R))
+	\]
+	and therefore $M_n(J)\subseteq J(M_n(R))$.
+\end{proof}
+
+\begin{exercise}
+	Let $R$ be a unitary ring. Then  
+	\[
+	J(R)=\bigcap\{M:\text{$M$ is a left maximal ideal}\}.
+	\]
+\end{exercise}
+
+\begin{exercise}
+	Let $R$ be a unitary ring. The
+	following statements are equivalent: 
+	\begin{enumerate}
+		\item $x\in J(R)$.
+		\item $xM=0$ for all simple $R$-module $M$.
+		\item $x\in P$ for all primitive left ideal $P$.
+		\item $1+rx$ is invertible for all $r\in R$.
+		\item $1+\sum_{i=1}^n r_ixs_i$ is invertible for all $n\in\N$ and all $r_i,s_i\in R$.
+		\item $x$ belongs to every left maximal ideal maximal. 
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    If $D$ is a division ring and $R=D[X_1,\dots,X_n]$, then
+    $J(R)=\{0\}$. 
+%     Como las unidades de $R$ son los elementos no nulos de $D$,
+% 	$J(R)$ es un ideal de $D$. Como $D$ es simple, $J(R)\in\{0,D\}$. Si
+% 	$J(R)=D$, entonces existe  $f\in R$ tal que $-1+f+(-1)f=0$ y luego $-1=0$,
+% 	una contradicción. Luego $J(R)=0$.
+\end{exercise}
+
+
+\begin{example}
+\index{Ring!local}
+    A commutative and unitary ring $R$ is \textbf{local} if it contains
+    only one maximal ideal. 
+	If $R$ is a local ring and $M$ be its maximal ideal, then $J(R)=M$. Some particular cases: 
+	\begin{enumerate}
+		\item If $K$ is a field and $R=K\left[ [X] \right]$, then $J(R)=(X)$. 
+		\item If $p$ is a prime number and $R=\Z/p^n$, then $J(R)=(p)$. 
+	\end{enumerate}
+\end{example}
+
+We finish the discussion on the Jacobson radical with 
+some results in the case of unitary algebras. 
+
+\begin{theorem}
+	Let $A$ be a $K$-algebra and $I$ be a subset of $A$. Then $I$ is 
+	a left regular maximal ideal ideal of the algebra $A$ if and only if $I$ is 
+	a left regular maximal ideal of the ring $A$.
+\end{theorem}
+
+\begin{proof}
+	Sea $I$ un ideal a izquierda maximal y regular del anillo $A$.  Queremos
+	demostrar que $\lambda I\subseteq I$ para todo $\lambda\in K$. Si suponemos
+	que $\lambda I\not\subseteq I$ para algún $\lambda$, entonces $I+\lambda I$
+	es un ideal a izquierda del anillo $A$ que contiene a $I$ pues
+	\[
+	a(I+\lambda I)=aI+a(\lambda I)\subseteq I+\lambda (aI)\subseteq I+\lambda I.
+	\]
+	Como $I$ es maximal, $I+\lambda I=A$. Por la regularidad de $I$, existe $e\in R$ tal que
+	$a-ae\in I$ para todo $a\in A$. Si escribimos $e=x+\lambda y$ para $x,y\in
+	I$, entonces
+	\[
+		e^2=e(x+\lambda y)=ex+e(\lambda y)=ex+(\lambda e)y\in I.
+	\]
+	Como $e^2-e\in I$ y $e^2\in I$, se concluye que $e\in I$. Luego $A=I$ pues
+	$a-ae\in I$ para todo $a\in A$, una contradicción.
+
+	Recíprocamente, si $I$ es un ideal a izquierda maximal y regular del
+	álgebra $A$, entonces $I$ es ideal a izquierda regular del anillo $A$.
+	Falta ver entonces que $I$ es maximal. Por el
+	ejercicio~\ref{exa:Zorn:regular} sabemos que existe un ideal a izquierda
+	maximal $L$ del anillo $A$ que contiene a $I$. Como $L$ es regular, la
+	implicación demostrada nos dice que $L$ es un ideal a izquierda maximal y
+	regular del anillo $A$. Luego $L=I$ por la maximalidad de $I$.
+\end{proof}
+
+\begin{corollary}
+	Sea $A$ un álgebra. El radical de Jacobson del anillo $A$ coincide con el
+	radical de Jacobson del álgebra $A$.
+\end{corollary}
+
+\begin{proof}
+	Es consecuencia del teorema anterior y de que el radical de Jacobson es la
+	intersección de los ideales a izquierda maximales y regulares.
+\end{proof}
+
+\begin{lemma}
+	\label{lemma:algebraico=nil}
+	Sea $A$ un álgebra unitaria y sea $x\in J(A)$. 
+	Entonces $x$ es algebraico si y sólo si $x$ es nil.
+\end{lemma}
+
+\begin{proof}
+	Demostremos la implicación no trivial. Como $x$ es algebraico, 
+	existen $a_0,\dots,a_n\in K$ no todos cero tales que
+	\[
+		a_0+a_1x+\cdots+a_nx^n=0.
+	\]
+	Sea $r$ el menor entero tal que $a_r\ne 0$. Podemos escribir entonces
+	\[
+		x^r(1+b_1x+\cdots+b_mx^m)=0,
+	\]
+	donde $b_1,\dots,b_m\in K$.  Como $1+b_1x+\cdots+b_mx^m$ es una unidad por
+	el corolario~\ref{cor:Jcon1}, entonces $x^r=0$.
+\end{proof}
+
+Como aplicación tenemos el siguiente resultado:
+
+\begin{theorem}
+	\label{thm:algebraica=>Jnil}
+	Si $A$ es un álgebra algebraica, $J(A)$ es el mayor ideal nil de $A$.
+\end{theorem}
+
+\begin{proof}
+	Por el lema~\ref{lemma:algebraico=nil}, $J(A)$ es un ideal nil. Por la
+	propoisición~\ref{pro:nilJ}, $J(A)$ es el mayor ideal nil de $A$.
+\end{proof}
+
+\begin{theorem}[Amitsur]
+	\label{thm:Amitsur}
+	Si $A$ es una $K$-álgebra unitaria tal que $\dim_KA<|K|$ (como cardinales),
+	entonces $J(A)$ es el mayor ideal nil de $A$.
+\end{theorem}
+
+\begin{proof}
+	Si $K$ es un cuerpo finito, entonces $A$ es un álgebra de dimensión finita.
+	Como entonces $A$ es algebraica, $J(A)$ es un ideal nil por el
+	teorema~\ref{thm:algebraica=>Jnil}.
+
+	Supongamos entonces que $K$ es infinito. Sea $a\in J(A)$. El
+	corolario~\ref{cor:Jcon1} implica que todo elemento de la forma
+	$1-\lambda^{-1}a$, $\lambda\in K\setminus\{0\}$, es inversible. Entonces 
+	\[
+		a-\lambda=-\lambda(1-\lambda^{-1}a)
+	\]
+	es inversible para todo $\lambda\in K\setminus\{0\}$. Sea
+	$S=\{(a-\lambda)^{-1}:\lambda\in K\setminus\{0\}\}$. Como
+	\[
+	(a-\lambda)^{-1}=(a-\mu)^{-1}\Longleftrightarrow\lambda=\mu,
+	\]
+	entonces $|S|=|K\setminus\{0\}|=|K|>\dim_KA$. Como entonces $S$ 
+	es linealmente dependiente, 
+	existen escalares no
+	nulos $\beta_1,\dots,\beta_n\in K$ y elementos distintos $\lambda_1,\dots,\lambda_n\in K$ tales que
+	\begin{equation}
+		\label{eq:Amitsur}
+		\sum_{i=1}^n \beta_i(a-\lambda_i)^{-1}=0.
+	\end{equation}
+	Si multiplicamos~\eqref{eq:Amitsur} por $\prod_{i=1}^n(a-\lambda_i)$, obtenemos
+	\[
+		\sum_{i=1}^n\beta_i\prod_{j\ne i}(a-\lambda_j)=0.
+	\]
+	Afirmamos que $a$ es algebraico sobre $K$. En efecto, 
+	\[
+		f=\sum_{i=1}^n\beta_i\prod_{j\ne i}(X-\lambda_j)
+	\]
+	es no nulo pues
+	$f(\lambda_1)=\beta_1(\lambda_1-\lambda_2)\cdots(\lambda_1-\lambda_n)\ne0$
+	y cumple que $f(a)=0$. Como $a\in J(A)$ es algebraico, $a$ es nil por el
+	lema~\ref{lemma:algebraico=nil}.
+\end{proof}
+
+\begin{corollary}
+	Sea $K$ un cuerpo no numerable y $A$ una $K$-álgebra con base numerable.
+	Entonces $J(A)$ es el mayor ideal nil de $A$.
+\end{corollary}
+
+\begin{proof}
+	Es consecuencia del teorema de Amitsur pues $\dim_KA<|K|$. 
+\end{proof}
+
+The following problem is maybe the most important open 
+problem in non-commutative ring theory. 
+
+\begin{problem}[K\"othe]
+\label{prob:Koethe}
+Let $R$ be a ring. Is the sum 
+of two arbitrary nil left ideals of $R$ is nil?
+\end{problem}
+
+Open problem~\ref{prob:Koethe} is the well-known K\"othe's conjecture. 
+The conjecture was first formulated in 1930, see \cite{MR1545158}. It is known to be true
+in several cases. In full generality, the problem is still open. In~\cite{MR306251} 
+Krempa proved that
+the following statements are equivalent:
+\begin{enumerate}
+    \item K\"othe's conjecture is true.  
+    \item If $R$ is a nil ring, then $R[X]$ is a radical ring. 
+    \item If $R$ is a nil ring, then $M_2(R)$ is a nil ring. 
+    \item Let $n\geq2$. If $R$ is a nil ring, then $M_n(R)$ is a nil ring. 
+\end{enumerate}
+
+In 1956 Amitsur formulated the following conjecture, see for example
+\cite{MR0347873}: If $R$ is a nil ring, then $R[X]$ is a nil ring. In~\cite{MR1793911} 
+Smoktunowicz found a counterexample to Amitsur's conjecture. 
+This counterexample suggests that K\"othe's conjecture might be false. 
+A simplification of Smoktunowicz's example
+appears in~\cite{MR3169522}. See \cite{MR1879880,MR2275597} for more
+information on K\"othe's conjecture and related topics. 

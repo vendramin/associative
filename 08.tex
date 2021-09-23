@@ -1,0 +1,279 @@
+\chapter{}
+%{El teorema de Frobenius}
+
+Vamos a demostrar un teorema de Frobenius que afirma que salvo isomorfismo las únicas 
+álgebras reales de dimensión finita que son álgebras de división son los
+reales, los complejos y los cuaterniones. Daremos una demostración
+completamente elemental.
+
+\begin{lemma}
+	\label{lem:trick_frobenius1}
+	Sea $D$ un álgebra de división real de dimensión $n$. Si $x\in D$, entonces
+	existe $\lambda\in\R$ tal que $x^2+\lambda x\in\R$.
+\end{lemma}
+
+\begin{proof}
+	Como $\dim D=n$, el conjunto $\{1,x,x^2,\dots,x^n\}$ es linealmente
+	dependiente. Entonces existe un polinomio no nulo $f\in\R[X]$ de grado
+	$\leq n$ tal que $f(x)=0$. Sin perder generaliadad podemos suponer que el
+	coeficiente principal de $f$ es uno y escribir entonces a $f$ como producto
+	de factores de grado $\leq2$:
+	\[
+		f=(X-\alpha_1)\cdots (X-\alpha_r)(X^2+\lambda_1 X+\mu_1)\cdots (X^2+\lambda_s X+\mu_s).
+	\]
+	Como $D$ es de división y $f(x)=0$, algún factor de $f$ es cero. Entonces
+	$x$ es raíz de algún $X-\alpha_j$ o de algún $X^2+\lambda_k X+\mu_k$. En
+	cualquier caso, existe $\lambda\in\R$ tal que $x^2+\lambda x\in\R$. 
+\end{proof}
+
+\begin{lemma}
+	\label{lem:trick_frobenius2}
+	Sea $D$ un álgebra de división real de dimensión $n$. Entonces
+	\[
+		V=\{x\in D:x^2\in\R,x^2\leq 0\}
+	\]
+	es un subespacio de $D$ tal que $D=\R\oplus V$.
+\end{lemma}
+
+\begin{proof}
+	Sea $x\in D\setminus V$ tal que $x^2\in\R$. Entonces, como $x^2>0$, podemos
+	escribir $x^2=\alpha^2$ para algún $\alpha\in\R$. Luego $x=\pm\alpha\in\R$
+	pues $D$ es de división y $(x-\alpha)(x+\alpha)=x^2-\alpha^2=0$.
+
+	Veamos que $V$ es un subespacio de $D$.  Primero observemos que $0\in V$ y
+	que si $x\in V$ entonces $\lambda x\in V$ para todo $\lambda\in\R$.  Sean
+	$x,y\in V$. Si $\{x,y\}$ es linealmente dependiente, entonces $x+y\in V$.
+	Supongamos entonces que $x$ e $y$ son linealmente independientes. Probemos
+	entonces que $\{1,x,y\}$ es linealmente independiente: si existen
+	$\alpha,\beta,\gamma\in\R$ tales que $\alpha x+\beta y+\gamma=0$, entonces 
+	\[
+	\alpha^2x^2=\beta^2y^2+2\beta\gamma y+\gamma^2=(-\beta y-\gamma)^2.
+	\]
+	Esto implica que $2\beta\gamma y\in\R$ y luego $\beta\gamma=0$. Luego
+	$\alpha=\beta=\gamma=0$. Por el lema~\ref{lem:trick_frobenius1}, existen
+	$\lambda,\mu\in\R$ tales que
+	\[
+		(x+y)^2+\lambda(x+y)\in\R,\quad
+		(x-y)^2+\mu(x-y)\in\R.
+	\]
+	Como además
+	\[
+		(x+y)^2+(x-y)^2=2x^2+2y^2\in\R,
+	\]
+	entonces $(\lambda+\mu)x+(\lambda-\mu)y\in\R$. Como $\{1,x,y\}$ es
+	linealmente independiente, $\lambda=\mu=0$. Luego $(x+y)^2\in\R$. Si
+	$x+y\not\in V$, entonces, por lo que observamos al principio de la
+	demostración, tendríamos que $x+y\in\R$, una contradicción.
+
+	Claramente $\R\cap V=0$. Si $x\in D\setminus\R$ entonces, por el
+	lema~\ref{lem:trick_frobenius1}, $x^2+\lambda x\in\R$ para algún
+	$\lambda\in\R$. Afirmamos que $x+\lambda/2\in V$. De lo contrario, 
+	como 
+	\[
+	(x+\lambda/2)^2=x^2+\lambda x+(\lambda/2)^2\in\R,
+	\]
+	tendríamos $x+\lambda/2\in\R$ y luego $x\in\R$. Luego
+	$x=-\lambda/2+(x+\lambda/2)\in\R\oplus V$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:trick_frobenius3}
+	Sea $D$ una $R$-álgebra de división real de dimensión $n$. Si $n>2$, entonces
+	existen $i,j,k\in D$ tales que $\{1,i,j,k\}$ es linealmente independiente y 
+	\begin{align}
+	\label{eq:H}
+	&i^2=j^2=k^2=-1, && ij=-ji=k, && ki=-ik=j, && jk=-kj=i.
+	\end{align}
+\end{lemma}
+
+\begin{proof}
+	Sea $V=\{x\in D:x^2\in\R,x^2\leq 0\}$ el subespacio del
+	lema~\ref{lem:trick_frobenius2}.  Para $x,y\in V$ definimos $x\circ
+	y=xy+yx=(x+y)^2-x^2-y^2\in\R$. Además si $x\ne0$ entonces $x\circ
+	x=2x^2\ne0$. Como $\dim V=n-1$, existen $y,z\in V$ tales que $\{y,z\}$ es
+	linealmente independiente. Sea 
+	\[
+		x=z-\frac{z\circ y}{y\circ y}y.
+	\]
+	Como $\{y,z\}$ es linealmente independiente, $x\ne0$. Además, como 
+	\[
+		x\circ y
+		=\left(z-\frac{z\circ y}{y\circ y}\right)\circ y
+		=zy-\frac{z\circ y}{y\circ y}y^2+yz-\frac{z\circ y}{y\circ y}y^2
+		=z\circ y-\frac{z\circ y}{y\circ y}y\circ y=0,
+	\]
+	se tiene que $xy=-yx$. 
+	Sean 
+	\[
+		i=\frac{1}{\sqrt{-x^2}}x,
+		\quad
+		j=\frac{1}{\sqrt{-y^2}}y,
+		\quad
+		k=ij. 
+	\]
+	Un cálculo directo demuestra que valen las fórmulas~\eqref{eq:H}. Por ejemplo:
+	\[
+		ji=\frac{1}{\sqrt{-y^2}}\frac{1}{\sqrt{-x^2}}yx=\frac{1}{\sqrt{-x^2}}\frac{1}{\sqrt{-y^2}}(-xy)=-k.
+	\]
+\end{proof}
+
+\begin{theorem}[Frobenius]
+	\label{thm:Frobenius}
+	\index{Teorema!de Frobenius}
+	\index{Frobenius!teorema de}
+	Toda álgebra real de división y dimensión finita es isomorfa a $\R$, $\C$ o
+	$\H$.
+\end{theorem}
+
+\begin{proof}
+	Sea $D$ un álgebra real de división y sea $n=\dim D$. Si $n=1$, entonces
+	$D\simeq\R$. Si $n=2$, el subespacio $V$ del
+	lema~\ref{lem:trick_frobenius2} es no nulo y entonces existe $i\in D$ tal
+	que $i^2=-1$. Luego $D\simeq\C$. El lema~\ref{lem:trick_frobenius3}
+	demuestra que $n\ne3$. Si $n=4$ entonces $D\simeq\H$. Supongamos entonces
+	que $n>4$.  El lema~\ref{lem:trick_frobenius3} garantiza la existencia de
+	elementos $i,j,k\in D$ tales que $\{1,i,j,k\}$ es linealmente independiente
+	y valen las fórmulas~\eqref{eq:H}. Sea 
+	\[
+		V=\{x\in D:x^2\in\R,x^2\leq 0\}.
+	\]
+	Por el lema~\ref{lem:trick_frobenius2} sabemos que $\dim V=n-1$. Entonces
+	existe $x\in V\setminus\langle i,j,k\rangle$. Sea
+	\[
+		e=x+\frac{i\circ x}{2}i+\frac{j\circ x}{2}j+\frac{k\circ x}{2}k\in V\setminus\{0\}.
+	\]
+	Un cálculo directo muestra que $i\circ e=j\circ e=k\circ e=0$. Pero entonces 
+	\[
+		ek=e(ij)=(ei)j=-(ie)j=-i(ej)=i(je)=(ij)e=ke,
+	\]
+	una contradicción. 
+\end{proof}
+
+%\section{El pequeño teorema de Wedderburn}
+
+Vamos a dar una demostración completamente elemental de un famoso teorema de
+Wedderburn.  Antes necesitamos repasar algunos conceptos básicos sobre
+polinomios ciclotómicos.
+
+\begin{definition}
+	\index{Polinomio ciclotómico}
+	El $n$-polinomio ciclotómico se define como
+	\begin{equation}
+		\label{eq:ciclotomico}
+		\Phi_n(X)=\prod(X-\zeta),
+	\end{equation}
+	donde el producto se hace sobre todas las $n$-raíces primitivas de la
+	unidad. 
+\end{definition}
+
+\begin{example}
+	Veamos algunos ejemplos:
+	\begin{align*}
+		&\Phi_2=X-1,\\
+		&\Phi_3=X^2+X+1,\\
+		&\Phi_4=X^2+1,\\
+		&\Phi_5=X^4+X^3+X^2+X+1,\\
+		&\Phi_6=X^2-X+1,\\
+		&\Phi_7=X^6+X^5+\cdots+X+1.
+	\end{align*}
+\end{example}
+
+\begin{lemma}
+	Sea $n\in\N$. Entonces 
+	\[
+		X^n-1=\prod_{d\mid n}\Phi_d(X).
+	\]
+\end{lemma}
+
+\begin{proof}
+	Escribimos
+	\[
+		X^n-1=\prod_{j=1}^n (X-e^{2\pi ij/n})
+		=\prod_{d\mid n}\prod_{\substack{1\leq j\leq n\\\gcd(j,n)=d}}(X-e^{2\pi ij/n})
+		=\prod_{d\mid n}\Phi_d(X).
+	\]
+\end{proof}
+
+\begin{lemma}
+	Sea $n\in\N$. Entonces $\Phi_n(X)\in\Z[X]$.
+\end{lemma}
+
+\begin{proof}
+	Procederemos por inducción en $n$. El caso $n=1$ es trivial pues
+	$\Phi_1(X)=X-1$. Supongamos entonces $\Phi_d(X)\in\Z[X]$ para todo $d<n$.
+	Entonces 
+	\[
+		\prod_{d\mid n,d\ne n}\Phi_d(X)\in\Z[X]
+	\]
+	y es un polinomio mónico. Luego $\Phi_n(X)/\prod_{d\mid
+	n,d<n}\Phi_d(X)\in\Z[X]$.
+\end{proof}
+
+\begin{theorem}[Wedderburn]
+	\index{Teorema!de Wedderburn}
+	Todo anillo de división finito es un cuerpo. 
+\end{theorem}
+
+\begin{proof}
+	Sea $K=Z(D)$. Entonces $K$ es un cuerpo finito, digamos $|K|=q$. Sea
+	$n=\dim_KD$.  Vamos a demostrar que $n=1$. Supongamos que $n>1$. 
+	La ecuación de clases para el grupo $D^\times=D\setminus\{0\}$ implica que
+	\begin{equation}
+		\label{eq:clases}
+		q^n-1=q-1+\sum_{j=1}^m \frac{q^n-1}{q^{d_j}-1},
+	\end{equation}
+	donde $1<\frac{q^n-1}{q^{d_j}-1}\in\Z$ para todo $j\in\{1,\dots,m\}$. 
+	Como $d^{d_j}-1$ divide a $q^n-1$, cada $d_j$ divide a $n$. En particular,
+	la fórmula~\eqref{eq:ciclotomico} implica que podemos escribir
+	\begin{equation}
+		\label{eq:trick_ciclotomico}
+		X^n-1=\Phi_n(X)(X^{d_j}-1)h(X)
+	\end{equation}
+	para algún polinomio $h(X)\in\Z[X]$. 
+	Al evaluar~\eqref{eq:trick_ciclotomico} en $X=q$  
+	obtenemos que $\Phi_n(q)$ divide a $q^n-1$ y que $\Phi_n(q)$
+	divide a $\frac{q^n-1}{q^{d_j}-1}$. Entonces, por~\eqref{eq:clases}, 
+	$\Phi_n(q)$ divide a $q-1$. Luego 
+	\[
+		q-1\geq |\Phi_n(q)|=\prod |q-\zeta|>q-1
+	\]
+	pues cada $|q-\zeta|>q-1$ (basta dibujar $q$ y $\zeta$ en el plano
+	complejo), una contradicción.
+\end{proof}
+
+Veamos como corolario una aplicación al último teorema de Fermat en anillos
+finitos. Demostraremos el siguiente resultado:
+
+\begin{theorem}
+	Sea $R$ un anillo unitario finito. Entonces para todo $n\geq1$ existen $x,y,z\in
+	R\setminus\{0\}$ tales que $x^n+y^n=z^n$ si y sólo si $R$ no es un anillo
+	de división.
+\end{theorem}
+
+\begin{proof}
+	Supongamos primero que $R$ es de división. Por el teorema de Wedderburn,
+	$R$ es entonces un cuerpo finito, digamos $|R|=q$. Como entonces
+	$x^{q-1}=1$ para todo $x\in R\setminus\{0\}$, se concluye que la ecuación
+	$x^{q-1}+y^{q-1}=z^{q-1}$ no tiene solución.
+
+	Supongamos ahora que $R$ no es de división. Como entonces, en particular,
+	$R$ no es un cuerpo, $|R|>2$ y luego $x+y=z$ tiene solución en
+	$R\setminus\{0\}$ (tomar por ejemplo $x=1$, $y=z-1$ y $z\not\in\{0,1\}$).
+	Como $R$ es finito, $R$ es artiniano a izquierda y entonces el radical de
+	Jacobson $J(R)$ es nilpotente. Si $J(R)\ne 0$, existe entonces $a\in
+	R\setminus\{0\}$ tal que $a^2=0$ y luego $a^n=0$ para todo $n\geq2$. En
+	este caso, la ecuación $x^n+y^n=z^n$ tiene solución en $R\setminus\{0\}$ si
+	$n\geq 2$ (tomar por ejemplo $x=a$, $y=z=1$). Si $J(R)=0$, entonces, $R$ es
+	semisimple y luego, por el teorema de Wedderburn,
+	\[
+		R\simeq \prod_{i=1}^k M_{n_i}(D_i)
+	\]
+	donde los $D_i$ son cuerpos finitos (por ser anillos de división finitos).
+	Como $R$ no es un cuerpo, hay dos posibilidades: o bien $n_i>1$ para algún
+	$i\in\{1,\dots,k\}$, o bien $k\geq 2$ y $n_i=1$ para todo
+	$i\in\{1,\dots,k\}$. En el primer caso, como $M_{n_i}(D_i)$ tiene elementos
+	no nulos cuyo cuadrado es cero, $R$ también los tiene, y luego, tal como se
+	hizo antes, vemos que $x^n+y^n=z^n$ tiene solución. En el segundo caso,
+	$x=(1,0,0,\dots,0)$, $y=(0,1,0,\dots,0)$ y $z=(1,1,0,\dots,0)$ es una
+	solución de $x^n+y^n=z^n$.
+\end{proof}

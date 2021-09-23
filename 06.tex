@@ -1,0 +1,835 @@
+\chapter{}
+
+\begin{definition}
+	\index{Módulo!artiniano}
+	Sea $R$ un anillo. 
+	Un $R$-módulo $N$ se dice \textbf{artiniano} si para toda sucesión
+	$N_1\supseteq N_2\supseteq\cdots$ de submódulos de $N$ existe $n\in\N$ tal
+	que $N_n=N_{n+k}$ para todo $k\in\N$.
+\end{definition}
+
+\begin{definition}
+	\index{Módulo!noetheriano}
+	Sea $R$ un anillo. 
+	Un $R$-módulo $N$ se dice \textbf{noetheriano} si para toda sucesión
+	$N_1\subseteq N_2\subseteq\cdots$ de submódulos de $N$ existe $n\in\N$ tal
+	que $N_n=N_{n+k}$ para todo $k\in\N$.
+\end{definition}
+
+\index{Minimal!elemento}
+\index{Maximal!elemento}
+Sea $X$ un conjunto y sea $\mathcal{S}$ un conjunto de subconjuntos de $X$.
+Diremos que $A\in\mathcal{S}$ es un \textbf{elemento minimal} en $\mathcal{S}$
+si no existe $Y\in\mathcal{S}$ tal que $Y\subsetneq A$. Similarmente, 
+que $B\in\mathcal{S}$ es un \textbf{elemento maximal} en $\mathcal{S}$ si no
+existe $Z\in\mathcal{S}$ tal que $B\subsetneq Z$.
+
+\begin{lemma}
+	\label{lem:modulo_artiniano}
+	Un módulo $N$ es artiniano si y sólo si todo conjunto no
+	vacío de submódulos de $N$ tiene un elemento minimal.
+\end{lemma}
+
+\begin{proof}
+	Supongamos que $N$ es artiniano y que . Sea $\mathcal{S}$ el conjunto (no
+	vacío) de submódulos de $N$. Supongamos que $\mathcal{S}$ no tiene elemento
+	minimal y sea $N_1\in\mathcal{S}$.  Como $N_1$ no es minimal, existe
+	$N_2\in\mathcal{S}$ tal que $N_1\supsetneq N_2$.  Supongamos que tenemos
+	elegidos $k$ submódulos $N_1\supsetneq N_2\supseteq\cdots\supsetneq N_k$.
+	Como $N_k$ no es minimal, existe $N_{k+1}$ tal que $N_k\supsetneq N_{k+1}$.
+	De esta forma tenemos una sucesión de submódulos $N_1\supsetneq
+	N_2\supsetneq\cdots$ que no se estabiliza, una contradicción.
+
+	Recíprocamente, si $N_1\supseteq N_2\supseteq\cdots$ es una sucesión de
+	submódulos, entonces el conjunto $\mathcal{S}=\{N_j:j\geq1\}$ tiene un
+	elemento minimal $N_n$. Luego $N_n=N_{n+k}$ para todo $k\in\N$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:noetheriano1}
+	Un módulo $N$ es noetheriano si y sólo si todo conjunto no vacío de
+	submódulos de $N$ tiene un elemento maximal.
+\end{lemma}
+
+\begin{proof}
+	Es similar a la prueba del lema~\ref{lem:modulo_artiniano}.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:noetheriano2}
+	Un módulo $N$ es noetheriano si y sólo si todo submódulo de $N$ es
+	finitamente generado.
+\end{lemma}
+
+\begin{proof}
+	Supongamos que $N$ es noetheriano. Sea $P$ un submódulo de $N$ y sea
+	$\mathcal{S}$ el conjunto de submódulos de $P$ finitamente generados. Como
+	$0\in\mathcal{S}$, el conjunto $\mathcal{S}$ es no vacío. Por el
+	lema~\ref{lem:noetheriano1}, existe $B\in\mathcal{S}$ elemento maximal.
+	Sea $\{b_1,\dots,b_m\}$ un conjunto finito de generadores de $B$. Si $p\in
+	P$ entonces, por maximalidad, $B$ está contenido en el submódulo de $P$
+	generado por $\{p,b_1,\dots,b_m\}$. Como este submódulo está en
+	$\mathcal{S}$, se concluye que $p\in B$.
+
+	Sea $N_1\subseteq N_2\subseteq\cdots$ una subcesión de submódulos de $N$.
+	Como $M=\cup_{j\geq1}N_j$ es un submódulo de $N$, es finitamente generado.
+	Sea $\{x_1,\dots,x_m\}$ un conjunto de generadores de $M$. Como cada $x_j$
+	está en algún $N_k$, existe $n\in\N$ tal que $M\subseteq N_n$. En
+	particular, $N_{n}=N_{n+k}$ para todo $k\geq1$. 
+\end{proof}
+
+\begin{exercise}
+	\label{exercise:noetheriano:exact}
+	Sea 
+	\[
+	\begin{tikzcd}
+		0 \arrow{r}
+		& A \arrow{r}{f}
+		& B \arrow{r}{g}
+		& C \arrow{r}
+		& 0
+	\end{tikzcd}
+	\]
+	una sucesión exacta de $R$-módulos. Demuestre que $B$ es noetheriano (resp.
+	artiniano) si y sólo si $A$ y $C$ son noetherianos (resp. artinianos).
+\end{exercise}
+
+%Como consecuencia %del ejercicio~\ref{exercise:exact} obtenemos los siguientes
+%\framebox{FIXME}
+%resultados:
+%
+%\begin{exercise}
+%	\label{exercise:noetheriano:B/A}
+%	Sea $B$ un submódulo de $A$. Demuestre que $B$ es noetheriano (resp.
+%	artiniano) si y sólo si $A$ y $B/A$ son noetherianos (resp. artinianos).
+%\end{exercise}
+%
+%\begin{exercise}
+%	\label{exercise:noetheriano:direct}
+%	Sean $A_1,\dots,A_n$ $R$-módulos. Demuestre que $A_1\oplus\cdots\oplus A_n$
+%	es noetheriano (resp. artiniano) si y sólo si cada $A_i$ es noetheriano
+%	(resp. artiniano).
+%\end{exercise}
+
+
+\begin{definition}
+	\index{Anillo!noetheriano a izquierda}
+	\index{Anillo!noetheriano a derecha}
+	Un anillo $R$ se dice \textbf{noetheriano a izquierda} si el módulo 
+	$\prescript{}{R}R$ es noetheriano.
+\end{definition}
+
+Análogamente se definen anillos noetherianos a derecha.
+
+\begin{definition}
+	\index{Anillo!artiniano a izquierda}
+	\index{Anillo!artiniano a derecha}
+	Un anillo $R$ se dice \textbf{artiniano a izquierda} si el módulo
+	$\prescript{}{R}R$ es artiniano.
+\end{definition}
+
+Análogamente se definen anillos artinianos a derecha.
+
+\begin{example}
+	Del lema~\ref{lem:noetheriano2} se obtiene inmediatamente que $\Z$ es
+	noetheriano. Sin embargo, $\Z$ no es noetheriano pues $2\Z\supseteq
+	4\Z\supseteq 8\Z\supseteq\cdots$ es una sucesión de ideales que no se
+	estabiliza.
+\end{example}
+
+\begin{definition}
+	\label{def:serie_de_composicion}
+	\index{Módulo!serie de composición de un}
+	\index{Módulo!de longitud finita}
+	Una \textbf{serie de composición} para un módulo $M$ es una sucesión
+	\[
+		0=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots\subsetneq M_n=M
+	\]
+	de submódulos de $M$ tal que cada $M_i/M_{i-1}$ es no nulo y no tiene
+	submódulos propios. En este caso, $n$ es la longitud de $M$ y $M$ se dice 
+	de \textbf{longitud finita}.
+\end{definition}
+
+La definición~\ref{def:serie_de_composicion} tiene sentido también en anillos
+no unitarios, y por eso pedimos que cada cociente $M_i/M_{i-1}$ no tenga
+submódulos propios (esto garantiza la simplicidad en el caso de anillos
+unitarios).
+
+\begin{theorem}
+	\label{thm:serie_de_composicion}
+	Un módulo no nulo admite una serie de composición si y sólo si es artiniano
+	y noetheriano.
+\end{theorem}
+
+\begin{proof}
+	Sea $M$ un módulo no nulo y sea $0=M_0\subsetneq
+	M_1\subsetneq\cdots\subsetneq M_n=M$ una serie de composición para $M$.
+	Demostraremos por inducción que cada $M_i$ es artiniano y noetheriano. El
+	caso $i=0$ es trivial. Supongamos entonces que $M_i$ es artinoano y
+	noetheriano. Como $M_i/M_{i+1}$ no tiene submódulos propios y la sucesión 
+	\[
+	\begin{tikzcd}
+		0 \arrow{r}
+		& M_i \arrow{r}
+		& M_{i+1} \arrow{r}
+		& M_{i+1}/M_i \arrow{r}
+		& 0
+	\end{tikzcd}
+	\]
+	es exacta, se concluye que $M_{i+1}$ es artiniano y noetheriano. 
+
+	Supongamos ahora que $M$ es un módulo noetheriano y artiniano. Sea $M_0=0$
+	y sea $M_1$ minimal entre los submódulos de $M$ (existe $M_1$ gracias al
+	lema~\ref{lem:modulo_artiniano} pues $M$ es artiniano). Si $M_1\ne M$, sea
+	$M_2$ minimal entre los submódulos de $M$ tales que $M_1\subsetneq M_2$. Al
+	continuar de esta forma obtenemos una sucesión
+	\[
+		0=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots
+	\]
+	de submódulos de $M$, donde cada $M_{i+1}/M_i$ es no nulo y no admite
+	submódulos propios. Como $M$ es noetheriano, la sucesión se estabiliza y
+	luego $M_n=M$ para algún $n$. 
+\end{proof}
+
+\begin{definition}
+	Diremos que las series de composición 
+	\[
+	V=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=0,
+	\quad
+	V=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=0,
+	\]
+	son \textbf{equivalentes} si $k=l$ y además existe una permutación
+	$\sigma\in\Sym_n$ tal que para todo $i\in\{1,\dots,k\}$ se tiene
+	$V_{i}/V_{i-1}\simeq W_{\sigma(i)}/W_{\sigma(i)-1}$.
+\end{definition}
+
+\begin{theorem}[Jordan--H\"older]
+	\label{thm:JordanHolder}
+	\index{Teorema!de Jordan--H\"older}
+	\index{Serie de composición}
+	Sea $V$ un módulo y sean 
+	\[
+		V=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=0,
+		\quad
+		V=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=0,
+	\]
+	dos series de composición para $V$. Entonces las series son
+	equivalentes.
+\end{theorem}
+
+\begin{proof}
+	Procederemos por inducción en $k$. El caso $k=1$ es trivial pues en este
+	caso $V$ no tiene submódulos propios y luego $V\supseteq 0$ es la única
+	serie de composición. Supongamos entonces que el resultado vale para
+	módulos con series de composición de longitud $<k$.  Si $V_1=W_1$ entonces
+	$V_1$ tiene dos series de composición de longitudes $k-1$ y $l-1$. Por
+	hipótesis inductiva, $k=l$ y el teorema queda demostrado.  Supongamos
+	entonces que $V_1\ne W_1$. Como $V_1$ y $W_1$ son submódulos de $V$, la
+	suma $V_1+W_1$ es un submódulo de $V$. Además, como $V/V_1$ no tiene
+	submódulos propios no nulos, $V_1+W_1=V$. Sea $U=V_1\cap W_1$. Entonces
+	\[
+		V/V_1=\frac{V_1+W_1}{V_1}\simeq\frac{V_1}{V_1\cap W_1}.
+	\]
+	Como $V_1$ tiene una serie de composición, $V_1$ es artiniano y
+	noetheriano por el teorema~\ref{thm:serie_de_composicion}. Entonces
+	también $U$ es artiniano y noetheriano, y luego tiene una serie de
+	composición por el teorema~\ref{thm:serie_de_composicion}, digamos
+	\[
+		U=U_0\supseteq U_1\supseteq\cdots\supseteq U_r=0.
+	\]
+	Tenemos entonces que 
+	$V_1\supseteq\cdots\supseteq V_k=0$ y 
+	$V_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_r=0$ 
+	son series de composición para $V_1$. Por hipótesis inductiva,
+	$k-1=r+1$ y las series de composición son equivalentes. Similarmente, 
+	\[
+		W_1\supseteq W_1\supseteq\cdots\supseteq W_l=0,
+		\quad
+		W_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_{r}=0,
+	\]
+	son series de composición para $W_1$ y entonces $l-1=r+1$ y las series son
+	equivalentes. Luego $l=k$ y el teorema queda demostrado.
+\end{proof}
+
+\begin{definition}
+\index{Módulo!longitud}
+Si $M$ es un módulo que admite una serie de composición, digamos
+$0=M_0\subsetneq M_1\subsetneq\cdots\subsetneq M_n=M$, 
+se define la \textbf{longitud} de $M$ como el entero $c(M)=n$.
+\end{definition}
+
+\begin{exercise}
+	Si $N$ y $Q$ son módulos de longitud finita y 
+	\[
+	\begin{tikzcd}
+		0 \arrow[r]
+		& N \arrow{r}{f}
+		& M \arrow{r}{g}
+		& Q \arrow[r]
+		& 0
+	\end{tikzcd}
+	\]
+	es una sucesión exacta de módulos, entonces $c(M)=c(N)+C(Q)$.
+\end{exercise}
+
+%\begin{proof}
+%	Sean $Q=Q_0\supsetneq Q_1\supsetneq\cdots\supsetneq Q_m=0$ y
+%	$N=N_0\supsetneq N_1\supseteq\cdots\supsetneq N_n=0$ series de composición
+%	para $Q$ y $N$ respectivamente. Entonces
+%	\[
+%		M=g^{-1}(Q_0)\supsetneq g^{-1}(Q_1)\supsetneq\cdots\supsetneq g^{-1}(Q_m)=f(N_0)\supsetneq f(N_1)\supsetneq\cdots\supsetneq f(N_n)=0
+%	\]
+%	es una serie de composición para $M$ y luego $c(M)=c(N)+c(Q)$.
+%\end{proof}
+
+\begin{exercise}[teorema de la dimensión]
+	Sean $A$ y $B$ submódulos de $M$ de longitud finita. Demuestre que entonces 
+	$c(A+B)+c(A\cap B)=c(A)+C(B)$.
+\end{exercise}
+
+\begin{lemma}
+	Sea $R$ un anillo unitario y $M$ un módulo unitario semisimple. Son equivalentes:
+	\begin{enumerate}
+		\item $M$ es noetheriano.
+		\item $M$ es artiniano.
+		\item $M$ es suma directa de finitos simples.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Veamos ahora que $(3)\Longleftrightarrow(1)$ y que
+	$(3)\Longleftrightarrow(2)$. Como cada submódulo simple es artiniano y
+	noetheriano, $M$ resulta artiniano y noetheriano. Recíprocamente, si $M$ es
+	artiniano, $I$ debe ser finito pues de lo contrario podríamos elegir
+	elementos $i_1,i_2,i_3,\dots$ de $I$ tales que la sucesión
+	\[
+		\bigoplus_{i\in I}M_i\supsetneq \bigoplus_{i\in I\setminus\{i_1\}}M_i\supsetneq\bigoplus_{i\in I\setminus\{i_1,i_2\}}M_i\supsetneq\cdots
+	\]
+	nunca se estabiliza. Análogamente, si $M$ es noetheriano, podríamos elegir
+	elementos $i_1,i_2,i_3,\dots\in I$ tales que la sucesión
+	\[
+		M_{i_1}\subsetneq M_{i_1}\oplus M_{i_2}\subsetneq\cdots
+	\]
+	nunca se estabiliza.
+\end{proof}
+
+Veremos ahora la relación existente entre la semisimplicidad y el radical de
+Jacobson. Primero necesitamos un lema:
+
+\begin{lemma}
+	\label{lem:Jartiniano}
+	Sea $R$ un anillo unitario y artiniano a izquierda. Entonces existen
+	finitos ideales maximales $I_1,\dots,I_n$ de $R$ tales que
+	$J(R)=I_1\cap\cdots\cap I_n$.
+\end{lemma}
+
+\begin{proof}
+	Como $R$ es
+	unitario, $J(R)$ es la intersección de ideales maximales de $R$.  Como $R$
+	es artiniano a izquierda, el lema~\ref{lem:modulo_artiniano} nos dice que
+	el conjunto de ideales formados por la intersección de finitos ideales
+	maximales $I_1,\dots,I_k$ de $R$ posee un elemento minimal, digamos
+	$J=\bigcap_{i=1}^k I_i$. Veamos que $J=J(R)$. Si no, sea $x\in
+	J(R)\setminus J$.  Existe entonces un ideal maximal $M$ tal que $x\not\in
+	M$. Pero entonces $J\cap M\subsetneq J$, una contradicción a la minimalidad
+	de $J$. 
+\end{proof}
+
+\begin{theorem}
+	\label{thm:SSartin=J}
+	Si $R$ es un anillo unitario, entonces $R$ es semisimple si y sólo si $R$
+	es artiniano a izquierda y $J(R)=0$.
+\end{theorem}
+
+\begin{proof}
+	Supongamos primero que $R$ es semisimple. Por el teorema de Wedderburn,
+	existen enteros positivos $n_1,\dots,n_k$ y anillos de división
+	$D_1,\dots,D_k$ tales que \[
+		R\simeq\prod_{i=1}^kM_{n_i}(D_i).
+	\]
+	En particular, $R$ es
+	artiniano a izquierda y $J(R)=\prod_{i=1}^kJ(M_{n_i}(D_i))=0$ pues
+	cada $M_{n_i}(D_i)$ es simple. 
+
+	Recíprocamente, por el lema anterior sabemos que $0=J(R)=I_1\cap\cdots\cap I_k$ para
+	finitos ideales maximales $I_1,\dots,I_k$.  Como cada cociente $R/I_i$ es
+	simple, $\prod_{i=1}^k R/M_i$ es semisimple. Como $I_1\cap\cdots\cap I_k=0$,
+	el morfismo $R\to \prod_{i=1}^k R/M_i$ es inyectivo y luego $R$ es también
+	semisimple.
+\end{proof}
+
+Como consecuencia tenemos el siguiente resultado:
+
+\begin{proposition}
+	Sea $G$ un grupo. Entonces $\C[G]$ es artiniana a izquierda si y sólo si
+	$G$ es finito. 
+\end{proposition}
+
+\begin{proof}
+	Si $G$ es finito sabemos que $\C[G]$ es artiniano a izquierda por ser de
+	dimensión finita.  Recíprocamente, si $G$ es infinito, sabemos que
+	$J(\C[G])=0$ (por el teorema de Rickart) y que $\C[G]$ no es semisimple
+	(por la proposición~\ref{pro:nunca_SS}). Luego $\C[G]$ no es artiniana a izquierda por el
+	teorema~\ref{thm:SSartin=J}.
+\end{proof}
+
+Concluimos la sección con el siguiente teorema:
+
+\begin{theorem}[Hopkins--Levitszki]
+	\label{thm:Hopkins-Levitski}
+	Si $R$ es un anillo unitario artiniano a izquierda, entonces $R$ es
+	noetheriano a izquierda.
+\end{theorem}
+
+\begin{proof}
+	Sea $J=J(R)$. Como $R$ es artiniano a izquierda, $J$ es un ideal nilpotente
+	por el teorema~\ref{thm:Jnilpotente}, digamos $J^n=0$. Consideremos la
+	sucesión
+	\[
+		R\supsetneq J\supsetneq J^2\supsetneq\cdots\supsetneq J^{n-1}\supsetneq J^n=0.
+	\]
+	Cada $J^{i}/J^{i+1}$ es un $R$-módulo anulado por $J$. Luego cada 
+	$J^i/J^{i+1}$ es un $(R/J)$-módulo. Como $R/J$ es artiniano (pues $R$ lo
+	es) y $J(R)=0$, $R/J$ es semisimple. Luego cada $J^{i}/J^{i+1}$ es
+	semisimple y entonces es noetheriano a izquierda.  Inductivamente se
+	demuestra entonces que cada $J^i$ es noetheriano a izquierda y luego $R$
+	también lo es.
+\end{proof}
+
+%\section{Anillos semiprimitivos y semiprimos}
+
+\begin{definition}
+	\index{Anillo!semiprimitivo}
+	\index{Anillo!semisimple Jacobson}
+	Un anillo $R$ se dice \textbf{semiprimitivo} (o semisimple Jacobson) si
+	$J(R)=0$.
+\end{definition}
+
+\begin{example}
+	Si $R$ es primitivo entonces es semiprimitivo. En efecto, como $R$ es
+	primitivo, $\{0\}$ es un ideal primitivo y luego, como $J(R)$ es la
+	intersección de los ideales primitivos de $R$, se concluye que $J(R)=0$.
+\end{example}
+
+\begin{example}
+	Si $R=\prod_{i\in I}R_i$ es producto directo de anillos semiprimitivos,
+	entonces $R$ es semiprimitivo pues 
+	\[
+		J(R)=J\left(\prod_{i\in I}R_i\right)=J\left(\prod_{i\in I}J(R_i)\right)=0.
+	\]
+\end{example}
+
+\begin{example}
+	$\Z$ es semiprimitivo pues $J(\Z)=\cap_{p}\Z/p=\{0\}$.
+\end{example}
+
+\begin{example}
+	Sea $R=C[a,b]$ el anillo de funciones $f\colon [a,b]\to\R$ continuas. Como
+	$R$ es un anillo unitario, $J(R)$ es la intersección de los ideales
+	maximales de $R$. Todo ideal maximal de $R$ es de la forma
+	\[
+		U_c=\{f\in C[a,b]:f(c)=0\}
+	\]
+	para algún $c\in[a,b]$. En efecto, es fácil ver que cada $U_c$ es un ideal;
+	$U_c$ es maximal pues $C[a,b]/U_c\simeq\R$.  Luego $J(R)=\cap_{a\leq c\leq
+	b}U_c=0$.
+\end{example}
+
+\begin{theorem}
+	\label{thm:semiprimitivo}
+	Si $R$ es un anillo, entonces $R/J(R)$ es semiprimitivo. 
+\end{theorem}
+
+\begin{proof}
+	Si $R$ es un anillo radical, el resultado es trivial. Supongamos entonces
+	que $J(R)\ne R$ y sea $M$ un módulo simple. Entonces $M$ es un
+	$R/J(R)$-módulo simple con
+	\[
+		(x+J(R))m=xm,\quad
+		x\in R,\,m\in M.
+	\]
+	Si $x+J(R)\in J(R/J(R))$ entonces $xM=(x+J(R))M=0$. Luego $x\in J(R)$ pues
+	$x$ anula a cualquier módulo simple de $R$.
+\end{proof}
+
+%El teorema de densidad de Jacobson nos permite entonces obtener el siguiente resultado:
+%
+%\begin{theorem}
+%	Sea $R$ un anillo no radical. Entonces $R/J(R)$ es isomorfo a un producto
+%	subdirecto de anillos densos en espacios vectoriales sobre anillos de
+%	división.	
+%\end{theorem}
+%
+%\begin{proof}
+%	Si $R$ no es radical, $J(R)\ne R$. Luego $R/J(R))$ es semiprimitivo por el
+%	teorema~\ref{thm:semiprimitivo}. El teorema~\ref{thm:subdirecto} y el
+%	teorema de densidad de Jacobson completan la demostración del teorema.
+%\end{proof}
+
+
+\begin{definition}
+	\index{Producto subdirecto de anillos}
+	Sea $\{R_i:i\in I\}$ una familia de anillos. Un subanillo $R$ de
+	$\prod_{i\in I}R_i$ se dice un \textbf{producto subdirecto} de los $R_j$ si
+	cada $\pi_j\colon R\to R_j$ es sobreyectiva. 
+\end{definition}
+
+El siguiente teorema justifica que indistintamente llamemos anillos
+semiprimitivos a los anillos semisimples Jacobson:
+
+\begin{theorem}
+	\label{thm:subdirecto}
+	Sea $R$ un anillo no nulo. Entonces $R$ semiprimitivo si y sólo si $R$ es
+	isomorfo a un producto subdirecto de anillos primitivos.
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $R$ es semiprimitivo y sea $\{P_i:i\in I\}$ la familia de
+	ideales primitivos de $R$. Cada $R/P_j$ es primitivo y
+	$\{0\}=J(R)=\cap_{i\in I}P_i$. Para cada $j$, sean $\lambda_j\colon R\to
+	R/P_j$ y $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ los morfismos
+	canónicos. La función
+	\[
+		\phi\colon R\to\prod_{i\in I}R/P_i,\quad
+		r\mapsto \{\lambda_i(r):i\in I\},
+	\]
+	es un morfismo inyectivo de anillos tal que $\pi_j\phi(R)=R/P_j$ para todo
+	$j$.
+
+	Supongamos ahora que $R$ es isomorfo a un producto subrirecto de anillos
+	$R_j$ primitivos y sea $\varphi\colon R\to\prod_{i\in I}R_i$ un morfismo
+	inyectivo tal que $\pi_j(\varphi(R))=R_j$ para todo $j$. Para cada $j$ sea
+	$P_j=\ker\pi_j\varphi$. Como $R/P_j\simeq R_j$, cada $P_j$ es un ideal
+	primitivo. Si $x\in\cap_{i\in I}P_i$ entonces $\varphi(x)=0$ y luego $x=0$.
+	Luego $J(R)\subseteq\cap_{i\in I} P_i=0$. 
+\end{proof}
+
+\begin{example}
+	El anillo $\Z$ es isomorfo a un producto subdirecto de los cuerpos $\Z/p$
+	con $p$ primo.
+\end{example}
+
+\begin{example}
+	El anillo $C[a,b]$ es isomorfo a un producto subdirecto de los cuerpos
+	$C[a,b]/U_c\simeq\R$.
+\end{example}
+
+\begin{definition}
+	Un anillo $R$ se dice \textbf{semiprimo} si para todo $a\in R$ tal que
+	$aRa=0$ se tiene que $a=0$.
+\end{definition}
+
+\begin{lemma}
+	Sea $R$ un anillo. Son equivalentes:
+	\begin{enumerate}
+		\item $R$ es semiprimo.
+		\item Si $I$ es un ideal a izquierda tal que $I^2=0$ entonces $I=0$.
+		\item Si $I$ es un ideal tal que $I^2=0$ entonces $I=0$.
+		\item $R$ no tiene ideales nilpotentes no nulos. 
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Veamos que $(1)\implies(2)$. Si $I^2=0$ y $x\in I$, entonces $xRx\subseteq I^2=0$ y
+	luego $x=0$. Las implicaciones $(2)\implies(3)$ y $(4)\implies(3)$ son triviales. Veamos que
+	$(3)\implies(4)$.  Si $I$ es un ideal nilpotente no nulo, sea $n\in\N$
+	minimal tal que $I^n=0$.  Como $(I^{n-1})^2=0$, $I^{n-1}=0$, una
+	contradicción. Por último veamos que $(3)\implies(1)$. Sea $a\in R$ tal que
+	$aRa=0$. Entonces $I=RaR$ es un ideal de $R$ tal que $I^2=0$. Por hipótesis, $RaR=I=0$. Luego
+	$Ra$ y $aR$ son ideales tales que $(Ra)R=R(aR)=0$. Esto implica que $\Z a$ es un ideal de $R$
+	tal que $(\Z a)R=0$ y luego $a=0$.
+\end{proof}
+
+\begin{example}
+	Un anillo conmutativo es semiprimo si y sólo si no tiene elementos
+	nilpotentes no nulos.
+\end{example}
+
+
+\begin{proposition}
+	El anillo $\C[G]$ es semiprimo.
+\end{proposition}
+
+\begin{proof}
+	Como $J(\C[G])=0$ por el teorema de Rickart y además el radical de Jacboson
+	contiene a todo ideal nil por la proposición~\ref{pro:nilJ}, se deduce que
+	$\C[G]$ no tiene ideales nil no triviales. Tampoco tiene entonces ideales
+	nilpotentes no triviales y luego $\C[G]$ es semiprimo.
+\end{proof}
+
+\begin{exercise}
+	Demuestre que $Z(\C[G])$ es semiprimo.
+\end{exercise}
+
+% tomar $\alpha$ tal que $\alpha^2=0$ y sea $A=K[G]\alpha$. Como $A^2=0$, $A=0$ y entonces $\alpha=0$.
+
+\begin{example}
+	Sea $D$ un anillo de división. Entonces $D[X]$ es semiprimo.
+\end{example}
+
+\begin{example}
+	Sea $D$ un anillo de división. Entonces $D[[X]]$ es semiprimo y no es
+	semiprimitivo.
+\end{example}
+
+
+
+
+%\section{Anillos semiprimitivos}
+%
+%\begin{lemma}
+%	\label{lem:Iunitario}
+%	Sea $R$ un anillo y sea $I$ un ideal de $R$ unitario. Sea $e\in I$ la
+%	unidad de $I$. Entonces $e$ es un idempotente central de $R$, $I=eR$ y
+%	existe un ideal $J$ de $R$ tal que $R=I\oplus J$. Además $R\simeq I\times
+%	J$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Como $e\in I$, $eR\subseteq I$. Luego $I=eR$ pues $I=eI\subseteq eR$. Como
+%	$ex\in I$ y $xe\in I$ para todo $x\in R$, $ex=(ex)e$ y $xe=e(xe)$. Luego
+%	$ex=xe$ y entonces $e$ es central e idempotente. Sea $J=\{x-ex:x\in R\}$.
+%	Es fácil demostrar que $J$ es un ideal tal que $R=I\oplus J$. Además
+%	$R\simeq I\times J$, via $x\mapsto (ex,x-ex)$,
+%\end{proof}
+%
+%A continuación daremos una demostración muy sencilla del teorema de Wedderburn
+%en el caso de álgebras de dimensión finita.
+%
+%\begin{theorem}[Artin--Wedderburn]
+%	Sea $R$ un anillo artiniano a izquierda y no nulo. Entonces $R$ es
+%	semiprimo si y sólo si existen $n_1,\dots,n_r\in\N$ y existen anillos de
+%	división $D_1,\dots,D_r$ tales que $R\simeq M_{n_1}(D_1)\times\cdots\times
+%	M_{n_r}(D_r)$.
+%\end{theorem}
+%
+%\begin{proof}
+%	Procederemos por inducción en $\dim A$. Si $\dim A=1$\dots\framebox{} 
+%
+%	Supongamos entonces que $\dim A>1$. Si $A$ es un álgebra prima, el
+%	resultado se sigue inmediatamente del teorema de Wedderburn. Supongamos
+%	entonces que existe $a\in A\setminus\{0\}$ tal que $I=\{x\in A:aAx=0\}$ es
+%	no nulo. Como $I$ es un ideal de $A$, $I$ es un álgebra semiprima.
+%	\framebox{?} Como $a\not\in I$, $\dim I<\dim A$, y entonces, por hipótesis
+%	inductiva, existen $n_1,\dots,n_s\in\N$ y álgebras de división
+%	$D_1,\dots,D_s$ tales que 
+%	\[
+%		I\simeq M_{n_1}(D_1)\times\cdots\times M_{n_s}(D_s).
+%	\]
+%	En particular, $I$ es unitario. Por el lema~\ref{lem:Iunitario}, existe un
+%	ideal $J$ de $A$ tal que $A\simeq I\times J$. Como $\dim J<\dim A$, la hipótesis inductiva
+%	implica que existen $n_{s+1},\dots,n_r\in\N$ y álgebras de división $D_{s+1},\dots,D_r$ tales que
+%	\[
+%		J\simeq M_{n_{s+1}}(D_{s+1})\times\cdots\times M_{n_r}(D_r).
+%	\]
+%	Luego $A\simeq I\times J\simeq \prod_{j=1}^s M_{n_j}(D_j)$.
+%\end{proof}
+%
+%\begin{corollary}
+%	Sea $A$ un álgebra no nula de dimensión finita. Si $A$ es semiprima,
+%	entonces $A$ es unitaria.
+%\end{corollary}
+%
+%%Gracias al teorema de Wedderburn se puede ir un poco más lejos:
+%%\begin{corollary}
+%%	Sea $A$ un álgebra unitaria. Son equivalentes:
+%%	\begin{enumerate}
+%%		\item $A$ es semiprima.
+%%		\item Todo $A$-módulo unitario es semisimple.
+%%		\item $A$ es semisimple como $A$-módulo.
+%%		\item Todo ideal a izquierda de $A$ es de la forma $Ae$ para algún
+%%			idempotente $e\in A$. 
+%%	\end{enumerate}
+%%\end{corollary}
+%%
+%%\begin{proof}
+%%	La implicación $(1)\implies(2)$ es el teorema de Wedderburn. 
+%%	
+%%\end{proof}
+%
+%\begin{example}
+%	Por el teorema de Maschke sabemos que si $G$ es un grupo finito, 
+%	$\C[G]$ es un álgebra semiprimitiva y luego semisimple.
+%\end{example}
+%
+
+
+
+
+%\section{Viejo!}
+%
+%\begin{theorem}[Artin--Wedderburn]
+%	\index{Teorema!de Artin--Wedderburn}
+%	\label{thm:ArtinWedderburn}
+%	Si $R$ es un anillo, las siguientes afirmaciones son equivalentes:
+%	\begin{enumerate}
+%		\item $R$ es un anillo no nulo semiprimitivo y artiniano a izquierda.
+%		\item Existen anillos de división $D_1,\dots,D_r$ y tales que
+%			\[
+%				R\simeq\prod_{i=1}^r R_i,
+%			\]
+%			donde $R_i=\End_{D_i}(V_i)$
+%		\item Existen anillos de división $D_1,\dots,D_r$ y enteros positivos
+%			$n_1,\dots,n_r$ tales que 
+%			\[
+%			R\simeq M_{n_1}(D_1)\times\cdots\times M_{n_r}(D_r).
+%		\]
+%	\end{enumerate}
+%\end{theorem}
+%
+%\begin{proof}
+%	Demostremos que $(1)\implies(2)$. Como $R\ne0$ y $J(R)=0$, $R$ admite
+%	ideales primitivos. Supongamos que existe un número finito de ideales
+%	primitivos distintos, digamos $P_1,\dots,P_t$. Cada $R/P_j$ es un anillo
+%	primitivo y es artiniano a izquierda \framebox{?}. Entonces, por el teorema
+%	de Wedderburn, para cada $j\in\{1,\dots,t\}$ existen un anillo de división
+%	$D_j$ y un entero positivo $n_j$ tales que $R/P_j\simeq M_{n_j}(D_j)$. En
+%	particular, cada $R/P_j$ es simple y entonces $P_j$ es un ideal maximal de
+%	$R$. Como $R/P_j$ es simple, $(R/P_j)^2\ne 0$ y luego $R^2\not\subseteq
+%	P_j$. Por maximalidad, $R^2+P_j=R$ y además $P_i+P_j=R$ para todo $i\ne j$.
+%	Por el teorema chino del resto,
+%	\[
+%		R=R/0=R/J(R)=R/\cap_{j=1}^t P_j\simeq R/P_1\times\cdots\times R/P_t.
+%	\]
+%	Sea $\iota_k\colon R/P_k\to \prod_{j=1}^t R/P_j$ la inclusión canónica.
+%	Cada $\iota_k(R/P_k)$ es un ideal simple (es decir, que como anillo es
+%	simple) de $\prod_{j=1}^t R/P_j\simeq R$. Luego las imágenes, digamos
+%	$I_k$, de los $\iota_k(R/P_k)$ dan ideales simples de $R$ y
+%	$R=I_1\times\cdots\times I_t$.
+%
+%	Demostremos ahora que $(3)\implies(1)$. Para cada $j$ sea
+%	$R_j=M_{n_j}(D_j)$. Como cada $R_j$ es primitivo por el teorema de
+%	Wedderburn, $J(R_j)=\{0\}$ para todo $j$. Luego
+%	$J(R)=\prod_{i=1}^rJ(R_j)=\{0\}$ y entonces $R$ es semiprimitivo. Además
+%	$R$ es artiniano a izquierda.\framebox{?}
+%\end{proof}
+%
+%\begin{corollary}
+%	Sea $R$ un anillo semiprimitivo.
+%	\begin{enumerate}
+%		\item Si $R$ es artiniano a izquierda, entonces $R$ es unitario.
+%		\item $R$ es artiniano a izquierda si y sólo si es artiniano a derecha.
+%		\item Si $R$ es artiniano a izquierda es noetheriano.
+%	\end{enumerate}
+%\end{corollary}
+%
+%\begin{proof}
+%	La primera afirmación es consecuencia inmediata del teorema de
+%	Artin--Wedderburn~\ref{thm:ArtinWedderburn}.
+%\end{proof}
+%
+%\begin{corollary}
+%	Sea $R$ un anillo semiprimitivo artiniano a izquierda y sea $I$ un ideal de
+%	$R$. Entonces $I=Re$ para algún idempotente $e\in R$ tal que $e\in Z(R)$.
+%\end{corollary}
+%
+%\begin{proof}
+%		
+%\end{proof}
+%
+%\begin{proposition}
+%	Sea $R$ un anillo semisimple artiniano a izquierda. 
+%	\begin{enumerate}
+%		\item $R=I_1\times\cdots\times I_n$ donde los $I_j$ son ideales simples.
+%		\item Si $J\subseteq R$ es un ideal simple, entonces existe $k\in\{1,\dots,n\}$ tal que $J=I_k$.
+%		\item Si $R=J_1\times\cdots\times J_m$ donde los $J_k$ son ideales simples, entonces $n=m$ y existe
+%			$\sigma\in\Sym_n$ tal que $I_k=J_{\sigma(k)}$ para todo $k\in\{1,\dots,n\}$.
+%	\end{enumerate}
+%\end{proposition}
+%
+%\begin{proof}
+%\end{proof}
+%
+%\begin{theorem}
+%	Sea $R$ un anillo unitario no nulo. Las siguientes afirmaciones son
+%	equivalentes:
+%	\begin{enumerate}
+%		\item $R$ es semiprimitivo y artiniano a izquierda.
+%		\item Todo $R$-módulo unitario es proyectivo.
+%		\item Todo $R$-módulo unitario es inyectivo.
+%		\item Toda sucesión exacta de $R$-módulos unitarios se parte.
+%		\item Todo $R$-módulo unitario no nulo es semisimple.
+%		\item $\prescript{}{R}R$ es unitario y semisimple.
+%		\item Todo ideal a izquierda de $R$ es de la forma $Re$ para algún $e\in R$ indempotente.
+%		\item $\prescript{}{R}R$ es suma directa de ideales a izquierda
+%			minimales $L_1,\dots,L_m$ donde cada $L_j$ es de la forma $Re_j$, y
+%			los $e_j$ son idempotentes ortogonales tales que
+%			$e_1+\cdots+e_m=1$. 
+%	\end{enumerate}
+%\end{theorem}
+%
+%\begin{proof}
+%	Veamos que $(4)\implies(5)$. Sea $M$ un módulo unitario y sea $N$ un
+%	submódulo no nulo de $M$. Como la sucesión $0\to N\to M\to M/N\to 0$ es
+%	exacta, se parte. Luego $M=N\oplus X$ para algún submódulo $X$ de $N$ tal
+%	que $X\simeq M/N$. Como $M$ es unitario, $Rm\ne 0$ para todo $m\in
+%	M\setminus\{0\}$. Luego $M$ es semisimple por el teorema~\framebox{?}.
+%
+%	Veamos ahora que $(5)\implies(4)$. Sea 
+%	\[
+%	\begin{tikzcd}
+%		0 \arrow[r]
+%		& N \arrow[r]
+%		& M \arrow[r]
+%		& X \arrow[r]
+%		& 0
+%	\end{tikzcd}
+%	\]
+%	una sucesión exacta corta de $R$-módulos. Como $f\colon N\to f(N)$ es un
+%	isomorfismo y entonces $f(N)$ es un submódulo del semisimple $M$, $f(N)$ es
+%	sumando directo de $M$. Sea $\pi\colon M\to f(N)$ el morfismo canónico.
+%	Entonces $\pi f=f$ y $f^{-1}\pi\colon M\to A$ es un morfismo tal que
+%	$(f^{-1}\pi)f=\id_N$.\framebox{?}
+%
+%	Demostremos que $(5)\implies(7)$. Sea $L$ un ideal a izquierda de $R$. Como
+%	los ideales a izquierda de $R$ son los submódulos de $\prescript{}{R}R$,
+%	existe un ideal a izquierda $N$ de $R$ tal que $R=L\oplus N$. Existen
+%	entonces $e_1\in L$ y $e_2\in N$ tales que $1=e_1+e_2$. Si $x\in L$,
+%	entonces $x=xe_1+xe_2$ y luego $xe_2=x-xe_1\in L\cap N=\{0\}$. Demostramos
+%	entonces que $x=xe_1$ para todo $x\in L$. En particular, $e_1e_1=e_1$ y
+%	$L=Re_1$. 
+%
+%	Demostremos que $(7)\implies(6)$. Sea $L$ un submódulo de
+%	$\prescript{}{R}R$. Como entonces $L$ es un ideal a izquierda de $R$,
+%	$L=Re$ para algún idempotente $e\in R$. Como el conjunto $R(1-e)$ es un
+%	ideal a izquierda de $R$ tal que $R=Re\oplus R(1-e)$, se concluye que
+%	$\prescript{}{R}R$ es semisimple.\framebox{?}
+%
+%	Veamos que $(6)\implies(1)$. Supongamos que $\prescript{}{R}R=\sum_{i\in
+%	I}N_i$, donde los $N_j$ son submódulos simples de $\prescript{}{R}R$.
+%	Reordenando los $N_j$ si fuera necesario, podemos suponer que existe
+%	$k\in\N$ tal que $1=e_1+\cdots+e_k$ y $e_j\in N_j$ para todo
+%	$j\in\{1,\dots,k\}$. Si $r\in R$, entonces $r=re_1+\cdots+re_k\in
+%	\sum_{i=1}^k N_i$. Luego $R=\sum_{i=1}^k N_i$.
+%	Veamos que $J(R)=0$. Si $r\in J(R)$ entonces, como $rN_i=0$ para todo
+%	$i\in\{1,\dots,k\}$, se concluye que $r=r1=re_1+\cdots+re_k=0$. Probamos
+%	entonces que $R$ es semiprimitivo. Falta ver que $R$ es artiniano a
+%	izquierda. Para eso basta obvervar que, como
+%	\[
+%		\frac{N_1\oplus\cdots\oplus N_i}{N_1\oplus\cdots\oplus N_{i-1}}\simeq N_i
+%	\]
+%	para cada $i\in\{1,\dots,k\}$, la serie
+%	\[
+%	R=N_1\oplus\cdots\oplus N_k\supsetneq N_1\oplus\cdots\oplus N_{k-1}\supsetneq\cdots\supsetneq N_1\oplus N_2\supsetneq N_1\supsetneq 0
+%	\]
+%	es una serie de composición.\framebox{?}
+%
+%	Veamos que $(1)\implies(8)$. Sin perder generalidad podemos suponer que
+%	\[
+%	R=\prod_{i=1}^k M_{n_j}(D_j),
+%	\]
+%	donde los $D_j$ son anillos de división.\framebox{?}
+%
+%	Veamos que $(8)\implies(5)$. Sea $M$ un módulo unitario no nulo. Si $m\in
+%	M$ entonces $L_im$ es un submódulo de $M$. Los $L_jm$ generan a $M$ pues 
+%	\[
+%	m=1m=e_1m+\cdots+e_km\in\sum L_im.
+%	\]
+%	Veamos que cada $L_jm$ es simple. Fijado $i$, la función $f\colon L_i\to
+%	L_im$, $x\mapsto xm$, es un morfismo sobreyectivo. Como $L_i$ es un ideal a
+%	izquierda minimal, $L_i$ es un submódulo simple. Luego $m\ne0$ implica que
+%	$f$ es un isomorfismo. Probamos entonces que el conjunto $\{L_jm:1\leq
+%	j\leq k,m\in M,L_jm\ne 0\}$ es una familia de submódulos simples cuya suma
+%	es $M$.
+%\end{proof}
+

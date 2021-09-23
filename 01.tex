@@ -1,21 +1,10 @@
 \chapter{}
 
-In this lecture we start our study of 
-the theory of finite-dimensional semisimple algebras. Our goal is to
-prove Artin--Wedderburn's theorem for finite-dimensional algebras. 
+\section*{Semisimple algebras}
 
-% \begin{definition}
-% Let $K$ be a field. A vector space $A$ (over $K$) is an \textbf{algebra} if it has an associative multiplication
-% $A\times A\to A$, $(a,b)\mapsto ab$, such that 
-% \[
-% (\lambda a+\mu b)c=\lambda(ac)+\mu(bc),\quad
-% a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)
-% \]
-% for all $a,b,c\in A$ and $\lambda,\mu\in K$. We will consider algebras with identity, that is with  
-% for all $a\in A$. The identity will be usually denoted by $1$. 
-% an element $1_A\in A$ such that $1_Aa=a1_A=a$
-% \end{definition}
-
+We will devote two lectures to the study of 
+finite-dimensional semisimple algebras. The main goal is to
+prove Artin--Wedderburn's theorem. 
 
 \begin{definition}
 	\index{Algebra}
@@ -311,43 +300,4 @@ If $A$ and $B$ are algebras, $M$ is a module over $A$ and $N$ is a module over $
     (a,b)\cdot (m,n)=(a\cdot m,b\cdot n).
     \]
 \end{exercise}
-
-A \textbf{division algebra} $D$ is an algebra such that every non-zero element 
-is invertible, that is for all $x\in D\setminus\{0\}$ there exists $y\in D$ such that $xy=yx=1$.  
-Modules over division algebras are very much like vector spaces.  For example, 
-every finitely-generated module $M$ over a division algebra has a basis. 
-Moreover, every linearly independent subset of
-$M$ can be extended into a basis of $M$. 
-
-\begin{lemma}
-	Sea $D$ un álgebra de división y sea $V$ un $D$-módulo finitamente generado. Entonces
-	$V$ es un $\End_D(V)$-módulo simple y además existe $n\in\N$ tal que 
-	$\End_D(V)\simeq nV$ es semisimple.
-\end{lemma}
-
-\begin{proof}[Sketch of the proof]
-	Let $\{v_1,\dots,v_n\}$ be a basis of $V$. A direct calculation shows that the map 
-	\[
-		\End_D(V)\to\bigoplus_{i=1}^nV=nV,\quad
-		f\mapsto (f(v_1),\dots,f(v_n)),
-	\]
-	is an injective homomorphism of $\End_D(V)$-modules.
-	Since
-	\[
-	\dim\End_D(V)=n^2=\dim(nV),
-	\]
-	it follows that the map is an isomorphism. 
-	Thus 
-	\[
-		\End_D(V)\simeq \bigoplus_{i=1}^nV.
-	\]
-	
-	It remains to show that $V$ is simple. It is enough to prove that $V=(v)$ 
-	for all $v\in V\setminus\{0\}$. Let $v\in V\setminus\{0\}$. If $w\in V$, then 
-	there exists $f\in\End_D(V)$ such that $f\cdot v=f(v)=w$. 
-	Thus $w\in (v)$ and therefore $V=(v)$.  
-\end{proof}
-
-The lemma states that if $D$ is a division algebra, then  
-$D^{n}$ is a simple $M_n(D)$-module and that $M_n(D)\simeq n D^n$ as $M_n(D)$-modules. 
 

@@ -1,5 +1,45 @@
 \chapter{}
 
+A \textbf{division algebra} $D$ is an algebra such that every non-zero element 
+is invertible, that is for all $x\in D\setminus\{0\}$ there exists $y\in D$ such that $xy=yx=1$.  
+Modules over division algebras are very much like vector spaces.  For example, 
+every finitely-generated module $M$ over a division algebra has a basis. 
+Moreover, every linearly independent subset of
+$M$ can be extended into a basis of $M$. 
+
+\begin{lemma}
+	Sea $D$ un álgebra de división y sea $V$ un $D$-módulo finitamente generado. Entonces
+	$V$ es un $\End_D(V)$-módulo simple y además existe $n\in\N$ tal que 
+	$\End_D(V)\simeq nV$ es semisimple.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+	Let $\{v_1,\dots,v_n\}$ be a basis of $V$. A direct calculation shows that the map 
+	\[
+		\End_D(V)\to\bigoplus_{i=1}^nV=nV,\quad
+		f\mapsto (f(v_1),\dots,f(v_n)),
+	\]
+	is an injective homomorphism of $\End_D(V)$-modules.
+	Since
+	\[
+	\dim\End_D(V)=n^2=\dim(nV),
+	\]
+	it follows that the map is an isomorphism. 
+	Thus 
+	\[
+		\End_D(V)\simeq \bigoplus_{i=1}^nV.
+	\]
+	
+	It remains to show that $V$ is simple. It is enough to prove that $V=(v)$ 
+	for all $v\in V\setminus\{0\}$. Let $v\in V\setminus\{0\}$. If $w\in V$, then 
+	there exists $f\in\End_D(V)$ such that $f\cdot v=f(v)=w$. 
+	Thus $w\in (v)$ and therefore $V=(v)$.  
+\end{proof}
+
+The lemma states that if $D$ is a division algebra, then  
+$D^{n}$ is a simple $M_n(D)$-module and that $M_n(D)\simeq n D^n$ as $M_n(D)$-modules. 
+
+
 \begin{theorem}
 Let $A$ be a finite-dimensional algebra and let 
 $S_1,\dots,S_k$ be the simple modules over $A$. 
@@ -30,7 +70,8 @@ then each $n_j$ is uniquely determined.
 \end{proof}
 
 If $A$ is an algebra, the \textbf{opposite algebra} $A^{\op}$ is the vector space 
-$A$ with multiplication $(a,b)\mapsto ba=a\cdot_{\op}b$. 
+$A$ with multiplication $A\times A\to A$, $(a,b)\mapsto ba=a\cdot_{\op}b$. Clearly,
+$A$ is commutative if and only if $A=A^{\op}$. 
 
 \begin{lemma}
 	\label{lem:A^op}
@@ -132,220 +173,145 @@ $A$ with multiplication $(a,b)\mapsto ba=a\cdot_{\op}b$.
 	\]
 \end{proof}
 
-
 \begin{theorem}[Artin--Wedderburn]
-\index{Teorema!de Artin--Wedderburn}
-Sea $A$ un álgebra semisimple y de dimensión finita, digamos con 
-$k$ clases de isomorfismos de $A$-módulos simples. Entonces 
+Let $A$ be a finite-dimensional semisimple algebra, say with  
+$k$ isomorphism classes of simple modules. Then 
 \[
 A\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)
 \]
-para ciertos $n_1,\dots,n_k\in\N$ y ciertas álgebras de división $D_1,\dots,D_k$.
+for some $n_1,\dots,n_k\in\N$ and some division algebras $D_1,\dots,D_k$.
 \end{theorem}
 
 \begin{proof}
-	Al agrupar los finitos
-	submódulos simples de la representación regular de $A$ podemos escribir 
-	\[
+    Decompose the regular representation as a sum of simple modules and
+    gather the simples by isomorphism classes to get 	
+    \[
 	A=\bigoplus_{i=1}^k n_iS_i,
 	\]
-	donde los $S_i$ son submódulos simples tales que $S_i\not\simeq S_j$ si
-	$i\ne j$. Dejamos como ejercicio verificar que, gracias al lema de Schur, tenemos 
+	where each $S_i$ is simple and $S_i\not\simeq S_j$ whenever 
+	$i\ne j$. Schur's lemma implies that  
 	\begin{align*}
 		\End_A(A)\simeq\End_A\left(\bigoplus_{i=1}^kn_iS_i\right)
 		\simeq \prod_{i=1}^k\End_A(n_iS_i)
 		\simeq\prod_{i=1}^kM_{n_i}(\End_A(S_i)), 
 	\end{align*}
-	donde cada $D_i=\End_A(S_i)$ es un álgebra de división. 
-	%En particular, 
-	%$A$ tiene $k$ submódulos simples. 
-	Tenemos entonces que %álgebras de división $D_1,\dots,D_k$ tales que 
-	\[
+	where each $D_i=\End_A(S_i)$ is a division algebra. 
+    Thus
+    \[
 		\End_A(A)\simeq\prod_{i=1}^kM_{n_i}(D_i).
 	\]
-	Como $\End_A(A)\simeq
-	A^{\op}$, entonces 
+	Since $\End_A(A)\simeq
+	A^{\op}$, it follows that  
 	\begin{align*}
 		A=(A^{\op})^{\op}\simeq \prod_{i=1}^kM_{n_i}(D_i)^{\op}\simeq \prod_{i=1}^kM_{n_i}(D_i^{\op}).
 	\end{align*}
-	Como además 
-	cada $D_i$ es un álgebra de división, cada $D_i^{\op}$ también lo es.
+	Since each $D_i$ is a division algebra, each $D_i^{\op}$ is also a division algebra.
 \end{proof}
 
-Utilizaremos el teorema de Wedderburn en el caso de los números complejos. 
-%\begin{lemma}
-%Si $A$ es un álgebra compleja de dimensión finita y $S$ es un $A$-módulo simple, entonces
-%$\End_A(S)\simeq\C$. 	
-%\end{lemma}
-%
-%\begin{proof}
-%Si $\varphi\in\End_A(S)$, entonces $\varphi$ tiene un autovalor $\lambda\in\C$. Como entonces 
-%$\varphi-\lambda\id$ no es un isomorfismo, el lema de Schur implica que $\varphi-\lambda\id=0$, 
-%es decir $\varphi=\lambda\id$. 	
-%\end{proof}
-
 \begin{corollary}[Mollien]
-	Si $A$ es un álgebra compleja de dimensión finita semisimple, entonces
+	If $A$ is a finite-dimensional complex semisimple algebra, then 
 	\[
 	A\simeq\prod_{i=1}^k M_{n_i}(\C)
 	\]  
-	para ciertos $n_1,\dots,n_k\in\N$. 
+	for some $n_1,\dots,n_k\in\N$. 
 \end{corollary}
 
 \begin{proof}
-	Vimos en la demostración del teorema de Wedderburn que 
+	By Wedderburn's theorem,  
 	\[
 	A\simeq \prod_{i=1}^k M_{n_i}(\End_A(S_i)),
 	\]
-	donde $S_1,\dots,S_k$ son representantes de las clases de 
-	isomorfismos de los $A$-módulos simples y cada $\End_A(S_i)$ es un álgebra de división. 
-	Veamos que 
+	where $S_1,\dots,S_k$ are representatives of the isomorphism classes of simple modules
+	and each $\End_A(S_i)$ is a division algebra. We claim that 
 	\[
 	\End_A(S_i)=\{\lambda\id:\lambda\in\C\}\simeq\C
 	\]
-	para todo $i\in\{1,\dots,k\}$. En efecto, si 
-	$f\in\End_A(S_i)$, entonces $f$ tiene un autovalor $\lambda\in\C$. Como entonces 
-	$f-\lambda\id$ no es un isomorfismo, el lema de Schur implica que $f-\lambda\id=0$, 
-	es decir $f=\lambda\id$. Luego $\End_A(S_i)\to\C$, $\varphi\mapsto\lambda$, 
-	es un isomorfismo de álgebras. En particular, 
+	for all $i\in\{1,\dots,k\}$. If  
+	$f\in\End_A(S_i)$, then $f$ has an eigenvector $\lambda\in\C$. Since  
+	$f-\lambda\id$ is not an isomorphism, Schur's lemma implies that $f-\lambda\id=0$, 
+	that is $f=\lambda\id$. Thus $\End_A(S_i)\to\C$, $\varphi\mapsto\lambda$, 
+	is an algebra isomorhpism. In particular,  
 	\[
 	A\simeq \prod_{i=1}^k M_{n_i}(\C).\qedhere
 	\]
 \end{proof}
 
 \begin{exercise}
-Sean $A$ y $B$ álgebras. Demuestre que los ideales de $A\times B$ son 
-de la forma $I\times J$, donde $I$ es un ideal de $A$ y $J$ es un ideal de $B$. 
+    Let $A$ and $B$ be algebras. Prove that the ideals of $A\times B$ are of the form 
+    $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
 \end{exercise}
 
-%\index{Módulo!fiel}
-%\index{Anulador!de un módulo}
-%Recordemos que un $A$-módulo $M$ se dice \textbf{fiel} si el \textbf{anulador} 
-%\[
-%\Ann(M)=\{a\in A:a\cdot M=0\}
-%\]
-%de $M$ es nulo. Observemos que $\Ann(M)$ es un ideal de $A$.
 \begin{definition}
-\index{Álgebra!simple}  
-Un álgebra $A$ se dice \textbf{simple} si sus únicos ideales son $\{0\}$ y $A$. 
+\index{Algebra!simple}  
+    An algebra $A$ is \textbf{simple} if $\{0\}$ and $A$ are the only ideals of $A$. 
 \end{definition}
 
-%Sabemos que toda álgebra $A$ posee al menos un ideal maximal.  
-%
-%\begin{example}
-%Sea $A$ un álgebra. Sabemos que exist un ideal maximal $I$. El cociente $A/I$ es un $A$-módulo simple. 	
-%\end{example}
-
 \begin{proposition}
-	Sea $A$ un álgebra simple de dimensión finita. Entonces existe un ideal a
-	izquierda no nulo $I$ de dimensión minimal.  Este ideal es un $A$-módulo
-	simple y todo $A$-módulo simple es isomorfo a $I$. 	
+	Let $A$ be a finite-dimensional simple algebra. There exists a non-zero left ideal 
+	$I$ of minimal dimension. This ideal is a simple 
+	$A$-module and every simple $A$-module is isomorphic to $I$.
 \end{proposition}
 
 \begin{proof}
-	Como $A$ es de dimensión finita y $A$ es un ideal a izquierda de $A$, existe un ideal a izquierda no nulo $I$ de dimensión minimal. 
-	La minimalidad de $\dim I$ implica que $I$ es simple como $A$-módulo. 
+	Since $A$ is finite-dimensional and $A$ is a left ideal of $A$, there exists a non-zero left ideal of minimal dimension. The minimality 
+	of $\dim I$ implies that $I$ is a simple $A$-module. 
 	
-	Sea $M$ un $A$-módulo simple. En particular, $M\ne\{0\}$. 
-	Como 
+	Let $M$ be a simple $A$-module. In particular, $M\ne\{0\}$. 
+	Since  
 	\[
 	\Ann(M)=\{a\in A:a\cdot M=\{0\}\}
 	\]
-	es un ideal de $A$ y además $1\in A\setminus\Ann(M)$, la simplicidad de $A$ implica que
-	$\Ann(M)=\{0\}$ y luego $I\cdot M\ne \{0\}$ (pues $I\cdot m\ne 0$ para todo $m\in M$ implica que 
-	$I\subseteq\Ann(M)$ e $I$ es no nulo, una contradicción).  
-	Sea $m\in M$ tal que $I\cdot m\ne\{0\}$. La función
+	is an ideal of $A$ and $1\in A\setminus\Ann(M)$, the simplicity of $A$ implies that 
+	$\Ann(M)=\{0\}$ and hence $I\cdot M\ne \{0\}$ (because $I\cdot m\ne 0$ for all $m\in M$ yields  
+	$I\subseteq\Ann(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
+	that $I\cdot m\ne\{0\}$. The map 
 	\[
 	\varphi\colon I\to M,\quad
 	x\mapsto x\cdot m,
 	\]
-	es un morfismo de módulos. Como $I\cdot m\ne\{0\}$, el morfismo $\varphi$ es no nulo. 
-	Como $I$ y $M$ son $A$-módulos simples, el lema de Schur implica que $\varphi$ es un isomorfismo. 
+	is a module homomorphism. Since $I\cdot m\ne\{0\}$, the map $\varphi$ is non-zero. 
+	Since both $I$ and $M$ are simple, Schur's lemma implies that $\varphi$ is an isomorphism. 
 \end{proof}
 
-Si $D$ es un álgebra de división, 
-el álgebra de matrices $M_n(D)$ es un álgebra simple. La proposición anterior nos dice
-en particular que $M_n(D)$ tiene una única clase de isomorfismos de $M_n(D)$-módulos simples. Como sabemos, 
-estos módulos son isomorfos a $D^n$. 
+If $D$ is a division algebra, then $M_n(D)$ is a simple algebra. The previous proposition
+implies that the algebra $M_n(D)$ has a unique isomorphism classes of simple modules. Each simple module
+is isomorphic to $D^n$. 
 
 \begin{proposition}
-Sea $A$ un álgebra de dimensión finita. Si $A$ es simple, entonces $A$ es semisimple.	
+Let $A$ be a finite-dimensional algebra. If $A$ is simple, then $A$ is semisimple. 
 \end{proposition}
 
 \begin{proof}
-	Sea $S$ la suma de los submódulos simples de la representación regular de $A$. 
-	Afirmamos que $S$ es un ideal de $A$. Sabemos
-	que $S$ es un ideal a izquierda, pues los submódulos de la representación regular de $A$ son exactamente los ideales a izquierda de $A$. 
-	Para ver que $Sa\subseteq S$ para todo $a\in A$, debemos
-	demostrar que $Ta\subseteq S$ para todo submódulo simple $T$ de $A$. Si $T\subseteq A$ es un submódulo simple y $a\in A$, 
-	sea $f\colon T\to Ta$, $t\mapsto ta$. Como $f$ es un morfismo de $A$-módulos y $T$ es simple, $\ker f=\{0\}$ o bien $\ker T=T$. Si $\ker T=T$, entonces
-	$f(T)=Ta=\{0\}\subseteq S$. Si $\ker f=\{0\}$, entonces $T\simeq f(T)=Ta$ y luego $Ta$ es simple y entonces $Ta\subseteq S$. 
+	Let $S$ be the sum of the simple submodules appearing in the regular representation of $A$. 
+	We claim that $S$ is an ideal of $A$. We knot that $S$ is a left ideal, as the submodules of the regular representation
+	are exactly the left ideals of $A$. To show that $Sa\subseteq S$ for all $a\in A$ we need to prove that 
+	$Ta\subseteq S$ for all simple submodule $T$ of $A$. If $T\subseteq A$ is a simple submodule and $a\in A$, 
+	let $f\colon T\to Ta$, $t\mapsto ta$. Since $f$ is a module homomorphism and $T$ is simple, it follows that
+	either $\ker f=\{0\}$ or $\ker T=T$. If $\ker T=T$, then 
+	$f(T)=Ta=\{0\}\subseteq S$. If $\ker f=\{0\}$, then $T\simeq f(T)=Ta$ and hence $Ta$ is simple. Hence $Ta\subseteq S$. 
 	
-	Como $S$ es un ideal de $A$ y $A$
-	es un álgebra simple, entonces $S=\{0\}$ o bien $S=A$.  Como $S\ne\{0\}$, pues 
-	existe un ideal a izquierda no nulo $I$ de $A$ tal que $I\ne\{0\}$ de dimensión minimal,  
-	se concluye que $S=A$, es decir la representación regular de $A$ 
-	es semisimple (por ser suma de submódulos simples) y luego el álgebra 
-	$A$ es semisimple. 
+	Since $S$ is an ideal of $A$ and $A$
+	is a simple algebra, it follows that either $S=\{0\}$ or $S=A$.  Since $S\ne\{0\}$, because  
+	there exists a non-zero left ideal $I$ of $A$ such that $I\ne\{0\}$ is of minimal dimension, 
+	it follows that $S=A$, that is the regular representaion of $A$ is semisimple (because it is a sum of simple submodules). Therefore 
+	$A$ is semisimple. 
 \end{proof}
 
-%\begin{lemma}
-%	Sea $A=B\times C$ 
-%	un producto directo de álgebras. Si $K$ es un ideal de $A$ si y sólo si $K=I\times J$ 
-%	para algún ideal $I$ de $A$ y un ideal $J$ de $B$. 
-%\end{lemma}
-%
-%\begin{proof}
-%	Consideramos los morfismos de anillos
-%	\begin{align*}
-%		& p_B\colon B\times C\to B, &&p_B(b,c)=b,\\
-%		& p_C\colon B\times C\to C, && p_C(b,c)=c.  	
-%	\end{align*}
-%	Si $K$ es un ideal de $A$, definimos
-%	$I=p_B(K)$ y $J=p_C(K)$. Veamos que $I$ es un ideal de $B$. Como $K$ es un subgrupo aditivo de $A$ y $p_B$ es un morfismo, entonces
-%	$I$ es un subgrupo aditivo de $B$. Si $x\in I=p_B(K)$, entonces
-%	existe $y\in C$ tal que $(x,y)\in K$. Como $(bx,0)=(b,0)(x,y)\in K$, entonces 
-%	\[
-%	bx=p_B(b,0)p_B(x,y)=p_B((b,0)(x,y))\in p_B(K)=I.
-%	\]
-%	Similarmente se demuestra que $J$ es un ideal de $C$. Afirmamos ahora que $K=I\times J$. 
-%	Si $(x,y)\in K$, entonces trivialente $x\in I$ e $y\in J$. Por otro lado, 
-%	si $(x,y)\in I\times J$, entonces $x\in I=p_B(K)$ y luego existe $c\in C$ tal que
-%	$(x,c)\in K$. Como $K$ es un ideal, $(1,0)(x,c)=(x,0)\in K$. Similarmente vemos que 
-%	$(0,y)\in K$. 
-%	En consecuencia, $(x,y)=(x,0)+(0,y)\in K$.   
-%%\end{proof}
-%
-%El resultado anterior puede extenderse por inducción. Si $A=A_1\times\cdots\times A_k$ es producto directo de álgebras, 
-%todo ideal de $A$ es de la forma $I_1\times\cdots I_k$, donde $I_j$ es un ideal de $A_j$ para todo $j\in\{1,\dots,k\}$. 
 \begin{theorem}[Wedderburn]
-\index{Teorema!de Wedderburn}
-	Sea $A$ un álgebra de dimensión finita. 
-	Si $A$ es simple, entonces $A\simeq M_n(D)$ para algún $n\in\N$ y alguna álgebra de división $D$.
+	Let $A$ be a finite-dimensional algebra. If $A$ is simple, then 
+	$A\simeq M_n(D)$ for some $n\in\N$ and some division algebra $D$. 
 \end{theorem}
 
-
 \begin{proof}
-	Como $A$ es simple, entonces $A$ es semisimple. El teorema de Artin--Wedderburn implica que $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
-	para ciertos $n_1,\dots,n_k$ y ciertas álgebras de división $D_1,\dots,D_k$. Además $A$ tiene
-	$k$ clases de isomorfismos de módulos simples. Como $A$ es simple,
-	$A$ tiene solamente una clase de isomorfismos de módulos simples. Luego $k=1$ y entonce
-	$A\simeq M_n(D)$ para algún $n\in\N$ y alguna álgebra de división $D$. 
+	Since $A$ is simple, it follows that $A$ is semisimple. Artin--Wedderburn's theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
+	for some $n_1,\dots,n_k$ and some division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
+	$k$ isomorphism classes of simple modules. Since $A$ is simple,
+	$A$ has only one isomorphism class of simple modules. Thus $k=1$ and hence 
+	$A\simeq M_n(D)$ for some $n\in\N$ and some division algebra $D$. 
 \end{proof}
 
 
 
 
 
-
-
-
-Let $A$ be an algebra over $K$. If $I$ is a left ideal of the ring $A$, then 
-$I$ is a subspace (over $K$), as $\lambda a=\lambda(1_Aa)=(\lambda 1_A)a$ 
-for all $\lambda\in K$ and $a\in A$.  
-
-
-
-An important example of a module is given by the left representation. The 
-algebra $A$ is a module over $A$ with the left multiplication. 
 

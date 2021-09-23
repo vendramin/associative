@@ -1,0 +1,857 @@
+\chapter{}
+
+\begin{definition}
+	\index{Anillo!denso de operadores lineales}
+	Sean $D$ un anillo de división y $V$ un espacio vectorial sobre $D$. Un
+	subanillo $R\subseteq\End_D(V)$ se dice \textbf{denso} en $V$ si para cada
+	$n\in\N$, cada $\{u_1,\dots,u_n\}\subseteq V$ linealmente independiente de
+	$V$ y cada conjunto $\{v_1,\dots,v_n\}\subseteq V$ (no necesariamente
+	linealmente independiente) existe $f\in R$ tal que $f(u_j)=v_j$ para todo
+	$j\in\{1,\dots,n\}$.
+\end{definition}
+
+%\begin{lemma}
+%	Sea $R$ un subanillo de $\End_D(V)$. Entonces $R$ es denso en $V$ si y sólo
+%	si para todo $g\in\End_D(V)$ y todo subespacio $U$ de $V$ de dimensión
+%	finita existe $f\in R$ tal que $f|_U=g|_U$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Supngamos que $R$ es denso en $V$. Sean $g\in\End_D(V)$ y $U\subseteq V$ un
+%	subespacio de dimensión finita. Sea $\{u_1,\dots,u_n\}$ una base de $U$.
+%	Como $R$ es denso, existe $f\in R$ tal que $f(u_j)=g(u_j)$ para todo
+%	$j\in\{1,\dots,n\}$ y luego $f|_U=g|_U$.
+%
+%	Recíprocamente, sea $n\in\N$ y sean $\{u_1,\dots,u_n\}\subseteq V$ un
+%	conjunto linealmente independiente y $\{v_1,\dots,v_n\}\subseteq V$. Sean
+%	$g\in\End_D(V)$ tal que $g(u_j)=v_j$ para todo $j\in\{1,\dots,n\}$ y $U$ el
+%	subespacio de $V$ generado por $u_1,\dots,u_n$. Por hipótesis existe $f\in
+%	R$ tal que $f|_U=g|_U$ y luego $f(u_j)=g(u_j)=v_j$ para todo
+%	$j\in\{1,\dots,n\}$.
+%\end{proof}
+
+\begin{lemma}
+	\label{lem:unico_denso}
+	Sea $D$ un anillo de división 
+	$V$ un $D$-espacio vectorial de dimensión finita. Entonces $\End_D(V)$ es
+	el único anillo denso en $V$.
+\end{lemma}
+
+\begin{proof}
+	Sea $R$ denso en $V$ y sea $\{v_1,\dots,v_n\}$ una base de $V$. Por
+	definición, $R\subseteq\End_D(V)$. Si $g\in\End_D(V)$ entonces, como $R$ es
+	denso en $V$, existe $f\in R$ tal que $f(v_j)=g(v_j)$ para todo
+	$j\in\{1,\dots,n\}$. Luego $g=f\in R$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:ideal_denso}
+	Sea $R$ un anillo denso en $V$ y sea $I$ un ideal no nulo de $R$. Entonces
+	$I$ es denso en $V$.
+\end{lemma}
+
+\begin{proof}
+	Sea $I$ un ideal no nulo de $R$. Sean $h\in I\setminus\{0\}$ y $u\in V$
+	tales que $h(u)=v\ne0$. Sea $\{u_1,\dots,u_n\}\subseteq V$ un conjunto
+	linealmente independiente y sea $\{v_1,\dots,v_n\}\subseteq V$. Como $R$ es
+	denso en $V$, existen $g_1,\dots,g_n\in R$ tales que $g_i(u_i)=u$ y
+	$g_i(u_j)=0$ si $i\ne j$. Existen además $f_1,\dots,f_n\in R$ tales que
+	$f_i(v)=v_i$. Entonces $\gamma=\sum_{i=1}^n f_ihg_i\in I$ cumple que
+	$\gamma(u_j)=v_j$ para todo $j\in\{1,\dots,n\}$.
+\end{proof}
+
+%Ahora demostraremos el teorema de densidad de Jacobson. 
+%Necesitaremos el siguiente
+%lema:
+%\begin{lemma}
+%	\label{lem:densidad}
+%	Sea $M$ un $R$-módulo simple y $D=\End_R(M)$.  Si $N$ es un subespacio de
+%	$M$ tal que $\dim_DN<\infty$ y $m\in M\setminus N$, entonces existe $r\in
+%	R$ tal que $rm\ne 0$ y $rN=0$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Supongamos que la afirmación no es cierta y sea $N$ un contraejemplo de la
+%	mínima dimensión posible. Entonces $\dim_DN\geq1$ (pues el resultado es
+%	verdadero en el caso $N=0$). Sea $N_0$ un subespacio de $N$ tal que $\dim
+%	N_0=\dim N-1$ y sea
+%	\[
+%		L=\{r\in R:rN_0=0\}.
+%	\]
+%	Como por la minimalidad de $N$ nuestra afirmación es cierta para $N_0$,
+%	para cualquier $x\in N\setminus N_0$ se tiene que $Lx=N$ (pues existe $r\in
+%	L$ tal que $rx=\ne 0$). Como $L$ es ideal a izquierda de $R$ y
+%	$Lx\subseteq N$ es un submódulo, $Lx=N$ pues $N$ es simple.
+%
+%	Sea $w\in V\setminus U$ tal que nuestra afirmación no es cierta y sea $u\in
+%	U\setminus U_0$.  La función 
+%	\[
+%		\delta\colon V\to V,\quad
+%		v\mapsto lw,
+%	\]
+%	donde $v=lu\in Lu=V$ (que depende de $u$ y $w$) 
+%	está bien definida: si $l_1,l_2\in L$ son tales que $v=l_1u=l_2u$ entonces $(l_1-l_2)u=0$ y luego
+%	\[
+%		0=\delta(0)=\delta((l_1-l_2)u)=(l_1-l_2)w=l_1w-l_2w. 
+%	\]
+%	Además $\delta$ es morfismo de $R$-módulos pues si $l\in L$ es tal que $v=lu$ entonces
+%	\[
+%		\delta(rv)=\delta(r(lu))=\delta( (rl)u)=(rl)w=r(lw)=r\delta(v)
+%	\]
+%	para todo $r\in R$.
+%
+%
+%\end{proof}
+
+\begin{theorem}[densidad de Jacobson]
+	\label{thm:densidad}
+	\index{Teorema!de densidad de Jacobson}
+	\index{Jacobson!densidad de}
+	Un anillo $R$ es primitivo si y sólo si es isomorfo a un anillo denso en un
+	espacio vectorial sobre un anillo de división.
+\end{theorem}
+
+\begin{proof}
+	Si $R$ es isomorfo a un anillo
+	denso en un $D$-módulo $V$ donde $D$ es un anillo de división, entonces $R$
+	es primitivo pues $V$ es un módulo simple y fiel. Es fiel: si
+	$f\in\Ann_R(V)$ entonces $f=0$ pues $f(v)=0$ para todo $v\in V$. Es simple
+	pues si $W\subseteq V$ es un submódulo no nulo, $v\in V$ y $w\in
+	W\setminus\{0\}$ entonces existe $f\in R$ tal que $v=f(w)\in W$. 
+
+	Supongamos ahora que $R$ es primitivo y sea $V$ un módulo simple y fiel.
+	Por el lema de Schur, $D=\End_R(V)$ es un anillo de división. Luego $V$ es
+	un $D$-espacio vectorial con las operaciones
+	\[
+	\delta v=\delta(v),\quad
+	\delta(rv)=r(\delta v),\quad
+	v\in V,r\in R,\delta\in D.
+	\]
+	Para $r\in R$ definimos 
+	\[
+		\gamma_r\colon V\to V,\quad
+		v\mapsto rv.
+	\]
+	Es fácil ver que $\gamma_r\in\End_D(V)$ y que la función $R\to\End_D(V)$,
+	$r\mapsto\gamma_r$, es un morfismo de anillos. Como $V$ es fiel,
+	$R\simeq\gamma(R)=\{\gamma_r:r\in R\}$ (si $\gamma_r=\gamma_s$ entonces
+	$rv=\gamma_r(v)=\gamma_s(v)=sv$ para todo $v\in V$ y luego $r=s$ pues
+	$(r-s)v=0$ para todo $v\in V$).
+
+	\begin{claim}
+		Si $U$ es un subespacio de $V$
+		de dimensión finita, para cada $w\in V\setminus U$ existe $r\in R$ tal que
+		$\gamma_r(U)=0$ y $\gamma_r(w)\ne0$.
+	\end{claim}
+
+	Supongamos que la afirmación no es cierta y sea $U$ un contraejemplo de la
+	mínima dimensión posible. Entonces $\dim_DU\geq1$ (pues el resultado es
+	cierto para el subespacio nulo). Sea $U_0$ un subespacio de $U$ tal que
+	$\dim U_0=\dim U-1$ y sea
+	\[
+		L=\{l\in R:\gamma_l(U_0)=0\}.
+	\]
+	Como por la minimalidad de $U$ nuestra afirmación es cierta para $U_0$,
+	para cualquier $v\in V\setminus U_0$ se tiene que $Lv=V$ (pues existe $l\in
+	L$ tal que $lv=\gamma_l(v)\ne 0$, y como $L$ es ideal a izquierda de $R$ sabemos
+	que $Lv\subseteq V$ es un submódulo y $V$ es simple).
+
+	Sea $w\in V\setminus U$ tal que nuestra afirmación no es cierta y sea $u\in
+	U\setminus U_0$.  La función 
+	\[
+		\delta\colon V\to V,\quad
+		v\mapsto lw,
+	\]
+	donde $v=lu\in Lu=V$ (que depende de $u$ y $w$) 
+	está bien definida: si $l_1,l_2\in L$ son tales que $v=l_1u=l_2u$ entonces $(l_1-l_2)u=0$ y luego
+	\[
+		0=\delta(0)=\delta((l_1-l_2)u)=(l_1-l_2)w=l_1w-l_2w. 
+	\]
+	Además $\delta$ es morfismo de $R$-módulos pues si $l\in L$ es tal que $v=lu$ entonces
+	\[
+		\delta(rv)=\delta(r(lu))=\delta( (rl)u)=(rl)w=r(lw)=r\delta(v)
+	\]
+	para todo $r\in R$.
+
+	Para todo $l\in L$ se tiene que 
+	\[
+		l(\delta(u)-w)=l\delta(u)-lw=\delta(lu)-lw=0,
+	\]
+	y entonces $L(\delta(u)-w)=0$. Pero esto implica que $\delta(u)-w\not\in V\setminus U_0$, es
+	decir $\delta(u)-w\in U_0$. Luego 
+	\[
+		w=xu-(xu-w)\in Du+U_0=U,
+	\]
+	una contradicción. 
+
+	Esta afirmación alcanza para demostrar el teorema. En efecto, sean
+	$u_1,\dots,u_n\in V$ vectores linealmente independientes y sean
+	$v_1,\dots,v_n\in V$ vectores arbitrarios. Si fijamos $i\in\{1,\dots,n\}$, la afirmación anterior con
+	\[
+		U=\langle u_1,\dots,u_{i-1},u_{i+1},\dots,u_n\rangle
+	\]
+	y $w=u_i$ nos dice que existe $r_i\in R$ tal que $\gamma_{r_i}(u_j)=0$ si
+	$j\ne i$ y $\gamma_{r_i}(u_i)\ne 0$. Como además existe $s_i\in R$ tal que
+	$\gamma_{s_i}\gamma_{r_i}(u_i)=v_i$, se concluye que el elemento
+	$r=\sum_{j=1}^n s_jr_j\in R$ es tal que $\gamma_r(u_i)=v_i$ para todo
+	$i\in\{1,\dots,n\}$.
+\end{proof}
+
+%\begin{exercise}
+%	Sea $R$ un anillo denso en $V$. Demuestre que $R$ es artiniano a izquierda
+%	si y sólo si $V$ es de dimensión finita.
+%\end{exercise}
+% si V es de dimensión finita, es fácil por el lema~\ref{lem:unico_denso}
+% hungerford pag 419
+
+\begin{corollary}
+	Si $R$ es un anillo primitivo, entonces existe un anillo de división $D$
+	tal que $R\simeq\End_D(V)$ para algún $D$-espacio vectorial $V$ de
+	dimensión finita, o bien para todo $m\in\N$ existe un subanillo $R_m$ de
+	$R$ y un morfismo de anillos sobreyectivo $R_m\to\End_D(V_m)$ para algún $D$-espacio
+	vectorial $V_m$ tal que $\dim_DV_m=m$.
+\end{corollary}
+
+\begin{proof}
+	Sabemos que $R$ admite un módulo $V$ simple y fiel. Además, como $R$ es
+	primitivo, por el teorema~\ref{thm:densidad} podemos suponer que existe un
+	anillo de división $D$ tal que $R$ es denso en un $D$-espacio vectorial
+	$V$.  Sea $\gamma\colon R\to\End_D(V)$, $r\mapsto\gamma_r$, donde
+	$\gamma_r(v)=rv$. Como $V$ es fiel, $\gamma$ es inyectiva. Luego
+	$R\simeq\gamma(R)$. 
+
+	Si $V$ es de dimensión finita, el resultado se obtiene del
+	lema~\ref{lem:unico_denso}.  Supongamos entonces que $V$ es de dimensión
+	infinita y sea $\{u_1,u_2,\dots\}$ un conjunto linealmente independiente.
+	Para cada $m\in\N$ sea $V_m$ el subespacio generado por $\{u_1,\dots,u_m\}$
+	y sea $R_m=\{r\in R:rV_m\subseteq V_m\}$. Es fácil ver que $R_m$ es un
+	subanillo de $R$. Como $R$ es denso en $V$, la función
+	\[
+		R_m\to \End_D(V_m),\quad
+		r\mapsto\gamma_r|_{V_m}
+	\]
+	es un morfismo sobreyectivo de anillos. 
+\end{proof}
+
+%\section{El teorema de Wedderburn}
+
+En álgebra conmutativa los dominios juegan un papel fundamental. En álgebra no
+conmutativa las cosas no son tan similares ya que el anillo $M_n(K)$ no es un
+dominio. Nos interesa entonces encontrar un concepto similar al de dominio que
+funcione en el contexto no conmutativo.
+
+\begin{definition}
+	\index{Anillo!primo} 
+	Sea $R$ un anillo (no necesariamente con unidad). Diremos que $R$ es
+	\textbf{primo} si dados $x,y\in R$ tales que $xRy=0$ entonces $x=0$ o bien
+	$y=0$.
+\end{definition}
+
+\begin{example}
+	Recordemos que un anillo $R$ es un \textbf{dominio} si $xy=0$ implica que
+	$x=0$ o bien $y=0$.  Todo dominio es trivialmente un anillo primo.
+\end{example}
+
+\begin{example}
+	Un anillo conmutativo es primo si y sólo si es un dominio pues $ab=0$ si y
+	sólo si $aRb=0$.
+\end{example}
+
+\begin{example}
+	Un ideal no nulo de un anillo primo es un anillo primo.
+\end{example}
+
+\begin{lemma}
+	Sea $R$ un anillo. Son equivalentes:
+	\begin{enumerate}
+		\item $R$ es primo.
+		\item Si $I$ y $J$ son ideales a izquierda tales que $IJ=0$ entonces
+			$I=0$ o bien $J=0$.
+		\item Si $I$ y $J$ son ideales tales que $IJ=0$ entonces $I=0$ o bien
+			$J=0$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Veamos primero que $(1)\implies(2)$. Sean $I$ y $J$ ideales a izquierda
+	tales que $IJ=0$. Entonces $IRJ=I(RJ)\subseteq IJ=0$. Supongamos que $J\ne
+	0$. Si $u\in I$ y $v\in J\setminus\{0\}$, entonces $uRv\in IRJ=0$ y luego
+	$u=0$.
+
+	La implicación $(2)\implies(3)$ es trivial. 
+
+	Veamos entonces que $(3)\implies(1)$. Sean $x,y\in R$ tales que $xRy=0$.
+	Sean $I=RxR$ y $J=RyR$. Como $IJ=(RxR)(RyR)=R(xRy)R=0$, por hipótesis,
+	podemos suponer que entonces $I=0$. En particular $Rx$ y $xR$ son ideales
+	pues $R(xR)=(Rx)R=0$. Pero entonces $\Z x$ es un ideal de $R$ tal que $(\Z x)R=0$. Luego $x=0$. 
+\end{proof}
+
+\begin{example}
+	Todo anillo simple es trivialmente primo. La afirmación recíproca no es
+	cierta: $\Z$ es un anillo primo (por ser un dominio) pero no es simple.
+\end{example}
+
+\begin{example}
+	Si $R_1$ y $R_2$ son anillos, $R=R_1\times R_2$ no es primo pues
+	$I=R_1\times 0$ y $J=0\times R_2$ son ideales no nulos tales que $IJ=0$.
+\end{example}
+
+\begin{lemma}
+	\label{lem:primoizqmin=>prim}
+	Sea $R$ un anillo primo y sea $L$ un ideal a izquierda minimal de $R$.
+	Entonces $R$ es primitivo.
+\end{lemma}
+
+\begin{proof}
+	Como $L$ es ideal a izquierda minimal, es simple como $R$-módulo. Veamos
+	que como $R$ es primo, $L$ es fiel. Sea $y\in L\setminus\{0\}$ y sea
+	$x\in\Ann_R(L)$.  Entonces, como $xRy\in xRL\subseteq xL=0$, se concluye
+	que $x=0$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:denso_artiniano}
+	Sea $D$ un anillo de división y sea $R$ un anillo denso en un
+	$D$-espacio vectorial $V$. Si $R$ es artiniano a izquierda, 
+	entonces $V$ es de dimensión finita.
+\end{lemma}
+
+\begin{proof}
+	Supongamos que $V$ tiene dimensión infinita y sea $\{u_1,u_2,\dots,\}$ un
+	subconjunto de $V$ linealmente independiente. Como $R\subseteq\End_D(V)$,
+	$V$ es un $R$-módulo con $f\cdot v=f(v)$, donde $f\in R$ y $v\in V$. Para
+	cada $n\in\N$ sea 
+	\[
+		I_n=\Ann_R(\{u_1,\dots,u_n\}.
+	\]
+	Los $I_j$ son ideales a izquierda de $R$ tales que $I_1\supseteq
+	I_2\supseteq\cdots\supseteq I_n\supseteq\cdots$. Veamos que esta sucesión
+	no se estabiliza: Sean $n\in\N$ y $v\in V\setminus\{0\}$. Como $R$ es denso
+	en $V$, existe $f\in R$ tal que $f(u_j)=0$ para todo $j\in\{1,\dots,n\}$ y
+	$f(u_{n+1})=v\ne0$. Luego $I_1\supsetneq I_2\supsetneq\cdots\supsetneq
+	I_n\supsetneq\cdots$, una contradicción pues $R$ es artiniano a izquierda.
+\end{proof}
+
+\begin{theorem}[Wedderburn]
+	\index{Teorema!de Wedderburn}
+	Sea $R$ un anillo artiniano a izquierda. Las siguientes afirmaciones son
+	equivalentes:
+	\begin{enumerate}
+		\item $R$ es simple.
+		\item $R$ es primo.
+		\item $R$ es primitivo.
+		\item $R\simeq M_n(D)$ para algún $n\in\N$ y algún anillo de división $D$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	La implicación $(1)\implies(2)$ es trivial. 
+	
+	Para demostrar que $(2)\implies(3)$ basta observar que como $R$ es
+	artiniano, $R$ tiene un ideal a izquierda minimal.  Por el
+	lema~\ref{lem:primoizqmin=>prim}, $R$ es primitivo. 
+
+	Veamos que $(3)\implies(4)$. Si $R$ es primitivo, por el teorema de
+	densidad de Jacbonson, existe un anillo de división $D$ tal que 
+	$R$ es isomorfo a un anillo $S$ que es denso en un $D$-espacio vectorial
+	$V$. Como $R$ es artiniano a izquierda, el lema~\ref{lem:denso_artiniano} implica que 
+	$R=\End_D(V)\simeq M_n(D)$ pues $\dim_DV<\infty$. 
+
+	Por último, $(4)\implies(1)$ es trivial pues $M_n(D)$ es simple. 
+%	$D$-espacio vectorial $V$ de dimensión finita. Si $u_1,\dots,u_m\in V$ son
+%	linealmente independientes sobre $D$, existen $f_1,\dots,f_m\in S$ tales
+%	que $f_i(u_i)\ne0$ y $f_i(u_j)=0$ si $i\ne j$. Como los $f_j$ son
+%	linealmente independientes sobre $k$, $\dim_DV\leq \dim A$. Luego $A=\End_DV\simeq M_n(D^{\op})$ 
+%	por la proposición\dots
+\end{proof}
+
+Para completar nuestra presentación del teorema de Wedderburn, veremos
+que la descomposición es única. Necesitaremos dos lemas previos:
+
+\begin{lemma}
+	\label{lem:wedderburn_unididad}
+	Sea $D$ un anillo de división. Entonces 
+	\[
+		D^{\op}\simeq\End_{M_n(D)}(D^{n}). 
+	\]
+\end{lemma}
+
+\begin{proof}
+	Sea  
+	\begin{align*}
+		&\phi\colon D^{\op}\to\End_{M_n(D)}(D^{n}), & d\mapsto \phi(d)\colon &D^{n}\to D^{n},
+	\end{align*}
+	donde $\phi(d)(x)=xd$. Es evidente que $\phi$ es lineal; 
+	es morfismo pues además 
+	\begin{align*}
+		\phi(d_1\cdot_{\op} d_2)(x)&=\phi(d_2d_1)(x)=x(d_2d_1)=(xd_2)d_1=\phi(d_1)\phi(d_2)(x).
+	\end{align*}
+	Como $\phi$ es no nulo y $D^{\op}$ es es simple por ser de división, se concluye que 
+	$\phi$ es inyectivo. Veamos que
+	$\phi$ es sobreyectivo: sean $f\in\End_{M_n(D)}(D^{n})$ y 
+	\[
+		e_1=\colvec{4}{1}{0}{\vdots}{0},\quad
+		\colvec{4}{d_1}{d_2}{\vdots}{d_n}=
+		f(e_1),
+		\quad
+		A=\begin{pmatrix} 
+			a_1 & 0 & \cdots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			a_n & 0 & \cdots & 0
+		\end{pmatrix}.
+	\]
+	Entonces
+	\[
+		f\colvec{4}{a_1}{a_2}{\vdots}{a_n}
+		=f(Ae_1)=Af(e_1)=
+		\colvec{4}{a_1d_1}{a_2d_2}{\vdots}{a_nd_1}=\phi(d_1)\colvec{3}{a_1}{\vdots}{a_n}.
+	\]
+\end{proof}
+
+%%\begin{lemma}
+%	\label{lem:Wedderburn:unicidad1}
+%	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial de dimensión finita. 
+%	Sea $R=\End_D(V)$. Si $M$ y $N$ son $R$-módulos 
+%	simples y fieles, entonces $M\simeq N$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Como $R=\End_D(V)\simeq M_n(D)$ es artiniano a izquierda, $R$ contiene un
+%	ideal a izquierda minimal. Como $M$ es fiel, existe $m\in M$ tal que $Lm\ne
+%	0$ (si $Lm=0$ para todo $m\in M$, $L\subseteq\Ann_R(M)=0$). Como $Lm$ es un
+%	submódulo no nulo de $M$ y $M$ es simple, $Lm=M$. La función
+%	\[
+%		\theta\colon L\to Lm=M,\quad
+%		x\mapsto xm
+%	\]
+%	es morfismo sobreyectivo. Como $L$ es simple como módulo, por el lema de
+%	Schur, $\theta$ es inyectivo. Luego $L\simeq M$. Similarmente se demuestra
+%	que $L\simeq N$.
+%\end{proof}
+%
+%\begin{lemma}
+%	\label{lem:Wedderburn:unicidad2}
+%	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial. Sea
+%	$g\colon V\to V$ un morfismo de grupos abelianos tal que $fg=gf$ para todo
+%	$f\in\End_D(V)$. Entonces existe $d\in D$ tal que $g(v)=dv$ para todo $v\in
+%	V$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Sea $u\in V\setminus\{0\}$. Vamos a demostrar que $\{u,g(u)\}$ es
+%	linealmente dependiente sobre $D$. Supongamos que $\{u,g(u)\}$ fuera linealmente
+%	independiente. Entonces $\dim_DV\geq2$. 
+%	Como $\End_D(V)$ es denso en $V$, existe $f\in\End_D(V)$ tal
+%	que $f(u)=0$ y $f(g(u))\ne0$. Luego
+%	\[
+%		0\ne 0=f(g(u))=g(f(u))=g(0)=0,
+%	\]
+%	una contradicción.  Como $\{u,g(u)\}$ es linealmente dependiente sobre $D$,
+%	existe $d\in D$ tal que $g(u)=du$. Si $v\in V$, por densidad existe
+%	$h\in\End_D(V)$ tal que $h(u)=v$. Luego
+%	\[
+%		g(v)=g(h(u))=h(g(u))=h(du)=dh(u)=dv.
+%	\]
+%\end{proof}
+%
+%\begin{proposition}
+%	Para cada $j\in\{1,2\}$ sea $V_j$ un espacio vectorial sobre el anillo de división $D_j$ de dimensión finita $n_j$. 
+%	Si $\End_{D_1}(V_1)\simeq\End_{D_2}(V_2)$ entonces $n_1=n_2$ y $D_1\simeq D_2$.
+%%	Sea $V$ es un espacio vectorial sobre el anillo de división $D$ y sea $W$
+%%	un espacio vectorial sobre el anillo de división $E$. Supongamos que $V$ y
+%%	$W$ son de dimensión finita. Si $\End_D(V)\simeq\End_E(W)$ entonces
+%%	$\dim_DV=\dim_EW$ y $D\simeq E$.
+%\end{proposition}
+%
+%\begin{proof}	
+%	Cada $V_j$ es un $\End_{D_j}(V_j)$-módulo fiel. Sea $R=\End_{D_1}(V_1)$. Como existe un isomorfismo
+%	$\sigma\colon R\to\End_{D_2}(V_2)$, $V_2$ es un
+%	$R$-módulo simple y fiel con
+%	\[
+%		fv_2=\sigma(f)v_2,\quad
+%		f\in R,\,v_2\in V_2.
+%	\]
+%	Por el lema~\ref{lem:Wedderburn:unicidad1}, existe un isomorfismo
+%	$\phi\colon V_1\to V_2$ de $R$-módulos; en particular, 
+%	\[
+%		\phi(fv_1)=f(\phi(v_1))=(\sigma(f))\phi(v_1)
+%	\]
+%	para todo $v_1\in V_1$ y $f\in R$. Luego 
+%	$\sigma(f)=\phi f\phi^{-1}\colon V_2\to V_2$ es un morfismo de grupos
+%	abelianos. Para $j\in\{1,2\}$ y $d_j\in D_j$ sea 
+%	\[
+%		\gamma_{d_1}\colon V_j\to V_j,\quad x\mapsto d_jx.
+%	\]
+%	Como cada $V_j$ es fiel, $\gamma_{d_j}=0$ si y sólo si $d_j=0$. Si $f\in R$ y $d_1\in D_1$ entonces $f\gamma_{d_1}=\gamma_{d_1}f$. Luego
+%	\[
+%		(\phi\gamma_{d_1}\phi^{-1})\sigma(f)
+%		=(\phi\gamma_{d_1}\phi^{-1})(\phi f\phi^{-1})
+%		=\phi f\gamma_{d_1}\phi^{-1}
+%		=\sigma(f)\phi\gamma_{d_1}\phi^{-1}.
+%	\]
+%	Como $\sigma$ es sobreyectiva, el lema~\ref{lem:Wedderburn:unicidad2} con
+%	$V=V_2$ y $g=\phi\gamma_{d_1}\phi^{-1}$ implica que existe $d_2\in D_2$ tal
+%	que $\phi\gamma_{d_1}\phi^{-1}=\gamma_{d_2}$. Sea $\tau\colon D_1\to D_2$,
+%	$d_1\mapsto d_2$. Entonces $\phi\gamma_{d}\phi^{-1}=\gamma_{\tau(d_2)}$ 
+%	\framebox{?}
+%	Además 
+%	\[
+%		\phi(d_1v)=\phi\gamma_{d_1}(v)=\gamma_{\¿au(d_1)}\phi(v)=\tau_{d_1}\phi(v)
+%	\]
+%	Como $\{u_1,\dots,u_m\}$ es linealmente independiente sobre $D_1$ si y sólo si $\{\phi(u_1),\dots,\phi(u_m)\}$ es linealmente
+%	independiente sobre $D_2$, se concluye que $\dim_{D_1}(V_1)=\dim_{D_2}(V_2)$. 
+%\end{proof}
+
+\begin{lemma}
+	\label{lem:simple_izqminimal}
+	Sea $R$ un anillo simple con un ideal a izquierda $L$ minimal. Entonces
+	todo $R$-módulo simple es isomorfo a $L$. 
+\end{lemma}
+
+\begin{proof}
+	Sea $M$ un módulo simple. Como $LR$ es un ideal de $R$ y el anillo $R$ es
+	simple, $LR=R$.  Como
+	\[
+		0\ne RM=(LR)M=L(RM)\subseteq LM,
+	\]
+	existe $m\in M$ tal que $Lm\ne 0$. Luego $Lm$ es un submódulo no nulo del simple $M$ y entonces
+	$Lm=M$. El morfismo $\gamma\colon L\to M$, $l\mapsto lm$, es sobreyectivo e
+	inyectiva (pues $\ker\gamma$ es un ideal a izquierda propiamente
+	contenido en $L$). Luego $L\simeq M$. 
+\end{proof}
+
+\begin{theorem}
+	Si $D$ y $E$ son anillos de división tales que Si $M_n(D)\simeq M_m(E)$
+	entonces $n=m$ y $D\simeq E$.
+\end{theorem}
+
+\begin{proof}
+	Como $M_n(D)$ es artiniano a izquierda, existe 
+	un ideal a izquierda $L$ minimal. Como
+	$D^{n}\simeq E^{m}\simeq L$ como $M_n(D)$-módulos (ver ejemplo~\ref{exa:I_k}), 
+	el lema~\ref{lem:simple_izqminimal} implica que
+	\begin{align*}
+		D^{\op}\simeq\End_{M_n(D)}(D^{n})\simeq\End_{M_n(D)}(L)\simeq\End_{M_m(E)}(L)\simeq\End_{M_m(E)}(E^{m})\simeq E^{\op}.
+	\end{align*}
+	Luego $D\simeq E$ y entonces $n=m$ pues $\dim M_n(D)=\dim M_m(E)$.
+\end{proof}
+
+%\section{El teorema de Connel}
+
+Una pregunta surge naturalmente: ¿Cuándo el anillo de grupo $K[G]$ es primo?
+Obtendremos una respuesta completa en el caso en que $K$ sea un cuerpo de
+característica cero. 
+
+%\begin{lemma}
+%	\label{lemma:Dfg}
+%	Sea $H$ un subgrupo finitamente generado de $\Delta(G)$.
+%	\begin{enumerate}
+%		\item $(G:C_G(H))$ es finito.
+%		\item $(H:Z(H))$ es finito.
+%		\item $[H,H]$ es finito.
+%		\item Si $H_0$ es el conjunto de elementos de torsión de $H$, $H_0$ es
+%			un subgrupo normal finito de $H$ y $H/H_0$ es finitamente generado,
+%			abeliano y libre de torsión.
+%	\end{enumerate}
+%\end{lemma}
+%
+%\begin{proof}
+%	Veamos la primera afirmación: Si $H=\langle
+%	h_1,\dots,h_n\rangle\subseteq\Delta(G)$, entonces $(G:C_G(h_i))$ es finito
+%	para todo $i\in\{1,\dots,n\}$. Como $C_G(H)=\cap_{i=1}^nC_G(h_i)$, se
+%	concluye que $(G:C_G(H))$ es finito.
+%
+%	Para demostrar la segunda afirmación basta observar que $Z(H)=H\cap C_G(H)$
+%	y luego $(H:Z(H))\leq(G:C_G(H)<\infty$. % necesito dos lemas
+%
+%	La tercera afirmación es consecuencia de la segunda gracias a un teorema de
+%	Schur.
+%
+%	Por último, demostremos la cuarta afirmación.  El grupo $H/[H,H]$ es
+%	abeliano y finitamente generado y luego, sus elementos de torsión forman un
+%	grupo finito. Como $[H,H]$ es finito, $[H,H]$ es un subgrupo normal de
+%	$H_0$. Vamos a demostrar que la torsión de $H/[H,H]$ es igual a
+%	$H_0/[H,H]$. La inclusión $\supseteq$ es trivial. Veamos entonces que vale
+%	$\subseteq$: so $(x[H,H])^k=1$, entonces $x^k\in[H,H]$. Luego $(x^k)^m=1$ y
+%	luego $x\in H_0$. Tenemos entonces que 
+%	\[
+%		H/[H,H]\simeq\Z^r\times\operatorname{tor}(H/[H,H])\simeq\Z^r\times H_0/[H,H]
+%	\]
+%	y luego $H/H_0$ es finitamente generado, abeliano y libre de torsión.
+%
+%\end{proof}
+%
+%\begin{lemma}
+%	\label{lemma:K[abelian]}
+%	Si $G$ un grupo abeliano finitamente generado y sin torsión, entonces
+%	$K[G]$ es un dominio. 
+%\end{lemma}
+%
+%\begin{proof}
+%	Por el teorema
+%	de estructura de grupos abelianos finitamente generados podemos escribir
+%	$G=\langle x_1\rangle\times\cdots\langle x_n\rangle$, donde
+%	$\langle x_j\rangle\simeq\Z$ para todo $j\in\{1,\dots,n\}$. Todo elemento
+%	de $G$ se escribe unívocamente como $x_1^{m_1}\cdots x_n^{m_n}$ y
+%	luego la función 
+%	\[
+%		\iota\colon K[X_1,\dots,X_n]\to K[G],\quad
+%		X_j\mapsto x_j,
+%	\]
+%	es un
+%	morfismo de anillos inyectivo. Si $\alpha\in K[G]$, entonces existe
+%	$m\in\N$ suficientemente grande tal que $\iota((X_1\cdots X_n)^m)\alpha\in
+%	\iota(K[X_1,\dots,X_n])\simeq K[X_1,\dots,X_n]$. Luego $K[G]\subseteq
+%	K(X_1,\dots,X_n)$ y $K[G]$ es un dominio.
+%\end{proof}
+
+%\begin{lemma}
+%	Si $G$ es un grupo, entonces
+%	$\Delta(G)/\Delta^+(G)$ es abeliano y libre de torsión.
+%%	Valen las siguientes afirmaciones:
+%%	\begin{enumerate}
+%%		%\item $\Delta^+(G)$ está generado por los subgrupos normales finitos de $G$.
+%%		\item 
+%%		\item Si $\Delta^+(G)=1$, entonces $K[\Delta(G)]$ es un dominio.
+%%	\end{enumerate}
+%\end{lemma}
+%
+%\begin{proof}
+%%	Demostremos la primera afirmación. 
+%	Sean $y_1,\dots,y_n\in\Delta(G)$ y sea $L=\langle y_1,\dots,y_n\rangle$.
+%	Como $[L,L]$ es finito por el lema~\ref{lemma:Dfg}, $[L,L]\subseteq\Delta^+(G)$. Luego
+%	$\Delta(G)/\Delta^+(G)$ es abeliano y libre de torsión.
+%%
+%%	Para demostrar la segunda afirmación basta observar que si $\Delta^+(G)=1$
+%%	entonces, por el primer ítem, $\Delta(G)$ es abeliano, finitamente generado
+%%	y libre de torsión. Luego $K[\Delta(G)]$ es un dominio por el
+%%	lema~\ref{lemma:K[abelian]}. 
+%\end{proof}
+
+Si $S$ es un subconjunto finito de un grupo $G$ se define
+$\widehat{S}=\sum_{x\in S}x$. 
+
+\begin{lemma}
+	\label{lemma:sumN}
+	Sea $N$ un subgrupo normal finito de $G$. Entonces $\widehat{N}$ es central
+	en $K[G]$ y además $\widehat{N}(\widehat{N}-|N|1)=0$.
+\end{lemma}
+
+\begin{proof}
+	Supongamos que $N=\{n_1,\dots,n_k\}$ y 
+	sea $g\in G$. Como la función $N\to N$, $n\mapsto gng^{-1}$, es una biyección, 
+	\[
+		g\widehat{N}g^{-1}=g(n_1+\cdots+n_k)g^{-1}=gn_1g^{-1}+\cdots+gn_kg^{-1}=\widehat{N}.
+	\]
+	Como $nN=N$ si $n\in N$, se tiene que $n\widehat{N}=\widehat{N}$. Luego
+	$\widehat{N}\widehat{N}=\sum_{j=1}^k n_j\widehat{N}=|N|\widehat{N}$.
+\end{proof}
+
+Necesitamos el siguiente teorema:
+
+\begin{theorem}[Dietzmann]
+	\index{Teorema!de Dietzmann}
+	\label{theorem:Dietzmann} 
+	Sea $G$ un grupo y sea $X\subseteq G$ un
+	subconjunto finito de $G$ cerrado por conjugación. Si existe $n\in\N$ tal
+	que $x^n=1$ para todo $x\in X$, entonces $\langle X\rangle$ es un subgrupo
+	finito de $G$.
+\end{theorem}
+
+\begin{proof}
+	Sea $S=\langle X\rangle$. Como $x^{-1}=x^{n-1}$, todo elemento de $S$ puede
+	escribirse como producto (finito) de elementos de $X$. 
+	
+	Fijemos $x\in X$. Vamos a demostrar que si $x\in X$ aparece $k\geq 1$ veces
+	en la representación de una palabra $s$, podemos escribir a $s$ como producto de $m$
+	elementos de $X$ donde los primeros $k$ son iguales a $x$.  Supongamos que
+	\[
+	s=x_1x_2\cdots x_{t-1}xx_{t+1}\cdots x_m,
+	\]
+	donde cada $x_j\ne x$ para todo $j\in\{1,\dots,t-1\}$. Entonces
+	\[
+		s=x(x^{-1}x_1x)(x^{-1}x_2x)\cdots (x^{-1}x_{t-1}x)x_{t+1}\cdots x_m
+	\]
+	es producto de $m$ elementos de $X$ pues $X$ es cerrado por conjugación, y
+	el primer elemento es nuestro $x$. Este mismo argumento implica que $s$
+	puede escribirse como
+	\[
+		s=x^ky_{k+1}\cdots y_m,
+	\]
+	donde los $y_j$ son elementos de $X\setminus\{x\}$.
+
+	Sea ahora $s\in S$ y escribamos a $s$ como producto de $m$ elementos de $X$,
+	donde $m$ es el mínimo posible.  Para ver que $S$ es finito basta ver que 
+	$m\leq (n-1)|X|$. 
+	
+	Si suponemos que $m>(n-1)|X|$, 
+	al menos un $x\in X$ aparecería $n$ veces en la
+	representación de $s$. Sin pérdida de generalidad, podríamos escribir 
+	\[
+		s=x^nx_{n+1}\cdots x_m=x_{n+1}\cdots x_m,
+	\]
+	una contradicción a la minimalidad de $m$. 
+\end{proof}
+
+Antes de seguir hacia nuestro objetivo demostraremos un teorema de Schur:
+
+\begin{theorem}[Schur]
+\index{Teorema!de Schur}
+\label{thm:Schur}
+	Si $Z(G)$ tiene índice finito en $G$ entonces $[G,G]$ es finito.
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $(G:Z(G))=n$. 
+	Sea $X$ el conjunto de conmutadores de $G$. El conjunto $X$ es finito pues como la función
+	\[
+		\varphi\colon X\to G/Z(G)\times G/Z(G),\quad [x,y]\mapsto (xZ(G),yZ(G)),
+	\]
+	es inyectiva, se tiene que $|X|\leq n^2$. Para ver que $\varphi$ es
+	inyectiva supongamos que $(xZ(G),yZ(G))=(uZ(G),vZ(G))$. Entonces $u^{-1}x\in Z(G)$, 
+	$v^{-1}y\in Z(G)$ y luego 
+	\begin{align*}
+		[u,v]&=uvu^{-1}v^{-1}=uv(u^{-1}x)x^{-1}v^{-1}=xvx^{-1}(v^{-1}y)y^{-1}=xyx^{-1}y^{-1}=[x,y].
+	\end{align*}
+	Además $X$ es cerrado por conjugación pues
+	\[
+		g[x,y]g^{-1}=[gxg^{-1},gyg^{-1}]
+	\]
+	para todo $g,x,y\in G$. Como $g\mapsto g^n$ es un morfismo de grupos $G\to
+	Z(G)$, lema~\ref{lem:center} implica que $[x,y]^n=[x^n,y^n]=1$ para todo
+	$[x,y]\in X$.  Luego el teorema queda demostrado al aplicar el
+	teorema~\ref{theorem:Dietzmann} de Dietzmann.
+\end{proof}
+
+
+Si $G$ es un grupo, consideramos el subconjunto %los siguientes subconjuntos:
+\begin{align*}
+%	&\Delta(G)=\{x\in G:(G:C_G(x))<\infty\},\\
+	&\Delta^+(G)=\{x\in \Delta(G):\text{$x$ tiene orden finito}\}.
+\end{align*}
+
+\begin{lemma}
+	\label{lem:DcharG}
+	Si $G$ es un grupo, entonces $\Delta^+(G)$ es un subgrupo
+	característico de $G$.
+\end{lemma}
+
+\begin{proof}
+	Claramente $1\in\Delta^+(G)$. 
+	Sean $x,y\in\Delta^+(G)$ y sea $H$ el subgrupo de $G$ generado por el
+	conjunto $C$ formado por los finitos conjugados de $x$ e $y$. Si $|x|=n$ y
+	$|y|=m$, entonces $c^{nm}=1$ para todo $c\in C$. Como $C$ es 
+	finito y cerrado por conjugación, el teorema de Dietzmann implica que $H$ es
+	finito. Luego $H\subseteq\Delta^+(G)$ y en particular $xy^{-1}\in\Delta^+(G)$.  Es
+	evidente que $\Delta^+(G)$ es un subgrupo característico pues para todo
+	$f\in\Aut(G)$ se tiene que $f(x)\in\Delta^+(G)$ si $x\in\Delta^+(G)$.
+%	Primero veamos que $\Delta(G)$ es un subgrupo de $G$. Si $x,y\in\Delta(G)$
+%	y $g\in G$, entonces $g(xy^{-1})g^{-1}=(gxg^{-1})(gyg^{-1})^{-1}$. Además
+%	$1\in\Delta(G)$. Veamos ahora que $\Delta(G)$ es característico en $G$. Si
+%	$f\in\Aut(G)$ y $x\in G$, entonces, como $f(gxg^{-1})=f(g)f(x)f(g)^{-1}$,
+%	se concluye que $f(x)\in\Delta(G)$.
+%	Para ver que $\Delta^+(G)$ es un subgrupo, 
+%	Sean
+%	$x_1,\dots,x_n\in\Delta^+(G)$ y $H=\langle x_1,\dots,x_n\rangle$. Como
+%	$H$ es finito, $H\subseteq\Delta^+(G)$ y luego $\Delta^+(G)$ es un
+%	subgrupo. Es evidente que es un subgrupo característico pues para todo
+%	$f\in\Aut(G)$ se tiene que $f(x)\in\Delta^+(G)$ si $x\in\Delta^+(G)$.
+\end{proof}
+
+La segunda aplicación del teorema de Dietzmann es el siguiente resultado:
+
+\begin{lemma}
+	\label{lem:Connel}
+	Sea $G$ un grupo y sea  $x\in\Delta^+(G)$.  Existe entonces un subgrupo
+	finito $H$ normal en $G$ tal que $x\in H$.
+\end{lemma}
+
+Dejamos la demostración como ejercicio ya que el muy similar a lo que hicimos
+en la demostración del lema~\ref{lem:DcharG}.
+
+%\begin{proof}
+%	Sea $H$ el subgrupo generado por los conjugados de $x$. Como $x$ tiene
+%	finitos conjugados, $H$ es finitamente generado. Además $H$ es claramente
+%	normal en $G$ y está generado por elementos de torsión. Todos los finitos
+%	generadores de $H$ tienen el mismo orden, digamos $n$. Por el teorema de
+%	Dietzmann, $H$ resulta ser un grupo finito.
+%\end{proof}
+
+\begin{theorem}[Connell]
+	\label{thm:Connel}
+	\index{Teorema!de Connel}
+	Supongamos que el cuerpo $K$ es de característica cero. 
+	Sea $G$ un grupo. Las siguientes afirmaciones son equivalentes:
+	\begin{enumerate}
+		\item $K[G]$ es primo.
+		\item $Z(K[G])$ es primo.
+		\item $G$ no tiene subgrupos finitos normales no triviales.
+		\item $\Delta^+(G)=1$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Demostremos que $(1)\implies(2)$. Como $Z(K[G])$ es un anillo conmutativo,
+	probar que es primo es equivalente a probar que no existen divisores de
+	cero no triviales. Sean $\alpha,\beta\in Z(K[G])$ tales que
+	$\alpha\beta=0$. Sean $A=\alpha K[G]$ y $B=\beta K[G]$. Como $\alpha$ y
+	$\beta$ son centrales, $A$ y $B$ son ideales de $K[G]$. Como $AB=0$,
+	entonces $A=\{0\}$ o $B=\{0\}$ pues $K[G]$ es primo.  Luego $\alpha=0$ o
+	$\beta=0$.
+
+	Demostremos ahora que $(2)\implies(3)$. Sea $N$ un subgrupo normal finito.
+	Por el lema~\ref{lemma:sumN}, $\widehat{N}=\sum_{x\in N}x$ es central en
+	$K[G]$ y $\widehat{N}(\widehat{N}-|N|1)=0$. Como $\widehat{N}\ne 0$ (pues
+	$K$ tiene característica cero) y $Z(K[G])$ es un dominio,
+	$\widehat{N}=|N|1$, es decir: $N=\{1\}$.
+
+	Demostremos que $(3)\implies(4)$. Sea $x\in\Delta^+(G)$. Por el
+	lema~\ref{lem:Connel} sabemos que existe un subgrupo finito $H$ normal en
+	$G$ que contiene a $x$. Como por hipótesis $H$ es trivial, se concluye que
+	$x=1$.
+
+	Finalmente demostramos que $(4)\implies(1)$. Sean $A$ y $B$ ideales de
+	$K[G]$ tales que $AB=0$. Supongamos que $B\ne 0$ y sea $\beta\in
+	B\setminus\{0\}$.  Si $\alpha\in A$, entonces, como $\alpha
+	K[G]\beta\subseteq \alpha B\subseteq AB=0$, el lema~\ref{lem:Passman} de
+	Passman implica que $\pi_{\Delta(G)}(\alpha)\pi_{\Delta(G)}(\beta)=0$.
+	Como por hipótesis $\Delta^+(G)$ es trivial, sabemos que $\Delta(G)$ es 
+	libre de torsión y luego $\Delta(G)$ es abeliano por el
+	lema~\ref{lem:FCabeliano}. Esto nos dice que $K[\Delta(G)]$ no tiene
+	divisores de cero y luego $\alpha=0$. Demostramos entonces que $B\ne0$
+	implica que $A=0$.
+\end{proof}
+
+% necesito: 
+% pag 376 del Hungerford: un módulo no nulo admite una serie de composición
+% si y sólo si es noetheriano y artiniano
+% agregar además el teorema de Hopkins--Levitzky que dice
+
+
+\begin{theorem}[Connel]
+	Sea $K$ un cuerpo de característica cero y sea $G$ un grupo. Entonces
+	$K[G]$ es artiniano a izquierda si y sólo si $G$ es finito.
+\end{theorem}
+
+\begin{proof}
+	Si $G$ es finito, $K[G]$ es un álgebra de dimensión finita y luego
+	es artiniano a izquierda. Supongamos entonces que $K[G]$ es artiniano
+	a izquierda. 
+	
+	Primero observemos que si $K[G]$ es un álgebra prima, entonces por el
+	teorema de Wedderburn $K[G]$ es simple y luego
+	$G$ es el grupo trivial (pues si $G$ no es trivial, $K[G]$ no es simple ya
+	que el ideal de aumentación es un ideal no nulo de $K[G]$).
+
+	Como $K[G]$ es artiniano a izquierda, es noetheriano a izquierda por
+	Hopkins--Levitzky y entonces, $K[G]$ admite una serie de composición por el
+	teorema~\ref{thm:serie_de_composicion}.  Para demostrar el teorema
+	procederemos por inducción en la longitud de la serie de composición de
+	$K[G]$. Si la longitud es uno, $\{0\}$ es el único ideal de $K[G]$ y luego
+	$K[G]$ es prima y el resultado está demostrado. Si suponemos que el
+	resultado vale para longitud $n$ y además $K[G]$ no es prima, entonces, por
+	el teorema de Connel, $G$ posee un subgrupo normal $H$ finito y no trivial. Al
+	considerar el morfismo canónico $K[G]\to K[G/H]$ vemos que $K[G/H]$ es
+	artiniano a izquierda y tiene longitud $<n$. Por hipótesis inductiva, $G/H$
+	es un grupo finito y luego, como $H$ también es finito, $G$ es finito.
+\end{proof}
