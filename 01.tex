@@ -1,0 +1,353 @@
+\chapter{}
+
+In this lecture we start our study of 
+the theory of finite-dimensional semisimple algebras. Our goal is to
+prove Artin--Wedderburn's theorem for finite-dimensional algebras. 
+
+% \begin{definition}
+% Let $K$ be a field. A vector space $A$ (over $K$) is an \textbf{algebra} if it has an associative multiplication
+% $A\times A\to A$, $(a,b)\mapsto ab$, such that 
+% \[
+% (\lambda a+\mu b)c=\lambda(ac)+\mu(bc),\quad
+% a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)
+% \]
+% for all $a,b,c\in A$ and $\lambda,\mu\in K$. We will consider algebras with identity, that is with  
+% for all $a\in A$. The identity will be usually denoted by $1$. 
+% an element $1_A\in A$ such that $1_Aa=a1_A=a$
+% \end{definition}
+
+
+\begin{definition}
+	\index{Algebra}
+	An \textbf{algebra} (over the field $K$) is a vector space (over $K$) 
+	with an associative multiplication $A\times A\to A$ such that
+	$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ and
+	$(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)$ for all $a,b,c\in A$, and 
+	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.   
+\end{definition}
+
+Note that an algebra over $K$ is a ring $A$ that is a vector space
+(over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
+
+\begin{definition}
+	\index{Algebra!commutative}
+	An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
+\end{definition}
+
+\index{Algebra!dimension}
+The \textbf{dimension} of an algebra $A$ is the dimension of $A$ as a vector space. This is why we want to consider algebras, as 
+they are linear version of rings. Quite often our arguments will use the dimension of the underlying vector space.  
+
+\begin{example}
+	The field $\R$ is a real algebra and similarly 
+	$\C$ is a complex algebra. Moreover, $\C$ is a real algebra. 
+\end{example}
+
+Any field $K$ is an algebra over $K$.
+
+\begin{example}
+	If $K$ is a field, then $K[X]$ is an algebra over $K$. 
+\end{example}
+
+Similarly, the polynomial ring $K[X,Y]$ and the ring $K[[X]]$ of power series
+are examples of algebra over $K$. 
+
+\begin{example}
+	If $A$ is an algebra, then  $M_n(A)$ is an algebra. 
+\end{example}
+
+\begin{example}
+	The set of continuous maps $[0,1]\to\R$ is a real algebra with the usual
+	point-wise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
+\end{example}
+
+\begin{example}
+    Let $n\in\N$. Then $K[X]/(X^n)$ is a finite-dimensional algebra. 
+    It is the \textbf{truncated polynomial algebra}.  
+\end{example}
+
+\begin{example}
+	Let $G$ be a finite group. The vector space 
+	$\C[G]$ with basis $\{g:g\in G\}$
+	is an algebra with multiplication
+	\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+	\] 	
+	Note that $\dim\C[G]=|G|$ and
+	$\C[G]$ is commutative if and only $G$ is abelian. 
+	This is the \textbf{complex group algebra} of $G$. 
+\end{example}
+
+Two basic exercises about group algebras.
+ 
+\begin{exercise}
+	Let $G$ be a non-trivial finite group. 
+	Then $\C[G]$ has zero divisors. 
+\end{exercise}
+
+\begin{exercise}
+	Let $A$ be an algebra and $G$ be a finite group. 
+	If $f\colon G\to\mathcal{U}(R)$ is a group homomorphism, 
+	then there exists an algebra homomorphism 
+	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
+\end{exercise}
+
+\begin{definition}
+    \index{Homomorphism!of algebras}
+    An algebra \textbf{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a linear map. 
+\end{definition}
+
+The complex conjugation map  
+$\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebra homomorphism over $\C$. 
+
+\begin{definition}
+ 	\index{Algebra!ideal}
+ 	An \textbf{ideal} of an algebra is an ideal of the underlying ring that is also a subspace.
+\end{definition}
+
+Similarly one defines left and right ideals of an algebra.
+
+If $A$ is an algebra, then every left ideal of the ring $A$ is a left ideal of the algebra $A$. 
+Indeed, if $L$ is a left ideal of $A$ 
+and $\lambda\in K$ and $x\in L$, then 
+\[
+	\lambda x=\lambda (1_Ax)=(\lambda 1_A)x.
+\]
+Since $\lambda 1_A\in A$, it follows that  $\lambda L=(\lambda
+1_A)L\subseteq L$. Similarly, every right ideal of the ring $A$ is a right ideal of the algebra $A$.
+
+If $A$ is an algebra and $I$ is an ideal of $A$, then the quotient ring $A/I$ has a unique algebra
+structure such that the canonical map  
+$A\to A/I$, $a\mapsto a+I$, is an algebra homomorphism. 
+
+\begin{definition}
+    \index{Algebraic element}
+    \index{Algebra!algebraic}
+    Let $A$ be an algebra over the field $K$. An element $a\in A$ is 
+    \textbf{algebraic} over $K$ if there exists a non-zero polynomial $f\in K[X]$
+    such that $f(a)=0$. 
+\end{definition}
+
+If every element of $A$ is algebraic, then $A$ is said to be \text{algebraic} 
+
+In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}$ is a root of the polynomial $X^2-2\in\Q[X]$. A famous theorem of Lindemann proves that $\pi$ is not algebraic over $\Q$. Every element of the real algebra $\R$ is algebraic.
+
+\begin{proposition}
+	\label{lem:algebraic}
+	Every finite-dimensional algebra is algebraic.
+\end{proposition}
+
+\begin{proof}
+   Let $A$ be an algebra with $\dim A=n$ and let $a\in A$. Since  
+	$\{1,a,a^2,\dots,a^n\}$ has $n+1$ elements, it is a linearly dependent set. Thus there exists 
+	a non-zero polynomial $f\in K[X]$ such that $f(a)=0$.
+\end{proof}
+
+\begin{definition}
+    A \textbf{module} $M$ over an algebra $A$ is a module over the ring $A$ that is also a vector space. 
+\end{definition}
+
+\begin{example}
+If $V$ is a module over an algebra $A$, one defines $\End_A(V)$ as the set
+of module homomorphisms $V\to V$. The set  
+$\End_A(V)$ is indeed an algebra with $(f+g)(v)=f(v)+g(v)$, 
+$(af)(v)=af(v)$ and $(fg)(v)=f(g(v))$ for all $f,g\in\End_A(V)$, $a\in A$ and $v\in V$. 
+\end{example}
+
+Let $A$ be a finite-dimensional algebra. 
+If $M$ is a module over the ring $A$, then $M$ is a vector space with  
+\[
+\lambda m=(\lambda 1_A)\cdot m, 
+\]
+where $\lambda\in K$ and $m\in M$. Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
+
+In this chapter we will work with finitely generated modules. 
+
+\begin{example}
+An algebra  $A$ is a module over $A$ with left multiplication, that is $a\cdot b=ab$, $a,b\in A$.
+This module is the (left) \textbf{regular representation} of $A$ and it will be denoted by $\prescript{}{A}{A}$. 
+\end{example}
+
+\begin{definition}
+	Let $A$ be an algebra and $M$ be a module over $A$. Then 
+	$M$ is \textbf{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
+	are the only submodules of $M$.	
+\end{definition}
+
+\begin{definition}
+	Let $A$ be a finite-dimensional 
+	algebra and $M$ be a finite-dimensional module over $A$. Then 
+	$M$ is \textbf{semisimple} if $M$ is a direct sum of 
+	finitely many simple submodules.  
+\end{definition}
+
+Clearly, a finite direct sum of semisimples is semisimple. 
+
+\begin{lemma}[Schur]
+	Let $A$ be an algebra. If $S$ and $T$ are
+	simple modules and $f\colon S\to T$ is a non-zero module homomorphism, 
+	then $f$ is an isomorphism. 
+\end{lemma}
+
+\begin{proof}
+Since $f\ne 0$, $\ker f$ is a proper submodule of $S$. Since $S$ is simple, it follows 
+that $\ker f=\{0\}$. Similarly, $f(S)$ 
+is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple. 	
+\end{proof}
+
+\begin{proposition}
+    If $A$ is a finite-dimensional algebra and $S$ is a simple module, then $S$ is finite-dimensional. 
+\end{proposition}
+
+\begin{proof}
+    Let $s\in S\setminus\{0\}$. Since $S$ is simple, $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective homomorphism. 
+    In particular, $A/\ker\varphi\simeq S$ and hence $\dim S=\dim (A/\ker\varphi)\leq \dim A$. 
+\end{proof}
+
+\begin{proposition}
+\label{pro:semisimple}
+	Let $M$ be a finite-dimensional module. The following statements are equivalent.
+	\begin{enumerate}
+		\item $M$ is semisimple.
+		\item $M=\sum_{i=1}^k S_i$, where each $S_i$ is a simple submodule of $M$. 
+		\item If $S$ is a submodule of $M$, then there is a submodule $T$ of $M$ such that $M=S\oplus T$.    
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	We first prove that $2)\implies3)$.
+	Let $N\ne\{0\}$ be a submodule of $M$. Since $N\ne\{0\}$ and $\dim M<\infty$, there exists a non-zero submodule 
+	$T$ of $M$ of maximal dimension such that 
+	$N\cap T=\{0\}$. If $S_i\subseteq N\oplus T$ for all $i\in\{1,\dots,k\}$, then, as $M$ is the sum of the $S_i$, it follows that
+	$M=N\oplus T$. 
+	If, however, there exists $i\in\{1,\dots,k\}$ such that $S_i\not\subseteq N\oplus T$, then $S_i\cap (N\oplus T)\subseteq S_i$. 
+	Since $S_i$ is simple,
+	it follows that $S_i\cap (N\oplus T)=\{0\}$. Thus $N\cap (S_i\oplus T)=\{0\}$, a contradiction to the maximality of
+	$\dim T$.  
+	
+	The implication  $1)\implies2)$ is trivial. 
+	
+	We now prove that $2)\implies1)$. Let $J$ be a subset of $\{1,\dots,k\}$ maximal with the property that 
+	the sum $\sum_{j\in J}S_j$ is direct. Let $N=\oplus_{j\in J}S_j$. We claim that $M=N$. 
+	For each $i\in\{1,\dots,k\}$, either $S_i\cap N=\{0\}$ or $S_i\cap N=S_i$, as
+	$S_i$ is simple. If $S_i\cap N=S_i$ for all $i\in\{1,\dots,k\}$, then $S_i\subseteq N$ for all $i\in\{1,\dots,k\}$.  
+	If there exists $i\in\{1,\dots,k\}$ such that $S_i\cap N=\{0\}$, then $N$ and $S_i$ are in direct sum, a contradiction to the maximality of the set $J$. 
+	
+	Finally, we prove that $3)\implies1)$. 
+	We proceed by induction on $\dim M$. The result is clear if $\dim M=1$. Assume that $\dim M\geq2$ and   
+	let $S$ be a non-zero submodule of $M$ of minimal dimension. In particular, $S$ is simple. 
+    By assumption, there exists a submodule $T$ of $M$ such that $M=S\oplus T$. We claim that $T$ satisfies the assumptions. 
+	If $X$ is a submodule of $T$, then, since $T$ is also a submodule of $M$, there exists a submodule $Y$ of $M$ such that 
+	$M=X\oplus Y$. Thus  
+	\[
+	T=T\cap M=T\cap (X\oplus Y)=X\oplus (T\cap Y),
+	\]
+	as $X\subseteq T$. 
+	Since $\dim T<\dim M$ and $T\cap Y$ is a submodule of $T$, the inductive hypothesis implies 
+	that $T$ is a direct sum of simple submodules. Hence $M$ is a direct sum of simple submodules. 
+\end{proof}
+
+\begin{proposition}
+    If $M$ is a semisimple module and $N$ is a submodule, then $N$ and $M/N$ are semisimple.	
+\end{proposition}
+
+\begin{proof}
+	Assume that $M=S_1+\cdots+ S_k$, where each $S_i$ is a simple submodule. If $\pi\colon M\to M/N$ 
+	is the canonical map, Schur's lemma implies that each restriction $\pi|_{S_i}$ 
+	is either zero or an isomorphism. Thus 
+	\[
+	M/N=\pi(M)=\sum_{i=1}^k(\pi|_{S_i})(S_i)
+	\]
+	is a direct sum of finitely many simples. Since there exists a submodule $T$ such that 
+	$M=N\oplus T$, it follows that $N\simeq M/T$ is also semisimple.     
+\end{proof}
+
+\begin{definition}
+An algebra $A$ is \textbf{semisimple} if every finitely-generated $A$-module is semisimple. 
+\end{definition}
+
+\begin{proposition}
+Let $A$ be a finite-dimensional algebra. Then $A$ is semisimple if and only if 
+the regular representation of $A$ is semisimple. 
+\end{proposition}
+
+\begin{proof}
+Let us prove the non-trivial implication. Let $M$ be a finitely-generated module, say $M=(m_1,\dots,m_k)$. 
+The map
+\[
+\bigoplus_{i=1}^k A\to M,\quad
+(a_1,\dots,a_k)\mapsto \sum_{i=1}^k a_i\cdot m_i,
+\]
+is a surjective homomorphism of modules. Since 
+$A$ is semisimple, it follows that $\oplus_{i=1}^kA$ is semisimple. 
+Thus $M$ is semisimple, as it is isomorphic to the quotient of a semisimple module.
+\end{proof}
+
+\begin{theorem}
+Let $A$ be a finite-dimensional semisimple algebra. 
+Assume that the regular representation can be decomposed as $\prescript{}{A}A=\oplus_{i=1}^k S_i$ where each $S_i$ is a simple submodule.  
+If $S$ is a simple module, then $S\simeq S_i$ for some $i\in\{1,\dots,k\}$. 
+\end{theorem}
+
+\begin{proof}
+Let $s\in S\setminus\{0\}$. The map $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective module homomorphism. Since 
+$\varphi\ne 0$, there exists $i\in\{1,\dots,k\}$ such that some restriction 
+$\varphi|_{S_i}\colon S_i\to S$ is non-zero. By Schur's lemma, it follows that  
+$\varphi|_{S_i}$ is an isomorphism.   	
+\end{proof}
+
+As a corollary, a finite-dimensional semisimple algebra admits 
+only finitely many isomorphism classes of simple modules. When we say that 
+the $S_1,\dots,S_k$ are the simple modules of an algebra, this means that the $S_i$ are the representatives
+of isomorphism classes of all simple modules of the algebra, that is that each simple module is isomorphic to
+some $S_i$ and, moreover,  
+$S_i\not\simeq S_j$ whenever $i\ne j$. 
+
+\begin{exercise}
+If $A$ and $B$ are algebras, $M$ is a module over $A$ and $N$ is a module over $B$, then 
+    $M\oplus N$ is a module over $A\times B$ with 
+    \[
+    (a,b)\cdot (m,n)=(a\cdot m,b\cdot n).
+    \]
+\end{exercise}
+
+A \textbf{division algebra} $D$ is an algebra such that every non-zero element 
+is invertible, that is for all $x\in D\setminus\{0\}$ there exists $y\in D$ such that $xy=yx=1$.  
+Modules over division algebras are very much like vector spaces.  For example, 
+every finitely-generated module $M$ over a division algebra has a basis. 
+Moreover, every linearly independent subset of
+$M$ can be extended into a basis of $M$. 
+
+\begin{lemma}
+	Sea $D$ un álgebra de división y sea $V$ un $D$-módulo finitamente generado. Entonces
+	$V$ es un $\End_D(V)$-módulo simple y además existe $n\in\N$ tal que 
+	$\End_D(V)\simeq nV$ es semisimple.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+	Let $\{v_1,\dots,v_n\}$ be a basis of $V$. A direct calculation shows that the map 
+	\[
+		\End_D(V)\to\bigoplus_{i=1}^nV=nV,\quad
+		f\mapsto (f(v_1),\dots,f(v_n)),
+	\]
+	is an injective homomorphism of $\End_D(V)$-modules.
+	Since
+	\[
+	\dim\End_D(V)=n^2=\dim(nV),
+	\]
+	it follows that the map is an isomorphism. 
+	Thus 
+	\[
+		\End_D(V)\simeq \bigoplus_{i=1}^nV.
+	\]
+	
+	It remains to show that $V$ is simple. It is enough to prove that $V=(v)$ 
+	for all $v\in V\setminus\{0\}$. Let $v\in V\setminus\{0\}$. If $w\in V$, then 
+	there exists $f\in\End_D(V)$ such that $f\cdot v=f(v)=w$. 
+	Thus $w\in (v)$ and therefore $V=(v)$.  
+\end{proof}
+
+The lemma states that if $D$ is a division algebra, then  
+$D^{n}$ is a simple $M_n(D)$-module and that $M_n(D)\simeq n D^n$ as $M_n(D)$-modules. 
+
