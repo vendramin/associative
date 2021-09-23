@@ -14,6 +14,7 @@
 
 
 \begin{definition}
+	\index{Algebra}
 	An \textbf{algebra} (over the field $K$) is a vector space (over $K$) 
 	with an associative multiplication $A\times A\to A$ such that
 	$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ and
@@ -25,8 +26,8 @@ Note that an algebra over $K$ is a ring $A$ that is a vector space
 (over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
 
 \begin{definition}
-\index{Algebra!commutative}
-An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
+	\index{Algebra!commutative}
+	An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
 \end{definition}
 
 \index{Algebra!dimension}
@@ -44,14 +45,16 @@ Any field $K$ is an algebra over $K$.
 	If $K$ is a field, then $K[X]$ is an algebra over $K$. 
 \end{example}
 
-Similarly, the polynomial ring $K[X,Y]$ and the ring $K[[X]]$ of power series are examples of algebra over $K$. 
+Similarly, the polynomial ring $K[X,Y]$ and the ring $K[[X]]$ of power series
+are examples of algebra over $K$. 
 
 \begin{example}
 	If $A$ is an algebra, then  $M_n(A)$ is an algebra. 
 \end{example}
 
 \begin{example}
-    The set of continuous maps $[0,1]\to\R$ is a real algebra with the usual point-wise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
+	The set of continuous maps $[0,1]\to\R$ is a real algebra with the usual
+	point-wise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
 \end{example}
 
 \begin{example}
@@ -214,8 +217,8 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 	
 	The implication  $1)\implies2)$ is trivial. 
 	
-	Veamos ahora que $(2)\implies(1)$. Sea $J$ un subconjunto de $\{1,\dots,k\}$ maximal tal que 
-	la suma de los $S_j$ con $j\in J$ es directa. Sea $N=\oplus_{j\in J}S_j$. Veamos que $M=N$. 
+	We now prove that $2)\implies1)$. Let $J$ be a subset of $\{1,\dots,k\}$ maximal with the property that 
+	the sum $\sum_{j\in J}S_j$ is direct. Let $N=\oplus_{j\in J}S_j$. Veamos que $M=N$. 
 	Para cada $i\in\{1,\dots,k\}$, se tiene que $S_i\cap N=\{0\}$ o bien que $S_i\cap N=S_i$, pues
 	$S_i$ es simple. Si $S_i\cap N=S_i$ para todo $i\in\{1,\dots,k\}$, entonces $S_i\subseteq N$ para todo $i\in\{1,\dots,k\}$.  
 	Si, en cambio, existe $i\in\{1,\dots,k\}$ tal que $S_i\cap N=\{0\}$, entonces $N$ y $S_i$ estarán en suma directa, 
@@ -587,8 +590,9 @@ Un álgebra $A$ se dice \textbf{simple} si sus únicos ideales son $\{0\}$ y $A$
 %\end{example}
 
 \begin{proposition}
-Sea $A$ un álgebra simple de dimensión finita. Entonces existe un ideal a izquierda no nulo $I$ de dimensión minimal. 
-Este ideal es un $A$-módulo simple y todo $A$-módulo simple es isomorfo a $I$. 	
+	Sea $A$ un álgebra simple de dimensión finita. Entonces existe un ideal a
+	izquierda no nulo $I$ de dimensión minimal.  Este ideal es un $A$-módulo
+	simple y todo $A$-módulo simple es isomorfo a $I$. 	
 \end{proposition}
 
 \begin{proof}
@@ -669,14 +673,6 @@ Sea $A$ un álgebra de dimensión finita. Si $A$ es simple, entonces $A$ es semi
 %todo ideal de $A$ es de la forma $I_1\times\cdots I_k$, donde $I_j$ es un ideal de $A_j$ para todo $j\in\{1,\dots,k\}$. 
 \begin{theorem}[Wedderburn]
 \index{Teorema!de Wedderburn}
-%	Sea $A$ un álgebra de dimensión finita. 
-%	Las siguientes afirmaciones son equivalentes:
-%	\begin{enumerate}
-%	\item $A$ tiene un módulo simple y fiel.
-%	\item $A$ es semisimple y tiene una única clase de isomorfismos de módulos simples.
-%	\item $A\simeq M_n(\C)$ para algún $n\in\N$.
-%	\item $A$ es simple.	
-%	\end{enumerate}
 	Sea $A$ un álgebra de dimensión finita. 
 	Si $A$ es simple, entonces $A\simeq M_n(D)$ para algún $n\in\N$ y alguna álgebra de división $D$.
 \end{theorem}
