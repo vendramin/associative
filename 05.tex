@@ -80,80 +80,70 @@ donde $U(A)$ es el grupo de unidades de $A$, entonces la función $K[G]\to A$,
 $\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g)$, es un morfismo
 de álgebras.
 
-
-\begin{example}
-	Sea $G=C_3$ el grupo cíclico de orden tres (escrito multiplicativamente).
-	Entonces 
-	\[
-		\R[G]\simeq\R\times\C.
-	\]
-	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
-	\[
-		\varphi\colon\R[G]\to\R\times\C,
-		\quad
-		g\mapsto (1,\omega),
-	\]
-	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
-	$\varphi$ es inyectivo pues
-	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
-	Luego $\varphi$ es un isomorfismo pues
-	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
-\end{example}
-
-\begin{example}
-	Sea $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ el grupo diedral de seis
-	elementos. Vamos a demostrar que $\C[G]\simeq\C\times\C\times M_2(\C)$.  
-	Sea $\omega$ una raíz cúbica de la unidad y sean  
-	\[
-		R=\begin{pmatrix}
-			\omega & 0\\
-			0 & \omega^2
-		\end{pmatrix},
-		\quad
-		S=\begin{pmatrix}
-			0 & 1\\
-			1 & 0
-		\end{pmatrix}.
-	\]
-	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
-	\[
-		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
-		r\mapsto (1,1,R),\quad
-		s\mapsto (1,-1,S).
-	\]
-	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
-	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
-	basta ver que $\varphi$ es inyectivo. Si 
-	\[
-		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
-	\]
-	entonces 
-	\[
-		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
-	\]
-	donde
-	\begin{align*}
-		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
-		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
-		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
-	\end{align*}
-	Un cálculo sencillo muestra que estas ecuaciones implican que
-	$\alpha=0$ y luego $\varphi$ es inyectiva.  
-\end{example}
+\begin{exercise}
+	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
+	$\R[G]\simeq\R\times\C$.
+% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
+% 	\[
+% 		\varphi\colon\R[G]\to\R\times\C,
+% 		\quad
+% 		g\mapsto (1,\omega),
+% 	\]
+% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
+% 	$\varphi$ es inyectivo pues
+% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
+% 	Luego $\varphi$ es un isomorfismo pues
+% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
+\end{exercise}
 
 \begin{exercise}
-	Demuestre que si $G$ es el grupo diedral de seis elementos entonces
-	\[
-		\Q[G]\simeq\Q\times\Q\times M_2(\Q),
-	\]
-	donde $\omega$ es una raíz cúbica primitiva de la unidad.
+	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
+	Prove the following statements:
+	\begin{enumerate}
+	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
+	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
+	\end{enumerate}  
+% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
+% 	\[
+% 		R=\begin{pmatrix}
+% 			\omega & 0\\
+% 			0 & \omega^2
+% 		\end{pmatrix},
+% 		\quad
+% 		S=\begin{pmatrix}
+% 			0 & 1\\
+% 			1 & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
+% 	\[
+% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
+% 		r\mapsto (1,1,R),\quad
+% 		s\mapsto (1,-1,S).
+% 	\]
+% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
+% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
+% 	basta ver que $\varphi$ es inyectivo. Si 
+% 	\[
+% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
+% 	\]
+% 	entonces 
+% 	\[
+% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
+% 	\]
+% 	donde
+% 	\begin{align*}
+% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
+% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
+% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
+% 	\end{align*}
+% 	Un cálculo sencillo muestra que estas ecuaciones implican que
+% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
 \end{exercise}
 
 \begin{theorem}[Maschke]
-	\index{Teorema!de Maschke}
-%	\label{thm:Maschke}
-	Sea $G$ un grupo finito. Entonces $J(K[G])=0$ si y sólo si $K$ es de
-	característica cero o la característica de $K$ no divide al orden de $G$.
+	Let $G$ be a finite group. Then $J(K[G])=0$ if and only if the characteristic of $K$ is zero 
+	or does not divide the order of $G$. 
 \end{theorem}
 
 \begin{proof}
