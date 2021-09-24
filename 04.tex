@@ -277,6 +277,77 @@ exists $n=n(x)$ such that $x^n=0$.
 	\end{enumerate}
 \end{exercise}
 
+The following exercises are optional. They somewhat show a recent new application of radical rings
+to solutions of the celebrated Yang--Baxter equation. 
+
+\begin{exercise}
+	Let $R$ be a radical ring. For $x,y\in R$ let 
+	\begin{align*}
+	&\lambda_x(y)=-x+x\circ y=xy+y,\\
+	&\mu_y(x)=\lambda_x(y)'\circ x\circ y=(xy+y)'x+x, 
+	\end{align*}
+	where $z'$ denotes the inverse of $z$ with respect to the circle operation. 
+	Prove the following statements:
+	\begin{enumerate}
+		\item $\lambda\colon (R,\circ)\to\Aut(R,+)$, $x\mapsto
+			\lambda_x$, is a group homomorphism.
+		\item $\mu\colon (R,\circ)\to\Aut(R,+)$, $y\mapsto\mu_y$,
+    		is a group antihomomorphism.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+A pair $(X,r)$ is a \textbf{solution} to the 
+Yang--Baxter equation if $X$ is a set and
+$r\colon X\times X\to X\times X$ is a bijective map such that  
+\[
+	(r\times\id)\circ (\id\times r)\circ (r\times\id)
+	=(\id\times r)\circ (r\times\id)\circ (\id\times r)
+\]
+The solution $(X,r)$ is said to be \textbf{involutive} 
+if $r^2=\id$. By convention we write 
+\[
+	r(x,y)=(\sigma_x(y),\tau_y(x)).
+\]
+The solution $(X,r)$ is said to be \textbf{non-degenerate}  
+$\sigma_x\colon X\to X$ and 
+$\tau_x\colon X\to X$ are bijective for all $x\in X$.
+
+\begin{enumerate}
+    \item Let $X$ be a set and $\sigma\colon X\to X$ be a bijective map. Prove that  
+          the pair $(X,r)$, where 
+          $r(x,y)=(\sigma(y),\sigma^{-1}(x))$, is an involutive non-degenerate solution. 
+\end{enumerate}
+Let $R$ be a radical ring. For $x,y\in R$ let 
+\begin{align*}
+	&\lambda_x(y)=-x+x\circ y=xy+y,\\
+	&\mu_y(x)=\lambda_x(y)'\circ x\circ y=(xy+y)'x+x
+\end{align*}
+Prove the following statements:
+\begin{enumerate}
+    \setcounter{enumi}{1}
+		\item $\lambda\colon (R,\circ)\to\Aut(R,+)$, $x\mapsto
+			\lambda_x$, is wis a group homomorphism.
+		\item $\mu\colon (R,\circ)\to\Aut(R,+)$, $y\mapsto\mu_y$,
+    		is a group antihomomorphism.
+	    \item Prove that the map 
+    	\[
+	        r\colon R\times R\to R\times R,\quad
+	        r(x,y)=(\lambda_x(y),\mu_y(x)),
+	    \]
+	is an involutive non-degenerate solution. 
+\end{enumerate}
+\end{exercise}
+
+%\begin{exercise}
+%	Sea $A$ un anillo radical. Para $a,b\in A$ se define 
+%	\[
+%		\mu_b(a)=\lambda_a(b)'\circ a\circ b=(ab+b)'a+a.
+%	\]
+%	Demuestre que la función $\mu\colon (A,\circ)\to\Aut(A,+)$,
+%	$b\mapsto\mu_b$, está bien definida y es un antimorfismo de grupos.
+%\end{exercise}
+
 \begin{exercise}
     If $D$ is a division ring and $R=D[X_1,\dots,X_n]$, then
     $J(R)=\{0\}$. 
@@ -429,6 +500,8 @@ Amitsur's theorem implies the following result.
 % \begin{proof}
 % 	Es consecuencia del teorema de Amitsur pues $\dim_KA<|K|$. 
 % \end{proof}
+
+
 
 The following problem is maybe the most important open 
 problem in non-commutative ring theory. 
