@@ -2,72 +2,65 @@
 
 \section*{Maschke's theorem}
 
-Sea $K$ un cuerpo y sea $G$ un grupo. El \textbf{álgebra de grupo} $K[G]$ es el
-$K$-espacio vectorial con base $\{g:g\in G\}$ con la estructura de álgebra dada
-por el producto
+Let $K$ be a field and $G$ be a group. The \textbf{group algebra} $K[G]$ 
+is the vector space (over $K$) with basis $\{g:g\in G\}$ 
+and the algebra structure given by the multiplication
 \[
 	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
 	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
 \]
-
-\index{Ideal!de aumentación}
-Es fácil ver que si $G$ no es el grupo trivial, entonces $K[G]$ nunca es un álgebra simple. Esto es porque el conjunto 
-\[
-	I(G)=\left\{\sum_{g\in G}\lambda_gg\in K[G]:\sum_{g\in G}\lambda_g=0\right\}
-\]
-es un ideal propio y no nulo de $K[G]$ (pues $\dim I(G)=\dim K[G]-1$). Este
-conjunto se conoce como el \textbf{ideal de aumentación} de $K[G]$.
+Note that every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 
 \begin{exercise}
-	Sea $G=C_n$ el grupo ciclico de orden $n$ (escrito multiplicativamente).
-	Demuestre que $K[G]\simeq K[X]/(X^n-1)$. 
+\label{xc:K[G]notsimple}
+    If $G$ is non-trivial, then $K[G]$ is not simple. 
 \end{exercise}
 
 \begin{exercise}
-	Sea $G$ un grupo finitamente generado abeliano y sin torsión. Demuestre que
-	$K[G]$ es un dominio.
+	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
+	$K[G]\simeq K[X]/(X^n-1)$. 
 \end{exercise}
 
 \begin{exercise}
-	Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea $\alpha\in K[H]$. Demuestre
-	que $\alpha$ es inversible (resp. divisor de cero a izquierda) en $K[H]$ si
-	y sólo si $\alpha$ es inversible (resp. divisor de cero a izquierda) en
+	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
+	$K[G]$ is a domain. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. left zero divisor) in
 	$K[G]$.
 \end{exercise}
 
 \begin{exercise}
-	\index{Soporte}
-	Sean $G$ un grupo y $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
-	Se define el \textbf{soporte} de $\alpha$ como el conjunto
+	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
+	The \textbf{support} of $\alpha$ is the set 
 	\[
 		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
 	\]
-	Demuestre que si $g\in G$, entonces
-	$\supp(g\alpha)=g(\supp\alpha)$ y $\supp(\alpha g)=(\supp\alpha)g$.
+	Prove that if $g\in G$, then 
+	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
 \end{exercise}
 
 % El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
 % grupo de un grupo finito. Comenzamos con un ejemplo:
 
 \begin{exercise}
-	Sea $G=C_2=\langle g\rangle\simeq\Z/2$ el grupo de dos elementos escrito
-	multiplicativamente. Todo elemento de $K[G]$ es de la forma
-	$\alpha=a1+bg$ para escalares $a,b\in K$ y el producto
-	de $K[G]$ está dado por
-	\[
-		(a1+bg)(c1+dg)=(ac+bd)1+(ad+bc)g.
-	\]
-	Si la
-	característica de $K$ es distinta de dos,  
-	la función \[
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
+	group with two elements. Note that every element of $K[G]$ is of the form
+	$a1+bg$ for some $a,b\in K$. Prove the following statements:
+	\begin{enumerate}
+	    \item If the characteristic of $K$ is different from two, then 
+	    \[
 		K[G]\to K\times K,
 		\quad
 		a1+bg\mapsto (a+b,a-b),
 	\]
-	es un isomorfismo de álgebras.  Si en cambio $K$ es de característica dos,
-	la función
+	is an algebra isomorhism. 
+	\item If the characteristic of $K$ is two, then 
 	\[
-		K[G]\to \begin{pmatrix}
+	K[G]\to \begin{pmatrix}
 			K & K\\
 			0 & K
 		\end{pmatrix},
@@ -77,7 +70,8 @@ conjunto se conoce como el \textbf{ideal de aumentación} de $K[G]$.
 			0 & a+b
 		\end{pmatrix},
 	\]
-	es un isomorfismo de álgebras.
+	is an algebra isomorphism. 
+	\end{enumerate}
 \end{exercise}
 
 Veamos otros ejemplo un poco más difíciles. La idea a utilizar es la siguiente:
