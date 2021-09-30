@@ -57,11 +57,11 @@ every finitely-generated module $M$ over a division algebra has a basis.
 Moreover, every linearly independent subset of
 $M$ can be extended into a basis of $M$. 
 
-\begin{lemma}
-	Sea $D$ un álgebra de división y sea $V$ un $D$-módulo finitamente generado. Entonces
-	$V$ es un $\End_D(V)$-módulo simple y además existe $n\in\N$ tal que 
-	$\End_D(V)\simeq nV$ es semisimple.
-\end{lemma}
+\begin{proposition}
+	Let $D$ be a division algebra and $V$ be a finitey-generated module over $D$. Then 
+	$V$ is a simple module over $\End_D(V)$ and there exits $n\in\Z_{>0}$ such that  
+	$\End_D(V)\simeq nV$ is semisimple.
+\end{proposition}
 
 \begin{proof}[Sketch of the proof]
 	Let $\{v_1,\dots,v_n\}$ be a basis of $V$. A direct calculation shows that the map 
@@ -86,7 +86,7 @@ $M$ can be extended into a basis of $M$.
 	Thus $w\in (v)$ and therefore $V=(v)$.  
 \end{proof}
 
-The lemma states that if $D$ is a division algebra, then  
+The proposition states that if $D$ is a division algebra, then  
 $D^{n}$ is a simple $M_n(D)$-module and that $M_n(D)\simeq n D^n$ as $M_n(D)$-modules. 
 
 
@@ -140,7 +140,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 
 \begin{lemma}
 	\label{lem:Mn_op}
-	If $A$ is an algebra and $n\in\N$, then $M_n(A)^{\op}\simeq
+	If $A$ is an algebra and $n\in\Z_{>0}$, then $M_n(A)^{\op}\simeq
 	M_n(A^{\op})$ as algebras.   
 \end{lemma}
 
@@ -156,7 +156,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 
 \begin{lemma}
 	\label{lem:simple}
-	If $S$ is a simple module and $n\in\N$, then  
+	If $S$ is a simple module and $n\in\Z_{>0}$, then  
 	\[
 		\End_A(nS)\simeq M_n(\End_A(S))
 	\]
@@ -164,7 +164,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 \end{lemma}
 
 \begin{proof}
-	Let $(\varphi_{ij})$ be a matrix with enties in $\End_A(S)$. We define a map
+	Let $(\varphi_{ij})$ be a matrix with entries in $\End_A(S)$. We define a map
 	$nS\to nS$ as follows:
 	\[
 	\begin{pmatrix}

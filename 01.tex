@@ -76,7 +76,7 @@ are examples of algebra over $K$.
 The complex conjugation map  
 $\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebra homomorphism over $\C$. 
 
-Two basic exercises about group algebras.
+%Two basic exercises about group algebras.
  
 \begin{exercise}
 	Let $G$ be a non-trivial finite group. 
@@ -98,13 +98,13 @@ Two basic exercises about group algebras.
 Similarly one defines left and right ideals of an algebra.
 
 If $A$ is an algebra, then every left ideal of the ring $A$ is a vector space.  
-Indeed, if $L$ is a left ideal of $A$ 
-and $\lambda\in K$ and $x\in L$, then 
+Indeed, if $I$ is a left ideal of $A$ 
+and $\lambda\in K$ and $x\in I$, then 
 \[
 	\lambda x=\lambda (1_Ax)=(\lambda 1_A)x.
 \]
-Since $\lambda 1_A\in A$, it follows that  $\lambda L=(\lambda
-1_A)L\subseteq L$. 
+Since $\lambda 1_A\in A$, it follows that  $\lambda I=(\lambda
+1_A)L\subseteq I$. 
 Similarly, every right ideal of the ring $A$ is a vector space. 
 
 If $A$ is an algebra and $I$ is an ideal of $A$, then the quotient ring $A/I$ has a unique algebra
@@ -144,8 +144,15 @@ Similarly one defines submodules and module homomorphisms.
 \begin{example}
 If $V$ is a module over an algebra $A$, one defines $\End_A(V)$ as the set
 of module homomorphisms $V\to V$. The set  
-$\End_A(V)$ is indeed an algebra with $(f+g)(v)=f(v)+g(v)$, 
-$(af)(v)=af(v)$ and $(fg)(v)=f(g(v))$ for all $f,g\in\End_A(V)$, $a\in A$ and $v\in V$. 
+$\End_A(V)$ is indeed an algebra with 
+\[
+(f+g)(v)=f(v)+g(v),\quad 
+(af)(v)=af(v)
+\quad\text{and}
+\quad 
+(fg)(v)=f(g(v))
+\]
+for all $f,g\in\End_A(V)$, $a\in A$ and $v\in V$. 
 \end{example}
 
 Let $A$ be a finite-dimensional algebra. 
@@ -155,7 +162,7 @@ If $M$ is a module over the ring $A$, then $M$ is a vector space with
 \]
 where $\lambda\in K$ and $m\in M$. Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
 
-In this chapter we will work with finitely generated modules. 
+% In this chapter we will work with finitely generated modules. 
 
 \begin{example}
 An algebra  $A$ is a module over $A$ with left multiplication, that is $a\cdot b=ab$, $a,b\in A$.
@@ -248,18 +255,18 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 \begin{proof}
 	Assume that $M=S_1+\cdots+ S_k$, where each $S_i$ is a simple submodule. If $\pi\colon M\to M/N$ 
 	is the canonical map, Schur's lemma implies that each restriction $\pi|_{S_i}$ 
-	is either zero or an isomorphism with the image. Thus 
+	is either zero or an isomorphism with the image. Since  
 	\[
-	M/N=\pi(M)=\sum_{i=1}^k(\pi|_{S_i})(S_i)
+	M/N=\pi(M)=\sum_{i=1}^k(\pi|_{S_i})(S_i),
 	\]
-	is a direct sum of finitely many simples. 
+	it follows that $M/N$ is a direct sum of finitely many simples. 
 	
-	We now prove that $N$ is semisimple. 
-	Since there exists a submodule $T$ such that 
+	We now prove that $N$ is semisimple. By assumption, 
+	there exists a submodule $T$ such that 
 	$M=N\oplus T$. The quotient
-	$M/T$ is semisimple, so it follows that 
+	$M/T$ is semisimple by the previous paragraph, so it follows that 
 	\[
-	N\simeq N/\{0\}=N/(N\cap T)\simeq (N\oplus T)/T=M/M
+	N\simeq N/\{0\}=N/(N\cap T)\simeq (N\oplus T)/T=M/T
 	\]
 	is also semisimple.     
 \end{proof}
