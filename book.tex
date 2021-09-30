@@ -232,7 +232,29 @@
 \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\@maketitle}{{\Large Springer\par}}{}{}{}
+
+
+\def\ps@bchap{%
+  \let\@oddhead\@empty\let\@evenhead\@empty
+  \def\@oddfoot{\reset@font\small\hfil\thepage\hfil}%
+  \let\@evenfoot\@oddfoot
+}
+
+\def\ps@headings{%
+  \let\@mkboth\markboth
+  \def\@oddfoot{\reset@font\small\hfil\thepage\hfil}%
+  \let\@evenfoot\@oddfoot
+  \def\@evenhead{\runheadsize\runheadstyle\hfil\leftmark}%
+  \def\@oddhead{\runheadsize\runheadstyle\rightmark\hfil}%
+  \def\chaptermark##1{%
+    \markboth{%
+      {\if@chapnum Lecture \thechapter\thechapterend\fi ##1}%
+    }{%
+      {\if@chapnum Lecture \thechapter\thechapterend\fi ##1}}%
+    }%
+}
 \makeatother
+\pagestyle{headings}
 
 \begin{document}
  
