@@ -16,7 +16,8 @@ The map
 \bigoplus_{i=1}^k A\to M,\quad
 (a_1,\dots,a_k)\mapsto \sum_{i=1}^k a_i\cdot m_i,
 \]
-is a surjective homomorphism of modules. Since 
+is a surjective homomorphism of modules, where $A$ is considered as a module with the regular
+representation. Since 
 $A$ is semisimple, it follows that $\oplus_{i=1}^kA$ is semisimple. 
 Thus $M$ is semisimple, as it is isomorphic to the quotient of a semisimple module.
 \end{proof}
@@ -58,7 +59,7 @@ Moreover, every linearly independent subset of
 $M$ can be extended into a basis of $M$. 
 
 \begin{proposition}
-	Let $D$ be a division algebra and $V$ be a finitey-generated module over $D$. Then 
+	Let $D$ be a division algebra and $V$ be a finitely-generated module over $D$. Then 
 	$V$ is a simple module over $\End_D(V)$ and there exits $n\in\Z_{>0}$ such that  
 	$\End_D(V)\simeq nV$ is semisimple.
 \end{proposition}
@@ -89,6 +90,13 @@ $M$ can be extended into a basis of $M$.
 The proposition states that if $D$ is a division algebra, then  
 $D^{n}$ is a simple $M_n(D)$-module and that $M_n(D)\simeq n D^n$ as $M_n(D)$-modules. 
 
+\begin{exercise}
+    Let $M$, $N$ and $X$ be modules. Prove that 
+    \begin{align}
+        \Hom_A(M\oplus N,X)=\Hom_A(M,X)\times\Hom_A(N,X).
+%        \Hom_A(X,M\oplus N)=\Hom_A(X,M)\times\Hom_A(X,N).
+    \end{align}
+\end{exercise}
 
 \begin{theorem}
 Let $A$ be a finite-dimensional algebra and let 
@@ -103,7 +111,7 @@ then each $n_j$ is uniquely determined.
 \begin{proof}
 	Since each $S_j$ is simple and $S_i\not\simeq S_j$ if $i\ne j$, Schur's lemma implies that 
 	$\Hom_A(S_i,S_j)=\{0\}$ whenever $i\ne j$. 
-	For each $j\in\{1,\dots,k\}$, 
+	For each $j\in\{1,\dots,k\}$, routine calculations show that 
 	\begin{align*}
 		\Hom_A(M,S_j) &\simeq \Hom_A\left(\bigoplus_{i=1}^k n_i S_i,S_j\right)
 		\simeq n_j\Hom_A(S_j,S_j). 
@@ -132,7 +140,8 @@ $A$ is commutative if and only if $A=A^{\op}$.
 	Note that $\End_A(A)=\{\rho_a:a\in A\}$, where $\rho_a\colon
 	A\to A$, $x\mapsto xa$. Indeed, if $f\in\End_A(A)$, then 
 	$f(1)=a\in A$. Moreover, $f(b)=f(b1)=bf(1)=ba$ and hence 
-	$f=\rho_a$. The bijection $\End_A(A)\to A^{\op}$ is an algebra homomorphism, as 
+	$f=\rho_a$. The map $A^{\op}\to \End_A(A)$, $a\mapsto\rho_a$, 
+	is bijective and it is an algebra homomorphism, as 
     \[
 		\rho_a\rho_b(x)=\rho_a(\rho_b(x))=\rho_a(xb)=x(ba)=\rho_{ba}(x).\qedhere
     \]
@@ -189,11 +198,12 @@ $A$ is commutative if and only if $A=A^{\op}$.
 			\varphi_{n1}(x_1)+\cdots+\varphi_{nn}(x_n)
 		\end{pmatrix}.
 	\]
-	The reader should prove that the map is an injective algebra homomorphism 
+	The reader should prove that the map  
 	\[
-		M_n(\End_A(S))\to\End_A(nS).
+		M_n(\End_A(S))\to\End_A(nS)
 	\]
-	It is surjective: if $\psi\in\End(nS)$ and 
+	is an injective algebra homomorphism. 
+	It is surjective. Indeed, if $\psi\in\End(nS)$ and 
 	$i,j\in\{1,\dots,n\}$ one defines $\psi_{ij}$ by 
 	\[
 		\psi\begin{pmatrix}
@@ -223,13 +233,21 @@ $A$ is commutative if and only if $A=A^{\op}$.
 	\]
 \end{proof}
 
+\begin{exercise}
+    Let $M$, $N$ and $X$ be modules. Prove that 
+    \begin{align}
+%        \Hom_A(M\oplus N,X)=\Hom_A(M,X)\times\Hom_A(N,X).
+        \Hom_A(X,M\oplus N)=\Hom_A(X,M)\times\Hom_A(X,N).
+    \end{align}
+\end{exercise}
+
 \begin{theorem}[Artin--Wedderburn]
 Let $A$ be a finite-dimensional semisimple algebra, say with  
 $k$ isomorphism classes of simple modules. Then 
 \[
 A\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)
 \]
-for some $n_1,\dots,n_k\in\N$ and some division algebras $D_1,\dots,D_k$.
+for some $n_1,\dots,n_k\in\Z_{>0}$ and some division algebras $D_1,\dots,D_k$.
 \end{theorem}
 
 \begin{proof}
@@ -263,13 +281,13 @@ for some $n_1,\dots,n_k\in\N$ and some division algebras $D_1,\dots,D_k$.
 	\[
 	A\simeq\prod_{i=1}^k M_{n_i}(\C)
 	\]  
-	for some $n_1,\dots,n_k\in\N$. 
+	for some $n_1,\dots,n_k\in\Z_{>0}$. 
 \end{corollary}
 
 \begin{proof}
 	By Wedderburn's theorem,  
 	\[
-	A\simeq \prod_{i=1}^k M_{n_i}(\End_A(S_i)),
+	A\simeq \prod_{i=1}^k M_{n_i}(\End_A(S_i)^{\op}),
 	\]
 	where $S_1,\dots,S_k$ are representatives of the isomorphism classes of simple modules
 	and each $\End_A(S_i)$ is a division algebra. We claim that 
@@ -286,82 +304,10 @@ for some $n_1,\dots,n_k\in\N$ and some division algebras $D_1,\dots,D_k$.
 	\]
 \end{proof}
 
-\begin{exercise}
-    Let $A$ and $B$ be algebras. Prove that the ideals of $A\times B$ are of the form 
-    $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
-\end{exercise}
-
-\begin{definition}
-\index{Algebra!simple}  
-    An algebra $A$ is \textbf{simple} if $\{0\}$ and $A$ are the only ideals of $A$. 
-\end{definition}
-
-\begin{proposition}
-	Let $A$ be a finite-dimensional simple algebra. There exists a non-zero left ideal 
-	$I$ of minimal dimension. This ideal is a simple 
-	$A$-module and every simple $A$-module is isomorphic to $I$.
-\end{proposition}
-
-\begin{proof}
-	Since $A$ is finite-dimensional and $A$ is a left ideal of $A$, there exists a non-zero left ideal of minimal dimension. The minimality 
-	of $\dim I$ implies that $I$ is a simple $A$-module. 
-	
-	Let $M$ be a simple $A$-module. In particular, $M\ne\{0\}$. 
-	Since  
-	\[
-	\Ann(M)=\{a\in A:a\cdot M=\{0\}\}
-	\]
-	is an ideal of $A$ and $1\in A\setminus\Ann(M)$, the simplicity of $A$ implies that 
-	$\Ann(M)=\{0\}$ and hence $I\cdot M\ne \{0\}$ (because $I\cdot m\ne 0$ for all $m\in M$ yields  
-	$I\subseteq\Ann(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
-	that $I\cdot m\ne\{0\}$. The map 
-	\[
-	\varphi\colon I\to M,\quad
-	x\mapsto x\cdot m,
-	\]
-	is a module homomorphism. Since $I\cdot m\ne\{0\}$, the map $\varphi$ is non-zero. 
-	Since both $I$ and $M$ are simple, Schur's lemma implies that $\varphi$ is an isomorphism. 
-\end{proof}
-
-If $D$ is a division algebra, then $M_n(D)$ is a simple algebra. The previous proposition
-implies that the algebra $M_n(D)$ has a unique isomorphism classes of simple modules. Each simple module
-is isomorphic to $D^n$. 
-
-\begin{proposition}
-Let $A$ be a finite-dimensional algebra. If $A$ is simple, then $A$ is semisimple. 
-\end{proposition}
-
-\begin{proof}
-	Let $S$ be the sum of the simple submodules appearing in the regular representation of $A$. 
-	We claim that $S$ is an ideal of $A$. We knot that $S$ is a left ideal, as the submodules of the regular representation
-	are exactly the left ideals of $A$. To show that $Sa\subseteq S$ for all $a\in A$ we need to prove that 
-	$Ta\subseteq S$ for all simple submodule $T$ of $A$. If $T\subseteq A$ is a simple submodule and $a\in A$, 
-	let $f\colon T\to Ta$, $t\mapsto ta$. Since $f$ is a module homomorphism and $T$ is simple, it follows that
-	either $\ker f=\{0\}$ or $\ker T=T$. If $\ker T=T$, then 
-	$f(T)=Ta=\{0\}\subseteq S$. If $\ker f=\{0\}$, then $T\simeq f(T)=Ta$ and hence $Ta$ is simple. Hence $Ta\subseteq S$. 
-	
-	Since $S$ is an ideal of $A$ and $A$
-	is a simple algebra, it follows that either $S=\{0\}$ or $S=A$.  Since $S\ne\{0\}$, because  
-	there exists a non-zero left ideal $I$ of $A$ such that $I\ne\{0\}$ is of minimal dimension, 
-	it follows that $S=A$, that is the regular representaion of $A$ is semisimple (because it is a sum of simple submodules). Therefore 
-	$A$ is semisimple. 
-\end{proof}
-
-\begin{theorem}[Wedderburn]
-	Let $A$ be a finite-dimensional algebra. If $A$ is simple, then 
-	$A\simeq M_n(D)$ for some $n\in\N$ and some division algebra $D$. 
-\end{theorem}
-
-\begin{proof}
-	Since $A$ is simple, it follows that $A$ is semisimple. Artin--Wedderburn's theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
-	for some $n_1,\dots,n_k$ and some division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
-	$k$ isomorphism classes of simple modules. Since $A$ is simple,
-	$A$ has only one isomorphism class of simple modules. Thus $k=1$ and hence 
-	$A\simeq M_n(D)$ for some $n\in\N$ and some division algebra $D$. 
-\end{proof}
-
-
-
+% \begin{exercise}
+%     Let $A$ and $B$ be algebras. Prove that the ideals of $A\times B$ are of the form 
+%     $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
+% \end{exercise}
 
 
 

@@ -1,5 +1,78 @@
 \chapter{}
 
+\begin{definition}
+\index{Algebra!simple}  
+    An algebra $A$ is \textbf{simple} if $\{0\}$ and $A$ are the only ideals of $A$. 
+\end{definition}
+
+\begin{proposition}
+	Let $A$ be a finite-dimensional simple algebra. There exists a non-zero left ideal 
+	$I$ of minimal dimension. This ideal is a simple 
+	$A$-module and every simple $A$-module is isomorphic to $I$.
+\end{proposition}
+
+\begin{proof}
+	Since $A$ is finite-dimensional and $A$ is a left ideal of $A$, there exists a non-zero left ideal of minimal dimension. The minimality 
+	of $\dim I$ implies that $I$ is a simple $A$-module. 
+	
+	Let $M$ be a simple $A$-module. In particular, $M\ne\{0\}$. 
+	Since  
+	\[
+	\Ann(M)=\{a\in A:a\cdot M=\{0\}\}
+	\]
+	is an ideal of $A$ and $1\in A\setminus\Ann(M)$, the simplicity of $A$ implies that 
+	$\Ann(M)=\{0\}$ and hence $I\cdot M\ne \{0\}$ (because $I\cdot m\ne 0$ for all $m\in M$ yields  
+	$I\subseteq\Ann(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
+	that $I\cdot m\ne\{0\}$. The map 
+	\[
+	\varphi\colon I\to M,\quad
+	x\mapsto x\cdot m,
+	\]
+	is a module homomorphism. Since $I\cdot m\ne\{0\}$, the map $\varphi$ is non-zero. 
+	Since both $I$ and $M$ are simple, Schur's lemma implies that $\varphi$ is an isomorphism. 
+\end{proof}
+
+If $D$ is a division algebra, then $M_n(D)$ is a simple algebra. The previous proposition
+implies that the algebra $M_n(D)$ has a unique isomorphism classes of simple modules. Each simple module
+is isomorphic to $D^n$. 
+
+\begin{proposition}
+Let $A$ be a finite-dimensional algebra. If $A$ is simple, then $A$ is semisimple. 
+\end{proposition}
+
+\begin{proof}
+	Let $S$ be the sum of the simple submodules appearing in the regular representation of $A$. 
+	We claim that $S$ is an ideal of $A$. We knot that $S$ is a left ideal, as the submodules of the regular representation
+	are exactly the left ideals of $A$. To show that $Sa\subseteq S$ for all $a\in A$ we need to prove that 
+	$Ta\subseteq S$ for all simple submodule $T$ of $A$. If $T\subseteq A$ is a simple submodule and $a\in A$, 
+	let $f\colon T\to Ta$, $t\mapsto ta$. Since $f$ is a module homomorphism and $T$ is simple, it follows that
+	either $\ker f=\{0\}$ or $\ker T=T$. If $\ker T=T$, then 
+	$f(T)=Ta=\{0\}\subseteq S$. If $\ker f=\{0\}$, then $T\simeq f(T)=Ta$ and hence $Ta$ is simple. Hence $Ta\subseteq S$. 
+	
+	Since $S$ is an ideal of $A$ and $A$
+	is a simple algebra, it follows that either $S=\{0\}$ or $S=A$.  Since $S\ne\{0\}$, because  
+	there exists a non-zero left ideal $I$ of $A$ such that $I\ne\{0\}$ is of minimal dimension, 
+	it follows that $S=A$, that is the regular representaion of $A$ is semisimple (because it is a sum of simple submodules). Therefore 
+	$A$ is semisimple. 
+\end{proof}
+
+\begin{theorem}[Wedderburn]
+	Let $A$ be a finite-dimensional algebra. If $A$ is simple, then 
+	$A\simeq M_n(D)$ for some $n\in\N$ and some division algebra $D$. 
+\end{theorem}
+
+\begin{proof}
+	Since $A$ is simple, it follows that $A$ is semisimple. Artin--Wedderburn's theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
+	for some $n_1,\dots,n_k$ and some division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
+	$k$ isomorphism classes of simple modules. Since $A$ is simple,
+	$A$ has only one isomorphism class of simple modules. Thus $k=1$ and hence 
+	$A\simeq M_n(D)$ for some $n\in\N$ and some division algebra $D$. 
+\end{proof}
+
+
+
+
+
 \section*{Jacobson radical}
 
 We will consider rings possibly without identity. Thus  
