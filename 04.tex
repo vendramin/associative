@@ -14,13 +14,13 @@ for some simple $R$-module $M$.
 
 \begin{proof}
 	Assume that $P=\Ann_R(M)$ for some $R$-module $M$. Then $M$ is a simple 
-	$R/P$-module with $(r+P)m=rm$, $r\in R$, $m\in M$. This is well-defined, as 
+	$(R/P)$-module with $(r+P)\cdot m=r\cdot m$, $r\in R$, $m\in M$. This is well-defined, as 
 	$P=\Ann_R(M)$. Since $M$ is a simple $R$-module, it follows that $M$ is 
-	a simple $R/P$-module. Moreover, $\Ann_{R/P}M=\{0\}$. Indeed, if 
-	$(r+P)M=0$, then $r\in\Ann_RM=P$ and hence $r+P=P$.
+	a simple $(R/P)$-module. Moreover, $\Ann_{R/P}M=\{0\}$. Indeed, if 
+	$(r+P)\cdot M=\{0\}$, then $r\in\Ann_RM=P$ and hence $r+P=P$.
 
-	Assume now that $R/P$ is primitive. Let $M$ be a faithful simple $R/P$-module. 
-	Then $rm=(r+P)m$, $r\in R$,
+	Assume now that $R/P$ is primitive. Let $M$ be a faithful simple $(R/P)$-module. 
+	Then $r\cdot m=(r+P)\cdot m$, $r\in R$,
 	$m\in M$, turns $M$ into an $R$-module. It follows that $M$ is simple and that $P=\Ann_R(M)$. 
 \end{proof}
 
@@ -38,7 +38,7 @@ for some simple $R$-module $M$.
 %\end{example}
 
 \begin{example}
-	Let $R_1,\dots,R_n$ be primitive ring and $R=R_1\times\cdots\times
+	Let $R_1,\dots,R_n$ be primitive rings and $R=R_1\times\cdots\times
 	R_n$. Then each $P_i=R_1\times\cdots\times R_{i-1}\times\{0\}\times
 	R_{i+1}\times\cdots\times R_n$ is a primitive ideal of $R$ since 
 	$R/P_i\simeq R_i$.
@@ -55,23 +55,23 @@ for some simple $R$-module $M$.
 
 \begin{lemma}
 	\label{lemma:maxprim}
-	Let $R$ be a ring. Si $P$ es un ideal primitivo, existe un ideal a
-	izquierda $L$ maximal tal que $P=\{x\in R:xR\subseteq L\}$.
-	Recíprocamente, si $L$ es un ideal a izquierda maximal y regular, entonces
-	$\{x\in R:xR\subseteq L\}$ es un ideal primitivo.
+	Let $R$ be a ring. If $P$ is a primitive ideal, there exists a maximal 
+	left ideal $I$ such that $P=\{x\in R:xR\subseteq I\}$.
+	Conversely, if $I$ is a maximal regular left ideal, then 
+	$\{x\in R:xR\subseteq L\}$ is a primitive ideal. 
 \end{lemma}
 
 \begin{proof}
 	Assume that $P=\Ann_R(M)$ for some simple $R$-module $M$. By
 	Proposition~\ref{proposition:R/I}, there exists a regular maximal 
 	left ideal 
-	$L$ such that $M\simeq R/L$. Then $P=\Ann_R(R/L)=\{x\in
-	R:xR\subseteq L\}$. 
+	$I$ such that $M\simeq R/I$. Then $P=\Ann_R(R/I)=\{x\in
+	R:xR\subseteq I\}$. 
 
-	Conversely, let $L$ a regular maximal left ideal.By
-	Proposition~\ref{proposition:R/I}, $R/L$ is a simple $R$-module simple. Then
+	Conversely, let $I$ a regular maximal left ideal. By
+	Proposition~\ref{proposition:R/I}, $R/I$ is a simple $R$-module. Then
 	\[
-	\Ann_R(R/L)=\{x\in R:xR\subseteq L\}
+	\Ann_R(R/L)=\{x\in R:xR\subseteq I\}
 	\]
 	if a primitive ideal.
 \end{proof}
@@ -82,17 +82,10 @@ for some simple $R$-module $M$.
 %	primitivo.
 %\end{remark}
 
-\begin{proposition}
+\begin{exercise}
+\label{xca:maximal=>prim}
     Maximal ideals of unitary rings are primitive.  
-\end{proposition}
-
-\begin{proof}
-	Let $R$ be a ring with identity and $M$ be a maximal ideal of $R$. Then 
-	$R/M$ is a simple unitary ring by 
-	Proposition~\ref{proposition:R/I}. Then $R/M$ is primitive by
-	Proposition~\ref{proposition:simple=>prim}. By lema~\ref{lemma:primitivo}, 
-	$M$ is primitive. 
-\end{proof}
+\end{exercise}
 
 \begin{exercise}
 	Prove that every primitive ideal of a commutative ring is maximal.
@@ -745,7 +738,7 @@ Prove the following statements:
 \begin{enumerate}
     \setcounter{enumi}{1}
 		\item $\lambda\colon (R,\circ)\to\Aut(R,+)$, $x\mapsto
-			\lambda_x$, is wis a group homomorphism.
+			\lambda_x$, is a group homomorphism.
 		\item $\mu\colon (R,\circ)\to\Aut(R,+)$, $y\mapsto\mu_y$,
     		is a group antihomomorphism.
 	    \item The map 
@@ -919,13 +912,28 @@ Amitsur's theorem implies the following result.
 % 	Es consecuencia del teorema de Amitsur pues $\dim_KA<|K|$. 
 % \end{proof}
 
+\begin{openproblem}[Jacobson--Herstein]
+\label{prob:Jacobson}
+\index{Jacobson conjecture}
+\index{Jacobson--Herstein conjecture}
+Let $R$ be a noetherian ring. Is then 
+\[
+\bigcap_{n\geq1}J(R)^n=\{0\}?
+\]
+\end{openproblem}
 
+Open problem \ref{prob:Jacobson} was originally formulated by Jacobson in 1956 \cite{MR0222106} 
+for one-sided noetherian rings. In 1965 Herstein \cite{MR188253} found a counterexample
+and reformulated the conjecture as it appears here. 
+
+%%% exercise
 
 The following problem is maybe the most important open 
 problem in non-commutative ring theory. 
 
 \begin{openproblem}[K\"othe]
 \label{prob:Koethe}
+\index{K\"othe conjecture}
 Let $R$ be a ring. Is the sum 
 of two arbitrary nil left ideals of $R$ is nil?
 \end{openproblem}
