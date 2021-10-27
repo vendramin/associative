@@ -79,6 +79,7 @@
 \end{exercise}
 
 \begin{exercise}
+\label{xca:Jcon1}
 	Let $R$ be a unitary ring. The
 	following statements are equivalent: 
 	\begin{enumerate}
@@ -91,7 +92,7 @@
 	\end{enumerate}
 \end{exercise}
 
-The following exercises are optional. They somewhat show a recent new application of radical rings
+The following exercise is entirely optional. It somewhat shows a recent application of radical rings
 to solutions of the celebrated Yang--Baxter equation. 
 
 \begin{exercise}
@@ -177,112 +178,113 @@ some results in the case of unitary algebras.
 \end{theorem}
 
 \begin{proof}
-	Sea $I$ un ideal a izquierda maximal y regular del anillo $A$.  Queremos
-	demostrar que $\lambda I\subseteq I$ para todo $\lambda\in K$. Si suponemos
-	que $\lambda I\not\subseteq I$ para algún $\lambda$, entonces $I+\lambda I$
-	es un ideal a izquierda del anillo $A$ que contiene a $I$ pues
+	Let $I$ be a left maximal regular ideal of the ring $A$. We claim that
+	$\lambda I\subseteq I$ for all $\lambda\in K$. Assume that 
+	$\lambda I\not\subseteq I$ for some $\lambda$. Then $I+\lambda I$
+	is a left ideal of the ring $A$ that contains $I$, as 
 	\[
 	a(I+\lambda I)=aI+a(\lambda I)\subseteq I+\lambda (aI)\subseteq I+\lambda I.
 	\]
-	Como $I$ es maximal, $I+\lambda I=A$. Por la regularidad de $I$, existe $e\in R$ tal que
-	$a-ae\in I$ para todo $a\in A$. Si escribimos $e=x+\lambda y$ para $x,y\in
-	I$, entonces
+	Since $I$ is maximal, it follows that $I+\lambda I=A$. The regularity of $I$ implies that there exists $e\in R$
+	such that 
+	$a-ae\in I$ for all $a\in A$. Write $e=x+\lambda y$ for $x,y\in
+	I$. Then 
 	\[
 		e^2=e(x+\lambda y)=ex+e(\lambda y)=ex+(\lambda e)y\in I.
 	\]
-	Como $e^2-e\in I$ y $e^2\in I$, se concluye que $e\in I$. Luego $A=I$ pues
-	$a-ae\in I$ para todo $a\in A$, una contradicción.
+	Since $e^2-e\in I$ y $e^2\in I$, it follows that $e\in I$. Thus $A=I$, as
+	$a-ae\in I$ for all $a\in A$, a contradiction.
 
-	Recíprocamente, si $I$ es un ideal a izquierda maximal y regular del
-	álgebra $A$, entonces $I$ es ideal a izquierda regular del anillo $A$.
-	Falta ver entonces que $I$ es maximal. Por el
-	ejercicio~\ref{exa:Zorn:regular} sabemos que existe un ideal a izquierda
-	maximal $L$ del anillo $A$ que contiene a $I$. Como $L$ es regular, la
-	implicación demostrada nos dice que $L$ es un ideal a izquierda maximal y
-	regular del anillo $A$. Luego $L=I$ por la maximalidad de $I$.
+	Conversely, if $I$ is a left maximal regular ideal of the algebra $A$, then 
+	$I$ is a regular left ideal of the ring $A$. We claim that $I$ is maximal. 
+	There exists a maximal left ideal $L$ of the ring $A$ that contains $I$. Since 
+	$L$ is regular, it follows that $L$ is a regular maximal left ideal of the ring $A$. Thus 
+	$L=I$ because $I$ is maximal. 
+% 	ejercicio~\ref{xca:Zorn:regular} sabemos que existe un ideal a izquierda
+% 	maximal $L$ del anillo $A$ que contiene a $I$. Como $L$ es regular, la
+% 	implicación demostrada nos dice que $L$ es un ideal a izquierda maximal y
+% 	regular del anillo $A$. Luego $L=I$ por la maximalidad de $I$.
 \end{proof}
 
-\begin{corollary}
-	Sea $A$ un álgebra. El radical de Jacobson del anillo $A$ coincide con el
-	radical de Jacobson del álgebra $A$.
-\end{corollary}
+\begin{exercise}
+    Let $A$ be an algebra. Prove that the Jacobson
+    radical of the ring $A$ coincides with the Jacobson radical of the algebra $A$. 
+\end{exercise}
 
-\begin{proof}
-	Es consecuencia del teorema anterior y de que el radical de Jacobson es la
-	intersección de los ideales a izquierda maximales y regulares.
-\end{proof}
+% \begin{proof}
+% 	Es consecuencia del teorema anterior y de que el radical de Jacobson es la
+% 	intersección de los ideales a izquierda maximales y regulares.
+% \end{proof}
 
 \begin{lemma}
 	\label{lemma:algebraico=nil}
-	Sea $A$ un álgebra unitaria y sea $x\in J(A)$. 
-	Entonces $x$ es algebraico si y sólo si $x$ es nil.
+	Let $A$ be an algebra with one and let $x\in J(A)$. 
+	Then $x$ is algebraic if and only if $x$ is nil. 
 \end{lemma}
 
 \begin{proof}
-	Demostremos la implicación no trivial. Como $x$ es algebraico, 
-	existen $a_0,\dots,a_n\in K$ no todos cero tales que
-	\[
+    Since $x$ is algebraic, there exist $a_0,\dots,a_n\in K$ 
+    not all zero such that 
+    \[
 		a_0+a_1x+\cdots+a_nx^n=0.
 	\]
-	Sea $r$ el menor entero tal que $a_r\ne 0$. Podemos escribir entonces
+	Let $r$ be the smallest integer such that $a_r\ne 0$. Then 
 	\[
 		x^r(1+b_1x+\cdots+b_mx^m)=0,
 	\]
-	donde $b_1,\dots,b_m\in K$.  Como $1+b_1x+\cdots+b_mx^m$ es una unidad por
-	el corolario~\ref{cor:Jcon1}, entonces $x^r=0$.
+	for some $b_1,\dots,b_m\in K$. Since $1+b_1x+\cdots+b_mx^m$ is a unit by 
+	Exercise~\ref{xca:Jcon1}, it follows that $x^r=0$.
 \end{proof}
 
-Como aplicación tenemos el siguiente resultado:
+An application:
 
 \begin{theorem}
 	\label{thm:algebraica=>Jnil}
-	Si $A$ es un álgebra algebraica, $J(A)$ es el mayor ideal nil de $A$.
+	If $A$ is an algebraic algebra, then $J(A)$ is the largest nil ideal of $A$.
 \end{theorem}
 
 \begin{proof}
-	Por el lema~\ref{lemma:algebraico=nil}, $J(A)$ es un ideal nil. Por la
-	propoisición~\ref{pro:nilJ}, $J(A)$ es el mayor ideal nil de $A$.
+	The previous lemma implies that $J(A)$ is a nil ideal. 
+	Proposition~\ref{pro:nilJ} now implies that $J(A)$ is the largest nil ideal of $A$. 
 \end{proof}
 
 \begin{theorem}[Amitsur]
 	\label{thm:Amitsur}
-	Si $A$ es una $K$-álgebra unitaria tal que $\dim_KA<|K|$ (como cardinales),
-	entonces $J(A)$ es el mayor ideal nil de $A$.
+	Let $A$ be a $K$-algebra with one such that $\dim_KA<|K|$ (as cardinals). Then 
+	$J(A)$ is the largest nil ideal of $A$. 
 \end{theorem}
 
 \begin{proof}
-	Si $K$ es un cuerpo finito, entonces $A$ es un álgebra de dimensión finita.
-	Como entonces $A$ es algebraica, $J(A)$ es un ideal nil por el
-	teorema~\ref{thm:algebraica=>Jnil}.
+	If $K$ is finite, then $A$ is a finite-dimensional algebra. In particular, $A$ is algebraic and
+	hence $J(A)$ is a nil ideal by Theorem~\ref{thm:algebraica=>Jnil}.
 
-	Supongamos entonces que $K$ es infinito. Sea $a\in J(A)$. El
-	corolario~\ref{cor:Jcon1} implica que todo elemento de la forma
-	$1-\lambda^{-1}a$, $\lambda\in K\setminus\{0\}$, es inversible. Entonces 
+	Assume that $K$ is infinite and let $a\in J(A)$. Exercise~\ref{xca:Jcon1} implies that 
+	every element of the form 
+	$1-\lambda^{-1}a$, $\lambda\in K\setminus\{0\}$, is invertible. Thus  
 	\[
 		a-\lambda=-\lambda(1-\lambda^{-1}a)
 	\]
-	es inversible para todo $\lambda\in K\setminus\{0\}$. Sea
-	$S=\{(a-\lambda)^{-1}:\lambda\in K\setminus\{0\}\}$. Como
+	is invertible for all $\lambda\in K\setminus\{0\}$. Let
+	$S=\{(a-\lambda)^{-1}:\lambda\in K\setminus\{0\}\}$. Since 
 	\[
 	(a-\lambda)^{-1}=(a-\mu)^{-1}\Longleftrightarrow\lambda=\mu,
 	\]
-	entonces $|S|=|K\setminus\{0\}|=|K|>\dim_KA$. Como entonces $S$ 
-	es linealmente dependiente, 
-	existen escalares no
-	nulos $\beta_1,\dots,\beta_n\in K$ y elementos distintos $\lambda_1,\dots,\lambda_n\in K$ tales que
+	it follows that $|S|=|K\setminus\{0\}|=|K|>\dim_KA$. Then $S$ 
+	is linearly dependent, so there are $\beta_1,\dots,\beta_n\in K$
+	not all zero and distinct elements $\lambda_1,\dots,\lambda_n\in K$ such that 
 	\begin{equation}
 		\label{eq:Amitsur}
 		\sum_{i=1}^n \beta_i(a-\lambda_i)^{-1}=0.
 	\end{equation}
-	Si multiplicamos~\eqref{eq:Amitsur} por $\prod_{i=1}^n(a-\lambda_i)$, obtenemos
+	Multiplying~\eqref{eq:Amitsur} by $\prod_{i=1}^n(a-\lambda_i)$ we get 
 	\[
 		\sum_{i=1}^n\beta_i\prod_{j\ne i}(a-\lambda_j)=0.
 	\]
-	Afirmamos que $a$ es algebraico sobre $K$. En efecto, 
+	We claim that $a$ is algebraic over $K$. Indeed,  
 	\[
 		f=\sum_{i=1}^n\beta_i\prod_{j\ne i}(X-\lambda_j)
 	\]
-	es no nulo pues
+	is non-zero, as 
 	$f(\lambda_1)=\beta_1(\lambda_1-\lambda_2)\cdots(\lambda_1-\lambda_n)\ne0$
 	y cumple que $f(a)=0$. Como $a\in J(A)$ es algebraico, $a$ es nil por el
 	lema~\ref{lemma:algebraico=nil}.
@@ -298,6 +300,8 @@ Amitsur's theorem implies the following result.
 % \begin{proof}
 % 	Es consecuencia del teorema de Amitsur pues $\dim_KA<|K|$. 
 % \end{proof}
+
+We now finish the lecture with two big open problems. 
 
 \begin{openproblem}[Jacobson--Herstein]
 \label{prob:Jacobson}
