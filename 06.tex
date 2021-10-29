@@ -1,86 +1,64 @@
 \chapter{}
 
-\begin{definition}
-	\index{Módulo!artiniano}
-	Sea $R$ un anillo. 
-	Un $R$-módulo $N$ se dice \textbf{artiniano} si para toda sucesión
-	$N_1\supseteq N_2\supseteq\cdots$ de submódulos de $N$ existe $n\in\N$ tal
-	que $N_n=N_{n+k}$ para todo $k\in\N$.
-\end{definition}
+\section*{\S5. Artinian modules}
 
 \begin{definition}
-	\index{Módulo!noetheriano}
-	Sea $R$ un anillo. 
-	Un $R$-módulo $N$ se dice \textbf{noetheriano} si para toda sucesión
-	$N_1\subseteq N_2\subseteq\cdots$ de submódulos de $N$ existe $n\in\N$ tal
-	que $N_n=N_{n+k}$ para todo $k\in\N$.
+	Let $R$ be a ring. A module $N$ is \textbf{artinian} if every decreasing sequence 
+	$N_1\supseteq N_2\supseteq\cdots$ of submodules of $N$ stabilizes, that is
+	there exists $n\in\Z_{>0}$ such that 
+	$N_n=N_{n+k}$ for all $k\in\Z_{>0}$.
 \end{definition}
 
-\index{Minimal!elemento}
-\index{Maximal!elemento}
-Sea $X$ un conjunto y sea $\mathcal{S}$ un conjunto de subconjuntos de $X$.
-Diremos que $A\in\mathcal{S}$ es un \textbf{elemento minimal} en $\mathcal{S}$
-si no existe $Y\in\mathcal{S}$ tal que $Y\subsetneq A$. Similarmente, 
-que $B\in\mathcal{S}$ es un \textbf{elemento maximal} en $\mathcal{S}$ si no
-existe $Z\in\mathcal{S}$ tal que $B\subsetneq Z$.
+Let $X$ be a set and $\mathcal{S}$ be a set of subsets of $X$. 
+We say that $A\in\mathcal{S}$ is a \textbf{minimal element} of $\mathcal{S}$
+if there is no $Y\in\mathcal{S}$ such that $Y\subsetneq A$. 
 
-\begin{lemma}
-	\label{lem:modulo_artiniano}
-	Un módulo $N$ es artiniano si y sólo si todo conjunto no
-	vacío de submódulos de $N$ tiene un elemento minimal.
-\end{lemma}
+\begin{proposition}
+\label{pro:artinian_minimal}
+	A module $N$ is artinian if and only if every non-empty subset of submodules of $N$ 
+	contains a minimal element. 
+\end{proposition}
 
 \begin{proof}
-	Supongamos que $N$ es artiniano y que . Sea $\mathcal{S}$ el conjunto (no
-	vacío) de submódulos de $N$. Supongamos que $\mathcal{S}$ no tiene elemento
-	minimal y sea $N_1\in\mathcal{S}$.  Como $N_1$ no es minimal, existe
-	$N_2\in\mathcal{S}$ tal que $N_1\supsetneq N_2$.  Supongamos que tenemos
-	elegidos $k$ submódulos $N_1\supsetneq N_2\supseteq\cdots\supsetneq N_k$.
-	Como $N_k$ no es minimal, existe $N_{k+1}$ tal que $N_k\supsetneq N_{k+1}$.
-	De esta forma tenemos una sucesión de submódulos $N_1\supsetneq
-	N_2\supsetneq\cdots$ que no se estabiliza, una contradicción.
-
-	Recíprocamente, si $N_1\supseteq N_2\supseteq\cdots$ es una sucesión de
-	submódulos, entonces el conjunto $\mathcal{S}=\{N_j:j\geq1\}$ tiene un
-	elemento minimal $N_n$. Luego $N_n=N_{n+k}$ para todo $k\in\N$.
+	Assume that $N$ is artinian. Let $\mathcal{S}$ be the non-empty set of submodules of $N$. 
+	Suppose that $\mathcal{S}$ has no minimal element and let $N_1\in\mathcal{S}$. 
+	Since $N_1$ is not minimal, there exists 
+	$N_2\in\mathcal{S}$ such that $N_1\supsetneq N_2$. Now assume the 
+	submodules 
+	\[
+	N_1\supsetneq N_2\supseteq\cdots\supsetneq N_k
+	\]
+	we chosen. 
+	Since $N_k$ is not minimal, there exists $N_{k+1}$ such that $N_k\supsetneq N_{k+1}$.
+	This procedure produces a sequence $N_1\supsetneq
+	N_2\supsetneq\cdots$ that cannot stabilize, a contradiction. 
+	
+	If $N_1\supseteq N_2\supseteq\cdots$ is a sequence of submodules, then 
+	$\mathcal{S}=\{N_j:j\geq1\}$ has a minimal element, say $N_n$. Then
+	$N_n=N_{n+k}$ for all $k$. 
 \end{proof}
 
-\begin{lemma}
-	\label{lem:noetheriano1}
-	Un módulo $N$ es noetheriano si y sólo si todo conjunto no vacío de
-	submódulos de $N$ tiene un elemento maximal.
-\end{lemma}
+A modulo $N$ is \textbf{noetherian} if for every sequence 
+$N_1\subseteq N_2\subseteq\cdots$ of submodules of $N$ there exists $n\in\Z_{>0}$ such that 
+$N_n=N_{n+k}$ for all $k\in\Z_{>0}$. 
 
-\begin{proof}
-	Es similar a la prueba del lema~\ref{lem:modulo_artiniano}.
-\end{proof}
-
-\begin{lemma}
-	\label{lem:noetheriano2}
-	Un módulo $N$ es noetheriano si y sólo si todo submódulo de $N$ es
-	finitamente generado.
-\end{lemma}
-
-\begin{proof}
-	Supongamos que $N$ es noetheriano. Sea $P$ un submódulo de $N$ y sea
-	$\mathcal{S}$ el conjunto de submódulos de $P$ finitamente generados. Como
-	$0\in\mathcal{S}$, el conjunto $\mathcal{S}$ es no vacío. Por el
-	lema~\ref{lem:noetheriano1}, existe $B\in\mathcal{S}$ elemento maximal.
-	Sea $\{b_1,\dots,b_m\}$ un conjunto finito de generadores de $B$. Si $p\in
-	P$ entonces, por maximalidad, $B$ está contenido en el submódulo de $P$
-	generado por $\{p,b_1,\dots,b_m\}$. Como este submódulo está en
-	$\mathcal{S}$, se concluye que $p\in B$.
-
-	Sea $N_1\subseteq N_2\subseteq\cdots$ una subcesión de submódulos de $N$.
-	Como $M=\cup_{j\geq1}N_j$ es un submódulo de $N$, es finitamente generado.
-	Sea $\{x_1,\dots,x_m\}$ un conjunto de generadores de $M$. Como cada $x_j$
-	está en algún $N_k$, existe $n\in\N$ tal que $M\subseteq N_n$. En
-	particular, $N_{n}=N_{n+k}$ para todo $k\geq1$. 
-\end{proof}
+% Let $X$ be a set and $\mathcal{S}$ be a set of subsets of $X$. We say that 
+% $B\in\mathcal{S}$ is a \textbf{maximal element} of $\mathcal{S}$ if
+% there is no $Z\in\mathcal{S}$ such that $B\subsetneq Z$.
 
 \begin{exercise}
-	\label{exercise:noetheriano:exact}
-	Sea 
+    Let $M$ be a module. The following statements are equivalent:
+    \begin{enumerate}
+        \item $M$ is noetherian.
+        \item Every submodule of $M$ is finitely generated. 
+        \item Every non-empty subset $\mathcal{S}$ of submodules of $M$ contains a maximal element, that is
+            an element $X\in\mathcal{S}$ such that there is no $Z\in\mathcal{S}$ such that $X\subseteq Z$.  
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\label{xca:AN_exact}
+	Let 
 	\[
 	\begin{tikzcd}
 		0 \arrow{r}
@@ -90,83 +68,57 @@ existe $Z\in\mathcal{S}$ tal que $B\subsetneq Z$.
 		& 0
 	\end{tikzcd}
 	\]
-	una sucesión exacta de $R$-módulos. Demuestre que $B$ es noetheriano (resp.
-	artiniano) si y sólo si $A$ y $C$ son noetherianos (resp. artinianos).
+	be an exact sequence of modules. Prove that $B$ is noetherian (resp.
+	artinian) if and only if $A$ and $C$ are noetherian (resp. artinian).
 \end{exercise}
 
-%Como consecuencia %del ejercicio~\ref{exercise:exact} obtenemos los siguientes
-%\framebox{FIXME}
-%resultados:
-%
-%\begin{exercise}
-%	\label{exercise:noetheriano:B/A}
-%	Sea $B$ un submódulo de $A$. Demuestre que $B$ es noetheriano (resp.
-%	artiniano) si y sólo si $A$ y $B/A$ son noetherianos (resp. artinianos).
-%\end{exercise}
-%
-%\begin{exercise}
-%	\label{exercise:noetheriano:direct}
-%	Sean $A_1,\dots,A_n$ $R$-módulos. Demuestre que $A_1\oplus\cdots\oplus A_n$
-%	es noetheriano (resp. artiniano) si y sólo si cada $A_i$ es noetheriano
-%	(resp. artiniano).
-%\end{exercise}
-
+% \begin{definition}
+% 	Un anillo $R$ se dice \textbf{noetheriano a izquierda} si el módulo 
+% 	$\prescript{}{R}R$ es noetheriano.
+% \end{definition}
+%Similarly one defines right noetherian rings.
 
 \begin{definition}
-	\index{Anillo!noetheriano a izquierda}
-	\index{Anillo!noetheriano a derecha}
-	Un anillo $R$ se dice \textbf{noetheriano a izquierda} si el módulo 
-	$\prescript{}{R}R$ es noetheriano.
+	A ring $R$ is \textbf{left artinian} if the module 
+	$\prescript{}{R}R$ is artinian.
 \end{definition}
 
-Análogamente se definen anillos noetherianos a derecha.
-
-\begin{definition}
-	\index{Anillo!artiniano a izquierda}
-	\index{Anillo!artiniano a derecha}
-	Un anillo $R$ se dice \textbf{artiniano a izquierda} si el módulo
-	$\prescript{}{R}R$ es artiniano.
-\end{definition}
-
-Análogamente se definen anillos artinianos a derecha.
+Similarly one defines right artinian rings. 
 
 \begin{example}
-	Del lema~\ref{lem:noetheriano2} se obtiene inmediatamente que $\Z$ es
-	noetheriano. Sin embargo, $\Z$ no es noetheriano pues $2\Z\supseteq
-	4\Z\supseteq 8\Z\supseteq\cdots$ es una sucesión de ideales que no se
-	estabiliza.
+	The ring $\Z$ is noetherian. It is not artinian, as the sequence
+	\[
+	2\Z\supseteq
+	4\Z\supseteq 8\Z\supseteq\cdots
+	\]
+	does not stabilize. 
 \end{example}
 
 \begin{definition}
 	\label{def:serie_de_composicion}
-	\index{Módulo!serie de composición de un}
-	\index{Módulo!de longitud finita}
-	Una \textbf{serie de composición} para un módulo $M$ es una sucesión
+	A \textbf{composition series} of the module $M$ is a sequence 
 	\[
-		0=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots\subsetneq M_n=M
+		\{0\}=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots\subsetneq M_n=M
 	\]
-	de submódulos de $M$ tal que cada $M_i/M_{i-1}$ es no nulo y no tiene
-	submódulos propios. En este caso, $n$ es la longitud de $M$ y $M$ se dice 
-	de \textbf{longitud finita}.
+	of submodules of $M$ such that each $M_i/M_{i-1}$ is non-zero and has no proper submodules. 
+	In this case 
+	$n$ is the length of $M$ and $M$ is said to have \textbf{finite length}.
 \end{definition}
 
-La definición~\ref{def:serie_de_composicion} tiene sentido también en anillos
-no unitarios, y por eso pedimos que cada cociente $M_i/M_{i-1}$ no tenga
-submódulos propios (esto garantiza la simplicidad en el caso de anillos
-unitarios).
+The previous definition makes sense also for non-unitary rings. That is why
+it is required that each quotient $M_i/M_{i-1}$ has no proper submodules.
 
 \begin{theorem}
 	\label{thm:serie_de_composicion}
-	Un módulo no nulo admite una serie de composición si y sólo si es artiniano
-	y noetheriano.
+	A non-zero module admits a composition series if and only if it is artinian and noetherian.
 \end{theorem}
 
 \begin{proof}
-	Sea $M$ un módulo no nulo y sea $0=M_0\subsetneq
-	M_1\subsetneq\cdots\subsetneq M_n=M$ una serie de composición para $M$.
-	Demostraremos por inducción que cada $M_i$ es artiniano y noetheriano. El
-	caso $i=0$ es trivial. Supongamos entonces que $M_i$ es artinoano y
-	noetheriano. Como $M_i/M_{i+1}$ no tiene submódulos propios y la sucesión 
+	Let $M$ be a non-zero module and let $\{0\}=M_0\subsetneq
+	M_1\subsetneq\cdots\subsetneq M_n=M$ be a composition series for $M$.
+	We claim that each $M_i$ is artinian and noetherian. We proceed by induction on $i$. The case
+	$i=0$ is trivial. Let us assume that $M_i$ is artinian and noetherian. Since 
+	$M_i/M_{i+1}$ has no proper submodules and the sequence 
 	\[
 	\begin{tikzcd}
 		0 \arrow{r}
@@ -176,90 +128,95 @@ unitarios).
 		& 0
 	\end{tikzcd}
 	\]
-	es exacta, se concluye que $M_{i+1}$ es artiniano y noetheriano. 
+	is exact, it follows that 
+	$M_{i+1}$ is artinian and noetherian, see Exercise \ref{xca:AN_exact}. 
 
-	Supongamos ahora que $M$ es un módulo noetheriano y artiniano. Sea $M_0=0$
-	y sea $M_1$ minimal entre los submódulos de $M$ (existe $M_1$ gracias al
-	lema~\ref{lem:modulo_artiniano} pues $M$ es artiniano). Si $M_1\ne M$, sea
-	$M_2$ minimal entre los submódulos de $M$ tales que $M_1\subsetneq M_2$. Al
-	continuar de esta forma obtenemos una sucesión
+    Conversely, let $M$ be an artinian and noetherian module. Let $M_0=\{0\}$ and 
+    $M_1$ be minimal among the submodules of $M$ (it exists by Proposition \ref{pro:artinian_minimal}.
+    If $M_1\ne M$, let 
+	$M_2$ be minimal among those submodules of $M$ such that $M_1\subsetneq M_2$. This procedure
+	produces a sequence 
 	\[
-		0=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots
+		\{0\}=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots
 	\]
-	de submódulos de $M$, donde cada $M_{i+1}/M_i$ es no nulo y no admite
-	submódulos propios. Como $M$ es noetheriano, la sucesión se estabiliza y
-	luego $M_n=M$ para algún $n$. 
+	of submodules of $M$, where each $M_{i+1}/M_i$ is non-zero and admits no
+	proper submodules. Since $M$ is noetherian, the sequence stabilizes and
+	hence it follows that $M_n=M$ for some $n$. 
 \end{proof}
 
 \begin{definition}
-	Diremos que las series de composición 
+    Let $M$ be a module. 
+	We say that the composition series
 	\[
-	V=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=0,
+	M=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=\{0\},
 	\quad
-	V=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=0,
+	M=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=\{0\},
 	\]
-	son \textbf{equivalentes} si $k=l$ y además existe una permutación
-	$\sigma\in\Sym_n$ tal que para todo $i\in\{1,\dots,k\}$ se tiene
-	$V_{i}/V_{i-1}\simeq W_{\sigma(i)}/W_{\sigma(i)-1}$.
+	are \textbf{equivalent} if $k=l$ and there exists 
+	$\sigma\in\Sym_n$ such that 
+	$V_{i}/V_{i-1}\simeq W_{\sigma(i)}/W_{\sigma(i)-1}$
+	for all $i\in\{1,\dots,k\}$.
 \end{definition}
 
 \begin{theorem}[Jordan--H\"older]
 	\label{thm:JordanHolder}
-	\index{Teorema!de Jordan--H\"older}
-	\index{Serie de composición}
-	Sea $V$ un módulo y sean 
-	\[
-		V=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=0,
-		\quad
-		V=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=0,
-	\]
-	dos series de composición para $V$. Entonces las series son
-	equivalentes.
+	Any two composition series for a module are equivalent. 
 \end{theorem}
 
 \begin{proof}
-	Procederemos por inducción en $k$. El caso $k=1$ es trivial pues en este
-	caso $V$ no tiene submódulos propios y luego $V\supseteq 0$ es la única
-	serie de composición. Supongamos entonces que el resultado vale para
-	módulos con series de composición de longitud $<k$.  Si $V_1=W_1$ entonces
-	$V_1$ tiene dos series de composición de longitudes $k-1$ y $l-1$. Por
-	hipótesis inductiva, $k=l$ y el teorema queda demostrado.  Supongamos
-	entonces que $V_1\ne W_1$. Como $V_1$ y $W_1$ son submódulos de $V$, la
-	suma $V_1+W_1$ es un submódulo de $V$. Además, como $V/V_1$ no tiene
-	submódulos propios no nulos, $V_1+W_1=V$. Sea $U=V_1\cap W_1$. Entonces
+    Let $M$ be a module and
+    \[
+		M=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=\{0\},
+		\quad
+		M=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=\{0\},
+	\]
+	be composition series of $M$. 
+	We claim that these composition series are equivalent. 
+	We proceed by induction on $k$. The case $k=1$ is trivial, as 
+	in this case $M$ has no proper submodules and $M\supseteq\{0\}$ 
+	is the only possible composition series for $M$. So
+	assume the result holds for modules with composition series of length $<k$. If $V_1=W_1$, then 
+	$V_1$ has composition series of lengths $k-1$ and $l-1$. The inductive hypothesis implies that 
+	$k=l$ and we are done. So assume that $V_1\ne W_1$. Since $V_1$ and $W_1$ are submodules of $M$, the
+	sum $V_1+W_1$ is also a submodule of $M$. Moreover, $V/V_1$ has no non-zero proper submodules
+	and hence 
+	$V_1+W_1=V$. Then 
 	\[
 		V/V_1=\frac{V_1+W_1}{V_1}\simeq\frac{V_1}{V_1\cap W_1}.
 	\]
-	Como $V_1$ tiene una serie de composición, $V_1$ es artiniano y
-	noetheriano por el teorema~\ref{thm:serie_de_composicion}. Entonces
-	también $U$ es artiniano y noetheriano, y luego tiene una serie de
-	composición por el teorema~\ref{thm:serie_de_composicion}, digamos
+	Since $V_1$ has a composition series, $V_1$ is artinian and
+	noetherian by Theorem~\ref{thm:serie_de_composicion}. The submodule $U=V_1\cap W_1$ is also 
+	artinian and noetherian and hence, by Theorem \ref{thm:serie_de_composicion}, 
+	it admits a composition series 
 	\[
-		U=U_0\supseteq U_1\supseteq\cdots\supseteq U_r=0.
+		U=U_0\supseteq U_1\supseteq\cdots\supseteq U_r=\{0\}.
 	\]
-	Tenemos entonces que 
-	$V_1\supseteq\cdots\supseteq V_k=0$ y 
-	$V_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_r=0$ 
-	son series de composición para $V_1$. Por hipótesis inductiva,
-	$k-1=r+1$ y las series de composición son equivalentes. Similarmente, 
+    Thus
+    $V_1\supseteq\cdots\supseteq V_k=\{0\}$ and  
+	$V_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_r=\{0\}$ are both composition 
+	series for $V_1$. The inductive hypothesis implies that 
+	$k-1=r+1$ and that these composition series are equivalent. Similarly, 
 	\[
-		W_1\supseteq W_1\supseteq\cdots\supseteq W_l=0,
+		W_1\supseteq W_1\supseteq\cdots\supseteq W_l=\{0\},
 		\quad
-		W_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_{r}=0,
+		W_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_{r}=\{0\},
 	\]
-	son series de composición para $W_1$ y entonces $l-1=r+1$ y las series son
-	equivalentes. Luego $l=k$ y el teorema queda demostrado.
+    are both composition series for $W_1$ and hence $l-1=r+1$ and these composition 
+    series are equivalent. Therefore $l=k$ and the proof is completed. 
 \end{proof}
 
+Jordan--H\"older's theorem allows us to define the 
+length of modules that admit a composition series. 
+
 \begin{definition}
-\index{Módulo!longitud}
-Si $M$ es un módulo que admite una serie de composición, digamos
-$0=M_0\subsetneq M_1\subsetneq\cdots\subsetneq M_n=M$, 
-se define la \textbf{longitud} de $M$ como el entero $c(M)=n$.
+    Let $M$ be a module with a composition series. 
+    The \textbf{length} $\ell(M)$ of $M$ is defined as the length of any composition series of $M$. 
 \end{definition}
 
+A module is said to be of finite length if it admits a composition series. 
+
 \begin{exercise}
-	Si $N$ y $Q$ son módulos de longitud finita y 
+	If $N$ and $Q$ are modules with composition series and  
 	\[
 	\begin{tikzcd}
 		0 \arrow[r]
@@ -269,7 +226,7 @@ se define la \textbf{longitud} de $M$ como el entero $c(M)=n$.
 		& 0
 	\end{tikzcd}
 	\]
-	es una sucesión exacta de módulos, entonces $c(M)=c(N)+C(Q)$.
+	is an exact sequence of modules, then $\ell(M)=\ell(N)+\ell(Q)$.
 \end{exercise}
 
 %\begin{proof}
@@ -283,57 +240,97 @@ se define la \textbf{longitud} de $M$ como el entero $c(M)=n$.
 %\end{proof}
 
 \begin{exercise}
-	Sean $A$ y $B$ submódulos de $M$ de longitud finita. Demuestre que entonces 
-	$c(A+B)+c(A\cap B)=c(A)+C(B)$.
+	If $A$ and $B$ are finite-length submodules of $M$, then  
+	\[
+	\ell(A+B)+\ell(A\cap B)=\ell(A)+\ell(B).
+	\]
 \end{exercise}
 
-\begin{lemma}
-	Sea $R$ un anillo unitario y $M$ un módulo unitario semisimple. Son equivalentes:
-	\begin{enumerate}
-		\item $M$ es noetheriano.
-		\item $M$ es artiniano.
-		\item $M$ es suma directa de finitos simples.
-	\end{enumerate}
-\end{lemma}
+\section*{\S6. Semisimple modules}
+
+In the first lectures we studied semisimple modules over finite-dimensional 
+algebras. Let us now review the theory of semisimple modules over rings. 
+A (finitely generated) module $M$ (over a ring $R$) is \textbf{semisimple} 
+if it isomorphic to a (finite) direct sum of simple modules. 
+
+\begin{definition}
+    Let $R$ be a ring. A left ideal $L$ is said to be \textbf{minimal}
+    if $L\ne\{0\}$ and there is no left ideal $J$
+    such that $\{0\}\subsetneq J\subsetneq I$.
+\end{definition}
+
+The ring $\Z$ contains no minimal left ideals. If $I$ is a non-zero 
+left ideal of $\Z$, then
+$I=(n)$ for some $n>0$ and $I=(n)\supsetneq (2n)$. 
+
+\begin{proposition}
+    Let $R$ be a left artinian ring. 
+    Then every non-zero left ideal contains a minimal left ideal. 
+\end{proposition}
 
 \begin{proof}
-	Veamos ahora que $(3)\Longleftrightarrow(1)$ y que
-	$(3)\Longleftrightarrow(2)$. Como cada submódulo simple es artiniano y
-	noetheriano, $M$ resulta artiniano y noetheriano. Recíprocamente, si $M$ es
-	artiniano, $I$ debe ser finito pues de lo contrario podríamos elegir
-	elementos $i_1,i_2,i_3,\dots$ de $I$ tales que la sucesión
-	\[
-		\bigoplus_{i\in I}M_i\supsetneq \bigoplus_{i\in I\setminus\{i_1\}}M_i\supsetneq\bigoplus_{i\in I\setminus\{i_1,i_2\}}M_i\supsetneq\cdots
-	\]
-	nunca se estabiliza. Análogamente, si $M$ es noetheriano, podríamos elegir
-	elementos $i_1,i_2,i_3,\dots\in I$ tales que la sucesión
-	\[
-		M_{i_1}\subsetneq M_{i_1}\oplus M_{i_2}\subsetneq\cdots
-	\]
-	nunca se estabiliza.
+    Let $X$ be the family of non-zero left ideals contained in $I$. Then $X$ is non-empty, as 
+    $I\in X$. Then $X$ contains a minimal element by Proposition \ref{pro:artinian_minimal}. 
 \end{proof}
 
-Veremos ahora la relación existente entre la semisimplicidad y el radical de
-Jacobson. Primero necesitamos un lema:
+% \begin{proposition}
+% 	Let $R$ be a unitary ring and $M$ be a unitary semisimple module. 
+% 	The following statements are equivalent:
+% 	\begin{enumerate}
+% 		\item $M$ is noetherian.
+% 		\item $M$ is artinian.
+% 		\item $M$ is a direct sum of finitetely many simple modules. 
+% 	\end{enumerate}
+% \end{proposition}
 
-\begin{lemma}
-	\label{lem:Jartiniano}
-	Sea $R$ un anillo unitario y artiniano a izquierda. Entonces existen
-	finitos ideales maximales $I_1,\dots,I_n$ de $R$ tales que
-	$J(R)=I_1\cap\cdots\cap I_n$.
-\end{lemma}
+% \begin{proof}
+% 	We first prove that $3)\Longleftrightarrow1)$ and that 
+% 	$3)\Longleftrightarrow2)$. Como cada submódulo simple es artiniano y
+% 	noetheriano, $M$ resulta artiniano y noetheriano. Recíprocamente, si $M$ es
+% 	artiniano, $I$ debe ser finito pues de lo contrario podríamos elegir
+% 	elementos $i_1,i_2,i_3,\dots$ de $I$ tales que la sucesión
+% 	\[
+% 		\bigoplus_{i\in I}M_i\supsetneq \bigoplus_{i\in I\setminus\{i_1\}}M_i\supsetneq\bigoplus_{i\in I\setminus\{i_1,i_2\}}M_i\supsetneq\cdots
+% 	\]
+% 	nunca se estabiliza. Análogamente, si $M$ es noetheriano, podríamos elegir
+% 	elementos $i_1,i_2,i_3,\dots\in I$ tales que la sucesión
+% 	\[
+% 		M_{i_1}\subsetneq M_{i_1}\oplus M_{i_2}\subsetneq\cdots
+% 	\]
+% 	nunca se estabiliza.
+% \end{proof}
+
+A ring $R$ with identity is \textbf{semisimple} if it is a direct sum of finitely many minimal left ideals. Note
+that $\prescript{}{R}{R}$ is finitely generated by $\{1\}$. Minimal left ideals of $R$ 
+are exactly the simple submodules of $\prescript{}{R}{R}$. 
+This means that 
+the ring $R$ is semisimple if and only if the module
+$\prescript{}{R}{R}$ is semisimple.  
+
+\begin{proposition}
+    Let $R$ be a semisimple ring. Then $R$ is noetherian and artinian.
+\end{proposition}
 
 \begin{proof}
-	Como $R$ es
-	unitario, $J(R)$ es la intersección de ideales maximales de $R$.  Como $R$
-	es artiniano a izquierda, el lema~\ref{lem:modulo_artiniano} nos dice que
-	el conjunto de ideales formados por la intersección de finitos ideales
-	maximales $I_1,\dots,I_k$ de $R$ posee un elemento minimal, digamos
-	$J=\bigcap_{i=1}^k I_i$. Veamos que $J=J(R)$. Si no, sea $x\in
-	J(R)\setminus J$.  Existe entonces un ideal maximal $M$ tal que $x\not\in
-	M$. Pero entonces $J\cap M\subsetneq J$, una contradicción a la minimalidad
-	de $J$. 
+    Write $R$ as a direct sum $R=L_1\oplus\cdots\oplus L_n$ of minimal left ideals. Since 
+    each $L_j$ is a simple submodule of $\prescript{}{R}{R}$, it follows that 
+    \[
+    L_1\oplus\cdots\oplus L_n\supsetneq L_2\oplus\cdots\oplus L_n\supsetneq\cdots\supsetneq L_n\supsetneq\{0\}
+    \]
+    is a composition series for $\prescript{}{R}{R}$ with composition factors
+    $L_1,\dots,L_n$. Since $\prescript{}{R}{R}$ admits a composition
+    series, it is artinian and noetherian by Theorem \ref{thm:serie_de_composicion}.
 \end{proof}
+
+Now it is possible to prove Artin--Wedderburn's theorem for rings. 
+If $R$ is a semisimple ring, then
+\[
+R\simeq \prod_{i=1}^k M_{n_i}(D_i)
+\]
+for some $n_1,\dots,n_k\geq1$ and some
+division rings $D_1,\dots,D_k$. 
+The proof is somewhat
+the same we did for finite-dimensional algebras.
 
 \begin{theorem}
 	\label{thm:SSartin=J}
@@ -341,8 +338,32 @@ Jacobson. Primero necesitamos un lema:
 	es artiniano a izquierda y $J(R)=0$.
 \end{theorem}
 
+We shall need a lemma.
+
+\begin{lemma}
+	\label{lem:Jartiniano}
+	Let $R$ be a unitary left artinian ring. There exists finitely many maximal ideals 
+	$I_1,\dots,I_n$ of $R$ such that 
+	$J(R)=I_1\cap\cdots\cap I_n$.
+\end{lemma}
+
 \begin{proof}
-	Supongamos primero que $R$ es semisimple. Por el teorema de Wedderburn,
+	Since $R$ is
+	unitary, $J(R)$ is the intersection of all maximal ideals of $R$. Since $R$ is left artinian,
+	Proposition~\ref{pro:artinian_minimal} implies that 
+	the set of ideals of the form
+	$I_1\cap\cdots\cap I_n$ for finitely many maximal ideals $I_1,\dots,I_n$ of $R$ 
+	contains a minimal element, say 
+	$J=\bigcap_{i=1}^k I_i$. We claim that $J=J(R)$. If not, let $x\in
+	J(R)\setminus J$. Then there exists a maximal ideal $M$ such that $x\not\in
+	M$. This implies that $J\cap M\subsetneq J$, a contradiction to the minimality of 
+    $J$. 
+\end{proof}
+
+We now prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:SSartin=J}]
+	AssumSupongamos primero que $R$ es semisimple. Por el teorema de Wedderburn,
 	existen enteros positivos $n_1,\dots,n_k$ y anillos de división
 	$D_1,\dots,D_k$ tales que \[
 		R\simeq\prod_{i=1}^kM_{n_i}(D_i).
@@ -395,6 +416,1196 @@ Concluimos la sección con el siguiente teorema:
 	demuestra entonces que cada $J^i$ es noetheriano a izquierda y luego $R$
 	también lo es.
 \end{proof}
+
+
+\section*{\S5. Rickart's theorem}
+
+Let $K$ be a field and $G$ be a group. The \textbf{group algebra} $K[G]$ 
+is the vector space (over $K$) with basis $\{g:g\in G\}$ 
+and the algebra structure given by the multiplication
+\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+\]
+Note that every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
+
+\begin{exercise}
+\label{xc:K[G]notsimple}
+    If $G$ is non-trivial, then $K[G]$ is not simple. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
+	$K[G]\simeq K[X]/(X^n-1)$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
+	$K[G]$ is a domain. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. left zero divisor) in
+	$K[G]$.
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
+	The \textbf{support} of $\alpha$ is the set 
+	\[
+		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
+	\]
+	Prove that if $g\in G$, then 
+	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
+\end{exercise}
+
+% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
+% grupo de un grupo finito. Comenzamos con un ejemplo:
+
+\begin{exercise}
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
+	group with two elements. Note that every element of $K[G]$ is of the form
+	$a1+bg$ for some $a,b\in K$. Prove the following statements:
+	\begin{enumerate}
+	    \item If the characteristic of $K$ is different from two, then 
+	    \[
+		K[G]\to K\times K,
+		\quad
+		a1+bg\mapsto (a+b,a-b),
+	\]
+	is an algebra isomorhism. 
+	\item If the characteristic of $K$ is two, then 
+	\[
+	K[G]\to \begin{pmatrix}
+			K & K\\
+			0 & K
+		\end{pmatrix},
+		\quad
+		a1+bg\mapsto\begin{pmatrix}
+			a+b & b\\
+			0 & a+b
+		\end{pmatrix},
+	\]
+	is an algebra isomorphism. 
+	\end{enumerate}
+\end{exercise}
+
+Veamos otros ejemplo un poco más difíciles. La idea a utilizar es la siguiente:
+Si $A$ es una $K$-álgebra y $\rho\colon G\to U(A)$ es un morfismo de grupos,
+donde $U(A)$ es el grupo de unidades de $A$, entonces la función $K[G]\to A$,
+$\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g)$, es un morfismo
+de álgebras.
+
+\begin{exercise}
+	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
+	$\R[G]\simeq\R\times\C$.
+% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
+% 	\[
+% 		\varphi\colon\R[G]\to\R\times\C,
+% 		\quad
+% 		g\mapsto (1,\omega),
+% 	\]
+% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
+% 	$\varphi$ es inyectivo pues
+% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
+% 	Luego $\varphi$ es un isomorfismo pues
+% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
+	Prove the following statements:
+	\begin{enumerate}
+	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
+	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
+	\end{enumerate}  
+% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
+% 	\[
+% 		R=\begin{pmatrix}
+% 			\omega & 0\\
+% 			0 & \omega^2
+% 		\end{pmatrix},
+% 		\quad
+% 		S=\begin{pmatrix}
+% 			0 & 1\\
+% 			1 & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
+% 	\[
+% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
+% 		r\mapsto (1,1,R),\quad
+% 		s\mapsto (1,-1,S).
+% 	\]
+% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
+% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
+% 	basta ver que $\varphi$ es inyectivo. Si 
+% 	\[
+% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
+% 	\]
+% 	entonces 
+% 	\[
+% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
+% 	\]
+% 	donde
+% 	\begin{align*}
+% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
+% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
+% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
+% 	\end{align*}
+% 	Un cálculo sencillo muestra que estas ecuaciones implican que
+% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
+\end{exercise}
+
+We now consider the following problem. 
+
+\begin{openproblem}
+Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
+\end{openproblem}
+
+As an application of Amitsur's theorem we prove that 
+complex group algebras have null Jacobson radical.
+This is known as 
+Rickart's theorem. The original proof found by Rickart 
+uses complex analysis. Here, however, 
+we present an algebraic proof. 
+
+
+\begin{theorem}[Rickart]
+\label{thm:J(C[G])=0}
+    Let $G$ be a group. Then $J(\C[G])=\{0\}$.
+\end{theorem}
+
+To prove the theorem we need a lemma.
+
+\begin{lemma}
+Let $G$ be a group. Then $J(\C[G])$ is nil.        
+\end{lemma}
+
+\begin{proof}
+    We need to show that every element of $J(\C[G])$ is nilpotent. 
+    If $G$ is countable, then the result follows from Amitsur's theorem. So assume that 
+    $G$ is not countable. Let $\alpha\in J(\C[G])$, say
+    \[
+    \alpha=\sum_{i=1}^n\lambda_ig_i,
+    \]
+    where $\lambda_1,\dots,\lambda_n\in\C$ and $g_1,\dots,g_n\in G$. Let $H=\langle g_1,\dots,g_n\rangle$.
+    Then $g\in \C[H]$ and $H$ is countable. We claim that $g\in J(\C[H])$. Decompose
+    $G$ as a disjoint union 
+    \[
+    G=\bigcup_\lambda x_\lambda H
+    \]
+    of cosets of $H$ in $G$. Then $\C[G]=\bigoplus_\lambda x_\lambda\C[H]$ and
+    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$. Since $\alpha\in J(\C[G])$, for each 
+    $\beta\in\C[H]$ there exists $\gamma\in\C[G]$ such that 
+    $\gamma(1-\beta\alpha)=1$. Write $\gamma=\gamma_1+\kappa$ for $\gamma_1\in\C[H]$ and $\kappa\in K$. Then
+    \[
+    1=\gamma(1-\beta\alpha)=\gamma_1(1-\beta\alpha)+\kappa(1-\beta\alpha)
+    \]
+    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$. Since $1=\gamma_1(1-\beta\alpha)$, it follows that
+    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem.  
+\end{proof}
+
+We now prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:J(C[G])=0}]
+    For $\alpha=\sum_{i=1}^n\lambda_ig_i\in\C[G]$ let 
+    \[
+    \alpha^*=\sum_{i=1}^n\overline{\lambda_i}g_i^{-1}.
+    \]
+    Then $\alpha\alpha^*=0$ if and only if $\alpha=0$ and, moreover, 
+    $(\alpha\beta)^*=\beta^*\alpha^*$ for all $\beta\in\C[G]$. 
+    Assume that $J(\C[G])\ne\{0\}$ and let $\alpha\in J(\C[G])\setminus\{0\}$. Then
+    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, $\beta\ne 0$, as 
+    \[
+    (\beta^m)^*=(\beta^*)^m=\beta^m
+    \]
+    for all $m\geq1$. If there exists $k\geq2$ such that $\beta^k=0$ and $\beta^{k-1}\ne 0$, then
+    \[
+    \beta^{k-1}\left(\beta^{k-1}\right)^*=\beta^{2k-2}=0
+    \]
+    and hence $\beta^{k-1}=0$, a contradiction. Thus $\beta=0$ and therefore $\alpha=0$. 
+\end{proof}
+
+To obtain a consequence of Rickart's theorem we need two lemmas. 
+
+\begin{lemma}[Nakayama]
+	\label{lem:Nakayama}
+	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
+	$J(R)\cdot M=M$, then $M=\{0\}$.
+\end{lemma}
+
+\begin{proof}
+    Since $M$ is finitely generated, we may assume that 
+	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
+	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
+	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
+	one obtains $M=\{0\}$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:Rickart}
+	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
+	\[
+	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+	\]
+	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
+	$\iota(J(R))\subseteq J(S)$.
+\end{lemma}
+
+\begin{proof}
+	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
+	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
+	\[
+		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
+	\]
+	it follows that 
+	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
+	\[
+	J(R)\cdot
+	M=J\cdot M=\iota(J)\cdot M
+	\]
+	is an $S$-submodule of $M$, as 
+	\[
+		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
+	\]
+	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
+	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
+\end{proof}
+
+We now obtain the following consequence of Rickart's theorem. 
+
+\begin{theorem}
+	If $G$ is a group, then $J(\R[G])=0$. 
+\end{theorem}
+
+\begin{proof}
+	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+	\[
+	\C[G]=\R[G]+i\R[G],
+	\]
+	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
+	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
+\end{proof}
+
+\section*{\S6. Maschke's theorem}
+
+We now present another instance of the Jacobson semisimplicity problem.
+In this case, our result is for finite groups. 
+
+\begin{theorem}[Maschke]
+	Let $G$ be a finite group. Then $J(K[G])=0$ if and only 
+	if the characteristic of $K$ is zero 
+	or does not divide the order of $G$. 
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $G=\{g_1,\dots,g_n\}$ con $g_1=1$. Sea $\rho\colon K[G]\to
+	K$ dada por $\alpha\mapsto\trace(L_{\alpha})$, donde
+	$L_{\alpha}(\beta)=\alpha\beta$. Tenemos $\rho(g_1)=n$ y $\rho(g_i)=0$ para
+	todo $i\in\{2,\dots,n\}$ pues,  como $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, la
+	matriz de $L_{g_i}$ en la base $\{g_1,\dots,g_n\}$ tiene ceros en la
+	diagonal.
+
+	Supongamos que $J=J(K[G])$ es no nulo y sea
+	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Sin pérdida de
+	generalidad podemos suponer que $\lambda_1\ne 0$ (pues si $\lambda_1=0$ hay
+	algún $\lambda_i\ne 0$ y alcanza con tomar $g_i^{-1}\alpha\in J$). Entonces
+	\[
+		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
+	\]
+	Como $G$ es un grupo finito, $K[G]$ es un álgebra de dimensión finita y
+	luego $K[G]$ es artiniana a izquierda. Como el radical de Jacobson $J$ es
+	un ideal nilpotente, en particular $\alpha$ es un elemento nil. Luego
+	$L_{\alpha}$ es nilpotente y entonces $0=\rho(\alpha)=n\lambda_1$. Esto
+	implica que la característica del cuerpo $K$ divide a $n$. 
+
+	Recíprocamente, supongamos que la característica de $K$ es un número primo
+	que divide a $n$ y sea $\alpha=\sum_{i=1}^ng_i$. Como $\alpha
+	g_j=g_j\alpha=\alpha$ para todo $j\in\{1,\dots,n\}$, el conjunto
+	$I=K[G]\alpha$ es un ideal de $K[G]$. Como además 
+	\[
+		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0,
+	\]
+	se concluye que $I$ es un ideal no nulo y nilpotente. Luego $J(K[G])\ne 0$
+	pues por la proposición~\ref{pro:nilJ} sabemos que $I\subseteq J(K[G])$.
+\end{proof}
+
+\begin{corollary}
+	\label{cor:GfinitoNOnil}
+	Sea $G$ un grupo finito. Entonces $K[G]$ no contiene ideales a izquierda
+	nil no nulos.
+\end{corollary}
+
+\begin{proof}
+	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
+	todo ideal a izquierda nil.	
+\end{proof}
+
+%\index{Anillo!semisimple}
+%Recordemos que un anillo unitario $R$ se dice \textbf{semisimple} si para cada
+%ideal $I$ de $R$ existe un ideal $J$ de $R$ tal que $R=I\oplus J$.
+%
+%%\begin{corollary}
+%%	Sea $G$ un grupo finito y $K$ un cuerpo de característica coprima con el
+%%	orden de $G$. Entonces $K[G]$ es semisimple.
+%%\end{corollary}
+%%
+%%\begin{proof}
+%%	
+%%\end{proof}
+%
+%\begin{theorem}
+%	Si $G$ es un grupo infinito, entonces $K[G]$ nunca es semisimple.
+%\end{theorem}
+%
+%\begin{proof}
+%	Sea $R=K[G]$ y supongamos que $R$ es semisimple.  Si $I$ es el ideal de
+%	aumentación de $R$, existe un ideal no nulo $J$ de $R$ tal que $R=I\oplus
+%	J$. Como $R$ es unitario, existen $e\in I$, $f\in J$ tales que $1=e+f$. Si
+%	$x\in I$, entonces $x=xe+xf$ y luego $xf=x-xe\in I\cap J=\{0\}$. Como
+%	entonces $x=xe$ para todo $x\in I$, en particular $e_1=e_1^2$. Análogamente
+%	vemos que $e_2^2=e_2$. Además $ef=0$ pues $ef\in I\cap J=\{0\}$.  Como $I$
+%	es el ideal de aumentación y $If=(Re)f=R(ef)=0$, se concluye que $(g-1)f=0$
+%	para todo $g\in G$ pues $g-1\in I$. Si suponemos que $f=\sum_{h\in
+%	G}\lambda_hh$, entonces 
+%	\[
+%	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+%	G}\lambda_{g^{-1}h}h.
+%	\]
+%	Luego $\lambda_h=\lambda_{g^{-1}h}$ para todo $g,h\in G$, una contradicción
+%	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
+%\end{proof}
+
+
+\section*{\S6. Herstein's theorem}
+
+El objetivo de esta sección responderemos la siguiente pregunta: ¿Cuándo un
+álgebra de grupo es un álgebra algebraica? Una respuesta parcial está dada por
+el teorema de Herstein. 
+
+\begin{definition}
+	\index{Grupo!localmente finito}
+	Un grupo $G$ se dice \textbf{localmente finito} si todo subgrupo de $G$
+	finitamente generado es finito.
+\end{definition}
+
+Si $G$ es un grupo localmente finito, entonces todo $g\in G$ tiene orden finito
+(pues el subgrupo $\langle g\rangle$ es finito por ser finitamente generado). 
+
+\begin{example}
+	Todo grupo finito es obviamente localmente finito.
+\end{example}
+
+\begin{example}
+	El grupo $\Z$ no es localmente finito pues es libre de torsión.
+\end{example}
+
+\begin{example}
+	\index{Grupo!de Pr\"ufer}
+	Sea $p$ un primo.  El \textbf{grupo de Pr\"ufer}
+	\[
+		\Z(p^{\infty})=\{z\in\Z:z^{p^n}=1\text{ para algún $n\in\N$}\}
+	\]
+	de todas
+	las raíces $p$-ésimas de uno es localmente finito.
+\end{example}
+
+\begin{example}
+	Sean $X$ un conjunto infinito y $\Sym_X$ el conjunto de biyecciones $X\to
+	X$ que mueven únicamente una cantidad finita de elementos de $X$. Entonces
+	$\Sym_X$ es localmente finito.
+\end{example}
+
+Antes de demostrar el teorema de Herstein vamos a dar una familia de ejemplos
+de grupos localmente finitos. Para eso necesitamos un lema:
+
+\begin{lemma}
+	\label{lem:solvable_torsion=>lf}
+	Sea $G$ un grupo y sea $N$ un subgrupo normal de $G$. Si $N$ y $G/N$ son
+	localmente finitos, entonces $G$ es localmente finito.
+\end{lemma}
+
+\begin{proof}
+	Sea $\pi\colon G\to G/N$ el morfismo canónico. Sea $\{g_1,\dots,g_n\}$ un
+	subconjunto finito de $G$. Como $G/N$ es localmente finito, el subgrupo $Q$
+	de $G/N$ generado por $\pi(g_1),\dots,\pi(g_n)$ es finito, digamos
+	\[
+		Q=\{\pi(g_1),\dots,\pi(g_n),\pi(g_{n+1}),\dots,\pi(g_m)\}.
+	\]
+	Para cada $i,j\in\{1,\dots,n\}$ sabemos que existen $u_{ij}\in N$ y
+	$k\in\{1,\dots,m\}$ tales que $g_ig_j=u_{ij}g_k$. Sea $U$ el subgrupo de
+	$G$ generado por los $u_{ij}$. Como $N$ es localmente finito, $U$ es un
+	subgrupo finito. Como además cada elemento $g_ig_jg_l$ puede escribirse como
+	\[
+		g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
+	\]
+	para algún $u\in U$ y algún $t\in\{1,\dots,m\}$, se concluye que el
+	subgrupo $H$ de $G$ generado por $\{g_1,\dots,g_n\}$ es finito pues
+	$|H|\leq m|U|$. 
+\end{proof}
+
+\index{Grupo!resoluble}
+Veamos una aplicación a los grupos resolubles. Recordemos que un grupo $G$ se
+dice \textbf{resoluble} si existe una sucesión de subgrupos 
+\begin{equation}
+	\label{eq:resoluble}
+	1=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
+\end{equation}
+donde cada $G_i$ es normal en $G_{i+1}$ y cada cociente $G_i/G_{i-1}$ es
+abeliano.
+
+\begin{proposition}
+	Si $G$ es un grupo resoluble y de torsión, entonces $G$ es localmente
+	finito.
+\end{proposition}
+
+\begin{proof}
+	Procederemos por inducción en la longitud $n$ de la sucesión de
+	resolubilidad~\eqref{eq:resoluble}. Si $n=1$ entonces $G$ es finito por ser
+	abeliano y de torsión. Supongamos que el resultado vale para grupos
+	resolubles de longitud $n-1$ y sea $G$ un grupo resoluble tal
+	que~\eqref{eq:resoluble}. Por hipótesis inductiva, el subgrupo normal
+	$G_{n-1}$ de $G$ es localmente finito. Entonces, como $G/G_{n-1}$ es
+	localmente finito por ser abeliano y de torsión, el resultado se obtiene
+	del lema~\ref{lem:solvable_torsion=>lf}.
+\end{proof}
+
+\begin{theorem}[Herstein]
+	\index{Teorema!de Herstein}
+	Si $G$ es un grupo localmente finito, entonces $K[G]$ es algebraica.
+	Recíprocamente, si $K[G]$ es algebraica y $K$ es de característica cero,
+	entonces $G$ es localmente finito.
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $G$ es localmente finito y sea $\alpha\in K[G]$. El subgrupo
+	$H=\langle\supp\alpha\rangle$ es finitamente generado y luego finito. Como
+	$\alpha\in K[H]$ y $\dim_KK[H]<\infty$, el conjunto
+	$\{1,\alpha,\alpha^2,\dots\}$ es linealmente dependiente. Luego $\alpha$ es
+	algebraico sobre $K$.
+
+	Sea $\{x_1,\dots,x_m\}$ un subconjunto finito de $G$. Si agregamos los
+	inversos, podemos suponer que $\{x_1,\dots,x_m\}$ genera al subgrupo
+	$H=\langle x_1,\dots,x_m\rangle$ como semigrupo. Si
+	$\alpha=x_1+\dots+x_m\in K[G]$, entonces, como $\alpha$ es algebraico sobre
+	$K$, 
+	\[
+		\alpha^{n+1}=a_0+a_1\alpha+\cdots+a_n\alpha^n
+	\]
+	para algún $n\geq0$ y escalares $a_0,\dots,x_n\in K$. Sea $w=x_{i_1}\cdots
+	x_{i_{n+1}}\in H$ una palabra de longitud $n+1$. Observemos que existen enteros
+	positivos $c_{i_1\cdots i_m}$ tales que 
+	\[
+		\alpha^{n+1}=(x_1+\cdots+x_m)^{n+1}
+		=\sum_{\substack{{i_1+\cdots+i_m=n+1}\\{\text{$i_j$ enteros positivos}}}} c_{i_1\cdots i_m}x_1^{i_1}\cdots x_{m}^{i_m}.
+	\]
+	Como $K$
+	es de característica cero, se concluye que $w\in\supp(\alpha^{n+1})$.  Pero
+	como además $\alpha^{n+1}=\sum_{j=0}^na_j\alpha^j$, entonces
+	$w\in\supp(\alpha^j)$ para algún $j\in\{0,\dots,n\}$. Demostramos entonces
+	que toda palabra en las $x_j$ de longitud $n+1$ puede escribirse como una
+	palabra en las $x_j$ de longitud a lo sumo $n$.  Luego $H$ es finito y
+	entonces $G$ es localmente finito.
+\end{proof}
+
+\section*{\S6.Formanek's theorem}
+
+Veremos un resultado de Formanek que puede entenderse como una generalización
+del teorema de Herstein. 
+
+\begin{exercise}
+	Sea $A$ un álgebra algebraica y sea $a\in A$. Demuestre las siguientes
+	afirmaciones:
+	\begin{enumerate}
+		\item $a$ es un divisor de cero a izquierda si y sólo si $a$ es un
+			divisor de cero a derecha.
+		\item $a$ es inversible a izquierda si y sólo si $a$ es inversible a
+			derecha.
+		\item $a$ es inversible si y sólo si $a$ no es un divisor de cero.
+	\end{enumerate}
+\end{exercise}
+
+%\begin{proof}
+%	Como $a$ es algebraico, podemos escribir 
+%	\[
+%		a^n(1+\lambda_1a+\cdots+\lambda_ma^m)=0
+%	\]
+%	para algún $n\geq0$ minimal y escalares $\lambda_1,\dots,\lambda_m$. Si 
+%	$n>0$, entonces 
+%	\[
+%	b=(1+\lambda_1a+\cdots+\lambda_ma^m)a^{n-1}\ne 0
+%	\]
+%	cumple que $ab=ba=0$. Si $n=0$, entonces 
+%	\[
+%		c=-\lambda_1-\lambda_2a-\cdots-\lambda_ma^{m-1}\ne 0
+%	\]
+%	cumple que $ac=ca=1$. 
+%\end{proof}
+
+\begin{exercise}
+	\label{exa:norma}
+	Si $\alpha=\sum_{g\in G}\alpha_gg\in\C[G]$ se define $|\alpha|=\sum_{g\in
+	G}|\alpha_g|\in\R$. Demuestre que valen las siguientes propiedades:
+	\begin{enumerate}
+		%\item $|\trace(\alpha)|\leq |\alpha|$, 
+		\item $|\alpha+\beta|\leq|\alpha|+|\beta|$, y 
+		\item $|\alpha\beta|\leq|\alpha||\beta|$ 
+	\end{enumerate}
+	para todo $\alpha,\beta\in\C[G]$.
+\end{exercise}
+
+\begin{theorem}[Formanek, primera versión]
+	\label{thm:FormanekQ}
+	\index{Teorema!de Formanek}
+	Sea $G$ un grupo y supongamos que todo elemento de $\Q[G]$ es inversible o
+	un divisor de cero. Entonces $G$ es localmente finito.
+\end{theorem}
+
+\begin{proof}
+	Sea $\{x_1,\dots,x_n\}$ un subconjunto finito de $G$. Si agregamos los
+	inversos, podemos suponer que $\{x_1,\dots,x_n\}$ genera al subgrupo
+	$H=\langle x_1,\dots,x_n\rangle$ como semigrupo. Sea
+	\[
+		\alpha=\frac{1}{2n}(x_1+\cdots+x_n)\in\Q[G]
+	\]
+
+	Veamos que $1-\alpha\in\Q[G]$ es inversible. Si no, entonces es un divisor de cero. 
+	Si existe $\delta\in\Q[G]$ tal que $\delta(1-\alpha)=0$, entonces
+	$\delta=\delta\alpha$ y luego, como 
+	\[
+		|\delta|=|\delta\alpha|\leq|\delta||\alpha|=|\delta|/2,
+	\]
+	se concluye que $\delta=0$. Similarmente se demuestra que $(1-\alpha)\delta=0$ implica que
+	$\delta=0$. 
+	
+	Sea $\beta=(1-\alpha)^{-1}\in\Q[G]$.  Para cada $k$ definimos 
+	\[
+		\gamma_k=(1+\alpha+\cdots+\alpha^k)-\beta.
+	\]
+	Entonces 
+	\begin{align*}
+		\gamma_k(1-\alpha)&=(1+\alpha+\cdots+\alpha^k-\beta)(1-\alpha)\\
+		&=(1+\alpha+\cdots+\alpha^k)(1-\alpha)-\beta(1-\alpha)=-\alpha^{k+1}
+	\end{align*}
+	y luego 
+	$\gamma_k=-\alpha^{k+1}\beta$. Como 
+	\[
+		|\gamma_k|=|-\alpha^{k+1}\beta|\leq|\beta||\alpha^{k+1}|=\frac{|\beta|}{2^{k+1}},
+	\]
+	se concluye que $\lim_{k\to\infty}|\gamma_k|=0$. 
+
+	Para terminar veamos que $H\subseteq\supp\beta$. Si
+	$H\not\subseteq\supp\beta$, sea $h\in H\setminus\supp\beta$.  Supongamos
+	que $h=x_{i_1}\cdots x_{i_m}$ es una palabra de longitud $m$ en los $x_j$.
+	Sea $c_j$ el coeficiente de $h$ en $\alpha^j$. Entonces $c_0+\cdots+c_k$ es
+	el coeficiente de $h$ en $\gamma_k$, pero
+	\[
+		|\gamma_k|\geq c_0+c_1+\cdots+c_k\geq c_m>0
+	\]
+	para todo $k\geq m$ pues cada $c_j$ es no negativo, una contradicción pues
+	demostramos que $|\gamma_k|\to 0$ si $k\to\infty$.
+\end{proof}
+
+A continuación explicaremos por qué el teorema de Formanek se considera una
+generalización del teorema de Herstein. En el teorema~\ref{thm:FormanekQ} nos
+concentramos en álgebras de grupo sobre los números racionales. ¿Cómo podemos
+extender este resultado a álgebras de grupo sobre cuerpos de característica
+cero? Para extender el cuerpo de base sobre el que se trabaja necesitamos
+definir el producto tensorial de espacios vectoriales y el producto tensorial
+de álgebras.
+
+\begin{definition}
+	\index{Producto tensorial!de espacios vectoriales}
+	El \textbf{producto tensorial} de los $K$-espacios vectoriales $U$ y $V$ es
+	el espacio vectorial cociente $K[U\times V]/T$, donde $K[U\times V]$ es el
+	espacio vectorial con base $\{(u,v):u\in U,v\in V\}$ y $T$ es el subespacio
+	generado por los elementos de la forma
+	\[
+		(\lambda u+\mu u',v)-\lambda(u,v)-\mu(u',v),\quad
+		(u,\lambda v+\mu v')-\lambda(u,v)-\mu(u,v')
+	\]
+	para $\lambda,\mu\in K$, $u,u'\in U$ y $v,v'\in V$.
+\end{definition}
+
+El producto tensorial de $U$ y $V$ será denotado por $U\otimes_KV$ o por
+$U\otimes V$ si la referencia al cuerpo $K$ puede omitirse. Dados $u\in U$
+y $v\in V$ escribiremos $u\otimes v$ para denotar a la coclase $(u,v)+T$.
+
+\begin{theorem}
+\index{Producto tensorial!propiedad universal}
+	Sean $U$ y $V$ espacios vectoriales.  Existe entonces una función bilineal
+	$U\times V\to U\otimes V$, $(u,v)\mapsto u\otimes v$, tal que todo
+	elemento de $U\otimes V$ es una suma finita de la forma
+	\[
+		\sum_{i=1}^N u_i\otimes v_i
+	\]
+	para $u_1,\dots,u_N\in U$ y $v_1,\dots,v_N\in V$. 
+	Más aún, dado un espacio vectorial $W$ y una función
+	bilineal $\beta\colon U\times V\to W$, existe una función lineal
+	$\overline{\beta}\colon U\otimes V\to W$ tal que $\overline{\beta}(u\otimes
+	v)=\beta(u,v)$ para todo $u\in U$ y $v\in V$.
+\end{theorem}
+
+\begin{proof}
+	Por la definición del producto tensorial, la función 
+	\[
+	U\times V\to U\otimes V,\quad
+	(u,v)\mapsto u\otimes v,
+	\]
+	es bilineal. También de la definición se deduce inmediatamente que todo
+	elemento de $U\otimes V$ es una combinación lineal finita de elementos de
+	la forma $u\otimes v$, donde $u\in U$ y $v\in V$. Como $\lambda(u\otimes
+	v)=(\lambda u)\otimes v$ para todo $\lambda\in K$, la primera afirmación
+	queda demostrada.
+
+	Como $U\times V$ es base de $K[U\times V]$, existe una transformación lineal 
+	\[
+		\gamma\colon K[U\times V]\to W,\quad
+	\gamma(u,v)=\beta(u,v). 
+	\]
+	Como $\beta$ es bilineal por hipótesis, $T\subseteq\ker\gamma$. Existe
+	entonces una transformación lineal $\overline{\beta}\colon U\otimes V\to
+	W$ tal que 
+	\[
+	\begin{tikzcd}
+		K[U\times V] \arrow[r]\arrow[d] & W \\
+		U\otimes V\arrow[ur, dashrightarrow]
+	\end{tikzcd}
+	\]
+	conmuta. En particular, $\overline{\beta}(u\otimes v)=\beta(u,v)$. 
+\end{proof}
+
+\begin{exercise}
+	\label{xca:tensorial_unicidad}
+	Demuestre que las propiedades mencionadas en el teorema anterior
+	caracterizan el producto tensorial salvo isomorfismo.
+\end{exercise}
+
+Veamos algunas propiedades del producto tensorial de espacios vectoriales. 
+%Observemos
+%que todo elemento de $U\otimes V$ es una suma finita
+%de la forma 
+%\[
+%	\sum_{i=1}^N u_i\otimes v_i
+%\]
+%para $N\in\N$, $u_i\in U$ y $v_i\in V$. Esta expresión no es única. Vale además
+%que $u\otimes 0=0=0\otimes v$ para todo $u\in U$ y $v\in V$.
+
+\begin{lemma}
+	\index{Producto tensorial!de transformaciones lineales}
+	Sean $\varphi\colon U\to U'$ y $\psi\colon V\to V'$ transformaciones
+	lineales. Existe entonces una única transformación lineal
+	$\varphi\otimes\psi\colon U\otimes V\to U'\otimes V'$ tal que
+	\[
+		(\varphi\otimes\psi)(u\otimes v)=\varphi(u)\otimes\psi(v)
+	\]
+	para todo $u\in U$ y $v\in V$.
+\end{lemma}
+
+\begin{proof}
+	Como la función $U\times V\to U\otimes V$,
+	$(u,v)\mapsto\varphi(u)\otimes\psi(v)$, es bilineal, existe una
+	transformación lineal $U\otimes V\to U\otimes V$, $u\otimes
+	v\to\varphi(u)\otimes\psi(v)$. Luego la función
+	\[
+		\sum u_i\otimes v_i\mapsto\sum\varphi(u_i)\otimes\psi(v_i)
+	\]
+	está bien definida. 
+\end{proof}
+
+\begin{exercise}
+	Demuestre las siguientes afirmaciones:
+	\begin{enumerate}
+		\item $(\varphi\otimes\psi)(\varphi'\otimes\psi')=(\varphi\varphi')\otimes(\psi\psi')$.
+		\item Si $\varphi$ y $\psi$ son isomorfismos, entonces
+			$\varphi\otimes\psi$ es un isomorfismo. 
+		\item $(\lambda\varphi+\lambda'\varphi')\otimes\psi=\lambda\varphi\otimes\psi+\lambda'\varphi'\otimes\psi$.
+		\item $\varphi\otimes(\lambda\psi+\lambda'\psi')=\lambda\varphi\otimes\psi+\lambda'\varphi\otimes\psi'$.
+		\item Si $U\simeq U'$ y $V\simeq V'$, entonces $U\otimes V\simeq U'\otimes V'$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{lemma}
+	Si $U$ y $V$ son espacios vectoriales, entonces 
+	$U\otimes V\simeq V\otimes U$.
+\end{lemma}
+
+\begin{proof}
+	Como la función $U\times V\to V\otimes U$, $(u,v)\mapsto v\otimes u$,
+	existe una transformación lineal $U\otimes V\to V\otimes U$, $u\otimes
+	v\mapsto v\otimes u$. Similarmente se demuestra que existe una
+	transformación lineal $V\otimes U\to U\otimes V$, $v\otimes u\mapsto
+	u\otimes v$. Luego $U\otimes V\simeq V\otimes U$.
+\end{proof}
+
+\begin{exercise}
+	\label{xca:UxVxW}
+	Demuestre que $(U\otimes V)\otimes W\simeq U\otimes(V\otimes W)$.
+\end{exercise}
+
+\begin{exercise}
+	\label{xca:UxK}
+	Demuestre que $U\otimes K\simeq K\simeq K\otimes U$.
+\end{exercise}
+
+\begin{lemma}
+	\label{lem:U_LI}
+	Sea $\{u_1,\dots,u_n\}\subseteq U$ un conjunto linealmente independiente y
+	sean $v_1,\dots,v_n\in V$ tales que $\sum_{i=1}^n u_i\otimes v_i=0$.
+	Entonces $v_i=0$ para todo $i\in\{1,\dots,n\}$.
+\end{lemma}
+
+\begin{proof}
+	Sea $i\in\{1,\dots,n\}$ y sea $f_i\colon U\to K$, $f_i(u_j)=\delta_{ij}$.
+	Como la función $U\times V\to V$, $(u,v)\mapsto f_i(u)v$, es bilineal, existe una función
+	$\alpha_i\colon U\otimes V\to V$ lineal tal que $\alpha_i(u\otimes
+	v)=f_i(u)v$. Luego
+	\[
+		v_i=\sum_{j=1}^n\alpha_i(u_j\otimes v_j)=\alpha_i\left(\sum_{j=1}^nu_j\otimes v_j\right)=0.
+	\]
+\end{proof}
+
+\begin{exercise}
+	\label{xca:uxv=0}
+	Demuestre que si $u\otimes v=0$ y $v\ne 0$, entonces $u=0$.
+\end{exercise}
+
+\begin{theorem}
+	Si $\{u_i:i\in I\}$ es una base de $U$ y $\{v_j:j\in J\}$ es una base de
+	$V$, entonces $\{u_i\otimes v_j:i\in I,j\in J\}$ es una base de $U\otimes
+	V$.
+\end{theorem}
+
+\begin{proof}
+	Los $u_i\otimes v_j$ forman un conjunto de generadores pues  
+	si $u=\sum_i\lambda_iu_i$ y $v=\sum_j\mu_jv_j$, entonces
+	$u\otimes v=\sum_{i,j}\lambda_i\mu_ju_i\otimes v_j$. 
+	Veamos ahora que los $u_i\otimes v_j$ son linealmente independientes. Para
+	eso, queremos ver que cualquier subconjunto finito de los $u_i\otimes v_j$
+	es linealmente independiente. Si $\sum_k\sum_l\lambda_{kl}u_{i_k}\otimes
+	v_{j_l}=0$, entonces
+	$0=\sum_{k}u_{i_k}\otimes\left(\sum_{l}\lambda_{kl}v_{j_l}\right)$ y luego,
+	como los $u_{i_k}$ son linealmente indepentientes, el lema~\ref{lem:U_LI}
+	implica que $\sum_{l}\lambda_{kl}v_{j_l}=0$. Luego $\lambda_{kl}=0$ para
+	todo $k,l$ pues los $v_{j_l}$ son linealmente independientes.
+\end{proof}
+
+El teorema anterior implica inmediatamente que si $U$ y $V$ son espacios
+vectoriales de dimensión finita entonces
+\[
+	\dim(U\otimes V)=(\dim U)(\dim V).
+\]
+
+\begin{corollary}
+	Si $\{u_i:i\in I\}$ es base de $U$, entonces todo elemento de $U\otimes V$
+	se escribe unívocamente como una suma finita $\sum_{i}u_i\otimes v_i$.
+\end{corollary}
+
+\begin{proof}
+	Sabemos que todo elemento de $U\otimes V$ es una suma finita
+	$\sum_i x_i\otimes y_i$, donde $x_i\in U$ y $y_i\in V$. Si escribimos 
+	$x_i=\sum_j\lambda_{ij}u_j$, entonces
+	\[
+		\sum_i x_i\otimes y_i=\sum_i\left(\sum_j\lambda_{ij}u_j\right)\otimes y_i		
+		=\sum_j u_j\otimes\left(\sum_i\lambda_{ij}y_i\right).
+	\]
+\end{proof}
+
+%\begin{corollary}
+%	Todo elemento no nulo de $U\otimes V$ puede escribirse como una suma finita
+%	$\sum_{i=1}^N u_i\otimes v_i$ para un conjuntos $\{u_i:1\leq i\leq
+%	N\}\subseteq U$ y $\{v_i:1\leq i\leq N\}\subseteq V$ linealmente
+%	independientes.
+%\end{corollary}
+%
+%\begin{proof}
+%	tomar $N$ minimal	
+%\end{proof}
+
+\index{Producto tensorial!de álgebras}
+El siguiente lema nos permite definir el \textbf{producto tensorial de
+álgebras}.
+
+\begin{lemma}
+	Si $A$ y $B$ son álgebras, entonces $A\otimes B$ es un álgebra con el
+	producto
+	\[
+		(a\otimes b)(x\otimes y)=ax\otimes by.
+	\]
+\end{lemma}
+
+\begin{proof}
+	Para $x\in A$, $y\in B$ consideramos $R_x\otimes R_y\in\End_K(A\otimes B)$.
+	Como la función $A\times B\to\End_K(A\otimes B)$, $(x,y)\mapsto R_x\otimes
+	R_y$, es bilineal, existe una función lineal $\varphi\colon A\otimes
+	B\to\End_K(A\otimes B)$, $\varphi(x\otimes y)=R_x\otimes R_y$. Para $u,v\in A\otimes B$ definimos
+	\[
+		uv=\varphi(v)(u).
+	\]
+	Esta operación es bilineal pues por ejemplo
+	\[
+		u(v+w)=\varphi(v+w)(u)=(\varphi(v)+\varphi(w))(u)=\varphi(v)(u)+\varphi(w)(u)=uv+uw.
+	\]
+	Además
+	$(a\otimes b)(x\otimes y)=\varphi(x\otimes y)(a\otimes b)=(R_x\otimes R_y)(a\otimes b)=ax\otimes by$.
+	Un cálculo sencillo muestra que este producto es asociativo.
+\end{proof}
+
+\begin{exercise}
+	Demuestre que para álgebras valen las siguientes afirmaciones:
+	\begin{enumerate}
+		\item $A\otimes B\simeq B\otimes A$.
+		\item $(A\otimes B)\otimes C\simeq A\otimes(B\otimes C)$.
+		\item $A\otimes K\simeq A\simeq K\otimes A$.
+		\item Si $A\otimes A'$ y $B\otimes B'$ entonces $A\otimes B\simeq A'\otimes B'$.
+	\end{enumerate}
+\end{exercise}
+
+Veamos algunos ejemplos:
+
+\begin{proposition}
+	Si $G$ y $H$ son grupos, entonces $K[G]\otimes K[H]\simeq K[G\times H]$.
+\end{proposition}
+
+\begin{proof}
+	Sabemos que $\{g\otimes h:g\in G,h\in H\}$ es una base de $K[G]\otimes K[H]$ y que
+	$G\times H$ es una base de $K[G\times H]$. Tenemos entonces un isomorfismo lineal 
+	\[
+	K[G]\otimes K[H]\to K[G\times H], 
+	\quad 
+	g\otimes h\mapsto (g,h),
+	\]
+	que además es multiplicativo. Luego $K[G]\otimes K[H]\simeq K[G\times H]$
+	como álgebras.
+\end{proof}
+
+\begin{proposition}
+	Si $A$ es un álgebra, entonces $A\otimes K[X]\simeq A[X]$.	
+\end{proposition}
+
+\begin{proof}
+	Todo elemento de $A\otimes K[X]$ se escribe unívocamente como una suma
+	finita de la forma $\sum a_i\otimes X^i$. Un cálculo sencillo muestra que
+	$A\otimes K[X]\mapsto A[X]$, $\sum a_i\otimes X^i\mapsto \sum a_iX^i$, es
+	un isomorfismo de álgebras.
+\end{proof}
+
+\begin{exercise}
+	Demuestre que si $A$ es un álgebra, $A\otimes M_n(K)\simeq M_n(A)$. En
+	particular, $M_n(K)\otimes M_m(K)\simeq M_{nm}(K)$.
+\end{exercise}
+
+\index{Extensión de escalares}
+Estos últimos dos ejemplos son casos particulares de una construcción
+importante que involucra productos tensoriales y se conoce como
+\textbf{extensión de escalares}.
+
+\begin{theorem}
+	Sea $A$ un álgebra sobre $K$ y sea $E$ una extensión de $K$. Entonces
+	$A^E=E\otimes_KA$ es un álgebra sobre $E$ con respecto a la multiplicación
+	por escalares dada por
+	\[
+		\lambda(\mu\otimes a)=(\lambda\mu)\otimes a,
+	\]
+	para $\lambda,\mu\in E$ y $a\in A$.
+\end{theorem}
+
+\begin{proof}
+	Sea $\lambda\in E$. Como la función $E\times A\to E\otimes_KA$,
+	$(\mu,a)\mapsto (\lambda\mu)\otimes a$, es $K$-bilineal, existe una
+	transformación lineal $E\otimes_KA\to E\otimes_KA$, $\mu\otimes a\mapsto
+	(\lambda\mu)\otimes a$. Queda bien definida entonces la multiplicación por
+	escalares y además 
+	\[
+	\lambda(u+v)=\lambda u+\lambda v
+	\]
+	para $\lambda\in E$ y $u,v\in E\otimes_KA$. Un cálculo directo muestra que además 
+	\[
+	(\lambda+\mu)u=\lambda u+\mu u,
+	\quad
+	(\lambda\mu)u=\lambda(\mu u),
+	\quad
+	\lambda(uv)=(\lambda u)v=u(\lambda v)
+	\]
+	valen para todo $u,v\in E\otimes_KA$ y $\lambda,\mu\in E$.
+\end{proof}
+
+\begin{exercise}
+	Demuestre que valen las siguientes afirmaciones:
+	\begin{enumerate}
+		\item $1\otimes A$ es una subálgebra de $A^E$ isomorfa a $A$.
+		\item Si $\{a_i:i\in I\}$ es base de $A$, entonces $\{1\otimes a_i:i\in
+			I\}$ es base de $A^E$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Demuestre que si $G$ es un grupo y $K$ es un subcuerpo de $E$, entonces
+	$E\otimes_K K[G]\simeq E[G]$.
+\end{exercise}
+
+Estamos en condiciones de demostrar el teorema de Formanek:
+
+\begin{theorem}[Formanek]
+	\index{Teorema!de Formanek}
+	Sea $K$ un cuerpo de característica cero y sea $G$ un grupo. Si todo
+	elemento de $K[G]$ es inversible o un divisor de cero, entonces $G$ es
+	localmente finito.
+\end{theorem}
+
+\begin{proof}
+	Como $K$ es de característica cero, $\Q\subseteq K$ y $K[G]\simeq
+	K\otimes_{\Q}\Q[G]$. Todo $\beta\in K\otimes_{\Q}\Q[Q]$ se escribe
+	unívocamente como 
+	\[
+		\beta=1\otimes\beta_0+\sum k_i\otimes\beta_i,
+	\]
+	donde $\{1,k_1,k_2,\dots,\}$ es una base de $K$ como $\Q$-espacio
+	vectorial. Sea $\alpha\in\Q[G]$ y sea $\beta\in K[G]$ tal que $\alpha\beta=1$. Como entonces 
+	\[
+	1\otimes 1=(1\otimes\alpha)\beta=1\otimes \alpha\beta_0+\sum k_i\otimes \alpha\beta_i,
+	\]
+	la unicidad de la escritura nos dice que $\alpha\beta_0=1$. De la misma
+	forma, si $\alpha\beta=0$, entonces $\alpha\beta_j=0$ para todo $j$. Luego,
+	como todo $\alpha\in\Q[G]$ es inversible o un divisor de cero, el resultado
+	se obtiene al usar el teorema~\ref{thm:FormanekQ} de Formanek para $\Q$.
+\end{proof}
+
+% \section*{Rickart's theorem}
+
+% En esta sección vamos a demostrar que para cualquier grupo $G$ el radical de
+% Jacobson de $\C[G]$ es cero. Demostraremos también que el radical de Jacobson
+% de $\R[G]$ es cero.
+
+% \begin{definition}
+% 	\index{Anillo!con involución}
+% 	\index{Involución!de un anillo}
+% 	Sea $R$ un anillo. Una \textbf{involución} del anillo $R$ es un morfismo
+% 	aditivo $R\to R$, $x\mapsto x^*$, tal que $x^{**}=x$ y $(xy)^*=y^*x^*$ para
+% 	todo $x,y\in R$.
+% \end{definition}
+
+% De la definición se deduce inmediatamente que si $R$ es unitario, entonces
+% $1^*=1$.
+
+% \begin{example}
+% 	La conjugación $z\mapsto\overline{z}$ es una involución de $\C$.
+% \end{example}
+
+% \begin{example}
+% 	La trasposición $X\mapsto X^T$ es una involución del
+% 	anillo $M_n(K)$.
+% \end{example}
+
+% \begin{example}
+% 	Sea $G$ un grupo. Entonces
+% 	$\left(\sum_{g\in G}\alpha_gg\right)^*=\sum_{g\in G}\overline{\alpha_g}g^{-1}$ 
+% 	es una involución de $\C[G]$.
+% \end{example}
+
+% Dado un grupo $G$, se define la \textbf{traza} de un elemento
+% $\alpha=\sum_{g\in G}\alpha_gg\in K[G]$ como $\trace(\alpha)=\alpha_1$. Es
+% fácil ver que $\trace\colon K[G]\to K$, $\alpha\mapsto\trace(\alpha)$ es una
+% función $K$-lineal tal que $\trace(\alpha\beta)=\trace(\beta\alpha)$.
+
+% \begin{exercise}
+% 	Sea $G$ un grupo finito y $K$ un cuerpo tal que su característica no divide al orden de $G$.
+% 	Demuestre las siguientes afirmaciones:
+% 	\begin{enumerate}
+% 		\item Si $\alpha\in K[G]$ es nilpotente, entonces $\trace(\alpha)=0$.
+% 		\item Si $\alpha\in K[G]$ es idempotente, entonces $\trace(\alpha)=\dim
+% 			K[G]\alpha/|G|$.
+% 	\end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% 	Demuestre que 
+% 	$\langle\alpha,\beta\rangle=\trace(\alpha\beta^*)$, $\alpha,\beta\in\C[G]$, 
+% 	define un producto interno en $\C[G]$.
+% \end{exercise}
+
+% \begin{lemma}
+% 	\label{lem:algebraico}
+% 	Sea $G$ un grupo. Si $J(\C[G])\ne 0$, entonces existe $\alpha\in J(\C[G])$ tal que 
+% 	$\trace(\alpha^{2^m})\in\R_{\geq1}$ 
+% 	para todo $m\geq1$.
+% \end{lemma}
+
+% \begin{proof}
+% 	Sea $\alpha=\sum_{g\in G}\alpha_gg\in\C[G]$. Entonces	
+% 	\[
+% 		\trace(\alpha^*\alpha)
+% 		=\sum_{g\in G}\overline{\alpha_g}\alpha_g
+% 		=\sum_{g\in G}|\alpha_g|^2\geq|\alpha_1|^2
+% 		=|\trace(\alpha)|^2.
+% 	\]
+% 	Al usar esta fórmula para algún $\alpha$ tal que $\alpha^*=\alpha$ y usar
+% 	inducción se obtiene que $\trace(\alpha^{2^m})\geq|\trace(\alpha)|^{2^m}$
+% 	para todo $m\geq1$. 
+
+% 	Sea $\beta=\sum_{g\in G}\beta_gg\in J(\C[G])$ tal que $\beta\ne0$. Como
+% 	$\trace(\beta^*\beta)=\sum_{g\in G}|\beta_g|^2\ne0$ y $J(\C[G])$ es un ideal, 
+% 	\[
+% 		\alpha=\frac{\beta^*\beta}{\trace(\beta^*\beta)}\in J(\C[G]).
+% 	\]
+% 	Este elemento $\alpha$ cumple que $\alpha^*=\alpha$ y $\trace(\alpha)=1$.
+% 	Luego $\trace(\alpha^{2^m})\geq 1$ para todo $m\geq1$.
+% \end{proof}
+
+% El ejercicio~\ref{exa:norma} implica que $\C[G]$ con
+% $\dist(\alpha,\beta)=|\alpha-\beta|$ es un espacio métrico. En este espacio
+% métrico, la función $\C[G]\to\C$, $\alpha\mapsto \trace(\alpha)$, es una
+% función continua.
+
+% \begin{lemma}
+% 	\label{lem:phi_diferenciable}
+% 	Sea $\alpha\in J(\C[G])$. La función
+% 	\[
+% 		\varphi\colon\C\to\C[G],\quad
+% 		\varphi(z)=(1-z\alpha)^{-1},
+% 	\]
+% 	es continua, diferenciable y $\varphi(z)=\sum_{n\geq0}\alpha^nz^n\in\C[G]$ si $|z|$
+% 	es suficientemente pequeño.
+% \end{lemma}
+
+% \begin{proof}	
+% 	Sean $y,z\in\C$. Como $\varphi(y)$ y $\varphi(z)$ conmutan, 
+% 	\begin{equation}
+% 		\label{eq:Rickart}
+% 		\begin{aligned}
+% 			\varphi(y)-\varphi(z)&=\left( (1-z\alpha)-(1-y\alpha)\right)(1-y\alpha)^{-1}(1-z\alpha)^{-1}\\
+% 			&=(y-z)\alpha\varphi(y)\varphi(z).
+% 		\end{aligned}
+% 	\end{equation}
+% 	Entonces $|\varphi(y)|\leq|\varphi(z)|+|y-z||\alpha\varphi(y)||\varphi(z)|$ y luego
+% 	\[
+% 		|\varphi(y)|\left( 1-|y-z||\alpha\varphi(z)|\right)\leq|\varphi(z)|.
+% 	\]
+% 	Fijado $z$ podemos elegir $y$ suficientemente cerca de $z$ de forma tal que
+% 	se cumpla que  $1-|y-z||\alpha\varphi(z)|\geq1/2$. Luego
+% 	$|\varphi(y)|\leq2|\varphi(z)|$. De la igualdad~\eqref{eq:Rickart} se
+% 	obtiene entonces $|\varphi(y)-\varphi(z)|\leq2|y-z||\alpha||\varphi(z)|^2$
+% 	y luego $\varphi$ es una función continua. Por la
+% 	expresión~\eqref{eq:Rickart}, 
+% 	\[
+% 	\varphi'(z)
+% 	=\lim_{y\to z}\frac{\varphi(y)-\varphi(z)}{y-z}
+% 	=\lim_{y\to z}\alpha\varphi(y)\varphi(z)
+% 	=\alpha\varphi(z)^2
+% 	\]
+% 	para todo $z\in\C$.
+
+% 	Si $z$ es tal que $|z||\alpha|=|z\alpha|<1$, entonces 
+% 	\[
+% 		\varphi(z)-\sum_{n=0}^Nz^n\alpha^n
+% 		=\varphi(z)\left(1-(1-z\alpha)\sum_{n=0}^Nz^n\alpha^n\right)
+% 		=\varphi(z)(z\alpha)^{N+1}
+% 	\]
+% 	y luego
+% 	\[
+% 		\left|\varphi(z)-\sum_{n=0}^Nz^n\alpha^n\right|\leq|\varphi(z)||z\alpha|^{N+1}.
+% 	\]
+% 	Como $\varphi(z)$ está acotada cerca de $z=0$, se concluye que
+% 	$\left|\varphi(z)-\sum_{n=0}^Nz^n\alpha^n\right|\to0$ si $N\to\infty$.
+% \end{proof}
+
+% Estamos en condiciones de demostrar el teorema de Rickart:
+
+% \begin{theorem}[Rickart]
+% 	\index{Teorema!de Rickart}
+% 	Si $G$ es un grupo, entonces $J(\C[G])=0$.
+% \end{theorem}
+
+% \begin{proof}
+% 	Sea $\alpha\in J(\C[G])$ y sea $\varphi(z)=(1-\alpha z)^{-1}$. Sea 
+% 	$f\colon\C\to \C$ dada por
+% 	$f(z)=\trace\varphi(z)=\trace\left((1-z\alpha)^{-1}\right)$. Por el lema~\ref{lem:phi_diferenciable},
+% 	$f(z)$ es una función entera tal que $f'(z)=\trace(\alpha\varphi(z)^2)$ y
+% 	\begin{equation}
+% 		\label{eq:Taylor}
+% 		f(z)=\sum_{n=0}^\infty z^n\trace(\alpha^n)
+% 	\end{equation}
+% 	si $|z|$ es suficientemente pequeño. En particular, la
+% 	igualdad~\eqref{eq:Taylor} es la expansión en serie de Taylor para $f(z)$
+% 	en el origen. Esto implica que esta serie tiene radio de convergencia
+% 	infinito y converge a $f(z)$ para todo $z\in\C$. En particular,
+% 	\begin{equation}
+% 		\label{eq:limite}
+% 		\lim_{n\to\infty}\trace(\alpha^n)=0.
+% 	\end{equation}
+% 	Por otro lado, si $\alpha\ne0$ el lema~\ref{lem:algebraico} implica que
+% 	$\trace(\alpha^{2^m})\geq1$ para todo $m\geq0$, lo que contradice el límite
+% 	calculado en~\eqref{eq:limite}. Luego $\alpha=0$.
+% \end{proof}
+
+% Para demostrar un corolario necesitamos dos lemas:
+
+% \begin{lemma}[Nakayama]
+% 	\label{lem:Nakayama}
+% 	\index{Lema!de Nakayama}
+% 	Sea $R$ un anillo unitario y sea $M$ un $R$-módulo finitamente generado. Si
+% 	$J(R)M=M$, entonces $M=0$.
+% \end{lemma}
+
+% \begin{proof}
+% 	Supongamos que $M$ está generado por los elementos $x_1,\dots,x_n$. Como $x_n\in M=J(R)M$, 
+% 	existen $r_1,\dots,r_n\in J(R)$ tales que $x_n=r_1x_1+\cdots+r_nx_n$, es decir
+% 	$(1-r_n)x_n=\sum_{j=1}^{n-1}r_jx_j$. 
+% 	Como $1-r_n$ es inversible, existe $s\in R$ tal que $s(1-r_n)=1$. Luego
+% 	$x_n=\sum_{j=1}^{n-1}sr_jx_j$ 
+% 	y entonces $M$ está generado por $x_1,\dots,x_{n-1}$. Al repetir este
+% 	procedimiento una cierta cantidad finita de veces, se obtiene que $M=0$.
+% \end{proof}
+
+% \begin{lemma}
+% 	\label{lem:Rickart}
+% 	Sea $\iota\colon R\to S$ un morfismo de anillos unitarios. Si 
+% 	\[
+% 	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+% 	\]
+% 	donde cada $x_j$ cumple que $x_jy=yx_j$ para todo $y\in\iota(R)$, entonces
+% 	$\iota(J(R))\subseteq J(S)$.
+% \end{lemma}
+
+% \begin{proof}
+% 	Veamos que $J=\iota(J(R))$ actúa trivialmente en cada $S$-módulo simple $M$.
+% 	Si $M$ es un $S$-módulo simple, escribimos $M=Sm$ para algún $m\ne0$. Es
+% 	claro que $M$ es un $R$-módulo con $r\cdot m=\iota(r)m$. Como
+% 	\[
+% 		M=Sm=(\iota(R)x_1+\cdots+\iota(R)x_n)m=\iota(R)(x_1m)+\cdots+\iota(R)(x_nm),
+% 	\]
+% 	$M$ es finitamente generado como $\iota(R)$-módulo. Además $J(R)\cdot
+% 	M=JM=\iota(J)M$ es un $S$-submódulo de $M$ pues
+% 	\[
+% 		x_j(JM)=(x_jJ)M=(Jx_j)M=J(x_jM)\subseteq JM.
+% 	\]
+% 	Como $M\ne0$, el lema de Nakayama implica que $J(R)\cdot M\subsetneq M$. Luego,
+% 	como $M$ es un $S$-módulo simple, se concluye que $J(R)M=0$.
+% \end{proof}
+
+% \begin{corollary}
+% 	Si $G$ es un grupo, entonces $J(\R[G])=0$. 
+% \end{corollary}
+
+% \begin{proof}
+% 	Sea $\iota\colon \R[G]\to\C[G]$ la inclusión canónica. Como 
+% 	\[
+% 	\C[G]=\R[G]+i\R[G],
+% 	\]
+% 	el lema~\ref{lem:Rickart} y el teorema de Rickart implican que
+% 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Luego $J(\R[G])=0$ pues $\iota$ es
+% 	inyectiva. 
+% \end{proof}
+
+
+
 
 %\section{Anillos semiprimitivos y semiprimos}
 
