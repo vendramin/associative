@@ -19,6 +19,7 @@
 %\usepackage{newtxtext,newtxmath}
 %\usepackage{txfonts}
 \usepackage{datetime}
+\usepackage{stmaryrd}
 \usepackage{tikz-cd}
 
 \usepackage{helvet}
@@ -30,6 +31,36 @@
 \usepackage[all]{xy}
 \usepackage{hyperref} 
 %\usepackage{tikz-cd}
+\usepackage{colortbl}
+\usepackage{chngcntr}
+
+
+
+
+
+% Table of contents for lectures and topics
+\makeatletter
+\newcommand\listtopicsname{List of topics}
+\newcommand\listoftopics{
+    \chapter*{\listtopicsname}\@starttoc{top}}
+\makeatother
+
+\makeatletter
+\newcommand\listlecturesname{Contents}
+\newcommand\listoflectures{
+    \chapter*{\listlecturesname}\@starttoc{lec}}
+\makeatother
+
+\newcommand{\lecture}[1]{
+    \chapter{#1}
+    \addcontentsline{lec}{chapter}{Lecture \thechapter}
+}
+
+\newcommand{\topic}[1]{
+    \section{#1}
+    \addcontentsline{top}{chapter}{\S\thesection\quad #1}
+}
+
 
 \usepackage[small,bf]{caption}
 
@@ -59,7 +90,7 @@
 % \def\definitionname{Definici\'on}%
 % \def\emailname{e-mail}%
 % \def\examplename{Ejemplo}%
-% \def\examplesname{Ejemplos}%
+\def\examplesname{Examples}%
 % \def\exercisename{Ejercicio}%
 \def\figurename{Figure}%
 % \def\forewordname{Foreword}%
@@ -96,7 +127,12 @@
 \let\exercise\relax
 \let\example\relax
 \let\conjecture\relax
+
+% Numerar con sección y no resetear al cambiar de capítulo
+\counterwithout{section}{chapter}
+\counterwithout{theorem}{chapter}
 \spnewtheorem{theorem}{\theoremname}[section]{\bfseries}{\itshape}
+
 \renewcommand\thetheorem{\thesection.\arabic{theorem}}
 \spnewtheorem{lemma}[theorem]{\lemmaname}{\bfseries}{\itshape}
 \spnewtheorem{definition}[theorem]{\definitionname}{\bfseries}{\upshape}
@@ -112,10 +148,20 @@
 \spnewtheorem{convention}[theorem]{\conventionname}{\bfseries}{\upshape}
 \spnewtheorem{openproblem}[theorem]{\problemname}{\bfseries}{\upshape}
 
+
+% Numerar con sección y no resetear al cambiar de capítulo
+\counterwithout{section}{chapter}
+
+% No sections in TOC
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{0}
+
+ \usepackage{titlesec}
+ \titleformat{\section}
+   {\secsize\secstyle}{\S\thesection.}{1em}{}
+
 % para enumerar
 \renewcommand{\labelenumi}{\textbf{\arabic{enumi})}}
-
-\setcounter{secnumdepth}{1}
 
 \makeindex             
 
@@ -126,7 +172,7 @@
 \newcommand{\FK}{\mathcal{E}}
 \newcommand{\ad}[1]{\operatorname{ad}\,#1}
 
-\newcommand{\N}{\mathbb{N}}
+%\newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\F}{\mathbb{F}}
@@ -186,8 +232,9 @@
 \newcommand{\diag}{\operatorname{diag}}
 \newcommand{\spec}{\operatorname{Spec}}
 \newcommand{\supp}{\operatorname{supp}}
-\newcommand{\trace}{\operatorname{traza}}
-\newcommand{\sgn}{\operatorname{signo}}
+\newcommand{\trace}{\operatorname{trace}}
+\newcommand{\sgn}{\operatorname{sign}}
+\newcommand{\ch}{\operatorname{char}}
 
 \newcommand{\inner}{\operatorname{inn}}
 \newcommand{\ext}{\operatorname{ext}}
@@ -224,22 +271,22 @@
 \fi
 }
 
+
 % numero como secciones
-\renewcommand{\thesection}{\arabic{chapter}}
-\renewcommand{\thesubsection}{\Alph{section}}
+\renewcommand{\thesection}{\arabic{section}}
+%\renewcommand{\thesubsection}{\Alph{section}}
 
 % To remove Springer from the title page
 \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\@maketitle}{{\Large Springer\par}}{}{}{}
-
-
 \def\ps@bchap{%
   \let\@oddhead\@empty\let\@evenhead\@empty
   \def\@oddfoot{\reset@font\small\hfil\thepage\hfil}%
   \let\@evenfoot\@oddfoot
 }
 
+% Heading 
 \def\ps@headings{%
   \let\@mkboth\markboth
   \def\@oddfoot{\reset@font\small\hfil\thepage\hfil}%
@@ -252,6 +299,8 @@
     }{%
       {\if@chapnum Lecture \thechapter\thechapterend\fi ##1}}%
     }%
+    \def\sectionmark##1{\markright{{\ifnum\c@secnumdepth>\z@
+     \S\thesection\seccounterend\hskip\betweenumberspace\fi ##1}}}
 }
 \makeatother
 \pagestyle{headings}
@@ -267,7 +316,6 @@
   framerule=0pt,
 }
 
-
 \author{Leandro Vendramin}
 \title{Associative algebras}
 \subtitle{Notes}
@@ -276,13 +324,10 @@
 \frontmatter
 
 %\include{dedic}
-%\include{foreword}
-%\include{preface}
-%\include{acknow}
+\include{preface}
 
-\tableofcontents
-
-%\include{acronym}
+\listoflectures
+\listoftopics
 
 \mainmatter
 
@@ -294,21 +339,26 @@
 \include{06}
 \include{07}
 \include{08}
-%\include{09}
 
 \backmatter
+
 \include{hints}
+\addcontentsline{lec}{chapter}{Some hints}
+
 \include{solutions}
+\addcontentsline{lec}{chapter}{Some solutions}
+
 
 \bibliographystyle{abbrv}
 \bibliography{refs}
+\addcontentsline{lec}{chapter}{References}
 
-\printindex
 
-
+\printindex     
+\phantom{Trick}
+\addcontentsline{lec}{chapter}{\indexname}
 
 \end{document}
-
 
 
 

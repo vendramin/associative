@@ -1,7 +1,7 @@
-\chapter{}
+\lecture{}
 
 
-\section*{\S9. Herstein's theorem}
+\topic{Herstein's theorem}
 
 El objetivo de esta sección responderemos la siguiente pregunta: ¿Cuándo un
 álgebra de grupo es un álgebra algebraica? Una respuesta parcial está dada por
@@ -28,7 +28,7 @@ Si $G$ es un grupo localmente finito, entonces todo $g\in G$ tiene orden finito
 	\index{Grupo!de Pr\"ufer}
 	Sea $p$ un primo.  El \textbf{grupo de Pr\"ufer}
 	\[
-		\Z(p^{\infty})=\{z\in\Z:z^{p^n}=1\text{ para algún $n\in\N$}\}
+		\Z(p^{\infty})=\{z\in\Z:z^{p^n}=1\text{ para algún $n\in\Z_{>0}$}\}
 	\]
 	de todas
 	las raíces $p$-ésimas de uno es localmente finito.
@@ -132,7 +132,7 @@ abeliano.
 	entonces $G$ es localmente finito.
 \end{proof}
 
-\section*{\S10. Formanek's theorem}
+\topic{Formanek's theorem}
 
 Veremos un resultado de Formanek que puede entenderse como una generalización
 del teorema de Herstein. 
@@ -822,7 +822,7 @@ Estamos en condiciones de demostrar el teorema de Formanek:
 % \end{proof}
 
 
-\section*{\S. Anillos semiprimitivos y semiprimos}
+\topic{Anillos semiprimitivos y semiprimos}
 
 \begin{definition}
 	\index{Anillo!semiprimitivo}
@@ -958,7 +958,7 @@ semiprimitivos a los anillos semisimples Jacobson:
 \begin{proof}
 	Veamos que $(1)\implies(2)$. Si $I^2=0$ y $x\in I$, entonces $xRx\subseteq I^2=0$ y
 	luego $x=0$. Las implicaciones $(2)\implies(3)$ y $(4)\implies(3)$ son triviales. Veamos que
-	$(3)\implies(4)$.  Si $I$ es un ideal nilpotente no nulo, sea $n\in\N$
+	$(3)\implies(4)$.  Si $I$ es un ideal nilpotente no nulo, sea $n\in\Z_{>0}$ 
 	minimal tal que $I^n=0$.  Como $(I^{n-1})^2=0$, $I^{n-1}=0$, una
 	contradicción. Por último veamos que $(3)\implies(1)$. Sea $a\in R$ tal que
 	$aRa=0$. Entonces $I=RaR$ es un ideal de $R$ tal que $I^2=0$. Por hipótesis, $RaR=I=0$. Luego
@@ -1260,13 +1260,13 @@ semiprimitivos a los anillos semisimples Jacobson:
 %\end{proof}
 
 
-\section*{\S11. Jacobson's density theorem}
+\topic{Jacobson's density theorem}
 
 \begin{definition}
 	\index{Anillo!denso de operadores lineales}
 	Sean $D$ un anillo de división y $V$ un espacio vectorial sobre $D$. Un
 	subanillo $R\subseteq\End_D(V)$ se dice \textbf{denso} en $V$ si para cada
-	$n\in\N$, cada $\{u_1,\dots,u_n\}\subseteq V$ linealmente independiente de
+	$n\in\Z_{>0}$, cada $\{u_1,\dots,u_n\}\subseteq V$ linealmente independiente de
 	$V$ y cada conjunto $\{v_1,\dots,v_n\}\subseteq V$ (no necesariamente
 	linealmente independiente) existe $f\in R$ tal que $f(u_j)=v_j$ para todo
 	$j\in\{1,\dots,n\}$.
@@ -1469,7 +1469,7 @@ semiprimitivos a los anillos semisimples Jacobson:
 \begin{corollary}
 	Si $R$ es un anillo primitivo, entonces existe un anillo de división $D$
 	tal que $R\simeq\End_D(V)$ para algún $D$-espacio vectorial $V$ de
-	dimensión finita, o bien para todo $m\in\N$ existe un subanillo $R_m$ de
+	dimensión finita, o bien para todo $m\in\Z_{>0}$ existe un subanillo $R_m$ de
 	$R$ y un morfismo de anillos sobreyectivo $R_m\to\End_D(V_m)$ para algún $D$-espacio
 	vectorial $V_m$ tal que $\dim_DV_m=m$.
 \end{corollary}
@@ -1485,7 +1485,7 @@ semiprimitivos a los anillos semisimples Jacobson:
 	Si $V$ es de dimensión finita, el resultado se obtiene del
 	lema~\ref{lem:unico_denso}.  Supongamos entonces que $V$ es de dimensión
 	infinita y sea $\{u_1,u_2,\dots\}$ un conjunto linealmente independiente.
-	Para cada $m\in\N$ sea $V_m$ el subespacio generado por $\{u_1,\dots,u_m\}$
+	Para cada $m\in\Z_{>0}$ sea $V_m$ el subespacio generado por $\{u_1,\dots,u_m\}$
 	y sea $R_m=\{r\in R:rV_m\subseteq V_m\}$. Es fácil ver que $R_m$ es un
 	subanillo de $R$. Como $R$ es denso en $V$, la función
 	\[
@@ -1582,13 +1582,13 @@ funcione en el contexto no conmutativo.
 	Supongamos que $V$ tiene dimensión infinita y sea $\{u_1,u_2,\dots,\}$ un
 	subconjunto de $V$ linealmente independiente. Como $R\subseteq\End_D(V)$,
 	$V$ es un $R$-módulo con $f\cdot v=f(v)$, donde $f\in R$ y $v\in V$. Para
-	cada $n\in\N$ sea 
+	cada $n\in\Z_{>0}$ sea 
 	\[
 		I_n=\Ann_R(\{u_1,\dots,u_n\}.
 	\]
 	Los $I_j$ son ideales a izquierda de $R$ tales que $I_1\supseteq
 	I_2\supseteq\cdots\supseteq I_n\supseteq\cdots$. Veamos que esta sucesión
-	no se estabiliza: Sean $n\in\N$ y $v\in V\setminus\{0\}$. Como $R$ es denso
+	no se estabiliza: Sean $n\in\Z_{>0}$ y $v\in V\setminus\{0\}$. Como $R$ es denso
 	en $V$, existe $f\in R$ tal que $f(u_j)=0$ para todo $j\in\{1,\dots,n\}$ y
 	$f(u_{n+1})=v\ne0$. Luego $I_1\supsetneq I_2\supsetneq\cdots\supsetneq
 	I_n\supsetneq\cdots$, una contradicción pues $R$ es artiniano a izquierda.
@@ -1602,7 +1602,7 @@ funcione en el contexto no conmutativo.
 		\item $R$ es simple.
 		\item $R$ es primo.
 		\item $R$ es primitivo.
-		\item $R\simeq M_n(D)$ para algún $n\in\N$ y algún anillo de división $D$.
+		\item $R\simeq M_n(D)$ para algún $n$ y algún anillo de división $D$.
 	\end{enumerate}
 \end{theorem}
 
@@ -1915,7 +1915,7 @@ Necesitamos el siguiente teorema:
 	\index{Teorema!de Dietzmann}
 	\label{theorem:Dietzmann} 
 	Sea $G$ un grupo y sea $X\subseteq G$ un
-	subconjunto finito de $G$ cerrado por conjugación. Si existe $n\in\N$ tal
+	subconjunto finito de $G$ cerrado por conjugación. Si existe $n$ tal
 	que $x^n=1$ para todo $x\in X$, entonces $\langle X\rangle$ es un subgrupo
 	finito de $G$.
 \end{theorem}
