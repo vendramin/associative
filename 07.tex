@@ -144,6 +144,7 @@ de álgebras.
 We now consider the following problem. 
 
 \begin{openproblem}
+\label{Jacobson's semisimplicity problem}
 Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
 \end{openproblem}
 
@@ -156,7 +157,8 @@ we present an algebraic proof.
 
 
 \begin{theorem}[Rickart]
-\label{thm:J(C[G])=0}
+\index{Rickart's theorem}
+\label{thm:Rickart}
     Let $G$ be a group. Then $J(\C[G])=\{0\}$.
 \end{theorem}
 
@@ -215,6 +217,7 @@ To obtain a consequence of Rickart's theorem we need two lemmas.
 
 \begin{lemma}[Nakayama]
 	\label{lem:Nakayama}
+	\index{Nakayama's lemma}
 	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
 	$J(R)\cdot M=M$, then $M=\{0\}$.
 \end{lemma}
@@ -310,7 +313,7 @@ complex group algebras of infinite groups are never semisimple.
 \end{proposition}
 
 \begin{proof}
-	Assume that $R=K[G]$ is semisimple.  Let $I$ 
+	Assume that $R=\C[G]$ is semisimple.  Let $I$ 
 	be the augmentation ideal of $R$, that is
 	\[
 	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
@@ -358,42 +361,50 @@ We now present another instance of the Jacobson semisimplicity problem.
 In this case, our result is for finite groups. 
 
 \begin{theorem}[Maschke]
+\index{Maschke's theorem}
 	Let $G$ be a finite group. Then $J(K[G])=0$ if and only 
 	if the characteristic of $K$ is zero 
 	or does not divide the order of $G$. 
 \end{theorem}
 
 \begin{proof}
-	Supongamos que $G=\{g_1,\dots,g_n\}$ con $g_1=1$. Sea $\rho\colon K[G]\to
-	K$ dada por $\alpha\mapsto\trace(L_{\alpha})$, donde
-	$L_{\alpha}(\beta)=\alpha\beta$. Tenemos $\rho(g_1)=n$ y $\rho(g_i)=0$ para
-	todo $i\in\{2,\dots,n\}$ pues,  como $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, la
-	matriz de $L_{g_i}$ en la base $\{g_1,\dots,g_n\}$ tiene ceros en la
-	diagonal.
+	We may assume that $G=\{g_1,\dots,g_n\}$, where $g_1=1$. Let 
+	\[
+	\rho\colon K[G]\to K,
+	\quad
+	\alpha\mapsto\trace(L_{\alpha}),
+	\]
+	where 
+	$L_{\alpha}(\beta)=\alpha\beta$. Then $\rho(g_1)=n$ and $\rho(g_i)=0$ for all
+	$i\in\{2,\dots,n\}$, as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, the matrix of 
+	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal. 
 
-	Supongamos que $J=J(K[G])$ es no nulo y sea
-	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Sin pérdida de
-	generalidad podemos suponer que $\lambda_1\ne 0$ (pues si $\lambda_1=0$ hay
-	algún $\lambda_i\ne 0$ y alcanza con tomar $g_i^{-1}\alpha\in J$). Entonces
+	Assume that $J=J(K[G])$ is non-zero and let 
+	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Without loss of generality
+	we may assume that $\lambda_1\ne 0$ (if $\lambda_1=0$ there exists some 
+	$\lambda_i\ne 0$ and we need to take $g_i^{-1}\alpha\in J$). Then 
 	\[
 		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
 	\]
-	Como $G$ es un grupo finito, $K[G]$ es un álgebra de dimensión finita y
-	luego $K[G]$ es artiniana a izquierda. Como el radical de Jacobson $J$ es
-	un ideal nilpotente, en particular $\alpha$ es un elemento nil. Luego
-	$L_{\alpha}$ es nilpotente y entonces $0=\rho(\alpha)=n\lambda_1$. Esto
-	implica que la característica del cuerpo $K$ divide a $n$. 
+	Since $G$ is finite, $K[G]$ is a finite-dimensional algebra and hence 
+	$K[G]$ is left artinian. Since $J$ is a nilpotent ideal, 
+	in particular, $\alpha$ is a nilpotent element. Then 
+	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
+	the characteristic of the field $K$ divides $n$. 
 
-	Recíprocamente, supongamos que la característica de $K$ es un número primo
-	que divide a $n$ y sea $\alpha=\sum_{i=1}^ng_i$. Como $\alpha
-	g_j=g_j\alpha=\alpha$ para todo $j\in\{1,\dots,n\}$, el conjunto
-	$I=K[G]\alpha$ es un ideal de $K[G]$. Como además 
+	Conversely, let $K$ be a field of prime characteristic and that this primes divides 
+	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
+	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
+	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
 	\[
 		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0,
 	\]
-	se concluye que $I$ es un ideal no nulo y nilpotente. Luego $J(K[G])\ne 0$
-	pues por la proposición~\ref{pro:nilJ} sabemos que $I\subseteq J(K[G])$.
+	it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
+	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
 \end{proof}
+
+Since the Jacobson radical of a group algebra of a finite group contains 
+every nil left ideal, the following consequence of the theorem follows immediately:
 
 \begin{corollary}
 	\label{cor:GfinitoNOnil}
@@ -401,10 +412,11 @@ In this case, our result is for finite groups.
 	nil no nulos.
 \end{corollary}
 
-\begin{proof}
-	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
-	todo ideal a izquierda nil.	
-\end{proof}
+
+% \begin{proof}
+% 	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
+% 	todo ideal a izquierda nil.	
+% \end{proof}
 
 %\index{Anillo!semisimple}
 %Recordemos que un anillo unitario $R$ se dice \textbf{semisimple} si para cada
@@ -444,110 +456,112 @@ In this case, our result is for finite groups.
 
 \topic{Herstein's theorem}
 
-El objetivo de esta sección responderemos la siguiente pregunta: ¿Cuándo un
-álgebra de grupo es un álgebra algebraica? Una respuesta parcial está dada por
-el teorema de Herstein. 
+Our aim now is to answer the following question: When
+a group algebra is algebraic? 
+A partial answer is given by Herstein's theorem. 
 
 \begin{definition}
-	\index{Grupo!localmente finito}
-	Un grupo $G$ se dice \textbf{localmente finito} si todo subgrupo de $G$
-	finitamente generado es finito.
+\index{Group!locally finite}
+	A group $G$ is \textbf{locally finite} if every finitely generated 
+	subgroup of $G$ is finite. 
 \end{definition}
 
-Si $G$ es un grupo localmente finito, entonces todo $g\in G$ tiene orden finito
-(pues el subgrupo $\langle g\rangle$ es finito por ser finitamente generado). 
+If $G$ is a locally finite group, then every element $g\in G$ has finite order, as
+the subgroup $\langle g\rangle$ is finite because it is finitely generated.
 
 \begin{example}
-	Todo grupo finito es obviamente localmente finito.
+    Every finite group is locally finite
 \end{example}
 
 \begin{example}
-	El grupo $\Z$ no es localmente finito pues es libre de torsión.
+    The group $\Z$ is not locally finite because it is torsion-free.
 \end{example}
 
 \begin{example}
-	\index{Grupo!de Pr\"ufer}
-	Sea $p$ un primo.  El \textbf{grupo de Pr\"ufer}
+\label{Pr\"ufer's group}
+	Let $p$ be a prime number. 
+	The \textbf{Pr\"ufer's group}  
 	\[
-		\Z(p^{\infty})=\{z\in\Z:z^{p^n}=1\text{ para algún $n\in\Z_{>0}$}\}
+		\Z(p^{\infty})=\{z\in\C:z^{p^n}=1\text{ para algún $n\in\Z_{>0}$}\}, 
 	\]
-	de todas
-	las raíces $p$-ésimas de uno es localmente finito.
+	formed by of all $p$-roots of one, is locally finite. 
 \end{example}
 
 \begin{example}
-	Sean $X$ un conjunto infinito y $\Sym_X$ el conjunto de biyecciones $X\to
-	X$ que mueven únicamente una cantidad finita de elementos de $X$. Entonces
-	$\Sym_X$ es localmente finito.
+	Let $X$ be an infinite set and $\Sym_X$ be the set of bijective maps $X\to
+	X$ moving only finitely many elements of $X$. Then 
+	$\Sym_X$ is locally finite.
 \end{example}
-
-Antes de demostrar el teorema de Herstein vamos a dar una familia de ejemplos
-de grupos localmente finitos. Para eso necesitamos un lema:
-
-\begin{lemma}
-	\label{lem:solvable_torsion=>lf}
-	Sea $G$ un grupo y sea $N$ un subgrupo normal de $G$. Si $N$ y $G/N$ son
-	localmente finitos, entonces $G$ es localmente finito.
-\end{lemma}
-
-\begin{proof}
-	Sea $\pi\colon G\to G/N$ el morfismo canónico. Sea $\{g_1,\dots,g_n\}$ un
-	subconjunto finito de $G$. Como $G/N$ es localmente finito, el subgrupo $Q$
-	de $G/N$ generado por $\pi(g_1),\dots,\pi(g_n)$ es finito, digamos
-	\[
-		Q=\{\pi(g_1),\dots,\pi(g_n),\pi(g_{n+1}),\dots,\pi(g_m)\}.
-	\]
-	Para cada $i,j\in\{1,\dots,n\}$ sabemos que existen $u_{ij}\in N$ y
-	$k\in\{1,\dots,m\}$ tales que $g_ig_j=u_{ij}g_k$. Sea $U$ el subgrupo de
-	$G$ generado por los $u_{ij}$. Como $N$ es localmente finito, $U$ es un
-	subgrupo finito. Como además cada elemento $g_ig_jg_l$ puede escribirse como
-	\[
-		g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
-	\]
-	para algún $u\in U$ y algún $t\in\{1,\dots,m\}$, se concluye que el
-	subgrupo $H$ de $G$ generado por $\{g_1,\dots,g_n\}$ es finito pues
-	$|H|\leq m|U|$. 
-\end{proof}
-
-\index{Grupo!resoluble}
-Veamos una aplicación a los grupos resolubles. Recordemos que un grupo $G$ se
-dice \textbf{resoluble} si existe una sucesión de subgrupos 
-\begin{equation}
-	\label{eq:resoluble}
-	1=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
-\end{equation}
-donde cada $G_i$ es normal en $G_{i+1}$ y cada cociente $G_i/G_{i-1}$ es
-abeliano.
 
 \begin{proposition}
-	Si $G$ es un grupo resoluble y de torsión, entonces $G$ es localmente
-	finito.
+\label{pro:exact_LI}
+	Let $G$ be a group and $N$ be a normal subgroup of $G$. If $N$ and $G/N$
+	are locally finite, then $G$ is locally finite.
 \end{proposition}
 
 \begin{proof}
-	Procederemos por inducción en la longitud $n$ de la sucesión de
-	resolubilidad~\eqref{eq:resoluble}. Si $n=1$ entonces $G$ es finito por ser
-	abeliano y de torsión. Supongamos que el resultado vale para grupos
-	resolubles de longitud $n-1$ y sea $G$ un grupo resoluble tal
-	que~\eqref{eq:resoluble}. Por hipótesis inductiva, el subgrupo normal
-	$G_{n-1}$ de $G$ es localmente finito. Entonces, como $G/G_{n-1}$ es
-	localmente finito por ser abeliano y de torsión, el resultado se obtiene
-	del lema~\ref{lem:solvable_torsion=>lf}.
+	Let $\pi\colon G\to G/N$ be the canonical map and $\{g_1,\dots,g_n\}$ be a finite subset of $G$. 
+	Since $G/N$ is locally finite, the subgroup $Q$ of $G/N$ generated by 
+	$\pi(g_1),\dots,\pi(g_n)$ is finite, say
+	\[
+		Q=\{\pi(g_1),\dots,\pi(g_n),\pi(g_{n+1}),\dots,\pi(g_m)\}.
+	\]
+	For each $i,j\in\{1,\dots,n\}$ there exist $u_{ij}\in N$ and 
+	$k\in\{1,\dots,m\}$ uch that $g_ig_j=u_{ij}g_k$. Let $U$ be the subgroup of $G$
+	generated by $\{u_{ij}:1\leq i,j\leq n\}$. Since $N$ is locally finite, $U$ is finite. Moreover, since 
+	each $g_ig_jg_l$ can be written as 
+	\[
+		g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
+	\]
+	for some $u\in U$ and $t\in\{1,\dots,m\}$, it follows that the subgroup 
+	$H$ of $G$ generated by $\{g_1,\dots,g_n\}$ is finite, as 
+	$|H|\leq m|U|$. 
 \end{proof}
 
+\index{Group!solvable}
+Recall that a group $G$ is
+\textbf{solvable} if there exists a sequence
+of subgroups 
+\begin{equation}
+	\label{eq:resoluble}
+	\{1\}=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
+\end{equation}
+where each $G_i$ is normal in $G_{i+1}$ and each 
+quotient $G_i/G_{i-1}$ is
+abelian.
+\index{Group!torsion}
+A group $G$ is a \textbf{torsion} group if every element of $G$
+has finite order. 
+
+\begin{proposition}
+	If $G$ is a solvable torsion group, 
+	then $G$ is locally finite. 
+\end{proposition}
+
+\begin{proof}
+	We proceed by induction on $n$, the length of the sequence~\eqref{eq:resoluble}. 
+	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
+	Now assume the result holds for group with resolubility length $n-1$ and let
+	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. By the inductive hypothesis, 
+	the normal subgroup $G_{n-1}$ of $G$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
+	it is locally finite, the result now follows from Proposition \ref{pro:exact_LI}.
+\end{proof}
+
+We now prove Herstein's theorem.
+
 \begin{theorem}[Herstein]
-	\index{Teorema!de Herstein}
-	Si $G$ es un grupo localmente finito, entonces $K[G]$ es algebraica.
-	Recíprocamente, si $K[G]$ es algebraica y $K$ es de característica cero,
-	entonces $G$ es localmente finito.
+\index{Herstein's theorem}
+	If $G$ is a locally finite group, then $K[G]$ is algebraic. Conversely, if 
+	$K[G]$ is algebraic and $K$ has characteristic zero, then $G$ 
+	is locally finite. 
 \end{theorem}
 
 \begin{proof}
-	Supongamos que $G$ es localmente finito y sea $\alpha\in K[G]$. El subgrupo
-	$H=\langle\supp\alpha\rangle$ es finitamente generado y luego finito. Como
-	$\alpha\in K[H]$ y $\dim_KK[H]<\infty$, el conjunto
-	$\{1,\alpha,\alpha^2,\dots\}$ es linealmente dependiente. Luego $\alpha$ es
-	algebraico sobre $K$.
+	Assume thast $G$ is locally finite. Let $\alpha\in K[G]$. The subgroup 
+	$H=\langle\supp\alpha\rangle$ is finite, as it is finitely generated. Since 
+	$\alpha\in K[H]$ and $\dim_KK[H]<\infty$, the set 
+	$\{1,\alpha,\alpha^2,\dots\}$ is linearly dependent. Thus $\alpha$ is
+	algebraic over $K$.
 
 	Sea $\{x_1,\dots,x_m\}$ un subconjunto finito de $G$. Si agregamos los
 	inversos, podemos suponer que $\{x_1,\dots,x_m\}$ genera al subgrupo
