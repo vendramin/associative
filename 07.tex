@@ -1,5 +1,446 @@
 \lecture{}
 
+\topic{Rickart's theorem}
+
+Let $K$ be a field and $G$ be a group. The \textbf{group algebra} $K[G]$ 
+is the vector space (over $K$) with basis $\{g:g\in G\}$ 
+and the algebra structure given by the multiplication
+\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+\]
+Note that every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
+
+\begin{exercise}
+\label{xc:K[G]notsimple}
+    If $G$ is non-trivial, then $K[G]$ is not simple. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
+	$K[G]\simeq K[X]/(X^n-1)$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
+	$K[G]$ is a domain. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. left zero divisor) in
+	$K[G]$.
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
+	The \textbf{support} of $\alpha$ is the set 
+	\[
+		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
+	\]
+	Prove that if $g\in G$, then 
+	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
+\end{exercise}
+
+% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
+% grupo de un grupo finito. Comenzamos con un ejemplo:
+
+\begin{exercise}
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
+	group with two elements. Note that every element of $K[G]$ is of the form
+	$a1+bg$ for some $a,b\in K$. Prove the following statements:
+	\begin{enumerate}
+	    \item If the characteristic of $K$ is different from two, then 
+	    \[
+		K[G]\to K\times K,
+		\quad
+		a1+bg\mapsto (a+b,a-b),
+	\]
+	is an algebra isomorhism. 
+	\item If the characteristic of $K$ is two, then 
+	\[
+	K[G]\to \begin{pmatrix}
+			K & K\\
+			0 & K
+		\end{pmatrix},
+		\quad
+		a1+bg\mapsto\begin{pmatrix}
+			a+b & b\\
+			0 & a+b
+		\end{pmatrix},
+	\]
+	is an algebra isomorphism. 
+	\end{enumerate}
+\end{exercise}
+
+Veamos otros ejemplo un poco más difíciles. La idea a utilizar es la siguiente:
+Si $A$ es una $K$-álgebra y $\rho\colon G\to U(A)$ es un morfismo de grupos,
+donde $U(A)$ es el grupo de unidades de $A$, entonces la función $K[G]\to A$,
+$\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g)$, es un morfismo
+de álgebras.
+
+\begin{exercise}
+	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
+	$\R[G]\simeq\R\times\C$.
+% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
+% 	\[
+% 		\varphi\colon\R[G]\to\R\times\C,
+% 		\quad
+% 		g\mapsto (1,\omega),
+% 	\]
+% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
+% 	$\varphi$ es inyectivo pues
+% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
+% 	Luego $\varphi$ es un isomorfismo pues
+% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
+	Prove the following statements:
+	\begin{enumerate}
+	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
+	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
+	\end{enumerate}  
+% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
+% 	\[
+% 		R=\begin{pmatrix}
+% 			\omega & 0\\
+% 			0 & \omega^2
+% 		\end{pmatrix},
+% 		\quad
+% 		S=\begin{pmatrix}
+% 			0 & 1\\
+% 			1 & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
+% 	\[
+% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
+% 		r\mapsto (1,1,R),\quad
+% 		s\mapsto (1,-1,S).
+% 	\]
+% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
+% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
+% 	basta ver que $\varphi$ es inyectivo. Si 
+% 	\[
+% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
+% 	\]
+% 	entonces 
+% 	\[
+% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
+% 	\]
+% 	donde
+% 	\begin{align*}
+% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
+% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
+% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
+% 	\end{align*}
+% 	Un cálculo sencillo muestra que estas ecuaciones implican que
+% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
+\end{exercise}
+
+We now consider the following problem. 
+
+\begin{openproblem}
+Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
+\end{openproblem}
+
+As an application of Amitsur's theorem we prove that 
+complex group algebras have null Jacobson radical.
+This is known as 
+Rickart's theorem. The original proof found by Rickart 
+uses complex analysis. Here, however, 
+we present an algebraic proof. 
+
+
+\begin{theorem}[Rickart]
+\label{thm:J(C[G])=0}
+    Let $G$ be a group. Then $J(\C[G])=\{0\}$.
+\end{theorem}
+
+To prove the theorem we need a lemma.
+
+\begin{lemma}
+Let $G$ be a group. Then $J(\C[G])$ is nil.        
+\end{lemma}
+
+\begin{proof}
+    We need to show that every element of $J(\C[G])$ is nilpotent. 
+    If $G$ is countable, then the result follows from Amitsur's theorem. So assume that 
+    $G$ is not countable. Let $\alpha\in J(\C[G])$, say
+    \[
+    \alpha=\sum_{i=1}^n\lambda_ig_i,
+    \]
+    where $\lambda_1,\dots,\lambda_n\in\C$ and $g_1,\dots,g_n\in G$. Let $H=\langle g_1,\dots,g_n\rangle$.
+    Then $g\in \C[H]$ and $H$ is countable. We claim that $g\in J(\C[H])$. Decompose
+    $G$ as a disjoint union 
+    \[
+    G=\bigcup_\lambda x_\lambda H
+    \]
+    of cosets of $H$ in $G$. Then $\C[G]=\bigoplus_\lambda x_\lambda\C[H]$ and
+    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$. Since $\alpha\in J(\C[G])$, for each 
+    $\beta\in\C[H]$ there exists $\gamma\in\C[G]$ such that 
+    $\gamma(1-\beta\alpha)=1$. Write $\gamma=\gamma_1+\kappa$ for $\gamma_1\in\C[H]$ and $\kappa\in K$. Then
+    \[
+    1=\gamma(1-\beta\alpha)=\gamma_1(1-\beta\alpha)+\kappa(1-\beta\alpha)
+    \]
+    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$. Since $1=\gamma_1(1-\beta\alpha)$, it follows that
+    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem.  
+\end{proof}
+
+We now prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:J(C[G])=0}]
+    For $\alpha=\sum_{i=1}^n\lambda_ig_i\in\C[G]$ let 
+    \[
+    \alpha^*=\sum_{i=1}^n\overline{\lambda_i}g_i^{-1}.
+    \]
+    Then $\alpha\alpha^*=0$ if and only if $\alpha=0$ and, moreover, 
+    $(\alpha\beta)^*=\beta^*\alpha^*$ for all $\beta\in\C[G]$. 
+    Assume that $J(\C[G])\ne\{0\}$ and let $\alpha\in J(\C[G])\setminus\{0\}$. Then
+    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, $\beta\ne 0$, as 
+    \[
+    (\beta^m)^*=(\beta^*)^m=\beta^m
+    \]
+    for all $m\geq1$. If there exists $k\geq2$ such that $\beta^k=0$ and $\beta^{k-1}\ne 0$, then
+    \[
+    \beta^{k-1}\left(\beta^{k-1}\right)^*=\beta^{2k-2}=0
+    \]
+    and hence $\beta^{k-1}=0$, a contradiction. Thus $\beta=0$ and therefore $\alpha=0$. 
+\end{proof}
+
+To obtain a consequence of Rickart's theorem we need two lemmas. 
+
+\begin{lemma}[Nakayama]
+	\label{lem:Nakayama}
+	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
+	$J(R)\cdot M=M$, then $M=\{0\}$.
+\end{lemma}
+
+\begin{proof}
+    Since $M$ is finitely generated, we may assume that 
+	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
+	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
+	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
+	one obtains $M=\{0\}$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:Rickart}
+	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
+	\[
+	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+	\]
+	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
+	$\iota(J(R))\subseteq J(S)$.
+\end{lemma}
+
+\begin{proof}
+	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
+	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
+	\[
+		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
+	\]
+	it follows that 
+	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
+	\[
+	J(R)\cdot
+	M=J\cdot M=\iota(J)\cdot M
+	\]
+	is an $S$-submodule of $M$, as 
+	\[
+		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
+	\]
+	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
+	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
+\end{proof}
+
+We now obtain the following consequence of Rickart's theorem. 
+
+\begin{theorem}
+	If $G$ is a group, then $J(\R[G])=0$. 
+\end{theorem}
+
+\begin{proof}
+	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+	\[
+	\C[G]=\R[G]+i\R[G],
+	\]
+	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
+	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
+\end{proof}
+
+We now characterize when complex group algebras 
+are left artinian. For that purpose
+we need a lemma. This is similar to one of the implications proved in Proposition \ref{pro:semisimple}. However,
+in the arbitrary setting we are considering, we need to use Zorn's lemma. 
+
+\begin{lemma}
+    Let $M$ be a semisimple module and $N$ be a submodule. 
+    Then $N$ is a direct summand.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+    Let $M=\oplus_{i\in I}M_i$ be a direct sum of simple modules  
+    and let $i\in I$. 
+    Since $N\cap M_i$ is a submodule of $M_i$ and $M_i$ is simple, it follows
+    that $N\cap M_i=\{0\}$ or $N\cap M_i=M_i$. If
+    $N\cap M_i=M_i$ for all $i\in I$, then $N=M$ and the lemma is proved. So we may assume
+    that there exists $i\in I$ such that $N\cap M_i=\{0\}$. Let $X$ be the set
+    of subsets $J$ of $I$ such that $N\cap (\oplus_{j\in J}M_j)=\{0\}$. Our assumptions
+    imply that $X$ is non-empty. Zorn's lemma implies the existence of 
+    a maximal element $K$. Let $N_1=\oplus_{k\in K}M_k$. We claim that
+    $N\oplus N_1=M$. If not, there exists $i\in I$ such that
+    $M_i\not\subseteq N\oplus N_1$. The simplicity of $M_i$ implies that
+    $M_i\cap (N\cap N_1)=\{0\}$, which contradicts the maximality of $K$. 
+\end{proof}
+
+A direct application of the lemma proves that
+complex group algebras of infinite groups are never semisimple. 
+
+\begin{proposition}
+    \label{pro:KGsemisimple}
+    If $G$ is an infinite group, then $\C[G]$ is not semisimple. 
+\end{proposition}
+
+\begin{proof}
+	Assume that $R=K[G]$ is semisimple.  Let $I$ 
+	be the augmentation ideal of $R$, that is
+	\[
+	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
+	\]
+	By the previous lemma, 
+	there exists exists a non-zero ideal $J$ such that 
+	$R=I\oplus J$. Since $R$ is unitary, there exist $e\in I$ and $f\in J$ such that
+	$1=e+f$. If
+	$x\in I$, then $x=xe+xf$ and hence $xf=x-xe\in I\cap J=\{0\}$. Since 
+	$x=xe$ for all $x\in I$, it follows that $e=e^2$. Similarly one proves
+	that $f^2=f$. Moreover, $ef=0$, as $ef\in I\cap J=\{0\}$.  Since $I$ 
+	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$, we conclude that
+	$(g-1)f=0$
+	for all $g\in G$, as $g-1\in I$. If $f=\sum_{h\in
+	G}\lambda_hh$ (finite sum), then  
+	\[
+	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+	G}\lambda_{g^{-1}h}h.
+	\]
+	Thus $\lambda_h=\lambda_{g^{-1}h}$ for all $g,h\in G$, a contradiction because 
+	$f\ne 0$ implies that the sum that defines $f$ should be an infinite sum.
+\end{proof}
+
+% The ideal $I(G)$ used in the proof of the previous proposition 
+% is known as the \textbf{augmentation ideal} 
+% of $\C[G]$.
+
+\begin{theorem}
+	Let $G$ be a group. Then $\C[G]$ 
+	is left artinian if and only if 
+	$G$ is finite. 
+\end{theorem}
+
+\begin{proof}
+    If $G$ is finite, then $\C[G]$ is left artinian because $\dim\C[G]=|G|<\infty$. So assume that 
+    $G$ is infinite. By Rickart's theorem,   
+	$J(\C[G])=0$. Moreover, $\C[G]$
+	is not semisimple by the previous proposition. Thus
+	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
+\end{proof}
+
+\topic{Maschke's theorem}
+
+We now present another instance of the Jacobson semisimplicity problem.
+In this case, our result is for finite groups. 
+
+\begin{theorem}[Maschke]
+	Let $G$ be a finite group. Then $J(K[G])=0$ if and only 
+	if the characteristic of $K$ is zero 
+	or does not divide the order of $G$. 
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $G=\{g_1,\dots,g_n\}$ con $g_1=1$. Sea $\rho\colon K[G]\to
+	K$ dada por $\alpha\mapsto\trace(L_{\alpha})$, donde
+	$L_{\alpha}(\beta)=\alpha\beta$. Tenemos $\rho(g_1)=n$ y $\rho(g_i)=0$ para
+	todo $i\in\{2,\dots,n\}$ pues,  como $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, la
+	matriz de $L_{g_i}$ en la base $\{g_1,\dots,g_n\}$ tiene ceros en la
+	diagonal.
+
+	Supongamos que $J=J(K[G])$ es no nulo y sea
+	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Sin pérdida de
+	generalidad podemos suponer que $\lambda_1\ne 0$ (pues si $\lambda_1=0$ hay
+	algún $\lambda_i\ne 0$ y alcanza con tomar $g_i^{-1}\alpha\in J$). Entonces
+	\[
+		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
+	\]
+	Como $G$ es un grupo finito, $K[G]$ es un álgebra de dimensión finita y
+	luego $K[G]$ es artiniana a izquierda. Como el radical de Jacobson $J$ es
+	un ideal nilpotente, en particular $\alpha$ es un elemento nil. Luego
+	$L_{\alpha}$ es nilpotente y entonces $0=\rho(\alpha)=n\lambda_1$. Esto
+	implica que la característica del cuerpo $K$ divide a $n$. 
+
+	Recíprocamente, supongamos que la característica de $K$ es un número primo
+	que divide a $n$ y sea $\alpha=\sum_{i=1}^ng_i$. Como $\alpha
+	g_j=g_j\alpha=\alpha$ para todo $j\in\{1,\dots,n\}$, el conjunto
+	$I=K[G]\alpha$ es un ideal de $K[G]$. Como además 
+	\[
+		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0,
+	\]
+	se concluye que $I$ es un ideal no nulo y nilpotente. Luego $J(K[G])\ne 0$
+	pues por la proposición~\ref{pro:nilJ} sabemos que $I\subseteq J(K[G])$.
+\end{proof}
+
+\begin{corollary}
+	\label{cor:GfinitoNOnil}
+	Sea $G$ un grupo finito. Entonces $K[G]$ no contiene ideales a izquierda
+	nil no nulos.
+\end{corollary}
+
+\begin{proof}
+	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
+	todo ideal a izquierda nil.	
+\end{proof}
+
+%\index{Anillo!semisimple}
+%Recordemos que un anillo unitario $R$ se dice \textbf{semisimple} si para cada
+%ideal $I$ de $R$ existe un ideal $J$ de $R$ tal que $R=I\oplus J$.
+%
+%%\begin{corollary}
+%%	Sea $G$ un grupo finito y $K$ un cuerpo de característica coprima con el
+%%	orden de $G$. Entonces $K[G]$ es semisimple.
+%%\end{corollary}
+%%
+%%\begin{proof}
+%%	
+%%\end{proof}
+%
+%\begin{theorem}
+%	Si $G$ es un grupo infinito, entonces $K[G]$ nunca es semisimple.
+%\end{theorem}
+%
+%\begin{proof}
+%	Sea $R=K[G]$ y supongamos que $R$ es semisimple.  Si $I$ es el ideal de
+%	aumentación de $R$, existe un ideal no nulo $J$ de $R$ tal que $R=I\oplus
+%	J$. Como $R$ es unitario, existen $e\in I$, $f\in J$ tales que $1=e+f$. Si
+%	$x\in I$, entonces $x=xe+xf$ y luego $xf=x-xe\in I\cap J=\{0\}$. Como
+%	entonces $x=xe$ para todo $x\in I$, en particular $e_1=e_1^2$. Análogamente
+%	vemos que $e_2^2=e_2$. Además $ef=0$ pues $ef\in I\cap J=\{0\}$.  Como $I$
+%	es el ideal de aumentación y $If=(Re)f=R(ef)=0$, se concluye que $(g-1)f=0$
+%	para todo $g\in G$ pues $g-1\in I$. Si suponemos que $f=\sum_{h\in
+%	G}\lambda_hh$, entonces 
+%	\[
+%	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+%	G}\lambda_{g^{-1}h}h.
+%	\]
+%	Luego $\lambda_h=\lambda_{g^{-1}h}$ para todo $g,h\in G$, una contradicción
+%	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
+%\end{proof}
+
 
 \topic{Herstein's theorem}
 

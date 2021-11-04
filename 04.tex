@@ -573,42 +573,20 @@ exists $n=n(x)$ such that $x^n=0$.
     that is not nil. 
 \end{exercise}
 
-
 \begin{theorem}
-	\label{thm:Jnilpotente}
-	If $R$ is a left artinian ring, then $J(R)$ is nilpotent. 
+	\label{thm:J(R/J)=0}
+	If $R$ is a ring, then $J(R/J(R))=\{0\}$.
 \end{theorem}
 
 \begin{proof}
-	Let $J=J(R)$. Since $R$ is a left artinian ring, the sequence 
-	$(J^m)_{m\in\Z_{>0}}$ of left ideals stabilizes. There exists 
-	$k\in\Z_{>0}$ such that $J^k=J^l$ for all $l\geq k$. We claim that $J^k=\{0\}$. If
-	$J^k\ne\{0\}$ let $\mathcal{S}$ the set of left ideals 
-	$I$ such that $J^kI\ne\{0\}$. Since 
+	If $R$ is radical, the result is trivial. Suppose then that 
+	$J(R)\ne R$. Let $M$ be a simple module. Then $M$ is 
+	a simple module over $R/J(R)$ with 
 	\[
-	J^kJ^k=J^{2k}=J^k\ne\{0\},
+		(x+J(R))\cdot m=x\cdot m,\quad
+		x\in R,\,m\in M.
 	\]
-	the set $\mathcal{S}$ is non-empty. 
-	Since $R$ is left artinian, $\mathcal{S}$ has a minimal element $I_0$. Since $J^kI_0\ne\{0\}$, let $x\in
-	I_0\setminus\{0\}$ be such that $J^kx\ne\{0\}$. Moreover, $J^kx$ is a left ideal of $R$ 
-	contained in $I_0$ and such that $J^kx\in\mathcal{S}$, as 
-	$J^k(J^kx)=J^{2k}x=J^kx\ne\{0\}$. The minimality of $I_0$ implies that, $J^kx=I_0$. In particular, 
-	there exists $r\in J^k\subseteq J(R)$ such that $rx=x$. Since $-r\in
-	J(R)$ is left quasi-regular, there exists $s\in R$ such that $s-r-sr=0$.
-	Thus 
-	\[
-		x=rx=(s-sr)x=sx-s(rx)=sx-sx=0,
-	\]
-	a contradiction.
+	If $x+J(R)\in J(R/J(R))$, then  $x\cdot M=(x+J(R))\cdot M=\{0\}$. Then $x\in J(R)$, as 
+	$x$ annihilates any simple module over $R$.
 \end{proof}
 
-\begin{corollary}
-	Let $R$ be a left artinian ring. Each nil left ideal is nilpotent and 
-	$J(R)$ is the unique maximal nilpotent ideal of $R$. 
-\end{corollary}
-
-\begin{proof}
-	Let $L$ be a nil left ideal of $R$. By Proposition~\ref{pro:nilJ}, $L$
-	is contained in $J(R)$. Thus $L$ is nilpotent, as $J(R)$ 
-	is nilpotent by Theorem~\ref{thm:Jnilpotente}. 
-\end{proof}
