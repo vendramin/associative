@@ -1,0 +1,162 @@
+\chapter{}
+
+
+\index{Anillo!booleano}
+Un anillo $R$ se dice booleano si $x^2=x$ para todo $x\in R$. Veamos que todo
+anillo booleano $R$ es conmutativo.  Como $1=(-1)^2=-1$, $R$ tiene
+característica dos. Sean $x,y\in R$. De $x+y=(x+y)^2=x^2+xy+yx+y^2$ obtenemos
+que $0=xy+yx$. Como la característica de $R$ es dos, se concluye que $xy=yx$.
+
+\medskip
+Es natural preguntarse si este resultado puede extenderse a otros exponentes.
+Demostraremos a continuación  que los anillos tales que $x^3=x$ para todo $x\in
+R$ son conmutativos.
+
+\begin{definition}
+	\index{Anillo!reducido}
+	Diremos que un anillo $R$ es \textbf{reducido} si $x^2=0$ implica que $x=0$. 
+\end{definition}
+
+\begin{lemma}
+	\label{lem:reducido}
+	Todo idempotente de un anillo reducido es central.
+\end{lemma}
+
+\begin{proof}
+	Sea $e\in R$ tal que $e^2=e$ y sea $x\in R$. Como
+	\[
+	(ex-exe)^2=exex-exexe-exex+exexe=0
+	\]
+	y el anillo $R$ es reducido, $ex=exe$. 
+	Similarmente la igualdad 
+	$(xe-exe)^2=0$ implica que $xe=exe$. Luego $ex=exe=xe$ para todo $x\in R$.
+\end{proof}
+
+\begin{theorem}[Andrnakievich--Ryabukhin]
+	Sea $R$ un anillo no nulo es reducido si y sólo si $R$ es producto
+	subdirecto de dominios.
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $R$ es reducido.\framebox{?}
+
+	Supongamos ahora que $R$ es producto subdirecto de la familia $\{R_i:i\in I\}$ de dominios. Sea 
+	$f\colon R\to \prod_{i\in I}R_i$, $f(x)=(x_i)_{i\in I}$, el morfismo inyectivo. 
+	Si $x\in R$ es tal que $x^2=0$ entonces 
+	\[
+		(0)_{i\in I}=f(0)=f(x^2)=f(x)^2=(x_i^2)_{i\in I}
+	\]
+	y luego, como cada $R_i$ es un dominio, se concluye que $x_i=0$ para todo
+	$i\in I$.
+\end{proof}
+
+\begin{proposition}
+	Sea $R$ un anillo tal que $x^3=x$ para todo $x\in R$. Entonces $R$ es
+	conmutativo.
+\end{proposition}
+
+\begin{proof}
+	El anillo $R$ es reducido pues si $x^2=0$ entonces $x=x^3=0$.  Como en $R$
+	todo cuadrado es idempotente (pues $x^2=x^4=(x^2)^2$ para todo $x\in R$),
+	el lema~\ref{lem:reducido} implica que todo cuadrado es central. 
+	Si $x\in R$, entonces 
+	$2x=(x^2+x)-2x^2$ 
+	es central. Como además 
+	\[
+		1+x=(1+x)^3=1+3x+3x^2+x,
+	\]
+	se tiene que $3x=-3x^2$ es un elemento central. Luego $x=3x-2x$ es central.
+\end{proof}
+
+\begin{proposition}
+	Sea $R$ un anillo tal que $x^4=x$ para todo $x\in R$. Entonces $R$ es conmutativo.
+\end{proposition}
+
+\begin{proof}
+	El anillo $R$ es reducido pues si $x^2=0$ entonces $x=x^4=0$.  Como
+	$x=x^4=(-x)^4=-x$ para todo $x\in R$, el anillo $R$ tiene característica
+	dos. Todo elemento de la forma $z^2+z$ es idempotente pues
+	$(z^2+z)^2=z^4+2z^3+z^2=z^2+z$. Luego, por el 
+	lema~\ref{lem:reducido}, todo elemento de la forma $z^2+z$ es central. Si $x,y\in R$, entonces 
+	\[
+		x^2y+yx^2=(x^2+y)^2-(x^2+y)-(x^2+x)-(y^2+y)
+	\]
+	es central. Como entonces $x^2(x^2y+yx^2)=(x^2y+yx^2)x^2$, se concluye que $xy=yx$.
+\end{proof}
+
+Parece difícil poder extender los resultados anteriores a otros exponentes. Antes 
+de enunciar y demostrar un teorema de Jacobson que generaliza los resultados mencionados, necesitamos
+dos lemas:
+
+\begin{lemma}
+	\label{lem:k_finito}
+	Si $k$ es un cuerpo finito de característica $p>0$, entonces existe
+	$n\in\Z_{>0}$ tal que $|k|=p^n$ y $x^{p^n}=x$ para todo $x\in k$. Más aún, si
+	$k\setminus\{0\}=\{x_1,\dots,x_{p^n-1}\}$, entonces
+	$X^{p^n}-X=(X-x_1)\cdots(X-x_{p^n-1})X$. 
+\end{lemma}
+
+\begin{proof}
+	El cuerpo $k$ es un $\Z/p$ espacio vectorial. Si $\dim{\Z/p} k=n$, entonces 
+	$k$ tiene $p^n$ elementos. Luego, con la multiplicación, $k\setminus\{0\}$ es un grupo de $p^{n}-1$ elementos y entonces 
+	$x^{p^n-1}=1$ para todo $x\in k\setminus\{0\}$. Esto implica que $x^{p^n}=x$ para todo $x\in k$ y luego 
+	todo $x\in k$ es raíz del polinomio $X^{p^n}-X$ de grado $p^n$. 
+\end{proof}
+
+Recordemos si $R$ es un anillo, para cada $r\in R$ la función $\ad{r}\colon
+R\to R$, $x\mapsto rx-xr$, es una derivación. Es fácil demostrar por inducción que 
+\begin{equation}
+	\label{eq:Leibniz}
+	(\ad{r})^n(x)=\sum_{k=0}^n(-1)^k\binom{n}{k}r^{n-k}xr^k
+\end{equation}
+para todo $x\in R$ y todo $n\in\N$. 
+
+\begin{lemma}
+	\label{lem:Jacobson}
+	Sean $p$ un primo, 
+	$R$ un anillo de característica $p$ y $r\in R$. 
+	Entonces $(\ad{r})^{p^n}=\ad{r^{p^n}}$. 
+\end{lemma}
+
+\begin{proof}
+	Procederemos por inducción en $n$. Supongamos que $n=1$. Si $k\in\{1,\dots,p-1\}$, entonces 
+	$p$ no divide a $k!(p-k)!$ y luego $p$ divide a $\binom{p}{k}$. La igualdad~\eqref{eq:Leibniz} se
+	transforma entonces en\dots
+\end{proof}
+
+El siguiente teorema de Jacobson generaliza los resultados mencionados al
+principio del capítulo.
+
+\begin{theorem}[Jacobson]
+	Si $R$ es un anillo tal que para cada $x\in R$ existe $n(x)\geq2$ tal que
+	$x^{n(x)}=x$, entonces $R$ es conmutativo. 
+\end{theorem}
+
+\begin{proof}
+	Primero vamos a demostrar que $J(R)=0$. Si $x\in J(R)$ entonces
+	$-x^{n(x)-1}\in J(R)$. Existe entonces $y\in R$ tal que
+	$-x^{n(x)-1}+y-x^{n(x)-1}y=0$. Al multiplicar a izquierda por $x$ se
+	obtiene que $x=0$.
+
+	Sabemos que $R$ es semiprimo? y podemos suponer que $R\ne0$. Existen
+	entonces un conjunto de ideales primitivos $\{P_i:i\in I\}$ tales que
+	$\cap_{i\in I}P_i=\{0\}$. Como $R$ es producto subdirecto de anillos primitivos 
+	(teorema~\ref{thm:subdirecto}) y $R$ es conmmutativo si y sólo si cada
+	$R/P_i$ es conmutativo. Como cada $R/P_i$ satisface las hipótesis del
+	teorema, podemos suponer que $R$ es primitivo.
+
+	Por el teorema de densidad de Jacobson, $R$ es denso en un $D$-espacio
+	vectorial $D$.  Vamos a demostrar que $\dim_DV=1$. Si existen $v_1,v_2\in
+	V$ linealmente independientes, por densidad existe $f\in R$ tal que
+	$f(v_1)=v_2$ y $f(v_2)=0$.  Luego $f^n(v_1)=0$ para todo $n\geq2$ y
+	$f(v_1)\ne 0$, una contradicción pues $f^n=f$ por hipótesis. Luego
+	$\dim_DV=1$ y entonces $R\simeq D^{\op}$. 
+
+	Supongamos ahora que $D$ no es conmutativo y sea $a\in D\setminus Z(D)$.
+	Como $D$ tiene característica finita (pues por ejemplo $2^n=2$) el
+	subanillo $A$ generado por $a$ es finito. Luego $A$ es un cuerpo finito,
+	digamos de cardinal $p^n$ para algún primo $p$ y algún $n\in\N$. Por el
+	lema~\ref{lem:k_finito}, $a^{p^n}=a$. Como $D$ es un $A$-espacio vectorial
+	y $\delta=\ad a$ es $A$-lineal, $\delta\in\End_AD$\dots 
+\end{proof}
+
