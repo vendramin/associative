@@ -1,58 +1,43 @@
-\topic{Anillos semiprimitivos y semiprimos}
+\topic{Primitive and semiprimitive rings}
 
 \begin{definition}
-	\index{Anillo!semiprimitivo}
-	\index{Anillo!semisimple Jacobson}
-	Un anillo $R$ se dice \textbf{semiprimitivo} (o semisimple Jacobson) si
-	$J(R)=0$.
+	A ring $R$ is \textbf{semiprimitive} (or Jacobson semisimple) if  $J(R)=\{0\}$.
 \end{definition}
 
-\begin{example}
-	Si $R$ es primitivo entonces es semiprimitivo. En efecto, como $R$ es
-	primitivo, $\{0\}$ es un ideal primitivo y luego, como $J(R)$ es la
-	intersección de los ideales primitivos de $R$, se concluye que $J(R)=0$.
-\end{example}
+In \S\ref{Jacobson radical} (Lecture \ref{03}) we defined primitive rings as
+those rings that have a faithful simple module.  We claim that primitive rings
+are semiprimitive. If $R$ is primitive, then $\{0\}$ is a primitive ideal. Since
+$J(R)$ is the intersection of primitive ideals, it follows that $J(R)=\{0\}$.
 
 \begin{example}
-	Si $R=\prod_{i\in I}R_i$ es producto directo de anillos semiprimitivos,
-	entonces $R$ es semiprimitivo pues 
+	If $R=\prod_{i\in I}R_i$ is a direct product of semiprimitive rings, then
+	$R$ is semiprimitive, as 
 	\[
-		J(R)=J\left(\prod_{i\in I}R_i\right)=J\left(\prod_{i\in I}J(R_i)\right)=0.
+		J(R)=J\left(\prod_{i\in I}R_i\right)=J\left(\prod_{i\in I}J(R_i)\right)=\{0\}.
 	\]
 \end{example}
 
 \begin{example}
-	$\Z$ es semiprimitivo pues $J(\Z)=\cap_{p}\Z/p=\{0\}$.
+$\Z$ is semiprimitive, as $J(\Z)=\cap_{p}\Z/p=\{0\}$.
 \end{example}
 
 \begin{example}
-	Sea $R=C[a,b]$ el anillo de funciones $f\colon [a,b]\to\R$ continuas. Como
-	$R$ es un anillo unitario, $J(R)$ es la intersección de los ideales
-	maximales de $R$. Todo ideal maximal de $R$ es de la forma
+	\label{exa:C[a,b]}
+	Let $R=C[a,b]$ be the ring of continuous maps $f\colon [a,b]\to\R$. 
+	In this case $J(R)$ is the intersection of all maximal ideals of $R$. Note that 
+	each maximal ideal of $R$ is of the form 
 	\[
 		U_c=\{f\in C[a,b]:f(c)=0\}
 	\]
-	para algún $c\in[a,b]$. En efecto, es fácil ver que cada $U_c$ es un ideal;
-	$U_c$ es maximal pues $C[a,b]/U_c\simeq\R$.  Luego $J(R)=\cap_{a\leq c\leq
-	b}U_c=0$.
+	for some $c\in[a,b]$. 
+	%Each $U_c$ is a maximal ideal, as 
+	%$C[a,b]/U_c\simeq\R$ is a field.  
+	Thus $J(R)=\cap_{a\leq c\leq
+	b}U_c=\{0\}$.
 \end{example}
 
-\begin{theorem}
-	\label{thm:semiprimitivo}
-	Si $R$ es un anillo, entonces $R/J(R)$ es semiprimitivo. 
-\end{theorem}
-
-\begin{proof}
-	Si $R$ es un anillo radical, el resultado es trivial. Supongamos entonces
-	que $J(R)\ne R$ y sea $M$ un módulo simple. Entonces $M$ es un
-	$R/J(R)$-módulo simple con
-	\[
-		(x+J(R))m=xm,\quad
-		x\in R,\,m\in M.
-	\]
-	Si $x+J(R)\in J(R/J(R))$ entonces $xM=(x+J(R))M=0$. Luego $x\in J(R)$ pues
-	$x$ anula a cualquier módulo simple de $R$.
-\end{proof}
+We proved in Theorem~\ref{thm:J(R/J)=0} (Lecture \ref{04}) 
+that $R/J(R)$ is semiprimive. 
 
 %El teorema de densidad de Jacobson nos permite entonces obtener el siguiente resultado:
 %
@@ -70,111 +55,113 @@
 
 
 \begin{definition}
-	\index{Producto subdirecto de anillos}
-	Sea $\{R_i:i\in I\}$ una familia de anillos. Un subanillo $R$ de
-	$\prod_{i\in I}R_i$ se dice un \textbf{producto subdirecto} de los $R_j$ si
-	cada $\pi_j\colon R\to R_j$ es sobreyectiva. 
+	Let $\{R_i:i\in I\}$ be a collection of rings. A subring $R$ of
+	$\prod_{i\in I}R_i$ is said to be a \textbf{subdirect product} of the
+	collection if each $\pi_j\colon R\to R_j$, $(r_i)_{i\in I}\mapsto r_j$, is surjective. 
 \end{definition}
 
-El siguiente teorema justifica que indistintamente llamemos anillos
-semiprimitivos a los anillos semisimples Jacobson:
+%El siguiente teorema justifica que indistintamente llamemos anillos
+%semiprimitivos a los anillos semisimples Jacobson:
 
 \begin{theorem}
 	\label{thm:subdirecto}
-	Sea $R$ un anillo no nulo. Entonces $R$ semiprimitivo si y sólo si $R$ es
-	isomorfo a un producto subdirecto de anillos primitivos.
+	Let $R$ be a non-zero ring. Then $R$ is semiprimitive if and only if
+	$R$ is isomorphic to a subdirect product of primitive rings. 
 \end{theorem}
 
 \begin{proof}
-	Supongamos que $R$ es semiprimitivo y sea $\{P_i:i\in I\}$ la familia de
-	ideales primitivos de $R$. Cada $R/P_j$ es primitivo y
-	$\{0\}=J(R)=\cap_{i\in I}P_i$. Para cada $j$, sean $\lambda_j\colon R\to
-	R/P_j$ y $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ los morfismos
-	canónicos. La función
+	Suppose first that $R$ is semiprimitive and let $\{P_i:i\in I\}$ be the collection of 
+	primitive ideals of $R$. Each $R/P_j$ is primitive and 
+	$\{0\}=J(R)=\cap_{i\in I}P_i$. For $j$ let $\lambda_j\colon R\to
+	R/P_j$ and $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ be canonical maps
+	The ring homomorphism 
 	\[
 		\phi\colon R\to\prod_{i\in I}R/P_i,\quad
 		r\mapsto \{\lambda_i(r):i\in I\},
 	\]
-	es un morfismo inyectivo de anillos tal que $\pi_j\phi(R)=R/P_j$ para todo
+	is injective and satisfies $\pi_j\phi(R)=R/P_j$ for all 
 	$j$.
 
-	Supongamos ahora que $R$ es isomorfo a un producto subrirecto de anillos
-	$R_j$ primitivos y sea $\varphi\colon R\to\prod_{i\in I}R_i$ un morfismo
-	inyectivo tal que $\pi_j(\varphi(R))=R_j$ para todo $j$. Para cada $j$ sea
-	$P_j=\ker\pi_j\varphi$. Como $R/P_j\simeq R_j$, cada $P_j$ es un ideal
-	primitivo. Si $x\in\cap_{i\in I}P_i$ entonces $\varphi(x)=0$ y luego $x=0$.
-	Luego $J(R)\subseteq\cap_{i\in I} P_i=0$. 
+	Assume now that $R$ is isomorphic to a subdirect product of primitive rings 
+	$R_j$ and let $\varphi\colon R\to\prod_{i\in I}R_i$ be an injective homomorphism 
+	such that $\pi_j(\varphi(R))=R_j$ for all $j$. For $j$ 
+	let $P_j=\ker\pi_j\varphi$. Since $R/P_j\simeq R_j$, each $P_j$ is a primitive ideal
+	If $x\in\cap_{i\in I}P_i$, then $\varphi(x)=0$ and thus $x=0$.
+	Hence $J(R)\subseteq\cap_{i\in I} P_i=0$. 
 \end{proof}
 
 \begin{example}
-	El anillo $\Z$ es isomorfo a un producto subdirecto de los cuerpos $\Z/p$
-	con $p$ primo.
+	$\Z$ is isomorphic to a subdirect product of the fields $\Z/p$, where 
+	$p$ runs over all prime numbers. 
 \end{example}
 
 \begin{example}
-	El anillo $C[a,b]$ es isomorfo a un producto subdirecto de los cuerpos
+	The ring $C[a,b]$ 
+	of Example \ref{exa:C[a,b]}
+	is isomorphic to a subdirect product of the fields 
 	$C[a,b]/U_c\simeq\R$.
 \end{example}
 
 \begin{definition}
-	Un anillo $R$ se dice \textbf{semiprimo} si para todo $a\in R$ tal que
-	$aRa=0$ se tiene que $a=0$.
+	\index{Ring!semiprime}
+	A ring $R$ \textbf{semiprime} if 
+	$aRa=\{0\}$ implies $a=0$.
 \end{definition}
 
-\begin{lemma}
-	Sea $R$ un anillo. Son equivalentes:
-	\begin{enumerate}
-		\item $R$ es semiprimo.
-		\item Si $I$ es un ideal a izquierda tal que $I^2=0$ entonces $I=0$.
-		\item Si $I$ es un ideal tal que $I^2=0$ entonces $I=0$.
-		\item $R$ no tiene ideales nilpotentes no nulos. 
-	\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-	Veamos que $(1)\implies(2)$. Si $I^2=0$ y $x\in I$, entonces $xRx\subseteq I^2=0$ y
-	luego $x=0$. Las implicaciones $(2)\implies(3)$ y $(4)\implies(3)$ son triviales. Veamos que
-	$(3)\implies(4)$.  Si $I$ es un ideal nilpotente no nulo, sea $n\in\Z_{>0}$ 
-	minimal tal que $I^n=0$.  Como $(I^{n-1})^2=0$, $I^{n-1}=0$, una
-	contradicción. Por último veamos que $(3)\implies(1)$. Sea $a\in R$ tal que
-	$aRa=0$. Entonces $I=RaR$ es un ideal de $R$ tal que $I^2=0$. Por hipótesis, $RaR=I=0$. Luego
-	$Ra$ y $aR$ son ideales tales que $(Ra)R=R(aR)=0$. Esto implica que $\Z a$ es un ideal de $R$
-	tal que $(\Z a)R=0$ y luego $a=0$.
-\end{proof}
-
-\begin{example}
-	Un anillo conmutativo es semiprimo si y sólo si no tiene elementos
-	nilpotentes no nulos.
-\end{example}
-
-
 \begin{proposition}
-	El anillo $\C[G]$ es semiprimo.
+	Let $R$ be a ring. The following statements are equivalents: 
+	\begin{enumerate}
+		\item $R$ is semiprime.
+		\item If $I$ is a left ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item If $I$ is an ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item $R$ does not contain non-zero nilpotent ideals.
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	Como $J(\C[G])=0$ por el teorema de Rickart y además el radical de Jacboson
-	contiene a todo ideal nil por la proposición~\ref{pro:nilJ}, se deduce que
-	$\C[G]$ no tiene ideales nil no triviales. Tampoco tiene entonces ideales
-	nilpotentes no triviales y luego $\C[G]$ es semiprimo.
+	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
+	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. The implications $2)\implies3)$
+	and $4)\implies3)$ are both trivial. Let us prove that $3)\implies4)$.  If
+	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
+	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
+	contradiction.  Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
+	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. By
+	assumption, $RaR=I=\{0\}$. Thus $Ra$ and $aR$ are ideals such that
+	$(Ra)R=R(aR)=\{0\}$. This implies that $\Z a$ is an ideal of $R$ such that
+	$(\Z a)R=\{0\}$ and hence $a=0$.
+\end{proof}
+
+Two consequences:
+
+\begin{corollary}
+	A commutative ring is semiprime if and only if it does not contain non-zero
+	nilpotent elements. 
+\end{corollary}
+
+\begin{corollary}
+	The ring $\C[G]$ is semiprime.
+\end{corollary}
+
+\begin{proof}
+	Since $J(\C[G])=\{0\}$ by Rickart's theorem and the Jacobson radical
+	contains every nil ideal by Proposition~\ref{pro:nilJ}, it follows that
+	$\C[G]$ does not contain non-trivial nil ideals. Thus $\C[G]$ does not
+	contain non-trivial nilpotent ideals and hence $\C[G]$ is semiprime.
 \end{proof}
 
 \begin{exercise}
-	Demuestre que $Z(\C[G])$ es semiprimo.
+	Prove that $Z(\C[G])$ is semiprime.
 \end{exercise}
 
 % tomar $\alpha$ tal que $\alpha^2=0$ y sea $A=K[G]\alpha$. Como $A^2=0$, $A=0$ y entonces $\alpha=0$.
 
-\begin{example}
-	Sea $D$ un anillo de división. Entonces $D[X]$ es semiprimo.
-\end{example}
-
-\begin{example}
-	Sea $D$ un anillo de división. Entonces $D[[X]]$ es semiprimo y no es
-	semiprimitivo.
-\end{example}
-
-
+\begin{exercise}
+	Let $D$ be a division ring. 
+	\begin{enumerate}
+		\item $D[X]$ is semiprime.
+		\item $D[[X]]$ is semiprime and it is not semiprimitive.
+	\end{enumerate}
+\end{exercise}
 
 
 %\section{Anillos semiprimitivos}
@@ -439,12 +426,11 @@ semiprimitivos a los anillos semisimples Jacobson:
 \topic{Jacobson's density theorem}
 
 \begin{definition}
-	\index{Anillo!denso de operadores lineales}
-	Sean $D$ un anillo de división y $V$ un espacio vectorial sobre $D$. Un
-	subanillo $R\subseteq\End_D(V)$ se dice \textbf{denso} en $V$ si para cada
-	$n\in\Z_{>0}$, cada $\{u_1,\dots,u_n\}\subseteq V$ linealmente independiente de
-	$V$ y cada conjunto $\{v_1,\dots,v_n\}\subseteq V$ (no necesariamente
-	linealmente independiente) existe $f\in R$ tal que $f(u_j)=v_j$ para todo
+	Let $D$ be a division ring and $V$ be a vector space over $D$. A subring 
+	$R\subseteq\End_D(V)$ is \textbf{dense} in $V$ if for all  
+	$n\in\Z_{>0}$, each linearly independent set $\{u_1,\dots,u_n\}\subseteq V$ 
+	and each (not necessarilly linearly independent) subset $\{v_1,\dots,v_n\}\subseteq V$ 
+	there exists $f\in R$ such that $f(u_j)=v_j$ for all 
 	$j\in\{1,\dots,n\}$.
 \end{definition}
 
