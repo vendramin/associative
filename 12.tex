@@ -2,85 +2,91 @@
 
 \topic{Frobenius's theorem}
 
-Vamos a demostrar un teorema de Frobenius que afirma que salvo isomorfismo las únicas 
-álgebras reales de dimensión finita que son álgebras de división son los
-reales, los complejos y los cuaterniones. Daremos una demostración
-completamente elemental.
+
+\begin{theorem}[Frobenius]
+	\label{thm:Frobenius}
+	\index{Frobenius'!theorem}
+	Every finite-dimensioanal real division algebra is isomorphic to $\R$, $\C$
+	or $\H$.
+\end{theorem}
+
+We present an elementaly proof. We shall need some lemmas. 
 
 \begin{lemma}
 	\label{lem:trick_frobenius1}
-	Sea $D$ un álgebra de división real de dimensión $n$. Si $x\in D$, entonces
-	existe $\lambda\in\R$ tal que $x^2+\lambda x\in\R$.
+	Let $D$ be a real division algebra such that $\dim D=n$. If $x\in D$, then
+	there exists $\lambda\in\R$ such that $x^2+\lambda x\in\R$.
 \end{lemma}
 
 \begin{proof}
-	Como $\dim D=n$, el conjunto $\{1,x,x^2,\dots,x^n\}$ es linealmente
-	dependiente. Entonces existe un polinomio no nulo $f\in\R[X]$ de grado
-	$\leq n$ tal que $f(x)=0$. Sin perder generaliadad podemos suponer que el
-	coeficiente principal de $f$ es uno y escribir entonces a $f$ como producto
-	de factores de grado $\leq2$:
+	Since $\dim D=n$, the set $\{1,x,x^2,\dots,x^n\}$ is linearly dependent. So
+	there exists a non-zero polynomial $f(X)\in\R[X]$ of degree $\leq n$ such
+	that $f(x)=0$. Without loss of generality we may assume that the leading
+	coefficient of $f(X)$ is one. Then we can write $f(X)$ as a product of
+	polynomials of degree $\leq2$, say 
 	\[
-		f=(X-\alpha_1)\cdots (X-\alpha_r)(X^2+\lambda_1 X+\mu_1)\cdots (X^2+\lambda_s X+\mu_s).
+		f(X)=(X-\alpha_1)\cdots (X-\alpha_r)(X^2+\lambda_1 X+\mu_1)\cdots (X^2+\lambda_s X+\mu_s).
 	\]
-	Como $D$ es de división y $f(x)=0$, algún factor de $f$ es cero. Entonces
-	$x$ es raíz de algún $X-\alpha_j$ o de algún $X^2+\lambda_k X+\mu_k$. En
-	cualquier caso, existe $\lambda\in\R$ tal que $x^2+\lambda x\in\R$. 
+	Since $D$ is a division algebra and $f(x)=0$, some factor of $f(X)$ is
+	zero. If $x-\lambda_j\ne 0$ for all $j$, then $x$ is a root of some
+	$X^2+\lambda_k X+\mu_k$. In any case, there exists $\lambda\in\R$ such that
+	$x^2+\lambda x\in\R$. 
 \end{proof}
 
 \begin{lemma}
 	\label{lem:trick_frobenius2}
-	Sea $D$ un álgebra de división real de dimensión $n$. Entonces
+	Let $D$ be a real division algebra of dimension $n$. Then
 	\[
 		V=\{x\in D:x^2\in\R,x^2\leq 0\}
 	\]
-	es un subespacio de $D$ tal que $D=\R\oplus V$.
+	is a subspace of $D$ such that $D=\R\oplus V$.
 \end{lemma}
 
 \begin{proof}
-	Sea $x\in D\setminus V$ tal que $x^2\in\R$. Entonces, como $x^2>0$, podemos
-	escribir $x^2=\alpha^2$ para algún $\alpha\in\R$. Luego $x=\pm\alpha\in\R$
-	pues $D$ es de división y $(x-\alpha)(x+\alpha)=x^2-\alpha^2=0$.
+	Let $x\in D\setminus V$ be such that $x^2\in\R$. Since $x^2>0$, it follows
+	that $x^2=\alpha^2$ for some $\alpha\in\R$. Thus $x=\pm\alpha\in\R$, as $D$
+	is a division algebra and $(x-\alpha)(x+\alpha)=x^2-\alpha^2=0$.
 
-	Veamos que $V$ es un subespacio de $D$.  Primero observemos que $0\in V$ y
-	que si $x\in V$ entonces $\lambda x\in V$ para todo $\lambda\in\R$.  Sean
-	$x,y\in V$. Si $\{x,y\}$ es linealmente dependiente, entonces $x+y\in V$.
-	Supongamos entonces que $x$ e $y$ son linealmente independientes. Probemos
-	entonces que $\{1,x,y\}$ es linealmente independiente: si existen
-	$\alpha,\beta,\gamma\in\R$ tales que $\alpha x+\beta y+\gamma=0$, entonces 
+	We claim that $V$ is a subspace of $D$.  Note that $0\in V$ and 
+	that if $x\in V$, then $\lambda x\in V$ for all $\lambda\in\R$.  Let 
+	$x,y\in V$. If $\{x,y\}$ is linearly dependent, then $x+y\in V$.
+	If not, we claim that 
+	$\{1,x,y\}$ is linearly independent. If there exist 
+	$\alpha,\beta,\gamma\in\R$ such that $\alpha x+\beta y+\gamma=0$, then 
 	\[
 	\alpha^2x^2=\beta^2y^2+2\beta\gamma y+\gamma^2=(-\beta y-\gamma)^2.
 	\]
-	Esto implica que $2\beta\gamma y\in\R$ y luego $\beta\gamma=0$. Luego
-	$\alpha=\beta=\gamma=0$. Por el lema~\ref{lem:trick_frobenius1}, existen
-	$\lambda,\mu\in\R$ tales que
+	This implies that $2\beta\gamma y\in\R$ and thus $\beta\gamma=0$. Hence 
+	$\alpha=\beta=\gamma=0$. The previous lemma implies that there exist 
+	$\lambda,\mu\in\R$ such that 
 	\[
 		(x+y)^2+\lambda(x+y)\in\R,\quad
 		(x-y)^2+\mu(x-y)\in\R.
 	\]
-	Como además
+	Since 
 	\[
 		(x+y)^2+(x-y)^2=2x^2+2y^2\in\R,
 	\]
-	entonces $(\lambda+\mu)x+(\lambda-\mu)y\in\R$. Como $\{1,x,y\}$ es
-	linealmente independiente, $\lambda=\mu=0$. Luego $(x+y)^2\in\R$. Si
-	$x+y\not\in V$, entonces, por lo que observamos al principio de la
-	demostración, tendríamos que $x+y\in\R$, una contradicción.
+	it follows that $(\lambda+\mu)x+(\lambda-\mu)y\in\R$. Since  $\{1,x,y\}$ is linearly 
+	independent, 
+	$\lambda=\mu=0$. Thus $(x+y)^2\in\R$. If 
+	$x+y\not\in V$, then, the first paragraph of the proof implies that 
+	$x+y\in\R$, a constradiction. 
 
-	Claramente $\R\cap V=0$. Si $x\in D\setminus\R$ entonces, por el
-	lema~\ref{lem:trick_frobenius1}, $x^2+\lambda x\in\R$ para algún
-	$\lambda\in\R$. Afirmamos que $x+\lambda/2\in V$. De lo contrario, 
-	como 
+	Clearly, $\R\cap V=0$. If $x\in D\setminus\R$, then the previous lemma 
+	implies that $x^2+\lambda x\in\R$ for some 
+	$\lambda\in\R$. We claim that $x+\lambda/2\in V$. If not, since 
 	\[
 	(x+\lambda/2)^2=x^2+\lambda x+(\lambda/2)^2\in\R,
 	\]
-	tendríamos $x+\lambda/2\in\R$ y luego $x\in\R$. Luego
+	it follows that $x+\lambda/2\in\R$ and thus $x\in\R$. Hence 
 	$x=-\lambda/2+(x+\lambda/2)\in\R\oplus V$.
 \end{proof}
 
 \begin{lemma}
 	\label{lem:trick_frobenius3}
-	Sea $D$ una $R$-álgebra de división real de dimensión $n$. Si $n>2$, entonces
-	existen $i,j,k\in D$ tales que $\{1,i,j,k\}$ es linealmente independiente y 
+	Let $D$ be a real algebra of (real) dimension $n$. If $n>2$, then
+	there exist $i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent and 
 	\begin{align}
 	\label{eq:H}
 	&i^2=j^2=k^2=-1, && ij=-ji=k, && ki=-ik=j, && jk=-kj=i.
@@ -88,23 +94,23 @@ completamente elemental.
 \end{lemma}
 
 \begin{proof}
-	Sea $V=\{x\in D:x^2\in\R,x^2\leq 0\}$ el subespacio del
-	lema~\ref{lem:trick_frobenius2}.  Para $x,y\in V$ definimos $x\circ
-	y=xy+yx=(x+y)^2-x^2-y^2\in\R$. Además si $x\ne0$ entonces $x\circ
-	x=2x^2\ne0$. Como $\dim V=n-1$, existen $y,z\in V$ tales que $\{y,z\}$ es
-	linealmente independiente. Sea 
+	Let $V=\{x\in D:x^2\in\R,x^2\leq 0\}$ be the subspace of Lemma~\ref{lem:trick_frobenius2}. 
+	For $x,y\in V$ let $x\circ
+	y=xy+yx=(x+y)^2-x^2-y^2\in\R$. If $x\ne0$, then $x\circ
+	x=2x^2\ne0$. Since $\dim V=n-1$, there exist $y,z\in V$ such that $\{y,z\}$ is 
+	linearly independent. Let 
 	\[
 		x=z-\frac{z\circ y}{y\circ y}y.
 	\]
-	Como $\{y,z\}$ es linealmente independiente, $x\ne0$. Además, como 
+	Since $\{y,z\}$ is linearly independent, $x\ne0$. Moreover, since 
 	\[
 		x\circ y
 		=\left(z-\frac{z\circ y}{y\circ y}\right)\circ y
 		=zy-\frac{z\circ y}{y\circ y}y^2+yz-\frac{z\circ y}{y\circ y}y^2
 		=z\circ y-\frac{z\circ y}{y\circ y}y\circ y=0,
 	\]
-	se tiene que $xy=-yx$. 
-	Sean 
+	it follows that $xy=-yx$. 
+	Let  
 	\[
 		i=\frac{1}{\sqrt{-x^2}}x,
 		\quad
@@ -112,42 +118,37 @@ completamente elemental.
 		\quad
 		k=ij. 
 	\]
-	Un cálculo directo demuestra que valen las fórmulas~\eqref{eq:H}. Por ejemplo:
+	A direct calculation shows that the formulas of ~\eqref{eq:H} hold. For example, 
 	\[
-		ji=\frac{1}{\sqrt{-y^2}}\frac{1}{\sqrt{-x^2}}yx=\frac{1}{\sqrt{-x^2}}\frac{1}{\sqrt{-y^2}}(-xy)=-k.
+		ji=\frac{1}{\sqrt{-y^2}}\frac{1}{\sqrt{-x^2}}yx=\frac{1}{\sqrt{-x^2}}\frac{1}{\sqrt{-y^2}}(-xy)=-k.\qedhere
 	\]
 \end{proof}
 
-\begin{theorem}[Frobenius]
-	\label{thm:Frobenius}
-	\index{Teorema!de Frobenius}
-	\index{Frobenius!teorema de}
-	Toda álgebra real de división y dimensión finita es isomorfa a $\R$, $\C$ o
-	$\H$.
-\end{theorem}
+Now we are finally 
+ready to prove the theorem: 
 
-\begin{proof}
-	Sea $D$ un álgebra real de división y sea $n=\dim D$. Si $n=1$, entonces
-	$D\simeq\R$. Si $n=2$, el subespacio $V$ del
-	lema~\ref{lem:trick_frobenius2} es no nulo y entonces existe $i\in D$ tal
-	que $i^2=-1$. Luego $D\simeq\C$. El lema~\ref{lem:trick_frobenius3}
-	demuestra que $n\ne3$. Si $n=4$ entonces $D\simeq\H$. Supongamos entonces
-	que $n>4$.  El lema~\ref{lem:trick_frobenius3} garantiza la existencia de
-	elementos $i,j,k\in D$ tales que $\{1,i,j,k\}$ es linealmente independiente
-	y valen las fórmulas~\eqref{eq:H}. Sea 
+\begin{proof}[Proof of \ref{thm:Frobenius}]
+	Let $D$ be a real division algebra and let $n=\dim D$. If $n=1$, then 
+	$D\simeq\R$. If $n=2$, the subspace $V$ of Lemma~\ref{lem:trick_frobenius2} 
+	is non-zero and thus there exists $i\in D$ such that 
+	$i^2=-1$. Hence $D\simeq\C$. Lemma~\ref{lem:trick_frobenius3}
+	implies that $n\ne3$. If $n=4$, then $D\simeq\H$. Suppose that 
+	$n>4$.  By Lemma~\ref{lem:trick_frobenius3} there exist
+	$i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent 
+	and that the formulas of~\eqref{eq:H} hold. Let 
 	\[
 		V=\{x\in D:x^2\in\R,x^2\leq 0\}.
 	\]
-	Por el lema~\ref{lem:trick_frobenius2} sabemos que $\dim V=n-1$. Entonces
-	existe $x\in V\setminus\langle i,j,k\rangle$. Sea
+	By Lemma~\ref{lem:trick_frobenius2}, $\dim V=n-1$. Thus there exists 
+	$x\in V\setminus\langle i,j,k\rangle$. Let 
 	\[
 		e=x+\frac{i\circ x}{2}i+\frac{j\circ x}{2}j+\frac{k\circ x}{2}k\in V\setminus\{0\}.
 	\]
-	Un cálculo directo muestra que $i\circ e=j\circ e=k\circ e=0$. Pero entonces 
+	A direct calculation shows that $i\circ e=j\circ e=k\circ e=0$. Then 
 	\[
 		ek=e(ij)=(ei)j=-(ie)j=-i(ej)=i(je)=(ij)e=ke,
 	\]
-	una contradicción. 
+	a contradiction. 
 \end{proof}
 
 %\section{El pequeño teorema de Wedderburn}
