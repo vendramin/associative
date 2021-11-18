@@ -178,19 +178,21 @@ Let $G$ be a group. Then $J(\C[G])$ is nil.
     \alpha=\sum_{i=1}^n\lambda_ig_i,
     \]
     where $\lambda_1,\dots,\lambda_n\in\C$ and $g_1,\dots,g_n\in G$. Let $H=\langle g_1,\dots,g_n\rangle$.
-    Then $g\in \C[H]$ and $H$ is countable. We claim that $g\in J(\C[H])$. Decompose
+    Then $\alpha\in \C[H]$ and $H$ is countable. We claim that $\alpha\in J(\C[H])$. Decompose
     $G$ as a disjoint union 
     \[
     G=\bigcup_\lambda x_\lambda H
     \]
     of cosets of $H$ in $G$. Then $\C[G]=\bigoplus_\lambda x_\lambda\C[H]$ and
-    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$. Since $\alpha\in J(\C[G])$, for each 
+    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$ (this follows
+    from the fact that one of the cosets is that of $H$). Since $\alpha\in J(\C[G])$, for each 
     $\beta\in\C[H]$ there exists $\gamma\in\C[G]$ such that 
     $\gamma(1-\beta\alpha)=1$. Write $\gamma=\gamma_1+\kappa$ for $\gamma_1\in\C[H]$ and $\kappa\in K$. Then
     \[
     1=\gamma(1-\beta\alpha)=\gamma_1(1-\beta\alpha)+\kappa(1-\beta\alpha)
     \]
-    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$. Since $1=\gamma_1(1-\beta\alpha)$, it follows that
+    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$, as $\beta\in\mathbb{C}[H]$. 
+    Since $1=\gamma_1(1-\beta\alpha)$, it follows that
     $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem.  
 \end{proof}
 
@@ -204,7 +206,8 @@ We now prove the theorem.
     Then $\alpha\alpha^*=0$ if and only if $\alpha=0$ and, moreover, 
     $(\alpha\beta)^*=\beta^*\alpha^*$ for all $\beta\in\C[G]$. 
     Assume that $J(\C[G])\ne\{0\}$ and let $\alpha\in J(\C[G])\setminus\{0\}$. Then
-    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, $\beta\ne 0$, as 
+    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, the previous 
+    lemma implies that $\beta$ is nilpotent. Note that $\beta\ne 0$, as $\alpha\ne0$. Now  
     \[
     (\beta^m)^*=(\beta^*)^m=\beta^m
     \]
@@ -215,71 +218,75 @@ We now prove the theorem.
     and hence $\beta^{k-1}=0$, a contradiction. Thus $\beta=0$ and therefore $\alpha=0$. 
 \end{proof}
 
-To obtain a consequence of Rickart's theorem we need two lemmas. 
-
-\begin{lemma}[Nakayama]
-	\label{lem:Nakayama}
-	\index{Nakayama's lemma}
-	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
-	$J(R)\cdot M=M$, then $M=\{0\}$.
-\end{lemma}
-
-\begin{proof}
-    Since $M$ is finitely generated, we may assume that 
-	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
-	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
-	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
-	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
-	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
-	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
-	one obtains $M=\{0\}$.
-\end{proof}
-
-\begin{lemma}
-	\label{lem:Rickart}
-	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
-	\[
-	S=\iota(R)x_1+\cdots+\iota(R)x_n,
-	\]
-	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
-	$\iota(J(R))\subseteq J(S)$.
-\end{lemma}
-
-\begin{proof}
-	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
-	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
-	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
-	\[
-		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
-	\]
-	it follows that 
-	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
-	\[
-	J(R)\cdot
-	M=J\cdot M=\iota(J)\cdot M
-	\]
-	is an $S$-submodule of $M$, as 
-	\[
-		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
-	\]
-	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
-	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
-\end{proof}
-
-We now obtain the following consequence of Rickart's theorem. 
-
-\begin{theorem}
+\begin{exercise}
 	If $G$ is a group, then $J(\R[G])=0$. 
-\end{theorem}
+\end{exercise}
 
-\begin{proof}
-	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
-	\[
-	\C[G]=\R[G]+i\R[G],
-	\]
-	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
-	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
-\end{proof}
+% To obtain a consequence of Rickart's theorem we need two lemmas. 
+
+% \begin{lemma}[Nakayama]
+% 	\label{lem:Nakayama}
+% 	\index{Nakayama's lemma}
+% 	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
+% 	$J(R)\cdot M=M$, then $M=\{0\}$.
+% \end{lemma}
+
+% \begin{proof}
+%     Since $M$ is finitely generated, we may assume that 
+% 	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
+% 	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+% 	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+% 	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
+% 	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+% 	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
+% 	one obtains $M=\{0\}$.
+% \end{proof}
+
+% \begin{lemma}
+% 	\label{lem:Rickart}
+% 	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
+% 	\[
+% 	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+% 	\]
+% 	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
+% 	$\iota(J(R))\subseteq J(S)$.
+% \end{lemma}
+
+% \begin{proof}
+% 	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+% 	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
+% 	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
+% 	\[
+% 		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
+% 	\]
+% 	it follows that 
+% 	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
+% 	\[
+% 	J(R)\cdot
+% 	M=J\cdot M=\iota(J)\cdot M
+% 	\]
+% 	is an $S$-submodule of $M$, as 
+% 	\[
+% 		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
+% 	\]
+% 	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
+% 	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
+% \end{proof}
+
+% We now obtain the following consequence of Rickart's theorem. 
+
+% \begin{theorem}
+% 	If $G$ is a group, then $J(\R[G])=0$. 
+% \end{theorem}
+
+% \begin{proof}
+% 	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+% 	\[
+% 	\C[G]=\R[G]+i\R[G],
+% 	\]
+% 	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
+% 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
+% \end{proof}
 
 We now characterize when complex group algebras 
 are left artinian. For that purpose
@@ -335,8 +342,11 @@ complex group algebras of infinite groups are never semisimple.
 	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
 	G}\lambda_{g^{-1}h}h.
 	\]
-	Thus $\lambda_h=\lambda_{g^{-1}h}$ for all $g,h\in G$, a contradiction because 
-	$f\ne 0$ implies that the sum that defines $f$ should be an infinite sum.
+	Thus $\lambda_h=\lambda_{g^{-1}h}$ for all $g,h\in G$. Since $G$ 
+	is infinite, some $\lambda_g=0$ and hence $f=0$. Thus $e=1$ and $I=\C[G]$, a contradiction. 
+% 	If $f=0$, then $e=1$ and $I=\C[G]$, a contradiction.  
+% 	, a contradiction because 
+% 	$f\ne 0$ implies that the sum that defines $f$ should be an infinite sum.
 \end{proof}
 
 % The ideal $I(G)$ used in the proof of the previous proposition 
@@ -405,9 +415,9 @@ In this case, our result is for finite groups.
 	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
 	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
 	\[
-		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0,
+		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0
 	\]
-	it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
+	in the field $K$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
 	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
 \end{proof}
 
@@ -416,8 +426,7 @@ every nil left ideal, the following consequence of the theorem follows immediate
 
 \begin{corollary}
 	\label{cor:GfinitoNOnil}
-	Sea $G$ un grupo finito. Entonces $K[G]$ no contiene ideales a izquierda
-	nil no nulos.
+	Let $G$ be a finite group. Then $K[G]$ does not contain non-zero nil left ideals. 
 \end{corollary}
 
 
@@ -461,135 +470,4 @@ every nil left ideal, the following consequence of the theorem follows immediate
 %	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
 %\end{proof}
 
-
-\topic{Herstein's theorem}
-
-Our aim now is to answer the following question: When
-a group algebra is algebraic? 
-A partial answer is given by Herstein's theorem. 
-
-\begin{definition}
-\index{Group!locally finite}
-	A group $G$ is \textbf{locally finite} if every finitely generated 
-	subgroup of $G$ is finite. 
-\end{definition}
-
-If $G$ is a locally finite group, then every element $g\in G$ has finite order, as
-the subgroup $\langle g\rangle$ is finite because it is finitely generated.
-
-\begin{example}
-    Every finite group is locally finite
-\end{example}
-
-\begin{example}
-    The group $\Z$ is not locally finite because it is torsion-free.
-\end{example}
-
-\begin{example}
-\index{Pr\"ufer's group}
-	Let $p$ be a prime number. 
-	The \textbf{Pr\"ufer's group}  
-	\[
-		\Z(p^{\infty})=\{z\in\C:z^{p^n}=1\text{ para algún $n\in\Z_{>0}$}\}, 
-	\]
-	formed by of all $p$-roots of one, is locally finite. 
-\end{example}
-
-\begin{example}
-	Let $X$ be an infinite set and $\Sym_X$ be the set of bijective maps $X\to
-	X$ moving only finitely many elements of $X$. Then 
-	$\Sym_X$ is locally finite.
-\end{example}
-
-\begin{proposition}
-\label{pro:exact_LI}
-	Let $G$ be a group and $N$ be a normal subgroup of $G$. If $N$ and $G/N$
-	are locally finite, then $G$ is locally finite.
-\end{proposition}
-
-\begin{proof}
-	Let $\pi\colon G\to G/N$ be the canonical map and $\{g_1,\dots,g_n\}$ be a finite subset of $G$. 
-	Since $G/N$ is locally finite, the subgroup $Q$ of $G/N$ generated by 
-	$\pi(g_1),\dots,\pi(g_n)$ is finite, say
-	\[
-		Q=\{\pi(g_1),\dots,\pi(g_n),\pi(g_{n+1}),\dots,\pi(g_m)\}.
-	\]
-	For each $i,j\in\{1,\dots,n\}$ there exist $u_{ij}\in N$ and 
-	$k\in\{1,\dots,m\}$ uch that $g_ig_j=u_{ij}g_k$. Let $U$ be the subgroup of $G$
-	generated by $\{u_{ij}:1\leq i,j\leq n\}$. Since $N$ is locally finite, $U$ is finite. Moreover, since 
-	each $g_ig_jg_l$ can be written as 
-	\[
-		g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
-	\]
-	for some $u\in U$ and $t\in\{1,\dots,m\}$, it follows that the subgroup 
-	$H$ of $G$ generated by $\{g_1,\dots,g_n\}$ is finite, as 
-	$|H|\leq m|U|$. 
-\end{proof}
-
-\index{Group!solvable}
-Recall that a group $G$ is
-\textbf{solvable} if there exists a sequence
-of subgroups 
-\begin{equation}
-	\label{eq:resoluble}
-	\{1\}=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
-\end{equation}
-where each $G_i$ is normal in $G_{i+1}$ and each 
-quotient $G_i/G_{i-1}$ is
-abelian.
-\index{Group!torsion}
-A group $G$ is a \textbf{torsion} group if every element of $G$
-has finite order. 
-
-\begin{proposition}
-	If $G$ is a solvable torsion group, 
-	then $G$ is locally finite. 
-\end{proposition}
-
-\begin{proof}
-	We proceed by induction on $n$, the length of the sequence~\eqref{eq:resoluble}. 
-	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
-	Now assume the result holds for group with resolubility length $n-1$ and let
-	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. By the inductive hypothesis, 
-	the normal subgroup $G_{n-1}$ of $G$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
-	it is locally finite, the result now follows from Proposition \ref{pro:exact_LI}.
-\end{proof}
-
-We now prove Herstein's theorem.
-
-\begin{theorem}[Herstein]
-\index{Herstein's theorem}
-	If $G$ is a locally finite group, then $K[G]$ is algebraic. Conversely, if 
-	$K[G]$ is algebraic and $K$ has characteristic zero, then $G$ 
-	is locally finite. 
-\end{theorem}
-
-\begin{proof}
-	Assume thast $G$ is locally finite. Let $\alpha\in K[G]$. The subgroup 
-	$H=\langle\supp\alpha\rangle$ is finite, as it is finitely generated. Since 
-	$\alpha\in K[H]$ and $\dim_KK[H]<\infty$, the set 
-	$\{1,\alpha,\alpha^2,\dots\}$ is linearly dependent. Thus $\alpha$ is
-	algebraic over $K$.
-
-	Let $\{x_1,\dots,x_m\}$ be a finite subset of $G$. Adding inverses if needed,
-	we may assume that $\{x_1,\dots,x_m\}$ generates the subgroup 
-	$H=\langle x_1,\dots,x_m\rangle$ as a semigroup. If
-	$\alpha=x_1+\dots+x_m\in K[G]$, then, since $\alpha$ is algebraic over $K$, 
-	\[
-		\alpha^{n+1}=a_0+a_1\alpha+\cdots+a_n\alpha^n
-	\]
-	for some $n\geq0$ and $a_0,\dots,x_n\in K$. Let $w=x_{i_1}\cdots
-	x_{i_{n+1}}\in H$ be a word of length $n+1$. There exist positive integers 
-	$c_{i_1\cdots i_m}$ such that 
-	\[
-		\alpha^{n+1}=(x_1+\cdots+x_m)^{n+1}
-		=\sum_{\substack{{i_1+\cdots+i_m=n+1}\\{\text{$i_j$ enteros positivos}}}} c_{i_1\cdots i_m}x_1^{i_1}\cdots x_{m}^{i_m}.
-	\]
-	Since $K$
-	is of characteristic zero, it follows that $w\in\supp(\alpha^{n+1})$. Since, moreover,  
-	$\alpha^{n+1}=\sum_{j=0}^na_j\alpha^j$, it follows that 
-	$w\in\supp(\alpha^j)$ for some $j\in\{0,\dots,n\}$. Thus each
-	word in the letters $x_j$ of length $n+1$ can be written as a word in the letters $x_j$ of 
-	length $\leq n$. Therefore $H$ is finite and hence $G$ is locally finite. 
-\end{proof}
 
