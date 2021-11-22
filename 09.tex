@@ -427,9 +427,10 @@ Two consequences:
 
 \begin{definition}
 	Let $D$ be a division ring and $V$ be a vector space over $D$. A subring 
-	$R\subseteq\End_D(V)$ is \textbf{dense} in $V$ if for all  
-	$n\in\Z_{>0}$, each linearly independent set $\{u_1,\dots,u_n\}\subseteq V$ 
-	and each (not necessarilly linearly independent) subset $\{v_1,\dots,v_n\}\subseteq V$ 
+	$R\subseteq\End_D(V)$ is a \textbf{dense ring of linear operators} 
+	of $V$ (or simple, \textbf{dense} in $V$) if for every  
+	$n\in\Z_{>0}$, every linearly independent set $\{u_1,\dots,u_n\}\subseteq V$ 
+	and every (not necessarilly linearly independent) subset $\{v_1,\dots,v_n\}\subseteq V$ 
 	there exists $f\in R$ such that $f(u_j)=v_j$ for all 
 	$j\in\{1,\dots,n\}$.
 \end{definition}
@@ -454,34 +455,39 @@ Two consequences:
 %	$j\in\{1,\dots,n\}$.
 %\end{proof}
 
-\begin{lemma}
-	\label{lem:unico_denso}
-	Sea $D$ un anillo de división 
-	$V$ un $D$-espacio vectorial de dimensión finita. Entonces $\End_D(V)$ es
-	el único anillo denso en $V$.
-\end{lemma}
+\begin{proposition}
+	\label{pro:unique_dense}
+	Let $V$ be a module over a division ring $D$. 
+	If $\dim_DV<\infty$, then $\End_D(V)$ is the only dense ring of $V$.
+\end{proposition}
 
 \begin{proof}
-	Sea $R$ denso en $V$ y sea $\{v_1,\dots,v_n\}$ una base de $V$. Por
-	definición, $R\subseteq\End_D(V)$. Si $g\in\End_D(V)$ entonces, como $R$ es
-	denso en $V$, existe $f\in R$ tal que $f(v_j)=g(v_j)$ para todo
-	$j\in\{1,\dots,n\}$. Luego $g=f\in R$.
+	Let $R$ be dense in $V$ and let $\{v_1,\dots,v_n\}$ be a basis of $V$. By definition,
+	$R\subseteq\End_D(V)$. If $g\in\End_D(V)$ then, since $R$ is dense in $V$, there
+	exists $f\in R$ such that $f(v_j)=g(v_j)$ for all 
+	$j\in\{1,\dots,n\}$. Hence $g=f\in R$.
 \end{proof}
 
 \begin{lemma}
 	\label{lem:ideal_denso}
-	Sea $R$ un anillo denso en $V$ y sea $I$ un ideal no nulo de $R$. Entonces
-	$I$ es denso en $V$.
+	Let $R$ be dense in $V$ and $I$ be a non-zero ideal of $R$. Then 
+	$I$ is dense in $V$. 
 \end{lemma}
 
 \begin{proof}
-	Sea $I$ un ideal no nulo de $R$. Sean $h\in I\setminus\{0\}$ y $u\in V$
-	tales que $h(u)=v\ne0$. Sea $\{u_1,\dots,u_n\}\subseteq V$ un conjunto
-	linealmente independiente y sea $\{v_1,\dots,v_n\}\subseteq V$. Como $R$ es
-	denso en $V$, existen $g_1,\dots,g_n\in R$ tales que $g_i(u_i)=u$ y
-	$g_i(u_j)=0$ si $i\ne j$. Existen además $f_1,\dots,f_n\in R$ tales que
-	$f_i(v)=v_i$. Entonces $\gamma=\sum_{i=1}^n f_ihg_i\in I$ cumple que
-	$\gamma(u_j)=v_j$ para todo $j\in\{1,\dots,n\}$.
+	Let $h\in I\setminus\{0\}$ and $u\in V$ be such that 
+	$h(u)=v\ne0$. Let $\{u_1,\dots,u_n\}\subseteq V$ be a linearly independent set 
+	and let $\{v_1,\dots,v_n\}\subseteq V$. Since $R$ is 
+	dense in $V$, there exist $g_1,\dots,g_n\in R$ such that 
+	\[
+	g_i(u_j)=\begin{cases} 
+	u & \text{if $i=j$},\\
+	0 & \text{otherwise}.
+	\end{cases}
+	\]
+	Further, there exist $f_1,\dots,f_n\in R$ such that 
+	$f_i(v)=v_i$. Thus $\gamma=\sum_{i=1}^n f_ihg_i\in I$ is such that 
+	$\gamma(u_j)=v_j$ for all $j\in\{1,\dots,n\}$.
 \end{proof}
 
 %Ahora demostraremos el teorema de densidad de Jacobson. 
@@ -527,6 +533,10 @@ Two consequences:
 %
 %\end{proof}
 
+At this point it is convenient to recall that
+modules over division rings are pretty much as vector spaces over fields. In fact, 
+modules over division rings are usually called vector spaces over division rings. 
+
 \begin{theorem}[Jacobson]
 	\label{thm:density}
 	\index{Jacobson's density theorem}
@@ -535,88 +545,94 @@ Two consequences:
 \end{theorem}
 
 \begin{proof}
-	Si $R$ es isomorfo a un anillo
-	denso en un $D$-módulo $V$ donde $D$ es un anillo de división, entonces $R$
-	es primitivo pues $V$ es un módulo simple y fiel. Es fiel: si
-	$f\in\Ann_R(V)$ entonces $f=0$ pues $f(v)=0$ para todo $v\in V$. Es simple
-	pues si $W\subseteq V$ es un submódulo no nulo, $v\in V$ y $w\in
-	W\setminus\{0\}$ entonces existe $f\in R$ tal que $v=f(w)\in W$. 
+	If $R$ is isomorphic to a dense ring in $V$, where
+	$V$ is a module over a division ring $D$, then $R$
+	is primitive, as $V$ is simple and faithful. Why it is faithful? If 
+	$f\in\Ann_R(V)$, then $f=0$ since $f(v)=0$ for all $v\in V$. Why it is simple? 
+	If $W\subseteq V$ is a non-zero submodule, let $v\in V$ and $w\in
+	W\setminus\{0\}$. There exists $f\in R$ such that $v=f(w)\in W$. 
 
-	Supongamos ahora que $R$ es primitivo y sea $V$ un módulo simple y fiel.
-	Por el lema de Schur, $D=\End_R(V)$ es un anillo de división. Luego $V$ es
-	un $D$-espacio vectorial con las operaciones
+	Now assume that $R$ is primitive. Let $V$ be a simple faithful module.
+	Schur's lemma implies that $D=\End_R(V)$ is a division ring. Thus $V$ is
+	a module over $D$ with 
 	\[
 	\delta v=\delta(v),\quad
 	\delta(rv)=r(\delta v),\quad
 	v\in V,r\in R,\delta\in D.
 	\]
-	Para $r\in R$ definimos 
+	For $r\in R$ let  
 	\[
 		\gamma_r\colon V\to V,\quad
 		v\mapsto rv.
 	\]
-	Es fácil ver que $\gamma_r\in\End_D(V)$ y que la función $R\to\End_D(V)$,
-	$r\mapsto\gamma_r$, es un morfismo de anillos. Como $V$ es fiel,
-	$R\simeq\gamma(R)=\{\gamma_r:r\in R\}$ (si $\gamma_r=\gamma_s$ entonces
-	$rv=\gamma_r(v)=\gamma_s(v)=sv$ para todo $v\in V$ y luego $r=s$ pues
-	$(r-s)v=0$ para todo $v\in V$).
+	A straightforward calculation shows that $\gamma_r\in\End_D(V)$ and that
+    $R\to\End_D(V)$,
+	$r\mapsto\gamma_r$, is a ring homomorphism. Since $V$ is faithful,
+	$R\simeq\gamma(R)=\{\gamma_r:r\in R\}$. In fact, if $\gamma_r=\gamma_s$, then 
+	$rv=\gamma_r(v)=\gamma_s(v)=sv$ for all $v\in V$ and hence $r=s$, as
+	$(r-s)v=0$ for all $v\in V$.
 
 	\begin{claim}
-		Si $U$ es un subespacio de $V$
-		de dimensión finita, para cada $w\in V\setminus U$ existe $r\in R$ tal que
-		$\gamma_r(U)=0$ y $\gamma_r(w)\ne0$.
+		If $U$ is a finite-dimensional submodule of $V$, 
+		for each $w\in V\setminus U$ there exists $r\in R$ such that 
+		$\gamma_r(U)=0$ and $\gamma_r(w)\ne0$.
 	\end{claim}
 
-	Supongamos que la afirmación no es cierta y sea $U$ un contraejemplo de la
-	mínima dimensión posible. Entonces $\dim_DU\geq1$ (pues el resultado es
-	cierto para el subespacio nulo). Sea $U_0$ un subespacio de $U$ tal que
-	$\dim U_0=\dim U-1$ y sea
+	Suppose the claim is not true. Let $U$ be a counterexample of minimal  
+	dimension. Then
+	$\dim_DU\geq1$, as the claim holds for the zero submodule. Let 
+	$U_0$ be a submodule of $U$ such that 
+	$\dim U_0=\dim U-1$ and let 
 	\[
 		L=\{l\in R:\gamma_l(U_0)=0\}.
 	\]
-	Como por la minimalidad de $U$ nuestra afirmación es cierta para $U_0$,
-	para cualquier $v\in V\setminus U_0$ se tiene que $Lv=V$ (pues existe $l\in
-	L$ tal que $lv=\gamma_l(v)\ne 0$, y como $L$ es ideal a izquierda de $R$ sabemos
-	que $Lv\subseteq V$ es un submódulo y $V$ es simple).
-
-	Sea $w\in V\setminus U$ tal que nuestra afirmación no es cierta y sea $u\in
-	U\setminus U_0$.  La función 
+	The minimality of the dimension of $U$ shows that the claim is true for $U_0$, so
+	any $v\in V\setminus U_0$ is such that $Lv=V$. In fact, since there exists $l\in
+	L$ such that $lv=\gamma_l(v)\ne 0$ and $L$ is a left ideal of $R$, it follows
+	that $Lv\subseteq V$ is a submodule and the claim follows from the simplicity of
+	$V$.
+	
+	Let $w\in V\setminus U$ be such that the claim is not true. Let $u\in
+	U\setminus U_0$. The map  
 	\[
 		\delta\colon V\to V,\quad
 		v\mapsto lw,
 	\]
-	donde $v=lu\in Lu=V$ (que depende de $u$ y $w$) 
-	está bien definida: si $l_1,l_2\in L$ son tales que $v=l_1u=l_2u$ entonces $(l_1-l_2)u=0$ y luego
+	where $v=lu\in Lu=V$ (that depends both on $u$ and $w$) 
+	is well-defined: if $l_1,l_2\in L$ are such that 
+	$v=l_1u=l_2u$, then $(l_1-l_2)u=0$ and thus 
 	\[
 		0=\delta(0)=\delta((l_1-l_2)u)=(l_1-l_2)w=l_1w-l_2w. 
 	\]
-	Además $\delta$ es morfismo de $R$-módulos pues si $l\in L$ es tal que $v=lu$ entonces
+	Further, $\delta$ is a homomorphism of modules over $R$, as if 
+	$l\in L$ is such that $v=lu$, then 
 	\[
 		\delta(rv)=\delta(r(lu))=\delta( (rl)u)=(rl)w=r(lw)=r\delta(v)
 	\]
-	para todo $r\in R$.
+	for all $r\in R$.
 
-	Para todo $l\in L$ se tiene que 
+	For every $l\in L$,  
 	\[
-		l(\delta(u)-w)=l\delta(u)-lw=\delta(lu)-lw=0,
+		l(\delta(u)-w)=l\delta(u)-lw=\delta(lu)-lw=0.
 	\]
-	y entonces $L(\delta(u)-w)=0$. Pero esto implica que $\delta(u)-w\not\in V\setminus U_0$, es
-	decir $\delta(u)-w\in U_0$. Luego 
+	Thus $L(\delta(u)-w)=0$. This implies that $\delta(u)-w\not\in V\setminus U_0$, 
+	that is $\delta(u)-w\in U_0$. Therefore  
 	\[
 		w=xu-(xu-w)\in Du+U_0=U,
 	\]
-	una contradicción. 
-
-	Esta afirmación alcanza para demostrar el teorema. En efecto, sean
-	$u_1,\dots,u_n\in V$ vectores linealmente independientes y sean
-	$v_1,\dots,v_n\in V$ vectores arbitrarios. Si fijamos $i\in\{1,\dots,n\}$, la afirmación anterior con
+	a contradiction.
+	
+	Now the theorem follows from the claim. Let 
+	$u_1,\dots,u_n\in V$ be linearly independent vectors and let 
+	$v_1,\dots,v_n\in V$ arbitrary vectors. Fix $i\in\{1,\dots,n\}$. 
+	The previous claim with 
 	\[
 		U=\langle u_1,\dots,u_{i-1},u_{i+1},\dots,u_n\rangle
 	\]
-	y $w=u_i$ nos dice que existe $r_i\in R$ tal que $\gamma_{r_i}(u_j)=0$ si
-	$j\ne i$ y $\gamma_{r_i}(u_i)\ne 0$. Como además existe $s_i\in R$ tal que
-	$\gamma_{s_i}\gamma_{r_i}(u_i)=v_i$, se concluye que el elemento
-	$r=\sum_{j=1}^n s_jr_j\in R$ es tal que $\gamma_r(u_i)=v_i$ para todo
+	and $w=u_i$ implies that there exists $r_i\in R$ such that $\gamma_{r_i}(u_j)=0$ if 
+	$j\ne i$ and $\gamma_{r_i}(u_i)\ne 0$. Since there exists $s_i\in R$ such that 
+	$\gamma_{s_i}\gamma_{r_i}(u_i)=v_i$, it follows that 
+	$r=\sum_{j=1}^n s_jr_j\in R$ is such that $\gamma_r(u_i)=v_i$ for all 
 	$i\in\{1,\dots,n\}$.
 \end{proof}
 
@@ -628,159 +644,162 @@ Two consequences:
 % hungerford pag 419
 
 \begin{corollary}
-	Si $R$ es un anillo primitivo, entonces existe un anillo de división $D$
-	tal que $R\simeq\End_D(V)$ para algún $D$-espacio vectorial $V$ de
-	dimensión finita, o bien para todo $m\in\Z_{>0}$ existe un subanillo $R_m$ de
-	$R$ y un morfismo de anillos sobreyectivo $R_m\to\End_D(V_m)$ para algún $D$-espacio
-	vectorial $V_m$ tal que $\dim_DV_m=m$.
+	If $R$ is a primitive ring, then either there exists a division ring $D$
+	such that $R\simeq\End_D(V)$ for some finite-dimensional module $V$ over $D$ or 
+	for all $m\in\Z_{>0}$ there exists a subring $R_m$ of 
+	$R$ and a surjective ring homomorphism $R_m\to\End_D(V_m)$ for some module 
+	$V_m$ over $D$ such that $\dim_DV_m=m$.
 \end{corollary}
 
 \begin{proof}
-	Sabemos que $R$ admite un módulo $V$ simple y fiel. Además, como $R$ es
-	primitivo, por el teorema~\ref{thm:densidad} podemos suponer que existe un
-	anillo de división $D$ tal que $R$ es denso en un $D$-espacio vectorial
-	$V$.  Sea $\gamma\colon R\to\End_D(V)$, $r\mapsto\gamma_r$, donde
-	$\gamma_r(v)=rv$. Como $V$ es fiel, $\gamma$ es inyectiva. Luego
+	The ring $R$ admits a simple faithful module $V$. Furthermore, by Jacobson's density 
+	theorem we may assume that there exists a division ring $D$ 
+	such that $R$ is dense in a module $V$ over $D$. 
+	Let $\gamma\colon R\to\End_D(V)$, $r\mapsto\gamma_r$, where 
+	$\gamma_r(v)=rv$. Since $V$ is faithful, $\gamma$ is injective. Thus 
 	$R\simeq\gamma(R)$. 
 
-	Si $V$ es de dimensión finita, el resultado se obtiene del
-	lema~\ref{lem:unico_denso}.  Supongamos entonces que $V$ es de dimensión
-	infinita y sea $\{u_1,u_2,\dots\}$ un conjunto linealmente independiente.
-	Para cada $m\in\Z_{>0}$ sea $V_m$ el subespacio generado por $\{u_1,\dots,u_m\}$
-	y sea $R_m=\{r\in R:rV_m\subseteq V_m\}$. Es fácil ver que $R_m$ es un
-	subanillo de $R$. Como $R$ es denso en $V$, la función
+	If $\dim_DV<\infty$, the result follows from Proposition \ref{pro:unique_dense}. 
+	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots\}$ be a linearly independent set. 
+	For each $m\in\Z_{>0}$ let $V_m$ be the subspace generated by $\{u_1,\dots,u_m\}$
+	and $R_m=\{r\in R:rV_m\subseteq V_m\}$. Then $R_m$ is a subring of $R$. 
+	Since $R$ is dense in $V$, the map 
 	\[
 		R_m\to \End_D(V_m),\quad
 		r\mapsto\gamma_r|_{V_m}
 	\]
-	es un morfismo sobreyectivo de anillos. 
+	is a surjective ring homomorphism. 
 \end{proof}
 
-%\section{El teorema de Wedderburn}
+\topic{Prime rings}
 
-En álgebra conmutativa los dominios juegan un papel fundamental. En álgebra no
-conmutativa las cosas no son tan similares ya que el anillo $M_n(K)$ no es un
-dominio. Nos interesa entonces encontrar un concepto similar al de dominio que
-funcione en el contexto no conmutativo.
+In commutative algebra domains play a fundamental role. In non-commutative
+algebra certain things could be quite different. 
+For example, the ring $M_n(\C)$ is not a domain.
+We need a non-commutative generalization of domains.
 
 \begin{definition}
-	\index{Anillo!primo} 
-	Sea $R$ un anillo (no necesariamente con unidad). Diremos que $R$ es
-	\textbf{primo} si dados $x,y\in R$ tales que $xRy=0$ entonces $x=0$ o bien
+	\index{Ring!prime} 
+	Let $R$ be a ring (not necessarily with one). Then $R$ is
+	\textbf{prime} if for $x,y\in R$ such that $xRy=\{0\}$ it follows that $x=0$ or 
 	$y=0$.
 \end{definition}
 
 \begin{example}
-	Recordemos que un anillo $R$ es un \textbf{dominio} si $xy=0$ implica que
-	$x=0$ o bien $y=0$.  Todo dominio es trivialmente un anillo primo.
+    \index{Domain}
+	A ring $R$ is a \textbf{domain} if $xy=0$ implies
+	$x=0$ or $y=0$. Each domain is trivially a prime ring.
 \end{example}
 
 \begin{example}
-	Un anillo conmutativo es primo si y sólo si es un dominio pues $ab=0$ si y
-	sólo si $aRb=0$.
+    A commutative ring is prime if and only if it is a domain, as $ab=0$ 
+    if and only if $aRb=\{0\}$.
 \end{example}
 
 \begin{example}
-	Un ideal no nulo de un anillo primo es un anillo primo.
+    A non-zero ideal of a prime ring is a prime ring.
 \end{example}
 
-\begin{lemma}
-	Sea $R$ un anillo. Son equivalentes:
+A characterization of prime rings:
+
+\begin{proposition}
+    Let $R$ be a ring. The following statements are equivalent:
 	\begin{enumerate}
-		\item $R$ es primo.
-		\item Si $I$ y $J$ son ideales a izquierda tales que $IJ=0$ entonces
-			$I=0$ o bien $J=0$.
-		\item Si $I$ y $J$ son ideales tales que $IJ=0$ entonces $I=0$ o bien
-			$J=0$.
+		\item $R$ is prime.
+		\item If $I$ and $J$ are left ideals such that $IJ=\{0\}$, then 
+			$I=\{0\}$ or $J=\{0\}$.
+		\item If $I$ and $J$ are ideals such that $IJ=\{0\}$, then $I=\{0\}$ or
+			$J=\{0\}$.
 	\end{enumerate}
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
-	Veamos primero que $(1)\implies(2)$. Sean $I$ y $J$ ideales a izquierda
-	tales que $IJ=0$. Entonces $IRJ=I(RJ)\subseteq IJ=0$. Supongamos que $J\ne
-	0$. Si $u\in I$ y $v\in J\setminus\{0\}$, entonces $uRv\in IRJ=0$ y luego
+	We first prove that $1)\implies2)$. Let $I$ and $J$ be left ideals such that
+	$IJ=\{0\}$. Then $IRJ=I(RJ)\subseteq IJ=\{0\}$. If $J\ne
+	\{0\}$, $u\in I$ and $v\in J\setminus\{0\}$, then $uRv\in IRJ=\{0\}$. Hence 
 	$u=0$.
 
-	La implicación $(2)\implies(3)$ es trivial. 
+	The implication $2)\implies3)$ is trivial. 
 
-	Veamos entonces que $(3)\implies(1)$. Sean $x,y\in R$ tales que $xRy=0$.
-	Sean $I=RxR$ y $J=RyR$. Como $IJ=(RxR)(RyR)=R(xRy)R=0$, por hipótesis,
-	podemos suponer que entonces $I=0$. En particular $Rx$ y $xR$ son ideales
-	pues $R(xR)=(Rx)R=0$. Pero entonces $\Z x$ es un ideal de $R$ tal que $(\Z x)R=0$. Luego $x=0$. 
+    Let us prove that $3)\implies1)$. Let $x,y\in R$ be such that $xRy=\{0\}$.
+	Let $I=RxR$ and $J=RyR$. Since $IJ=(RxR)(RyR)=R(xRy)R=\{0\}$, 
+	we may assume that $I=\{0\}$. In particular, $Rx$ and $xR$ are ideals, as 
+	$R(xR)=(Rx)R=\{0\}$. Then $\Z x$ is an ideal of $R$ such that $(\Z x)R=\{0\}$. 
+	Thus $x=0$. 
 \end{proof}
 
-\begin{example}
-	Todo anillo simple es trivialmente primo. La afirmación recíproca no es
-	cierta: $\Z$ es un anillo primo (por ser un dominio) pero no es simple.
+Simple rings are trivially prime. The converse is not true:
+
+\begin{example} 
+    $\Z$ is a domain, so it is a prime ring. Clearly, it is not simple.
 \end{example}
 
 \begin{example}
-	Si $R_1$ y $R_2$ son anillos, $R=R_1\times R_2$ no es primo pues
-	$I=R_1\times 0$ y $J=0\times R_2$ son ideales no nulos tales que $IJ=0$.
+	If $R_1$ and $R_2$ are rings, $R=R_1\times R_2$ is not prime, as 
+	$I=R_1\times\{0\}$ and $J=\{0\}\times R_2$ are non-zero ideals such that $IJ=\{0\}$.
 \end{example}
 
 \begin{lemma}
 	\label{lem:primoizqmin=>prim}
-	Sea $R$ un anillo primo y sea $L$ un ideal a izquierda minimal de $R$.
-	Entonces $R$ es primitivo.
+	Let $R$ be a prime ring and $L$ be a minimal left ideal of $R$.
+	Then $R$ is primitive. 
 \end{lemma}
 
 \begin{proof}
-	Como $L$ es ideal a izquierda minimal, es simple como $R$-módulo. Veamos
-	que como $R$ es primo, $L$ es fiel. Sea $y\in L\setminus\{0\}$ y sea
-	$x\in\Ann_R(L)$.  Entonces, como $xRy\in xRL\subseteq xL=0$, se concluye
-	que $x=0$.
+	Since $L$ is a minimal left ideal, it is simple as a module over $R$. 
+	We claim that $L$ is faithful. Let $y\in L\setminus\{0\}$ and
+	$x\in\Ann_R(L)$. Since $xRy\in xRL\subseteq xL=\{0\}$, it follows that 
+	$x=0$.
 \end{proof}
 
 \begin{lemma}
 	\label{lem:denso_artiniano}
-	Sea $D$ un anillo de división y sea $R$ un anillo denso en un
-	$D$-espacio vectorial $V$. Si $R$ es artiniano a izquierda, 
-	entonces $V$ es de dimensión finita.
+	Let $D$ be a division ring and $R$ be a dense ring in a module $V$ over $D$. 
+	If $R$ is left artininian, then $\dim_DV<\infty$.
 \end{lemma}
 
 \begin{proof}
-	Supongamos que $V$ tiene dimensión infinita y sea $\{u_1,u_2,\dots,\}$ un
-	subconjunto de $V$ linealmente independiente. Como $R\subseteq\End_D(V)$,
-	$V$ es un $R$-módulo con $f\cdot v=f(v)$, donde $f\in R$ y $v\in V$. Para
-	cada $n\in\Z_{>0}$ sea 
+	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots,\}$ be linearly independent. 
+	Since $R\subseteq\End_D(V)$, it follows that 
+	$V$ is a module over $R$ with $f\cdot v=f(v)$, where $f\in R$ y $v\in V$. 
+	For $n\in\Z_{>0}$ let 
 	\[
 		I_n=\Ann_R(\{u_1,\dots,u_n\}.
 	\]
-	Los $I_j$ son ideales a izquierda de $R$ tales que $I_1\supseteq
-	I_2\supseteq\cdots\supseteq I_n\supseteq\cdots$. Veamos que esta sucesión
-	no se estabiliza: Sean $n\in\Z_{>0}$ y $v\in V\setminus\{0\}$. Como $R$ es denso
-	en $V$, existe $f\in R$ tal que $f(u_j)=0$ para todo $j\in\{1,\dots,n\}$ y
-	$f(u_{n+1})=v\ne0$. Luego $I_1\supsetneq I_2\supsetneq\cdots\supsetneq
-	I_n\supsetneq\cdots$, una contradicción pues $R$ es artiniano a izquierda.
+	Each $I_j$ is a left ideal of $R$ and $I_1\supseteq
+	I_2\supseteq\cdots\supseteq I_n\supseteq\cdots$. Let 
+	$n\in\Z_{>0}$ and $v\in V\setminus\{0\}$. Since $R$ is dense
+	in $V$, there exists $f\in R$ such that $f(u_j)=0$ for all $j\in\{1,\dots,n\}$ and 
+	$f(u_{n+1})=v\ne0$. Thus $I_1\supsetneq I_2\supsetneq\cdots\supsetneq
+	I_n\supsetneq\cdots$, a contradiction.
 \end{proof}
 
 \begin{theorem}[Wedderburn]
-	\index{Teorema!de Wedderburn}
-	Sea $R$ un anillo artiniano a izquierda. Las siguientes afirmaciones son
-	equivalentes:
+	\index{Wedderburn's theorem}
+	Let $R$ be a left artinian ring. The following statements are equivalent:
 	\begin{enumerate}
-		\item $R$ es simple.
-		\item $R$ es primo.
-		\item $R$ es primitivo.
-		\item $R\simeq M_n(D)$ para algún $n$ y algún anillo de división $D$.
+		\item $R$ is simple.
+		\item $R$ is prime.
+		\item $R$ is primitive.
+		\item $R\simeq M_n(D)$ for some $n$ and some division ring $D$.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	La implicación $(1)\implies(2)$ es trivial. 
+	The implication $1)\implies2)$ is trivial. 
 	
-	Para demostrar que $(2)\implies(3)$ basta observar que como $R$ es
-	artiniano, $R$ tiene un ideal a izquierda minimal.  Por el
-	lema~\ref{lem:primoizqmin=>prim}, $R$ es primitivo. 
+	To show that $2)\implies3)$ first note that 
+	$R$ contains a minimal left ideal, as $R$ is left artinian. 
+	By Lemma~\ref{lem:primoizqmin=>prim}, $R$ is primitive. 
 
-	Veamos que $(3)\implies(4)$. Si $R$ es primitivo, por el teorema de
-	densidad de Jacbonson, existe un anillo de división $D$ tal que 
-	$R$ es isomorfo a un anillo $S$ que es denso en un $D$-espacio vectorial
-	$V$. Como $R$ es artiniano a izquierda, el lema~\ref{lem:denso_artiniano} implica que 
-	$R=\End_D(V)\simeq M_n(D)$ pues $\dim_DV<\infty$. 
+	Now we prove that $3)\implies4)$. If $R$ is primitive, 
+	Jacobson's density theorem implies that there exists a division
+	ring $D$ such that  
+	$R$ is isomorphic to a ring $S$ that is dense in a vector space $V$ over $D$.
+	Since $R$ is left artinian, Lemma~\ref{lem:denso_artiniano} implies that  
+	$R=\End_D(V)\simeq M_n(D)$, as $\dim_DV<\infty$. 
 
-	Por último, $(4)\implies(1)$ es trivial pues $M_n(D)$ es simple. 
+	Finally, $4)\implies1)$ is trivial, as $M_n(D)$ is simple. 
 %	$D$-espacio vectorial $V$ de dimensión finita. Si $u_1,\dots,u_m\in V$ son
 %	linealmente independientes sobre $D$, existen $f_1,\dots,f_m\in S$ tales
 %	que $f_i(u_i)\ne0$ y $f_i(u_j)=0$ si $i\ne j$. Como los $f_j$ son
@@ -788,175 +807,175 @@ funcione en el contexto no conmutativo.
 %	por la proposición\dots
 \end{proof}
 
-Para completar nuestra presentación del teorema de Wedderburn, veremos
-que la descomposición es única. Necesitaremos dos lemas previos:
+% Para completar nuestra presentación del teorema de Wedderburn, veremos
+% que la descomposición es única. Necesitaremos dos lemas previos:
 
-\begin{lemma}
-	\label{lem:wedderburn_unididad}
-	Sea $D$ un anillo de división. Entonces 
-	\[
-		D^{\op}\simeq\End_{M_n(D)}(D^{n}). 
-	\]
-\end{lemma}
+% \begin{lemma}
+% 	\label{lem:wedderburn_unididad}
+% 	Sea $D$ un anillo de división. Entonces 
+% 	\[
+% 		D^{\op}\simeq\End_{M_n(D)}(D^{n}). 
+% 	\]
+% \end{lemma}
 
-\begin{proof}
-	Sea  
-	\begin{align*}
-		&\phi\colon D^{\op}\to\End_{M_n(D)}(D^{n}), & d\mapsto \phi(d)\colon &D^{n}\to D^{n},
-	\end{align*}
-	donde $\phi(d)(x)=xd$. Es evidente que $\phi$ es lineal; 
-	es morfismo pues además 
-	\begin{align*}
-		\phi(d_1\cdot_{\op} d_2)(x)&=\phi(d_2d_1)(x)=x(d_2d_1)=(xd_2)d_1=\phi(d_1)\phi(d_2)(x).
-	\end{align*}
-	Como $\phi$ es no nulo y $D^{\op}$ es es simple por ser de división, se concluye que 
-	$\phi$ es inyectivo. Veamos que
-	$\phi$ es sobreyectivo: sean $f\in\End_{M_n(D)}(D^{n})$ y 
-	\[
-		e_1=\colvec{4}{1}{0}{\vdots}{0},\quad
-		\colvec{4}{d_1}{d_2}{\vdots}{d_n}=
-		f(e_1),
-		\quad
-		A=\begin{pmatrix} 
-			a_1 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			a_n & 0 & \cdots & 0
-		\end{pmatrix}.
-	\]
-	Entonces
-	\[
-		f\colvec{4}{a_1}{a_2}{\vdots}{a_n}
-		=f(Ae_1)=Af(e_1)=
-		\colvec{4}{a_1d_1}{a_2d_2}{\vdots}{a_nd_1}=\phi(d_1)\colvec{3}{a_1}{\vdots}{a_n}.
-	\]
-\end{proof}
+% \begin{proof}
+% 	Sea  
+% 	\begin{align*}
+% 		&\phi\colon D^{\op}\to\End_{M_n(D)}(D^{n}), & d\mapsto \phi(d)\colon &D^{n}\to D^{n},
+% 	\end{align*}
+% 	donde $\phi(d)(x)=xd$. Es evidente que $\phi$ es lineal; 
+% 	es morfismo pues además 
+% 	\begin{align*}
+% 		\phi(d_1\cdot_{\op} d_2)(x)&=\phi(d_2d_1)(x)=x(d_2d_1)=(xd_2)d_1=\phi(d_1)\phi(d_2)(x).
+% 	\end{align*}
+% 	Como $\phi$ es no nulo y $D^{\op}$ es es simple por ser de división, se concluye que 
+% 	$\phi$ es inyectivo. Veamos que
+% 	$\phi$ es sobreyectivo: sean $f\in\End_{M_n(D)}(D^{n})$ y 
+% 	\[
+% 		e_1=\colvec{4}{1}{0}{\vdots}{0},\quad
+% 		\colvec{4}{d_1}{d_2}{\vdots}{d_n}=
+% 		f(e_1),
+% 		\quad
+% 		A=\begin{pmatrix} 
+% 			a_1 & 0 & \cdots & 0\\
+% 			\vdots & \vdots & \ddots & \vdots\\
+% 			a_n & 0 & \cdots & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Entonces
+% 	\[
+% 		f\colvec{4}{a_1}{a_2}{\vdots}{a_n}
+% 		=f(Ae_1)=Af(e_1)=
+% 		\colvec{4}{a_1d_1}{a_2d_2}{\vdots}{a_nd_1}=\phi(d_1)\colvec{3}{a_1}{\vdots}{a_n}.
+% 	\]
+% \end{proof}
 
-%%\begin{lemma}
-%	\label{lem:Wedderburn:unicidad1}
-%	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial de dimensión finita. 
-%	Sea $R=\End_D(V)$. Si $M$ y $N$ son $R$-módulos 
-%	simples y fieles, entonces $M\simeq N$.
-%\end{lemma}
-%
-%\begin{proof}
-%	Como $R=\End_D(V)\simeq M_n(D)$ es artiniano a izquierda, $R$ contiene un
-%	ideal a izquierda minimal. Como $M$ es fiel, existe $m\in M$ tal que $Lm\ne
-%	0$ (si $Lm=0$ para todo $m\in M$, $L\subseteq\Ann_R(M)=0$). Como $Lm$ es un
-%	submódulo no nulo de $M$ y $M$ es simple, $Lm=M$. La función
-%	\[
-%		\theta\colon L\to Lm=M,\quad
-%		x\mapsto xm
-%	\]
-%	es morfismo sobreyectivo. Como $L$ es simple como módulo, por el lema de
-%	Schur, $\theta$ es inyectivo. Luego $L\simeq M$. Similarmente se demuestra
-%	que $L\simeq N$.
-%\end{proof}
-%
-%\begin{lemma}
-%	\label{lem:Wedderburn:unicidad2}
-%	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial. Sea
-%	$g\colon V\to V$ un morfismo de grupos abelianos tal que $fg=gf$ para todo
-%	$f\in\End_D(V)$. Entonces existe $d\in D$ tal que $g(v)=dv$ para todo $v\in
-%	V$.
-%\end{lemma}
-%
-%\begin{proof}
-%	Sea $u\in V\setminus\{0\}$. Vamos a demostrar que $\{u,g(u)\}$ es
-%	linealmente dependiente sobre $D$. Supongamos que $\{u,g(u)\}$ fuera linealmente
-%	independiente. Entonces $\dim_DV\geq2$. 
-%	Como $\End_D(V)$ es denso en $V$, existe $f\in\End_D(V)$ tal
-%	que $f(u)=0$ y $f(g(u))\ne0$. Luego
-%	\[
-%		0\ne 0=f(g(u))=g(f(u))=g(0)=0,
-%	\]
-%	una contradicción.  Como $\{u,g(u)\}$ es linealmente dependiente sobre $D$,
-%	existe $d\in D$ tal que $g(u)=du$. Si $v\in V$, por densidad existe
-%	$h\in\End_D(V)$ tal que $h(u)=v$. Luego
-%	\[
-%		g(v)=g(h(u))=h(g(u))=h(du)=dh(u)=dv.
-%	\]
-%\end{proof}
-%
-%\begin{proposition}
-%	Para cada $j\in\{1,2\}$ sea $V_j$ un espacio vectorial sobre el anillo de división $D_j$ de dimensión finita $n_j$. 
-%	Si $\End_{D_1}(V_1)\simeq\End_{D_2}(V_2)$ entonces $n_1=n_2$ y $D_1\simeq D_2$.
-%%	Sea $V$ es un espacio vectorial sobre el anillo de división $D$ y sea $W$
-%%	un espacio vectorial sobre el anillo de división $E$. Supongamos que $V$ y
-%%	$W$ son de dimensión finita. Si $\End_D(V)\simeq\End_E(W)$ entonces
-%%	$\dim_DV=\dim_EW$ y $D\simeq E$.
-%\end{proposition}
-%
-%\begin{proof}	
-%	Cada $V_j$ es un $\End_{D_j}(V_j)$-módulo fiel. Sea $R=\End_{D_1}(V_1)$. Como existe un isomorfismo
-%	$\sigma\colon R\to\End_{D_2}(V_2)$, $V_2$ es un
-%	$R$-módulo simple y fiel con
-%	\[
-%		fv_2=\sigma(f)v_2,\quad
-%		f\in R,\,v_2\in V_2.
-%	\]
-%	Por el lema~\ref{lem:Wedderburn:unicidad1}, existe un isomorfismo
-%	$\phi\colon V_1\to V_2$ de $R$-módulos; en particular, 
-%	\[
-%		\phi(fv_1)=f(\phi(v_1))=(\sigma(f))\phi(v_1)
-%	\]
-%	para todo $v_1\in V_1$ y $f\in R$. Luego 
-%	$\sigma(f)=\phi f\phi^{-1}\colon V_2\to V_2$ es un morfismo de grupos
-%	abelianos. Para $j\in\{1,2\}$ y $d_j\in D_j$ sea 
-%	\[
-%		\gamma_{d_1}\colon V_j\to V_j,\quad x\mapsto d_jx.
-%	\]
-%	Como cada $V_j$ es fiel, $\gamma_{d_j}=0$ si y sólo si $d_j=0$. Si $f\in R$ y $d_1\in D_1$ entonces $f\gamma_{d_1}=\gamma_{d_1}f$. Luego
-%	\[
-%		(\phi\gamma_{d_1}\phi^{-1})\sigma(f)
-%		=(\phi\gamma_{d_1}\phi^{-1})(\phi f\phi^{-1})
-%		=\phi f\gamma_{d_1}\phi^{-1}
-%		=\sigma(f)\phi\gamma_{d_1}\phi^{-1}.
-%	\]
-%	Como $\sigma$ es sobreyectiva, el lema~\ref{lem:Wedderburn:unicidad2} con
-%	$V=V_2$ y $g=\phi\gamma_{d_1}\phi^{-1}$ implica que existe $d_2\in D_2$ tal
-%	que $\phi\gamma_{d_1}\phi^{-1}=\gamma_{d_2}$. Sea $\tau\colon D_1\to D_2$,
-%	$d_1\mapsto d_2$. Entonces $\phi\gamma_{d}\phi^{-1}=\gamma_{\tau(d_2)}$ 
-%	\framebox{?}
-%	Además 
-%	\[
-%		\phi(d_1v)=\phi\gamma_{d_1}(v)=\gamma_{\¿au(d_1)}\phi(v)=\tau_{d_1}\phi(v)
-%	\]
-%	Como $\{u_1,\dots,u_m\}$ es linealmente independiente sobre $D_1$ si y sólo si $\{\phi(u_1),\dots,\phi(u_m)\}$ es linealmente
-%	independiente sobre $D_2$, se concluye que $\dim_{D_1}(V_1)=\dim_{D_2}(V_2)$. 
-%\end{proof}
+% %%\begin{lemma}
+% %	\label{lem:Wedderburn:unicidad1}
+% %	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial de dimensión finita. 
+% %	Sea $R=\End_D(V)$. Si $M$ y $N$ son $R$-módulos 
+% %	simples y fieles, entonces $M\simeq N$.
+% %\end{lemma}
+% %
+% %\begin{proof}
+% %	Como $R=\End_D(V)\simeq M_n(D)$ es artiniano a izquierda, $R$ contiene un
+% %	ideal a izquierda minimal. Como $M$ es fiel, existe $m\in M$ tal que $Lm\ne
+% %	0$ (si $Lm=0$ para todo $m\in M$, $L\subseteq\Ann_R(M)=0$). Como $Lm$ es un
+% %	submódulo no nulo de $M$ y $M$ es simple, $Lm=M$. La función
+% %	\[
+% %		\theta\colon L\to Lm=M,\quad
+% %		x\mapsto xm
+% %	\]
+% %	es morfismo sobreyectivo. Como $L$ es simple como módulo, por el lema de
+% %	Schur, $\theta$ es inyectivo. Luego $L\simeq M$. Similarmente se demuestra
+% %	que $L\simeq N$.
+% %\end{proof}
+% %
+% %\begin{lemma}
+% %	\label{lem:Wedderburn:unicidad2}
+% %	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial. Sea
+% %	$g\colon V\to V$ un morfismo de grupos abelianos tal que $fg=gf$ para todo
+% %	$f\in\End_D(V)$. Entonces existe $d\in D$ tal que $g(v)=dv$ para todo $v\in
+% %	V$.
+% %\end{lemma}
+% %
+% %\begin{proof}
+% %	Sea $u\in V\setminus\{0\}$. Vamos a demostrar que $\{u,g(u)\}$ es
+% %	linealmente dependiente sobre $D$. Supongamos que $\{u,g(u)\}$ fuera linealmente
+% %	independiente. Entonces $\dim_DV\geq2$. 
+% %	Como $\End_D(V)$ es denso en $V$, existe $f\in\End_D(V)$ tal
+% %	que $f(u)=0$ y $f(g(u))\ne0$. Luego
+% %	\[
+% %		0\ne 0=f(g(u))=g(f(u))=g(0)=0,
+% %	\]
+% %	una contradicción.  Como $\{u,g(u)\}$ es linealmente dependiente sobre $D$,
+% %	existe $d\in D$ tal que $g(u)=du$. Si $v\in V$, por densidad existe
+% %	$h\in\End_D(V)$ tal que $h(u)=v$. Luego
+% %	\[
+% %		g(v)=g(h(u))=h(g(u))=h(du)=dh(u)=dv.
+% %	\]
+% %\end{proof}
+% %
+% %\begin{proposition}
+% %	Para cada $j\in\{1,2\}$ sea $V_j$ un espacio vectorial sobre el anillo de división $D_j$ de dimensión finita $n_j$. 
+% %	Si $\End_{D_1}(V_1)\simeq\End_{D_2}(V_2)$ entonces $n_1=n_2$ y $D_1\simeq D_2$.
+% %%	Sea $V$ es un espacio vectorial sobre el anillo de división $D$ y sea $W$
+% %%	un espacio vectorial sobre el anillo de división $E$. Supongamos que $V$ y
+% %%	$W$ son de dimensión finita. Si $\End_D(V)\simeq\End_E(W)$ entonces
+% %%	$\dim_DV=\dim_EW$ y $D\simeq E$.
+% %\end{proposition}
+% %
+% %\begin{proof}	
+% %	Cada $V_j$ es un $\End_{D_j}(V_j)$-módulo fiel. Sea $R=\End_{D_1}(V_1)$. Como existe un isomorfismo
+% %	$\sigma\colon R\to\End_{D_2}(V_2)$, $V_2$ es un
+% %	$R$-módulo simple y fiel con
+% %	\[
+% %		fv_2=\sigma(f)v_2,\quad
+% %		f\in R,\,v_2\in V_2.
+% %	\]
+% %	Por el lema~\ref{lem:Wedderburn:unicidad1}, existe un isomorfismo
+% %	$\phi\colon V_1\to V_2$ de $R$-módulos; en particular, 
+% %	\[
+% %		\phi(fv_1)=f(\phi(v_1))=(\sigma(f))\phi(v_1)
+% %	\]
+% %	para todo $v_1\in V_1$ y $f\in R$. Luego 
+% %	$\sigma(f)=\phi f\phi^{-1}\colon V_2\to V_2$ es un morfismo de grupos
+% %	abelianos. Para $j\in\{1,2\}$ y $d_j\in D_j$ sea 
+% %	\[
+% %		\gamma_{d_1}\colon V_j\to V_j,\quad x\mapsto d_jx.
+% %	\]
+% %	Como cada $V_j$ es fiel, $\gamma_{d_j}=0$ si y sólo si $d_j=0$. Si $f\in R$ y $d_1\in D_1$ entonces $f\gamma_{d_1}=\gamma_{d_1}f$. Luego
+% %	\[
+% %		(\phi\gamma_{d_1}\phi^{-1})\sigma(f)
+% %		=(\phi\gamma_{d_1}\phi^{-1})(\phi f\phi^{-1})
+% %		=\phi f\gamma_{d_1}\phi^{-1}
+% %		=\sigma(f)\phi\gamma_{d_1}\phi^{-1}.
+% %	\]
+% %	Como $\sigma$ es sobreyectiva, el lema~\ref{lem:Wedderburn:unicidad2} con
+% %	$V=V_2$ y $g=\phi\gamma_{d_1}\phi^{-1}$ implica que existe $d_2\in D_2$ tal
+% %	que $\phi\gamma_{d_1}\phi^{-1}=\gamma_{d_2}$. Sea $\tau\colon D_1\to D_2$,
+% %	$d_1\mapsto d_2$. Entonces $\phi\gamma_{d}\phi^{-1}=\gamma_{\tau(d_2)}$ 
+% %	\framebox{?}
+% %	Además 
+% %	\[
+% %		\phi(d_1v)=\phi\gamma_{d_1}(v)=\gamma_{\¿au(d_1)}\phi(v)=\tau_{d_1}\phi(v)
+% %	\]
+% %	Como $\{u_1,\dots,u_m\}$ es linealmente independiente sobre $D_1$ si y sólo si $\{\phi(u_1),\dots,\phi(u_m)\}$ es linealmente
+% %	independiente sobre $D_2$, se concluye que $\dim_{D_1}(V_1)=\dim_{D_2}(V_2)$. 
+% %\end{proof}
 
-\begin{lemma}
-	\label{lem:simple_izqminimal}
-	Sea $R$ un anillo simple con un ideal a izquierda $L$ minimal. Entonces
-	todo $R$-módulo simple es isomorfo a $L$. 
-\end{lemma}
+% \begin{lemma}
+% 	\label{lem:simple_izqminimal}
+% 	Sea $R$ un anillo simple con un ideal a izquierda $L$ minimal. Entonces
+% 	todo $R$-módulo simple es isomorfo a $L$. 
+% \end{lemma}
 
-\begin{proof}
-	Sea $M$ un módulo simple. Como $LR$ es un ideal de $R$ y el anillo $R$ es
-	simple, $LR=R$.  Como
-	\[
-		0\ne RM=(LR)M=L(RM)\subseteq LM,
-	\]
-	existe $m\in M$ tal que $Lm\ne 0$. Luego $Lm$ es un submódulo no nulo del simple $M$ y entonces
-	$Lm=M$. El morfismo $\gamma\colon L\to M$, $l\mapsto lm$, es sobreyectivo e
-	inyectiva (pues $\ker\gamma$ es un ideal a izquierda propiamente
-	contenido en $L$). Luego $L\simeq M$. 
-\end{proof}
+% \begin{proof}
+% 	Sea $M$ un módulo simple. Como $LR$ es un ideal de $R$ y el anillo $R$ es
+% 	simple, $LR=R$.  Como
+% 	\[
+% 		0\ne RM=(LR)M=L(RM)\subseteq LM,
+% 	\]
+% 	existe $m\in M$ tal que $Lm\ne 0$. Luego $Lm$ es un submódulo no nulo del simple $M$ y entonces
+% 	$Lm=M$. El morfismo $\gamma\colon L\to M$, $l\mapsto lm$, es sobreyectivo e
+% 	inyectiva (pues $\ker\gamma$ es un ideal a izquierda propiamente
+% 	contenido en $L$). Luego $L\simeq M$. 
+% \end{proof}
 
-\begin{theorem}
-	Si $D$ y $E$ son anillos de división tales que Si $M_n(D)\simeq M_m(E)$
-	entonces $n=m$ y $D\simeq E$.
-\end{theorem}
+% \begin{theorem}
+% 	Si $D$ y $E$ son anillos de división tales que Si $M_n(D)\simeq M_m(E)$
+% 	entonces $n=m$ y $D\simeq E$.
+% \end{theorem}
 
-\begin{proof}
-	Como $M_n(D)$ es artiniano a izquierda, existe 
-	un ideal a izquierda $L$ minimal. Como
-	$D^{n}\simeq E^{m}\simeq L$ como $M_n(D)$-módulos (ver ejemplo~\ref{exa:I_k}), 
-	el lema~\ref{lem:simple_izqminimal} implica que
-	\begin{align*}
-		D^{\op}\simeq\End_{M_n(D)}(D^{n})\simeq\End_{M_n(D)}(L)\simeq\End_{M_m(E)}(L)\simeq\End_{M_m(E)}(E^{m})\simeq E^{\op}.
-	\end{align*}
-	Luego $D\simeq E$ y entonces $n=m$ pues $\dim M_n(D)=\dim M_m(E)$.
-\end{proof}
+% \begin{proof}
+% 	Como $M_n(D)$ es artiniano a izquierda, existe 
+% 	un ideal a izquierda $L$ minimal. Como
+% 	$D^{n}\simeq E^{m}\simeq L$ como $M_n(D)$-módulos (ver ejemplo~\ref{exa:I_k}), 
+% 	el lema~\ref{lem:simple_izqminimal} implica que
+% 	\begin{align*}
+% 		D^{\op}\simeq\End_{M_n(D)}(D^{n})\simeq\End_{M_n(D)}(L)\simeq\End_{M_m(E)}(L)\simeq\End_{M_m(E)}(E^{m})\simeq E^{\op}.
+% 	\end{align*}
+% 	Luego $D\simeq E$ y entonces $n=m$ pues $\dim M_n(D)=\dim M_m(E)$.
+% \end{proof}
 
 
