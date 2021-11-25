@@ -3,8 +3,9 @@
 \topic{Herstein's theorem}
 
 Our aim now is to answer the following question: When
-a group algebra is algebraic? 
-A partial answer is given by Herstein's theorem. 
+a group algebra is algebraic? Herstein's theorem provides
+a solution in the case of fields of characteristic zero. In prime characteristic
+the problem is still open. 
 
 \begin{definition}
 \index{Group!locally finite}
@@ -28,15 +29,25 @@ the subgroup $\langle g\rangle$ is finite because it is finitely generated.
 	Let $p$ be a prime number. 
 	The \textbf{Pr\"ufer's group}  
 	\[
-		\Z(p^{\infty})=\{z\in\C:z^{p^n}=1\text{ para algún $n\in\Z_{>0}$}\}, 
+		\Z(p^{\infty})=\{z\in\C:z^{p^n}=1\text{ for some $n\in\Z_{>0}$}\}, 
 	\]
-	formed by of all $p$-roots of one, is locally finite. 
+	is locally finite. 
 \end{example}
 
 \begin{example}
 	Let $X$ be an infinite set and $\Sym_X$ be the set of bijective maps $X\to
 	X$ moving only finitely many elements of $X$. Then 
 	$\Sym_X$ is locally finite.
+\end{example}
+
+\index{Group!torsion}
+A group $G$ is a \textbf{torsion} group if every element of $G$
+has finite order. Locally finite groups are torsion groups. 
+
+\begin{example}
+    Abelian torsion groups are locally finite. Let $G$ be a locally finite abelian group 
+    and $H$ be a finitely generated subgroup. Since $G$ is an abelian torsion group, so is $H$. Thus
+    $H$ is finite by the structure theorem of abelian groups. 
 \end{example}
 
 \begin{proposition}
@@ -65,7 +76,7 @@ the subgroup $\langle g\rangle$ is finite because it is finitely generated.
 \end{proof}
 
 \index{Group!solvable}
-Recall that a group $G$ is
+A group $G$ is
 \textbf{solvable} if there exists a sequence
 of subgroups 
 \begin{equation}
@@ -75,9 +86,27 @@ of subgroups
 where each $G_i$ is normal in $G_{i+1}$ and each 
 quotient $G_i/G_{i-1}$ is
 abelian.
-\index{Group!torsion}
-A group $G$ is a \textbf{torsion} group if every element of $G$
-has finite order. 
+
+\begin{example}
+    Abelian groups are solvable. 
+\end{example}
+
+Subgroups and quotients of solvable groups are solvable. 
+
+\begin{example}
+    Groups of order $<60$ are solvable.
+\end{example}
+
+\begin{example}
+    $\Alt_5$ and $\Sym_5$ are not solvable. 
+\end{example}
+
+\index{Burnside's theorem}
+\index{Feit--Thompson's theorem}
+A famous theorem of Burnside states that 
+groups of order $p^aq^b$ for prime numbers $p$ and $q$ are solvable 
+A much harder theorem proved by Feit and Thompson states that
+groups of odd order are solvable.
 
 \begin{proposition}
 	If $G$ is a solvable torsion group, 
@@ -87,10 +116,11 @@ has finite order.
 \begin{proof}
 	We proceed by induction on $n$, the length of the sequence~\eqref{eq:resoluble}. 
 	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
-	Now assume the result holds for group with resolubility length $n-1$ and let
-	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. By the inductive hypothesis, 
-	the normal subgroup $G_{n-1}$ of $G$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
-	it is locally finite, the result now follows from Proposition \ref{pro:exact_LI}.
+	Now assume the result holds for solvable groups of length $n-1$ and let
+	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. Since $G_{n-1}$ is 
+	a solvable torsion group, the inductive hypothesis implies that 
+	$G_{n-1}$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
+	it is locally finite. The result now follows from Proposition \ref{pro:exact_LI}.
 \end{proof}
 
 We now prove Herstein's theorem.
@@ -111,18 +141,32 @@ We now prove Herstein's theorem.
 
 	Let $\{x_1,\dots,x_m\}$ be a finite subset of $G$. Adding inverses if needed,
 	we may assume that $\{x_1,\dots,x_m\}$ generates the subgroup 
-	$H=\langle x_1,\dots,x_m\rangle$ as a semigroup. If
-	$\alpha=x_1+\dots+x_m\in K[G]$, then, since $\alpha$ is algebraic over $K$, 
+	$H=\langle x_1,\dots,x_m\rangle$ as a semigroup. Let 
+	\[
+	\alpha=x_1+\dots+x_m\in K[G].
+	\]
+	Since $\alpha$ is algebraic over $K$, 
+	there exist $b_0,b_1,\dots,b_{n+1}\in K$ such that 
+	\[
+	b_0+b_1\alpha+\cdots+b_{n+1}\alpha^{n+1}=0,
+	\]
+	where $b_{n+1}\ne 0$. Rewrite this as 
 	\[
 		\alpha^{n+1}=a_0+a_1\alpha+\cdots+a_n\alpha^n
 	\]
-	for some $n\geq0$ and $a_0,\dots,x_n\in K$. Let $w=x_{i_1}\cdots
-	x_{i_{n+1}}\in H$ be a word of length $n+1$. There exist positive integers 
-	$c_{i_1\cdots i_m}$ such that 
+	for some $a_0,\dots,x_n\in K$. Let $w=x_{i_1}\cdots
+	x_{i_{n+1}}\in H$ be a word of length $n+1$. 
+	Note that 
 	\[
-		\alpha^{n+1}=(x_1+\cdots+x_m)^{n+1}
-		=\sum_{\substack{{i_1+\cdots+i_m=n+1}\\{\text{$i_j$ positive integers}}}} c_{i_1\cdots i_m}x_1^{i_1}\cdots x_{m}^{i_m}.
+		\alpha^{k}=(x_1+\cdots+x_m)^{k}
+		=\sum x_{i_1}\cdots x_{i_{k}}
 	\]
+	for all $k$. 
+	Two words $x_{i_1}\cdots x_{i_{k}}$ and 
+	$x_{j_1}\cdots x_{j_{k}}$ could represent the same element of the group $H$. In this case, 
+	the coefficient of $x_{i_1}\cdots x_{i_{k}}=x_{j_1}\cdots x_{j_{k}}$ 
+	in $\alpha^{k}$ will be a positive integer $\geq2$.  
+	
 	Since $K$
 	is of characteristic zero, it follows that $w\in\supp(\alpha^{n+1})$. Since, moreover,  
 	$\alpha^{n+1}=\sum_{j=0}^na_j\alpha^j$, it follows that 
@@ -130,7 +174,6 @@ We now prove Herstein's theorem.
 	word in the letters $x_j$ of length $n+1$ can be written as a word in the letters $x_j$ of 
 	length $\leq n$. Therefore $H$ is finite and hence $G$ is locally finite. 
 \end{proof}
-
 
 \topic{Formanek's theorem, I}
 
@@ -170,7 +213,7 @@ We now prove Herstein's theorem.
 	\[
 		\alpha=\frac{1}{2n}(x_1+\cdots+x_n)\in\Q[G]
 	\]
-
+    Note that $|\alpha|\leq 1/2$. 
 	We claim that $1-\alpha\in\Q[G]$ is invertible. If not, then it is a zero divisor. If there exists 
 	$\delta\in\Q[G]$ such that $\delta(1-\alpha)=0$, then 
 	$\delta=\delta\alpha$. Since  
@@ -180,7 +223,7 @@ We now prove Herstein's theorem.
 	it follows that $\delta=0$. Similarly, $(1-\alpha)\delta=0$ implies
 	$\delta=0$. 
 	
-	Let $\beta=(1-\alpha)^{-1}\in\Q[G]$.  For each$k$ let  
+	Let $\beta=(1-\alpha)^{-1}\in\Q[G]$.  For each $k$ let  
 	\[
 		\gamma_k=(1+\alpha+\cdots+\alpha^k)-\beta.
 	\]
@@ -192,11 +235,12 @@ We now prove Herstein's theorem.
 	and thus  
 	$\gamma_k=-\alpha^{k+1}\beta$. Since  
 	\[
-		|\gamma_k|=|-\alpha^{k+1}\beta|\leq|\beta||\alpha^{k+1}|=\frac{|\beta|}{2^{k+1}},
+		|\gamma_k|=|-\alpha^{k+1}\beta|\leq|\beta||\alpha^{k+1}|\leq\frac{|\beta|}{2^{k+1}},
 	\]
 	it follows that $\lim_{k\to\infty}|\gamma_k|=0$. 
 
-	We now prove that $H\subseteq\supp\beta$. If
+	We now prove that $H\subseteq\supp\beta$. This will finish the proof of the theorem, 
+	as $\supp\beta$ is a finite subset of $G$ by definition. If
 	$H\not\subseteq\supp\beta$, let $h\in H\setminus\supp\beta$.  Assume that 
     $h=x_{i_1}\cdots x_{i_m}$ is a word in the letters $x_j$ of length $m$. Let 
     $c_j$ be the coefficient of $h$ in $\alpha^j$. Then $c_0+\cdots+c_k$ is the 
@@ -208,7 +252,7 @@ We now prove Herstein's theorem.
 	$|\gamma_k|\to 0$ si $k\to\infty$.
 \end{proof}
 
-\topic{Formanek's theorem, II}
+\topic{Tensor products}
 
 The \textbf{tensor product} of the vector spaces (over $K$) $U$ and $V$ 
 is the quotient vector space $K[U\times V]/T$, where $K[U\times V]$ 
@@ -543,10 +587,16 @@ are examples of a procedure known as \textbf{scalar extensions}.
 
 \begin{exercise}
 	Prove that if $G$ is a group and $K$ is a subfield of $E$, then
-	$E\otimes_K K[G]\simeq E[G]$.
+	\[
+	E\otimes_K K[G]\simeq E[G].
+	\]
 \end{exercise}
 
-Now we prove Formanek's theorem:
+\topic{Formanek's theorem, II}
+
+The combination of technique known as extensions of scalars we have seen in the previous section
+and Formanek's theorem for rational group algebras 
+yield the following general result. 
 
 \begin{theorem}[Formanek]
 	\index{Formanek's theorem}
