@@ -1,162 +1,473 @@
 \chapter{}
 
+\topic{Rickart's theorem}
 
-\index{Anillo!booleano}
-Un anillo $R$ se dice booleano si $x^2=x$ para todo $x\in R$. Veamos que todo
-anillo booleano $R$ es conmutativo.  Como $1=(-1)^2=-1$, $R$ tiene
-característica dos. Sean $x,y\in R$. De $x+y=(x+y)^2=x^2+xy+yx+y^2$ obtenemos
-que $0=xy+yx$. Como la característica de $R$ es dos, se concluye que $xy=yx$.
+Let $K$ be a field and $G$ be a group. The \textbf{group algebra} $K[G]$ 
+is the vector space (over $K$) with basis $\{g:g\in G\}$ 
+and the algebra structure given by the multiplication
+\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+\]
+Note that every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 
-\medskip
-Es natural preguntarse si este resultado puede extenderse a otros exponentes.
-Demostraremos a continuación  que los anillos tales que $x^3=x$ para todo $x\in
-R$ son conmutativos.
+\begin{exercise}
+\label{xc:K[G]notsimple}
+    If $G$ is non-trivial, then $K[G]$ is not simple. 
+\end{exercise}
 
-\begin{definition}
-	\index{Anillo!reducido}
-	Diremos que un anillo $R$ es \textbf{reducido} si $x^2=0$ implica que $x=0$. 
-\end{definition}
+\begin{exercise}
+	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
+	$K[G]\simeq K[X]/(X^n-1)$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
+	$K[G]$ is a domain. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. left zero divisor) in
+	$K[G]$.
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
+	The \textbf{support} of $\alpha$ is the set 
+	\[
+		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
+	\]
+	Prove that if $g\in G$, then 
+	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
+\end{exercise}
+
+% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
+% grupo de un grupo finito. Comenzamos con un ejemplo:
+
+\begin{exercise}
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
+	group with two elements. Note that every element of $K[G]$ is of the form
+	$a1+bg$ for some $a,b\in K$. Prove the following statements:
+	\begin{enumerate}
+	    \item If the characteristic of $K$ is different from two, then 
+	    \[
+		K[G]\to K\times K,
+		\quad
+		a1+bg\mapsto (a+b,a-b),
+	\]
+	is an algebra isomorhism. 
+	\item If the characteristic of $K$ is two, then 
+	\[
+	K[G]\to \begin{pmatrix}
+			K & K\\
+			0 & K
+		\end{pmatrix},
+		\quad
+		a1+bg\mapsto\begin{pmatrix}
+			a+b & b\\
+			0 & a+b
+		\end{pmatrix},
+	\]
+	is an algebra isomorphism. 
+	\end{enumerate}
+\end{exercise}
+
+If $A$ is an algebra over $K$ and $\rho\colon G\to \mathcal{U}(A)$
+is a group homomorphism, where $\mathcal{U}(A)$ is the group of units of $A$, then 
+the map \[
+	K[G]\to A,\quad 
+\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g),
+\]
+is an algebra homomorphism. 
+
+\begin{exercise}
+	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
+	$\R[G]\simeq\R\times\C$.
+% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
+% 	\[
+% 		\varphi\colon\R[G]\to\R\times\C,
+% 		\quad
+% 		g\mapsto (1,\omega),
+% 	\]
+% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
+% 	$\varphi$ es inyectivo pues
+% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
+% 	Luego $\varphi$ es un isomorfismo pues
+% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
+	Prove the following statements:
+	\begin{enumerate}
+	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
+	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
+	\end{enumerate}  
+% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
+% 	\[
+% 		R=\begin{pmatrix}
+% 			\omega & 0\\
+% 			0 & \omega^2
+% 		\end{pmatrix},
+% 		\quad
+% 		S=\begin{pmatrix}
+% 			0 & 1\\
+% 			1 & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
+% 	\[
+% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
+% 		r\mapsto (1,1,R),\quad
+% 		s\mapsto (1,-1,S).
+% 	\]
+% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
+% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
+% 	basta ver que $\varphi$ es inyectivo. Si 
+% 	\[
+% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
+% 	\]
+% 	entonces 
+% 	\[
+% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
+% 	\]
+% 	donde
+% 	\begin{align*}
+% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
+% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
+% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
+% 	\end{align*}
+% 	Un cálculo sencillo muestra que estas ecuaciones implican que
+% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
+\end{exercise}
+
+We now consider the following problem. It is known as Jacobson's semisimplicity problem. 
+
+\begin{openproblem}
+\label{Jacobson's semisimplicity problem}
+Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
+\end{openproblem}
+
+As an application of Amitsur's theorem we prove that 
+complex group algebras have null Jacobson radical.
+This is known as 
+Rickart's theorem. The original proof found by Rickart 
+uses complex analysis. Here, however, 
+we present an algebraic proof. 
+
+
+\begin{theorem}[Rickart]
+\index{Rickart's theorem}
+\label{thm:Rickart}
+    Let $G$ be a group. Then $J(\C[G])=\{0\}$.
+\end{theorem}
+
+To prove the theorem we need a lemma.
 
 \begin{lemma}
-	\label{lem:reducido}
-	Todo idempotente de un anillo reducido es central.
+Let $G$ be a group. Then $J(\C[G])$ is nil.        
 \end{lemma}
 
 \begin{proof}
-	Sea $e\in R$ tal que $e^2=e$ y sea $x\in R$. Como
-	\[
-	(ex-exe)^2=exex-exexe-exex+exexe=0
-	\]
-	y el anillo $R$ es reducido, $ex=exe$. 
-	Similarmente la igualdad 
-	$(xe-exe)^2=0$ implica que $xe=exe$. Luego $ex=exe=xe$ para todo $x\in R$.
+    We need to show that every element of $J(\C[G])$ is nilpotent. 
+    If $G$ is countable, then the result follows from Amitsur's theorem. So assume that 
+    $G$ is not countable. Let $\alpha\in J(\C[G])$, say
+    \[
+    \alpha=\sum_{i=1}^n\lambda_ig_i,
+    \]
+    where $\lambda_1,\dots,\lambda_n\in\C$ and $g_1,\dots,g_n\in G$. Let $H=\langle g_1,\dots,g_n\rangle$.
+    Then $\alpha\in \C[H]$ and $H$ is countable. We claim that $\alpha\in J(\C[H])$. Decompose
+    $G$ as a disjoint union 
+    \[
+    G=\bigcup_\lambda x_\lambda H
+    \]
+    of cosets of $H$ in $G$. Then $\C[G]=\bigoplus_\lambda x_\lambda\C[H]$ and
+    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$ (this follows
+    from the fact that one of the cosets is that of $H$). Since $\alpha\in J(\C[G])$, for each 
+    $\beta\in\C[H]$ there exists $\gamma\in\C[G]$ such that 
+    $\gamma(1-\beta\alpha)=1$. Write $\gamma=\gamma_1+\kappa$ for $\gamma_1\in\C[H]$ and $\kappa\in K$. Then
+    \[
+    1=\gamma(1-\beta\alpha)=\gamma_1(1-\beta\alpha)+\kappa(1-\beta\alpha)
+    \]
+    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$, as $\beta\in\mathbb{C}[H]$. 
+    Since $1=\gamma_1(1-\beta\alpha)$, it follows that
+    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem.  
 \end{proof}
 
-\begin{theorem}[Andrnakievich--Ryabukhin]
-	Sea $R$ un anillo no nulo es reducido si y sólo si $R$ es producto
-	subdirecto de dominios.
-\end{theorem}
+We now prove the theorem. 
 
-\begin{proof}
-	Supongamos que $R$ es reducido.\framebox{?}
-
-	Supongamos ahora que $R$ es producto subdirecto de la familia $\{R_i:i\in I\}$ de dominios. Sea 
-	$f\colon R\to \prod_{i\in I}R_i$, $f(x)=(x_i)_{i\in I}$, el morfismo inyectivo. 
-	Si $x\in R$ es tal que $x^2=0$ entonces 
-	\[
-		(0)_{i\in I}=f(0)=f(x^2)=f(x)^2=(x_i^2)_{i\in I}
-	\]
-	y luego, como cada $R_i$ es un dominio, se concluye que $x_i=0$ para todo
-	$i\in I$.
+\begin{proof}[Proof of Theorem \ref{thm:Rickart}]
+    For $\alpha=\sum_{i=1}^n\lambda_ig_i\in\C[G]$ let 
+    \[
+    \alpha^*=\sum_{i=1}^n\overline{\lambda_i}g_i^{-1}.
+    \]
+    Then $\alpha\alpha^*=0$ if and only if $\alpha=0$ and, moreover, 
+    $(\alpha\beta)^*=\beta^*\alpha^*$ for all $\beta\in\C[G]$. 
+    Assume that $J(\C[G])\ne\{0\}$ and let $\alpha\in J(\C[G])\setminus\{0\}$. Then
+    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, the previous 
+    lemma implies that $\beta$ is nilpotent. Note that $\beta\ne 0$, as $\alpha\ne0$. Now  
+    \[
+    (\beta^m)^*=(\beta^*)^m=\beta^m
+    \]
+    for all $m\geq1$. If there exists $k\geq2$ such that $\beta^k=0$ and $\beta^{k-1}\ne 0$, then
+    \[
+    \beta^{k-1}\left(\beta^{k-1}\right)^*=\beta^{2k-2}=0
+    \]
+    and hence $\beta^{k-1}=0$, a contradiction. Thus $\beta=0$ and therefore $\alpha=0$. 
 \end{proof}
+
+\begin{exercise}
+	If $G$ is a group, then $J(\R[G])=0$. 
+\end{exercise}
+
+% To obtain a consequence of Rickart's theorem we need two lemmas. 
+
+% \begin{lemma}[Nakayama]
+% 	\label{lem:Nakayama}
+% 	\index{Nakayama's lemma}
+% 	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
+% 	$J(R)\cdot M=M$, then $M=\{0\}$.
+% \end{lemma}
+
+% \begin{proof}
+%     Since $M$ is finitely generated, we may assume that 
+% 	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
+% 	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+% 	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+% 	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
+% 	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+% 	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
+% 	one obtains $M=\{0\}$.
+% \end{proof}
+
+% \begin{lemma}
+% 	\label{lem:Rickart}
+% 	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
+% 	\[
+% 	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+% 	\]
+% 	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
+% 	$\iota(J(R))\subseteq J(S)$.
+% \end{lemma}
+
+% \begin{proof}
+% 	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+% 	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
+% 	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
+% 	\[
+% 		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
+% 	\]
+% 	it follows that 
+% 	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
+% 	\[
+% 	J(R)\cdot
+% 	M=J\cdot M=\iota(J)\cdot M
+% 	\]
+% 	is an $S$-submodule of $M$, as 
+% 	\[
+% 		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
+% 	\]
+% 	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
+% 	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
+% \end{proof}
+
+% We now obtain the following consequence of Rickart's theorem. 
+
+% \begin{theorem}
+% 	If $G$ is a group, then $J(\R[G])=0$. 
+% \end{theorem}
+
+% \begin{proof}
+% 	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+% 	\[
+% 	\C[G]=\R[G]+i\R[G],
+% 	\]
+% 	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
+% 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
+% \end{proof}
+
+We now characterize when complex group algebras 
+are left artinian. For that purpose
+we need a lemma. This is similar to one of the implications proved in Proposition \ref{pro:semisimple}. However,
+in the arbitrary setting we are considering, we need to use Zorn's lemma. 
+
+\begin{lemma}
+    Let $M$ be a semisimple module and $N$ be a submodule. 
+    Then $N$ is a direct summand.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+    Let $M=\oplus_{i\in I}M_i$ be a direct sum of simple modules  
+    and let $i\in I$. 
+    Since $N\cap M_i$ is a submodule of $M_i$ and $M_i$ is simple, it follows
+    that $N\cap M_i=\{0\}$ or $N\cap M_i=M_i$. If
+    $N\cap M_i=M_i$ for all $i\in I$, then $N=M$ and the lemma is proved. So we may assume
+    that there exists $i\in I$ such that $N\cap M_i=\{0\}$. Let $X$ be the set
+    of subsets $J$ of $I$ such that $N\cap (\oplus_{j\in J}M_j)=\{0\}$. Our assumptions
+    imply that $X$ is non-empty. Zorn's lemma implies the existence of 
+    a maximal element $K$. Let $N_1=\oplus_{k\in K}M_k$. We claim that
+    $N\oplus N_1=M$. If not, there exists $i\in I$ such that
+    $M_i\not\subseteq N\oplus N_1$. The simplicity of $M_i$ implies that
+    $M_i\cap (N\cap N_1)=\{0\}$, which contradicts the maximality of $K$. 
+\end{proof}
+
+A direct application of the lemma proves that
+complex group algebras of infinite groups are never semisimple. 
 
 \begin{proposition}
-	Sea $R$ un anillo tal que $x^3=x$ para todo $x\in R$. Entonces $R$ es
-	conmutativo.
+    \label{pro:KGsemisimple}
+    If $G$ is an infinite group, then $\C[G]$ is not semisimple. 
 \end{proposition}
 
 \begin{proof}
-	El anillo $R$ es reducido pues si $x^2=0$ entonces $x=x^3=0$.  Como en $R$
-	todo cuadrado es idempotente (pues $x^2=x^4=(x^2)^2$ para todo $x\in R$),
-	el lema~\ref{lem:reducido} implica que todo cuadrado es central. 
-	Si $x\in R$, entonces 
-	$2x=(x^2+x)-2x^2$ 
-	es central. Como además 
+	Assume that $R=\C[G]$ is semisimple.  Let $I$ 
+	be the augmentation ideal of $R$, that is
 	\[
-		1+x=(1+x)^3=1+3x+3x^2+x,
+	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
 	\]
-	se tiene que $3x=-3x^2$ es un elemento central. Luego $x=3x-2x$ es central.
-\end{proof}
-
-\begin{proposition}
-	Sea $R$ un anillo tal que $x^4=x$ para todo $x\in R$. Entonces $R$ es conmutativo.
-\end{proposition}
-
-\begin{proof}
-	El anillo $R$ es reducido pues si $x^2=0$ entonces $x=x^4=0$.  Como
-	$x=x^4=(-x)^4=-x$ para todo $x\in R$, el anillo $R$ tiene característica
-	dos. Todo elemento de la forma $z^2+z$ es idempotente pues
-	$(z^2+z)^2=z^4+2z^3+z^2=z^2+z$. Luego, por el 
-	lema~\ref{lem:reducido}, todo elemento de la forma $z^2+z$ es central. Si $x,y\in R$, entonces 
+	By the previous lemma, 
+	there exists exists a non-zero ideal $J$ such that 
+	$R=I\oplus J$. Since $R$ is unitary, there exist $e\in I$ and $f\in J$ such that
+	$1=e+f$. If
+	$x\in I$, then $x=xe+xf$ and hence $xf=x-xe\in I\cap J=\{0\}$. Since 
+	$x=xe$ for all $x\in I$, it follows that $e=e^2$. Similarly one proves
+	that $f^2=f$. Moreover, $ef=0$, as $ef\in I\cap J=\{0\}$.  Since $I$ 
+	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$, we conclude that
+	$(g-1)f=0$
+	for all $g\in G$, as $g-1\in I$. If $f=\sum_{h\in
+	G}\lambda_hh$ (finite sum), then  
 	\[
-		x^2y+yx^2=(x^2+y)^2-(x^2+y)-(x^2+x)-(y^2+y)
+	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+	G}\lambda_{g^{-1}h}h.
 	\]
-	es central. Como entonces $x^2(x^2y+yx^2)=(x^2y+yx^2)x^2$, se concluye que $xy=yx$.
+	Thus $\lambda_h=\lambda_{g^{-1}h}$ for all $g,h\in G$. Since $G$ 
+	is infinite, some $\lambda_g=0$ and hence $f=0$. Thus $e=1$ and $I=\C[G]$, a contradiction. 
+% 	If $f=0$, then $e=1$ and $I=\C[G]$, a contradiction.  
+% 	, a contradiction because 
+% 	$f\ne 0$ implies that the sum that defines $f$ should be an infinite sum.
 \end{proof}
 
-Parece difícil poder extender los resultados anteriores a otros exponentes. Antes 
-de enunciar y demostrar un teorema de Jacobson que generaliza los resultados mencionados, necesitamos
-dos lemas:
+% The ideal $I(G)$ used in the proof of the previous proposition 
+% is known as the \textbf{augmentation ideal} 
+% of $\C[G]$.
 
-\begin{lemma}
-	\label{lem:k_finito}
-	Si $k$ es un cuerpo finito de característica $p>0$, entonces existe
-	$n\in\Z_{>0}$ tal que $|k|=p^n$ y $x^{p^n}=x$ para todo $x\in k$. Más aún, si
-	$k\setminus\{0\}=\{x_1,\dots,x_{p^n-1}\}$, entonces
-	$X^{p^n}-X=(X-x_1)\cdots(X-x_{p^n-1})X$. 
-\end{lemma}
-
-\begin{proof}
-	El cuerpo $k$ es un $\Z/p$ espacio vectorial. Si $\dim{\Z/p} k=n$, entonces 
-	$k$ tiene $p^n$ elementos. Luego, con la multiplicación, $k\setminus\{0\}$ es un grupo de $p^{n}-1$ elementos y entonces 
-	$x^{p^n-1}=1$ para todo $x\in k\setminus\{0\}$. Esto implica que $x^{p^n}=x$ para todo $x\in k$ y luego 
-	todo $x\in k$ es raíz del polinomio $X^{p^n}-X$ de grado $p^n$. 
-\end{proof}
-
-Recordemos si $R$ es un anillo, para cada $r\in R$ la función $\ad{r}\colon
-R\to R$, $x\mapsto rx-xr$, es una derivación. Es fácil demostrar por inducción que 
-\begin{equation}
-	\label{eq:Leibniz}
-	(\ad{r})^n(x)=\sum_{k=0}^n(-1)^k\binom{n}{k}r^{n-k}xr^k
-\end{equation}
-para todo $x\in R$ y todo $n\in\N$. 
-
-\begin{lemma}
-	\label{lem:Jacobson}
-	Sean $p$ un primo, 
-	$R$ un anillo de característica $p$ y $r\in R$. 
-	Entonces $(\ad{r})^{p^n}=\ad{r^{p^n}}$. 
-\end{lemma}
-
-\begin{proof}
-	Procederemos por inducción en $n$. Supongamos que $n=1$. Si $k\in\{1,\dots,p-1\}$, entonces 
-	$p$ no divide a $k!(p-k)!$ y luego $p$ divide a $\binom{p}{k}$. La igualdad~\eqref{eq:Leibniz} se
-	transforma entonces en\dots
-\end{proof}
-
-El siguiente teorema de Jacobson generaliza los resultados mencionados al
-principio del capítulo.
-
-\begin{theorem}[Jacobson]
-	Si $R$ es un anillo tal que para cada $x\in R$ existe $n(x)\geq2$ tal que
-	$x^{n(x)}=x$, entonces $R$ es conmutativo. 
+\begin{theorem}
+	Let $G$ be a group. Then $\C[G]$ 
+	is left artinian if and only if 
+	$G$ is finite. 
 \end{theorem}
 
 \begin{proof}
-	Primero vamos a demostrar que $J(R)=0$. Si $x\in J(R)$ entonces
-	$-x^{n(x)-1}\in J(R)$. Existe entonces $y\in R$ tal que
-	$-x^{n(x)-1}+y-x^{n(x)-1}y=0$. Al multiplicar a izquierda por $x$ se
-	obtiene que $x=0$.
-
-	Sabemos que $R$ es semiprimo? y podemos suponer que $R\ne0$. Existen
-	entonces un conjunto de ideales primitivos $\{P_i:i\in I\}$ tales que
-	$\cap_{i\in I}P_i=\{0\}$. Como $R$ es producto subdirecto de anillos primitivos 
-	(teorema~\ref{thm:subdirecto}) y $R$ es conmmutativo si y sólo si cada
-	$R/P_i$ es conmutativo. Como cada $R/P_i$ satisface las hipótesis del
-	teorema, podemos suponer que $R$ es primitivo.
-
-	Por el teorema de densidad de Jacobson, $R$ es denso en un $D$-espacio
-	vectorial $D$.  Vamos a demostrar que $\dim_DV=1$. Si existen $v_1,v_2\in
-	V$ linealmente independientes, por densidad existe $f\in R$ tal que
-	$f(v_1)=v_2$ y $f(v_2)=0$.  Luego $f^n(v_1)=0$ para todo $n\geq2$ y
-	$f(v_1)\ne 0$, una contradicción pues $f^n=f$ por hipótesis. Luego
-	$\dim_DV=1$ y entonces $R\simeq D^{\op}$. 
-
-	Supongamos ahora que $D$ no es conmutativo y sea $a\in D\setminus Z(D)$.
-	Como $D$ tiene característica finita (pues por ejemplo $2^n=2$) el
-	subanillo $A$ generado por $a$ es finito. Luego $A$ es un cuerpo finito,
-	digamos de cardinal $p^n$ para algún primo $p$ y algún $n\in\N$. Por el
-	lema~\ref{lem:k_finito}, $a^{p^n}=a$. Como $D$ es un $A$-espacio vectorial
-	y $\delta=\ad a$ es $A$-lineal, $\delta\in\End_AD$\dots 
+    If $G$ is finite, then $\C[G]$ is left artinian because $\dim\C[G]=|G|<\infty$. So assume that 
+    $G$ is infinite. By Rickart's theorem,   
+	$J(\C[G])=0$. Moreover, $\C[G]$
+	is not semisimple by the previous proposition. Thus
+	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
 \end{proof}
+
+\topic{Maschke's theorem}
+
+We now present another instance of the Jacobson semisimplicity problem.
+In this case, our result is for finite groups. 
+
+\begin{theorem}[Maschke]
+\index{Maschke's theorem}
+	Let $G$ be a finite group. Then $J(K[G])=0$ if and only 
+	if the characteristic of $K$ is zero 
+	or does not divide the order of $G$. 
+\end{theorem}
+
+\begin{proof}
+	Assume that $G=\{g_1,\dots,g_n\}$, where $g_1=1$. Let 
+	\[
+	\rho\colon K[G]\to K,
+	\quad
+	\alpha\mapsto\trace(L_{\alpha}),
+	\]
+	where 
+	$L_{\alpha}(\beta)=\alpha\beta$. Then 
+	\[
+	\rho(g_i)=\begin{cases}
+	    n & \text{if $i=1$,}\\
+	    0 & \text{if $2\leq i\leq n$},
+	\end{cases}
+	\]
+	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, the matrix of 
+	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal. 
+
+	Assume that $J=J(K[G])$ is non-zero and let 
+	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Without loss of generality
+	we may assume that $\lambda_1\ne 0$ (if $\lambda_1=0$ there exists some 
+	$\lambda_i\ne 0$ and we need to take $g_i^{-1}\alpha\in J$). Then 
+	\[
+		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
+	\]
+	Since $G$ is finite, $K[G]$ is a finite-dimensional algebra and hence 
+	$K[G]$ is left artinian. Since $J$ is a nilpotent ideal, 
+	in particular, $\alpha$ is a nilpotent element. Then 
+	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
+	the characteristic of the field $K$ divides $n$. 
+
+	Conversely, let $K$ be a field of prime characteristic and that this primes divides 
+	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
+	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
+	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
+	\[
+		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0
+	\]
+	in the field $K$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
+	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
+\end{proof}
+
+Since the Jacobson radical of a group algebra of a finite group contains 
+every nil left ideal, the following consequence of the theorem follows immediately:
+
+\begin{corollary}
+	\label{cor:GfinitoNOnil}
+	Let $G$ be a finite group. Then $K[G]$ does not contain non-zero nil left ideals. 
+\end{corollary}
+
+
+% \begin{proof}
+% 	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
+% 	todo ideal a izquierda nil.	
+% \end{proof}
+
+%\index{Anillo!semisimple}
+%Recordemos que un anillo unitario $R$ se dice \textbf{semisimple} si para cada
+%ideal $I$ de $R$ existe un ideal $J$ de $R$ tal que $R=I\oplus J$.
+%
+%%\begin{corollary}
+%%	Sea $G$ un grupo finito y $K$ un cuerpo de característica coprima con el
+%%	orden de $G$. Entonces $K[G]$ es semisimple.
+%%\end{corollary}
+%%
+%%\begin{proof}
+%%	
+%%\end{proof}
+%
+%\begin{theorem}
+%	Si $G$ es un grupo infinito, entonces $K[G]$ nunca es semisimple.
+%\end{theorem}
+%
+%\begin{proof}
+%	Sea $R=K[G]$ y supongamos que $R$ es semisimple.  Si $I$ es el ideal de
+%	aumentación de $R$, existe un ideal no nulo $J$ de $R$ tal que $R=I\oplus
+%	J$. Como $R$ es unitario, existen $e\in I$, $f\in J$ tales que $1=e+f$. Si
+%	$x\in I$, entonces $x=xe+xf$ y luego $xf=x-xe\in I\cap J=\{0\}$. Como
+%	entonces $x=xe$ para todo $x\in I$, en particular $e_1=e_1^2$. Análogamente
+%	vemos que $e_2^2=e_2$. Además $ef=0$ pues $ef\in I\cap J=\{0\}$.  Como $I$
+%	es el ideal de aumentación y $If=(Re)f=R(ef)=0$, se concluye que $(g-1)f=0$
+%	para todo $g\in G$ pues $g-1\in I$. Si suponemos que $f=\sum_{h\in
+%	G}\lambda_hh$, entonces 
+%	\[
+%	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+%	G}\lambda_{g^{-1}h}h.
+%	\]
+%	Luego $\lambda_h=\lambda_{g^{-1}h}$ para todo $g,h\in G$, una contradicción
+%	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
+%\end{proof}
+
 
