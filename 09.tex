@@ -1,6 +1,6 @@
 \chapter{}
 
-\topic{Primitive and semiprimitive rings}
+\topic{Semiprime and semiprimitive rings}
 
 \begin{definition}
 	A ring $R$ is \textbf{semiprimitive} (or Jacobson semisimple) if  $J(R)=\{0\}$.
@@ -809,175 +809,146 @@ Simple rings are trivially prime. The converse is not true:
 %	por la proposición\dots
 \end{proof}
 
-% Para completar nuestra presentación del teorema de Wedderburn, veremos
-% que la descomposición es única. Necesitaremos dos lemas previos:
+We now prove Artin--Wedderburn's theorem. We will assume that our ring
+is a unitary left artinian ring. One could prove
+Artin--Wedderburn's theorem for arbitrary rings --see for example \cite{MR600654}--  
+but when dealing with unitary rings the proof 
+is simpler. We will prove
+that left artinian semiprimitive unitary rings
+are isomorphic to a direct product
+of finitely many matrix rings. The idea of the proof goes as follows. 
+We know that if 
+$R$ is semiprimitive, then $R$ is a subdirect product
+of primitive rings, that is  
+there exists an injective map
+\[
+R\to \prod_{i\in I}R/I_i
+\]
+where each $I_i$ is a primitive ideal. Since $R$ is left artinian, 
+the set $I$ will be a finite set. Moreover, 
+by Wedderburn's theorem, 
+$R/I_i\simeq M_{n_i}(D_i)$ for some division ring $D_i$. Finally,
+a sort of non-commutative version of the Chinese remainder theorem
+is used to prove that the map is fact surjective. 
 
-% \begin{lemma}
-% 	\label{lem:wedderburn_unididad}
-% 	Sea $D$ un anillo de división. Entonces 
-% 	\[
-% 		D^{\op}\simeq\End_{M_n(D)}(D^{n}). 
-% 	\]
-% \end{lemma}
+\begin{definition}
+    An ideal $I$ of $R$ is prime if $xRy\subseteq I$ implies
+    $x\in I$ or $y\in I$.
+\end{definition}
 
-% \begin{proof}
-% 	Sea  
-% 	\begin{align*}
-% 		&\phi\colon D^{\op}\to\End_{M_n(D)}(D^{n}), & d\mapsto \phi(d)\colon &D^{n}\to D^{n},
-% 	\end{align*}
-% 	donde $\phi(d)(x)=xd$. Es evidente que $\phi$ es lineal; 
-% 	es morfismo pues además 
-% 	\begin{align*}
-% 		\phi(d_1\cdot_{\op} d_2)(x)&=\phi(d_2d_1)(x)=x(d_2d_1)=(xd_2)d_1=\phi(d_1)\phi(d_2)(x).
-% 	\end{align*}
-% 	Como $\phi$ es no nulo y $D^{\op}$ es es simple por ser de división, se concluye que 
-% 	$\phi$ es inyectivo. Veamos que
-% 	$\phi$ es sobreyectivo: sean $f\in\End_{M_n(D)}(D^{n})$ y 
-% 	\[
-% 		e_1=\colvec{4}{1}{0}{\vdots}{0},\quad
-% 		\colvec{4}{d_1}{d_2}{\vdots}{d_n}=
-% 		f(e_1),
-% 		\quad
-% 		A=\begin{pmatrix} 
-% 			a_1 & 0 & \cdots & 0\\
-% 			\vdots & \vdots & \ddots & \vdots\\
-% 			a_n & 0 & \cdots & 0
-% 		\end{pmatrix}.
-% 	\]
-% 	Entonces
-% 	\[
-% 		f\colvec{4}{a_1}{a_2}{\vdots}{a_n}
-% 		=f(Ae_1)=Af(e_1)=
-% 		\colvec{4}{a_1d_1}{a_2d_2}{\vdots}{a_nd_1}=\phi(d_1)\colvec{3}{a_1}{\vdots}{a_n}.
-% 	\]
-% \end{proof}
+Note that a ring $R$ is prime if and only if $\{0\}$ is a prime ideal. 
+Moreover, 
+an ideal $I$ of $R$ is prime if and only if 
+the ring $R/I$ is prime. 
 
-% %%\begin{lemma}
-% %	\label{lem:Wedderburn:unicidad1}
-% %	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial de dimensión finita. 
-% %	Sea $R=\End_D(V)$. Si $M$ y $N$ son $R$-módulos 
-% %	simples y fieles, entonces $M\simeq N$.
-% %\end{lemma}
-% %
-% %\begin{proof}
-% %	Como $R=\End_D(V)\simeq M_n(D)$ es artiniano a izquierda, $R$ contiene un
-% %	ideal a izquierda minimal. Como $M$ es fiel, existe $m\in M$ tal que $Lm\ne
-% %	0$ (si $Lm=0$ para todo $m\in M$, $L\subseteq\Ann_R(M)=0$). Como $Lm$ es un
-% %	submódulo no nulo de $M$ y $M$ es simple, $Lm=M$. La función
-% %	\[
-% %		\theta\colon L\to Lm=M,\quad
-% %		x\mapsto xm
-% %	\]
-% %	es morfismo sobreyectivo. Como $L$ es simple como módulo, por el lema de
-% %	Schur, $\theta$ es inyectivo. Luego $L\simeq M$. Similarmente se demuestra
-% %	que $L\simeq N$.
-% %\end{proof}
-% %
-% %\begin{lemma}
-% %	\label{lem:Wedderburn:unicidad2}
-% %	Sea $D$ un anillo de división y sea $V$ un $D$-espacio vectorial. Sea
-% %	$g\colon V\to V$ un morfismo de grupos abelianos tal que $fg=gf$ para todo
-% %	$f\in\End_D(V)$. Entonces existe $d\in D$ tal que $g(v)=dv$ para todo $v\in
-% %	V$.
-% %\end{lemma}
-% %
-% %\begin{proof}
-% %	Sea $u\in V\setminus\{0\}$. Vamos a demostrar que $\{u,g(u)\}$ es
-% %	linealmente dependiente sobre $D$. Supongamos que $\{u,g(u)\}$ fuera linealmente
-% %	independiente. Entonces $\dim_DV\geq2$. 
-% %	Como $\End_D(V)$ es denso en $V$, existe $f\in\End_D(V)$ tal
-% %	que $f(u)=0$ y $f(g(u))\ne0$. Luego
-% %	\[
-% %		0\ne 0=f(g(u))=g(f(u))=g(0)=0,
-% %	\]
-% %	una contradicción.  Como $\{u,g(u)\}$ es linealmente dependiente sobre $D$,
-% %	existe $d\in D$ tal que $g(u)=du$. Si $v\in V$, por densidad existe
-% %	$h\in\End_D(V)$ tal que $h(u)=v$. Luego
-% %	\[
-% %		g(v)=g(h(u))=h(g(u))=h(du)=dh(u)=dv.
-% %	\]
-% %\end{proof}
-% %
-% %\begin{proposition}
-% %	Para cada $j\in\{1,2\}$ sea $V_j$ un espacio vectorial sobre el anillo de división $D_j$ de dimensión finita $n_j$. 
-% %	Si $\End_{D_1}(V_1)\simeq\End_{D_2}(V_2)$ entonces $n_1=n_2$ y $D_1\simeq D_2$.
-% %%	Sea $V$ es un espacio vectorial sobre el anillo de división $D$ y sea $W$
-% %%	un espacio vectorial sobre el anillo de división $E$. Supongamos que $V$ y
-% %%	$W$ son de dimensión finita. Si $\End_D(V)\simeq\End_E(W)$ entonces
-% %%	$\dim_DV=\dim_EW$ y $D\simeq E$.
-% %\end{proposition}
-% %
-% %\begin{proof}	
-% %	Cada $V_j$ es un $\End_{D_j}(V_j)$-módulo fiel. Sea $R=\End_{D_1}(V_1)$. Como existe un isomorfismo
-% %	$\sigma\colon R\to\End_{D_2}(V_2)$, $V_2$ es un
-% %	$R$-módulo simple y fiel con
-% %	\[
-% %		fv_2=\sigma(f)v_2,\quad
-% %		f\in R,\,v_2\in V_2.
-% %	\]
-% %	Por el lema~\ref{lem:Wedderburn:unicidad1}, existe un isomorfismo
-% %	$\phi\colon V_1\to V_2$ de $R$-módulos; en particular, 
-% %	\[
-% %		\phi(fv_1)=f(\phi(v_1))=(\sigma(f))\phi(v_1)
-% %	\]
-% %	para todo $v_1\in V_1$ y $f\in R$. Luego 
-% %	$\sigma(f)=\phi f\phi^{-1}\colon V_2\to V_2$ es un morfismo de grupos
-% %	abelianos. Para $j\in\{1,2\}$ y $d_j\in D_j$ sea 
-% %	\[
-% %		\gamma_{d_1}\colon V_j\to V_j,\quad x\mapsto d_jx.
-% %	\]
-% %	Como cada $V_j$ es fiel, $\gamma_{d_j}=0$ si y sólo si $d_j=0$. Si $f\in R$ y $d_1\in D_1$ entonces $f\gamma_{d_1}=\gamma_{d_1}f$. Luego
-% %	\[
-% %		(\phi\gamma_{d_1}\phi^{-1})\sigma(f)
-% %		=(\phi\gamma_{d_1}\phi^{-1})(\phi f\phi^{-1})
-% %		=\phi f\gamma_{d_1}\phi^{-1}
-% %		=\sigma(f)\phi\gamma_{d_1}\phi^{-1}.
-% %	\]
-% %	Como $\sigma$ es sobreyectiva, el lema~\ref{lem:Wedderburn:unicidad2} con
-% %	$V=V_2$ y $g=\phi\gamma_{d_1}\phi^{-1}$ implica que existe $d_2\in D_2$ tal
-% %	que $\phi\gamma_{d_1}\phi^{-1}=\gamma_{d_2}$. Sea $\tau\colon D_1\to D_2$,
-% %	$d_1\mapsto d_2$. Entonces $\phi\gamma_{d}\phi^{-1}=\gamma_{\tau(d_2)}$ 
-% %	\framebox{?}
-% %	Además 
-% %	\[
-% %		\phi(d_1v)=\phi\gamma_{d_1}(v)=\gamma_{\¿au(d_1)}\phi(v)=\tau_{d_1}\phi(v)
-% %	\]
-% %	Como $\{u_1,\dots,u_m\}$ es linealmente independiente sobre $D_1$ si y sólo si $\{\phi(u_1),\dots,\phi(u_m)\}$ es linealmente
-% %	independiente sobre $D_2$, se concluye que $\dim_{D_1}(V_1)=\dim_{D_2}(V_2)$. 
-% %\end{proof}
+\begin{lemma}
+    If $R$ is left artinian and $I$ is a primitive ideal, then
+    $I$ is prime. 
+\end{lemma}
 
-% \begin{lemma}
-% 	\label{lem:simple_izqminimal}
-% 	Sea $R$ un anillo simple con un ideal a izquierda $L$ minimal. Entonces
-% 	todo $R$-módulo simple es isomorfo a $L$. 
-% \end{lemma}
+% no necesito hacerlo para artiniano
 
-% \begin{proof}
-% 	Sea $M$ un módulo simple. Como $LR$ es un ideal de $R$ y el anillo $R$ es
-% 	simple, $LR=R$.  Como
-% 	\[
-% 		0\ne RM=(LR)M=L(RM)\subseteq LM,
-% 	\]
-% 	existe $m\in M$ tal que $Lm\ne 0$. Luego $Lm$ es un submódulo no nulo del simple $M$ y entonces
-% 	$Lm=M$. El morfismo $\gamma\colon L\to M$, $l\mapsto lm$, es sobreyectivo e
-% 	inyectiva (pues $\ker\gamma$ es un ideal a izquierda propiamente
-% 	contenido en $L$). Luego $L\simeq M$. 
-% \end{proof}
+\begin{proof}
+    Since $I$ is primitive, then $R/I$ is primitive. By Wedderburn theorem, 
+    $R/I$ is prime and hence $I$ is prime. 
+\end{proof}
 
-% \begin{theorem}
-% 	Si $D$ y $E$ son anillos de división tales que Si $M_n(D)\simeq M_m(E)$
-% 	entonces $n=m$ y $D\simeq E$.
-% \end{theorem}
+\begin{theorem}[Artin--Wedderburn]
+\label{thm:ArtinWedderburn_version2}
+\index{Artin--Wedderburn's theorem}
+    Let $R$ be a semiprimitive left artinian unitary ring. Then
+    $R\simeq\prod_{i=1}^kM_{n_i}(D_i)$ for finitely many
+    division rings $D_1,\dots,D_k$. 
+\end{theorem}
 
-% \begin{proof}
-% 	Como $M_n(D)$ es artiniano a izquierda, existe 
-% 	un ideal a izquierda $L$ minimal. Como
-% 	$D^{n}\simeq E^{m}\simeq L$ como $M_n(D)$-módulos (ver ejemplo~\ref{exa:I_k}), 
-% 	el lema~\ref{lem:simple_izqminimal} implica que
-% 	\begin{align*}
-% 		D^{\op}\simeq\End_{M_n(D)}(D^{n})\simeq\End_{M_n(D)}(L)\simeq\End_{M_m(E)}(L)\simeq\End_{M_m(E)}(E^{m})\simeq E^{\op}.
-% 	\end{align*}
-% 	Luego $D\simeq E$ y entonces $n=m$ pues $\dim M_n(D)=\dim M_m(E)$.
-% \end{proof}
+We shall need the following lemmas.
 
+\begin{lemma}
+\label{lem:primitive=>maximal}
+    Let $R$ be a left artinian ring and $I$ be a primitive ideal. 
+    Then $I$ is maximal. 
+\end{lemma}
 
+\begin{proof}
+    If $I$ is a primitive ideal of $R$, then $R/I$ is a primitive ring
+    by Lemma \ref{lemma:primitivo}. By Wedderburn's theorem, $R/I$ is
+    simple. Thus $I$ is maximal by Proposition \ref{proposition:R/I}. 
+\end{proof}
+
+\begin{lemma}
+    Let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
+    Then $I_2\cdots I_k\not\subseteq I_1$.   
+\end{lemma}
+
+\begin{proof}
+    Suppose the result is not true and let $k$ be minimal
+    such that $I_2\cdots I_k\subseteq I_1$. Since the result is clearly
+    true for two distinct maximal ideals, $k\geq3$. Let $I=I_2\cdots I_{k-1}$. 
+    Since $I\not\subseteq I_1$, there exists $x\in I\setminus I_1$. Moreover,  
+    there exists $y\in I_k\setminus I_1$, as 
+    $I_k\ne I_1$. 
+    Then 
+    $(xR)y\subseteq II_k\subseteq I_1$. Since $I_1$ is prime, 
+    it follows that either $x\in I_1$ or $y\in I_1$, a contradiction.   
+\end{proof}
+
+\begin{lemma}
+    Let $R$ be a left artinian ring. Then $R$ has only 
+    finitely many primitive ideals.
+\end{lemma}
+
+\begin{proof}
+    If $I_1,I_2\dots$ are infinitely many primitive ideals. 
+    Since $R$ is left artinian, the sequence 
+    $I_1\supseteq I_1I_2\supseteq\cdots$ stabilizes, so there
+    exists $n$ such that 
+    \[
+    I_1I_2\cdots I_n=I_1I_2\cdots I_nI_{n+1}\subseteq I_{n+1},
+    \]
+    a contradiction to the previous lemma, 
+    as each $I_j$ is a maximal ideal. 
+\end{proof}
+
+Now we are ready to prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:ArtinWedderburn_version2}]
+    Let $I_1,\dots,I_k$ be the (distinct) primitive ideals of $R$. 
+    We know that each $I_i$ is a maximal ideal. Thus $I_i+I_j=R$ for
+    $i\ne j$. Since $R$ is semiprimitive, 
+    $I_1\cap\cdots\cap I_k=J(R)=\{0\}$. Let 
+    \[
+    \varphi\colon R\to \prod_{i=1}^k R/I_i,\quad
+    x\mapsto (x+I_1,\dots,x+I_k).
+    \]
+    Then $\varphi$ is a ring homomorphism with kernel $I_1\cap\cdots\cap I_k=\{0\}$, so
+    $\varphi$ is injective. We need to prove that $\varphi$ is surjective. 
+    
+    We first claim that 
+    $I_1+( I_2\cdots I_k) = R$. In fact, 
+    since $I_1,\dots,I_k$ are maximal ideals, $I_1\not\subseteq I_2\cdots I_k$. This implies
+    that $I_1+(I_2\cdots I_k)$ is an ideal of $R$ that contains $I_1$. Since $I_1$ is maximal, 
+    $I_1+(I_2\cdots I_k)=R$. 
+    
+    Since $I_1+( I_2\cdots I_k) = R$, 
+    there exists $x_1\in \prod_{j=2}^kI_j$ such that $1=x_1+I_1$. Note that
+    $x_1=(1+I_1)\cap (I_2\cdots I_k)\subseteq I_j$ for all $j\in\{2,\dots,k\}$. 
+    Thus 
+    \[
+    \varphi(x_1)=(x+I_1,I_2,\dots,I_k)=(1+I_1,I_2,\dots, I_k).
+    \]
+    Similarly,
+    there exists $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
+    \begin{align*}
+    \varphi(x_2)&=(I_1,1+I_2,\dots,I_k),\\
+    &\vdots\\
+    \varphi(x_k)&=(I_1,I_2,\dots,1+I_k).
+    \end{align*}
+    From this it follows that $\varphi$ is surjective. Each $R/I_i$ 
+    is primitive and hence isomorphic to $M_{n_i}(D_i)$ for some 
+    $n_i$ and some division ring $D_i$. Therefore
+    \[
+    R\simeq R/I_1\times\cdots\times R/I_k\simeq \prod_{i=1}^kM_{n_i}(D_i).\qedhere 
+    \]
+\end{proof}
+
+% agregar como corolario el teorema de fermat! 

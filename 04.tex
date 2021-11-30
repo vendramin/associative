@@ -168,28 +168,47 @@ Let $R$ be a ring. An element $a\in R$ is said to be
 $a$ is said to be \textbf{right quasi-regular} if there exists $r\in R$ such that $a+r+ar=0$. 
 \end{definition}
 
-\begin{exercise}
-	\label{exercise:circ}
-	Let $R$ be a ring. Prove that $R\times R\to R$,
-	$(r,s)\mapsto r\circ s=r+s+rs$, is an associative operation with neutral element $0$.
-\end{exercise}
-
-\begin{exercise}
-	Let $R=\Z/3=\{0,1,2\}$. Compute the multiplication table with respect to the circle 
- 	operation given by the previous exercise.  
- 	%is then 
-% 	\begin{table}[ht]
-% 		\centering
-% 		\begin{tabular}{c|ccc}
-% 			$\circ$ & 0 & 1 & 2\tabularnewline
-% 			\hline
-% 			0 & 0 & 1 & 2\tabularnewline
-% 			1 & 1 & 0 & 2\tabularnewline
-% 			2 & 2 & 2 & 2\tabularnewline
-% 		\end{tabular}
+% \begin{exercise}
+% 	\label{exercise:circ}
+Let $R$ be a ring. A direct calculation shows that
+\[
+R\times R\to R,
+\quad
+(r,s)\mapsto r\circ s=r+s+rs,
+\]
+is an associative operation with neutral element $0$.
+To show an explicit example let $R=\Z/3=\{0,1,2\}$. 
+The multiplication table with respect to the circle 
+operation is  
+	\begin{table}[ht]
+		\centering
+		\begin{tabular}{c|ccc}
+			$\circ$ & 0 & 1 & 2\tabularnewline
+			\hline
+			0 & 0 & 1 & 2\tabularnewline
+			1 & 1 & 0 & 2\tabularnewline
+			2 & 2 & 2 & 2\tabularnewline
+		\end{tabular}
 % 		\caption{The multiplication table of the radical ring $\Z/3$.}
-% 	\end{table}
-\end{exercise}
+ 	\end{table}
+%\end{exercise}
+
+% \begin{exercise}
+% 	Let $R=\Z/3=\{0,1,2\}$. Compute the multiplication table with respect to the circle 
+%  	operation given by the previous exercise.  
+%  	%is then 
+% % 	\begin{table}[ht]
+% % 		\centering
+% % 		\begin{tabular}{c|ccc}
+% % 			$\circ$ & 0 & 1 & 2\tabularnewline
+% % 			\hline
+% % 			0 & 0 & 1 & 2\tabularnewline
+% % 			1 & 1 & 0 & 2\tabularnewline
+% % 			2 & 2 & 2 & 2\tabularnewline
+% % 		\end{tabular}
+% % 		\caption{The multiplication table of the radical ring $\Z/3$.}
+% % 	\end{table}
+% \end{exercise}
 
 If $R$ is unitary, an element $x\in R$ is left quasi-regular (resp. right quasi-regular)
 if and only if $1+x$ is left invertible (resp. right invertible). In fact, 
@@ -516,8 +535,8 @@ There are several characterizations of radical rings.
 	\begin{enumerate}
 		\item $R$ is radical.
 		\item $R$ admits no simple $R$-modules. 
-		\item $R$ no tiene ideales a izquierda maximales y regulares.
-		\item $R$ no tiene ideales a izquierda primitivos.
+		\item $R$ does not have regular maximal left ideals.
+		\item $R$ does not have primitive left ideals.
 		\item Every element of $R$ is quasi-regular. 
 		\item $(R,\circ)$ is a group. 
 	\end{enumerate}
