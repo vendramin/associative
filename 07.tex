@@ -6,7 +6,7 @@
 	A ring $R$ is \textbf{semiprimitive} (or Jacobson semisimple) if  $J(R)=\{0\}$.
 \end{definition}
 
-In \S\ref{Primitive rings} (Lecture \ref{03}) we defined primitive rings as
+In Lecture \ref{03} we defined primitive rings as
 those rings that have a faithful simple module.  We claim that primitive rings
 are semiprimitive. If $R$ is primitive, then $\{0\}$ is a primitive ideal. Since
 $J(R)$ is the intersection of primitive ideals, it follows that $J(R)=\{0\}$.
@@ -87,7 +87,7 @@ that $R/J(R)$ is semiprimive.
 	Assume now that $R$ is isomorphic to a subdirect product of primitive rings 
 	$R_j$ and let $\varphi\colon R\to\prod_{i\in I}R_i$ be an injective homomorphism 
 	such that $\pi_j(\varphi(R))=R_j$ for all $j$. For $j$ 
-	let $P_j=\ker\pi_j\varphi$. Since $R/P_j\simeq R_j$, each $P_j$ is a primitive ideal
+	let $P_j=\ker\pi_j\varphi$. Since $R/P_j\simeq R_j$, each $P_j$ is a primitive ideal. 
 	If $x\in\cap_{i\in I}P_i$, then $\varphi(x)=0$ and thus $x=0$.
 	Hence $J(R)\subseteq\cap_{i\in I} P_i=0$. 
 \end{proof}
@@ -111,7 +111,7 @@ that $R/J(R)$ is semiprimive.
 \end{definition}
 
 \begin{proposition}
-	Let $R$ be a ring. The following statements are equivalents: 
+	Let $R$ be a ring. The following statements are equivalent: 
 	\begin{enumerate}
 		\item $R$ is semiprime.
 		\item If $I$ is a left ideal such that $I^2=\{0\}$, then $I=\{0\}$.
@@ -127,18 +127,22 @@ that $R/J(R)$ is semiprimive.
 	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
 	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
 	contradiction.  Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
-	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. By
-	assumption, $RaR=I=\{0\}$. Thus $Ra$ and $aR$ are ideals such that
-	$(Ra)R=R(aR)=\{0\}$. This implies that $\Z a$ is an ideal of $R$ such that
-	$(\Z a)R=\{0\}$ and hence $a=0$.
+	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. Thus 
+	$RaR=\{0\}$. This means that $Ra$ and $aR$ are ideals such that
+	$(Ra)R=R(aR)=\{0\}$ (for example, $R(aR)\subseteq RaR=\{0\}\subseteq aR$). 
+	Moreover, since $(Ra)(Ra)=\{0\}$ and $(aR)(aR)=\{0\}$, it follows that
+	$aR=Ra=\{0\}$. 
+	This implies that $\Z a$ is an ideal of $R$, as $R(\Z a)\subseteq \Z(Ra)=\{0\}$ and 
+	$(\Z a)R\subseteq aR=\{0\}$. Now $(\Z a)(\Z a)\subseteq (\Z a)R=\{0\}$ and hence
+	$a=0$, as $\Z a=\{0\}$. 
 \end{proof}
 
 Two consequences:
 
-\begin{corollary}
+\begin{exercise}
 	A commutative ring is semiprime if and only if it does not contain non-zero
 	nilpotent elements. 
-\end{corollary}
+\end{exercise}
 
 \begin{corollary}
 	The ring $\C[G]$ is semiprime.
@@ -427,6 +431,10 @@ Two consequences:
 
 \topic{Jacobson's density theorem}
 
+At this point it is convenient to recall that
+modules over division rings are pretty much as vector spaces over fields. In fact, 
+modules over division rings are usually called vector spaces over division rings. 
+
 \begin{definition}
 	Let $D$ be a division ring and $V$ be a vector space over $D$. A subring 
 	$R\subseteq\End_D(V)$ is a \textbf{dense ring of linear operators} 
@@ -459,7 +467,8 @@ Two consequences:
 
 \begin{proposition}
 	\label{pro:unique_dense}
-	Let $V$ be a module over a division ring $D$. 
+	Let $D$ be a division ring and 
+    $V$ be a $D$-vector space.  
 	If $\dim_DV<\infty$, then $\End_D(V)$ is the only dense ring of $V$.
 \end{proposition}
 
@@ -470,27 +479,6 @@ Two consequences:
 	$j\in\{1,\dots,n\}$. Hence $g=f\in R$.
 \end{proof}
 
-\begin{lemma}
-	\label{lem:ideal_denso}
-	Let $R$ be dense in $V$ and $I$ be a non-zero ideal of $R$. Then 
-	$I$ is dense in $V$. 
-\end{lemma}
-
-\begin{proof}
-	Let $h\in I\setminus\{0\}$ and $u\in V$ be such that 
-	$h(u)=v\ne0$. Let $\{u_1,\dots,u_n\}\subseteq V$ be a linearly independent set 
-	and let $\{v_1,\dots,v_n\}\subseteq V$. Since $R$ is 
-	dense in $V$, there exist $g_1,\dots,g_n\in R$ such that 
-	\[
-	g_i(u_j)=\begin{cases} 
-	u & \text{if $i=j$},\\
-	0 & \text{otherwise}.
-	\end{cases}
-	\]
-	Further, there exist $f_1,\dots,f_n\in R$ such that 
-	$f_i(v)=v_i$. Thus $\gamma=\sum_{i=1}^n f_ihg_i\in I$ is such that 
-	$\gamma(u_j)=v_j$ for all $j\in\{1,\dots,n\}$.
-\end{proof}
 
 %Ahora demostraremos el teorema de densidad de Jacobson. 
 %Necesitaremos el siguiente
@@ -535,9 +523,6 @@ Two consequences:
 %
 %\end{proof}
 
-At this point it is convenient to recall that
-modules over division rings are pretty much as vector spaces over fields. In fact, 
-modules over division rings are usually called vector spaces over division rings. 
 
 \begin{theorem}[Jacobson]
 	\label{thm:density}
@@ -546,21 +531,51 @@ modules over division rings are usually called vector spaces over division rings
 	a vector space over a division ring.
 \end{theorem}
 
+We shall need the following lemma. 
+
+\begin{lemma}
+	\label{lem:ideal_denso}
+	Let $D$ be a division ring and $V$ be a $D$-vector space. 
+	If $R$ is dense in $V$ and $I$ is a non-zero ideal of $R$, then 
+	$I$ is dense in $V$. 
+\end{lemma}
+
 \begin{proof}
+    Fix $n\in\Z_{>0}$. Let 
+    $\{u_1,\dots,u_n\}\subseteq V$ be a linearly independent set 
+	and let $\{v_1,\dots,v_n\}\subseteq V$. We want to find $\gamma\in I$ such that 
+	$\gamma(u_i)=v_i$ for all $i$. Since $I\ne\{0\}$, there exists 
+	$h\in I\setminus\{0\}$. This means that 
+	$h(u)=v\ne0$ for some $u\ne 0$. Since $R$ is 
+	dense in $V$, there exist $g_1,\dots,g_n\in R$ such that 
+	\[
+	g_i(u_j)=\begin{cases} 
+	u & \text{if $i=j$},\\
+	0 & \text{otherwise}.
+	\end{cases}
+	\]
+	Further, since $\{v\}$ is a linearly independent subset of $V$, 
+	there exist $f_1,\dots,f_n\in R$ such that 
+	$f_i(v)=v_i$ for all $i$. Thus $\gamma=\sum_{i=1}^n f_ihg_i\in I$ is such that 
+	$\gamma(u_j)=v_j$ for all $j\in\{1,\dots,n\}$.
+\end{proof}
+
+Now we are ready to prove Jacobson's density theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:density}]
 	If $R$ is isomorphic to a dense ring in $V$, where
-	$V$ is a module over a division ring $D$, then $R$
-	is primitive, as $V$ is simple and faithful. Why it is faithful? If 
-	$f\in\Ann_R(V)$, then $f=0$ since $f(v)=0$ for all $v\in V$. Why it is simple? 
+	$V$ is a $D$-vector space for some division ring $D$, then $R$
+	is primitive, as $V$ is a simple and faithful $R$-module. Why faithful? If 
+	$f\in\Ann_R(V)$, then $f=0$ since $f(v)=0$ for all $v\in V$. Why simple? 
 	If $W\subseteq V$ is a non-zero submodule, let $v\in V$ and $w\in
 	W\setminus\{0\}$. There exists $f\in R$ such that $v=f(w)\in W$. 
 
 	Now assume that $R$ is primitive. Let $V$ be a simple faithful module.
 	Schur's lemma implies that $D=\End_R(V)$ is a division ring. Thus $V$ is
-	a module over $D$ with 
+	a $D$-vector space with 
 	\[
-	\delta v=\delta(v),\quad
-	\delta(rv)=r(\delta v),\quad
-	v\in V,r\in R,\delta\in D.
+	D\times V\to V,\quad
+	(\delta,v)\mapsto \delta v=\delta(v),
 	\]
 	For $r\in R$ let  
 	\[
@@ -672,587 +687,4 @@ modules over division rings are usually called vector spaces over division rings
 	\]
 	is a surjective ring homomorphism. 
 \end{proof}
-
-\topic{Prime rings}
-
-In commutative algebra domains play a fundamental role. In non-commutative
-algebra certain things could be quite different. 
-For example, the ring $M_n(\C)$ is not a domain.
-We need a non-commutative generalization of domains.
-
-\begin{definition}
-	\index{Ring!prime} 
-	Let $R$ be a ring (not necessarily with one). Then $R$ is
-	\textbf{prime} if for $x,y\in R$ such that $xRy=\{0\}$ it follows that $x=0$ or 
-	$y=0$.
-\end{definition}
-
-\begin{example}
-    \index{Domain}
-	A ring $R$ is a \textbf{domain} if $xy=0$ implies
-	$x=0$ or $y=0$. Each domain is trivially a prime ring.
-\end{example}
-
-\begin{example}
-    A commutative ring is prime if and only if it is a domain, as $ab=0$ 
-    if and only if $aRb=\{0\}$.
-\end{example}
-
-\begin{example}
-    A non-zero ideal of a prime ring is a prime ring.
-\end{example}
-
-A characterization of prime rings:
-
-\begin{proposition}
-    Let $R$ be a ring. The following statements are equivalent:
-	\begin{enumerate}
-		\item $R$ is prime.
-		\item If $I$ and $J$ are left ideals such that $IJ=\{0\}$, then 
-			$I=\{0\}$ or $J=\{0\}$.
-		\item If $I$ and $J$ are ideals such that $IJ=\{0\}$, then $I=\{0\}$ or
-			$J=\{0\}$.
-	\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-	We first prove that $1)\implies2)$. Let $I$ and $J$ be left ideals such that
-	$IJ=\{0\}$. Then $IRJ=I(RJ)\subseteq IJ=\{0\}$. If $J\ne
-	\{0\}$, $u\in I$ and $v\in J\setminus\{0\}$, then $uRv\in IRJ=\{0\}$. Hence 
-	$u=0$.
-
-	The implication $2)\implies3)$ is trivial. 
-
-    Let us prove that $3)\implies1)$. Let $x,y\in R$ be such that $xRy=\{0\}$.
-	Let $I=RxR$ and $J=RyR$. Since $IJ=(RxR)(RyR)=R(xRy)R=\{0\}$, 
-	we may assume that $I=\{0\}$. In particular, $Rx$ and $xR$ are ideals, as 
-	$R(xR)=(Rx)R=\{0\}$. Then $\Z x$ is an ideal of $R$ such that $(\Z x)R=\{0\}$. 
-	Thus $x=0$. 
-\end{proof}
-
-Simple rings are trivially prime. The converse is not true:
-
-\begin{example} 
-    $\Z$ is a domain, so it is a prime ring. Clearly, it is not simple.
-\end{example}
-
-\begin{example}
-	If $R_1$ and $R_2$ are rings, $R=R_1\times R_2$ is not prime, as 
-	$I=R_1\times\{0\}$ and $J=\{0\}\times R_2$ are non-zero ideals such that $IJ=\{0\}$.
-\end{example}
-
-\begin{lemma}
-	\label{lem:primoizqmin=>prim}
-	Let $R$ be a prime ring and $L$ be a minimal left ideal of $R$.
-	Then $R$ is primitive. 
-\end{lemma}
-
-\begin{proof}
-	Since $L$ is a minimal left ideal, it is simple as a module over $R$. 
-	We claim that $L$ is faithful. Let $y\in L\setminus\{0\}$ and
-	$x\in\Ann_R(L)$. Since $xRy\in xRL\subseteq xL=\{0\}$, it follows that 
-	$x=0$.
-\end{proof}
-
-\begin{lemma}
-	\label{lem:denso_artiniano}
-	Let $D$ be a division ring and $R$ be a dense ring in a module $V$ over $D$. 
-	If $R$ is left artininian, then $\dim_DV<\infty$.
-\end{lemma}
-
-\begin{proof}
-	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots,\}$ be linearly independent. 
-	Since $R\subseteq\End_D(V)$, it follows that 
-	$V$ is a module over $R$ with $f\cdot v=f(v)$, where $f\in R$ y $v\in V$. 
-	For $n\in\Z_{>0}$ let 
-	\[
-		I_n=\Ann_R(\{u_1,\dots,u_n\}.
-	\]
-	Each $I_j$ is a left ideal of $R$ and $I_1\supseteq
-	I_2\supseteq\cdots\supseteq I_n\supseteq\cdots$. Let 
-	$n\in\Z_{>0}$ and $v\in V\setminus\{0\}$. Since $R$ is dense
-	in $V$, there exists $f\in R$ such that $f(u_j)=0$ for all $j\in\{1,\dots,n\}$ and 
-	$f(u_{n+1})=v\ne0$. Thus $I_1\supsetneq I_2\supsetneq\cdots\supsetneq
-	I_n\supsetneq\cdots$, a contradiction.
-\end{proof}
-
-\begin{theorem}[Wedderburn]
-	\index{Wedderburn's theorem}
-	Let $R$ be a left artinian ring. The following statements are equivalent:
-	\begin{enumerate}
-		\item $R$ is simple.
-		\item $R$ is prime.
-		\item $R$ is primitive.
-		\item $R\simeq M_n(D)$ for some $n$ and some division ring $D$.
-	\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-	The implication $1)\implies2)$ is trivial. 
-	
-	To show that $2)\implies3)$ first note that 
-	$R$ contains a minimal left ideal, as $R$ is left artinian. 
-	By Lemma~\ref{lem:primoizqmin=>prim}, $R$ is primitive. 
-
-	Now we prove that $3)\implies4)$. If $R$ is primitive, 
-	Jacobson's density theorem implies that there exists a division
-	ring $D$ such that  
-	$R$ is isomorphic to a ring $S$ that is dense in a vector space $V$ over $D$.
-	Since $R$ is left artinian, Lemma~\ref{lem:denso_artiniano} implies that  
-	$R=\End_D(V)\simeq M_n(D)$, as $\dim_DV<\infty$. 
-
-	Finally, $4)\implies1)$ is trivial, as $M_n(D)$ is simple. 
-%	$D$-espacio vectorial $V$ de dimensión finita. Si $u_1,\dots,u_m\in V$ son
-%	linealmente independientes sobre $D$, existen $f_1,\dots,f_m\in S$ tales
-%	que $f_i(u_i)\ne0$ y $f_i(u_j)=0$ si $i\ne j$. Como los $f_j$ son
-%	linealmente independientes sobre $k$, $\dim_DV\leq \dim A$. Luego $A=\End_DV\simeq M_n(D^{\op})$ 
-%	por la proposición\dots
-\end{proof}
-
-We now prove Artin--Wedderburn's theorem. We will assume that our ring
-is a unitary left artinian ring. One could prove
-Artin--Wedderburn's theorem for arbitrary rings --see for example \cite{MR600654}--  
-but when dealing with unitary rings the proof 
-is simpler. We will prove
-that left artinian semiprimitive unitary rings
-are isomorphic to a direct product
-of finitely many matrix rings. The idea of the proof goes as follows. 
-We know that if 
-$R$ is semiprimitive, then $R$ is a subdirect product
-of primitive rings, that is  
-there exists an injective map
-\[
-R\to \prod_{i\in I}R/I_i
-\]
-where each $I_i$ is a primitive ideal. Since $R$ is left artinian, 
-the set $I$ will be a finite set. Moreover, 
-by Wedderburn's theorem, 
-$R/I_i\simeq M_{n_i}(D_i)$ for some division ring $D_i$. Finally,
-a sort of non-commutative version of the Chinese remainder theorem
-is used to prove that the map is fact surjective. 
-
-\begin{definition}
-    An ideal $I$ of $R$ is prime if $xRy\subseteq I$ implies
-    $x\in I$ or $y\in I$.
-\end{definition}
-
-Note that a ring $R$ is prime if and only if $\{0\}$ is a prime ideal. 
-Moreover, 
-an ideal $I$ of $R$ is prime if and only if 
-the ring $R/I$ is prime. 
-
-\begin{lemma}
-    If $R$ is left artinian and $I$ is a primitive ideal, then
-    $I$ is prime. 
-\end{lemma}
-
-% no necesito hacerlo para artiniano
-
-\begin{proof}
-    Since $I$ is primitive, then $R/I$ is primitive. By Wedderburn theorem, 
-    $R/I$ is prime and hence $I$ is prime. 
-\end{proof}
-
-\begin{theorem}[Artin--Wedderburn]
-\label{thm:ArtinWedderburn_version2}
-\index{Artin--Wedderburn's theorem}
-    Let $R$ be a semiprimitive left artinian unitary ring. Then
-    $R\simeq\prod_{i=1}^kM_{n_i}(D_i)$ for finitely many
-    division rings $D_1,\dots,D_k$. 
-\end{theorem}
-
-We shall need the following lemmas.
-
-\begin{lemma}
-\label{lem:primitive=>maximal}
-    Let $R$ be a left artinian ring and $I$ be a primitive ideal. 
-    Then $I$ is maximal. 
-\end{lemma}
-
-\begin{proof}
-    If $I$ is a primitive ideal of $R$, then $R/I$ is a primitive ring
-    by Lemma \ref{lemma:primitivo}. By Wedderburn's theorem, $R/I$ is
-    simple. Thus $I$ is maximal by Proposition \ref{proposition:R/I}. 
-\end{proof}
-
-\begin{lemma}
-    Let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
-    Then $I_2\cdots I_k\not\subseteq I_1$.   
-\end{lemma}
-
-\begin{proof}
-    Suppose the result is not true and let $k$ be minimal
-    such that $I_2\cdots I_k\subseteq I_1$. Since the result is clearly
-    true for two distinct maximal ideals, $k\geq3$. Let $I=I_2\cdots I_{k-1}$. 
-    Since $I\not\subseteq I_1$, there exists $x\in I\setminus I_1$. Moreover,  
-    there exists $y\in I_k\setminus I_1$, as 
-    $I_k\ne I_1$. 
-    Then 
-    $(xR)y\subseteq II_k\subseteq I_1$. Since $I_1$ is prime, 
-    it follows that either $x\in I_1$ or $y\in I_1$, a contradiction.   
-\end{proof}
-
-\begin{lemma}
-    Let $R$ be a left artinian ring. Then $R$ has only 
-    finitely many primitive ideals.
-\end{lemma}
-
-\begin{proof}
-    If $I_1,I_2\dots$ are infinitely many primitive ideals. 
-    Since $R$ is left artinian, the sequence 
-    $I_1\supseteq I_1I_2\supseteq\cdots$ stabilizes, so there
-    exists $n$ such that 
-    \[
-    I_1I_2\cdots I_n=I_1I_2\cdots I_nI_{n+1}\subseteq I_{n+1},
-    \]
-    a contradiction to the previous lemma, 
-    as each $I_j$ is a maximal ideal. 
-\end{proof}
-
-Now we are ready to prove the theorem. 
-
-\begin{proof}[Proof of Theorem \ref{thm:ArtinWedderburn_version2}]
-    Let $I_1,\dots,I_k$ be the (distinct) primitive ideals of $R$. 
-    We know that each $I_i$ is a maximal ideal. Thus $I_i+I_j=R$ for
-    $i\ne j$. Since $R$ is semiprimitive, 
-    $I_1\cap\cdots\cap I_k=J(R)=\{0\}$. Let 
-    \[
-    \varphi\colon R\to \prod_{i=1}^k R/I_i,\quad
-    x\mapsto (x+I_1,\dots,x+I_k).
-    \]
-    Then $\varphi$ is a ring homomorphism with kernel $I_1\cap\cdots\cap I_k=\{0\}$, so
-    $\varphi$ is injective. We need to prove that $\varphi$ is surjective. 
-    
-    We first claim that 
-    $I_1+( I_2\cdots I_k) = R$. In fact, 
-    since $I_1,\dots,I_k$ are maximal ideals, $I_1\not\subseteq I_2\cdots I_k$. This implies
-    that $I_1+(I_2\cdots I_k)$ is an ideal of $R$ that contains $I_1$. Since $I_1$ is maximal, 
-    $I_1+(I_2\cdots I_k)=R$. 
-    
-    Since $I_1+( I_2\cdots I_k) = R$, 
-    there exists $x_1\in \prod_{j=2}^kI_j$ such that $1=x_1+I_1$. Note that
-    $x_1=(1+I_1)\cap (I_2\cdots I_k)\subseteq I_j$ for all $j\in\{2,\dots,k\}$. 
-    Thus 
-    \[
-    \varphi(x_1)=(x+I_1,I_2,\dots,I_k)=(1+I_1,I_2,\dots, I_k).
-    \]
-    Similarly,
-    there exists $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
-    \begin{align*}
-    \varphi(x_2)&=(I_1,1+I_2,\dots,I_k),\\
-    &\vdots\\
-    \varphi(x_k)&=(I_1,I_2,\dots,1+I_k).
-    \end{align*}
-    From this it follows that $\varphi$ is surjective. Each $R/I_i$ 
-    is primitive and hence isomorphic to $M_{n_i}(D_i)$ for some 
-    $n_i$ and some division ring $D_i$. Therefore
-    \[
-    R\simeq R/I_1\times\cdots\times R/I_k\simeq \prod_{i=1}^kM_{n_i}(D_i).\qedhere 
-    \]
-\end{proof}
-
-\topic{Semisimple modules}
-
-In the first lectures we studied semisimple modules over finite-dimensional 
-algebras. Let us now review the theory of semisimple modules over rings. 
-A (finitely generated) module $M$ (over a ring $R$) is \textbf{semisimple} 
-if it isomorphic to a (finite) direct sum of simple modules. 
-
-\begin{definition}
-    Let $R$ be a ring. A left ideal $L$ is said to be \textbf{minimal}
-    if $L\ne\{0\}$ and there is no left ideal $L_1$
-    such that $\{0\}\subsetneq L_1\subsetneq L$.
-\end{definition}
-
-The ring $\Z$ contains no minimal left ideals. If $I$ is a non-zero 
-left ideal of $\Z$, then
-$I=(n)$ for some $n>0$ and $I=(n)\supsetneq (2n)$. 
-
-\begin{proposition}
-    Let $R$ be a left artinian ring. 
-    Then every non-zero left ideal contains a minimal left ideal. 
-\end{proposition}
-
-\begin{proof}
-    Let $X$ be the family of non-zero left ideals contained in $I$. Then $X$ is non-empty, as 
-    $I\in X$. Then $X$ contains a minimal element by Proposition \ref{pro:artinian_minimal}. 
-\end{proof}
-
-% \begin{proposition}
-% 	Let $R$ be a unitary ring and $M$ be a unitary semisimple module. 
-% 	The following statements are equivalent:
-% 	\begin{enumerate}
-% 		\item $M$ is noetherian.
-% 		\item $M$ is artinian.
-% 		\item $M$ is a direct sum of finitetely many simple modules. 
-% 	\end{enumerate}
-% \end{proposition}
-
-% \begin{proof}
-% 	We first prove that $3)\Longleftrightarrow1)$ and that 
-% 	$3)\Longleftrightarrow2)$. Como cada submódulo simple es artiniano y
-% 	noetheriano, $M$ resulta artiniano y noetheriano. Recíprocamente, si $M$ es
-% 	artiniano, $I$ debe ser finito pues de lo contrario podríamos elegir
-% 	elementos $i_1,i_2,i_3,\dots$ de $I$ tales que la sucesión
-% 	\[
-% 		\bigoplus_{i\in I}M_i\supsetneq \bigoplus_{i\in I\setminus\{i_1\}}M_i\supsetneq\bigoplus_{i\in I\setminus\{i_1,i_2\}}M_i\supsetneq\cdots
-% 	\]
-% 	nunca se estabiliza. Análogamente, si $M$ es noetheriano, podríamos elegir
-% 	elementos $i_1,i_2,i_3,\dots\in I$ tales que la sucesión
-% 	\[
-% 		M_{i_1}\subsetneq M_{i_1}\oplus M_{i_2}\subsetneq\cdots
-% 	\]
-% 	nunca se estabiliza.
-% \end{proof}
-
-\begin{definition}
-    \index{Ring!semisimple}
-    A ring $R$ with identity is \textbf{semisimple} if it is a direct sum of (finitely many) 
-    minimal left ideals. 
-\end{definition}
-
-Why finitely many minimal left ideals?
-Suppose that $R=\oplus_{i\in I}L_i$, where $\{L_i:i\in I\}$ is a collection of
-minimal left ideals of $R$. 
-Since $R$ is unitary, $1=\sum_{i\in I}e_i$ (finite sum) for 
-some $e_i\in L_i$. This means that the set $J=\{i\in I:e_i\ne 0\}$ is finite.
-Note that $R=\oplus_{j\in J}L_j$, as 
-if $x\in R$, then 
-\[
-x=x1=\sum_{j\in J}xe_j\in \bigoplus_{j\in J}L_j.
-\]
-
-Note
-that $\prescript{}{R}{R}$ is finitely generated by $\{1\}$. Minimal left ideals of $R$ 
-are exactly the simple submodules of $\prescript{}{R}{R}$. 
-This means that 
-the ring $R$ is semisimple if and only if the module
-$\prescript{}{R}{R}$ is semisimple.  
-
-\begin{proposition}
-    Let $R$ be a semisimple ring. Then $R$ is noetherian and artinian.
-\end{proposition}
-
-\begin{proof}
-    Write $R$ as a direct sum $R=L_1\oplus\cdots\oplus L_n$ of minimal left ideals. Since 
-    each $L_j$ is a simple submodule of $\prescript{}{R}{R}$, it follows that 
-    \[
-    L_1\oplus\cdots\oplus L_n\supsetneq L_2\oplus\cdots\oplus L_n\supsetneq\cdots\supsetneq L_n\supsetneq\{0\}
-    \]
-    is a composition series for $\prescript{}{R}{R}$ with composition factors
-    $L_1,\dots,L_n$. Since the module $\prescript{}{R}{R}$ admits a composition
-    series, it is artinian and noetherian by Theorem \ref{thm:serie_de_composicion}. It follows
-    from the definitions that $R$ is left artinian and left noetherian. 
-\end{proof}
-
-\begin{exercise}
-\label{xca:semisimple}
-    If $R$ is a semisimple ring, every $R$-module is semisimple. 
-\end{exercise}
-
-% \begin{proof}
-%     Since $R$ is semisimple, the module $\prescript{}{R}{R}$ is semisimple. 
-%     Let $M$ be a module over $R$. Then $R$ is isomorphic to 
-%     a quotient of a free module $F\simeq \oplus_{i\in I}{R}$. Since $F$
-%     is semisimple, $M$ is semisimple. 
-% \end{proof}
-
-% Now it is possible to prove Artin--Wedderburn's theorem for rings. 
-% If $R$ is a semisimple ring, then
-% \[
-% R\simeq \prod_{i=1}^k M_{n_i}(D_i)
-% \]
-% for some $n_1,\dots,n_k\geq1$ and some
-% division rings $D_1,\dots,D_k$. 
-% The proof is somewhat
-% the same we did for finite-dimensional algebras.
-
-\begin{exercise}
-\label{xca:M_n(D)_semisimple}
-    Prove that if $D$ is a division ring, then 
-    $M_n(D)$ is semisimple. 
-\end{exercise}
-
-To see a concrete example, note that  
-$M_2(\R)$ is semisimple, as  
-\[
-M_2(\R)=\left\{\begin{pmatrix}
-a&b\\
-c&d
-\end{pmatrix}\right\}
-=
-\left\{\begin{pmatrix}
-a&0\\
-b&0
-\end{pmatrix}\right\}
-\oplus
-\left\{\begin{pmatrix}
-0&c\\
-0&d
-\end{pmatrix}\right\}\simeq D\oplus D
-\]
-and $D$ is a minimal left ideal of $M_2(\R)$. 
-
-\begin{theorem}
-	\label{thm:SSartin=J}
-	Let $R$ be a unitary ring. Then $R$ is semisimple if and only if 
-	$R$ is left artinian and $J(R)=\{0\}$.
-\end{theorem}
-
-\begin{proof}
-    If $R$ is semisimple, then $R$ is left artinian by the previous proposition. 
-    Moreover, 
-    there are finitely many 
-    minimal left ideals $L_1,\dots,L_k$ of $R$ 
-    such that $R\simeq L_1\oplus\cdots\oplus L_k$. We claim that
-    for each $i\in\{1,\dots,k\}$, the ideal
-    $M_i=\sum_{j\ne i}L_j$ of $R$ is maximal. For example, let us prove
-    that $M_1$ is maximal. If not, there exists an ideal $I$ of $R$ 
-    such that $M_1\subsetneq I$. Let $x\in I\setminus M_1$ and write 
-    \[
-    x=x_1+x_2+\cdots+x_k
-    \]
-    for $x_j\in L_j$. Since $x_2+\cdots+x_k\in M_1\subseteq I$, 
-    it follows that $x_1\in I\cap I_1$, a contradiction.  
-    
-    Conversely, if $R$ is left artinian and $J(R)=\{0\}$, then
-    $R\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)$ 
-    for division rings $D_1,\dots,D_k$, this is Artin--Wedderburn's theorem. 
-    Since each $M_{n_j}(D_j)$ 
-    is semisimple, it follows that $R$ is semisimple. 
-\end{proof}
-
-% We shall need a lemma.
-
-% \begin{lemma}
-% 	\label{lem:Jartiniano}
-% 	Let $R$ be a unitary left artinian ring. There exists finitely many maximal ideals 
-% 	$I_1,\dots,I_n$ of $R$ such that 
-% 	$J(R)=I_1\cap\cdots\cap I_n$.
-% \end{lemma}
-
-% \begin{proof}
-%     The set $X$ of left ideals of the form
-% 	$I_1\cap\cdots\cap I_n$ for finitely many maximal ideals $I_1,\dots,I_n$ of $R$
-% 	is non-empty, as $R$ contains maximal ideals since it is a unitary ring. 
-%     Since $R$ is left artinian,
-% 	Proposition~\ref{pro:artinian_minimal} implies that $X$ 
-% 	contains a minimal element, say 
-% 	$J=\bigcap_{i=1}^k I_i$. We claim that $J=J(R)$. 
-% 	Since $R$ is
-% 	unitary, $J(R)$ is the intersection of all maximal ideals of $R$ and hence 
-% 	$J(R)\subseteq J$. Let us now prove that $J\subseteq J(R)$. 
-% 	If not, let $x\in
-% 	J\setminus J(R)$. Then there exists a maximal ideal $M$ such that $x\not\in
-% 	M$. This implies that $J\cap M\subsetneq J$, a contradiction to the minimality of 
-%     $J$. 
-% \end{proof}
-
-% We now prove the theorem. 
-
-% \begin{proof}[Proof of Theorem \ref{thm:SSartin=J}]
-% 	Assume first that $R$ is semisimple. By Artin--Wedderburn's theorem, 
-% 	\[
-% 		R\simeq\prod_{i=1}^kM_{n_i}(D_i)
-% 	\]
-% 	for some $n_1,\dots,n_k\geq1$ and some division rings $D_1,\dots,D_k$. 
-% 	In particular, $R$ is left artinian and $J(R)=\prod_{i=1}^kJ(M_{n_i}(D_i))=\{0\}$
-% 	because each $M_{n_i}(D_i)$ is simple. 
-
-%     Conversely, the previous lemma implies that $\{0\}=J(R)=I_1\cap\cdots\cap I_k$ for some
-%     maximal ideals $I_1,\dots,I_k$. Since each $R/I_i$ is simple, it follows that 
-%     $\prod_{i=1}^k R/I_i$ is semisimple. The map 
-% 	\[
-% 	R\to \prod_{i=1}^k R/I_i,\quad
-% 	x\mapsto (x+I_1,\dots,x+I_k),
-% 	\]
-% 	is an ring homomorphism with 
-% 	kernel $I_1\cap\cdots\cap I_k=\{0\}$. Thus it is injective and hence 
-% 	it follows that $R$ 
-% 	is also semisimple. 
-% \end{proof}
-
-% % Como consecuencia tenemos el siguiente resultado:
-
-% % \begin{proposition}
-% % 	Sea $G$ un grupo. Entonces $\C[G]$ es artiniana a izquierda si y sólo si
-% % 	$G$ es finito. 
-% % \end{proposition}
-
-% % \begin{proof}
-% % 	Si $G$ es finito sabemos que $\C[G]$ es artiniano a izquierda por ser de
-% % 	dimensión finita.  Recíprocamente, si $G$ es infinito, sabemos que
-% % 	$J(\C[G])=0$ (por el teorema de Rickart) y que $\C[G]$ no es semisimple
-% % 	(por la proposición~\ref{pro:nunca_SS}). Luego $\C[G]$ no es artiniana a izquierda por el
-% % 	teorema~\ref{thm:SSartin=J}.
-% % \end{proof}
-
-% % Concluimos la sección con el siguiente teorema:
-
-% We now present an important result that uses 
-% semisimplicity. 
-
-\topic{Hopkins--Levitski's theorem}
-
-\begin{theorem}[Hopkins--Levitszki]
-	\label{thm:Hopkins-Levitski}
-	\index{Hopkins--Levitski's theorem}
-	Let $R$ be a unitary left artinian ring. Then $R$ is left noetherian.
-\end{theorem}
-
-\begin{proof}
-	Let $J=J(R)$. Since $R$ is left artinian, $J$ is a nilpotent ideal 
-	by Theorem~\ref{thm:Jnilpotente}. Let $n$ be such that $J^n=\{0\}$. Now consider the sequence 
-	\[
-		R\supsetneq J\supsetneq J^2\supsetneq\cdots\supsetneq J^{n-1}\supsetneq J^n=\{0\}.
-	\]
-	Each $J^{i}/J^{i+1}$ is a module over $R$ annihilated by $J$, 
-	that is $J\cdot (J^i/J^{i+1})=\{0\}$, as 
-	\[
-	x\cdot (y+J^{i+1})=xy+J^{i+1}\subseteq JJ^i+J^{i+1}=J^{i+1} 
-	\]
-	if $x\in J$ and $y\in J^i$. 
-	Thus each  
-	$J^i/J^{i+1}$ is a module over $R/J$. Since $R/J$ is left artinian and 
-	$J(R/J)=\{0\}$ by Theorem \ref{thm:J(R/J)=0}, it follows that $R/J$ is semisimple. 
-	In particular, since every $R/J$-module is semisimple,  
-	each $J^{i}/J^{i+1}$ 
-	is semisimple and hence it is left noetherian. 
-	
-	Now uppose that $R$ is not left noetherian. Let $m$ be the largest non-negative integer
-	such that $J^m$ is not left noetherian. Note that $0\leq m<n$. The sequence
-	\[
-	 \begin{tikzcd}
-        0 & J^{m+1} & J^m & J^{m}/J^{m+1} & 0
-        \arrow[from=1-1, to=1-2]
-        \arrow[from=1-2, to=1-3]
-        \arrow[from=1-3, to=1-4]
-        \arrow[from=1-4, to=1-5]
-    \end{tikzcd}
-	\]
-	is exact. Since $J^{m+1}$ is left noetherian by the definition of $m$ 
-	and $J^m/J^{m+1}$ is left noetherian, it follows that 
-	$J^m$ is noetherian, a contradiction. 
-\end{proof}
-
-% Más adelante uso la semisimplicidad del álgebra de grupo, como 
-% que todo ideal tenga complemento. Así necesito definir un anillo semisimple, con la representación regular.
-% Hopkins-Levitksy tiene que hacerse después de Artin-Wederburn, sin usar nada. Puedo consultar
-% las notas de Bell. 
-% También puede mirarse el Hungerford. ¿Dónde se usa el 1 en Hopkins-Levitski?
-% Lo del álgebra de grupo tiene que moverse después de Jacobson
-% quizá alcance con escribir bien la sucesión exacta
-
-
-% % agregar como corolario el teorema de fermat! 
-% \topic{Hopkins--Levitski's theorem}
-
-% Note that if $R$ is semiprimitive and left artinian, then 
-% any artinian $R$-module is noetherian, as 
-% $R\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)$ 
-% for some division rings $D_1,\dots,D_k$. Each $M_{n_i}(D_i)$ 
-% is a finite-dimensional vector space over $D_i$. Since 
-% each  $M_{n_i}(D_i)$ is noetherian, it follows
-% that $R$ is noetherian, as $R$ is the 
-% direct product of finitely many noetherian rings.
 
