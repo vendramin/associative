@@ -601,3 +601,72 @@ Now we are ready to prove Jacobson's commutativity theorem.
     it is non-commutative.
 \end{proof}
 
+% \topic{Andrunakevic--Rjabuhin's theorem}
+%https://ysharifi.wordpress.com/2010/06/04/about-reduced-rings-1/
+% \begin{exercise}
+% \label{xca:reduced}
+%     Let $R$ be a ring and $I$ be an ideal of $R$.
+%     Prove that $I$ is prime if and only if $xRy\subseteq I$ implies
+%     either $x\in I$ or $y\in I$. 
+% \end{exercise}
+
+% \begin{sol}{xca:reduced}
+%     Let $A$ and $B$ be ideals such that $AB\subseteq I$. If 
+%     $A\not\subseteq I$ and $B\not\subseteq J$, let 
+%     $x\in A\setminus P$ and $y\in B\setminus P$. Then
+%     $xRy\subseteq AB\subseteq I$, a contradiction. 
+%     Conversely, if $xRy\subseteq I$ and $x\not I$ and $y\not\in I$, 
+%     then $A=(x)\not\subseteq I$ and $B=(y)\not\subseteq P$.
+% \end{sol}
+
+% \begin{theorem}[Andrunakevic--Rjabuhin]
+% \index{Andrunakevic--Rjabuhin's theorem}
+% 	Let $R$ be a non-zero ring. Then $R$ is reduced if and only 
+% 	if $R$ is a subdirect product of domains.
+% \end{theorem}
+
+% We shall need some lemmas. 
+
+% \begin{lemma}
+%     Let $P$ be a minimal prime ideal of $R$. Then 
+%     $S=R\setminus P$ is multiplicatively closed if and only if
+%     $s_1\cdots s_k\ne 0$ for all $k\geq 1$ and $s_1,\dots,s_k\in S$. 
+% \end{lemma}
+
+% \begin{proof}
+%     Let $T=\{s_1\cdots s_k:k\geq 1,s_1,\dots,s_k\in S\}$. Clearly $T$ 
+%     is multiplicatively closed and $S\subseteq T$. We claim that 
+%     $T\subseteq S$. Let $X=\{I:\text{$I$ is an ideal of $R$ such that $I\cap T=\emptyset$}\}$. 
+%     Then $X\ne\emptyset$, as $\{0\}\in X$. If $C$ is a chain in $X$, then
+%     $\cup_{I\in C}I$ is an upper bound, so there exists a maximal element $Q\in X$ 
+%     by Zorn's lemma. It is an exercise to show that $Q$ is prime. Since 
+%     $Q\cap T=\emptyset$, it follows that $Q\cap S=\emptyset$, that is $Q\subseteq P$. 
+%     Since $P$ is minimal, $P=Q\in X$. In particular, $T\subseteq S$. 
+% \end{proof}
+
+% \begin{lemma}
+%     Let $P$ be a minimal prime ideal of $R$. 
+%     Then $R/P$ is a domain.
+% \end{lemma}
+
+% \begin{proof}
+    
+% \end{proof}
+
+
+% \begin{proof}
+% 	If $R$ is reduced, then every prime ideal contains a minimal prime ideal. 
+% 	Thus $\cap_{i\in I}P'_i=\{0\}$, where $\{P'_i:\in I\}$ is the collection
+% 	of minimal prime ideals. Then each $R/P'_i$ is a domain and 
+% 	there is an injective map $R\to\prod_{i\in I}R/P'_i$. 
+	
+% 	Supongamos ahora que $R$ es producto subdirecto de la familia $\{R_i:i\in I\}$ de dominios. Sea 
+% 	$f\colon R\to \prod_{i\in I}R_i$, $f(x)=(x_i)_{i\in I}$, el morfismo inyectivo. 
+% 	Si $x\in R$ es tal que $x^2=0$ entonces 
+% 	\[
+% 		(0)_{i\in I}=f(0)=f(x^2)=f(x)^2=(x_i^2)_{i\in I}
+% 	\]
+% 	y luego, como cada $R_i$ es un dominio, se concluye que $x_i=0$ para todo
+% 	$i\in I$.
+% \end{proof}
+
