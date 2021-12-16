@@ -314,7 +314,7 @@ We shall need the following lemma.
 \end{lemma}
 
 \begin{proof}
-	The field $K$ is a $\Z/p$-vector space. If $\dim{\Z/p} k=n$, then 
+	The field $K$ is a $(\Z/p)$-vector space. If $\dim_{\Z/p} K=n$, then 
 	$|K|=p^n$. In particular, $K\setminus\{0\}$ is an abelian
 	group of order $p^{n}-1$ and hence, by Lagrange's theorem, 
 	$x^{p^n-1}=1$ for all $x\in K\setminus\{0\}$. Thus $x^{p^n}=x$ for all $x\in K$
@@ -323,7 +323,8 @@ We shall need the following lemma.
 \end{proof}
 
 Let $R$ be a ring. For each $r\in R$ the map $\ad{r}\colon
-R\to R$, $x\mapsto rx-xr$, is a derivation. 
+R\to R$, $x\mapsto rx-xr$, is a derivation. This means that
+$\ad(xy)=(\ad x)y+x(\ad y)$ for all $x,y\in R$. 
 By induction one proves that 
 \begin{equation}
 	\label{eq:Leibniz}
