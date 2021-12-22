@@ -1,0 +1,314 @@
+\chapter{}
+
+\topic{Brauer's group (optional)}
+
+Fix a field $K$. Recall that a $K$-algebra $A$ is \textbf{simple} 
+if $\{0\}$ and $A$ are the only ideals of $A$. 
+For example, if $D$ is a division algebra, then $D$ and $M_n(D)$ are simple algebras. 
+
+\begin{example}
+    If $a,b\in K\setminus\{0\}$, let $H(a,b)$ be the $K$-algebra 
+    with basis $\{1,i,j,k\}$ and multiplication given by
+    \[
+    i^2=a,\quad
+    j^2=b,\quad 
+    ij=-ji.
+    \]
+    The quaternion algebra $H_K(a,b)$ is simple, as either $H_K(a,b)$ is a division algebra
+    or $H_K(a,b)\simeq M_2(K)$. 
+\end{example}
+
+A well-known particular case: $\H=H_{\R}(-1,-1)$. 
+
+\begin{definition}
+    \index{Algebra!central simple}
+    A \textbf{central simple algebra} is a finite-dimensional algebra $K$-algebra
+    such that $A$ is simple and $Z(A)=K$.
+\end{definition}
+
+For example, $\C$ is a complex central simple algebra and
+it is not a real central simple algebra, as $\Z(\C)=\C$. Moreover, 
+$\H$ and $\R$ are central simple algebras over $\R$.  
+
+\begin{exercise}
+    Prove that $\H\otimes_{\R}\H\simeq M_4(\R)$.  
+\end{exercise}
+
+The previous exercise shows that the tensor product of central simple algebras is not 
+necessarily a central simple algebra. 
+
+Wedderburn's theorem states that every finite-dimensional 
+simple algebra is isomorphic to $M_n(D)$ 
+for some $n$ and some division algebra $D$. 
+
+\begin{exercise}
+    Prove that the $n$ in Wedderburn's theorem is unique and
+    the division algebra $D$ is unique up to isomorphism. 
+\end{exercise}
+
+Let $A$ and $B$ be central simple $K$-algebras. By Wedderburn's theorem, 
+$A\simeq M_n(D)$ and $B\simeq M_m(E)$ for some $m,n>0$ and 
+division algebras $D$ and $E$. We define 
+\[
+    A\sim B\Longleftrightarrow D\simeq E.
+\]
+
+\begin{exercise}
+    Prove that $\sim$ is an equivalence relation. 
+\end{exercise}
+
+%\begin{example}
+If $D$ is a central division $K$-algebra, then $D=M_1(D)\sim M_n(D)$ for all $n$.
+%\end{example}
+
+\begin{exercise}
+    Let $D$ be a $K$-algebra. 
+    Prove that $D\otimes_K M_n(K)\simeq M_n(D)$ as $K$-algebras
+\end{exercise}
+
+\begin{exercise}
+    Prove that $M_n(K)\otimes_K M_m(K)\simeq M_{nm}(K)$. 
+\end{exercise}
+
+If $A$ is a central simple algebra, $[A]$ will denote
+the equivalence class of $A$ under the relation $\sim$, that is 
+$[A]=\{B:B\sim A\}$. 
+
+\begin{exercise}
+    Prove that the collection of equivalence classes of central simple 
+    algebras is a set. 
+\end{exercise}
+
+To solve the previous exercise recall that, by definition, central simple algebras
+are finite-dimensional. This means that the underlying 
+vector space of a central simple algebra over $K$ is $K^n$ for some $n$. Algebra
+structures over $K^n$ form a set, as they are indeed a subset of $\Hom(K^n\otimes K^n,K)$. 
+
+\begin{theorem}
+    Let $\operatorname{Br}(K)$ be the set of equivalence classes
+    of central simple $K$-algebras. Then $\operatorname{Br}(K)$ with 
+    the operation 
+    \begin{equation}
+        \label{eq:Brauer}
+        [A][B]=[A\otimes_KB]
+    \end{equation}
+    is an abelian group. 
+\end{theorem}
+
+\begin{proof}[Sketch of the proof]
+    We need to show that the product of $\operatorname{Br}(K)$ is well-defined. There are several
+    things to prove:
+    \begin{enumerate}
+        \item $A\otimes_KB$ is a finite-dimensional central simple $K$-algebra.  
+        \item The multiplication $[A][B]=[A\otimes_KB]$ is well-defined, that is $A\sim A_1$ and $B\sim B_1$ imply 
+        that $A\otimes_KB\sim A_1\otimes_KB_1$. 
+    \end{enumerate}
+    To prove 1) we note that $A\otimes_KB$ is a finite-dimensional $K$-algebra, as 
+    \[
+    \dim_K(A\otimes_KB)=(\dim_KA)(\dim_KB).
+    \]
+    It is central, as 
+    $Z(A\otimes_KB)\simeq Z(A)\otimes_KZ(B)$. Finally, it is simple, as 
+    there exists a bijective correspondence between ideals of $A$ and 
+    ideals of $A\otimes_KB$. 
+    
+    Let us prove 2). Write $A\simeq M_n(D)$, $A_1\simeq M_{n_1}(D)$, $B\simeq M_{m}(E)$ and
+    $B_1\simeq M_{m_1}(E)$ for some division $K$-algebras $D$ and $E$. Since the
+    tensor product is associative and commutative, 
+    \begin{align*}
+        A\otimes_KB &\simeq M_n(D)\otimes_KM_m(E)\\
+        &\simeq D\otimes_KM_n(K)\otimes_KE\otimes_KM_m(K)\\
+        &\simeq D\otimes_KE\otimes_KM_{nm}(K)\\
+        &\simeq M_{nm}(D\otimes_KE).
+    \end{align*}
+    Note that $D\otimes_KE$ is maybe not a division algebra, but it is indeed
+    a finite-dimensional central simple algebra. By Wedderburn's theorem, 
+    $D\otimes_KE\simeq M_p(F)$ for some division $K$-algebra $F$ and some $p$. This implies that
+    \[
+    A\otimes_KB\simeq M_{nmp}(F).
+    \]
+    Similarly, $A_1\otimes_KB_1\simeq M_{n_1m_1p}(F)$ and thus $A\otimes_KB\sim A_1\otimes_KB_1$. 
+    
+    Now we need to prove that $\operatorname{Br}(K)$ is a group. The multiplication \eqref{eq:Brauer}
+    is associative and commutative since the tensor product $\otimes_K$ is associative 
+    and multiplicative. The identity of $\operatorname{Br}(K)$ is
+    $[K]$, as $[A][K]=[A\otimes_KK]=[A]$. Finally, the inverse of $[A]$ is $[A^{\op}]$, as 
+    \[
+    [A][A^{\op}]=[A\otimes_KA^{\op}]=[M_n(K)].\qedhere
+    \]
+    
+\end{proof}
+
+Let us compute some examples:
+
+\begin{proposition}
+    $\operatorname{Br}(\C)=\{0\}$.
+\end{proposition}
+
+\begin{proof}
+    Let $A$ be a complex central simple algebra. Then $A\simeq M_n(D)$ for 
+    some complex division algebra $D$. We claim that $D\simeq\C$. Let $m=\dim D$ and $\alpha\in D$. 
+    Since $\{1,\alpha,\dots,\alpha^m\}$ has $m+1$ elements, it is a linearly dependent set. This means
+    that there exists $\lambda_0,\dots,\lambda_m\in\C$ not all zero such that 
+    $0=\sum_{i=0}^m\lambda_i\alpha^i$. Thus the non-zero polynomial $f=\sum_{i=0}^m\lambda_iX^i\in\C[X]$
+    is such that $f(\alpha)=0$. Since $\C$ is algebraically closed, 
+    there exist $\alpha_0,\dots,\alpha_N\in\C$ and $a\in\C\setminus\{0\}$ such that 
+    \[
+    f=a\prod_{i=0}^N(X-\alpha_i).
+    \]
+    Since $D$ is a division algebra, there exists $i\in\{0,\dots,m\}$ such that
+    $\alpha=\alpha_i$. In particular, $\alpha\in\C$. Therefore $[A]=[M_n(\C)]$
+    and hence $\operatorname{Br}(A)=\{0\}$. 
+\end{proof}
+
+An application of Wedderburn's little theorem:
+
+\begin{proposition}
+    Let $F$ be a finite field. Then 
+    $\operatorname{Br}(F)=\{0\}$.
+\end{proposition}
+
+\begin{proof}
+    Let $A$ be a central simple algebra over $F$ and  
+    and $[A]\in\operatorname{Br}(F)$. By Wedderburn's theorem, 
+    $A\simeq M_n(D)$ for some division $F$-algebra $D$. Since $\dim_FD<\infty$
+    and $F$ is finite, $F=Z(A)\simeq Z(M_m(D))\simeq Z(D)=D$ by Wedderburn's little theorem 
+    and hence $[A]=[F]$. 
+\end{proof}
+
+An application of Frobenius' theorem:
+
+\begin{proposition}
+    $\operatorname{Br}(\R)$ is the cyclic group of order two. 
+\end{proposition}
+
+\begin{proof}
+    Let $A$ be such that $[A]\in\operatorname{Br}(\R)$. Then $A\simeq M_n(D)$ 
+    where either $D\simeq\R$ or $D\simeq\H$ by Frobenius' theorem, as 
+    \[
+    \R\simeq Z(A)\simeq Z(M_n(D))\simeq Z(D)
+    \]
+    and $\Z(\C)=\C$. Thus $\operatorname{Br}(\R)$ has only two elements, that is
+    $\operatorname{Br}(\R)=\{[\R],[\H]\}$. 
+\end{proof}
+
+
+\topic{Brauer's group and cohomology (optional)}
+
+Let $L/K$ be a Galois extension of degree $n$.  
+Extending scalars we obtain a group homomorphism
+\[
+    \operatorname{res}\colon\operatorname{Br}(K)\to\operatorname{Br}(L),\quad
+    [A]\mapsto [A\otimes_KL],
+\]
+known as the \textbf{restriction homomorphism}. 
+
+\begin{exercise}
+    Prove that $\operatorname{res}$ is well-defined.
+\end{exercise}
+
+\begin{definition}
+    Let $L/K$ be a Galois extension of degree $n$. 
+    The \textbf{restricted Brauer group} is $\operatorname{Br}(L/K)$ is defined
+    as the kernel of the restriction homomorphism. 
+\end{definition}
+
+% Note that $\operatorname{Br}(L/K)$ is a subgroup of 
+% $\operatorname{Br}(K)$. 
+
+Recall that $G$ is a finite group. Let 
+$Z^2(G,L^{\times})$ be the set of maps $\alpha\colon G\times G\to L^{\times}$
+such that 
+\[
+\alpha(g,h)\alpha(gh,k)=g(\alpha(h,k))\alpha(g,hk)
+\]
+for all $g,h,k\in G$. 
+
+We say that 
+$\alpha\in Z^2(G,L^{\times})$ and $\beta\in Z^2(G,L^{\times})$ 
+are equivalent if and only if
+there exists $\{\delta_g:g\in G\}\subseteq L$ such that 
+\[
+\beta(g,h)=\delta_gg(\delta_h)\alpha(g,h)\delta^{-1}_{gh}
+\]
+for all $g,h\in G$. 
+
+The second cohomology group $H^2(G,L^{\times})$ is defined as the
+set of equivalence classes of $Z^2(G,L^{\times})$. One proves that
+$H^2(G,L^{\times})$ is indeed an abelian group. 
+
+\begin{exercise}
+Let $G$ be a finite group. 
+For $\alpha\in Z^2(G,L^{\times})$ let us consider the 
+crossed product $L_t^{\alpha}G$ of $G$ by $K$ 
+given by 
+\[
+L_t^{\alpha}G=\left\{\sum_{g\in G}\lambda_ge_g:\lambda_g\in L\right\}.
+\]
+\begin{enumerate}
+    \item Prove that the product 
+\[
+    (\lambda_ge_g)(\lambda_he_h)=\lambda_gg(\lambda_y)\alpha(g,h)e_{gh}.
+\]
+is associative. 
+\item Prove that $e=\alpha(1,1)^{-1}e_1$ is such that 
+$ee_g=e_ge=e_g$ for all $g\in G$. 
+\item Prove that 
+each $e_g$ is invertible with inverse 
+\[
+e_g^{-1}=\alpha(g^{-1},g)^{-1}\alpha(1,1)^{-1}e_{g^{-1}}.
+\]
+\end{enumerate}
+\end{exercise}
+
+% \begin{exercise}
+%     Prove that 
+% \end{exercise}
+
+\begin{theorem}
+    Let $L/K$ be a Galois extension of degree $n$ and group $G$. Then
+    \[
+    \operatorname{Br}(L/K)\simeq H^2(G,L^{\times}).
+    \]
+\end{theorem}
+
+The isomorphism of the theorem is given by 
+    \[
+    H^(G,L^{\times})\to\operatorname{Br}(L/K)\subseteq\operatorname{Br}(K),
+    \quad
+    [\alpha]\mapsto [L_t^{\alpha}G],
+    \]
+We do not have time to prove the theorem in detail, as it requires
+some tools that are outside the scope of our course. 
+
+\begin{corollary}
+    $\operatorname{Br}(K)$ is a torsion group.
+\end{corollary}
+
+\begin{proof}[Sketch of the proof]
+    The theorem implies that for every finite Galois extension $L/K$
+    one has $\operatorname{Br}(L/K)\simeq H^2(G,L^{\times})$ is a torsion group, 
+    as $|G|H^2(G,L^{\times})=\{0\}$. To finish the proof note that
+    $\operatorname{Br}(K)=\bigcup\operatorname{Br}(L/K)$, where the union 
+    is taken over all finite Galois extensions $L/K$. 
+\end{proof}
+
+The theorem can be used to compute Brauer groups. Let us give an example. We know
+that $\C/\R$ is a Galois extension with Galois group isomorphic to $\Z/2$. Thus
+\[
+\operatorname{Br}(\R)=\operatorname{Br}(\C/\R)\simeq H^2(\Z/2,\C^{\times})\simeq\Z/2.
+\]
+
+
+% \begin{proof}[Sketch of the proof]
+%     We need to show that the map
+%     \[
+%     H^(G,L^{\times})\to\operatorname{Br}(L/K)\subseteq\operatorname{Br}(K),
+%     \quad
+%     [\alpha]\mapsto [L_t^{\alpha}G],
+%     \]
+%     is a group isomorphism. We need to show that the map is well-defined: if $[\alpha]=[\beta]$, then
+%     $\alpha$ and $\beta$ are related by $\{\delta_g:g\in G\}$. Thus 
+%     the map $e_g\mapsto\delta_ge_g$ induces an isomorphism $L_t^{\alpha}G\to L_t^{\beta}G$ and, in particular, 
+%     $L_t^{\alpha}G\sim L_t^{\beta}G$. 
+% \end{proof}
