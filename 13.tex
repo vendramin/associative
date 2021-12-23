@@ -7,12 +7,12 @@ if $\{0\}$ and $A$ are the only ideals of $A$.
 For example, if $D$ is a division algebra, then $D$ and $M_n(D)$ are simple algebras. 
 
 \begin{example}
-    If $a,b\in K\setminus\{0\}$, let $H(a,b)$ be the $K$-algebra 
+    If $a,b\in K\setminus\{0\}$, let $H_K(a,b)$ be the $K$-algebra 
     with basis $\{1,i,j,k\}$ and multiplication given by
     \[
     i^2=a,\quad
     j^2=b,\quad 
-    ij=-ji.
+    ij=-ji=k.
     \]
     The quaternion algebra $H_K(a,b)$ is simple, as either $H_K(a,b)$ is a division algebra
     or $H_K(a,b)\simeq M_2(K)$. 
@@ -79,10 +79,10 @@ $[A]=\{B:B\sim A\}$.
     algebras is a set. 
 \end{exercise}
 
-To solve the previous exercise recall that, by definition, central simple algebras
-are finite-dimensional. This means that the underlying 
+One way to solve the previous exercise is to recall that, by definition, central simple algebras
+are finite-dimensional. Then that the underlying 
 vector space of a central simple algebra over $K$ is $K^n$ for some $n$. Algebra
-structures over $K^n$ form a set, as they are indeed a subset of $\Hom(K^n\otimes K^n,K)$. 
+structures over $K^n$ form a set, as they are indeed a subset of $\Hom(K^n\otimes K^n,K^n)$. 
 
 \begin{theorem}
     Let $\operatorname{Br}(K)$ be the set of equivalence classes
@@ -136,8 +136,11 @@ structures over $K^n$ form a set, as they are indeed a subset of $\Hom(K^n\otime
     \[
     [A][A^{\op}]=[A\otimes_KA^{\op}]=[M_n(K)].\qedhere
     \]
-    
 \end{proof}
+
+\begin{exercise}
+    Let $D$ be a division algebra. Compute the center of $M_n(D)$. 
+\end{exercise}
 
 Let us compute some examples:
 
@@ -157,7 +160,7 @@ Let us compute some examples:
     f=a\prod_{i=0}^N(X-\alpha_i).
     \]
     Since $D$ is a division algebra, there exists $i\in\{0,\dots,m\}$ such that
-    $\alpha=\alpha_i$. In particular, $\alpha\in\C$. Therefore $[A]=[M_n(\C)]$
+    $\alpha=\alpha_i$. In particular, $\alpha\in\C$. Therefore $[A]=[\C]$
     and hence $\operatorname{Br}(A)=\{0\}$. 
 \end{proof}
 
@@ -169,10 +172,10 @@ An application of Wedderburn's little theorem:
 \end{proposition}
 
 \begin{proof}
-    Let $A$ be a central simple algebra over $F$ and  
-    and $[A]\in\operatorname{Br}(F)$. By Wedderburn's theorem, 
+    Let $A$ be a central simple algebra over $F$. Then 
     $A\simeq M_n(D)$ for some division $F$-algebra $D$. Since $\dim_FD<\infty$
-    and $F$ is finite, $F=Z(A)\simeq Z(M_m(D))\simeq Z(D)=D$ by Wedderburn's little theorem 
+    and $F$ is finite, $F=Z(A)\simeq Z(M_m(D))\simeq Z(D)=D$ 
+    by Wedderburn's little theorem 
     and hence $[A]=[F]$. 
 \end{proof}
 
@@ -183,7 +186,7 @@ An application of Frobenius' theorem:
 \end{proposition}
 
 \begin{proof}
-    Let $A$ be such that $[A]\in\operatorname{Br}(\R)$. Then $A\simeq M_n(D)$ 
+    Let $A$ be a central simple real algebra. Then $A\simeq M_n(D)$ 
     where either $D\simeq\R$ or $D\simeq\H$ by Frobenius' theorem, as 
     \[
     \R\simeq Z(A)\simeq Z(M_n(D))\simeq Z(D)
@@ -216,7 +219,7 @@ known as the \textbf{restriction homomorphism}.
 % Note that $\operatorname{Br}(L/K)$ is a subgroup of 
 % $\operatorname{Br}(K)$. 
 
-Recall that $G$ is a finite group. Let 
+Recall that the Galois group $G$ of $L/K$ is a finite group. Let 
 $Z^2(G,L^{\times})$ be the set of maps $\alpha\colon G\times G\to L^{\times}$
 such that 
 \[
@@ -274,7 +277,7 @@ e_g^{-1}=\alpha(g^{-1},g)^{-1}\alpha(1,1)^{-1}e_{g^{-1}}.
 
 The isomorphism of the theorem is given by 
     \[
-    H^(G,L^{\times})\to\operatorname{Br}(L/K)\subseteq\operatorname{Br}(K),
+    H^2(G,L^{\times})\to\operatorname{Br}(L/K)\subseteq\operatorname{Br}(K),
     \quad
     [\alpha]\mapsto [L_t^{\alpha}G],
     \]
