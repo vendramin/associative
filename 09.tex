@@ -4,7 +4,7 @@
 
 Let $K$ be a field and $G$ be a group. The \textbf{group algebra} $K[G]$ 
 is the vector space (over $K$) with basis $\{g:g\in G\}$ 
-and the algebra structure given by the multiplication
+and the algebra structure is given by the multiplication
 \[
 	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
 	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
@@ -28,8 +28,8 @@ Note that every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lam
 
 \begin{exercise}
 	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
-    $\alpha$ is invertible (resp. left zero divisor) in $K[H]$ if and only if 
-	$\alpha$ is invertible (resp. left zero divisor) in
+    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. a left zero divisor) in
 	$K[G]$.
 \end{exercise}
 
@@ -57,7 +57,7 @@ Note that every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lam
 		\quad
 		a1+bg\mapsto (a+b,a-b),
 	\]
-	is an algebra isomorhism. 
+	is an algebra isomorphism. 
 	\item If the characteristic of $K$ is two, then 
 	\[
 	K[G]\to \begin{pmatrix}
@@ -150,7 +150,7 @@ We now consider the following problem. It is known as Jacobson's semisimplicity 
 Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
 \end{openproblem}
 
-As an application of Amitsur's theorem we prove that 
+As an application of Amitsur's theorem, we prove that 
 complex group algebras have null Jacobson radical.
 This is known as 
 Rickart's theorem. The original proof found by Rickart 
@@ -289,9 +289,9 @@ We now prove the theorem.
 % \end{proof}
 
 We now characterize when complex group algebras 
-are left artinian. For that purpose
+are left artinian. For that purpose,
 we need a lemma. This is similar to one of the implications proved in Proposition \ref{pro:semisimple}. However,
-in the arbitrary setting we are considering, we need to use Zorn's lemma. 
+in the arbitrary setting, we are considering, we need to use Zorn's lemma. 
 
 \begin{lemma}
     Let $M$ be a semisimple module and $N$ be a submodule. 
@@ -328,7 +328,7 @@ complex group algebras of infinite groups are never semisimple.
 	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
 	\]
 	By the previous lemma, 
-	there exists exists a non-zero ideal $J$ such that 
+	there exists a non-zero ideal $J$ such that 
 	$R=I\oplus J$. Since $R$ is unitary, there exist $e\in I$ and $f\in J$ such that
 	$1=e+f$. If
 	$x\in I$, then $x=xe+xf$ and hence $xf=x-xe\in I\cap J=\{0\}$. Since 
@@ -410,7 +410,7 @@ In this case, our result is for finite groups.
 	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
 	the characteristic of the field $K$ divides $n$. 
 
-	Conversely, let $K$ be a field of prime characteristic and that this primes divides 
+	Conversely, let $K$ be a field of prime characteristic and that this prime divides 
 	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
 	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
 	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
