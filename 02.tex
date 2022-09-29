@@ -59,7 +59,7 @@ Moreover, every linearly independent subset of
 $M$ can be extended into a basis of $M$. 
 
 \begin{proposition}
-	Let $D$ be a division algebra and $V$ be a finitely-generated module over $D$. Then 
+	Let $D$ be a division algebra, and $V$ be a finitely-generated module over $D$. Then 
 	$V$ is a simple module over $\End_D(V)$ and there exits $n\in\Z_{>0}$ such that  
 	$\End_D(V)\simeq nV$ is semisimple.
 \end{proposition}
@@ -91,7 +91,7 @@ The proposition states that if $D$ is a division algebra, then
 $D^{n}$ is a simple $M_n(D)$-module and that $M_n(D)\simeq n D^n$ as $M_n(D)$-modules. 
 
 \begin{exercise}
-    Let $M$, $N$ and $X$ be modules. Prove that 
+    Let $M$, $N$, and $X$ be modules. Prove that 
     \begin{align}
         \Hom_A(M\oplus N,X)=\Hom_A(M,X)\times\Hom_A(N,X).
 %        \Hom_A(X,M\oplus N)=\Hom_A(X,M)\times\Hom_A(X,N).
@@ -109,7 +109,8 @@ then each $n_j$ is uniquely determined.
 \end{theorem}
 
 \begin{proof}
-	Since each $S_j$ is simple and $S_i\not\simeq S_j$ if $i\ne j$, Schur's lemma implies that 
+	Since each $S_j$ is simple and $S_i\not\simeq S_j$ if $i\ne j$, 
+    Schur's lemma implies that 
 	$\Hom_A(S_i,S_j)=\{0\}$ whenever $i\ne j$. 
 	For each $j\in\{1,\dots,k\}$, routine calculations show that 
 	\begin{align*}
@@ -120,7 +121,7 @@ then each $n_j$ is uniquely determined.
 	$\Hom_A(M,S_j)$ and $\Hom_A(S_j,S_j)$ 
 	are both finite-dimensional vector spaces.  
 	Moreover, the identity $\id\colon S_j\to S_j$ 
-	is clearly a module homomorphism and hence  
+	is a module homomorphism and hence  
 %	$\id\in\Hom_A(S_j,S_j)$ and hence 
 	$\dim\Hom_A(S_j,S_j)\geq 1$. 
 	Thus each $n_j$ is uniquely determined, as  
@@ -236,7 +237,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 \end{proof}
 
 \begin{exercise}
-    Let $M$, $N$ and $X$ be modules. Prove that 
+    Let $M$, $N$, and $X$ be modules. Prove that 
     \begin{align}
 %        \Hom_A(M\oplus N,X)=\Hom_A(M,X)\times\Hom_A(N,X).
         \Hom_A(X,M\oplus N)=\Hom_A(X,M)\times\Hom_A(X,N).
@@ -244,6 +245,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 \end{exercise}
 
 \begin{theorem}[Artin--Wedderburn]
+\index{Artin--Wedderburn theorem}
 Let $A$ be a finite-dimensional semisimple algebra, say with  
 $k$ isomorphism classes of simple modules. Then 
 \[
