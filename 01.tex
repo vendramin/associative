@@ -25,7 +25,7 @@ Note that an algebra over $K$ is a ring $A$ that is a vector space
 
 \index{Algebra!dimension}
 The \textbf{dimension} of an algebra $A$ is the dimension of $A$ as a vector space. This is why we want to consider algebras, as 
-they are linear version of rings. Quite often our arguments will use the dimension of the underlying vector space.  
+they are a linear version of rings. Often, our arguments will use the dimension of the underlying vector space.  
 
 \begin{example}
 	The field $\R$ is a real algebra and  
@@ -83,8 +83,11 @@ $\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebr
 	Then $\C[G]$ has zero divisors. 
 \end{exercise}
 
+If $A$ is an algebra, $\mathcal{U}(A)$ is the set 
+of units of $A$. 
+
 \begin{exercise}
-	Let $A$ be an algebra and $G$ be a finite group. 
+	Let $A$ be a $K$-algebra and $G$ be a finite group. 
 	If $f\colon G\to\mathcal{U}(A)$ is a group homomorphism, 
 	then there exists an algebra homomorphism 
 	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
@@ -104,7 +107,7 @@ and $\lambda\in K$ and $x\in I$, then
 	\lambda x=\lambda (1_Ax)=(\lambda 1_A)x.
 \]
 Since $\lambda 1_A\in A$, it follows that  $\lambda I=(\lambda
-1_A)L\subseteq I$. 
+1_A)I\subseteq I$. 
 Similarly, every right ideal of the ring $A$ is a vector space. 
 
 If $A$ is an algebra and $I$ is an ideal of $A$, then the quotient ring $A/I$ has a unique algebra
@@ -135,11 +138,11 @@ In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}
 \end{proof}
 
 \begin{definition}
-    A \textbf{module} $M$ over an algebra $A$ is a module 
+    A \textbf{module} over an algebra $A$ is a module 
     over the ring $A$.
 \end{definition}
 
-Similarly one defines submodules and module homomorphisms. 
+Similarly, one defines submodules and module homomorphisms. 
 
 \begin{example}
 If $V$ is a module over an algebra $A$, one defines $\End_A(V)$ as the set
@@ -182,7 +185,7 @@ This module is the (left) \textbf{regular representation} of $A$ and it will be 
 	finitely many simple submodules.  
 \end{definition}
 
-Clearly, a finite direct sum of semisimples is semisimple. 
+A finite direct sum of semisimples is semisimple. 
 
 \begin{lemma}[Schur]
 	Let $A$ be an algebra. If $S$ and $T$ are
