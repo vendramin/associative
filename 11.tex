@@ -1,4 +1,5 @@
 \chapter{}
+\label{11}
 
 \topic{Prime rings}
 
@@ -55,6 +56,30 @@ A characterization of prime rings:
 	we may assume that $I=\{0\}$. In particular, $Rx$ and $xR$ are ideals, as 
 	$R(xR)=(Rx)R=\{0\}$. Then $\Z x$ is an ideal of $R$ such that $(\Z x)R=\{0\}$. 
 	Thus $x=0$. 
+\end{proof}
+
+\begin{theorem}[Connel]
+\index{Connel's theorem}
+\label{thm:Connel}
+    Let $G$ be a group. Then $\C[G]$ is prime
+    if and only if $G$ does not contain 
+    non-trivial finite normal subgroups. 
+\end{theorem}
+
+\begin{proof}
+    See for example... %\cite{}. 
+\end{proof}
+
+\begin{corollary}[Connel]
+\label{cor:Connel}
+    Let $G$ be a group. Then $\C[G]$ is left artinian if and only
+    if $G$ is finite. 
+\end{corollary}
+
+\begin{proof}
+    It follows from Theorem \ref{thm:Connel} and
+    Hopkins--Levitzky theorem; see ... %\cite{} 
+    for a proof. 
 \end{proof}
 
 Simple rings are trivially prime. The converse is not true:
@@ -365,6 +390,48 @@ Some examples:
 	\]
 	as each $|q-\zeta|>q-1$, 
 	a contradiction. 
+\end{proof}
+
+\topic{Fermat's last theorem in finite rings}
+
+%A nice application: Fermat's last theorem in finite rings.
+
+\begin{theorem}
+\index{Fermat's last theorem for finite rings}
+    Let $K$ be a finite field and $A$ be a finite-dimensional $K$-algebra.
+    For $n\geq1$, there exist $x,y,z\in A\setminus\{0\}$ 
+    such that $x^n+y^n=z^n$ if and only if 
+    $A$ is not a division algebra.
+\end{theorem}
+
+\begin{proof}
+    Assume first that $A$ is a division algebra. By Wedderburn's theorem, 
+    $A$ is a finite field, say $|A|=q$. Then $x^{q-1}=1$ for all $x\in A\setminus\{0\}$.
+    Hence $x^n+y^n=z^n$ does not have a solution. 
+    
+    Conversely, assume that $A$ is not a division algebra. In particular, 
+    $A$ is not a field and $|A|>2$. The equation $x+y=z$ has a solution in $A\setminus\{0\}$ (for example, $x=1$, $y=z-1$ and $z\not\in\{0,1\}$ is a solution). Since
+    $\dim A<\infty$, the Jacobson radical $J(A)$ is nilpotent. There are two 
+    cases to consider. 
+    
+    If $J(A)\ne\{0\}$, 
+    then there exists $a\in A\setminus\{0\}$ such that $a^2=0$. Thus $a^n=0$ 
+    for all $n\geq2$. Hence $x^n+y^n=z^n$ has a non-trivial
+    solution in $A\setminus\{0\}$ for all $n\geq2$ (for example, take 
+    $x=a$ and $y=z=1$).
+    
+    If $J(A)=\{0\}$, then $A$ is semisimple and 
+    $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ for (finite) division rings $D_1,\dots,D_k$
+    and integers $n_1,\dots,n_k$. By Wedderburn's theorem, each $D_i$ is a finite
+    field. We consider two possible cases. 
+    
+    If there exists $i\in\{1,\dots,k\}$ such that $n_i>1$, then
+    $M_{n_i}(D_i)$ has non-zero elements such that their squares are zero. Thus 
+    there exists $x\in A\setminus\{0\}$ such that $x^2=0$. In particular, 
+    $x^n+y^n=z^n$ has a solution. 
+    
+    If $k\geq 2$, then $x=(1,0,0,\dots,0)$, $y=(0,1,0,\dots,0)$ 
+    and $z=(1,1,0,\dots,0)$ is a solution of $x^n+y^n=z^n$.
 \end{proof}
 
 % todo:  (draw a picture of $q$ and $\zeta$ in the complex plane)

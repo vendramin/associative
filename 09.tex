@@ -1,4 +1,5 @@
 \chapter{}
+\label{09}
 
 \topic{Rickart's theorem}
 
@@ -287,6 +288,22 @@ We now prove the theorem.
 % 	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
 % 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
 % \end{proof}
+
+\begin{corollary}
+\label{cor:C[G]_semiprime}
+	The ring $\C[G]$ is semiprime.
+\end{corollary}
+
+\begin{proof}
+	Since $J(\C[G])=\{0\}$ by Rickart's theorem and the Jacobson radical
+	contains every nil ideal by Proposition~\ref{pro:nilJ}, it follows that
+	$\C[G]$ does not contain non-trivial nil ideals. Thus $\C[G]$ does not
+	contain non-trivial nilpotent ideals and hence $\C[G]$ is semiprime.
+\end{proof}
+
+\begin{exercise}
+	Prove that $Z(\C[G])$ is semiprime.
+\end{exercise}
 
 We now characterize when complex group algebras 
 are left artinian. For that purpose,

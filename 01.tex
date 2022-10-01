@@ -12,8 +12,8 @@ prove Artin--Wedderburn theorem.
 	with an associative multiplication $A\times A\to A$ such that
 	$a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)$ and
 	$(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)$ for all $a,b,c\in A$, and 
-	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.   
-\end{definition}
+	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.
+ \end{definition}
 
 Note that an algebra over $K$ is a ring $A$ that is a vector space
 (over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
@@ -80,8 +80,6 @@ with the usual operations.
 
 The complex conjugation map  
 $\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebra homomorphism over $\C$. 
-
-%Two basic exercises about group algebras.
  
 \begin{exercise}
 	Let $G$ be a non-trivial finite group. 
@@ -103,7 +101,7 @@ of units of $A$.
  	An \textbf{ideal} of an algebra is an ideal of the underlying ring.
 \end{definition}
 
-Similarly one defines left and right ideals of an algebra.
+Similarly, one defines left and right ideals of an algebra.
 
 If $A$ is an algebra, then every left ideal of the ring $A$ is a vector space.  
 Indeed, if $I$ is a left ideal of $A$ 
@@ -148,6 +146,8 @@ In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}
 \end{definition}
 
 Similarly, one defines submodules and module homomorphisms. 
+It is a straightforward exercise to 
+prove the isomorphism theorems. 
 
 \begin{example}
 If $V$ is a module over an algebra $A$, one defines $\End_A(V)$ as the set
@@ -179,12 +179,14 @@ This module is the (left) \textbf{regular representation} of $A$ and it will be 
 \end{example}
 
 \begin{definition}
+\index{Module!simple}
 	Let $A$ be an algebra and $M$ be a module over $A$. Then 
 	$M$ is \textbf{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
 	are the only submodules of $M$.	
 \end{definition}
 
 \begin{definition}
+\index{Module!semisimple}
 	Let $A$ be a finite-dimensional 
 	algebra and $M$ be a finite-dimensional module over $A$. Then 
 	$M$ is \textbf{semisimple} if $M$ is a direct sum of 
@@ -194,6 +196,7 @@ This module is the (left) \textbf{regular representation} of $A$ and it will be 
 A finite direct sum of semisimples is semisimple. 
 
 \begin{lemma}[Schur]
+\index{Schur's lemma}
 	Let $A$ be an algebra. If $S$ and $T$ are
 	simple modules and $f\colon S\to T$ is a non-zero module homomorphism, 
 	then $f$ is an isomorphism. 
@@ -238,11 +241,6 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 	
 	The implication  $1)\implies2)$ is trivial. 
 	
-% 	We now prove that $2)\implies1)$. Let $J$ be a subset of $\{1,\dots,k\}$ maximal with the property that 
-% 	the sum $\sum_{j\in J}S_j$ is direct. Let $N=\oplus_{j\in J}S_j$. We claim that $M=N$. 
-% 	For each $i\in\{1,\dots,k\}$, either $S_i\cap N=\{0\}$ or $S_i\cap N=S_i$, as
-% 	$S_i$ is simple. If $S_i\cap N=S_i$ for all $i\in\{1,\dots,k\}$, then $S_i\subseteq N$ for all $i\in\{1,\dots,k\}$.  
-% 	If there exists $i\in\{1,\dots,k\}$ such that $S_i\cap N=\{0\}$, then $N$ and $S_i$ are in direct sum, a contradiction to the maximality of the set $J$. 
 	Finally, we prove that $3)\implies1)$. 
 	We proceed by induction on $\dim M$. The result is clear if $\dim M=1$. Assume that $\dim M\geq2$ and   
 	let $S$ be a non-zero submodule of $M$ of minimal dimension. In particular, $S$ is simple. 
