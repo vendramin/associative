@@ -1,5 +1,84 @@
 \chapter{}
 
+\topic{Gilmer's theorem}
+
+Hilbert's theorem states that 
+if $R$ is a noetherian 
+commutative unitary ring, then
+$R[X]$ is noetherian. 
+
+\begin{theorem}[Gilmer]
+\index{Gilmer's theorem}
+    Let $R$ be a commutative ring. If $R[X]$ is noetherian, 
+    then $R$ is unitary. 
+\end{theorem}
+
+\begin{proof}
+    Let $a\in R$. For $n\geq0$, let
+    \begin{align*}
+    I_n&=(a,aX,aX^2,\dots,aX^n)\\
+    &=R[X]a+R[X]aX+\cdots+aX^n+\Z a+\Z aX+\cdots+\Z aX^n.
+    \end{align*}
+    Then $I_0\subseteq I_1\subseteq\cdots I_n\subseteq I_{n+1}\subseteq\cdots$ 
+    is a sequence of ideals of $R[X]$. Since $R[X]$ is noetherian,
+    $I_n=I_{n+1}$ for some $n$. In particular, 
+    $aX^{n+1}\in I_{n+1}=I_n$. Thus
+    \[
+    aX^{n+1}=\sum_{i=1}^n aX^{i-1}f_i(X)+\sum_{i=1}^n k_iaX^{i-1}
+    \]
+    for some $f_1(X),\dots,f_n(X)\in R[X]$ and 
+    $k_1,\dots,f_n\in\Z$. Equating the coefficient of $X^{n+1}$ 
+    one gets that $a=ar$ for some $r\in R$. 
+    Thus  
+    \begin{equation}
+        \label{eq:Gilmer}
+        \text{for every $a\in R$ there exists $r\in R$ 
+    such that $a=ra$.}
+    \end{equation}
+    
+    \begin{claim}
+        For every $a_1,\dots,a_n\in R$ there exists $r\in R$ 
+        such that $a_i=ra_i$ for all $i$. 
+    \end{claim}
+    
+    We proceed by induction on $n$. 
+    The case $n=1$ is \eqref{eq:Gilmer}. Assume that
+    that the result holds for $n-1\geq1$. By the inductive hypothesis, 
+    there exists $r_1\in R$ such that $a_i=r_1a_i$ 
+    for all $i\in\{1,\dots,n-1\}$. Moreover, 
+    there exists $r_2\in R$ such that $a_n=ra_n$. 
+    Let $r=r_1+r_2-r_1r_2$. Then
+    \[
+    ra_n=r_1a_n+r_2a_n-r_1r_2a_n=r_1a_n+a_n-r_1a_n=a_n.
+    \]
+    Moreover, for $i\in\{1,\dots,n-1\}$, 
+    \[
+    ra_i=r_1a_i+r_2a_i-r_1r_2a_i=a_i+r_2a_i-r_2r_1a_i=a_i+r_2a_i-r_2a_i=a_i.
+    \]
+    
+    We now finish the proof of the theorem. 
+    Let $R[X]\to R$, $f(X)\mapsto f(0)$, be an evaluation map. Since
+    it is a surjective ring homomorphism, 
+    $R$ is noetherian. In particular, $R$ is finitely generated, 
+    say 
+    \[
+    R=(a_1,\dots,a_n)=Ra_1+\cdots+Ra_n+\Z a_1+\cdots+\Z a_n
+    \]
+    for some $a_1,\dots,a_n\in R$. 
+    
+    We now prove that the element $r$ from the claim we proved turns 
+    $R$ into a unitary ring, that is $r=1_R$.  
+    We need to show that $rb=b$ for all $b\in R$. 
+    If $b\in R$, then 
+    \[
+    b=t_1a_1+\cdots+t_na_n+m_1a_1+\cdots+m_na_n
+    \]
+    for some $t_1,\dots,t_n\in R$ and $m_1,\dots,m_n\in\Z$. 
+    Since $a_i=ra_i$ for all $i\in\{1,\dots,n\}$, it immediately
+    follows that
+    $rb=b$. 
+\end{proof}
+
 \topic{Artinian modules}
 
 \begin{definition}

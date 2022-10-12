@@ -541,3 +541,234 @@ Now we are ready to prove Jacobson's commutativity theorem.
 % 	$i\in I$.
 % \end{proof}
 
+%\chapter{Álgebras centrales simples}
+
+\section{Central algebras}
+
+\begin{definition}
+	Un álgebra se dice \textbf{central} si $Z(A)=k$. 
+\end{definition}
+
+\begin{proposition}
+	Sean $A$ un álgebra unitaria y $n\in\N$. Entonces $A$ es central si y sólo si
+	$M_n(A)$ es central.
+\end{proposition}
+
+\begin{proof}
+	Si $M_n(A)$ es central y $z\in Z(A)$, entonces $zI\in Z(M_n(A))=kI$. Luego
+	$z\in k$. Recíprocamente, si $X\in Z(M_n(A))$ entonces, como
+	$XE_{kl}=E_{kl}X$ para todo $k\ne l$, $X=aI$ para algún $a\in A$. Además
+	$XaE_{11}=aE_{11}X$ y luego $a\in Z(A)=k1$. 
+\end{proof}
+
+\begin{example}
+	$M_n(k)$ es un álgebra central.
+\end{example}
+
+\begin{example}
+	$\H$ es central como álgebra real.
+\end{example}
+
+\begin{example}
+	$\C$ es central como álgebra compleja pero no lo es como álgebra real.
+\end{example}
+
+El teorema de Frobenius se traduce a este contexto de la siguiente forma:
+
+\begin{theorem}
+	Toda álgebra real de división, de dimensión finita y central 
+	es isomorfa a $\R$ o $\H$.
+\end{theorem}
+
+\begin{proof}
+	Es consecuencia inmediata del teorema de Frobenius~\ref{thm:Frobenius}.
+\end{proof}
+
+\begin{proposition}
+	Todo anillo simple unitario es un álgebra sobre su centro.
+\end{proposition}
+
+\begin{proof}
+	Sea $R$ un anillo simple unitario. Basta demostrar que $Z(R)$ es un cuerpo. Si $z\in
+	Z(R)\setminus\{0\}$ entonces $zR$ es un ideal no nulo de $R$. Por la 
+	simplicidad de $R$ se tiene $zR=R$. Luego $z$ es inversible. 
+\end{proof}
+
+
+\section{Skolem--Noether theorem}
+
+Sea $A$ un álgebra. Consideramos las funciones $L\colon A\to\End_k(A)$,
+$a\mapsto L_a$, y $R\colon A\to\End_k(A)$, $a\mapsto R_a$, dadas por
+$L_a(x)=ax$ y $R_a(x)=xa$. Es fácil verificar que $L$ y $R$ son lineales y que
+valen las siguientes fórmulas:
+\begin{align*}
+	L_{ab}=L_aL_b, && R_{ab}=R_bR_a, &&	L_aR_b=R_bL_a
+\end{align*}
+para todo $a,b\in A$.
+
+\begin{definition}
+	\index{Álgebra!de multiplicadores}
+	Sea $A$ un álgebra. El \textbf{álgebra de multiplicadores} de $A$ se define como
+	\[
+		M(A)=\left\{\sum_{j=1}^n L_{a_i}R_{b_i}:n\in\N,\,a_1,\dots,a_n,b_1,\dots,b_n\in A\right\}.
+	\]
+\end{definition}
+
+Obviamente $M(A)$ es una subálgebra de $\End_k(A)$. Más aún, si $A$ es
+unitaria, entonces $M(A)$ está generada por los $L_a$ y los $R_b$, $a,b\in A$.
+
+\begin{remark}
+	\label{rem:SkolemNoether}
+	Si $f\in M(A)$ existen $a_1,\dots,a_n,b_1,\dots,b_n\in A$ tales que 
+	\[
+		f=\sum_{i=1}^n L_{a_i}R_{b_i}
+	\]
+	y el conjunto $\{b_1,\dots,b_n\}$ es linealmente independiente. En efecto,
+	si tomamos $n$ minimal entonces los $b_j$ son linealmente independientes:
+	si $b_n=\sum_{j=1}^{n-1}\lambda_jb_j$ entonces
+	$f=\sum_{i=1}^{n-1}L_{a_i+\lambda_ia_n}R_{b_i}$, que contradice la
+	minimalidad de $n$.
+\end{remark}
+
+\begin{lemma}
+	\label{lem:SkolemNoether1}
+	Sea $A$ un álgebra central simple. Si $\sum_{i=1}^n L_{a_i}R_{b_i}=0$ y el
+	conjunto $\{b_1,\dots,b_n\}$ (resp. $\{a_1,\dots,a_n\}$) es linealmente
+	independiente, entonces $a_i=0$ (resp. $b_i=0$) para todo
+	$i\in\{1,\dots,n\}$.
+\end{lemma}
+
+\begin{proof}
+	Primero observemos que el resultado es válido para $n=1$. Queremos
+	demostrar que si $a_1xb_1=0$ para todo $x\in A$ y $b_1\ne0$ entonces
+	$a_1=0$. Supongamos que $a_1\ne 0$. Entonces el ideal de $A$ generado por
+	$a_1$ es no nulo y luego es igual a $A$. Esto implica que existen
+	$u_1,\dots,u_m,v_1,\dots,v_m\in A$ tales que $1=\sum_{j=1}^m u_ja_1v_j$.
+	Podemos escribir entonces 
+	\[
+		0=\sum_{j=1}^m L_{u_j}(L_{a_1}R_{b_1})L_{v_j}=\sum_{j=1}^m L_{u_ja_1v_j}R_{b_1}=R_{b_1}
+	\]
+	y luego $b_1=0$. 
+
+	Supongamos que el lema no es cierto y sea $n>1$ el menor entero positivo
+	donde el lema es falso. Supongamos que $a_n\ne 0$. Como $A$ es simple, el
+	ideal generado por $a_n$ es $A$ y luego existen
+	$u_1,\dots,u_m,v_1,\dots,v_m\in A$ tales que $1=\sum_{j=1}^m u_ja_1v_j$.
+	Entonces
+	\[
+		0=\sum_{j=1}^m L_{u_j}\left(\sum_{i=1}^n L_{a_i}R_{b_i}\right)L_{v_j}=\sum_{i=1}^n\sum_{j=1}^m L_{u_ja_iv_j}R_{b_i}=\sum_{i=1}^n L_{c_i}R_{b_i},
+	\]
+	donde $c_i=\sum_{j=1}^m u_ja_iv_j$ y obviamente $c_n=1$. Como 
+	\[
+		0=L_x\left(\sum_{i=1}^n L_{c_i}R_{b_i}\right)-\left(\sum_{i=1}^n L_{c_i}R_{b_i}\right)L_x=\sum_{i=1}^{n-1}L_{xc_i-c_ix}R_{b_i}
+	\]
+	para todo $x\in A$, la minimalidad de $n$ implica que $xc_i-c_ix=0$ para
+	todo $x\in A$. Luego, como $A$ es central, $c_i\in k$ para todo
+	$i\in\{1,\dots,n-1\}$. Al evaluar $0=\sum_{i=1}^n L_{c_i}R_{b_i}$ en $1_A$
+	se obtiene que $0=c_1b_1+\cdots+c_nb_n$, una contradicción a la
+	independencia lineal de $\{b_1,\dots,b_n\}$. 
+\end{proof}
+
+\begin{lemma}
+	\label{lem:SkolemNoether2}
+	Si $A$ es un álgebra central simple de dimensión finita, entonces $M(A)=\End_k(A)$. 
+\end{lemma}
+
+\begin{proof}
+	Sea $\{a_1,\dots,a_n\}$ una base de $A$. El conjunto
+	$\{L_{a_i}R_{a_j}:1\leq i,j\leq n\}$ es linealmente independiente: si
+	$\sum_{i,j=1}^n\lambda_{ij}L_{a_i}R_{a_j}=0$ entonces
+	$\sum_{i=1}^nL_{a_i}R_{c_i}=0$, donde
+	$c_i=\sum_{j=1}^n\lambda_{ij}R_{a_j}$. Como los $a_i$ son linealmente
+	independientes, el lema~\ref{lem:SkolemNoether1} implica que $c_i=0$ para
+	todo $i\in\{1,\dots,n\}$, una contradicción a la independencia lineal de los $a_j$.  
+	Luego $\dim_kM(A)\geq n^2=\dim\End_k(A)$.
+\end{proof}
+
+\begin{definition}
+	\index{Automorfismo!interior}
+	Sea $R$ un anillo unitario. Un automorfismo $f\in\Aut(R)$ se dice
+	\textbf{interior} si existe un elemento inversible $r\in R$ tal que
+	$f(x)=rxr^{-1}$ para todo $x\in R$.
+\end{definition}
+
+\begin{example}
+	El automorfismo $\C\to\C$ dado por $z\mapsto\overline{z}$ no es interior.
+\end{example}
+
+\begin{example}
+	Sea $\lambda\in k\setminus\{0\}$ y sea $R=k[X]$. El automorfismo $k[X]\to
+	k[X]$, $f(X)\mapsto f(X+\lambda)$, no es interior.
+\end{example}
+
+\begin{example}
+	Sea $R$ un anillo. El automorfismo $R\times R\to R\times R$, $(x,y)\mapsto
+	(y,x)$, no es interior.
+\end{example}
+
+\begin{theorem}[Skolem--Noether]
+	\index{Teorema!de Skolem--Noether}
+	\label{thm:SkolemNoether}
+	Si $A$ es un álgebra central simple de dimensión finita, todo automorfismo
+	de $A$ es interior.
+\end{theorem}
+
+\begin{proof}	
+	Sea $f\in\Aut(A)$. Gracias al lema~\ref{lem:SkolemNoether2}, 
+	$f=\sum_{i=1}^n	L_{a_i}R_{b_i}$. 
+	Sin perder generalidad podemos suponer que $a_1\ne 0$ y
+	que $\{b_1,\dots,b_n\}$ es linealmente independiente
+	(observación~\ref{rem:SkolemNoether}). Como $f$ es morfismo,
+	$L_{f(x)}f=fL_x$ para todo $x\in A$. Entonces
+	\[
+		0=\sum_{i=1}^n L_{f(x)a_i-a_ix}R_{b_i}
+	\]
+	y luego, por el lema~\ref{lem:SkolemNoether1}, $f(x)a_1-a_1x=0$ para todo
+	$x\in A$. Para terminar la demostración basta ver que $a_1$ es inversible:
+	Como $a_1\ne 0$ y $A$ es simple, el ideal de $A$ generado por $a_1$ es $A$; esto nos permite escribir 
+	$1=\sum_{i=1}^m u_ja_1v_j$ y luego $a_1$ es inversible pues 
+	\[
+		\left(\sum_{j=1}^m u_jf(v_j)\right)a_1=a_1\left(\sum_{j=1}^m f^{-1}(u_j)v_j\right)=1.
+	\]
+\end{proof}
+
+
+%\begin{corollary}
+%	\label{cor:SkolemNoether1}
+%	Sea $A$ es un álgebra de dimensión finita unitaria. Si $a\in A$, entonces
+%	$a$ es inversible o es un divisor de cero. 
+%\end{corollary}
+%
+%\begin{proof}
+%	Como $A$ es de dimensión finita, $A$ es algebraica. Existe entonces un
+%	polinomio $f=\sum_{j=1}^n \lambda_jX^j\in k[X]$ (que podemos suponer de grado
+%	mínimo) tal que $f(a)=0$. Al escribir
+%	\[
+%		0=f(a)=a(\lambda_na^{n-1}+\cdots+\lambda_2a+\lambda_1)+a_0
+%	\]
+%	vemos que existe un polinomio $g=\lambda_nX^{n-1}+\cdots+\lambda_1\in k[X]$
+%	tal que $g(a)\ne 0$ (por la minimalidad de $n$) y $ag(a)=-\lambda_0$. Si
+%	$a$ no es un divisor de cero, entonces $\lambda_0\ne 0$ y luego
+%	$a^{-1}=-\lambda_0^{-1}g(a)$. 
+%\end{proof}
+%
+%\begin{corollary}
+%	Sea $A$ un álgebra de dimensión finita unitaria y sean $a,b\in A$. Si
+%	$ab=1$, entonces $ba=1$.
+%\end{corollary}
+%
+%\begin{proof}
+%	Es consecuencia inmediata del corolario~\ref{cor:SkolemNoether1}.
+%\end{proof}
+%
+%\begin{corollary}
+%	Sea $D$ un álgebra de división de dimensión finita y sea $A$ una subálgebra
+%	de $D$. Entonces $A$ es un álgebra de división.
+%\end{corollary}
+%
+%\begin{proof}
+%	Sea $a\in A\setminus\{0\}$. Como existe $d\in D$ tal que $ad=1$. Como $a$ es algebraico, 
+%	existe $f\in k[X]$ de grado mínimo tal que $f(a)=0$. Luego $a$ es inversible con 
+%	$a^{-1}=-\lambda_0^{-1}g(a)$ para algún $g\in k[X]$ tal que $g(a)\ne 0$. En
+%	particular, $a^{-1}\in A$ y además $A$ es unitaria. 
+%\end{proof}
