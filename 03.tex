@@ -19,11 +19,11 @@
 	Let $M$ be a simple $A$-module. In particular, $M\ne\{0\}$. 
 	Since  
 	\[
-	\Ann(M)=\{a\in A:a\cdot M=\{0\}\}
+	\Ann_A(M)=\{a\in A:a\cdot M=\{0\}\}
 	\]
-	is an ideal of $A$ and $1\in A\setminus\Ann(M)$, the simplicity of $A$ implies that 
-	$\Ann(M)=\{0\}$ and hence $I\cdot M\ne \{0\}$ (because $I\cdot m\ne 0$ for all $m\in M$ yields  
-	$I\subseteq\Ann(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
+	is an ideal of $A$ and $1\in A\setminus\Ann_A(M)$, the simplicity of $A$ implies that 
+	$\Ann_A(M)=\{0\}$ and hence $I\cdot M\ne\{0\}$ (because $I\cdot m= 0$ for all $m\in M$ yields  
+	$I\subseteq\Ann_A(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
 	that $I\cdot m\ne\{0\}$. The map 
 	\[
 	\varphi\colon I\to M,\quad
@@ -38,15 +38,18 @@ implies that the algebra $M_n(D)$ has a unique isomorphism class of simple modul
 is isomorphic to $D^n$. 
 
 \begin{proposition}
-Let $A$ be a finite-dimensional algebra. If $A$ is simple, then $A$ is semisimple. 
+    Let $A$ be a finite-dimensional algebra. 
+    If $A$ is simple, then $A$ is semisimple. 
 \end{proposition}
 
 \begin{proof}
 	Let $S$ be the sum of the simple submodules appearing in the regular representation of $A$. 
-	We claim that $S$ is an ideal of $A$. We knot that $S$ is a left ideal, as the submodules of the regular representation
+	We claim that $S$ is an ideal of $A$. We know that $S$ is a left ideal, as the submodules of the regular representation
 	are exactly the left ideals of $A$. To show that $Sa\subseteq S$ for all $a\in A$ we need to prove that 
-	$Ta\subseteq S$ for all simple submodule $T$ of $A$. If $T\subseteq A$ is a simple submodule and $a\in A$, 
-	let $f\colon T\to Ta$, $t\mapsto ta$. Since $f$ is a module homomorphism and $T$ is simple, it follows that
+	$Ta\subseteq S$ for all simple submodule $T$ of $A$ and $a\in A$. 
+	If $T\subseteq A$ is a simple submodule and $a\in A$, 
+	let $f\colon T\to Ta$, $t\mapsto ta$. Since $f$ is a surjective 
+	module homomorphism and $T$ is simple, it follows that
 	either $\ker f=\{0\}$ or $\ker T=T$. If $\ker T=T$, then 
 	$f(T)=Ta=\{0\}\subseteq S$. If $\ker f=\{0\}$, then $T\simeq f(T)=Ta$ and hence $Ta$ is simple. Hence $Ta\subseteq S$. 
 	
@@ -71,22 +74,19 @@ Let $A$ be a finite-dimensional algebra. If $A$ is simple, then $A$ is semisimpl
 	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some division algebra $D$. 
 \end{proof}
 
-
-
-
-
 \topic{Primitive rings}
 \label{Primitive rings}
 
-We will consider rings possibly without identity. Thus  
+We will consider (possibly non-unitary) rings. Thus  
 a \textbf{ring} is an abelian group $R$ with an associative multiplication 
 $(x,y)\mapsto xy$ such that $(x+y)z=xz+yz$ and $x(y+z)=xy+xz$ for all $x,y,z\in
 R$. If there is an element $1\in R$ such that $x1=1x=x$ for all $x\in R$, we 
-say that $R$ is a ring (or a unitary ring).  A \textbf{subring} $S$ of $R$ is an additive
+say that $R$ is a \texbf{unitary ring}.  A \textbf{subring} $S$ of $R$ is an additive
 subgroup of $R$ closed under multiplication. 
 
 \begin{example}
-	$2\Z=\{2m:m\in\Z\}$ is a ring.  
+    $\Z$ is a (unitary) ring and 
+	$2\Z=\{2m:m\in\Z\}$ is a (non-unitary) ring.  
 \end{example}
 
 A \textbf{left ideal} (resp. \textbf{right ideal}) is a subring $I$ of $R$ such that 
@@ -150,10 +150,15 @@ $1$ and $1\cdot m=m$ holds for all $m\in M$, the module $M$ is said to be
 \textbf{unitary}.  If $M$ is a unitary module, then $M=R\cdot M$. %\ne\{0\}$.
 
 \begin{definition}
-A module $M$ is said to be 
-\textbf{simple} if $R\cdot M\ne\{0\}$ and the only submodules of $M$ are $\{0\}$ and $M$.
-If $M$ is a simple module, then $M\ne\{0\}$.
+\label{Module!simple}
+    A module $M$ is said to be 
+    \textbf{simple} if $R\cdot M\ne\{0\}$ and 
+    the only submodules of $M$ are $\{0\}$ and $M$.
+    If $M$ is a simple module, then $M\ne\{0\}$.
 \end{definition}
+
+If $R$ is a unitary ring and $M$ is a simple 
+module, then $M$ is unitary. 
 
 %\begin{remark}
 %	Si $R$ es unitario y $M$ es un módulo simple, entonces $M$ es unitario.
@@ -193,6 +198,8 @@ If $M$ is a simple module, then $M\ne\{0\}$.
 \end{example}
 
 \begin{definition}
+\index{Minimal left ideal}
+\index{Left ideal!regular}
 A left ideal $L$ of a ring $R$ is said to be \textbf{minimal} if $L\ne\{0\}$ and 
 $L$ does not strictly contain other left ideals of $R$. 
 \end{definition}
@@ -211,6 +218,8 @@ right minimal ideals and minimal ideals.
 \end{example}
 
 \begin{definition}
+\index{Ideal!regular}
+\index{Left ideal!regular}
 A left (resp. right) ideal $L$ of $R$ is said to be \textbf{regular} if
 there exists $e\in R$ such that $r-re\in L$ (resp.  $r-er\in L$) for all $r\in R$.
 \end{definition}
@@ -218,17 +227,16 @@ there exists $e\in R$ such that $r-re\in L$ (resp.  $r-er\in L$) for all $r\in R
 If $R$ is a ring with identity, every left (or right) ideal is regular. 
 
 \begin{definition}
-A left (resp. right) ideal $I$ of $R$ is said to be \textbf{maximal} if $I\ne M$ and $I$ is not properly contained 
+\index{Ideal!maximal}
+\index{Left ideal!maximal}
+A left (resp. right) ideal $I$ of $R$ is said to be \textbf{maximal} if $I\ne R$ and $I$ is not properly contained 
 in any other left (resp. right) ideal of $R$. 
 \end{definition}
 
 Similarly, one defines maximal ideals. 
 
-A standard application of Zorn's lemma proves that every unitary ring contains a maximal left (or right) ideal.  
-
-% \begin{exercise}
-% Prove that every ring with identity contains a maximal ideal.
-% \end{exercise}
+A standard application of Zorn's lemma proves 
+that every unitary ring contains a maximal left (or right) ideal.  
 
 \begin{proposition}
 	\label{proposition:R/I}
@@ -239,18 +247,23 @@ A standard application of Zorn's lemma proves that every unitary ring contains a
 \begin{proof}
 	Assume that $M$ is simple. Then $M=R\cdot m$ for some $m\ne0$ by 
 	Lemma~\ref{lemma:simple}. The map $\phi\colon R\to M$, $r\mapsto r\cdot m$, 
-	is a surjective homomorphism of $R$-modules, so the first isomorphism theorem implies that 
-	$M\simeq R/\ker\phi$. 
+	is a surjective homomorphism of $R$-modules, 
+	so the first isomorphism theorem implies that 
+	$M\simeq R/\ker\phi$. Since $\ker\phi$ is an ideal of $R$, it is 
+	in particular a left ideal of $R$. 
 	
-	We claim that $I=\ker\phi$ is a maximal ideal. The correspondence theorem 
-	and the simplicity of $M$ imply that $I$ is a maximal ideal (because each left ideal $J$ such that 
+	We claim that $I=\ker\phi$ is a maximal left ideal. 
+	The correspondence theorem 
+	and the simplicity of $M$ imply that $I$ is a 
+	maximal left ideal (because each left ideal $J$ such that 
 	$I\subseteq J$ yields a submodule of $R/I$).
 
-	We claim that $I$ is regular. Since $M=Rm$, there exists $e\in R$ such that $m=e\cdot m$. If
+	We claim that $I$ is regular. Since $M=R\cdot m$, there exists $e\in R$ such that $m=e\cdot m$. If
 	$r\in R$, then $r-re\in I$ since 
 	$\phi(r-re)=\phi(r)-\phi(re)=r\cdot m-r\cdot (e\cdot m)=0$.
 
-    Now assume that $I$ is a maximal left ideal that is regular. The correspondence theorem implies that 
+    Now assume that $I$ is a maximal left ideal that is regular. 
+    The correspondence theorem implies that 
     $R/I$ has no non-zero proper submodules. 
     
     We claim that 
@@ -433,6 +446,7 @@ we define the \textbf{annihilator} of $N$ as the subset
 % \end{proof}
 
 \begin{definition}
+\index{Module!faithful}
 A module $M$ is said to be \textbf{faithful} if $\Ann_R(M)=\{0\}$. 
 \end{definition}
 
