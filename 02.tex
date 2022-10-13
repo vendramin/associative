@@ -245,7 +245,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 
 \begin{theorem}[Artin--Wedderburn]
 \index{Artin--Wedderburn theorem}
-Let $A$ be a finite-dimensional semisimple algebra, say with  
+Let $A$ be a finite-dimensional semisimple algebra with  
 $k$ isomorphism classes of simple modules. Then 
 \[
 A\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)
@@ -281,7 +281,9 @@ for some $n_1,\dots,n_k\in\Z_{>0}$ and some division algebras $D_1,\dots,D_k$.
 
 \begin{corollary}[Mollien]
 \index{Mollien's theorem}
-	If $A$ is a finite-dimensional complex semisimple algebra, then 
+	If $A$ is a finite-dimensional complex semisimple algebra
+	with $k$ isomorphism classes of simple modules, 
+	then 
 	\[
 	A\simeq\prod_{i=1}^k M_{n_i}(\C)
 	\]  
@@ -299,9 +301,9 @@ for some $n_1,\dots,n_k\in\Z_{>0}$ and some division algebras $D_1,\dots,D_k$.
 	\End_A(S_i)=\{\lambda\id:\lambda\in\C\}\simeq\C
 	\]
 	for all $i\in\{1,\dots,k\}$. If  
-	$f\in\End_A(S_i)$, then $f$ has an eigenvector $\lambda\in\C$. Since  
+	$f\in\End_A(S_i)$, then $f$ has an eigenvalue $\lambda\in\C$. Since  
 	$f-\lambda\id$ is not an isomorphism, Schur's lemma implies that $f-\lambda\id=0$, 
-	that is $f=\lambda\id$. Thus $\End_A(S_i)\to\C$, $\varphi\mapsto\lambda$, 
+	that is $f=\lambda\id$. Thus $\End_A(S_i)\to\C$, $f\mapsto\lambda$, 
 	is an algebra isomorphism. In particular,  
 	\[
 	A\simeq \prod_{i=1}^k M_{n_i}(\C).\qedhere
@@ -313,7 +315,7 @@ for some $n_1,\dots,n_k\in\Z_{>0}$ and some division algebras $D_1,\dots,D_k$.
 %     $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
 % \end{exercise}
 
-Wedderburn's theorem states that, if $G$ is a finite group, 
+Maschke's theorem states that, if $G$ is a finite group, 
 then the group algebra $\C[G]$ is semisimple. By Mollien's theorem, 
 \[
 \C[G]\simeq \prod_{i=1}^k M_{n_i}(\C),

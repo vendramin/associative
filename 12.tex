@@ -543,49 +543,44 @@ Now we are ready to prove Jacobson's commutativity theorem.
 
 %\chapter{Álgebras centrales simples}
 
-\section{Central algebras}
+\section{Skolem--Noether theorem}
 
 \begin{definition}
-	Un álgebra se dice \textbf{central} si $Z(A)=k$. 
+    Let $K$ be a field. 
+	An algebra $A$ (over $K$) is \textbf{central} if $Z(A)=K$. 
 \end{definition}
 
+If $K$ is a field, then $M_n(K)$ is a central algebra.
+
 \begin{proposition}
-	Sean $A$ un álgebra unitaria y $n\in\N$. Entonces $A$ es central si y sólo si
-	$M_n(A)$ es central.
+	Let $A$ be a unitary algebra and $n\geq1$. Then
+	$A$ is central if and only if $M_n(A)$ is central.
 \end{proposition}
 
 \begin{proof}
-	Si $M_n(A)$ es central y $z\in Z(A)$, entonces $zI\in Z(M_n(A))=kI$. Luego
-	$z\in k$. Recíprocamente, si $X\in Z(M_n(A))$ entonces, como
-	$XE_{kl}=E_{kl}X$ para todo $k\ne l$, $X=aI$ para algún $a\in A$. Además
-	$XaE_{11}=aE_{11}X$ y luego $a\in Z(A)=k1$. 
+	If $M_n(A)$ is central and $z\in Z(A)$, then
+	$zI\in Z(M_n(A))=KI$. Thus
+	$z\in K$. Conversely, if $X\in Z(M_n(A))$, then, since 
+	$XE_{kl}=E_{kl}X$ for all $k\ne l$, $X=aI$ for some $a\in A$. 
+	Moreover, 
+	$XaE_{11}=aE_{11}X$. Hence $a\in Z(A)=K1$. 
 \end{proof}
 
 \begin{example}
-	$M_n(k)$ es un álgebra central.
+	$\H$ is a real central algebra.
 \end{example}
 
 \begin{example}
-	$\H$ es central como álgebra real.
+	$\C$ is a complex central algebra but it is not a real central 
+	algebra. 
 \end{example}
 
-\begin{example}
-	$\C$ es central como álgebra compleja pero no lo es como álgebra real.
-\end{example}
-
-El teorema de Frobenius se traduce a este contexto de la siguiente forma:
-
-\begin{theorem}
-	Toda álgebra real de división, de dimensión finita y central 
-	es isomorfa a $\R$ o $\H$.
-\end{theorem}
-
-\begin{proof}
-	Es consecuencia inmediata del teorema de Frobenius~\ref{thm:Frobenius}.
-\end{proof}
+Frobenius' theorem~\ref{thm:Frobenius} translates into 
+the following statement: Every finite-dimensional  
+real central division algebra is isomorphic to $\R$ or $\H$. 
 
 \begin{proposition}
-	Todo anillo simple unitario es un álgebra sobre su centro.
+	Every simple unitary ring is an algebra over its center. 
 \end{proposition}
 
 \begin{proof}
@@ -593,9 +588,6 @@ El teorema de Frobenius se traduce a este contexto de la siguiente forma:
 	Z(R)\setminus\{0\}$ entonces $zR$ es un ideal no nulo de $R$. Por la 
 	simplicidad de $R$ se tiene $zR=R$. Luego $z$ es inversible. 
 \end{proof}
-
-
-\section{Skolem--Noether theorem}
 
 Sea $A$ un álgebra. Consideramos las funciones $L\colon A\to\End_k(A)$,
 $a\mapsto L_a$, y $R\colon A\to\End_k(A)$, $a\mapsto R_a$, dadas por
@@ -610,7 +602,7 @@ para todo $a,b\in A$.
 	\index{Álgebra!de multiplicadores}
 	Sea $A$ un álgebra. El \textbf{álgebra de multiplicadores} de $A$ se define como
 	\[
-		M(A)=\left\{\sum_{j=1}^n L_{a_i}R_{b_i}:n\in\N,\,a_1,\dots,a_n,b_1,\dots,b_n\in A\right\}.
+		M(A)=\left\{\sum_{j=1}^n L_{a_i}R_{b_i}:n\in\Z_{\geq0},\,a_1,\dots,a_n,b_1,\dots,b_n\in A\right\}.
 	\]
 \end{definition}
 
