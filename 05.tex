@@ -1,5 +1,104 @@
 \chapter{}
 
+\begin{definition}
+\index{Ring!radical}
+A ring $R$ is said to be \textbf{radical} if $J(R)=R$. 
+\end{definition}
+
+\begin{example}
+	If $R$ is a ring, then $J(R)$ is a radical ring, by Proposition~\ref{proposition:J(I)}.
+\end{example}
+
+\begin{example}
+	The Jacobson radical of $\Z/8$ is $\{0,2,4,6\}$. 
+\end{example}
+
+There are several characterizations of radical rings. 
+
+\begin{theorem}
+	\label{theorem:anillo_radical}
+	Let $R$ be a ring. The following statements are equivalent: 
+	\begin{enumerate}
+		\item $R$ is radical.
+		\item $R$ admits no simple $R$-modules. 
+		\item $R$ does not have regular maximal left ideals.
+		\item $R$ does not have primitive left ideals.
+		\item Every element of $R$ is quasi-regular. 
+		\item $(R,\circ)$ is a group. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	The equivalence $(1)\Longleftrightarrow(5)$ follows from 
+	Theorem~\ref{thm:casireg_eq}. 
+    
+    The equivalence $(5)\Longleftrightarrow(6)$ is left as an exercise. 
+
+	Let us prove that $(1)\implies(2)$. Assume that there exists a simple $R$-module $N$. Since 
+	$R=J(R)\subseteq\Ann_R(N)$, $R=\Ann_S(N)$. 
+	Hence $RN=\{0\}$, a contradiction to the simplicity of $N$.
+	
+	To prove $(2)\implies(3)$ we note that for each regular and maximal left ideal 
+	$I$, the quotient $R/I$ is a simple $R$-module by
+	Proposition~\ref{proposition:R/I}. 
+	
+	To prove $(3)\implies(4)$ assume that there is a primitive left ideal 
+	$I=\Ann_R(M)$, where $M$ is some simple $R$-module. Since $R=J(R)\subseteq I$, it follows that  
+    $I=R$, a contradiction to the simplicity of $M$.
+    %$RM=\{0\}$.
+
+	Finally we prove $(4)\implies(2)$. If $M$ is a simple $R$-module, then 
+	$\Ann_R(M)$ is a primitive left ideal.
+\end{proof}
+
+\begin{example}
+	Let 
+	\[
+	A=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}.
+	\]
+	Then $A$ is a radical ring, as the inverse of the element $\frac{2x}{2y+1}$
+	with respect to the circle operation 
+	$\circ$ is 
+	\[
+	\left(\frac{2x}{2y+1}\right)'=\frac{-2x}{2(x+y)+1}.
+	\]
+\end{example}
+
+\begin{definition}
+\index{Ring!nil}
+A ring $R$ is said to be \textbf{nil} if for every $x\in R$ there
+exists $n=n(x)$ such that $x^n=0$. 
+\end{definition}
+
+\begin{exercise}
+    Prove that a nil ring is a radical ring. 
+\end{exercise}
+
+\begin{exercise}
+    Let $\R[X]$ be the ring of power series with real coefficients. Prove that the ideal 
+    $X\R[X]$ consisting of power series with zero constant term is a radical ring
+    that is not nil. 
+\end{exercise}
+
+\begin{theorem}
+	\label{thm:J(R/J)=0}
+	If $R$ is a ring, then $J(R/J(R))=\{0\}$.
+\end{theorem}
+
+\begin{proof}
+	If $R$ is radical, the result is trivial. Suppose then that 
+	$J(R)\ne R$. Let $M$ be a simple module. Then $M$ is 
+	a simple module over $R/J(R)$ with 
+	\[
+		(x+J(R))\cdot m=x\cdot m,\quad
+		x\in R,\,m\in M.
+	\]
+	If $x+J(R)\in J(R/J(R))$, then  $x\cdot M=(x+J(R))\cdot M=\{0\}$. Then $x\in J(R)$, as 
+	$x$ annihilates any simple module over $R$.
+\end{proof}
+
+
+
 \begin{theorem}
 	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
 \end{theorem}
