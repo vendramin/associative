@@ -28,28 +28,30 @@ There are several characterizations of radical rings.
 	\end{enumerate}
 \end{theorem}
 
-\begin{proof}
-	The equivalence $(1)\Longleftrightarrow(5)$ follows from 
-	Theorem~\ref{thm:casireg_eq}. 
-    
-    The equivalence $(5)\Longleftrightarrow(6)$ is left as an exercise. 
-
-	Let us prove that $(1)\implies(2)$. Assume that there exists a simple $R$-module $N$. Since 
-	$R=J(R)\subseteq\Ann_R(N)$, $R=\Ann_S(N)$. 
-	Hence $RN=\{0\}$, a contradiction to the simplicity of $N$.
-	
-	To prove $(2)\implies(3)$ we note that for each regular and maximal left ideal 
-	$I$, the quotient $R/I$ is a simple $R$-module by
-	Proposition~\ref{proposition:R/I}. 
-	
-	To prove $(3)\implies(4)$ assume that there is a primitive left ideal 
-	$I=\Ann_R(M)$, where $M$ is some simple $R$-module. Since $R=J(R)\subseteq I$, it follows that  
-    $I=R$, a contradiction to the simplicity of $M$.
-    %$RM=\{0\}$.
-
-	Finally we prove $(4)\implies(2)$. If $M$ is a simple $R$-module, then 
-	$\Ann_R(M)$ is a primitive left ideal.
-\end{proof}
+\begin{exercise}
+    Prove Theorem \ref{theorem:anillo_radical}. 
+\end{exercise}
+%\begin{proof}
+%	The equivalence $(1)\Longleftrightarrow(5)$ follows from 
+%	Theorem~\ref{thm:casireg_eq}. 
+%    
+%    The equivalence $(5)\Longleftrightarrow(6)$ is left as an exercise. 
+%
+%	Let us prove that $(1)\implies(2)$. Assume that there exists a simple $R$-module $N$. Since 
+%	$R=J(R)\subseteq\Ann_R(N)$, $R=\Ann_R(N)$. 
+%	Hence $R\cdot N=\{0\}$, a contradiction to the simplicity of $N$.
+%	
+%	To prove $(2)\implies(3)$ we note that for each regular and maximal left ideal 
+%	$I$, the quotient $R/I$ is a simple $R$-module by
+%	Proposition~\ref{proposition:R/I}. 
+%	
+%	To prove $(1)\implies(4)$ assume that there is a primitive left ideal 
+%	$I=\Ann_R(M)$, where $M$ is some simple $R$-module. Since $R=J(R)\subseteq I$, it follows that  
+%    $I=R$, a contradiction to the simplicity of $M$.
+%
+%	Finally we prove $(4)\implies(2)$. If $M$ is a simple $R$-module, then 
+%	$\Ann_R(M)$ is a primitive left ideal.
+%\end{proof}
 
 \begin{example}
 	Let 
@@ -75,8 +77,8 @@ exists $n=n(x)$ such that $x^n=0$.
 \end{exercise}
 
 \begin{exercise}
-    Let $\R[X]$ be the ring of power series with real coefficients. Prove that the ideal 
-    $X\R[X]$ consisting of power series with zero constant term is a radical ring
+    Let $\R[\![X]\!]$ be the ring of power series with real coefficients. Prove that the ideal 
+    $X\R[\![X]\!]$ consisting of power series with zero constant term is a radical ring
     that is not nil. 
 \end{exercise}
 
@@ -87,7 +89,7 @@ exists $n=n(x)$ such that $x^n=0$.
 
 \begin{proof}
 	If $R$ is radical, the result is trivial. Suppose then that 
-	$J(R)\ne R$. Let $M$ be a simple module. Then $M$ is 
+	$J(R)\ne R$. Let $M$ be a simple $R$-module. Then $M$ is 
 	a simple module over $R/J(R)$ with 
 	\[
 		(x+J(R))\cdot m=x\cdot m,\quad
@@ -183,15 +185,17 @@ exists $n=n(x)$ such that $x^n=0$.
 	following statements are equivalent: 
 	\begin{enumerate}
 		\item $x\in J(R)$.
-		\item $xM=0$ for all simple $R$-module $M$.
+		\item $x\cdot M=\{0\}$ for all simple $R$-module $M$.
 		\item $x\in P$ for all primitive left ideal $P$.
 		\item $1+rx$ is invertible for all $r\in R$.
-		\item $1+\sum_{i=1}^n r_ixs_i$ is invertible for all $n$ and all $r_i,s_i\in R$.
-		\item $x$ belongs to every left maximal ideal maximal. 
+		\item $1+\sum_{i=1}^n r_ixs_i$ is invertible 
+		    for all $n$ and all $r_i,s_i\in R$.
+		\item $x$ belongs to every maximal ideal maximal. 
 	\end{enumerate}
 \end{exercise}
 
-The following exercise is entirely optional. It somewhat shows a recent application of radical rings
+The following exercise is entirely optional. 
+It somewhat shows a recent application of radical rings
 to solutions of the celebrated Yang--Baxter equation. 
 
 \begin{exercise}
@@ -200,7 +204,7 @@ Yang--Baxter equation if $X$ is a set and
 $r\colon X\times X\to X\times X$ is a bijective map such that  
 \[
 	(r\times\id)\circ (\id\times r)\circ (r\times\id)
-	=(\id\times r)\circ (r\times\id)\circ (\id\times r)
+	=(\id\times r)\circ (r\times\id)\circ (\id\times r).
 \]
 The solution $(X,r)$ is said to be \textbf{involutive} 
 if $r^2=\id$. By convention, we write 
@@ -233,7 +237,7 @@ Prove the following statements:
 	        r\colon R\times R\to R\times R,\quad
 	        r(x,y)=(\lambda_x(y),\mu_y(x)),
 	    \]
-	is an involutive non-degenerate solution. 
+	is an involutive non-degenerate solution to the Yang--Baxter equation. 
 \end{enumerate}
 \end{exercise}
 
@@ -278,8 +282,8 @@ some results in the case of unitary algebras. We first need an application of Zo
 
 \begin{theorem}
 	Let $A$ be a $K$-algebra and $I$ be a subset of $A$. Then $I$ is 
-	a left regular maximal ideal of the algebra $A$ if and only if $I$ is 
-	a left regular maximal ideal of the ring $A$.
+	a regular maximal left ideal of the algebra $A$ if and only if $I$ is 
+	a regular maximal left ideal of the ring $A$.
 \end{theorem}
 
 \begin{proof}
@@ -291,7 +295,7 @@ some results in the case of unitary algebras. We first need an application of Zo
 	a(I+\lambda I)=aI+a(\lambda I)\subseteq I+\lambda (aI)\subseteq I+\lambda I.
 	\]
 	Since $I$ is maximal, it follows that $I+\lambda I=A$. 
-	The left regularity of $I$ implies that there exists $e\in R$
+	The left regularity of $I$ implies that there exists $e\in A$
 	such that 
 	$a-ae\in I$ for all $a\in A$. Write $e=x+\lambda y$ for $x,y\in
 	I$. Then 
@@ -302,10 +306,11 @@ some results in the case of unitary algebras. We first need an application of Zo
 	$a-ae\in I$ for all $a\in A$, a contradiction.
 
 	Conversely, if $I$ is a left regular maximal ideal of the algebra $A$, then 
-	$I$ is a left regular ideal of the ring $A$. We claim that $I$ is maximal. 
-	There exists a left regular maximal ideal $M$ of the ring $A$ that contains $I$. Since 
-	$M$ is left regular, it follows that $M$ is a left regular maximal ideal of the ring $A$. Thus 
-	$M=I$ because $I$ is maximal. 
+	$I$ is a left regular ideal of the ring $A$. We claim that $I$ is a maximal left ideal of the ring of $A$. 
+	There exists a regular maximal left ideal $M$ 
+	of the ring $A$ that contains $I$. Since 
+	$M$ is regular, it follows that $M$ is a regular maximal ideal of the algebra $A$. Thus 
+	$M=I$ because $I$ is a maximal left ideal of the algebra $A$. 
 % 	ejercicio~\ref{xca:Zorn:regular} sabemos que existe un ideal a izquierda
 % 	maximal $L$ del anillo $A$ que contiene a $I$. Como $L$ es regular, la
 % 	implicación demostrada nos dice que $L$ es un ideal a izquierda maximal y
@@ -330,7 +335,7 @@ has several interesting applications. We first need a lemma.
 \begin{lemma}
 	\label{lemma:algebraico=nil}
 	Let $A$ be an algebra with one and let $x\in J(A)$. 
-	Then $x$ is algebraic if and only if $x$ is nil. 
+	Then $x$ is algebraic if and only if $x$ is nilpotent. 
 \end{lemma}
 
 \begin{proof}
@@ -398,7 +403,7 @@ An application:
 	is non-zero, as, for example, if $\beta_1\ne1$, then  
 	$f(\lambda_1)=\beta_1(\lambda_1-\lambda_2)\cdots(\lambda_1-\lambda_n)\ne0$
 	and $f(a)=0$. Since $a\in J(A)$ is algebraic, it follows
-	$a$ is nil by Lemma~\ref{lemma:algebraico=nil}.
+	$a$ is nilpotent by Lemma~\ref{lemma:algebraico=nil}.
 \end{proof}
 
 Amitsur's theorem implies the following result. 
