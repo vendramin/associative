@@ -346,6 +346,12 @@ Every commutative domain is reduced.
 \end{example}
 
 \begin{exercise}
+\label{xca:reduced}
+    Prove that a ring $R$ is \textbf{reduced} if and only 
+    of for all $r\in R$ such that $r^2=0$ one has $r=0$.
+\end{exercise}
+
+\begin{exercise}
 \label{xca:reduced_Zn}
     Let $n\geq2$. Then $\Z/n$ is reduced 
     but not a domain if and only if $n$ is square-free 
@@ -475,3 +481,22 @@ Direct products and direct sums of rings are all examples of subdirect products 
     Since $x\in A\cap B$, $x^2\in AB\subseteq M$. Since 
     $M$ is reduced, $x\in M$, a contradiction. 
 \end{proof}
+
+\begin{exercise}
+    Is the ring $\C[\Z/2]$ reduced? 
+\end{exercise}
+
+% Let $G=\langle g:g^2=1\rangle$. If $(a+bg)^2=0$, then
+% $(a^2+b^2)+(2ab)g=0$. Thus $a=b=0$. 
+
+\begin{problem}
+\label{prob:reduced}
+    Let $G$ be a torsion-free group. Is
+    $K[G]$ is reduced?
+\end{problem}
+
+Problem \ref{prob:reduced} is related to other important
+open problems about group algebras 
+(e.g. zero-divisors, units, 
+indempotents and semisimplicity of group
+rings).
