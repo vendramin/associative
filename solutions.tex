@@ -4,13 +4,25 @@
 %\section*{Lecture 2}
 \section*{Lecture 3}
 
-\begin{sol}{xca:simple=>prim}
+\begin{sol}{xca:simple=>primitive}
 	Since $R$ is unitary, there exists a maximal left ideal $I$ and, moreover, $R$ is regular.
 	By Proposition~\ref{proposition:R/I}, $R/I$ is a simple $R$-module. 
 	Since $\Ann_R(R/I)$ is an ideal of $R$ and $R$ is simple, either $\Ann_R(R/I)\in\{0\}$ or 
 	$\Ann_R(R/I)=R$. Moreover, since 
 	$1\not\in\Ann(R/I)$, it follows that 
 	$\Ann_R(R/I)=\{0\}$. 
+\end{sol}
+
+\begin{sol}{xca:M_n(R)primitive}
+    Assume that $M_n(R)$ is primitive. Let $W$ be a faithful 
+    simple $M_n(R)$-module. Let 
+    $V=\{w\in W:L_1v=0\}$, where $L_1$ is a matrix
+    with the first column equal to zero. Then $V$ is a subgroup
+    of $W$.
+    
+    We claim that $V\ne\{0\}$. In fact, if 
+    $x$ is a matrix where all the rows are zero except the first one, 
+    then $L_1x=0$. Hence $0\ne x\in V$....
 \end{sol}
 
 \begin{sol}{xca:prim+conm=cuerpo}
