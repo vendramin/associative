@@ -413,7 +413,11 @@ Direct products and direct sums of rings are all examples of subdirect products 
 \begin{example}
     Let $R$ be a ring,  
     $\{I_j:j\}$ be a collection of ideals of $R$ and
-    $f\colon R\to \prod_i R/I_i$, $r\mapsto (r+I_i)_i$. 
+    \[
+    f\colon R\to \prod_i R/I_i,
+    \quad
+    r\mapsto (r+I_i)_i.
+    \]
     For each
     $i$, let $R_i=R/I_i$. Then $R$ is a subdirect product
     of the $R_i$ if and only if $f$ is injective. 
@@ -500,3 +504,38 @@ open problems about group algebras
 (e.g. zero-divisors, units, 
 indempotents and semisimplicity of group
 rings).
+
+\begin{exercise}
+    Prove that idempotents of reduced rings are central. 
+\end{exercise}
+
+The previous exercise is used to solve the following problem.
+
+\begin{exercise}
+\label{xca:x^3=x}
+    Let $R$ be a ring such that $x^3=x$ for all $x\in R$. Prove that
+    $R$ is commutative. 
+\end{exercise}
+
+Exercise \ref{xca:x^3=x} is hard. 
+Even harder is the following exercise:
+
+\begin{exercise}
+\label{xca:x^4=x}
+    Let $R$ be a ring such that $x^4=x$ for all $x\in R$. Prove
+    that $R$ is commutative. 
+\end{exercise}
+
+%Other exercises about reduced rings. 
+
+%\begin{exercise}
+%\label{xca:reduced}
+%    Prove that a ring is reduced if 
+%    and only it has no non-zero nilpotent elements. 
+%\end{exercise}
+
+\begin{exercise}
+\label{xca:reduced=>semiprime}
+    Reduced rings are semiprime.
+\end{exercise}
+ 

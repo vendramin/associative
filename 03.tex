@@ -115,6 +115,7 @@ $rI\subseteq I$ (resp. $Ir\subseteq I$) for all $r\in R$. An \textbf{ideal}
 \end{example}
 
 \begin{definition}
+\index{Ring!simple}
 A ring $R$ is said to be \textbf{simple} if $R^2\ne\{0\}$ and the only ideals of 
 $R$ are $\{0\}$ and $R$.  
 \end{definition}
@@ -148,6 +149,18 @@ is an abelian group $M$ together with a map $R\times M\to M$, $(r,m)\mapsto r\cd
 for all $r,s\in R$, $m,n\in M$.  If $R$ has an identity 
 $1$ and $1\cdot m=m$ holds for all $m\in M$, the module $M$ is said to be 
 \textbf{unitary}.  If $M$ is a unitary module, then $M=R\cdot M$. %\ne\{0\}$.
+
+\begin{exercise}
+\label{xca:center_simple}
+Let $R$ be a simple unitary ring. 
+\label{enumerate}
+    \item Prove that the center $Z(R)$ of $R$ is a field.
+    \item Prove that $R$ is an algebra over $Z(R)$. 
+\end{exercise}
+
+% Let $0\ne x\in Z(R)$. Then $Rx$ is a non-zero ideal of $R$.
+% Since $R$ is simple, $Rx=R$. Thus $rx=1$ for some $r\in R$. 
+% It follows that $x\in\mathcal{U}(R)$.
 
 \begin{definition}
 \label{Module!simple}
