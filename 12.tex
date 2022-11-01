@@ -36,7 +36,8 @@ We present an elementary proof. We shall need some lemmas.
 	\label{lem:trick_frobenius2}
 	Let $D$ be a real division algebra of dimension $n$. Then
 	\[
-		V=\{x\in D:x^2\in\R,x^2\leq 0\}
+		V=\{x\in D:x^2\in\R_{\leq0}\}
+		%,x^2\leq 0\}
 	\]
 	is a subspace of $D$ such that $D=\R\oplus V$.
 \end{lemma}
@@ -136,7 +137,7 @@ ready to prove the theorem:
 	$i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent 
 	and that the formulas of~\eqref{eq:H} hold. Let 
 	\[
-		V=\{x\in D:x^2\in\R,x^2\leq 0\}.
+		V=\{x\in D:x^2\in\R_{\leq0}\}.
 	\]
 	By Lemma~\ref{lem:trick_frobenius2}, $\dim V=n-1$. Thus there exists 
 	$x\in V\setminus\langle i,j,k\rangle$. Let 
@@ -162,55 +163,35 @@ To prove this fact, note that $1=(-1)^2=-1$. This means that $R$ has
 characteristic two. Let $x,y\in R$. Since $x+y=(x+y)^2=x^2+xy+yx+y^2$. 
 it follows that $0=xy+yx$ and hence $xy=yx$.
 
-\begin{definition}
-	\index{Ring!reduced}
-	A ring $R$ is \textbf{reduced} if $x^2=0$ implies $x=0$. 
-\end{definition}
+%\begin{definition}
+%	\index{Ring!reduced}
+%	A ring $R$ is \textbf{reduced} if $x^2=0$ implies $x=0$. 
+%\end{definition}
+%
+%For example, boolean rings and domains are reduced. Moreover, the ring 
+%$\Z^n$ with point-wise multiplication is reduced (and has zero divisors).
 
-For example, boolean rings and domains are reduced. Moreover, the ring 
-$\Z^n$ with point-wise multiplication is reduced (and has zero divisors).
+\begin{proposition}
+\label{pro:Jacobson}
+    Let $R$ be a finite ring such that 
+    for each $x\in R$ there exists $n(x)\geq2$ such that 
+    $x^{n(x)}=x$. Then $R$ is commutative. 
+\end{proposition}
 
-\begin{exercise}
-    Prove that idempotents of reduced rings are central. 
-\end{exercise}
-% 	Todo idempotente de un anillo reducido es central.
+\begin{proof}
+    Since $R$ is finite, $R$ is artinian and hence $J(R)$ is nil. 
+    Since $R$ is reduced, $J(R)=\{0\}$. 
+    By the Artin--Wedderburn theorem, $R\simeq\prod_{i=1}^k M_{n_i}(D_i)$ for some division rings $D_1,\dots,D_k$. 
+    Since $R$ is finite, each $D_i$ is finite. By Wedderburn's theorem,
+    every $D_i$ is a field. Again, since $R$ is reduced, 
+    $n_i=1$ for all $i$. Therefore $R$ is commutative, as it is 
+    direct product of finitely many fields.
+\end{proof}
 
-The previous exercise is used to solve the following problem.
-
-\begin{exercise}
-    Let $R$ be a ring such that $x^3=x$ for all $x\in R$. Prove that
-    $R$ is commutative. 
-\end{exercise}
-
-This exercise is harder. Even harder is the following exercise:
-
-\begin{exercise}
-    Let $R$ be a ring such that $x^4=x$ for all $x\in R$. Prove
-    that $R$ is commutative. 
-\end{exercise}
-
-Other exercises about reduced rings. 
-
-\begin{exercise}
-\label{xca:reduced}
-    Prove that a ring is reduced if 
-    and only it has no non-zero nilpotent elements. 
-\end{exercise}
-
-\begin{exercise}
-\label{xca:domain<=>prime+reduced}
-    A ring is a domain if and only if
-    it is both prime and reduced. 
-\end{exercise}
-
-\begin{exercise}
-\label{xca:reduced=>semiprime}
-    Reduced rings are semiprime.
-\end{exercise}
-    
-In this lecture, we will use
-structure theorems to prove the following amazing (and quite useless) 
-beautiful result:
+In this lecture, we will prove extend the 
+result of 
+Proposition \ref{pro:Jacobson} to arbitrary 
+(i.e. non-finite) rings. 
 
 \begin{theorem}[Jacobson]
 \label{thm:commutativity}
@@ -469,8 +450,8 @@ Now we are ready to prove Jacobson's commutativity theorem.
     it is non-commutative.
 \end{proof}
 
-
-%\chapter{Álgebras centrales simples}
+There are elementary proofs of Jacobson's commutativity theorem.
+See for example \cite{MR347890}. 
 
 \section{Skolem--Noether theorem}
 
