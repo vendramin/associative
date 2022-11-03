@@ -15,20 +15,20 @@ we now present the converse of Hilbert's theorem.
 \end{theorem}
 
 \begin{proof}
-    Let $a\in R$. For $n\geq0$, let
+    Let $a\in R$. For $m\geq0$, let
     \begin{align*}
-    I_n&=(a,aX,aX^2,\dots,aX^n)\\
-    &=R[X]a+R[X]aX+\cdots+aX^n+\Z a+\Z aX+\cdots+\Z aX^n.
+    I_n&=(a,aX,aX^2,\dots,aX^m)\\
+    &=R[X]a+R[X]aX+\cdots+aX^m+\Z a+\Z aX+\cdots+\Z aX^m.
     \end{align*}
-    Then $I_0\subseteq I_1\subseteq\cdots I_n\subseteq I_{n+1}\subseteq\cdots$ 
+    Then $I_0\subseteq I_1\subseteq\cdots I_m\subseteq I_{m+1}\subseteq\cdots$ 
     is a sequence of ideals of $R[X]$. Since $R[X]$ is noetherian,
     $I_n=I_{n+1}$ for some $n$. In particular, 
     $aX^{n+1}\in I_{n+1}=I_n$. Thus
     \[
-    aX^{n+1}=\sum_{i=1}^n aX^{i-1}f_i(X)+\sum_{i=1}^n k_iaX^{i-1}
+    aX^{n+1}=\sum_{i=1}^{n+1} aX^{i-1}f_i(X)+\sum_{i=1}^{n+1} k_iaX^{i-1}
     \]
     for some $f_1(X),\dots,f_n(X)\in R[X]$ and 
-    $k_1,\dots,f_n\in\Z$. Equating the coefficient of $X^{n+1}$ 
+    $k_1,\dots,f_n\in\Z$. Comparing the coefficient of $X^{n+1}$ 
     one gets that $a=ar$ for some $r\in R$. 
     Thus  
     \begin{equation}
@@ -91,7 +91,7 @@ we now present the converse of Hilbert's theorem.
 	Let $R$ be a ring. A module $N$ is \textbf{artinian} if every decreasing sequence 
 	$N_1\supseteq N_2\supseteq\cdots$ of submodules of $N$ stabilizes, that is
 	there exists $n\in\Z_{>0}$ such that 
-	$N_n=N_{n+k}$ for all $k\in\Z_{>0}$.
+	$N_n=N_{n+k}$ for all $k\in\Z_{\geq0}$.
 \end{definition}
 
 Let $X$ be a set and $\mathcal{S}$ be a set of subsets of $X$. 
@@ -106,7 +106,7 @@ if there is no $Y\in\mathcal{S}$ such that $Y\subsetneq A$.
 \end{proposition}
 
 \begin{proof}
-	Assume that $N$ is artinian. Let $\mathcal{S}$ be the non-empty set of submodules of $N$. 
+	Assume that $N$ is artinian. Let $\mathcal{S}$ be a non-empty set of submodules of $N$. 
 	Suppose that $\mathcal{S}$ has no minimal element and let $N_1\in\mathcal{S}$. 
 	Since $N_1$ is not minimal, there exists 
 	$N_2\in\mathcal{S}$ such that $N_1\supsetneq N_2$. Now assume the 
@@ -131,7 +131,7 @@ if there is no $Y\in\mathcal{S}$ such that $Y\subsetneq A$.
 
 A module $N$ is \textbf{noetherian} if for every sequence 
 $N_1\subseteq N_2\subseteq\cdots$ of submodules of $N$ there exists $n\in\Z_{>0}$ such that 
-$N_n=N_{n+k}$ for all $k\in\Z_{>0}$. 
+$N_n=N_{n+k}$ for all $k\in\Z_{\geq0}$. 
 
 % Let $X$ be a set and $\mathcal{S}$ be a set of subsets of $X$. We say that 
 % $B\in\mathcal{S}$ is a \textbf{maximal element} of $\mathcal{S}$ if
@@ -143,7 +143,7 @@ $N_n=N_{n+k}$ for all $k\in\Z_{>0}$.
         \item $M$ is noetherian.
         \item Every submodule of $M$ is finitely generated. 
         \item Every non-empty subset $\mathcal{S}$ of submodules of $M$ contains a maximal element, that is
-            an element $X\in\mathcal{S}$ such that there is no $Z\in\mathcal{S}$ such that $X\subseteq Z$.  
+            an element $X\in\mathcal{S}$ such that there is no $Z\in\mathcal{S}$ such that $X\subsetneq Z$.  
     \end{enumerate}
 \end{exercise}
 
@@ -228,8 +228,8 @@ it is required that each quotient $M_i/M_{i-1}$ has no proper submodules.
 	is exact, it follows that 
 	$M_{i+1}$ is artinian and noetherian, see Exercise \ref{xca:AN_exact}. 
 
-    Conversely, let $M$ be an artinian and noetherian module. Let $M_0=\{0\}$ and 
-    $M_1$ be minimal among the submodules of $M$ (it exists by Proposition \ref{pro:artinian_minimal}.
+    Conversely, let $M$ be a non-zero  artinian and noetherian module. Let $M_0=\{0\}$ and 
+    $M_1$ be minimal among the non-zero  submodules of $M$ (it exists by Proposition \ref{pro:artinian_minimal}).
     If $M_1\ne M$, let 
 	$M_2$ be minimal among those submodules of $M$ such that $M_1\subsetneq M_2$. This procedure
 	produces a sequence 
@@ -245,15 +245,21 @@ it is required that each quotient $M_i/M_{i-1}$ has no proper submodules.
     Let $M$ be a module. 
 	We say that the composition series
 	\[
-	M=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=\{0\},
+	M=V_0\supseteq V_1\supsetneq\cdots\supsetneq V_k=\{0\},
 	\quad
-	M=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=\{0\},
+	M=W_0\supsetneq W_1\supsetneq\cdots\supsetneq W_l=\{0\},
 	\]
 	are \textbf{equivalent} if $k=l$ and there exists 
-	$\sigma\in\Sym_n$ such that 
+	$\sigma\in\Sym_k$ such that 
 	$V_{i}/V_{i-1}\simeq W_{\sigma(i)}/W_{\sigma(i)-1}$
 	for all $i\in\{1,\dots,k\}$.
 \end{definition}
+
+\begin{exercise}
+\label{xca:Z6}
+    Find all composition series
+    for the $\Z$-module $\Z/6$. 
+\end{exercise}
 
 \begin{theorem}[Jordan--H\"older]
 	\label{thm:JordanHolder}
@@ -264,9 +270,9 @@ it is required that each quotient $M_i/M_{i-1}$ has no proper submodules.
 \begin{proof}
     Let $M$ be a module and
     \[
-		M=V_0\supseteq V_1\supseteq\cdots\supseteq V_k=\{0\},
+		M=V_0\supsetneq V_1\supsetneq\cdots\supsetneq V_k=\{0\},
 		\quad
-		M=W_0\supseteq W_1\supseteq\cdots\supseteq W_l=\{0\},
+		M=W_0\supsetneq W_1\supsetneq\cdots\supsetneq W_l=\{0\},
 	\]
 	be composition series of $M$. 
 	We claim that these composition series are equivalent. 
@@ -276,28 +282,28 @@ it is required that each quotient $M_i/M_{i-1}$ has no proper submodules.
 	assume the result holds for modules with composition series of length $<k$. If $V_1=W_1$, then 
 	$V_1$ has composition series of lengths $k-1$ and $l-1$. The inductive hypothesis implies that 
 	$k=l$ and we are done. So assume that $V_1\ne W_1$. Since $V_1$ and $W_1$ are submodules of $M$, the
-	sum $V_1+W_1$ is also a submodule of $M$. Moreover, $V/V_1$ has no non-zero proper submodules
+	sum $V_1+W_1$ is also a submodule of $M$. Moreover, $M/V_1$ has no non-zero proper submodules
 	and hence 
 	$V_1+W_1=V$. Then 
 	\[
-		V/V_1=\frac{V_1+W_1}{V_1}\simeq\frac{V_1}{V_1\cap W_1}.
+		M/V_1=\frac{V_1+W_1}{V_1}\simeq\frac{V_1}{V_1\cap W_1}.
 	\]
 	Since $V_1$ has a composition series, $V_1$ is artinian and
 	noetherian by Theorem~\ref{thm:serie_de_composicion}. The submodule $U=V_1\cap W_1$ is also 
 	artinian and noetherian and hence, by Theorem \ref{thm:serie_de_composicion}, 
 	it admits a composition series 
 	\[
-		U=U_0\supseteq U_1\supseteq\cdots\supseteq U_r=\{0\}.
+		U=U_0\supsetneq U_1\supsetneq\cdots\supsetneq U_r=\{0\}.
 	\]
     Thus
-    $V_1\supseteq\cdots\supseteq V_k=\{0\}$ and  
-	$V_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_r=\{0\}$ are both composition 
+    $V_1\supsetneq\cdots\supsetneq V_k=\{0\}$ and  
+	$V_1\supseteq U\supsetneq U_1\supsetneq\cdots\supsetneq U_r=\{0\}$ are both composition 
 	series for $V_1$. The inductive hypothesis implies that 
 	$k-1=r+1$ and that these composition series are equivalent. Similarly, 
 	\[
-		W_1\supseteq W_1\supseteq\cdots\supseteq W_l=\{0\},
+		W_1\supsetneq W_2\supsetneq\cdots\supsetneq W_l=\{0\},
 		\quad
-		W_1\supseteq U\supseteq U_1\supseteq\cdots\supseteq U_{r}=\{0\},
+		W_1\supsetneq U\supsetneq U_1\supsetneq\cdots\supsetneq U_{r}=\{0\},
 	\]
     are both composition series for $W_1$ and hence $l-1=r+1$ and these composition 
     series are equivalent. Therefore $l=k$ and the proof is completed. 
@@ -363,7 +369,7 @@ A module is said to be of finite length if it admits a composition series.
 	I_0\setminus\{0\}$ be such that $J^kx\ne\{0\}$. Moreover, $J^kx$ is a left ideal of $R$ 
 	contained in $I_0$ and such that $J^kx\in\mathcal{S}$, as 
 	$J^k(J^kx)=J^{2k}x=J^kx\ne\{0\}$. The minimality of $I_0$ implies that, $J^kx=I_0$. In particular, 
-	there exists $r\in J^k\subseteq J(R)$ such that $rx=x$. Since $-r\in
+	there exists $r\in J^k\subseteq J$ such that $rx=x$. Since $-r\in
 	J(R)$ is left quasi-regular, there exists $s\in R$ such that $s-r-sr=0$.
 	Thus 
 	\[
@@ -392,7 +398,7 @@ then $R$ is noetherian.
 \begin{exercise}
 \label{xca:I_fg}
     Let $R$ be a unitary commutative ring, $I$ be an ideal of $R$
-    and $R$ be an $R$-module such that $I\cdot M=\{0\}$. Prove that
+    and $M$ be an $R$-module such that $I\cdot M=\{0\}$. Prove that
     if $M$ is finitely generated, then $M$ is a finitely generated
     $(R/I)$-module with
     \[
@@ -418,7 +424,6 @@ $xy\in I$ implies that $x\in I$ or $y\in I$.
 % $r\in R$ such that $x^n(1-rx)=0$. Since $x^n\ne 0$, $1=rx$. 
 % I prime $\implies$ $(R/I)$ domain $\implies $R/I$ field $\implies $I$ maximal 
 
-
 \begin{theorem}[Akizuki]
     \index{Akizuki's theorem}
     Let $R$ be a unitary commutative ring. If $R$ is artinian, 
@@ -429,54 +434,54 @@ $xy\in I$ implies that $x\in I$ or $y\in I$.
     Assume that the result is not true, so there exists an ideal of $R$ 
     that is not finitely generated. 
     Let $X$ be the set of ideals of $R$ that are not finitely generated. 
-    Since $X\ne\empty$ and $R$ is artinian, there exists a minimal 
+    Since $X\ne\emptyset$ and $R$ is artinian, there exists a minimal 
     element $I\in X$. The minimality of $I$ implies that 
-    if $J$ is an ideal of $R$ such that $J\subseteq I$, then 
+    if $J$ is an ideal of $R$ such that $J\subsetneq I$, then 
     $J$ is finitely generated. 
 
     \begin{claim}
-        Either $R\cdot I=\{0\}$ or $R\cdot I=I$.
+        Either $RI=\{0\}$ or $RI=I$.
     \end{claim}
     
-    If not, let $r\in R$ be such that $r\cdot I\ne\{0\}$ and $r\cdot I\ne I$. 
-    Since $r\cdot I$ is an ideal of $R$ and
-    $r\cdot I\subsetneq I$, the minimality of $I$ implies that 
-    $r\cdot I$ is finitely generated. Let 
-    $f\colon I\to r\cdot I$, $x\mapsto r\cdot x$. Then $f$ is a 
-    surjective module homomorphism. Since $R\cdot I\ne\{0\}$, 
-    $f$ is non-zero. In particular, $\ker f\subsetneq I$ 
+    If not, let $r\in R$ be such that $rI\ne\{0\}$ and $rI\ne I$. 
+    Since $rI$ is an ideal of $R$ and
+    $rI\subsetneq I$, the minimality of $I$ implies that 
+    $rI$ is finitely generated. Let 
+    $f\colon I\to rI$, $x\mapsto rx$. Then $f$ is a 
+    surjective module homomorphism. Since $RI\ne\{0\}$, 
+    $f$ is non-zero. In particular, $\ker f$ 
     is finitely generated, again by the minimality of $I$. 
-    By the first isomorphism theorem, $I/K\simeq r\cdot I$ as $R$-modules.
-    Since $\ker f$ and $I/\ker f\simeq r\cdot K$ are finitely generated, 
+    By the first isomorphism theorem, $I/\ker f\simeq rI$ as $R$-modules.
+    Since $\ker f$ and $I/\ker f\simeq rI$ are finitely generated, 
     $I$ is finitely generated, a contradiction.
     
     \begin{claim}
-        $M=\{r\in R:r\cdot I=\{0\}\}$ is a maximal ideal of $R$. 
+        $M=\{r\in R:rI=\{0\}\}$ is a maximal ideal of $R$. 
     \end{claim}
     
     Routine calculations show that $M$ is an ideal. Since 
     $R$ is artinian, it is enough to show that $M$ is a prime ideal. 
-    Let $rs\in M$. Then $(rs)\cdot I=\{0\}$. If $r\cdot M$, 
-    then $r\cdot I\ne\{0\}$. By the previous claim, $r\cdot I=I$. Thus
+    Let $rs\in M$. Then $(rs)I=\{0\}$. If $r\not\in M$, 
+    then $rI\ne\{0\}$. By the previous claim, $rI=I$. Thus
     \[
-    \{0\}=(rs)\cdot I=s\cdot (r\cdot I)=s\cdot I
+    \{0\}=(rs)I=s(rI)=sI
     \]
     and hence $s\in M$.     
     
     \medskip
     Since $M$ is maximal, $K=R/M$ is a field. 
-    Since $M\cdot I=\{0\}$, $I$ is an $(R/M)$-module, that is 
+    Since $MI=\{0\}$, $I$ is an $(R/M)$-module, that is 
     $I$ is a $K$-vector space. By Exercise \ref{xca:I_fg}, 
     $\dim_KI=\infty$. Let $B$ be a basis of $I$ (as a $K$-vector space) 
     and $x_0\in B$. Let $J$ be the subspace of $I$ generated by
-    $B\setminus\{0\}$. Then $J$ is an ideal of $R$, 
+    $B\setminus\{x_0\}$. Then $J$ is an ideal of $R$, 
     as  
     \[
-    J=\sum_{x\in B\setminus\{x_0\}} R\cdot x. 
+    J=\sum_{x\in B\setminus\{x_0\}} Kx. 
     \]
     Since $\dim_K J=\infty$, it follows that $J$ 
     is not a finitely generated ideal of $R$ 
     (Exercise \ref{xca:I_fg}). 
     This is a contradiction, because $J$ is an ideal of $R$
-    such that $J\subseteq I$. 
+    such that $J\subsetneq I$. 
 \end{proof}
