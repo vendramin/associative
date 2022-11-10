@@ -2,10 +2,10 @@
 
 %\section*{Lecture 1}
 %\section*{Lecture 2}
-\section*{Lecture 3}
+%\section*{Lecture 3}
 
 \begin{sol}{xca:simple=>primitive}
-	Since $R$ is unitary, there exists a maximal left ideal $I$ and, moreover, $R$ is regular.
+	Since $R$ is unitary, there exists a maximal left ideal $I$ and $R$ is regular.
 	By Proposition~\ref{proposition:R/I}, $R/I$ is a simple $R$-module. 
 	Since $\Ann_R(R/I)$ is an ideal of $R$ and $R$ is simple, either $\Ann_R(R/I)\in\{0\}$ or 
 	$\Ann_R(R/I)=R$. Moreover, since 
@@ -20,7 +20,7 @@
     with the first column equal to zero. Then $V$ is a subgroup
     of $W$.
     
-    We claim that $V\ne\{0\}$. In fact, if 
+    We claim that $V\ne\{0\}$. If 
     $x$ is a matrix where all the rows are zero except the first one, 
     then $L_1x=0$. Hence $0\ne x\in V$....
 \end{sol}
@@ -45,12 +45,58 @@
 	$M$ is primitive. 
 \end{sol}
 
+\begin{sol}{xca:M_n(R)primitive}
+    Let $W$ be a faithful simple $M_n(R)$-module. Let 
+    $L_1$ be the subset of $M_n(R)$ of matrices 
+    with the first column equal to zero and 
+    $V=\{w\in W:L_1v=0\}$. Then $V$ is a subgroup of $W$. 
+
+    We claim that $V\ne\{0\}$. Let $x$ be 
+    a non-zero matrix where only the first row is non-zero. Then 
+    $L_1x=0$ and hence $x\in V$. 
+
+    We claim that $xW\ne\{0\}$. 
+    Let $R\times V\to W$, $(r,v)\mapsto E_{11}(r)v$, where $E_{11}(r)$ is the matrix 
+    with $r$ in position $(1,1)$ and zero elsewhere. Since 
+    $L_1E_{11}(r)=0$, $rv\in V$. Routine calculations show
+    that $V$ is an $R$-module. 
+    
+    We claim that $V$ is simple. 
+    If $v\in V\setminus\{0\}$, then 
+    $M_n(R)V=W$. In particular, if $u\in V$, 
+    there exists $a\in M_n(R)$ 
+    such that $av=u$. Write $a=E_{11}(r)+l_1+c$ for
+    some $r\in R$, $l_1\in L_1$ and a matrix 
+    $c=(c_{ij})$ with $c_{i1}=0$ for all $i\geq2$. Then
+    \[
+    u=av=E_{11}(r)v+l_1v+cv.
+    \]
+    Since $l_1v=0$, $cv=u-E_{11}(r)v\in V$. Let $b\in M_n(R)$ 
+    be such that $b=l_1'+d$ for $l_1'\in L_1$ and a matrix $d$
+    with only the first column different from zero. Since $cv\in V$, 
+    $l_1'cv=0$ and $dvc=0$. It follows that
+    $bcv=(m+d)cv=0$. Hence $M_n(R)cv=0$ and 
+    therefore $cv=0$, so $u=E_{11}(r)v=rv$. This implies that 
+    $Rv=V$ and $RV=V$. Thus $\{0\}$ and $V$ are the only 
+    submodules of $V$. 
+
+    Now we prove that $V$ is faithful. If $rV=\{0\}$, then
+    $E_{11}(r)V=\{0\}$. Let $v\in V\setminus\{0\}$. Then
+    $M_n(R)v=W$. If $w\in W$, then there exists 
+    a matrix $f$ with only the first column different from zero
+    such that $fv=w$. Then
+    \[
+    E_{11}(r)w=E_{11}(r)fv=E_{11}(r)E_{11}(f_{11})v=0.
+    \]
+    It follows that $E_{11}rW=\{0\}$ and
+    hence $E_{11}(r)=0$, which means $r=0$.
+\end{sol}
 %\section*{Lecture 5}
 %\section*{Lecture 6}
 %\section*{Lecture 7}
 %\section*{Lecture 8}
 %\section*{Lecture 9}
-\section*{Lecture 10}
+%\section*{Lecture 10}
 
 \begin{sol}{xca:invertible_algebraic}
 	Since $a$ is algebraic, 

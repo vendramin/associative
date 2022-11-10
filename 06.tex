@@ -17,7 +17,7 @@ we now present the converse of Hilbert's theorem.
 \begin{proof}
     Let $a\in R$. For $m\geq0$, let
     \begin{align*}
-    I_n&=(a,aX,aX^2,\dots,aX^m)\\
+    I_m&=(a,aX,aX^2,\dots,aX^m)\\
     &=R[X]a+R[X]aX+\cdots+aX^m+\Z a+\Z aX+\cdots+\Z aX^m.
     \end{align*}
     Then $I_0\subseteq I_1\subseteq\cdots I_m\subseteq I_{m+1}\subseteq\cdots$ 
@@ -28,7 +28,7 @@ we now present the converse of Hilbert's theorem.
     aX^{n+1}=\sum_{i=1}^{n+1} aX^{i-1}f_i(X)+\sum_{i=1}^{n+1} k_iaX^{i-1}
     \]
     for some $f_1(X),\dots,f_n(X)\in R[X]$ and 
-    $k_1,\dots,f_n\in\Z$. Comparing the coefficient of $X^{n+1}$ 
+    $k_1,\dots,k_n\in\Z$. Comparing the coefficient of $X^{n+1}$ 
     one gets that $a=ar$ for some $r\in R$. 
     Thus  
     \begin{equation}
@@ -43,7 +43,7 @@ we now present the converse of Hilbert's theorem.
     \end{claim}
     
     We proceed by induction on $n$. 
-    The case $n=1$ is \eqref{eq:Gilmer}. Assume that
+    The case $n=1$ is \eqref{eq:Gilmer}. Assume 
     that the result holds for $n-1\geq1$. By the inductive hypothesis, 
     there exists $r_1\in R$ such that $a_i=r_1a_i$ 
     for all $i\in\{1,\dots,n-1\}$. Moreover, 
