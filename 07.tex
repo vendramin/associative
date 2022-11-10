@@ -20,7 +20,7 @@ $J(R)$ is the intersection of primitive ideals, it follows that $J(R)=\{0\}$.
 \end{example}
 
 \begin{example}
-$\Z$ is semiprimitive, as $J(\Z)=\cap_{p}\Z/p=\{0\}$.
+$\Z$ is semiprimitive, as $J(\Z)=\cap_{p}p\Z=\{0\}$.
 \end{example}
 
 \begin{example}
@@ -75,7 +75,7 @@ that $R/J(R)$ is semiprimive.
 	Suppose first that $R$ is semiprimitive and let $\{P_i:i\in I\}$ be the collection of 
 	primitive ideals of $R$. Each $R/P_j$ is primitive and 
 	$\{0\}=J(R)=\cap_{i\in I}P_i$. For $j$ let $\lambda_j\colon R\to
-	R/P_j$ and $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ be canonical maps
+	R/P_j$ and $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ be canonical maps. 
 	The ring homomorphism 
 	\[
 		\phi\colon R\to\prod_{i\in I}R/P_i,\quad
@@ -460,8 +460,8 @@ Modules over division rings are usually called vector spaces over division rings
 \begin{proposition}
 	\label{pro:unique_dense}
 	Let $D$ be a division ring and 
-    $V$ be a $D$-vector space.  
-	If $\dim_DV<\infty$, then $\End_D(V)$ is the only dense ring of $V$.
+    $V$ be a finite-dimensional $D$-vector space.  
+	Then $\End_D(V)$ is the only dense ring of $V$.
 \end{proposition}
 
 \begin{proof}
@@ -519,7 +519,7 @@ Modules over division rings are usually called vector spaces over division rings
 \begin{theorem}[Jacobson]
 	\label{thm:density}
 	\index{Jacobson's density theorem}
-	A ring $R$ is primitive if and only if it is isomorphic to a dense ring in 
+	A ring $R$ is primitive if and only if it is isomorphic to a dense ring on 
 	a vector space over a division ring.
 \end{theorem}
 
@@ -529,7 +529,7 @@ We shall need the following lemma.
 	\label{lem:ideal_denso}
 	Let $D$ be a division ring and $V$ be a $D$-vector space. 
 	If $R$ is dense in $V$ and $I$ is a non-zero ideal of $R$, then 
-	$I$ is dense in $V$. 
+	$I$ is dense on $V$. 
 \end{lemma}
 
 \begin{proof}
@@ -539,7 +539,7 @@ We shall need the following lemma.
 	$\gamma(u_i)=v_i$ for all $i$. Since $I\ne\{0\}$, there exists 
 	$h\in I\setminus\{0\}$. This means that 
 	$h(u)=v\ne0$ for some $u\ne 0$. Since $R$ is 
-	dense in $V$, there exist $g_1,\dots,g_n\in R$ such that 
+	dense on $V$, there exist $g_1,\dots,g_n\in R$ such that 
 	\[
 	g_i(u_j)=\begin{cases} 
 	u & \text{if $i=j$},\\
@@ -584,7 +584,7 @@ Now we are ready to prove Jacobson's density theorem.
 	\begin{claim}
 		If $U$ is a finite-dimensional submodule of $V$, 
 		for each $w\in V\setminus U$ there exists $r\in R$ such that 
-		$\gamma_r(U)=0$ and $\gamma_r(w)\ne0$.
+		$\gamma_r(U)=\{0\}$ and $\gamma_r(w)\ne0$.
 	\end{claim}
 
 	Suppose the claim is not true. Let $U$ be a counterexample of minimal  
@@ -593,10 +593,10 @@ Now we are ready to prove Jacobson's density theorem.
 	$U_0$ be a submodule of $U$ such that 
 	$\dim U_0=\dim U-1$ and let 
 	\[
-		L=\{l\in R:\gamma_l(U_0)=0\}.
+		L=\{l\in R:\gamma_l(U_0)=\{0\}\}.
 	\]
 	The minimality of the dimension of $U$ shows that the claim is true for $U_0$, so
-	any $v\in V\setminus U_0$ is such that $Lv=V$. In fact, since there exists $l\in
+	any $v\in V\setminus U_0$ is such that $Lv=V$. Since there exists $l\in
 	L$ such that $lv=\gamma_l(v)\ne 0$ and $L$ is a left ideal of $R$, it follows
 	that $Lv\subseteq V$ is a submodule and the claim follows from the simplicity of
 	$V$.
@@ -624,7 +624,7 @@ Now we are ready to prove Jacobson's density theorem.
 	\[
 		l(\delta(u)-w)=l\delta(u)-lw=\delta(lu)-lw=0.
 	\]
-	Thus $L(\delta(u)-w)=0$. This implies that $\delta(u)-w\not\in V\setminus U_0$, 
+	Thus $L(\delta(u)-w)=\{0\}$. This implies that $\delta(u)-w\not\in V\setminus U_0$, 
 	that is $\delta(u)-w\in U_0$. Therefore  
 	\[
 		w=xu-(xu-w)\in Du+U_0=U,
