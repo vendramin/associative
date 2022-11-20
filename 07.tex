@@ -56,11 +56,44 @@ that $R/J(R)$ is semiprimive.
 %\end{proof}
 
 
+%\begin{definition}
+%	Let $\{R_i:i\in I\}$ be a collection of rings. A subring $R$ of
+%	$\prod_{i\in I}R_i$ is said to be a \textbf{subdirect product} of %the
+%	collection if each $\pi_j\colon R\to R_j$, $(r_i)_{i\in I}\mapsto %r_j$, is surjective. 
+%\end{definition}
+
 \begin{definition}
-	Let $\{R_i:i\in I\}$ be a collection of rings. A subring $R$ of
-	$\prod_{i\in I}R_i$ is said to be a \textbf{subdirect product} of the
-	collection if each $\pi_j\colon R\to R_j$, $(r_i)_{i\in I}\mapsto r_j$, is surjective. 
+    \index{Subdirect product}
+    Let $\{R_i:i\in I\}$ be an arbitrary family of rings. For each 
+    $j\in I$, let $\pi_j\colon \prod_{i\in I}R_i\to R_j$ be the
+    canonical map. We say that $R$ is a \textbf{subdirect product}
+    of $\{R_i:i\in I\}$ if the following conditions hold:
+    \begin{enumerate}
+        \item There exists an injective ring homomorphism $R\to \prod_{i\in I}R_i$. 
+        \item For each $j$, the composition 
+        $\pi_jf\colon R\to R_j$ is injective. 
+    \end{enumerate}
 \end{definition}
+
+Direct products and direct sums of rings are all examples of subdirect products of rings. 
+
+\begin{exercise}
+    Write (if possible) $\Z$ as a non-trivial subdirect product. 
+\end{exercise}
+
+\begin{example}
+    Let $R$ be a ring,  
+    $\{I_j:j\}$ be a collection of ideals of $R$ and
+    \[
+    f\colon R\to \prod_i R/I_i,
+    \quad
+    r\mapsto (r+I_i)_i.
+    \]
+    For each
+    $i$, let $R_i=R/I_i$. Then $R$ is a subdirect product
+    of the $R_i$ if and only if $f$ is injective. 
+\end{example}
+
 
 %El siguiente teorema justifica que indistintamente llamemos anillos
 %semiprimitivos a los anillos semisimples Jacobson:
@@ -92,10 +125,10 @@ that $R/J(R)$ is semiprimive.
 	Hence $J(R)\subseteq\cap_{i\in I} P_i=0$. 
 \end{proof}
 
-\begin{example}
-	$\Z$ is isomorphic to a subdirect product of the fields $\Z/p$, where 
-	$p$ runs over all prime numbers. 
-\end{example}
+%\begin{example}
+%	$\Z$ is isomorphic to a subdirect %product of the fields $\Z/p$, where 
+%	$p$ runs over all prime numbers. 
+%\end{example}
 
 \begin{example}
 	The ring $C[a,b]$ 

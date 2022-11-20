@@ -1,5 +1,293 @@
 \chapter{}
 
+\topic{Prime rings}
+
+In commutative algebra, domains play a fundamental role. In non-commutative
+algebra, certain things could be quite different. 
+For example, the ring $M_n(\C)$ is not a domain.
+We need a non-commutative generalization of domains.
+
+\begin{definition}
+	\index{Ring!prime} 
+	Let $R$ be a ring (not necessarily with one). Then $R$ is
+	\textbf{prime} if for $x,y\in R$ such that $xRy=\{0\}$ it follows that $x=0$ or 
+	$y=0$.
+\end{definition}
+
+\index{Domain}
+A ring $R$ is a \textbf{domain} if $xy=0$ implies
+$x=0$ or $y=0$. Each domain is trivially a prime ring.
+
+\begin{example}
+    A commutative ring is prime if and only if it is a domain, as $ab=0$ 
+    if and only if $aRb=\{0\}$.
+\end{example}
+
+\begin{example}
+    A non-zero ideal of a prime ring is a prime ring.
+\end{example}
+
+\begin{exercise}
+\label{xca:domain<=>prime+reduced}
+    A ring is a domain if and only if
+    it is both prime and reduced. 
+\end{exercise}
+
+A characterization of prime rings:
+
+\begin{proposition}
+    Let $R$ be a ring. The following statements are equivalent:
+	\begin{enumerate}
+		\item $R$ is prime.
+		\item If $I$ and $J$ are left ideals such that $IJ=\{0\}$, then 
+			$I=\{0\}$ or $J=\{0\}$.
+		\item If $I$ and $J$ are ideals such that $IJ=\{0\}$, then $I=\{0\}$ or
+			$J=\{0\}$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	We first prove that $1)\implies2)$. Let $I$ and $J$ be left ideals such that
+	$IJ=\{0\}$. Then $IRJ=I(RJ)\subseteq IJ=\{0\}$. If $J\ne
+	\{0\}$, $u\in I$ and $v\in J\setminus\{0\}$, then $uRv\in IRJ=\{0\}$. Hence 
+	$u=0$.
+
+	The implication $2)\implies3)$ is trivial. 
+
+    Let us prove that $3)\implies1)$. Let $x,y\in R$ be such that $xRy=\{0\}$.
+	Let $I=RxR$ and $J=RyR$. Since $IJ=(RxR)(RyR)=R(xRy)R=\{0\}$, 
+	we may assume that $I=\{0\}$. In particular, $Rx$ and $xR$ are ideals, as 
+	$R(xR)=(Rx)R=\{0\}$. Then $\Z x$ is an ideal of $R$ such that $(\Z x)R=\{0\}$. 
+	Thus $x=0$. 
+\end{proof}
+
+Simple rings are trivially prime. The converse is not true. For example,
+$\Z$ is a domain, so it is a prime ring but is not simple.
+
+\begin{example}
+	If $R_1$ and $R_2$ are rings, $R=R_1\times R_2$ is not prime, as 
+	$I=R_1\times\{0\}$ and $J=\{0\}\times R_2$ are non-zero ideals such that $IJ=\{0\}$.
+\end{example}
+
+\begin{theorem}[Connel]
+\index{Connel's theorem}
+\label{thm:Connel}
+    Let $K$ be a field of characteristic zero and
+    $G$ be a group. Then $K[G]$ is prime
+    if and only if $G$ does not contain 
+    non-trivial finite normal subgroups. 
+\end{theorem}
+
+\begin{proof}
+    See for example \cite[Theorem 2.10 of Chapter 4]{MR798076}.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:primoizqmin=>prim}
+	Let $R$ be a prime ring and $L$ be a minimal left ideal of $R$.
+	Then $R$ is primitive. 
+\end{lemma}
+
+\begin{proof}
+	Since $L$ is a minimal left ideal, it is simple as a module over $R$. 
+	We claim that $L$ is faithful. Let $y\in L\setminus\{0\}$ and
+	$x\in\Ann_R(L)$. Since $xRy\in xRL\subseteq xL=\{0\}$, it follows that 
+	$x=0$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:denso_artiniano}
+	Let $D$ be a division ring and $R$ be a dense ring in a module $V$ over $D$. 
+	If $R$ is left artininian, then $\dim_DV<\infty$.
+\end{lemma}
+
+\begin{proof}
+	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots,\}$ be linearly independent. 
+	Since $R\subseteq\End_D(V)$, it follows that 
+	$V$ is a module over $R$ with $f\cdot v=f(v)$, where $f\in R$ y $v\in V$. 
+	For $n\in\Z_{>0}$ let 
+	\[
+		I_n=\Ann_R(\{u_1,\dots,u_n\}).
+	\]
+	Each $I_j$ is a left ideal of $R$ and $I_1\supseteq
+	I_2\supseteq\cdots\supseteq I_n\supseteq\cdots$. Let 
+	$n\in\Z_{>0}$ and $v\in V\setminus\{0\}$. Since $R$ is dense
+	in $V$, there exists $f\in R$ such that $f(u_j)=0$ for all $j\in\{1,\dots,n\}$ and 
+	$f(u_{n+1})=v\ne0$. Thus $I_1\supsetneq I_2\supsetneq\cdots\supsetneq
+	I_n\supsetneq\cdots$, a contradiction.
+\end{proof}
+
+\begin{theorem}[Wedderburn]
+	\index{Wedderburn's theorem}
+	Let $R$ be a left artinian ring. The following statements are equivalent:
+	\begin{enumerate}
+		\item $R$ is simple.
+		\item $R$ is prime.
+		\item $R$ is primitive.
+		\item $R\simeq M_n(D)$ for some $n$ and some division ring $D$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	The implication $1)\implies2)$ is trivial. 
+	
+	To show that $2)\implies3)$ first note that 
+	$R$ contains a minimal left ideal, as $R$ is left artinian. 
+	By Lemma~\ref{lem:primoizqmin=>prim}, $R$ is primitive. 
+
+	Now we prove that $3)\implies4)$. If $R$ is primitive, 
+	Jacobson's density theorem implies that there exists a division
+	ring $D$ such that  
+	$R$ is isomorphic to a ring $S$ that is dense in a vector space $V$ over $D$.
+	Since $R$ is left artinian, Lemma~\ref{lem:denso_artiniano} implies that  
+	$R=\End_D(V)\simeq M_n(D)$, as $\dim_DV<\infty$. 
+
+	Finally, $4)\implies1)$ is trivial, as $M_n(D)$ is simple. 
+\end{proof}
+
+We now prove Artin--Wedderburn theorem. We will assume that our ring
+is a unitary left artinian ring. One could prove
+Artin--Wedderburn's theorem for arbitrary rings --see for example \cite{MR600654}--  
+but when dealing with unitary rings, the proof 
+is simpler. We will prove
+that left artinian semiprimitive unitary rings
+are isomorphic to a direct product
+of finitely many matrix rings. The idea of the proof goes as follows. 
+We know that if 
+$R$ is semiprimitive, then $R$ is a subdirect product
+of primitive rings; that is  
+there exists an injective map
+\[
+R\to \prod_{i\in I}R/I_i
+\]
+where each $I_i$ is a primitive ideal. Since $R$ is left artinian, 
+the set $I$ will be finite. Moreover, 
+by Wedderburn's theorem, 
+$R/I_i\simeq M_{n_i}(D_i)$ for some division ring $D_i$. Finally,
+a non-commutative version of the Chinese remainder theorem
+implies that the map is fact surjective. 
+
+\begin{definition}
+\index{Ideal!prime}
+    An ideal $I$ of $R$ is \textbf{prime} if $xRy\subseteq I$ implies
+    $x\in I$ or $y\in I$.
+\end{definition}
+
+Note that a ring $R$ is prime if and only if $\{0\}$ is a prime ideal. 
+Moreover, 
+an ideal $I$ of $R$ is prime if and only if 
+the ring $R/I$ is prime. 
+
+\begin{lemma}
+    If $R$ is left artinian and $I$ is a primitive ideal, then
+    $I$ is prime. 
+\end{lemma}
+
+% no necesito hacerlo para artiniano
+
+\begin{proof}
+    Since $I$ is primitive, then $R/I$ is primitive. By Wedderburn theorem, 
+    $R/I$ is prime and hence $I$ is prime. 
+\end{proof}
+
+\begin{theorem}[Artin--Wedderburn]
+\label{thm:ArtinWedderburn_version2}
+\index{Artin--Wedderburn's theorem}
+    Let $R$ be a semiprimitive left artinian unitary ring. Then
+    $R\simeq\prod_{i=1}^kM_{n_i}(D_i)$ for finitely many
+    division rings $D_1,\dots,D_k$. 
+\end{theorem}
+
+We shall need the following lemmas.
+
+\begin{lemma}
+\label{lem:primitive=>maximal}
+    Let $R$ be a left artinian ring and $I$ be a primitive ideal. 
+    Then $I$ is maximal. 
+\end{lemma}
+
+\begin{proof}
+    If $I$ is a primitive ideal of $R$, then $R/I$ is a primitive ring
+    by Lemma \ref{lemma:primitivo}. By Wedderburn's theorem, $R/I$ is
+    simple. Thus $I$ is maximal by Proposition \ref{proposition:R/I}. 
+\end{proof}
+
+\begin{lemma}
+    Let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
+    Then $I_2\cdots I_k\not\subseteq I_1$.   
+\end{lemma}
+
+\begin{proof}
+    Suppose the result is not true and let $k$ be minimal
+    such that $I_2\cdots I_k\subseteq I_1$. Since the result is clearly
+    true for two distinct maximal ideals, $k\geq3$. Let $I=I_2\cdots I_{k-1}$. 
+    Since $I\not\subseteq I_1$, there exists $x\in I\setminus I_1$. Moreover,  
+    there exists $y\in I_k\setminus I_1$, as 
+    $I_k\ne I_1$. 
+    Then 
+    $(xR)y\subseteq II_k\subseteq I_1$. Since $I_1$ is prime, 
+    it follows that either $x\in I_1$ or $y\in I_1$, a contradiction.   
+\end{proof}
+
+\begin{lemma}
+    Let $R$ be a left artinian ring. Then $R$ has only 
+    finitely many primitive ideals.
+\end{lemma}
+
+\begin{proof}
+    If $I_1,I_2\dots$ are infinitely many primitive ideals. 
+    Since $R$ is left artinian, the sequence 
+    $I_1\supseteq I_1I_2\supseteq\cdots$ stabilizes, so there
+    exists $n$ such that 
+    \[
+    I_1I_2\cdots I_n=I_1I_2\cdots I_nI_{n+1}\subseteq I_{n+1}.
+    \]
+    This contradicts the previous lemma, 
+    as each $I_j$ is a maximal ideal. 
+\end{proof}
+
+Now we are ready to prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:ArtinWedderburn_version2}]
+    Let $I_1,\dots,I_k$ be the (distinct) primitive ideals of $R$. 
+    We know that each $I_i$ is a maximal ideal. Thus $I_i+I_j=R$ for
+    $i\ne j$. Since $R$ is semiprimitive, 
+    $I_1\cap\cdots\cap I_k=J(R)=\{0\}$. Let 
+    \[
+    \varphi\colon R\to \prod_{i=1}^k R/I_i,\quad
+    x\mapsto (x+I_1,\dots,x+I_k).
+    \]
+    Then $\varphi$ is a ring homomorphism with kernel $I_1\cap\cdots\cap I_k=\{0\}$, so
+    $\varphi$ is injective. We need to prove that $\varphi$ is surjective. 
+    
+    We first claim that 
+    $I_1+( I_2\cdots I_k) = R$. In fact, 
+    since $I_1,\dots,I_k$ are maximal ideals, $I_2\cdots I_k\not\subseteq I_1$. This implies
+    that $I_1+(I_2\cdots I_k)$ is an ideal of $R$ that contains $I_1$. Since $I_1$ is maximal, 
+    $I_1+(I_2\cdots I_k)=R$. 
+    
+    Since $I_1+( I_2\cdots I_k) = R$, 
+    there exists $x_1\in \prod_{j=2}^kI_j$ such that $1\in x_1+I_1$. Note that
+    $x_1=(1+I_1)\cap (I_2\cdots I_k)\subseteq I_j$ for all $j\in\{2,\dots,k\}$. 
+    Thus 
+    \[
+    \varphi(x_1)=(x+I_1,x+I_2,\dots,x+I_k)=(1+I_1,I_2,\dots, I_k).
+    \]
+    Similarly,
+    there exists $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
+    \begin{align*}
+    \varphi(x_2)&=(I_1,1+I_2,\dots,I_k),\\
+    &\vdots\\
+    \varphi(x_k)&=(I_1,I_2,\dots,1+I_k).
+    \end{align*}
+    From this, it follows that $\varphi$ is surjective. Each $R/I_i$ 
+    is primitive and hence isomorphic to $M_{n_i}(D_i)$ for some 
+    $n_i$ and some division ring $D_i$. Therefore
+    \[
+    R\simeq R/I_1\times\cdots\times R/I_k\simeq \prod_{i=1}^kM_{n_i}(D_i).\qedhere 
+    \]
+\end{proof}
+
 
 
 \topic{Semisimple modules}
@@ -160,13 +448,13 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
     such that $R\simeq L_1\oplus\cdots\oplus L_k$. We claim that
     for each $i\in\{1,\dots,k\}$, the ideal
     $M_i=\sum_{j\ne i}L_j$ of $R$ is maximal. For example, let us prove
-    that $M_1$ is maximal. If not, there exists an ideal $I$ of $R$ 
+    that $M_1$ is maximal. If not, there exists a left ideal $I$ of $R$ 
     such that $M_1\subsetneq I$. Let $x\in I\setminus M_1$ and write 
     \[
     x=x_1+x_2+\cdots+x_k
     \]
     for $x_j\in L_j$. Since $x_2+\cdots+x_k\in M_1\subseteq I$, 
-    it follows that $x_1\in I\cap I_1$, a contradiction.  
+    it follows that $x_1\in I\cap L_1$, a contradiction.  
     
     Conversely, if $R$ is left artinian and $J(R)=\{0\}$, then
     $R\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)$ 
@@ -309,233 +597,16 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
 % that $R$ is noetherian, as $R$ is the 
 % direct product of finitely many noetherian rings.
 
-
-\topic{Andrunakevic--Rjabuhin's theorem}
-%https://ysharifi.wordpress.com/2010/06/04/about-reduced-rings-1/
-%\begin{exercise}
-%\label{xca:reduced}
-%     Let $R$ be a ring and $I$ be an ideal of $R$.
-%     Prove that $I$ is prime if and only if $xRy\subseteq I$ implies
-%     either $x\in I$ or $y\in I$. 
-% \end{exercise}
-
-% \begin{sol}{xca:reduced}
-%     Let $A$ and $B$ be ideals such that $AB\subseteq I$. If 
-%     $A\not\subseteq I$ and $B\not\subseteq J$, let 
-%     $x\in A\setminus P$ and $y\in B\setminus P$. Then
-%     $xRy\subseteq AB\subseteq I$, a contradiction. 
-%     Conversely, if $xRy\subseteq I$ and $x\not I$ and $y\not\in I$, 
-%     then $A=(x)\not\subseteq I$ and $B=(y)\not\subseteq P$.
-% \end{sol}
-
-\begin{definition}
-\index{Ring!reduced}
-     A ring $R$ is \textbf{reduced} if 
-     has no non-zero nilpotent elements. 
-\end{definition}
-
-Every commutative domain is reduced. 
-
-\begin{example}
-    The ring $\Z\times\Z$ with the usual operations 
-    is reduced but not a domain. 
-\end{example}
-
-\begin{example}
-    The ring $\Z/6$ is reduced. However, $\Z/4$ is not reduced. 
-\end{example}
-
-\begin{exercise}
-\label{xca:reduced}
-    Prove that a ring $R$ is \textbf{reduced} if and only 
-    of for all $r\in R$ such that $r^2=0$ one has $r=0$.
-\end{exercise}
-
-\begin{exercise}
-\label{xca:reduced_Zn}
-    Let $n\geq2$. Then $\Z/n$ is reduced 
-    but not a domain if and only if $n$ is square-free 
-    but not prime.
-\end{exercise}
-
-% https://ysharifi.wordpress.com/tag/reduced-ring/
-
-\begin{exercise}
-    \label{xca:reduced_RX}
-    Let $R$ be a commutative ring that is reduced but not a domain.
-    Prove that $R[X]$ is reduced but not a domain. 
-\end{exercise}
-
-The previous exercise and induction 
-shows that if $R$ is reduced but not a domain, 
-then so is $R[X_1,\dots,X_n]$. 
-% https://ysharifi.wordpress.com/2010/11/01/zero-divisors-and-nilpotent-elements-in-polynomial-rings/
-
-\begin{example}
-    Let $R=\Z/3\times\Z/3$ with
-    operations $(a,b)+(c,d)=(a+c,b+d)$ and 
-    $(a,b)(c,d)=(ac,ad+bc)$. Then $R$ is a commutative
-    ring with identity $(1,0)$. Since 
-    $(0,1)$ is a non-zero nilpotent element, $R$ is not reduced. 
-\end{example}
-
-\begin{definition}
-\index{Ideal!reduced}
-    Let $R$ be a ring and $I$ be an ideal of $R$. 
-    Then $R$ is \textbf{reduced} if $R/I$ is a reduced ring. 
-\end{definition}
-
-Let $R$ be a ring and 
-$I$ be a reduced ideal of $R$. If $ab\in I$, then 
-$ba\in I$. In fact, since $ab\in I$, 
-$(ba)^2=b(ab)a\in I$.
-Since $R/I$ is reduced, $ba\in I$. 
-
-\begin{definition}
-    \index{Subdirect product}
-    Let $\{R_i:i\in I\}$ be an arbitrary family of rings. For each 
-    $j\in I$, let $\pi_j\colon \prod_{i\in I}R_i\to R_j$ be the
-    canonical map. We say that $R$ is a \textbf{subdirect product}
-    of $\{R_i:i\in I\}$ if the following conditions hold:
-    \begin{enumerate}
-        \item There exists an injective ring homomorphism $R\to \prod_{i\in I}R_i$. 
-        \item For each $j$, the composition 
-        $\pi_jf\colon R\to R_j$ is injective. 
-    \end{enumerate}
-\end{definition}
-
-Direct products and direct sums of rings are all examples of subdirect products of rings. 
-
-\begin{exercise}
-    Write (if possible) $\Z$ as a non-trivial subdirect product. 
-\end{exercise}
-
-\begin{example}
-    Let $R$ be a ring,  
-    $\{I_j:j\}$ be a collection of ideals of $R$ and
-    \[
-    f\colon R\to \prod_i R/I_i,
-    \quad
-    r\mapsto (r+I_i)_i.
-    \]
-    For each
-    $i$, let $R_i=R/I_i$. Then $R$ is a subdirect product
-    of the $R_i$ if and only if $f$ is injective. 
-\end{example}
-
- \begin{theorem}[Andrunakevic--Rjabuhin]
- \label{thm:AndrunakevicRjabuhin}
- \index{Andrunakevic--Rjabuhin's theorem}
- 	Let $R$ be a non-zero ring. If $R$ is reduced,
- 	then $R$ has no non-zero zero-divisors. 
- \end{theorem}
-
- We shall need a lemma. 
-
- \begin{lemma}
-    Let $R$ be a ring and $I$ be a reduced ideal. 
-    If $S\subseteq R$ is a subset, then 
-    the left annihilator of $S$ modulo $I$ 
-    is a reduced ideal. 
- \end{lemma}
+\begin{theorem}[Connel]
+\label{thm:Connel_artinian}
+    Let $K$ be a field of characteristic zero and 
+    $G$ be a group. Then $K[G]$ is left artinian if and only
+    if $G$ is finite. 
+\end{theorem}
 
 \begin{proof}
-    We need to show that $A=\{r\in R:rS\subseteq I\}$ 
-    is a reduced ideal. 
-    A straightforward calculation shows that $A$ is 
-    a left ideal. We claim that $A$ is a right ideal. Let $r\in R$
-    and $a\in A$. Then 
-    $as\in I$ for all $s\in S$. Since $I$ is reduced, $sa\in I$ for all $s\in S$. Since 
-    $I$ is an ideal of $R$, $sar\in I$
-    for all $s\in S$. Using again 
-    that $I$ is reduced, 
-    $ars\in I$ for all $s\in S$. Thus 
-    $ar\in A$. 
-    
-    We now claim that $A$ is reduced. If $a^2\in A$, then 
-    $aas=a^2s\in I$ for all $s\in S$. 
-    Since $I$ is reduced, $asa\in I$ for
-    all $s\in S$. Thus $(as)^2=(asa)s\in I$ for all $s\in S$. Since $I$ 
-    is reduced, $as\in I$ for all $s\in S$. Hence $a\in A$. 
+    It follows from Theorem \ref{thm:Connel} and
+    Hopkins--Levitzky theorem; see 
+    \cite[Theorem 1.1 of Chapter 10]{MR798076}. 
 \end{proof}
 
-\begin{exercise}
-    Let $R$ be a ring and $I$ be a reduced ideal. 
-    If $S\subseteq R$ is a subset, then 
-    the right annihilator of $S$ modulo $I$ 
-    is a reduced ideal. 
-\end{exercise}
-
-\begin{proof}[Proof of Theorem \ref{thm:AndrunakevicRjabuhin}]
-    Let $x\in R\setminus\{0\}$. Let $X$ 
-    be the set of reduced ideals $I$ such that 
-    $x\not\in I$. Since $R$ is reduced, $\{0\}$ 
-    is a reduced ideal and hence $X\ne\emptyset$. 
-    A standard application of Zorn's lemma shows that
-    there exists a maximal element $M\in X$. 
-    
-    We claim that $R/M$ has no non-zero divisors. If not, 
-    there exist $a,b\in R$ such that $ab\in M$, $a\not\in M$ 
-    and $b\not\in M$. Let $A$ be the left annihilator of $\{b\}$ 
-    modulo $M$ and $B$ be the right annihilator of $\{a\}$ 
-    modulo $M$. By the previous lemma, $A$ and $B$ 
-    are reduced ideals of $R$. Since  
-    $a\in A$, $M\subsetneq A$. Similarly, since 
-    $b\in B$, $M\subsetneq B$. Moreover, $AB\subseteq M$. 
-    Since $x\in A\cap B$, $x^2\in AB\subseteq M$. Since 
-    $M$ is reduced, $x\in M$, a contradiction. 
-\end{proof}
-
-\begin{exercise}
-    Is the ring $\C[\Z/2]$ reduced? 
-\end{exercise}
-
-% Let $G=\langle g:g^2=1\rangle$. If $(a+bg)^2=0$, then
-% $(a^2+b^2)+(2ab)g=0$. Thus $a=b=0$. 
-
-\begin{problem}
-\label{prob:reduced}
-    Let $G$ be a torsion-free group. Is
-    $K[G]$ is reduced?
-\end{problem}
-
-Problem \ref{prob:reduced} is related to other important
-open problems about group algebras 
-(e.g. zero-divisors, units, 
-indempotents and semisimplicity of group
-rings).
-
-\begin{exercise}
-    Prove that idempotents of reduced rings are central. 
-\end{exercise}
-
-The previous exercise is used to solve the following problem.
-
-\begin{exercise}
-\label{xca:x^3=x}
-    Let $R$ be a ring such that $x^3=x$ for all $x\in R$. Prove that
-    $R$ is commutative. 
-\end{exercise}
-
-Exercise \ref{xca:x^3=x} is hard. 
-Even harder is the following exercise:
-
-\begin{exercise}
-\label{xca:x^4=x}
-    Let $R$ be a ring such that $x^4=x$ for all $x\in R$. Prove
-    that $R$ is commutative. 
-\end{exercise}
-
-%Other exercises about reduced rings. 
-
-%\begin{exercise}
-%\label{xca:reduced}
-%    Prove that a ring is reduced if 
-%    and only it has no non-zero nilpotent elements. 
-%\end{exercise}
-
-\begin{exercise}
-\label{xca:reduced=>semiprime}
-    Reduced rings are semiprime.
-\end{exercise}
- 
