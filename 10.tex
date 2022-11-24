@@ -1,5 +1,109 @@
 \chapter{}
 
+\topic{Maschke's theorem}
+
+We now present another instance of the Jacobson semisimplicity problem.
+In this case, our result is for finite groups. 
+
+\begin{theorem}[Maschke]
+\index{Maschke's theorem}
+	Let $G$ be a finite group. Then $J(K[G])=0$ if and only 
+	if the characteristic of $K$ is zero 
+	or does not divide the order of $G$. 
+\end{theorem}
+
+\begin{proof}
+	Assume that $G=\{g_1,\dots,g_n\}$, where $g_1=1$. Let 
+	\[
+	\rho\colon K[G]\to K,
+	\quad
+	\alpha\mapsto\trace(L_{\alpha}),
+	\]
+	where 
+	$L_{\alpha}(\beta)=\alpha\beta$. Then 
+	\[
+	\rho(g_i)=\begin{cases}
+	    n & \text{if $i=1$,}\\
+	    0 & \text{if $2\leq i\leq n$},
+	\end{cases}
+	\]
+	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, the matrix of 
+	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal. 
+
+	Assume that $J=J(K[G])$ is non-zero and let 
+	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Without loss of generality
+	we may assume that $\lambda_1\ne 0$ (if $\lambda_1=0$ there exists some 
+	$\lambda_i\ne 0$ and we need to take $g_i^{-1}\alpha\in J$). Then 
+	\[
+		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
+	\]
+	Since $G$ is finite, $K[G]$ is a finite-dimensional algebra and hence 
+	$K[G]$ is left artinian. Since $J$ is a nilpotent ideal, 
+	in particular, $\alpha$ is a nilpotent element. Then 
+	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
+	the characteristic of the field $K$ divides $n$. 
+
+	Conversely, let $K$ be a field of prime characteristic and that this prime divides 
+	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
+	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
+	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
+	\[
+		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0
+	\]
+	in the field $K$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
+	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
+\end{proof}
+
+Since the Jacobson radical of a group algebra of a finite group contains 
+every nil left ideal, the following consequence of the theorem follows immediately:
+
+\begin{corollary}
+	\label{cor:GfinitoNOnil}
+	Let $G$ be a finite group. Then $K[G]$ does not contain non-zero nil left ideals. 
+\end{corollary}
+
+
+% \begin{proof}
+% 	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
+% 	todo ideal a izquierda nil.	
+% \end{proof}
+
+%\index{Anillo!semisimple}
+%Recordemos que un anillo unitario $R$ se dice \textbf{semisimple} si para cada
+%ideal $I$ de $R$ existe un ideal $J$ de $R$ tal que $R=I\oplus J$.
+%
+%%\begin{corollary}
+%%	Sea $G$ un grupo finito y $K$ un cuerpo de característica coprima con el
+%%	orden de $G$. Entonces $K[G]$ es semisimple.
+%%\end{corollary}
+%%
+%%\begin{proof}
+%%	
+%%\end{proof}
+%
+%\begin{theorem}
+%	Si $G$ es un grupo infinito, entonces $K[G]$ nunca es semisimple.
+%\end{theorem}
+%
+%\begin{proof}
+%	Sea $R=K[G]$ y supongamos que $R$ es semisimple.  Si $I$ es el ideal de
+%	aumentación de $R$, existe un ideal no nulo $J$ de $R$ tal que $R=I\oplus
+%	J$. Como $R$ es unitario, existen $e\in I$, $f\in J$ tales que $1=e+f$. Si
+%	$x\in I$, entonces $x=xe+xf$ y luego $xf=x-xe\in I\cap J=\{0\}$. Como
+%	entonces $x=xe$ para todo $x\in I$, en particular $e_1=e_1^2$. Análogamente
+%	vemos que $e_2^2=e_2$. Además $ef=0$ pues $ef\in I\cap J=\{0\}$.  Como $I$
+%	es el ideal de aumentación y $If=(Re)f=R(ef)=0$, se concluye que $(g-1)f=0$
+%	para todo $g\in G$ pues $g-1\in I$. Si suponemos que $f=\sum_{h\in
+%	G}\lambda_hh$, entonces 
+%	\[
+%	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+%	G}\lambda_{g^{-1}h}h.
+%	\]
+%	Luego $\lambda_h=\lambda_{g^{-1}h}$ para todo $g,h\in G$, una contradicción
+%	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
+%\end{proof}
+
+
 \topic{Herstein's theorem}
 
 Our aim now is to answer the following question: When
