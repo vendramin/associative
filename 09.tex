@@ -39,7 +39,7 @@ Every commutative domain is reduced.
 \begin{exercise}
 \label{xca:reduced}
     Prove that a ring $R$ is \textbf{reduced} if and only 
-    of for all $r\in R$ such that $r^2=0$ one has $r=0$.
+    if for all $r\in R$ such that $r^2=0$ one has $r=0$.
 \end{exercise}
 
 \begin{exercise}
@@ -73,7 +73,7 @@ then so is $R[X_1,\dots,X_n]$.
 \begin{definition}
 \index{Ideal!reduced}
     Let $R$ be a ring and $I$ be an ideal of $R$. 
-    Then $R$ is \textbf{reduced} if $R/I$ is a reduced ring. 
+    Then $I$ is \textbf{reduced} if $R/I$ is a reduced ring. 
 \end{definition}
 
 Let $R$ be a ring and 
@@ -86,11 +86,14 @@ Since $R/I$ is reduced, $ba\in I$.
  \begin{theorem}[Andrunakevic--Rjabuhin]
  \label{thm:AndrunakevicRjabuhin}
  \index{Andrunakevic--Rjabuhin's theorem}
- 	Let $R$ be a non-zero ring. If $R$ is reduced,
- 	then $R$ has no non-zero zero-divisors. 
+ 	Let $R$ be a non-zero ring. If $R$ is reduced, there exists
+ 	an ideal $I$ of $R$ such that 
+ 	then $R/I$ has no non-zero zero-divisors. 
  \end{theorem}
 
- We shall need a lemma. 
+ Let $R$ be a ring and $I$ be an ideal of $R$. If $S$ 
+ is a subset of $R$, the \emph{left annihilator} of $S$
+ modulo $I$ is the set $\{r\in R:rS\subseteq I\}$.  
 
  \begin{lemma}
     Let $R$ be a ring and $I$ be a reduced ideal. 
@@ -145,6 +148,11 @@ Since $R/I$ is reduced, $ba\in I$.
     Since $x\in A\cap B$, $x^2\in AB\subseteq M$. Since 
     $M$ is reduced, $x\in M$, a contradiction. 
 \end{proof}
+
+\begin{exercise}
+    Prove that a reduced ring is a subdirect product
+    of rings without no non-zero divisors. 
+\end{exercise}
 
 \begin{exercise}
     Is the ring $\C[\Z/2]$ reduced? 
@@ -203,156 +211,16 @@ Even harder is the following exercise:
 
 \topic{Rickart's theorem}
 
-Let $K$ be a field, and $G$ be a group. The \textbf{group algebra} $K[G]$ 
-is the vector space (over $K$) with basis $\{g:g\in G\}$ 
-and the algebra structure is given by the multiplication
-\[
-	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
-	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
-\]
-Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 
-\begin{exercise}
-\label{xc:K[G]notsimple}
-    If $G$ is non-trivial, then $K[G]$ is not simple. 
-\end{exercise}
-
-\begin{exercise}
-	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
-	$K[G]\simeq K[X]/(X^n-1)$. 
-\end{exercise}
-
-\begin{exercise}
-	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
-	$K[G]$ is a domain. 
-\end{exercise}
-
-\begin{exercise}
-	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
-    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
-	$\alpha$ is invertible (resp. a left zero divisor) in
-	$K[G]$.
-\end{exercise}
-
-\begin{exercise}
-	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
-	The \textbf{support} of $\alpha$ is the set 
-	\[
-		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
-	\]
-	Prove that if $g\in G$, then 
-	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
-\end{exercise}
-
-% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
-% grupo de un grupo finito. Comenzamos con un ejemplo:
-
-\begin{exercise}
-	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
-	group with two elements. Note that every element of $K[G]$ is of the form
-	$a+bg$ for some $a,b\in K$. Prove the following statements:
-	\begin{enumerate}
-	    \item If the characteristic of $K$ is different from two, then 
-	    \[
-		K[G]\to K\times K,
-		\quad
-		a1+bg\mapsto (a+b,a-b),
-	\]
-	is an algebra isomorphism. 
-	\item If the characteristic of $K$ is two, then 
-	\[
-	K[G]\to \begin{pmatrix}
-			K & K\\
-			0 & K
-		\end{pmatrix},
-		\quad
-		a1+bg\mapsto\begin{pmatrix}
-			a+b & b\\
-			0 & a+b
-		\end{pmatrix},
-	\]
-	is an algebra isomorphism. 
-	\end{enumerate}
-\end{exercise}
-
-If $A$ is an algebra over $K$ and $\rho\colon G\to \mathcal{U}(A)$
-is a group homomorphism, where $\mathcal{U}(A)$ is the group of units of $A$, then 
-the map \[
-	K[G]\to A,\quad 
-\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g),
-\]
-is an algebra homomorphism. 
-
-\begin{exercise}
-	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
-	$\R[G]\simeq\R\times\C$.
-% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
-% 	\[
-% 		\varphi\colon\R[G]\to\R\times\C,
-% 		\quad
-% 		g\mapsto (1,\omega),
-% 	\]
-% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
-% 	$\varphi$ es inyectivo pues
-% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
-% 	Luego $\varphi$ es un isomorfismo pues
-% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
-\end{exercise}
-
-\begin{exercise}
-	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
-	Prove the following statements:
-	\begin{enumerate}
-	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
-	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
-	\end{enumerate}  
-% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
-% 	\[
-% 		R=\begin{pmatrix}
-% 			\omega & 0\\
-% 			0 & \omega^2
-% 		\end{pmatrix},
-% 		\quad
-% 		S=\begin{pmatrix}
-% 			0 & 1\\
-% 			1 & 0
-% 		\end{pmatrix}.
-% 	\]
-% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
-% 	\[
-% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
-% 		r\mapsto (1,1,R),\quad
-% 		s\mapsto (1,-1,S).
-% 	\]
-% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
-% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
-% 	basta ver que $\varphi$ es inyectivo. Si 
-% 	\[
-% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
-% 	\]
-% 	entonces 
-% 	\[
-% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
-% 	\]
-% 	donde
-% 	\begin{align*}
-% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
-% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
-% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
-% 	\end{align*}
-% 	Un cálculo sencillo muestra que estas ecuaciones implican que
-% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
-\end{exercise}
-
-
-We now consider the following problem. It is known as Jacobson's semisimplicity problem. 
+We now consider Jacobson's semisimplicity problem. 
 
 \begin{openproblem}
 \label{Jacobson's semisimplicity problem}
 Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
 \end{openproblem}
 
-As an application of Amitsur's theorem, we prove that 
+As an application of Amitsur's theorem \ref{thm:Amitsur}, 
+we prove that 
 complex group algebras have null Jacobson radical.
 This is known as 
 Rickart's theorem. The original proof found by Rickart 
@@ -373,7 +241,7 @@ Let $G$ be a group. Then $J(\C[G])$ is nil.
 
 \begin{proof}
     We need to show that every element of $J(\C[G])$ is nilpotent. 
-    If $G$ is countable, then the result follows from Amitsur's theorem. So assume that 
+    If $G$ is countable, then the result follows from Amitsur's theorem \ref{thm:Amitsur}. So assume that 
     $G$ is not countable. Let $\alpha\in J(\C[G])$, say
     \[
     \alpha=\sum_{i=1}^n\lambda_ig_i,
@@ -394,7 +262,7 @@ Let $G$ be a group. Then $J(\C[G])$ is nil.
     \]
     and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$, as $\beta\in\mathbb{C}[H]$. 
     Since $1=\gamma_1(1-\beta\alpha)$, it follows that
-    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem.  
+    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem \ref{thm:Amitsur}.  
 \end{proof}
 
 We now prove the theorem. 
@@ -527,7 +395,7 @@ in the arbitrary setting we are considering, we need to use Zorn's lemma.
     a maximal element $K$. Let $N_1=\oplus_{k\in K}M_k$. We claim that
     $N\oplus N_1=M$. If not, there exists $i\in I$ such that
     $M_i\not\subseteq N\oplus N_1$. The simplicity of $M_i$ implies that
-    $M_i\cap (N\cap N_1)=\{0\}$, which contradicts the maximality of $K$. 
+    $M_i\cap (N\oplus N_1)=\{0\}$, which contradicts the maximality of $K$. 
 \end{proof}
 
 A direct application of the lemma proves that
@@ -551,7 +419,7 @@ complex group algebras of infinite groups are never semisimple.
 	$x\in I$, then $x=xe+xf$ and hence $xf=x-xe\in I\cap J=\{0\}$. Since 
 	$x=xe$ for all $x\in I$, it follows that $e=e^2$. Similarly, one proves
 	that $f^2=f$. Moreover, $ef=0$, as $ef\in I\cap J=\{0\}$.  Since $I$ 
-	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$, we conclude that
+	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$ (note that $I=Re$ because $x=xe$ for all $x\in I$), we conclude that
 	$(g-1)f=0$
 	for all $g\in G$, as $g-1\in I$. If $f=\sum_{h\in
 	G}\lambda_hh$ (finite sum), then  
@@ -583,108 +451,5 @@ complex group algebras of infinite groups are never semisimple.
 	is not semisimple by the previous proposition. Thus
 	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
 \end{proof}
-
-\topic{Maschke's theorem}
-
-We now present another instance of the Jacobson semisimplicity problem.
-In this case, our result is for finite groups. 
-
-\begin{theorem}[Maschke]
-\index{Maschke's theorem}
-	Let $G$ be a finite group. Then $J(K[G])=0$ if and only 
-	if the characteristic of $K$ is zero 
-	or does not divide the order of $G$. 
-\end{theorem}
-
-\begin{proof}
-	Assume that $G=\{g_1,\dots,g_n\}$, where $g_1=1$. Let 
-	\[
-	\rho\colon K[G]\to K,
-	\quad
-	\alpha\mapsto\trace(L_{\alpha}),
-	\]
-	where 
-	$L_{\alpha}(\beta)=\alpha\beta$. Then 
-	\[
-	\rho(g_i)=\begin{cases}
-	    n & \text{if $i=1$,}\\
-	    0 & \text{if $2\leq i\leq n$},
-	\end{cases}
-	\]
-	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, the matrix of 
-	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal. 
-
-	Assume that $J=J(K[G])$ is non-zero and let 
-	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Without loss of generality
-	we may assume that $\lambda_1\ne 0$ (if $\lambda_1=0$ there exists some 
-	$\lambda_i\ne 0$ and we need to take $g_i^{-1}\alpha\in J$). Then 
-	\[
-		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
-	\]
-	Since $G$ is finite, $K[G]$ is a finite-dimensional algebra and hence 
-	$K[G]$ is left artinian. Since $J$ is a nilpotent ideal, 
-	in particular, $\alpha$ is a nilpotent element. Then 
-	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
-	the characteristic of the field $K$ divides $n$. 
-
-	Conversely, let $K$ be a field of prime characteristic and that this prime divides 
-	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
-	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
-	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
-	\[
-		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0
-	\]
-	in the field $K$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
-	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
-\end{proof}
-
-Since the Jacobson radical of a group algebra of a finite group contains 
-every nil left ideal, the following consequence of the theorem follows immediately:
-
-\begin{corollary}
-	\label{cor:GfinitoNOnil}
-	Let $G$ be a finite group. Then $K[G]$ does not contain non-zero nil left ideals. 
-\end{corollary}
-
-
-% \begin{proof}
-% 	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
-% 	todo ideal a izquierda nil.	
-% \end{proof}
-
-%\index{Anillo!semisimple}
-%Recordemos que un anillo unitario $R$ se dice \textbf{semisimple} si para cada
-%ideal $I$ de $R$ existe un ideal $J$ de $R$ tal que $R=I\oplus J$.
-%
-%%\begin{corollary}
-%%	Sea $G$ un grupo finito y $K$ un cuerpo de característica coprima con el
-%%	orden de $G$. Entonces $K[G]$ es semisimple.
-%%\end{corollary}
-%%
-%%\begin{proof}
-%%	
-%%\end{proof}
-%
-%\begin{theorem}
-%	Si $G$ es un grupo infinito, entonces $K[G]$ nunca es semisimple.
-%\end{theorem}
-%
-%\begin{proof}
-%	Sea $R=K[G]$ y supongamos que $R$ es semisimple.  Si $I$ es el ideal de
-%	aumentación de $R$, existe un ideal no nulo $J$ de $R$ tal que $R=I\oplus
-%	J$. Como $R$ es unitario, existen $e\in I$, $f\in J$ tales que $1=e+f$. Si
-%	$x\in I$, entonces $x=xe+xf$ y luego $xf=x-xe\in I\cap J=\{0\}$. Como
-%	entonces $x=xe$ para todo $x\in I$, en particular $e_1=e_1^2$. Análogamente
-%	vemos que $e_2^2=e_2$. Además $ef=0$ pues $ef\in I\cap J=\{0\}$.  Como $I$
-%	es el ideal de aumentación y $If=(Re)f=R(ef)=0$, se concluye que $(g-1)f=0$
-%	para todo $g\in G$ pues $g-1\in I$. Si suponemos que $f=\sum_{h\in
-%	G}\lambda_hh$, entonces 
-%	\[
-%	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
-%	G}\lambda_{g^{-1}h}h.
-%	\]
-%	Luego $\lambda_h=\lambda_{g^{-1}h}$ para todo $g,h\in G$, una contradicción
-%	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
-%\end{proof}
 
 

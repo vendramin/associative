@@ -315,6 +315,151 @@ for some $n_1,\dots,n_k\in\Z_{>0}$ and some division algebras $D_1,\dots,D_k$.
 %     $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
 % \end{exercise}
 
+\topic{Group algebras}
+
+Let $K$ be a field, and $G$ be a group. The \textbf{group algebra} $K[G]$ 
+is the vector space (over $K$) with basis $\{g:g\in G\}$ 
+and the algebra structure is given by the multiplication
+\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+\]
+Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
+
+\begin{exercise}
+\label{xc:K[G]notsimple}
+    If $G$ is non-trivial, then $K[G]$ is not simple. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
+	$K[G]\simeq K[X]/(X^n-1)$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
+	$K[G]$ is a domain. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. a left zero divisor) in
+	$K[G]$.
+\end{exercise}
+
+\begin{exercise}
+	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
+	The \textbf{support} of $\alpha$ is the set 
+	\[
+		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
+	\]
+	Prove that if $g\in G$, then 
+	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
+\end{exercise}
+
+% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
+% grupo de un grupo finito. Comenzamos con un ejemplo:
+
+\begin{exercise}
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
+	group with two elements. Note that every element of $K[G]$ is of the form
+	$a+bg$ for some $a,b\in K$. Prove the following statements:
+	\begin{enumerate}
+	    \item If the characteristic of $K$ is different from two, then 
+	    \[
+		K[G]\to K\times K,
+		\quad
+		a1+bg\mapsto (a+b,a-b),
+	\]
+	is an algebra isomorphism. 
+	\item If the characteristic of $K$ is two, then 
+	\[
+	K[G]\to \begin{pmatrix}
+			K & K\\
+			0 & K
+		\end{pmatrix},
+		\quad
+		a1+bg\mapsto\begin{pmatrix}
+			a+b & b\\
+			0 & a+b
+		\end{pmatrix},
+	\]
+	is an algebra isomorphism. 
+	\end{enumerate}
+\end{exercise}
+
+If $A$ is an algebra over $K$ and $\rho\colon G\to \mathcal{U}(A)$
+is a group homomorphism, where $\mathcal{U}(A)$ is the group of units of $A$, then 
+the map \[
+	K[G]\to A,\quad 
+\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g),
+\]
+is an algebra homomorphism. 
+
+\begin{exercise}
+	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
+	$\R[G]\simeq\R\times\C$.
+% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
+% 	\[
+% 		\varphi\colon\R[G]\to\R\times\C,
+% 		\quad
+% 		g\mapsto (1,\omega),
+% 	\]
+% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
+% 	$\varphi$ es inyectivo pues
+% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
+% 	Luego $\varphi$ es un isomorfismo pues
+% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
+\end{exercise}
+
+\begin{exercise}
+	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
+	Prove the following statements:
+	\begin{enumerate}
+	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
+	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
+	\end{enumerate}  
+% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
+% 	\[
+% 		R=\begin{pmatrix}
+% 			\omega & 0\\
+% 			0 & \omega^2
+% 		\end{pmatrix},
+% 		\quad
+% 		S=\begin{pmatrix}
+% 			0 & 1\\
+% 			1 & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
+% 	\[
+% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
+% 		r\mapsto (1,1,R),\quad
+% 		s\mapsto (1,-1,S).
+% 	\]
+% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
+% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
+% 	basta ver que $\varphi$ es inyectivo. Si 
+% 	\[
+% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
+% 	\]
+% 	entonces 
+% 	\[
+% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
+% 	\]
+% 	donde
+% 	\begin{align*}
+% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
+% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
+% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
+% 	\end{align*}
+% 	Un cálculo sencillo muestra que estas ecuaciones implican que
+% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
+\end{exercise}
+
+
+
 Maschke's theorem states that, if $G$ is a finite group, 
 then the group algebra $\C[G]$ is semisimple. By Mollien's theorem, 
 \[
