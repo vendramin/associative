@@ -174,6 +174,7 @@ indempotents and semisimplicity of group
 rings).
 
 \begin{exercise}
+\label{xca:reduced_central}
     Prove that idempotents of reduced rings are central. 
 \end{exercise}
 
@@ -207,7 +208,54 @@ Even harder is the following exercise:
     Reduced rings are semiprime.
 \end{exercise}
  
+\begin{theorem}
+\label{thm:reduced}
+    Let $K$ be a field and $G$ be a group. If $K[G]$
+    is reduced, then every finite subgroup of $G$ is normal. 
+\end{theorem}
 
+\begin{proof}
+    Let $H=\{h_1,\dots,h_n\}$ be a finite normal subgroup of $G$. 
+    We claim that $n=|H|$ is invertible in $K$. If $\ch K=0$, this 
+    is clear. If $\ch K=p>0$ and $n$ is not invertible in $K$, 
+    then $p$ divides $n=|H|$. By Cauchy's theorem, 
+    there exists an element $h\in H$ of order $n$, that is 
+    $|h|=n$. Since $(1-h)^p=1-h^p=0$ and $K[G]$ is reduced,
+    $h=1$, a contradiction. 
+    
+    Let $\alpha=\frac{1}{n}\sum_{i=1}^nh_i\in K[G]$. Then
+    \[
+    \alpha^2=\frac{1}{n^2}\sum_{i=1}^n\sum_{j=1}^nh_ih_j
+    =\frac{1}{n^2}\sum_{i=1}^nnh_i=\alpha.
+    \]
+    Thus $\alpha$ is idempotent. As idempotent 
+    element of reduced rings are central (Exercise \ref{xca:reduced_central}), 
+    $gxg^{-1}=x$ for all $g\in G$. If $g\in G$, 
+    then 
+    \[
+    \sum_{i=1}^n gh_ig^{-1}=\sum_{i=1}^n h_i.
+    \]
+    It follows that $H$ is normal in $G$, 
+    as for each $i\in\{1,\dots,n\}$ 
+    there exists $j\in\{1,\dots,n\}$ such that 
+    $gh_ig^{-1}=h_j\in H$. 
+\end{proof}
+
+\begin{example}
+    If $K$ is a field, then $K[\Sym_3]$ is not reduced. 
+    In fact, 
+    if 
+    \[
+    \alpha=(12)+(123)-(132)-(13),
+    \]
+    then 
+    $\alpha^2=0$. 
+\end{example}
+
+\begin{exercise}
+    Prove that the converse of Theorem \ref{thm:reduced} 
+    does not hold. 
+\end{exercise}
 
 \topic{Rickart's theorem}
 
