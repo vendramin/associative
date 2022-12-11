@@ -2,7 +2,6 @@
 \label{09}
 
 \topic{Andrunakevic--Rjabuhin's theorem}
-%https://ysharifi.wordpress.com/2010/06/04/about-reduced-rings-1/
 %\begin{exercise}
 %\label{xca:reduced}
 %     Let $R$ be a ring and $I$ be an ideal of $R$.
@@ -58,7 +57,6 @@ Every commutative domain is reduced.
 The previous exercise and induction 
 shows that if $R$ is reduced but not a domain, 
 then so is $R[X_1,\dots,X_n]$. 
-% https://ysharifi.wordpress.com/2010/11/01/zero-divisors-and-nilpotent-elements-in-polynomial-rings/
 
 \begin{example}
     Let $R=\Z/3\times\Z/3$ with
@@ -79,7 +77,6 @@ $I$ be a reduced ideal of $R$. If $ab\in I$, then
 $ba\in I$. In fact, since $ab\in I$, 
 $(ba)^2=b(ab)a\in I$.
 Since $R/I$ is reduced, $ba\in I$. 
-
 
  \begin{theorem}[Andrunakevic--Rjabuhin]
  \label{thm:AndrunakevicRjabuhin}
@@ -116,16 +113,15 @@ Since $R/I$ is reduced, $ba\in I$.
     We now claim that $A$ is reduced. If $a^2\in A$, then 
     $aas=a^2s\in I$ for all $s\in S$. 
     Since $I$ is reduced, $asa\in I$ for
-    all $s\in S$. Thus $(as)^2=(asa)s\in I$ for all $s\in S$. Since $I$ 
-    is reduced, $as\in I$ for all $s\in S$. Hence $a\in A$. 
+    all $s\in S$. Thus $(as)^2=(asa)s\in I$ for all $s\in S$. 
+    Since $I$ is reduced, $as\in I$ for all $s\in S$. Hence $a\in A$. 
 \end{proof}
 
-\begin{exercise}
-    Let $R$ be a ring and $I$ be a reduced ideal. 
-    If $S\subseteq R$ is a subset, then 
-    the right annihilator of $S$ modulo $I$ 
-    is a reduced ideal. 
-\end{exercise}
+Similarly, if $S$ is a subset of a ring $R$, then 
+the \emph{right annihilator} 
+$\{r\in R:Sr\subseteq I\}$ 
+of $S$ modulo $I$ 
+is a reduced ideal. 
 
 \begin{proof}[Proof of Theorem \ref{thm:AndrunakevicRjabuhin}]
     Let $x\in R\setminus\{0\}$. Let $X$ 
@@ -256,7 +252,6 @@ Even harder is the following exercise:
 \end{exercise}
 
 \topic{Rickart's theorem}
-
 
 We now consider Jacobson's semisimplicity problem. 
 
