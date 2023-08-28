@@ -1,5 +1,7 @@
 # Associative algebra
 
+[![DOI](https://zenodo.org/badge/402196172.svg)](https://zenodo.org/badge/latestdoi/402196172)
+
 ## Leandro Vendramin
 
 These are lecture notes for the course _Associative algebra_, taught by Leandro Vendramin 
