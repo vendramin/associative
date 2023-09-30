@@ -75,7 +75,8 @@ with the usual operations.
 
 \begin{definition}
     \index{Homomorphism!of algebras}
-    An algebra \textbf{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a linear map. 
+    Let $K$ be a field and $A$ and $B$ be $K$-algebras. 
+    An algebra \textbf{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a $K$-linear map. 
 \end{definition}
 
 The complex conjugation map  
@@ -194,7 +195,10 @@ This module is the (left) \textbf{regular representation} of $A$ and it will be 
 	finitely many simple submodules.  
 \end{definition}
 
-A finite direct sum of semisimples is semisimple. 
+By definition, the zero module is semisimple. Moreover, 
+any finite direct sum of semisimples is semisimple. 
+
+% The zero module is semisimple.  
 
 \begin{lemma}[Schur]
 \index{Schur's lemma}
@@ -279,3 +283,45 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 	is also semisimple.     
 \end{proof}
 
+\begin{definition}
+\index{Algebra!semisimple}
+    An algebra $A$ is \textbf{semisimple} if every finitely generated $A$-module is semisimple. 
+\end{definition}
+
+\begin{proposition}
+Let $A$ be a finite-dimensional algebra. Then $A$ is semisimple if and only if 
+the regular representation of $A$ is semisimple. 
+\end{proposition}
+
+\begin{proof}
+Let us prove the non-trivial implication. Let $M$ be a finitely generated module, say $M=(m_1,\dots,m_k)$. 
+The map
+\[
+\bigoplus_{i=1}^k A\to M,\quad
+(a_1,\dots,a_k)\mapsto \sum_{i=1}^k a_i\cdot m_i,
+\]
+is a surjective homomorphism of modules, where $A$ is considered as a module with the regular
+representation. Since 
+$A$ is semisimple, it follows that $\oplus_{i=1}^kA$ is semisimple. 
+Thus $M$ is semisimple, as it is isomorphic to the quotient of a semisimple module.
+\end{proof}
+
+\begin{theorem}
+Let $A$ be a finite-dimensional semisimple algebra. 
+Assume that the regular representation can be decomposed as $\prescript{}{A}A=\oplus_{i=1}^k S_i$ where each $S_i$ is a simple submodule.  
+If $S$ is a simple module, then $S\simeq S_i$ for some $i\in\{1,\dots,k\}$. 
+\end{theorem}
+
+\begin{proof}
+Let $s\in S\setminus\{0\}$. The map $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective module homomorphism. Since 
+$\varphi\ne 0$, there exists $i\in\{1,\dots,k\}$ such that some restriction 
+$\varphi|_{S_i}\colon S_i\to S$ is non-zero. By Schur's lemma, it follows that  
+$\varphi|_{S_i}$ is an isomorphism.   	
+\end{proof}
+
+As a corollary, a finite-dimensional semisimple algebra admits 
+only finitely many isomorphism classes of simple modules. When we say that 
+the $S_1,\dots,S_k$ are the simple modules of an algebra, this means that the $S_i$ are the representatives
+of isomorphism classes of all simple modules of the algebra, that is that each simple module is isomorphic to
+some $S_i$ and, moreover,  
+$S_i\not\simeq S_j$ whenever $i\ne j$. 
