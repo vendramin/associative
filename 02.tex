@@ -10,6 +10,7 @@ If $A$ and $B$ are algebras, $M$ is a module over $A$ and $N$ is a module over $
 \end{exercise}
 
 
+\index{Division algebra}
 A \textbf{division algebra} $D$ is an algebra such that every non-zero element 
 is invertible, that is for all $x\in D\setminus\{0\}$ there exists $y\in D$ such that $xy=yx=1$.  
 Modules over division algebras are very much like vector spaces.  For example, 
@@ -40,7 +41,7 @@ $M$ can be extended into a basis of $M$.
 		\End_D(V)\simeq \bigoplus_{i=1}^nV.
 	\]
 	
-	It remains to show that $V$ is simple. It is enough to prove that $V=(v)$ 
+	It remains to show that $V$ is simple. It is enough to prove that $V=\End_D(V)\cdot v=(v)$ 
 	for all $v\in V\setminus\{0\}$. Let $v\in V\setminus\{0\}$. If $w\in V$, then 
 	there exists $f\in\End_D(V)$ such that $f\cdot v=f(v)=w$. 
 	Thus $w\in (v)$ and therefore $V=(v)$.  
@@ -133,7 +134,7 @@ $A$ is commutative if and only if $A=A^{\op}$.
 	as algebras.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}[Sketch of the proof]
 	Let $(\varphi_{ij})$ be a matrix with entries in $\End_A(S)$. We define a map
 	$nS\to nS$ as follows:
 	\[
@@ -195,6 +196,10 @@ $A$ is commutative if and only if $A=A^{\op}$.
 \end{proof}
 
 \begin{exercise}
+    Prove Lemma \ref{lem:simple}.
+\end{exercise}
+
+\begin{exercise}
     Let $M$, $N$, and $X$ be modules. Prove that 
     \begin{align}
         \Hom_A(X,M\oplus N)\simeq\Hom_A(X,M)\times\Hom_A(X,N).
@@ -224,7 +229,7 @@ for some $n_1,\dots,n_k\in\Z_{>0}$ and some division algebras $D_1,\dots,D_k$.
 		\simeq \prod_{i=1}^k\End_A(n_iS_i)
 		\simeq\prod_{i=1}^kM_{n_i}(\End_A(S_i)), 
 	\end{align*}
-	where each $D_i=\End_A(S_i)$ is a division algebra. 
+	where each $D_i=\End_A(S_i)$ is a division algebra by Schur's lemma. 
     Thus
     \[
 		\End_A(A)\simeq\prod_{i=1}^kM_{n_i}(D_i).

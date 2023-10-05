@@ -17,6 +17,7 @@ Division rings are local rings.
 % \end{exercise}
 
 \begin{theorem}
+\label{thm:local}
     Let $R$ be a ring and $I=R\setminus\mathcal{U}(R)$. The following
     statements are equivalent:
     \begin{enumerate}
@@ -101,6 +102,7 @@ every idempotent of $R/J(R)$ can be lifted to $R$.
 \end{proof}
 
 \begin{theorem}
+\label{thm:local_idempotent}
     Let $R$ be a left artinian ring. Then $R$ is local if and only if 
     $R$ has no non-trivial idempotents. 
 \end{theorem}
@@ -119,10 +121,46 @@ every idempotent of $R/J(R)$ can be lifted to $R$.
     \[
     R/J(R)\simeq\prod_{i=1}^kM_{n_i}(D_i)
     \]
-    for some $n_1,\dots,n_k\geq1$ and division rings $D_1,\dots\D_k$. Then 
+    for some $n_1,\dots,n_k\geq1$ and division rings $D_1,\dots,D_k$. Then 
     $k=n_1=1$, as $R/J(R)$ has no non-trivial idempotents. Since $R/J(R)$ is a division ring, 
     $R$ is local by the previous theorem. 
 \end{proof}
+
+\begin{theorem}
+    The center of a local ring is local. 
+\end{theorem}
+
+\begin{proof}
+    Let $R$ be a local ring. By Theorem \ref{thm:local}, $J(R)=R\setminus\mathcal{U}(R)$.  
+    We need to prove that $Z(R)\setminus\mathcal{U}(Z(R))=J(Z(R))$. 
+    We first note that
+    \begin{equation}
+    \label{eq:U(Z(R))}
+        \mathcal{U}(Z(R))=Z(R)\cap\mathcal{U}(R).
+    \end{equation}
+    
+    We claim that $Z(R)\cap J(R)\subseteq J(Z(R))$.  
+    Let $x\in Z(R)\cap J(R)$. Let $z\in Z(R)$. Since $x\in J(R)$, $1-zx\in\mathcal{U}(R)$.
+    Moreover, $1-zx\in Z(R)$. Thus 
+    \[
+    1-zx\in Z(R)\cap\mathcal{U}(R)=\mathcal{U}(Z(R)).
+    \]
+    Hence $x\in J(Z(R))$. 
+
+    To prove the theorem it is enough to show that 
+    $Z(R)\setminus\mathcal{U}(Z(R))=J(Z(R))$. Let us prove the non-trivial inclusion. 
+    Let $x\in Z(R)\setminus\mathcal{U}(Z(R))$.  Then 
+    \eqref{eq:U(Z(R))} implies that 
+    $x\not\in\mathcal{U}(R)$. 
+    By Theorem \ref{thm:local}, 
+    $x\in J(R)$. Then $x\in J(R)\cap Z(R)\subseteq J(Z(R))$. 
+\end{proof}
+
+\begin{exercise}
+\label{eq:local_center}
+    Let $R$ be a local ring. Prove that 
+    $Z(R)=J(R)\subseteq J(Z(R))$.  
+\end{exercise}
 
 \begin{exercise}
 \label{xca:local_right}
