@@ -114,6 +114,21 @@ $rI\subseteq I$ (resp. $Ir\subseteq I$) for all $r\in R$. An \textbf{ideal}
 	$a$ is $RaR+Ra+aR+\Z a$.
 \end{example}
 
+The following exercise asks to prove the \textbf{Chinese Remainder Theorem}  
+for arbitrary rings.
+
+\begin{exercise}
+    \label{xca:chinese}
+    \index{Chinese Remainder Theorem}
+    Let $R$ be a ring and $I_1,\dots,I_n$ be ideals such that 
+    $I_j+I_k=R$ whenever $j\ne k$ and $R=I_j+R^2$ for all $j$. Prove that 
+    \[
+    R/(I_1\cap\cdots\cap I_n)\simeq R/I_1\times\cdots\times R/I_n.
+    \]
+\end{exercise}
+
+In the previous exercise, the condition $R=I_j+R^2$ trivially holds in the case of rings with one. 
+
 \begin{definition}
 \index{Ring!simple}
 A ring $R$ is said to be \textbf{simple} if $R^2\ne\{0\}$ and the only ideals of 
@@ -153,9 +168,10 @@ $1$ and $1\cdot m=m$ holds for all $m\in M$, the module $M$ is said to be
 \begin{exercise}
 \label{xca:center_simple}
 Let $R$ be a simple unitary ring. 
-\label{enumerate}
+\begin{enumerate}
     \item Prove that the center $Z(R)$ of $R$ is a field.
     \item Prove that $R$ is an algebra over $Z(R)$. 
+\end{enumerate}
 \end{exercise}
 
 % Let $0\ne x\in Z(R)$. Then $Rx$ is a non-zero ideal of $R$.

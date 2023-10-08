@@ -15,8 +15,13 @@ prove Artin--Wedderburn theorem.
 	that contains an element $1_A\in A$ such that $1_Aa=a1_A=a$ for all $a\in A$.
  \end{definition}
 
-Note that an algebra over $K$ is a ring $A$ that is a vector space
-(over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
+Note that a ring $A$ is an algebra over $K$ 
+if and only if 
+there is a ring homomorphism $A\to Z(A)$, where $Z(A)=\{a\in A:ab=ba\text{ for all $b\in A$}\}$ is the center of $A$, 
+such that $1_K\to 1_A$. 
+% n algebra $A$ over $K$ is, in particular, a ring $A$ 
+% such that is a vector space
+% (over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
 
 \begin{definition}
 	\index{Algebra!commutative}
@@ -147,23 +152,32 @@ In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}
     over the ring $A$.
 \end{definition}
 
-Similarly, one defines submodules and module homomorphisms. 
+Similarly, one defines \textbf{submodules} of $A$-modules. 
+
+\begin{definition}
+\index{Module!homomorphism}
+Let $A$ be a $K$-algebra. 
+A \textbf{homomorphism} of $A$-modules 
+$f\colon M\to N$ is a $K$-linear map such that $f(a\cdot m)=a\cdot f(m)$ for all
+$a\in A$ and $m\in M$.  
+\end{definition}
+
 It is a straightforward exercise to 
 prove the isomorphism theorems. 
 
 \begin{example}
-If $V$ is a module over an algebra $A$, one defines $\End_A(V)$ as the set
-of module homomorphisms $V\to V$. The set  
-$\End_A(V)$ is indeed an algebra with 
+If $M$ is a module over a $K$-algebra $A$, one defines $\End_A(M)$ as the set
+of module homomorphisms $M\to M$. The set  
+$\End_A(M)$ is indeed a $K$-algebra with 
 \[
-(f+g)(v)=f(v)+g(v),\quad 
-(\lambda f)(v)=\lambda f(v)
+(f+g)(m)=f(m)+g(m),\quad 
+(\lambda f)(m)=\lambda f(m)
 \quad\text{and}
 \quad 
-(fg)(v)=f(g(v))
+(fg)(m)=f(g(m))
 \]
-for all $f,g\in\End_A(V)$, 
-$\lambda\in K$ and $v\in V$. 
+for all $f,g\in\End_A(M)$, 
+$\lambda\in K$ and $m\in M$. 
 \end{example}
 
 Let $A$ be a finite-dimensional algebra. 
