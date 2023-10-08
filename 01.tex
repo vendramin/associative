@@ -17,7 +17,7 @@ prove Artin--Wedderburn theorem.
 
 Note that a ring $A$ is an algebra over $K$ 
 if and only if 
-there is a ring homomorphism $A\to Z(A)$, where $Z(A)=\{a\in A:ab=ba\text{ for all $b\in A$}\}$ is the center of $A$, 
+there is a ring homomorphism $K\to Z(A)$, where $Z(A)=\{a\in A:ab=ba\text{ for all $b\in A$}\}$ is the center of $A$, 
 such that $1_K\to 1_A$. 
 % n algebra $A$ over $K$ is, in particular, a ring $A$ 
 % such that is a vector space
@@ -165,8 +165,16 @@ $a\in A$ and $m\in M$.
 It is a straightforward exercise to 
 prove the isomorphism theorems. 
 
+Let $A$ be a finite-dimensional $K$-algebra. 
+If $M$ is a module over the ring $A$, then $M$ is a vector space with  
+\[
+\lambda m=(\lambda 1_A)\cdot m, 
+\]
+where $\lambda\in K$ and $m\in M$. 
+Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
+
 \begin{example}
-If $M$ is a module over a $K$-algebra $A$, one defines $\End_A(M)$ as the set
+If $M$ is a module over a finite-dimensional $K$-algebra $A$, one defines $\End_A(M)$ as the set
 of module homomorphisms $M\to M$. The set  
 $\End_A(M)$ is indeed a $K$-algebra with 
 \[
@@ -180,12 +188,6 @@ for all $f,g\in\End_A(M)$,
 $\lambda\in K$ and $m\in M$. 
 \end{example}
 
-Let $A$ be a finite-dimensional algebra. 
-If $M$ is a module over the ring $A$, then $M$ is a vector space with  
-\[
-\lambda m=(\lambda 1_A)\cdot m, 
-\]
-where $\lambda\in K$ and $m\in M$. Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
 
 % In this chapter we will work with finitely generated modules. 
 
