@@ -19,7 +19,7 @@ Moreover, every linearly independent subset of
 $M$ can be extended into a basis of $M$. 
 
 \begin{proposition}
-	Let $D$ be a division algebra, and $V$ be a finitely generated module over $D$. Then 
+	Let $D$ be a division algebra, and $V$ be a finite-dimensional module over $D$. Then 
 	$V$ is a simple module over $\End_D(V)$ and there exits $n\in\Z_{>0}$ such that  
 	$\End_D(V)\simeq nV$ is semisimple.
 \end{proposition}
@@ -295,21 +295,18 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 \end{exercise}
 
 \begin{exercise}
+\label{xca:K_cyclic}
 	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
 	$K[G]\simeq K[X]/(X^n-1)$. 
 \end{exercise}
 
 \begin{exercise}
+\label{xca:abelian=>domain}
 	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
 	$K[G]$ is a domain. 
 \end{exercise}
 
-\begin{exercise}
-	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
-    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
-	$\alpha$ is invertible (resp. a left zero divisor) in
-	$K[G]$.
-\end{exercise}
+
 
 \begin{exercise}
 	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
@@ -319,6 +316,14 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 	\]
 	Prove that if $g\in G$, then 
 	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
+\end{exercise}
+
+\begin{exercise}
+\label{xca:invertible_subgroups}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. a left zero divisor) in
+	$K[G]$.
 \end{exercise}
 
 % El objetivo de esta sección es calcular el radical de Jacobson del álgebra de

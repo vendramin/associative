@@ -5,6 +5,62 @@
 %\section*{Lecture 3}
 
 % ?????
+
+\begin{sol}{xca:invertible_subgroups}
+Note that $K[H]$ is included in $K[G]$. This proves the easy implications. For the non-trivial implication, we use the map 
+\[ 
+\pi_H\colon K[G]\to K[H],\quad \pi_H\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in H}\lambda_gg.
+\] 
+Assume that $\alpha\in K[G]$ is invertible. Then there exists $\beta\in K[G]$ such that \[ 
+\alpha\beta=\beta\alpha=1.
+\]
+Then $\alpha\pi_H(\beta)=\pi_H(\alpha\beta)=\pi_H(1)=1$ and similarly $\pi_H(\beta)\alpha=\pi_H(\beta\alpha)=1$. 
+
+Now if $\alpha\beta=0$ for some non-zero $\beta\in K[G]$, then take $g\in G$ with $1\in\supp \beta g$. Since $\alpha(\beta g)=0$, it follows that 
+\[ 
+\alpha\pi_H(\beta g)=\pi_H(\alpha\beta g)=\pi_H(0)=0. 
+\]
+But $\pi_H(\beta g)\ne 0$, as $1\in\supp\beta g$. 
+\end{sol}
+
+% \begin{sol}
+% Let $G$ be the group $\langle r,s:r^3=s^2=1,srs=r^{-1}\rangle$. 
+% Let $\omega$ be a primitive cubic root of one. 
+% Consider the map 
+% \[
+% \varphi\colon \Q[G]\to \Q\times \Q\times M_2(\Q[\omega])
+% \]
+% given by $r\mapsto (1,1,R)$ and $s\mapsto (1,-1,S)$, where 
+% \[
+% R=\begin{pmatrix}
+%     \omega & 0\\
+%     0 & \omega^2
+% \end{pmatrix},\quad 
+% S=\begin{pmatrix}
+%     0 & 1 \\
+%     1 & 0
+%     \end{pmatrix}. 
+% \] 
+% Since $R^3=S^2=\begin{pmatrix}1&0\\0&1\end{pmatrix}$ and $SRS=R^{-1}$, the map $\varphi$ 
+% is a well-defined homomorphism. The map $\varphi$ is injective (prove it). The image of this
+% map is way too big! Consider the map $\psi\colon\Q\times\Q\times M_2(\Q[\omega])$ which is
+% the identity map on the first two components and is conjugation by 
+% \[
+% X=\begin{pmatrix}
+%     1 & -\omega\\
+%     1 & -\omega^2
+% \end{pmatrix}
+% \]
+% in the third component. Then the composition 
+% $\psi\varphi\colon \Q[G]\to \Q\times\Q\times M_2(\Q[\omega])$ is given by 
+% \begin{align*} 
+% &r\mapsto \left(1,1,\begin{pmatrix}0&1\\-1&-1\end{pmatrix}\right),\\
+% &s\mapsto \left(1,-1,\begin{pmatrix}1&1\\0&-1\end{pmatrix}\right),
+% \end{align*}
+% and it is injective.
+% \end{sol}
+
+
 \begin{sol}{xca:simple=>prim} 
 	Since $R$ is unitary, there exists a maximal left ideal $I$ and $R$ is regular.
 	By Proposition~\ref{proposition:R/I}, $R/I$ is a simple $R$-module. 
