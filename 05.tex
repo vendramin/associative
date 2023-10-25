@@ -66,6 +66,95 @@ There are several characterizations of radical rings.
 	\]
 \end{example}
 
+There are rings (with one) with no maximal ideals. 
+
+\begin{exercise}
+\label{xca:Q_no_maximals}
+    Prove that the additive group of rational numbers is an abelian group
+with no maximal subgroups.
+\end{exercise}
+
+One can turn the additive group $\Q$ of rational into a non-unitary 
+ring by considering the zero multiplication $xy=0$ for all $x,y\in\Q$. This 
+ring has no maximal ideals. 
+
+\begin{exercise}
+\label{xca:R/I_field_or_zero}
+    Let $R$ be a commutative ring with no proper 
+    ideals and $I$ be an ideal of $R$. Prove that
+    $I$ is maximal if and only if $R/I$ is a field
+    or a ring isomorphic to 
+    $\Z/p$ with zero multiplication for some prime number $p$. 
+\end{exercise}
+
+\begin{exercise}
+    \label{xca:J(R)_fields}
+    Let $R$ be a commutative ring. Prove that
+    $J(R)$ equals the intersection of maximal ideals 
+    such that $R/M$ is a field. 
+\end{exercise}
+
+We now characterize commutative rings with no maximal ideals.
+
+\begin{theorem}[Henriksen]
+\label{thm:Henriksen}
+\index{Henriksen's theorem}
+Let $R$ be a commutative ring. Then $R$ has
+no maximal ideals if and only if 
+$J(R)=R$ and $R^2+pR=R$ for all prime number $p$. 
+\end{theorem}
+
+\begin{proof}
+    Assume first that $R$ has no maximal ideals. Then $J(R)=R$ by 
+    Exercise~\ref{xca:J(R)_fields}. Let $p$ be a prime number
+    such that $R^2+pR\ne R$. Then $I$ is a proper ideal of $R$. 
+    Let $\pi\colon R\to R/I$ be the canonical map. Since $R^2\subseteq I$, 
+    $0=\pi(xy)=\pi(x)\pi(y)$ for all $x,y\in R$. Note that
+    $R/I$ has characteristic $p$, as $0=\pi(px)=p\pi(x)$ for all $x\in R$, 
+    since $pR\subseteq I$. Thus $R/I$ is a vector space 
+    over the field $\Z/p$.
+    Let $\{x_\alpha:\alpha\in\Lambda\}$ be a basis
+    of $R/I$. Every element $x\in R/I$ can be written uniquely
+    as a finite sum of the form 
+    $x=\sum \lambda_{\alpha}x_{\alpha}$ for scalars $\lambda_\alpha$. 
+    Let $A$ be the ring with underlying additive group $\Z/p$ and zero multiplication. 
+    For a fixed
+    $\beta\in\Lambda$, the map 
+    \[
+    \gamma\colon R/I\to A,\quad 
+    x=\sum \lambda_{\alpha}x_{\alpha}\mapsto \lambda_{\beta}
+    \]
+    is a ring homomorphism. 
+    The composition $f=\gamma\pi\colon R\to R/I\to A$ is a ring homomorphism. By Exercise~\ref{xca:R/I_field_or_zero}, $\ker f$ is a maximal ideal, a contradiction. 
+
+    Conversely, let $M$ be a maximal ideal of $R$. If $R/M$ is a field, 
+    then $J(R)\subseteq M\ne R$, a contradiction. 
+    By Exercise~\ref{xca:R/I_field_or_zero},  there exists a prime
+    number $p$ such that $R/M\simeq\Z/p$ as abelian groups and 
+    zero multiplication (i.e. $xy\in M$ for all $x,y\in R$). 
+    Let us write $A$ to denote this ring and  
+    $\pi\colon R\to R/M$ be the canonical map. Note that 
+    $R^2\subseteq M$. Moreover, $pR\subseteq M$, as 
+    $\pi(px)=p\pi(x)=0$ for all $x\in R$. Thus $R^2+pR\subseteq M\ne R$, a contradiction. 
+\end{proof}
+
+We now present a non-trivial concrete example of a ring 
+with no maximal ideals. For that purpose, we will use
+the field of fractions $\R(X)$ of the real polynomial ring $\R[X]$.  
+
+\begin{exercise}
+    \label{xca:example}
+    Let $R$ be the set of rational real functions of the form 
+    $f(X)/g(X)$, where $f(X),g(X)\in\R(X)$ and $g(0)\ne 0$.  Prove the following statements:
+    \begin{enumerate}
+        \item $R$ is an integral domain with a unique maximal ideal $M=XR$.
+        \item $M$ has no maximal ideals. 
+    \end{enumerate}  
+\end{exercise}
+
+%The construction of the previous example does not work 
+%if the field of real numbers is replaced by a field of positive characteristic. 
+
 \begin{definition}
 \index{Ring!nil}
 A ring $R$ is said to be \textbf{nil} if for every $x\in R$ there
