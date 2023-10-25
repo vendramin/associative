@@ -88,7 +88,7 @@ R\times R\to R,
 (r,s)\mapsto r\circ s=r+s+rs,
 \]
 is an associative operation with neutral element $0$.
-To show an explicit example let $R=\Z/3=\{0,1,2\}$. 
+To show an explicit example, let $R=\Z/3=\{0,1,2\}$. 
 The multiplication table for the circle 
 operation is  
 	\begin{table}[ht]
@@ -143,7 +143,7 @@ Conversely, if there exists $y\in R$ such that $y(1+x)=1$, then
 A left ideal $I$ of $R$ is said to be 
 \textbf{left quasi-regular} (resp. right quasi-regular) if every element of $I$ is
 left quasi-regular (resp. right quasi-regular). A left ideal 
-is said to be \textbf{quasi-regular} if it is left and right quasi-regular. 
+is said to be \textbf{quasi-regular} if is left and right quasi-regular. 
 \end{definition}
 
 Similarly 
@@ -349,7 +349,15 @@ The following result is somewhat what we all had in mind. We first need a lemma.
 %	una contradicción.
 %\end{proof}
 
+The following exercise uses Zorn's lemma 
+and will be used in the proof of Theorem~\ref{thm:J(R)}. 
 
+\begin{exercise}
+\label{xca:regular}
+    Let $R$ be a ring. 
+    Prove that every proper left ideal of $R$ that 
+    is regular is contained in a maximal ideal that is regular. 
+\end{exercise}
 
 \begin{theorem}
 	\label{thm:J(R)}
@@ -366,20 +374,16 @@ The following result is somewhat what we all had in mind. We first need a lemma.
 	\]
         
         Let us prove that $K\subseteq J(R)$. By Lemma \ref{lemma:JsupsetCR}, 
-        we need to prove that $K$ is left quasi-regular. Let $a\in K$ and $T=\{r+ra:r\in R\}$. Then
-        $T$ is a regular left ideal. Since $a\in K$, there exists $s\in R$ such that 
-	$s+a+sa=0$. Since $-a=s+sa$, 
-	\[
-	r+re=r+r(-a)=r+r(s+sa)=r+rs+rsa\in r+T
-	\]
-	for all $r\in R$. 
-	If $T\ne R$, then, by Lemma~\ref{lemma:maxreg}, there exists a regular maximal left ideal 
-        $J$. Since $a\in K\subseteq J$, $J$ is a left ideal and 
-	$r+ra\in T\subseteq J$ for all $r\in R$, we conclude that $R=J$, a contradiction. 
-        Thus $T=R$ and there exists $r\in R$ such that $r+ra=-a$.
-	Therefore $a$ is left quasi-regular. 
+        it is enough to prove that $K$ is left quasi-regular. 
+        Let $a\in K$ and $T=\{r+ra:r\in R\}$. 
+        If $T=R$, then $-a=r+ra$ for some $r\in R$ and hence 
+        $a$ is left quasi-regular. So we need to prove that $T=R$. Note that 
+        $T$ is a regular left ideal with $e=-a$ (see Definition~\ref{def:regular}). If $T\ne R$, then $T$ is contained in a maximal left ideal $J$  
+        by the previous exercise. Then 
+        $a\in K\subseteq J$ and hence $ra\in J$ for all $r\in R$. Since 
+        $r+ra\in T\subseteq J$ for all $r\in R$, it follows that $J=R$, a contradiction. Therefore $T=R$. 
         
-        So we only need to prove that $J(R)\subseteq K$. 
+        Now we prove that $J(R)\subseteq K$. 
 		By
 	Proposition~\ref{proposition:R/I}, 
 	\[
