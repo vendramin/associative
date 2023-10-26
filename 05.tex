@@ -66,7 +66,9 @@ There are several characterizations of radical rings.
 	\]
 \end{example}
 
-There are rings (with one) with no maximal ideals. 
+\topic{Commutative rings with no maximal ideals}
+
+There are rings with no maximal ideals. 
 
 \begin{exercise}
 \label{xca:Q_no_maximals}
@@ -80,8 +82,8 @@ ring has no maximal ideals.
 
 \begin{exercise}
 \label{xca:R/I_field_or_zero}
-    Let $R$ be a commutative ring with no proper 
-    ideals and $I$ be an ideal of $R$. Prove that
+    Let $R$ be a commutative ring 
+    and $I$ be an ideal of $R$. Prove that
     $I$ is maximal if and only if $R/I$ is a field
     or a ring isomorphic to 
     $\Z/p$ with zero multiplication for some prime number $p$. 
@@ -94,7 +96,46 @@ ring has no maximal ideals.
     such that $R/M$ is a field. 
 \end{exercise}
 
+\index{Characteristic of a ring}
+Recall that the \textbf{characteristic of a ring} is defined as the least positive
+integer $n$ such that $nx=0$ for all $x$. If no such $n$ exists, 
+then we say that the ring is of characteristic zero. 
+
+\begin{exercise}
+\label{xca:characteristic}
+    % Let $R$ be a ring and $n=\lcm\{ |x|:x\in R\}$, where 
+    % $|x|$ denotes the additive order of $x$. If $n<\infty$, then 
+    % $R$ has characteristic $n$. If $n=\infty$, then $R$ has characteristic zero. 
+    % is the least common multiple of 
+    % the additive orders of the elements of $R$, then  
+    Let $R$ be a ring such and $p$ be a prime number. 
+    If $px=0$ for all $x\in R$, then $R$ has characteristic $p$. 
+\end{exercise}
+
+% \begin{sol}{xca:characteristic}
+%     Let $n$ be the characteristic of $R$. 
+%     For each $x\in R$, $x\ne 0$, $px=0$. Since the additive order $|x|$ of $x$
+%     divides $p$, it follows that $|x|=p$. Since $nx=0$ for all $x$, 
+%     $p$ divides $n$. The minimality of the characteristic implies that $p=n$. 
+% Assume that $n<\infty$. 
+% Let $X=\{n:nx=0\text{ for all $x\in R$}\}$. By definition, 
+% \[ 
+% m\in X
+% \Longleftrightarrow |x|\text{ divides }m
+% \Longleftrightarrow n\leq m
+% \Longleftrightarrow n\in X.
+% \]
+%\end{sol}
+
+% Let $n>0$ be the characteristic of $R$. 
+% If $px=0$ for all $x$, then $n=p$. Since $px=0$ for all $x$, $p\geq n$. 
+% Assume that $p>n$, then $p+t=n$ for some $n$. 
+% Then $0=px=(n-t)x=nx-tx=-tx$ and hence $tx=0$ for all $x$, a contradiction. 
+% If $p\nmid n$, then 
+% $n=pm$. Then $px=$
+
 We now characterize commutative rings with no maximal ideals.
+The result appeared in~\cite{MR0424776}. 
 
 \begin{theorem}[Henriksen]
 \label{thm:Henriksen}
@@ -107,11 +148,14 @@ $J(R)=R$ and $R^2+pR=R$ for all prime number $p$.
 \begin{proof}
     Assume first that $R$ has no maximal ideals. Then $J(R)=R$ by 
     Exercise~\ref{xca:J(R)_fields}. Let $p$ be a prime number
-    such that $R^2+pR\ne R$. Then $I$ is a proper ideal of $R$. 
+    such that $I=R^2+pR\ne R$. Then $I$ is a proper ideal of $R$. 
     Let $\pi\colon R\to R/I$ be the canonical map. Since $R^2\subseteq I$, 
-    $0=\pi(xy)=\pi(x)\pi(y)$ for all $x,y\in R$. Note that
-    $R/I$ has characteristic $p$, as $0=\pi(px)=p\pi(x)$ for all $x\in R$, 
-    since $pR\subseteq I$. Thus $R/I$ is a vector space 
+    $0=\pi(xy)=\pi(x)\pi(y)$ for all $x,y\in R$. Thus $R/I$ has zero multiplication. 
+    By Exercise~\ref{xca:p}, 
+    $R/I$ has characteristic $p$. 
+    %as $0=\pi(px)=p\pi(x)$ for all $x\in R$, 
+    % since $pR\subseteq I$. 
+    Thus $R/I$ is a vector space 
     over the field $\Z/p$.
     Let $\{x_\alpha:\alpha\in\Lambda\}$ be a basis
     of $R/I$. Every element $x\in R/I$ can be written uniquely
@@ -188,8 +232,6 @@ exists $n=n(x)$ such that $x^n=0$.
 	$x$ annihilates any simple module over $R$.
 \end{proof}
 
-
-
 \begin{theorem}
 	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
 \end{theorem}
@@ -222,7 +264,7 @@ exists $n=n(x)$ such that $x^n=0$.
 			x_n & 0 & \cdots & 0
 		\end{pmatrix}\in J_1.
 	\]
-	Since $x_1$ es quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
+	Since $x_1$ is quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
 	If
 	\[
 		y=\begin{pmatrix}
@@ -368,6 +410,8 @@ some results in the case of unitary algebras. We first need an application of Zo
     Let $I$ be a proper left ideal that is left regular. Prove that $I$ is contained in a maximal left ideal 
     which is regular. 
 \end{exercise}
+
+% explain ideals of algebras without one. 
 
 \begin{proposition}
 	Let $A$ be a $K$-algebra and $I$ be a subset of $A$. Then $I$ is 
