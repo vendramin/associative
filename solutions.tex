@@ -6,6 +6,30 @@
 
 % ?????
 
+
+\begin{sol}{xca:K_cyclic}
+    Let $\varphi\colon K[X]\to K[G]$, $\sum\lambda_iX^i\mapsto \sum\lambda_ig^i$. Then 
+    $\varphi$ is a subjective 
+    algebra homomorphism with kernel $(X^n-1)$. To prove that 
+    $\ker\varphi=(X^n-1)$ we proceed as follows. The inclusion 
+    $(X^n-1)\subseteq\ker\varphi$ is trivial. Conversely, 
+    if $p(X)\in\ker\varphi$, divide $p(X)$ by 
+    $X^n-1$ to obtain polynomials $q(X)$ and $r(X)$ such that
+    \[
+    p(X)=(X^n-1)q(X)+r(X),
+    \]
+    where $r(X)=0$ or $\deg r(X)<n$. Write $r(X)=\sum_{i=0}^{n-1}\lambda_iX^i$. 
+    Then
+    \[
+    0=\varphi(p(X))=\varphi(X^n-1)\varphi(q(X))+\varphi(r(X))
+    =\sum_{i=1}^{n-1}\lambda_ig^i.
+    \]
+    Since $\{1,g,\dots,g^{n-1}\}$ is linearly independent, 
+    $\lambda_0=\cdots=\lambda_{n-1}=0$ and hence $r(X)=0$. 
+    Thus $p(X)\in (X^n-1)$. The isomorphism theorem 
+    now implies that $K[X]/(X^n-1)\simeq K[G]$. 
+\end{sol}
+
 \begin{sol}{xca:invertible_subgroups}
 Note that $K[H]$ is included in $K[G]$. This proves the easy implications. For the non-trivial implication, we use the map 
 \[ 
@@ -214,6 +238,29 @@ This map is a bijective algebra homomorphism.
 	\]
 	is such that $ac=ca=1$. 
 \end{sol}
+
+\begin{sol}{xca:C_p:local}
+    Note that $K[G]\simeq K[X]/(X^p-1)$ by 
+    Exercise \ref{xca:K_cyclic}. Since $K$ has characteristic $p>0$, 
+    $(X^p-1)=(X-1)^p$. Thus 
+    \[
+    K[G]\simeq K[X]/(X^p-1)=K[X]/( (X-1)^p)
+    \]
+    is a commutative local ring with maximal ideal $(X-1)/(X-1)^p$. 
+\end{sol}
+
+\begin{sol}{xca:K[G]_domain_easy}
+    If $G$ is trivial, then $K[G]\simeq K$ is a domain. Conversely, 
+    assume that $G$ is not trivial. Let $g\in G$ be an element of
+    order $n>1$. Then $g^n=1$ and 
+    $1,g,\dots,g^{n-1}$ are all distinct. Then $K[G]$ is not a domain, as 
+  \[
+  (1-g)(1+g+\cdots+g^{n-1})=1-g^n=0
+  \]   
+  but $1-g\ne 0$ and $1+g+\cdots+g^{n-1}\ne 0$. 
+\end{sol}
+
+
 
 \begin{sol}{xca:reduced}
 
