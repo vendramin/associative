@@ -1,6 +1,455 @@
 \chapter{}
 \label{09}
 
+\topic{Local rings}
+
+In this section, we will consider arbitrary rings with one. 
+
+\begin{definition}
+    \index{Ring!local}
+    A ring is said to be \textbf{local} if it contains only one maximal left ideal. 
+\end{definition}
+
+Division rings are local rings. 
+
+% \begin{exercise}
+%     Let $R$ be a commutative ring with one and $P$ be a prime ideal. Let  
+%     $S=R\setminus P$. Then the localization $S^{-1}R$ is a local ring with maximal ideal $S^{-1}P$. 
+% \end{exercise}
+
+\begin{theorem}
+\label{thm:local}
+    Let $R$ be a ring and $I=R\setminus\mathcal{U}(R)$. The following
+    statements are equivalent:
+    \begin{enumerate}
+        \item $R$ is local.
+        \item $R/J(R)$ is a division ring.
+        \item $I=J(R)$.
+        \item $I$ is an ideal of $R$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We first prove $1)\implies2)$. Let $M$ be the maximal left ideal of $R$. Then $J(R)=M$. 
+    Let $x\not\in M$. Then $R=Rx+M$, so $1=rx+m$ for some $r\in R$ and $m\in M$. Thus  
+    $r+M$ is a left inverse of $x+M$ and hence $R/M$ is a division ring. In particular, 
+    $r\not\in M$. Since $R=Rr+M$, there exists $y\in R$ such that $1=yr$. Therefore
+    $y+M$ is a left inverse of $r+M$. Thus 
+    \begin{align*}
+    y+M&=(y+M)(1+M)=(y+M)(r+M)(x+M)\\
+    &=(yr+M)(x+M)=(1+M)(x+M)=x+M
+    \end{align*}
+    and hence $x+M$ is invertible. 
+
+    Now we prove $2)\implies3)$. Clearly $J(R)\subseteq I$. 
+    Conversely, let $x\in I$. If $x\not\in J(R)$, then
+    $x+J(R)\ne 0$. Since $R/J(R)$ is a division ring, 
+    $x+J(R)\in\mathcal{U}(R/J(R))$. In particular,  
+    $1-rx\in J(R)\subseteq I$ for some $r\in R$. Since $x\in I$, 
+    $rx\in I$. Therefore $1=1-rx+rx\in I$, a contradiction. 
+    
+    It is trivial that $3)\implies4)$. 
+
+    Finally, we prove $4)\implies 1)$. 
+    Let $M$ be a maximal left ideal of $R$. Then $M\subseteq I$. Since $M$ 
+    is maximal and $I$ is in particular a left ideal of $R$, 
+    it follows that $M=I$. 
+\end{proof}
+
+\begin{definition}
+    \index{Idempotent}
+    An element $x$ of a ring is said to be \textbf{idempotent} 
+    if $x^2=x$.   
+\end{definition}
+
+\index{Trivial idempotent}
+Examples of idempotents are 0 and 1. 
+An idempotent $x$ is said to be \textbf{non-trivial} if $x\not\in\{0,1\}$. 
+
+\begin{exercise}
+\label{xca:idempotents_modpm}
+    Let $p$ be a prime number and $m>0$. 
+    Prove that the only idempotents of $\Z/p^m$ are 0 and 1. 
+\end{exercise}
+
+
+\begin{exercise}
+    \label{xca:idempotents_modn}
+    How many idempotent does $\Z/n$ have?
+\end{exercise}
+
+\begin{exercise}
+\label{xca:lifting_idempotents}
+    Let $R$ be a ring with one and $I$ be an ideal of $R$. 
+    We say that an idempotent $x\in R/I$ can be lifted if $x=e+I$ for
+    some idempotent $e$ of $R$. 
+    Prove that if every element of $I$ is nilpotent, then every 
+    idempotent of $R/I$ can be lifted. 
+\end{exercise}
+
+The previous exercise shows that if $R$ is left artinian, 
+every idempotent of $R/J(R)$ can be lifted to $R$. 
+
+\begin{lemma}
+\label{lem:J(R)_nil}
+    Let $R$ be a left artinian ring. Then $J(R)$ is nil. 
+\end{lemma}
+
+\begin{proof}
+    Let $x\in J(R)$. The sequence $Rx\supseteq Rx^2\supseteq\cdots$ stabilizes, so
+    $Rx^n=Rx^{n+1}$ for some $n$. In particular, there exists $r\in R$ 
+    such that $x^n=rx^{n+1}$. This implies that $(1-rx)x^n=0$. Since $x\in J(R)$, 
+    the element $1-rx$ is invertible. Hence $x^n=0$.  
+\end{proof}
+
+\begin{theorem}
+\label{thm:local_idempotent}
+    Let $R$ be a left artinian ring. Then $R$ is local if and only if 
+    $R$ has no non-trivial idempotents. 
+\end{theorem}
+
+\begin{proof}
+    Let us first prove $\implies$. For this implication, we do not need to use that 
+    $R$ is left artinian. Let $x\in R$ be an idempotent. Then $x(1-x)=0$. If $x\in\mathcal{U}(R)$, then 
+    $x=1$. If $1-x\in\mathcal{U}(R)$, then $x=0$. If $x\not\in \mathcal{U}(R)$ and $1-x\not\in\mathcal{U}(R)$, 
+    then, since $R\setminus\mathcal{U}(R)$ is an ideal of $R$, 
+    it follows that 
+    $1=x+1-x\not\in\mathcal{U}(R)$, a contradiction. 
+
+    Now we prove $\impliedby$. By the previous lemma, $J(R)$ is nil. 
+    By the previous exercise, every idempotent of $R/J(R)$ can be lifted. Thus $R/J(R)$ has 
+    no non-trivial idempotents. On the other hand, by Artin--Wedderburn, 
+    \[
+    R/J(R)\simeq\prod_{i=1}^kM_{n_i}(D_i)
+    \]
+    for some $n_1,\dots,n_k\geq1$ and division rings $D_1,\dots,D_k$. Then 
+    $k=n_1=1$, as $R/J(R)$ has no non-trivial idempotents. Since $R/J(R)$ is a division ring, 
+    $R$ is local by the previous theorem. 
+\end{proof}
+
+\begin{theorem}
+    The center of a local ring is local. 
+\end{theorem}
+
+\begin{proof}
+    Let $R$ be a local ring. By Theorem \ref{thm:local}, $J(R)=R\setminus\mathcal{U}(R)$.  
+    We need to prove that $Z(R)\setminus\mathcal{U}(Z(R))=J(Z(R))$. 
+    We first note that
+    \begin{equation}
+    \label{eq:U(Z(R))}
+        \mathcal{U}(Z(R))=Z(R)\cap\mathcal{U}(R).
+    \end{equation}
+    
+    We claim that $Z(R)\cap J(R)\subseteq J(Z(R))$.  
+    Let $x\in Z(R)\cap J(R)$. Let $z\in Z(R)$. Since $x\in J(R)$, $1-zx\in\mathcal{U}(R)$.
+    Moreover, $1-zx\in Z(R)$. Thus 
+    \[
+    1-zx\in Z(R)\cap\mathcal{U}(R)=\mathcal{U}(Z(R)).
+    \]
+    Hence $x\in J(Z(R))$. 
+
+    To prove the theorem it is enough to show that 
+    $Z(R)\setminus\mathcal{U}(Z(R))=J(Z(R))$. Let us prove the non-trivial inclusion. 
+    Let $x\in Z(R)\setminus\mathcal{U}(Z(R))$.  Then 
+    \eqref{eq:U(Z(R))} implies that 
+    $x\not\in\mathcal{U}(R)$. 
+    By Theorem \ref{thm:local}, 
+    $x\in J(R)$. Then $x\in J(R)\cap Z(R)\subseteq J(Z(R))$. 
+\end{proof}
+
+\begin{exercise}
+\label{eq:local_center}
+    Let $R$ be a local ring. Prove that 
+    $Z(R)=J(R)\subseteq J(Z(R))$.  
+\end{exercise}
+
+\begin{exercise}
+\label{xca:local_right}
+    Prove that a ring is local if and only if it contains only one maximal right ideal.
+\end{exercise}
+
+\begin{exercise}
+\label{xca:non_local1}
+    Find a non-local ring with a unique maximal ideal. 
+\end{exercise}
+
+\begin{exercise}
+\label{xca:non_local2}
+    Let $R$ be a ring with at least three elements. 
+    If $|\mathcal{U}(R)|=1$, then $R$ is not local. 
+\end{exercise}
+
+\index{Ring!Von Neumann regular}
+A ring $R$ is said to be \textbf{Von Neumann regular} if  
+for every non-zero $r\in R$, $r=rxr$ for some $x\in R$. 
+
+\begin{exercise}
+\label{xca:VonNeumann_local}
+    Prove that a ring $R$ is local if and only if $R$ is a division ring. 
+\end{exercise}
+
+\begin{exercise}
+\label{xca:nilp_or_unit}
+    Let $R$ be a ring such that every element of $R$ is either 
+    nilpotent or a unit. Prove that $R$ is local. 
+\end{exercise}
+
+\index{Ring!semilocal}
+A ring $R$ is said to be \textbf{semilocal} if $R/J(R)$ is left artinian. 
+
+\begin{exercise}
+\label{xca:semilocal}
+    Prove the following statements:
+    \begin{enumerate}
+        \item Every local ring is semilocal.
+        \item $R$ is semilocal if and only if $R/J(R)$ is semisimple.
+        \item If $R$ has finitely many maximal ideals, then $R$ is semilocal. 
+        \item If $R_1,\dots,R_k$ are rings, then $\oplus_{i=1}^k R_i$ is semilocal
+            if and only if each $R_i$ is semilocal. 
+    \end{enumerate}
+\end{exercise}
+
+\begin{example}
+\label{xca:semilocal_commutative}
+    Let $R$ be a ring such that $R/J(R)$ is commutative. Prove
+    that $R$ is semilocal if and only if $R$ has finitely many maximal ideals. 
+\end{example}
+
+\topic{When is group algebra local?}
+
+\begin{proposition}
+    \label{pro:augmentation}
+    Let $R$ be a commutative ring with one. 
+    Let $f\colon G\to H$ be a group homomorphism with kernel $K$. Then
+    \[
+    \varphi\colon R[G]\to R[H],
+    \quad 
+    \sum\lambda_ig_i\mapsto \sum\lambda_if(g),
+    \]
+    is a ring homomorphism with kernel the ideal 
+    of $R[G]$ generated by $\{k-1:k\in K\}$. 
+\end{proposition}
+
+\begin{proof}
+    A direct calculation shows that the map $\varphi$ is a well-defined ring homomorphism. Let 
+    $S=\{k-1:k\in K\}$. Then $(S)\subseteq \ker\varphi$. 
+    
+    Let us show that 
+    $\ker\varphi\subseteq (S)$. Let $\alpha=\sum r_ig_i\in\ker\varphi$. Then 
+    \[
+    \varphi(\alpha)=\sum r_if(g_i)=0.
+    \]
+    Let 
+    $\{Kg_{i_1},\dots,Kg_{i_k}\}$ be the subset of pairwise distinct cosets 
+    of $Kg_1,\dots,Kg_n$. Write  
+    \[
+    \alpha=\sum\sum s_{ij}k_{ij}g_{i_j}
+    \]
+    for some $s_{ij}\in R$ and $k_{ij}\in K$. Then 
+    \begin{equation}
+    \label{eq:0=s_ij}
+    0=\varphi(\alpha)=\sum\sum s_{ij}\varphi(k_{ij}g_{i_j})
+    =\sum\sum s_{ij}f(g_{i_j}),
+    \end{equation}
+    as $K=\ker f$. Note that 
+    \[
+    f(g_{i_j})=f(g_{i_k})\implies 
+    g_{i_j}g_{i_k}^{-1}\in K\implies 
+    g_{i_j}K=g_{i_k}K.
+    \]
+    Thus $f(g_{i_j})\ne f(g_{i_k})$ for $j\ne k$. Since $R[H]$ is a free $R$-module 
+    with basis $\{h:h\in H\}$, Equality
+    \eqref{eq:0=s_ij}
+    implies that $\sum_i s_{ij}=0$ for all $j$. Thus
+    \[
+    \alpha=\sum\sum s_{ij}k_{ij}g_{i_j}=\sum\sum s_{ij}(k_{ij}-1)g_{i_j}\in (S).\qedhere
+    \]
+\end{proof}
+
+\begin{corollary}
+\label{cor:R[G/N]}
+    Let $R$ be a commutative ring with one. If 
+    $G$ is a group and $N$ is a normal subgroup of $G$, then
+    \[
+    R[G/N]\simeq R[G]/I,
+    \]
+    where $I$ is the ideal of $R[G]$ generated by $\{n-1:n\in N\}$. 
+\end{corollary}
+
+\begin{proof}
+    Apply the previous proposition to the canonical map $\pi\colon G\to G/N$ to get
+    a ring homomorphism $\varphi\colon R[G]\to R[G/N]$. The kernel of $\varphi$ is the ideal $I$ 
+    generated by the set $\{g-1:g\in\ker\pi=N\}$. Since 
+    $\pi$ is surjective, $\varphi$ is surjective. Then 
+    the claim follows from the first isomorphism theorem. 
+\end{proof}
+
+Let $K$ be a field and $G$ be a group. We write $A(K[G])$ to denote
+the ideal of $K[G]$ generated by the set $\{g-1:g\in G\}$. This ideal is known as the
+\textbf{augmentation ideal} of $K[G]$. 
+
+\begin{corollary}
+\label{cor:local_K[N]_and_K[G/N]}
+    Let $K$ be a field. 
+    Let $G$ be a group and $N$ be a central subgroup of $G$. If $K[N]$ and $K[G/N]$ are local, 
+    then $K[G]$ is local. 
+\end{corollary}
+
+\begin{proof}
+    By Corollary \ref{cor:R[G/N]}, $K[G/N]\simeq K[G]/I$, where 
+    $I$ is the ideal of $K[G]$ generated by $\{n-1:n\in N\}$. Since $N\subseteq Z(G)$, 
+    $I$ is central in $K[G]$. Note that 
+    \[
+    I=A(K[N])K[G].
+    \]
+    Let $\alpha\in A(K[G])$. 
+    Since $K[G/N]$ is local, $A(K[G/N])$ is nil by Theorem \ref{thm:local}. Since $K[G]/I\simeq K[G/N]$, this implies that 
+    there exists $m$ such that $\alpha^m\in I$. Since $K[N]$ is local,  
+    $A(K[N])$ is nil by Theorem \ref{thm:local}. Moreover, $K[N]$ is central in $K[G]$, because $N\subseteq Z(G)$. This implies that $I=A(K[N])K[G]$ is also nil. In particular, 
+    $\alpha$ is nil. Hence 
+    $K[G]$ is nil and therefore $K[G]$ is local by Theorem \ref{thm:local}. 
+\end{proof}
+
+
+\begin{exercise}
+\label{xca:augmentation}
+    Let $R$ be a commutative ring with one and $G$ be a group. 
+    Prove that 
+    the map $R[G]\to R$, $\sum_{g\in G}r_gg\mapsto\sum_{g\in G}r_g$, is a surjective
+    ring homomorphism with kernel $A(R[G])$.  
+\end{exercise}
+
+\begin{lemma}
+    Let $K$ be a field and $G$ be a finite group. 
+    The following statements are equivalent: 
+    \begin{enumerate}
+        \item $K[G]$ is local. 
+        \item $A(K[G])\subseteq J(K[G])$. 
+        \item $A(K[G])$ is nil.
+        \item $A(K[G])=J(K[G])$. 
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Let us prove that $1)\implies 2)$. Since $K[G]$ is local, 
+    $R\setminus\mathcal{U}(K[G])=J(K[G])$ by Theorem \ref{thm:local}. Since $K[G]\setminus\mathcal{U}(K[G])$ contains 
+    every proper ideal of $K[G]$, $A(K[G])\subseteq J(K[G])$. 
+
+    We now prove that $2)\implies 3)$. Since $G$ is finite, $K[G]$ is artinian. By Lemma \ref{lem:J(R)_nil}, 
+    $J(K[G])$ is nil. Hence $A(K[G])$ is nil. 
+
+    We now prove that $3)\implies 4)$. Since $J(K[G])$ contains every nil ideal (see Proposition~\ref{pro:nilJ}), 
+    $A(K[G])\subseteq J(K[G])$. On the other hand, $K[G]/A(K[G])\simeq K$. Since $K$ is a field, the correspondence theorem
+    implies that $A(K[G])=J(K[G])$. 
+
+    Finally, we prove that $4)\implies 1)$. Since $A(K[G])=J(K[G])$, Exercise \ref{xca:augmentation} implies that 
+    $K[G]/J(K[G])\simeq K$. Since $K$ is a field, 
+    it is, in particular, a division ring. Thus $K[G]$ is local by Theorem \ref{thm:local}.     
+\end{proof}
+
+
+\begin{exercise}
+\label{xca:C_p:local}
+    Let $p$ be a prime number, $K$ be a field of characteristic $p$ and 
+    $G$ be a cyclic group of order $p$. Prove that $K[G]$ is local. 
+\end{exercise}
+
+
+\begin{exercise}
+\label{xca:K[G]_domain_easy}
+    Let $K$ be a field and $G$ be a finite group. Then 
+    $K[G]$ is a domain if and only if $|G|=1$. 
+\end{exercise}
+
+
+\begin{theorem}
+    Let $K$ be a field and $G$ be a non-trivial finite group. 
+    Then $K[G]$ is local if and only if $K$ is of characteristic $p>0$ and $G$ is a $p$-group. 
+\end{theorem}
+
+\begin{proof}
+    Let us first prove $\implies$. Assume first that $K$ is a field of characteristic zero. 
+    By Maschke's theorem, $J(K[G])=\{0\}$. By Theorem \ref{thm:local}, 
+    $K[G]$ is a division ring. In particular, $K[G]$ is a domain, 
+    a contradiction (see Exercise \ref{xca:K[G]_domain_easy}).
+
+    Assume now that $K$ is of characteristic $p>0$. 
+    Let $q$ be a prime divisor of $|G|$ and $g\in G$ an element of order $q$. 
+    Since 
+    \[
+    (1-g)(1+\cdots+g^{q-1})=1-g^q=0,
+    \]
+    $1-g\not\in\mathcal{U}(K[G])$ and $1+\cdots+g^{q-1}\not\in\mathcal{U}(K[G])$. It follows
+    that $1-g^m\not\in\mathcal{U}(K[G])$ for all $m\geq0$. By Theorem \ref{thm:local}, 
+    $K[G]\setminus J(K[G])$ is an ideal. Thus  
+    \[
+    q1_G=1+\cdots+g^{q-1}+\sum_{m=1}^{q-1}(1-g^m)\not\in\mathcal{U}(K[G])
+    \]
+    If $q\ne 0$ in $K$, then $q1_G\in\mathcal{U}(K[G])$. Hence $q=0$ in $K$ and
+    therefore $p$ divides $q$. We conclude that $G$ is a $p$-group. 
+
+    We now prove $\impliedby$. Let $G$ be a $p$-group and $K$ be a field of characteristic $p>0$. We proceed
+    by induction on $|G|$. 
+    If $|G|=p$, $K[G]$ is a local ring (see Exercise \ref{xca:C_p:local}).
+    % \[
+    % K[G]\simeq K[X]/(X^p-1)\simeq K[X]/((X-1)^p), 
+    % \]
+    % as $X^p-1=(X-1)^p$. But $K[X]/((X-1)^p)$ is a commutative local ring  
+    If $|G|>p$, let $Z=Z(G)$. Since $G$ is a $p$-group, $|Z|\geq p$. Let $N$ be a subgroup of $Z$ of order $p$. 
+    Then $|N|<|G|$ and $|G/N|<|G|$. By the inductive hypothesis, both 
+    $K[N]$ and $K[G/N]$ are local. By Corollary \ref{cor:local_K[N]_and_K[G/N]}, $K[G]$ is local too. 
+\end{proof}
+
+\topic{Hurewitz' theorem}
+
+\begin{theorem}[Hurewicz]
+    \label{thm:Hurewicz}
+    \index{Hurewicz' theorem}
+    Let $G$ be a group and $I$ be the augmentation ideal of $\Z[G]$. 
+    Then $G/[G,G]\simeq I/I^2$ as (abelian) groups. 
+\end{theorem}
+
+\begin{proof}
+    Let $\varphi\colon G\to I/I^2$, $g\mapsto g-1_G+I^2$. Since $g-1_G\in I$ for all $g\in G$, $\varphi$ is well-defined. The map $\varphi$ is a group homomorphism. Since 
+    $(g-1_G)(h-1_G)\in I^2$, 
+    \begin{align*}
+    \varphi(gh) &= gh-1_G+I^2\\
+    &=gh-1_G-(g-1_G)(h-1_G)+I^2+I^2\\
+    &=g-1_G+h-1_G+I^2\\
+    &=\varphi(g)+\varphi(h)
+    \end{align*}
+    holds for all $g,h\in G$. 
+
+    Since $[G,G]\subseteq\ker\varphi$, there exists a group homomorphism
+    \[
+    \overline{\varphi}\colon G/[G,G]\to I/I^2,\quad 
+    g[G,G]\mapsto g-1_G+I^2.
+    \]
+    We claim that $\overline{\varphi}$ is an isomorphism. 
+    Let us construct the inverse of $\overline{\varphi}$. Let 
+    \[
+    \psi\colon I\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    Since $G/[G,G]$ is abelian, the map $\psi$ is well-defined, that is
+    the order of the factors in $\prod_{g\in G}g^{m_g}$ does not matter. Note that 
+    $I^2\subseteq\ker\psi$, as 
+    $\{(g-1_G)(h-1_G):g,h\in G\}$ generates the additive group $I^2$ 
+    and 
+    \begin{align*}
+        \psi((g-1_G)(h-1_G))&=\psi( (gh-1_G)-(g-1_G)-(h-1_G))\\
+        &=(ghg^{-1}h^{-1})[G,G]\\
+        &=[G,G].
+    \end{align*}
+    Therefore there exists a group homomorphism
+    \[
+    \overline{\psi}\colon I/I^2\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)+I^2\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    A direct calculation shows that $\overline{\psi}$ is the inverse 
+    of $\overline{\varphi}$. 
+\end{proof}
+
 \topic{Andrunakevic--Rjabuhin's theorem}
 %\begin{exercise}
 %\label{xca:reduced}
