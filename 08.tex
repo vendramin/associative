@@ -55,7 +55,7 @@ A characterization of prime rings:
 	The implication $2)\implies3)$ is trivial. 
 
     Let us prove that $3)\implies1)$. Let $x,y\in R$ be such that $xRy=\{0\}$.
-	Let $I=RxR$ and $J=RyR$. Since $IJ=(RxR)(RyR)=R(xRy)R=\{0\}$, 
+	Let $I=RxR$ and $J=RyR$. Since $IJ=(RxR)(RyR)\subseteq R(xRy)R=\{0\}$, 
 	we may assume that $I=\{0\}$. In particular, $Rx$ and $xR$ are ideals, as 
 	$R(xR)=(Rx)R=\{0\}$. Then $\Z x$ is an ideal of $R$ such that $(\Z x)R=\{0\}$. 
 	Thus $x=0$. 
@@ -213,6 +213,7 @@ We shall need the following lemmas.
 \end{proof}
 
 \begin{lemma}
+    Let $R$ be a left artinian unitary ring.
     Let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
     Then $I_2\cdots I_k\not\subseteq I_1$.   
 \end{lemma}
@@ -225,12 +226,14 @@ We shall need the following lemmas.
     there exists $y\in I_k\setminus I_1$, as 
     $I_k\ne I_1$. 
     Then 
-    $(xR)y\subseteq II_k\subseteq I_1$. Since $I_1$ is prime, 
+    $(xR)y\subseteq II_k\subseteq I_1$. Note that $I_1$ is prime: if $xy\in xRy\subseteq I_1$ and $x\not\in I_1$, 
+    then $(x,M)=R$. Thus $1=rx+m$ for some $r\in R$ and $m\in M$. By multiplying by $y$ on the left, 
+    $y=r(xy)+my\in M$. Now that we know that $I_1$ is prime, 
     it follows that either $x\in I_1$ or $y\in I_1$, a contradiction.   
 \end{proof}
 
 \begin{lemma}
-    Let $R$ be a left artinian ring. Then $R$ has only 
+    Let $R$ be a left artinian unitary ring. Then $R$ has only 
     finitely many primitive ideals.
 \end{lemma}
 

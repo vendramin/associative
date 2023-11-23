@@ -847,6 +847,63 @@ We now prove the theorem.
 % 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
 % \end{proof}
 
+
+\begin{definition}
+	\index{Ring!semiprime}
+	A ring $R$ \textbf{semiprime} if 
+	$aRa=\{0\}$ implies $a=0$.
+\end{definition}
+
+\begin{proposition}
+	Let $R$ be a ring. The following statements are equivalent: 
+	\begin{enumerate}
+		\item $R$ is semiprime.
+		\item If $I$ is a left ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item If $I$ is an ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item $R$ does not contain non-zero nilpotent ideals.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
+	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. The implications $2)\implies3)$
+	and $4)\implies3)$ are both trivial. Let us prove that $3)\implies4)$.  If
+	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
+	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
+	contradiction.  Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
+	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. Thus 
+	$RaR=\{0\}$. This means that $Ra$ and $aR$ are ideals such that
+	$(Ra)R=R(aR)=\{0\}$ (for example, $R(aR)\subseteq RaR=\{0\}\subseteq aR$). 
+	Moreover, since $(Ra)(Ra)=\{0\}$ and $(aR)(aR)=\{0\}$, it follows that
+	$aR=Ra=\{0\}$. 
+	This implies that $\Z a$ is an ideal of $R$, as $R(\Z a)\subseteq \Z(Ra)=\{0\}$ and 
+	$(\Z a)R\subseteq aR=\{0\}$. Now $(\Z a)(\Z a)\subseteq (\Z a)R=\{0\}$ and hence
+	$a=0$, as $\Z a=\{0\}$. 
+\end{proof}
+
+Two consequences:
+
+\begin{exercise}
+	A commutative ring is semiprime if and only if it does not contain non-zero
+	nilpotent elements. 
+\end{exercise}
+
+% tomar $\alpha$ tal que $\alpha^2=0$ y sea $A=K[G]\alpha$. Como $A^2=0$, $A=0$ y entonces $\alpha=0$.
+
+\begin{exercise}
+\label{xca:D_semiprime_semiprimitive}
+	Let $D$ be a division ring. 
+	\begin{enumerate}
+		\item $D[X]$ is semiprime and semiprimitive.
+		\item $D[\![X]\!]$ is semiprime and it is not semiprimitive.
+	\end{enumerate}
+\end{exercise}
+
+% We will prove 
+% in Lecture \ref{09} (Corollary \ref{cor:C[G]_semiprime}) 
+% that the if $G$ is a group, 
+% then the ring $\C[G]$ is semiprime. 
+
 \begin{corollary}
 \label{cor:C[G]_semiprime}
 	The ring $\C[G]$ is semiprime.
