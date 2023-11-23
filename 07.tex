@@ -2,7 +2,7 @@
 
 
 
-\topic{Semiprime and semiprimitive rings}
+\topic{Semiprimitive rings}
 
 \begin{definition}
 	A ring $R$ is \textbf{semiprimitive} (or Jacobson semisimple) if  $J(R)=\{0\}$.
@@ -141,61 +141,6 @@ Direct products and direct sums of rings are all examples of subdirect products 
 	$C[a,b]/U_c\simeq\R$.
 \end{example}
 
-\begin{definition}
-	\index{Ring!semiprime}
-	A ring $R$ \textbf{semiprime} if 
-	$aRa=\{0\}$ implies $a=0$.
-\end{definition}
-
-\begin{proposition}
-	Let $R$ be a ring. The following statements are equivalent: 
-	\begin{enumerate}
-		\item $R$ is semiprime.
-		\item If $I$ is a left ideal such that $I^2=\{0\}$, then $I=\{0\}$.
-		\item If $I$ is an ideal such that $I^2=\{0\}$, then $I=\{0\}$.
-		\item $R$ does not contain non-zero nilpotent ideals.
-	\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
-	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. The implications $2)\implies3)$
-	and $4)\implies3)$ are both trivial. Let us prove that $3)\implies4)$.  If
-	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
-	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
-	contradiction.  Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
-	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. Thus 
-	$RaR=\{0\}$. This means that $Ra$ and $aR$ are ideals such that
-	$(Ra)R=R(aR)=\{0\}$ (for example, $R(aR)\subseteq RaR=\{0\}\subseteq aR$). 
-	Moreover, since $(Ra)(Ra)=\{0\}$ and $(aR)(aR)=\{0\}$, it follows that
-	$aR=Ra=\{0\}$. 
-	This implies that $\Z a$ is an ideal of $R$, as $R(\Z a)\subseteq \Z(Ra)=\{0\}$ and 
-	$(\Z a)R\subseteq aR=\{0\}$. Now $(\Z a)(\Z a)\subseteq (\Z a)R=\{0\}$ and hence
-	$a=0$, as $\Z a=\{0\}$. 
-\end{proof}
-
-Two consequences:
-
-\begin{exercise}
-	A commutative ring is semiprime if and only if it does not contain non-zero
-	nilpotent elements. 
-\end{exercise}
-
-% tomar $\alpha$ tal que $\alpha^2=0$ y sea $A=K[G]\alpha$. Como $A^2=0$, $A=0$ y entonces $\alpha=0$.
-
-\begin{exercise}
-\label{xca:D_semiprime_semiprimitive}
-	Let $D$ be a division ring. 
-	\begin{enumerate}
-		\item $D[X]$ is semiprime and semiprimitive.
-		\item $D[\![X]\!]$ is semiprime and it is not semiprimitive.
-	\end{enumerate}
-\end{exercise}
-
-We will prove 
-in Lecture \ref{09} (Corollary \ref{cor:C[G]_semiprime}) 
-that the if $G$ is a group, 
-then the ring $\C[G]$ is semiprime. 
 
 %\section{Anillos semiprimitivos}
 %
@@ -617,18 +562,18 @@ Now we are ready to prove Jacobson's density theorem.
 	$(r-s)v=0$ for all $v\in V$.
 
 	\begin{claim}
-		If $U$ is a finite-dimensional submodule of $V$, 
+		If $U$ is a finite-dimensional subspace of $V$, 
 		for each $w\in V\setminus U$ there exists $r\in R$ such that 
 		$\gamma_r(U)=\{0\}$ and $\gamma_r(w)\ne0$.
 	\end{claim}
 
 	Suppose the claim is not true. Let $U$ be a counterexample of minimal  
 	dimension. Then
-	$\dim_DU\geq1$, as the claim holds for the zero submodule. (For this, we only
+	$\dim_DU\geq1$, as the claim holds for the zero subspace. (For this, we only
         need to show that for each non-zero $v\in V$, there exists $r\in R$ such that $rv\ne 0$. 
         Since $V$ is simple, $V=(v)$. If $rv=0$ for all $r\in R$, then 
         $V=\{0\}$, a contradiction to the simplicity of $V$.) Let now 
-	$U_0$ be a submodule of $U$ such that 
+	$U_0$ be a subspace of $U$ such that 
 	$\dim U_0=\dim U-1$ and let 
 	\[
 		L=\{l\in R:\gamma_l(U_0)=\{0\}\}.
@@ -649,8 +594,9 @@ Now we are ready to prove Jacobson's density theorem.
 	is well-defined: if $l_1,l_2\in L$ are such that 
 	$v=l_1u=l_2u$, then $(l_1-l_2)u=0$ and thus 
 	\[
-		0=\delta(0)=\delta((l_1-l_2)u)=(l_1-l_2)w=l_1w-l_2w. 
+		0=(l_1-l_2)w=l_1w-l_2w,
 	\]
+        as for all $r\in R$, if $rU=\{0\}$, then $rw=0$. 
 	Further, $\delta$ is a homomorphism of modules over $R$, as if 
 	$l\in L$ is such that $v=lu$, then 
 	\[
@@ -665,7 +611,7 @@ Now we are ready to prove Jacobson's density theorem.
 	Thus $L(\delta(u)-w)=\{0\}$. This implies that $\delta(u)-w\not\in V\setminus U_0$, 
 	that is $\delta(u)-w\in U_0$. Therefore  
 	\[
-		w=xu-(xu-w)\in Du+U_0=U,
+		w=\delta(u)-(\delta(u)-w)\in Du+U_0=U,
 	\]
 	a contradiction.
 	
@@ -692,16 +638,16 @@ Now we are ready to prove Jacobson's density theorem.
 
 \begin{corollary}
 	If $R$ is a primitive ring, then either there exists a division ring $D$
-	such that $R\simeq\End_D(V)$ for some finite-dimensional module $V$ over $D$ or 
+	such that $R\simeq\End_D(V)$ for some finite-dimensional vector space $V$ over $D$ or 
 	for all $m\in\Z_{>0}$ there exists a subring $R_m$ of 
-	$R$ and a surjective ring homomorphism $R_m\to\End_D(V_m)$ for some module 
+	$R$ and a surjective ring homomorphism $R_m\to\End_D(V_m)$ for some vector space  
 	$V_m$ over $D$ such that $\dim_DV_m=m$.
 \end{corollary}
 
 \begin{proof}
 	The ring $R$ admits a simple faithful module $V$. Furthermore, by Jacobson's density 
 	theorem we may assume that there exists a division ring $D$ 
-	such that $R$ is dense in a module $V$ over $D$. 
+	such that $R$ is dense in a vectoe space $V$ over $D$. 
 	Let $\gamma\colon R\to\End_D(V)$, $r\mapsto\gamma_r$, where 
 	$\gamma_r(v)=rv$. Since $V$ is faithful, $\gamma$ is injective. Thus 
 	$R\simeq\gamma(R)$. 
