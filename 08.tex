@@ -318,7 +318,8 @@ $I=(n)$ for some $n>0$ and $I=(n)\supsetneq (2n)$.
 \end{proposition}
 
 \begin{proof}
-    Let $X$ be the family of non-zero left ideals contained in $I$. Then $X$ is non-empty, as 
+    Let $I$ be a non-zero left ideal and 
+    $X$ be the family of non-zero left ideals contained in $I$. Then $X$ is non-empty, as 
     $I\in X$. Then $X$ contains a minimal element by Proposition \ref{pro:artinian_minimal}. 
 \end{proof}
 
@@ -374,7 +375,7 @@ the ring $R$ is semisimple if and only if the module
 $\prescript{}{R}{R}$ is semisimple.  
 
 \begin{proposition}
-    Let $R$ be a semisimple ring. Then $R$ is noetherian and artinian.
+    Let $R$ be a semisimple ring. Then $\prescript{}{R}{R}$ is noetherian and artinian.
 \end{proposition}
 
 \begin{proof}
@@ -385,9 +386,11 @@ $\prescript{}{R}{R}$ is semisimple.
     \]
     is a composition series for $\prescript{}{R}{R}$ with composition factors
     $L_1,\dots,L_n$. Since the module $\prescript{}{R}{R}$ admits a composition
-    series, it is artinian and noetherian by Theorem \ref{thm:serie_de_composicion}. It follows
-    from the definitions that $R$ is left artinian and left noetherian. 
+    series, it is artinian and noetherian by Theorem \ref{thm:serie_de_composicion}. 
 \end{proof}
+
+The previous proposition shows 
+that every semisimple ring is left artinian and left noetherian. 
 
 \begin{exercise}
 \label{xca:semisimple}
@@ -449,7 +452,7 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
     there are finitely many 
     minimal left ideals $L_1,\dots,L_k$ of $R$ 
     such that $R\simeq L_1\oplus\cdots\oplus L_k$. We claim that
-    for each $i\in\{1,\dots,k\}$, the ideal
+    for each $i\in\{1,\dots,k\}$, the left ideal
     $M_i=\sum_{j\ne i}L_j$ of $R$ is maximal. For example, let us prove
     that $M_1$ is maximal. If not, there exists a left ideal $I$ of $R$ 
     such that $M_1\subsetneq I$. Let $x\in I\setminus M_1$ and write 
@@ -457,7 +460,8 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
     x=x_1+x_2+\cdots+x_k
     \]
     for $x_j\in L_j$. Since $x_2+\cdots+x_k\in M_1\subseteq I$, 
-    it follows that $x_1\in I\cap L_1$, a contradiction.  
+    it follows that $x_1\in I\cap L_1$, a contradiction. Now the claim follows, as
+    $J(R)\subseteq M_1\cap\cdots\cap M_k=\{0\}$. 
     
     Conversely, if $R$ is left artinian and $J(R)=\{0\}$, then
     $R\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)$ 
@@ -548,7 +552,7 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
 	Let $J=J(R)$. Since $R$ is left artinian, $J$ is a nilpotent ideal 
 	by Theorem~\ref{thm:Jnilpotente}. Let $n$ be such that $J^n=\{0\}$. Now consider the sequence 
 	\[
-		R\supsetneq J\supsetneq J^2\supsetneq\cdots\supsetneq J^{n-1}\supsetneq J^n=\{0\}.
+		R\supsetneq J\supseteq J^2\supseteq\cdots\supseteq J^{n-1}\supseteq J^n=\{0\}.
 	\]
 	Each $J^{i}/J^{i+1}$ is a module over $R$ annihilated by $J$, 
 	that is $J\cdot (J^i/J^{i+1})=\{0\}$, as 
@@ -559,7 +563,7 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
 	Thus each  
 	$J^i/J^{i+1}$ is a module over $R/J$. Since $R/J$ is left artinian and 
 	$J(R/J)=\{0\}$ by Theorem \ref{thm:J(R/J)=0}, it follows that $R/J$ is semisimple. 
-	In particular, since every $R/J$-module is semisimple,  
+	In particular, since every $(R/J)$-module is semisimple,  
 	each $J^{i}/J^{i+1}$ 
 	is semisimple and hence it is left noetherian. 
 	
@@ -600,16 +604,16 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
 % that $R$ is noetherian, as $R$ is the 
 % direct product of finitely many noetherian rings.
 
-\begin{theorem}[Connel]
-\label{thm:Connel_artinian}
-    Let $K$ be a field of characteristic zero and 
-    $G$ be a group. Then $K[G]$ is left artinian if and only
-    if $G$ is finite. 
-\end{theorem}
+% \begin{theorem}[Connel]
+% \label{thm:Connel_artinian}
+%     Let $K$ be a field of characteristic zero and 
+%     $G$ be a group. Then $K[G]$ is left artinian if and only
+%     if $G$ is finite. 
+% \end{theorem}
 
-\begin{proof}
-    It follows from Theorem \ref{thm:Connel} and
-    Hopkins--Levitzky theorem; see 
-    \cite[Theorem 1.1 of Chapter 10]{MR798076}. 
-\end{proof}
+% \begin{proof}
+%     It follows from Theorem \ref{thm:Connel} and
+%     Hopkins--Levitzky theorem; see 
+%     \cite[Theorem 1.1 of Chapter 10]{MR798076}. 
+% \end{proof}
 
