@@ -305,6 +305,12 @@ This map is a bijective algebra homomorphism.
     is a commutative local ring with maximal ideal $(X-1)/(X-1)^p$. 
 \end{sol}
 
+\begin{sol}{xca:VonNeumann_local}
+    Let $R$ be a local Von Neumann ring and $a\in R\setminus\{0\}$. Then $axa=a$ for some $x\in R$ and 
+    $ax$ is idempotent, as $(ax)^2=axax=ax$. Since $R$ is local, $R$ has no non-trivial idempotents (see Theorem \ref{thm:local_idempotent} and note that here we do not need the $R$ to be left artinian). Therefore, since 
+    $ax\ne 0$, it follows that $ax=1$ and hence $a$ is invertible. 
+\end{sol}
+
 \begin{sol}{xca:K[G]_domain_easy}
     If $G$ is trivial, then $K[G]\simeq K$ is a domain. Conversely, 
     assume that $G$ is not trivial. Let $g\in G$ be an element of
@@ -315,6 +321,7 @@ This map is a bijective algebra homomorphism.
   \]   
   but $1-g\ne 0$ and $1+g+\cdots+g^{n-1}\ne 0$. 
 \end{sol}
+
 
 
 \begin{sol}{xca:reduced}
