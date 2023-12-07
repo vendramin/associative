@@ -1,5 +1,307 @@
 \chapter{}
 
+\topic{Rickart's theorem}
+
+We now consider Jacobson's semisimplicity problem. 
+
+\begin{openproblem}
+\label{Jacobson's semisimplicity problem}
+Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
+\end{openproblem}
+
+As an application of Amitsur's theorem \ref{thm:Amitsur}, 
+we prove that 
+complex group algebras have null Jacobson radical.
+This is known as 
+Rickart's theorem. The original proof found by Rickart 
+uses complex analysis. Here, however, 
+we present an algebraic proof. 
+
+\begin{theorem}[Rickart]
+\index{Rickart's theorem}
+\label{thm:Rickart}
+    Let $G$ be a group. Then $J(\C[G])=\{0\}$.
+\end{theorem}
+
+To prove the theorem, we need a lemma.
+
+\begin{lemma}
+Let $G$ be a group. Then $J(\C[G])$ is nil.        
+\end{lemma}
+
+\begin{proof}
+    We need to show that every element of $J(\C[G])$ is nilpotent. 
+    If $G$ is countable, then the result follows from Amitsur's theorem \ref{thm:Amitsur}. So assume that 
+    $G$ is not countable. Let $\alpha\in J(\C[G])$, say
+    \[
+    \alpha=\sum_{i=1}^n\lambda_ig_i,
+    \]
+    where $\lambda_1,\dots,\lambda_n\in\C$ and $g_1,\dots,g_n\in G$. Let $H=\langle g_1,\dots,g_n\rangle$.
+    Then $\alpha\in \C[H]$ and $H$ is countable. We claim that $\alpha\in J(\C[H])$. Decompose
+    $G$ as a disjoint union 
+    \[
+    G=\bigcup_\lambda x_\lambda H
+    \]
+    of cosets of $H$ in $G$. Then $\C[G]=\bigoplus_\lambda x_\lambda\C[H]$ and
+    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$ (this follows
+    from the fact that one of the cosets is that of $H$). Since $\alpha\in J(\C[G])$, for each 
+    $\beta\in\C[H]$ there exists $\gamma\in\C[G]$ such that 
+    $\gamma(1-\beta\alpha)=1$. Write $\gamma=\gamma_1+\kappa$ for $\gamma_1\in\C[H]$ and $\kappa\in K$. Then
+    \[
+    1=\gamma(1-\beta\alpha)=\gamma_1(1-\beta\alpha)+\kappa(1-\beta\alpha)
+    \]
+    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$, as $\beta\in\mathbb{C}[H]$. 
+    Since $1=\gamma_1(1-\beta\alpha)$, it follows that
+    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem \ref{thm:Amitsur}.  
+\end{proof}
+
+We now prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:Rickart}]
+    For $\alpha=\sum_{i=1}^n\lambda_ig_i\in\C[G]$ let 
+    \[
+    \alpha^*=\sum_{i=1}^n\overline{\lambda_i}g_i^{-1}.
+    \]
+    Then $\alpha\alpha^*=0$ if and only if $\alpha=0$ and, moreover, 
+    $(\alpha\beta)^*=\beta^*\alpha^*$ for all $\beta\in\C[G]$. 
+    Assume that $J(\C[G])\ne\{0\}$ and let $\alpha\in J(\C[G])\setminus\{0\}$. Then
+    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, the previous 
+    lemma implies that $\beta$ is nilpotent. Note that $\beta\ne 0$, as $\alpha\ne0$. Since $\beta^*=\beta$,  
+    \[
+    (\beta^m)^*=(\beta^*)^m=\beta^m
+    \]
+    for all $m\geq1$. If there exists $k\geq2$ such that $\beta^k=0$ and $\beta^{k-1}\ne 0$, then
+    \[
+    \beta^{k-1}\left(\beta^{k-1}\right)^*=\beta^{2k-2}=0
+    \]
+    and hence $\beta^{k-1}=0$, a contradiction. Thus $\beta=0$ and therefore $\alpha=0$. 
+\end{proof}
+
+\begin{exercise}
+	If $G$ is a group, then $J(\R[G])=0$. 
+\end{exercise}
+
+% To obtain a consequence of Rickart's theorem we need two lemmas. 
+
+% \begin{lemma}[Nakayama]
+% 	\label{lem:Nakayama}
+% 	\index{Nakayama's lemma}
+% 	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
+% 	$J(R)\cdot M=M$, then $M=\{0\}$.
+% \end{lemma}
+
+% \begin{proof}
+%     Since $M$ is finitely generated, we may assume that 
+% 	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
+% 	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+% 	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+% 	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
+% 	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+% 	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
+% 	one obtains $M=\{0\}$.
+% \end{proof}
+
+% \begin{lemma}
+% 	\label{lem:Rickart}
+% 	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
+% 	\[
+% 	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+% 	\]
+% 	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
+% 	$\iota(J(R))\subseteq J(S)$.
+% \end{lemma}
+
+% \begin{proof}
+% 	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+% 	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
+% 	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
+% 	\[
+% 		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
+% 	\]
+% 	it follows that 
+% 	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
+% 	\[
+% 	J(R)\cdot
+% 	M=J\cdot M=\iota(J)\cdot M
+% 	\]
+% 	is an $S$-submodule of $M$, as 
+% 	\[
+% 		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
+% 	\]
+% 	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
+% 	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
+% \end{proof}
+
+% We now obtain the following consequence of Rickart's theorem. 
+
+% \begin{theorem}
+% 	If $G$ is a group, then $J(\R[G])=0$. 
+% \end{theorem}
+
+% \begin{proof}
+% 	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+% 	\[
+% 	\C[G]=\R[G]+i\R[G],
+% 	\]
+% 	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
+% 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
+% \end{proof}
+
+
+\begin{definition}
+	\index{Ring!semiprime}
+	A ring $R$ \textbf{semiprime} if 
+	$aRa=\{0\}$ implies $a=0$.
+\end{definition}
+
+\begin{proposition}
+	Let $R$ be a ring. The following statements are equivalent: 
+	\begin{enumerate}
+		\item $R$ is semiprime.
+		\item If $I$ is a left ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item If $I$ is an ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item $R$ does not contain non-zero nilpotent ideals.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
+	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. The implications $2)\implies3)$
+	and $4)\implies3)$ are both trivial. Let us prove that $3)\implies4)$.  If
+	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
+	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
+	contradiction.  Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
+	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. Thus 
+	$RaR=\{0\}$. This means that $Ra$ and $aR$ are ideals such that
+	$(Ra)R=R(aR)=\{0\}$ (for example, $R(aR)\subseteq RaR=\{0\}\subseteq aR$). 
+	Moreover, since $(Ra)(Ra)=\{0\}$ and $(aR)(aR)=\{0\}$, it follows that
+	$aR=Ra=\{0\}$. 
+	This implies that $\Z a$ is an ideal of $R$, as $R(\Z a)\subseteq \Z(Ra)=\{0\}$ and 
+	$(\Z a)R\subseteq aR=\{0\}$. Now $(\Z a)(\Z a)\subseteq (\Z a)R=\{0\}$ and hence
+	$a=0$, as $\Z a=\{0\}$. 
+\end{proof}
+
+Two consequences:
+
+\begin{exercise}
+	A commutative ring is semiprime if and only if it does not contain non-zero
+	nilpotent elements. 
+\end{exercise}
+
+% tomar $\alpha$ tal que $\alpha^2=0$ y sea $A=K[G]\alpha$. Como $A^2=0$, $A=0$ y entonces $\alpha=0$.
+
+\begin{exercise}
+\label{xca:D_semiprime_semiprimitive}
+	Let $D$ be a division ring. 
+	\begin{enumerate}
+		\item $D[X]$ is semiprime and semiprimitive.
+		\item $D[\![X]\!]$ is semiprime and it is not semiprimitive.
+	\end{enumerate}
+\end{exercise}
+
+% We will prove 
+% in Lecture \ref{09} (Corollary \ref{cor:C[G]_semiprime}) 
+% that the if $G$ is a group, 
+% then the ring $\C[G]$ is semiprime. 
+
+\begin{corollary}
+\label{cor:C[G]_semiprime}
+	The ring $\C[G]$ is semiprime.
+\end{corollary}
+
+\begin{proof}
+	Since $J(\C[G])=\{0\}$ by Rickart's theorem and the Jacobson radical
+	contains every nil ideal by Proposition~\ref{pro:nilJ}, it follows that
+	$\C[G]$ does not contain non-trivial nil ideals. Thus $\C[G]$ does not
+	contain non-trivial nilpotent ideals and hence $\C[G]$ is semiprime.
+\end{proof}
+
+\begin{exercise}
+	Prove that $Z(\C[G])$ is semiprime.
+\end{exercise}
+
+We now characterize when complex group algebras 
+are left artinian. For that purpose,
+we need a lemma. This is similar to one of the implications proved in Proposition \ref{pro:semisimple}. However,
+in the arbitrary setting we are considering, we need to use Zorn's lemma. 
+
+\begin{lemma}
+    Let $M$ be a semisimple module and $N$ be a submodule. 
+    Then $N$ is a direct summand.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+    Let $M=\oplus_{i\in I}M_i$ be a direct sum of simple submodules. 
+    Since each $N\cap M_i$ is a submodule of $M_i$ and $M_i$ is simple, it follows
+    that $N\cap M_i=\{0\}$ or $N\cap M_i=M_i$. If
+    $N\cap M_i=M_i$ for all $i\in I$, then $N=M$ and the lemma is proved. So we may assume
+    that there exists $i\in I$ such that $N\cap M_i=\{0\}$. Let $X$ be the set
+    of subsets $J$ of $I$ such that $N\cap (\oplus_{j\in J}M_j)=\{0\}$. Our assumptions
+    imply that $X$ is non-empty. Zorn's lemma implies the existence of 
+    a maximal element $K$. Let $N_1=\oplus_{k\in K}M_k$. We claim that
+    $N\oplus N_1=M$. If not, there exists $i\in I$ such that
+    $M_i\not\subseteq N\oplus N_1$. The simplicity of $M_i$ implies that
+    $M_i\cap (N\oplus N_1)=\{0\}$, which contradicts the maximality of $K$. 
+\end{proof}
+
+A direct application of the lemma proves that
+complex group algebras of infinite groups are never semisimple. 
+
+\begin{proposition}
+    \label{pro:KGsemisimple}
+    If $G$ is an infinite group, then $\C[G]$ is not semisimple. 
+\end{proposition}
+
+\begin{proof}
+	Assume that $R=\C[G]$ is semisimple.  Let $I$ 
+	be the augmentation ideal of $R$, that is
+	\[
+	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
+	\]
+	By the previous lemma, 
+	there exists a non-zero left ideal $J$ such that 
+	$R=I\oplus J$. Since $R$ is unitary, there exist $e\in I$ and $f\in J$ such that
+	$1=e+f$. If
+	$x\in I$, then $x=xe+xf$ and hence $xf=x-xe\in I\cap J=\{0\}$. Since 
+	$x=xe$ for all $x\in I$, it follows that $e=e^2$. Similarly, one proves
+	that $f^2=f$. Moreover, $ef=0$, as $ef\in I\cap J=\{0\}$.  Since $I$ 
+	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$ 
+ (note that $I=Re$ because $x=xe$ for all $x\in I$), we conclude that
+	$(g-1)f=0$
+	for all $g\in G$, as $g-1\in I$ for all $g\in G$. If $f=\sum_{h\in
+	G}\lambda_hh$ (finite sum) and $g\in G$, then  
+	\[
+	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+	G}\lambda_{g^{-1}h}h.
+	\]
+        Thus $\lambda_h=\lambda_{g^{-1}h}$ for all $g,h\in G$. Since $G$ 
+	is infinite, some $\lambda_g=0$ and hence $f=0$. Thus $e=1$ and $I=\C[G]$, a contradiction. 
+% 	If $f=0$, then $e=1$ and $I=\C[G]$, a contradiction.  
+% 	, a contradiction because 
+% 	$f\ne 0$ implies that the sum that defines $f$ should be an infinite sum.
+\end{proof}
+
+% The ideal $I(G)$ used in the proof of the previous proposition 
+% is known as the \textbf{augmentation ideal} 
+% of $\C[G]$.
+
+\begin{theorem}
+	Let $G$ be a group. Then $\C[G]$ 
+	is left artinian if and only if 
+	$G$ is finite. 
+\end{theorem}
+
+\begin{proof}
+    If $G$ is finite, then $\C[G]$ is left artinian because $\dim\C[G]=|G|<\infty$. So assume that 
+    $G$ is infinite. By Rickart's theorem,   
+	$J(\C[G])=0$. Moreover, $\C[G]$
+	is not semisimple by the previous proposition. Thus
+	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
+\end{proof}
+
+
+
+
 \topic{Maschke's theorem}
 
 We now present another instance of the Jacobson semisimplicity problem.
@@ -27,8 +329,8 @@ In this case, our result is for finite groups.
 	    0 & \text{if $2\leq i\leq n$},
 	\end{cases}
 	\]
-	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$, the matrix of 
-	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal. 
+	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$ if $i\ne j$ and hence the matrix of 
+	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal.
 
 	Assume that $J=J(K[G])$ is non-zero and let 
 	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Without loss of generality
@@ -173,7 +475,7 @@ has finite order. Locally finite groups are torsion groups.
 	$k\in\{1,\dots,m\}$ such that \[
 	g_ig_j=u_{ij}g_k.
 	\]
-	Let $U$ be the subgroup of $G$
+	Let $U$ be the subgroup of $N$
 	generated by $\{u_{ij}:1\leq i,j\leq n\}$. Since $N$ is locally finite, $U$ is finite. Moreover, since 
 	each $g_ig_jg_l$ can be written as 
 	\[
@@ -259,12 +561,11 @@ We now prove Herstein's theorem.
 	\[
 	b_0+b_1\alpha+\cdots+b_{n+1}\alpha^{n+1}=0,
 	\]
-	where $b_{n+1}\ne 0$. Rewrite this as 
+	where $b_{n+1}\ne 0$. Since $K$ has characteristic zero, we can rewrite this as 
 	\[
 		\alpha^{n+1}=a_0+a_1\alpha+\cdots+a_n\alpha^n
 	\]
-	for some $a_0,\dots,x_n\in K$. Let $w=x_{i_1}\cdots
-	x_{i_{n+1}}\in H$ be a word of length $n+1$. 
+	for some $a_0,\dots,x_n\in K$. 
 	Note that 
 	\[
 		\alpha^{k}=(x_1+\cdots+x_m)^{k}
@@ -272,11 +573,13 @@ We now prove Herstein's theorem.
 	\]
 	for all $k$. 
 	Two words $x_{i_1}\cdots x_{i_{k}}$ and 
-	$x_{j_1}\cdots x_{j_{k}}$ could represent the same element of the group $H$. In this case, 
-	the coefficient of $x_{i_1}\cdots x_{i_{k}}=x_{j_1}\cdots x_{j_{k}}$ 
-	in $\alpha^{k}$ will be a positive integer $\geq2$.  
-	
-	Since $K$
+	$x_{j_1}\cdots x_{j_{l}}$ could represent the same element of the group $H$. In this case, 
+	the coefficient of $x_{i_1}\cdots x_{i_{k}}=x_{j_1}\cdots x_{j_{l}}$ 
+	in $\alpha^{k}$ will be a positive integer $\geq2$. 
+ 
+        Let $w=x_{i_1}\cdots
+	x_{i_{n+1}}\in H$ be a word of length $n+1$. 
+		Since $K$
 	is of characteristic zero, it follows that $w\in\supp(\alpha^{n+1})$. Since, moreover,  
 	$\alpha^{n+1}=\sum_{j=0}^na_j\alpha^j$, it follows that 
 	$w\in\supp(\alpha^j)$ for some $j\in\{0,\dots,n\}$. Thus each
