@@ -102,19 +102,19 @@ We present an elementary proof. We shall need some lemmas.
 
 \begin{proof}
 	Let $V=\{x\in D:x^2\in\R,x^2\leq 0\}$ be the subspace of Lemma~\ref{lem:trick_frobenius2}. 
-	For $x,y\in V$ let $x\circ
-	y=xy+yx=(x+y)^2-x^2-y^2\in\R$. If $x\ne0$, then $x\circ
+	For $x,y\in V$ let $x*
+	y=xy+yx=(x+y)^2-x^2-y^2\in\R$. If $x\ne0$, then $x*
 	x=2x^2\ne0$. Since $\dim V=n-1$, there exist $y,z\in V$ such that $\{y,z\}$ is 
 	linearly independent. Let 
 	\[
-		x=z-\frac{z\circ y}{y\circ y}y.
+		x=z-\frac{z* y}{y* y}y.
 	\]
 	Since $\{y,z\}$ is linearly independent, $x\ne0$. Moreover, since 
 	\[
-		x\circ y
-		=\left(z-\frac{z\circ y}{y\circ y}\right)\circ y
-		=zy-\frac{z\circ y}{y\circ y}y^2+yz-\frac{z\circ y}{y\circ y}y^2
-		=z\circ y-\frac{z\circ y}{y\circ y}y\circ y=0,
+		x* y
+		=\left(z-\frac{z* y}{y* y}\right)* y
+		=zy-\frac{z* y}{y* y}y^2+yz-\frac{z* y}{y* y}y^2
+		=z* y-\frac{z* y}{y* y}y* y=0,
 	\]
 	it follows that $xy=-yx$. 
 	Let  
@@ -149,9 +149,9 @@ ready to prove the theorem:
 	By Lemma~\ref{lem:trick_frobenius2}, $\dim V=n-1$. Thus there exists 
 	$x\in V\setminus\langle i,j,k\rangle$. Let 
 	\[
-		e=x+\frac{i\circ x}{2}i+\frac{j\circ x}{2}j+\frac{k\circ x}{2}k\in V\setminus\{0\}.
+		e=x+\frac{i* x}{2}i+\frac{j* x}{2}j+\frac{k* x}{2}k\in V\setminus\{0\}.
 	\]
-	A direct calculation shows that $i\circ e=j\circ e=k\circ e=0$. Then 
+	A direct calculation shows that $i* e=j* e=k* e=0$. Then 
 	\[
 		ek=e(ij)=(ei)j=-(ie)j=-i(ej)=i(je)=(ij)e=ke,
 	\]
@@ -341,7 +341,7 @@ is needed to solve the following exercise:
 Now we are ready to prove Jacobson's commutativity theorem. 
 
 \begin{proof}[Proof of Theorem \ref{thm:commutativity}]
-    We divide the proof in several steps and claims. We may assume that 
+    We divide the proof into several steps and claims. We may assume that 
     $R$ is non-zero. 
     
     \begin{claim}
@@ -357,7 +357,7 @@ Now we are ready to prove Jacobson's commutativity theorem.
     This implies that $x=0$.
     
     \begin{claim}
-        Without loss of generality we may assume that $R$ is primitive. 
+        Without loss of generality, we may assume that $R$ is primitive. 
     \end{claim}
 	
 	Let $\{P_i:i\in I\}$ be the collection of primitive ideals of $R$. 
