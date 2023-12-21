@@ -60,8 +60,9 @@ We present an elementary proof. We shall need some lemmas.
 	\[
 	\alpha^2x^2=\beta^2y^2+2\beta\gamma y+\gamma^2=(-\beta y-\gamma)^2.
 	\]
-	This implies that $2\beta\gamma y\in\R$ and thus $\beta\gamma=0$. Hence 
-	$\alpha=\beta=\gamma=0$. The previous lemma implies that there exist 
+	This implies that $2\beta\gamma y\in\R$ and thus $\beta\gamma=0$, as
+        $0\leq 4\beta^2\gamma^2y^2\leq 0$. Hence 
+	$\alpha=\beta=\gamma=0$. (If $\beta=0$, then $0\leq\gamma^2=\alpha^2x^2\leq 0$. If $\gamma=0$, then $\alpha=\beta=0$ because $\{x,y\}$ is linearly independent.) The previous lemma implies that there exist 
 	$\lambda,\mu\in\R$ such that 
 	\[
 		(x+y)^2+\lambda(x+y)\in\R,\quad
@@ -77,7 +78,7 @@ We present an elementary proof. We shall need some lemmas.
 	$x+y\not\in V$, then, the first paragraph of the proof implies that 
 	$x+y\in\R$, a contradiction. 
 
-	Clearly, $\R\cap V=0$. If $x\in D\setminus\R$, then the previous lemma 
+	Clearly, $\R\cap V=\{0\}$. If $x\in D\setminus\R$, then the previous lemma 
 	implies that $x^2+\lambda x\in\R$ for some 
 	$\lambda\in\R$. We claim that $x+\lambda/2\in V$. If not, since 
 	\[
@@ -91,7 +92,7 @@ We present an elementary proof. We shall need some lemmas.
 
 \begin{lemma}
 	\label{lem:trick_frobenius3}
-	Let $D$ be a real algebra of (real) dimension $n$. If $n>2$, then
+	Let $D$ be a real division algebra of (real) dimension $n$. If $n>2$, then
 	there exist $i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent and 
 	\begin{align}
 	\label{eq:H}
@@ -191,7 +192,7 @@ it follows that $0=xy+yx$ and hence $xy=yx$.
     Since $R$ is finite, each $D_i$ is finite. By Wedderburn's theorem,
     every $D_i$ is a field. Again, since $R$ is reduced, 
     $n_i=1$ for all $i$. Therefore $R$ is commutative, as it is 
-    direct product of finitely many fields.
+    a direct product of finitely many fields.
 \end{proof}
 
 In this lecture, we will prove extend the 
