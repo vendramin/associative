@@ -102,6 +102,11 @@ This map is a bijective algebra homomorphism.
 \end{enumerate}
 \end{sol}
 
+\begin{sol}{xca:R/I_field_or_zero}
+Let $M$ be a maximal ideal. The correspondence theorem implies that the ring $R/M$ has no non-zero proper ideals. There are two cases: $R/M?$ is unitary or not. If $R/M$ is unitary, then it is a field (classical exercise in elementary ring theory). So $Q=R/M$ is a commutative ring without one that does not have non-zero proper ideals. I claim that $Q$ is $\Z/p$ with $xy=0$ for all $x,y$. 
+
+Let $X$ be the set of elements $y\in Q$ such that $Qy=\{0\}$. Note that $X$ is an ideal. Since $Q$ is not a field, there exists a non-zero $x$ such that $Qx\ne Q$. Since $Q$ has no non-zero proper ideals, $Qx=\{0\}$. Thus $x\in X$ and hence $X$ is non-zero. Therefore $X=Q$, as $Q$ has no ideals. This implies that $xy=0$ for all $x,y$. This implies that the subgroups of $Q$ are the ideals of $Q$. But there are no ideals, so there are no subgroups. This implies that $Q =\Z/p$ for some prime number $p$.  
+\end{sol}
 
 \begin{sol}{xca:simple=>prim} 
 	Since $R$ is unitary, there exists a maximal left ideal $I$ and $R$ is regular.

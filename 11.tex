@@ -247,12 +247,13 @@ If $U$ and $V$ are finite-dimensional vector spaces, then
 % \end{proof}
 
 \begin{exercise}
+    Let $K$ be a field and $A,B,C$ be $K$-algebras. 
     Prove the following statements:
 	\begin{enumerate}
 		\item $A\otimes B\simeq B\otimes A$.
 		\item $(A\otimes B)\otimes C\simeq A\otimes(B\otimes C)$.
 		\item $A\otimes K\simeq A\simeq K\otimes A$.
-		\item If $A\otimes A_1$ and $B\otimes B_1$, then $A\otimes B\simeq A_1\otimes B_1$.
+		\item If $A\simeq A_1$ and $B\simeq B_1$, then $A\otimes B\simeq A_1\otimes B_1$.
 	\end{enumerate}
 \end{exercise}
 
@@ -675,7 +676,14 @@ Some examples:
 	$D$ is a $K$-vector space. Let 
 	$n=\dim_KD$.  We claim that $n=1$. If $n>1$, the 
 	class equation for the group 
-	$D^\times=D\setminus\{0\}$ implies that 
+	$D^\times=D\setminus\{0\}$ 
+        % is 
+        % \[
+        % |D^\times|=|Z(D)\setminus\{0\}|+\sum_{j=1}^m (G:C_D(x_j)),
+        % \]
+        % where $x_1,\dots,x_m\in D$ and $(D^{\times}:C_{D^\times}(x_j))>1$ for all $j$. 
+        % ver Nicholson page 370
+        implies that 
 	\begin{equation}
 		\label{eq:clases}
 		q^n-1=q-1+\sum_{j=1}^m \frac{q^n-1}{q^{d_j}-1},
