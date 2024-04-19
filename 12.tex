@@ -1,12 +1,12 @@
-\chapter{}
+\section{}
 
-\topic{Frobenius's theorem}
+\subsection{Frobenius's theorem}
 
 \begin{theorem}[Frobenius]
 	\label{thm:Frobenius}
 	\index{Frobenius'!theorem}
 	Every finite-dimensional real division algebra is isomorphic to $\R$, $\C$
-	or $\H$.
+	or $\mathbb{H}$.
 \end{theorem}
 
 We present an elementary proof. We shall need some lemmas. 
@@ -139,7 +139,7 @@ ready to prove the theorem:
 	$D\simeq\R$. If $n=2$, the subspace $V$ of Lemma~\ref{lem:trick_frobenius2} 
 	is non-zero and thus there exists $i\in D$ such that 
 	$i^2=-1$. Hence $D\simeq\C$. Lemma~\ref{lem:trick_frobenius3}
-	implies that $n\ne3$. If $n=4$, then $D\simeq\H$. Suppose that 
+	implies that $n\ne3$. If $n=4$, then $D\simeq\mathbb{H}$. Suppose that 
 	$n>4$.  By Lemma~\ref{lem:trick_frobenius3} there exist
 	$i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent 
 	and that the formulas of~\eqref{eq:H} hold. Let 
@@ -158,7 +158,7 @@ ready to prove the theorem:
 	a contradiction. 
 \end{proof}
 
-\topic{Jacobson's commutativity theorem}
+\subsection{Jacobson's commutativity theorem}
 
 \begin{exercise}
     \index{Ring!boolean}
@@ -307,13 +307,13 @@ We shall need the following lemma.
 	$X^{p^n}-X$ of degree $p^n$. 
 \end{proof}
 
-Let $R$ be a ring. For each $r\in R$ the map $\ad{r}\colon
+Let $R$ be a ring. For each $r\in R$ the map $\operatorname{ad}{r}\colon
 R\to R$, $x\mapsto rx-xr$, is a derivation. This means that
-$\ad(xy)=(\ad x)y+x(\ad y)$ for all $x,y\in R$. 
+$\operatorname{ad}(xy)=(\operatorname{ad} x)y+x(\operatorname{ad} y)$ for all $x,y\in R$. 
 By induction one proves that 
 \begin{equation}
 	\label{eq:Leibniz}
-	(\ad{r})^n(x)=\sum_{k=0}^n(-1)^k\binom{n}{k}r^{n-k}xr^k
+	(\operatorname{ad}{r})^n(x)=\sum_{k=0}^n(-1)^k\binom{n}{k}r^{n-k}xr^k
 \end{equation}
 for all $x\in R$ and $n\in\Z_{>0}$. If $p$ 
 is a prime number, 
@@ -322,14 +322,14 @@ is needed to solve the following exercise:
 
 \begin{exercise}
     Let $p$ be a prime number and $R$ be a ring of characteristic $p$. 
-    Prove that $(\ad{r})^{p^n}=\ad{r^{p^n}}$. 
+    Prove that $(\operatorname{ad}{r})^{p^n}=\operatorname{ad}{r^{p^n}}$. 
 \end{exercise}
 
 % \begin{lemma}
 % 	\label{lem:Jacobson}
 % 	Sean $p$ un primo, 
 % 	$R$ un anillo de característica $p$ y $r\in R$. 
-% 	Entonces $(\ad{r})^{p^n}=\ad{r^{p^n}}$. 
+% 	Entonces $(\operatorname{ad}{r})^{p^n}=\operatorname{ad}{r^{p^n}}$. 
 % \end{lemma}
 
 % \begin{proof}
@@ -422,10 +422,10 @@ Now we are ready to prove Jacobson's commutativity theorem.
     x^{p^k}=x.
     \]
     Note that $R$ is a $K$-vector space
-    and $\delta=\ad x\colon R\to R$, $y\mapsto xy-yx$, is a $K$-linear map. Moreover, 
+    and $\delta=\operatorname{ad} x\colon R\to R$, $y\mapsto xy-yx$, is a $K$-linear map. Moreover, 
     by the exercise, 
     \[
-    \delta^{p^k}=(\ad x)^{p^k}=\ad \left(x^{p^k}\right)=\ad x=\delta
+    \delta^{p^k}=(\operatorname{ad} x)^{p^k}=\operatorname{ad} \left(x^{p^k}\right)=\operatorname{ad} x=\delta
     \]
     and 
     \begin{equation}
@@ -484,7 +484,7 @@ If $K$ is a field, then $M_n(K)$ is a central algebra.
 \end{proof}
 
 \begin{example}
-	$\H$ is a real central algebra.
+	$\mathbb{H}$ is a real central algebra.
 \end{example}
 
 \begin{example}
@@ -494,7 +494,7 @@ If $K$ is a field, then $M_n(K)$ is a central algebra.
 
 Frobenius' theorem~\ref{thm:Frobenius} translates into 
 the following statement: Every finite-dimensional  
-real central division algebra is isomorphic to $\R$ or $\H$. 
+real central division algebra is isomorphic to $\R$ or $\mathbb{H}$. 
 
 \begin{proposition}
 	Every simple unitary ring is an algebra over its center. 
@@ -700,3 +700,149 @@ For example, $\C\to\C$, $z\mapsto\overline{z}$, is not inner.
 %	$a^{-1}=-\lambda_0^{-1}g(a)$ para algún $g\in k[X]$ tal que $g(a)\ne 0$. En
 %	particular, $a^{-1}\in A$ y además $A$ es unitaria. 
 %\end{proof}
+
+\subsection{*Dedekind finite rings}
+
+\begin{definition}
+\index{Ring!Dedekind-finite}
+    Let $R$ be a ring with one. We say that $R$ is \textbf{Dedekind-finite} if 
+    for $a,b\in R$ such that $ab=1$ one has $ba=1$. 
+\end{definition}
+
+Trivially, commutative rings are Dedekind finite. 
+
+\begin{exercise}
+    Give an example of a ring that is not Dedekind-finite. 
+\end{exercise}
+
+\begin{exercise}
+    Let $R$ be a commutative unitary ring. Prove that $M_n(R)$ is Dedekind-finite. 
+\end{exercise}
+
+\begin{proposition}
+    Let $R$ be a unitary ring. Then $R$ is Dedekind-finite if and only if the left regular module 
+    $\prescript{}{R}{R}$ is Hopfian, that is 
+    every surjective $R$-module homomorphism $R\to R$ is injective.
+\end{proposition}
+
+\begin{proof}
+    Assume first that $R$ is Dedekind-finite. Let $f\colon R\to R$ be a surjective $R$-module homomorphism. There exists $a \in R$ such that $1=f(a)=af(1)$ and hence $f(1)a=1$. Let $x\in\ker f$. Then $0=f(x)a=xf(1)a=x$. Thus $f$ is injective. Conversely, let $a,b\in R$ be such that $ab=1$. Let $f\colon R\to R$, $f(r)=rb$. Then $f$ is surjective, as $f(ra)=(ra)b=r(ab)=r$ for all $r \in R$. By assumption, $f$ is injective. In particular, $ba=1$, as $b=f(1)=f(ba)$. 
+\end{proof}
+
+\begin{exercise}
+\index{Module!Dedekind-finite}
+    Let $R$ be a unitary ring. An $R$-module is said to be \textbf{Dedekind-finite}
+    if $M\simeq M\oplus N$ for some $R$-module $N$ implies that $N=\{0\}$. 
+    Prove the following statements:
+    \begin{enumerate}
+        \item $M$ is Dedekind-finite if and only if the ring 
+            $\End(M)$ is Dedekind-finite. 
+        \item $\prescript{}{R}{R}$ is Dedekind-finite if and only if the ring $R$ is Dedekind-finite. 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Prove that an $R$-module that is not Dedekind-finite contains a submodule
+    of the form $N\oplus N\oplus N\oplus\cdots$ for some non-zero $R$-module $N$. 
+\end{exercise}
+
+\begin{exercise}
+    Let $R$ be a unitary ring. 
+    \begin{enumerate}
+        \item Let $a,b\in R$ be such that $ab=1$. For $i,j\geq1$, let $e_{ij}=b^{i-1}a^{j-1}-b^ia^j$. 
+            Prove that $e_{ij}e_{kl}=\delta_{jk}e_il$, where $\delta_{ij}$ is the Kronecker function.
+            \item Prove that $e_{1n}$ is nilpotent for all $n\geq2$.  
+        \item Prove that if $R$ is not Dedekind-finite, then $R$ contains 
+            infinitely many nilpotent elements. 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\index{Ring!reversible}
+    A ring $R$ is said to be \textbf{reversible} if for all $a,b\in R$ 
+    $ab=0$ implies $ba=0$. Prove that a unitary reversible ring is Dedekind-finite. 
+\end{exercise}
+
+\index{Ring!reduced}
+The previous exercise implies that reduced rings are Dedekind-finite. 
+
+\begin{exercise}
+    Prove that every left noetherian ring is Dedekind-finite. 
+\end{exercise}
+
+The previous exercise and Hopkins-Levitzki theorem imply that 
+artinian unitary rings are Dedekind-finite. Can you write a 
+proof without using Hopkins--Levitzki? 
+
+\begin{exercise}
+    Prove that every algebraic algebra is a Dedekind-finite ring. In particular, 
+    finite-dimensional algebras are Dedekind-finite. 
+\end{exercise}
+
+\begin{exercise}
+    Let $R$ be a unitary ring. 
+    Prove that if $R/J(R)$ is Dedekind-finite, then $R$ is Dedekind finite. 
+\end{exercise}
+
+Recall that an element $a$ of a ring 
+admits a right inverse if there exists an element $b$ such that $ab=1$. 
+
+\begin{exercise}
+Let $R$ be a unitary ring and $a\in R$ that admits a right inverse. 
+Prove that the following statements are equivalent:
+\begin{enumerate}
+    \item $a$ admits at least two right inverses. 
+    \item $a$ is not a unit. 
+    \item $a$ is a left zero divisor. 
+\end{enumerate}
+\end{exercise}
+
+Note that an element that admits at least two right inverses cannot be a unit. 
+
+% This is an exercise in Jacobson's basic algebra I, page 91, exercise 7.
+% There are other interesting exercises! 
+
+\begin{theorem}[Kaplansky]
+\index{Kaplansky's theorem}
+    Let $R$ be a unitary ring. If $u\in R$ has more than one right inverse, then 
+    $u$ has infinitely many right inverses. 
+\end{theorem}
+
+\begin{proof}
+    Let $S=\{x\in R:ux=1\}$. Assume that $u$ admits finitely right inverses, that is $S$ is a finite set. Let $s\in S$ and
+    $T=\{xy-1+s:x\in S\}$. By assumption, 
+    $|S|\geq2$. Note that $T\subseteq S$, as 
+    \[
+    u(xu-1+s)=(ux)u-u+us=1.
+    \]
+    Let $f\colon S\to T$, $x\mapsto xu-1+s$. Then $f$ is injective:
+    \[
+    f(x)=f(y)\implies xu-1+s=yu-1+s\implies xu=yu\implies xy,
+    \]
+    because $u$ admits a right inverse. Then $|S|\leq |T|\leq |S|<\infty$ and 
+    hence $S=T$. In particular, $s\in T$ and therefore 
+    $s=xu-1+s$ for some $x\in s$, that is $xu=1$. For $t\in S\setminus\{x\}$, 
+    \[
+    x=x(ut)=(xu)t=t,
+    \]
+    a contradiction. 
+    Therefore $S$ is an infinite set. 
+\end{proof}
+
+The following exercise 
+gives another elementary proof of Kaplansky's theorem; see \cite{MR1144353}. 
+
+\begin{exercise}
+\label{xca:Rosenholtz}
+    Let $R$ be a unitary ring. Prove the following statements:
+    \begin{enumerate}
+        \item If $a_1,\dots,a_n\in R$ are distinct elements such that $ba_i=1$, then 
+            the set 
+            \[
+            \{a_1-a_i:1\leq i\leq n\}\cup \{1-a_ib:1\leq i\leq n\}
+            \]
+            contains at least $n+1$ solutions of $bx=0$. 
+        \item If $b$ has $n\geq2$ right inverses, then $bx=0$ has at least $n+1$ solutions and hence
+            $b$ has $n+1$ right inverses. 
+    \end{enumerate}
+\end{exercise}

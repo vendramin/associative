@@ -1,4 +1,4 @@
-\chapter*{Some solutions}
+\section*{Some solutions}
 
 %\section*{Lecture 1}
 %\section*{Lecture 2}
@@ -341,6 +341,25 @@ Let $X$ be the set of elements $y\in Q$ such that $Qy=\{0\}$. Note that $X$ is a
 \end{sol}
 
 \begin{sol}{xca:x^3=x}
+\end{sol}
+
+
+\begin{sol}{xca:Rosenholtz}
+\begin{enumerate}
+    \item Since $ba_i=1$ for all $i$, the elements $a_1-a_i$ for $i\in\{1,\dots,n\}$ 
+    are $n$ solutions of $bx=0$. We claim that $\{1-a_ib:1\leq i\leq n\}$ has at least
+    one more solution. First note that all the elements of the set are solutions, as
+    $b(1-a_ib)=0$. If there is no new solution, then $1-a_ib=1-a_jb$ for some $i\ne j$. Note that 
+    $j\geq2$ (otherwise, $1-a_ib=0$ implies $1=a_ib$, a contradiction to the existence of at least 
+    two right inverses of $b$). Thus there are $n$ elements of the form 
+    $1=a_jb$ and only $n-1$ admissible elements of the form $a_k-a_1$. By the pigeon principle,
+    $1-a_mb=1-a_nb$ for some $m,n$. Then $a_n=a_m$, a contradiction. 
+
+    \item If $b$ has $n\geq2$ right inverses, since $bx=0$ 
+    has $n+1$ solutions, say $x_1,\dots,x_{n+1}$ and $a_1$ is a right inverse for $b$, 
+    the elements $a_1+x_i$ for $i\in\{1,\dots,n+1\}$ are $n+1$ different right inverses of $b$. Thus 
+    $b$ has $n+1$ right inverses. 
+\end{enumerate}
 \end{sol}
 
 %\section*{Lecture 9}
