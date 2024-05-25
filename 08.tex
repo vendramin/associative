@@ -102,7 +102,7 @@ $\Z$ is a domain, so it is a prime ring but is not simple.
 \end{lemma}
 
 \begin{proof}
-	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots,\}$ be linearly independent. 
+	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots,\}$ be a linearly independent set. 
 	Since $R\subseteq\End_D(V)$, it follows that 
 	$V$ is a module over $R$ with $f\cdot v=f(v)$, where $f\in R$ y $v\in V$. 
 	For $n\in\Z_{>0}$ let 
@@ -267,11 +267,16 @@ Now we are ready to prove the theorem.
     $I_1+( I_2\cdots I_k) = R$. In fact, 
     since $I_1,\dots,I_k$ are maximal ideals, $I_2\cdots I_k\not\subseteq I_1$. This implies
     that $I_1+(I_2\cdots I_k)$ is an ideal of $R$ that contains $I_1$. Since $I_1$ is maximal, 
-    $I_1+(I_2\cdots I_k)=R$. 
+    \[
+    I_1+(I_2\cdots I_k)=R.
+    \]
     
     Since $I_1+( I_2\cdots I_k) = R$, 
     there exists $x_1\in \prod_{j=2}^kI_j$ such that $1\in x_1+I_1$. Note that
-    $x_1=(1+I_1)\cap (I_2\cdots I_k)\subseteq I_j$ for all $j\in\{2,\dots,k\}$. 
+    \[
+    x_1=(1+I_1)\cap (I_2\cdots I_k)\subseteq I_j
+    \]
+    for all $j\in\{2,\dots,k\}$. 
     Thus 
     \[
     \varphi(x_1)=(x+I_1,x+I_2,\dots,x+I_k)=(1+I_1,I_2,\dots, I_k).

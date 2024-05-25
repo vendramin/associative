@@ -71,7 +71,7 @@ is isomorphic to $D^n$.
 	for some $n_1,\dots,n_k$ and some division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
 	$k$ isomorphism classes of simple modules. Since $A$ is simple,
 	$A$ has only one isomorphism class of simple modules. Thus $k=1$ and hence 
-	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some division algebra $D$. 
+	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some division algebra~$D$. 
 \end{proof}
 
 \subsection{Primitive rings}
@@ -132,11 +132,14 @@ In the previous exercise, the condition $R=I_j+R^2$ trivially holds in the case 
 \begin{definition}
 \index{Ring!simple}
 A ring $R$ is said to be \textbf{simple} if $R^2\ne\{0\}$ and the only ideals of 
-$R$ are $\{0\}$ and $R$.  
+$R$ are $\{0\}$ and~$R$.  
 \end{definition}
 
 The condition $R^2\ne\{0\}$ is trivially satisfied in the case of rings
-with identity, as $1\in R^2=\{r_1r_2:r_1,r_2\in R\}$.
+with identity, as 
+\[
+1\in R^2=\{r_1r_2:r_1,r_2\in R\}.
+\]
 
 \begin{example}
 	Division rings are simple.
@@ -529,17 +532,20 @@ for some simple $R$-module $M$.
 	Assume that $P=\Ann_R(M)$ for some $R$-module $M$. Then $M$ is a simple 
 	$(R/P)$-module with 
 	\[
-	(r+P)\cdot m=r\cdot m,
+	(r+P)\cdot m=r\cdot m,\quad r\in R,\;m\in M. 
 	\]
-	$r\in R$, $m\in M$. This operation 
+	This operation 
 	is well-defined, as 
 	$P=\Ann_R(M)$. Since $M$ is a simple $R$-module, it follows that $M$ is 
 	a simple $(R/P)$-module. Moreover, $\Ann_{R/P}M=\{0\}$. Indeed, if 
 	$(r+P)\cdot M=\{0\}$, then $r\in\Ann_RM=P$ and hence $r+P=P$.
 
 	Assume now that $R/P$ is primitive. Let $M$ be a faithful simple $(R/P)$-module. 
-	Then $r\cdot m=(r+P)\cdot m$, $r\in R$,
-	$m\in M$, turns $M$ into an $R$-module. It follows that $M$ is simple and that $P=\Ann_R(M)$. 
+	Then 
+    \[
+    r\cdot m=(r+P)\cdot m, \quad r\in R,\; m\in M,
+    \]
+    turns $M$ into an $R$-module. It follows that $M$ is simple and that $P=\Ann_R(M)$. 
 \end{proof}
 
 %\begin{example}
@@ -557,8 +563,12 @@ for some simple $R$-module $M$.
 
 \begin{example}
 	Let $R_1,\dots,R_n$ be primitive rings and $R=R_1\times\cdots\times
-	R_n$. Then each $P_i=R_1\times\cdots\times R_{i-1}\times\{0\}\times
-	R_{i+1}\times\cdots\times R_n$ is a primitive ideal of $R$ since 
+	R_n$. Then each 
+    \[
+    P_i=R_1\times\cdots\times R_{i-1}\times\{0\}\times
+	R_{i+1}\times\cdots\times R_n
+    \]
+    is a primitive ideal of $R$ since 
 	$R/P_i\simeq R_i$.
 \end{example}
 
@@ -583,8 +593,11 @@ for some simple $R$-module $M$.
 	Assume that $P=\Ann_R(M)$ for some simple $R$-module $M$. By
 	Proposition~\ref{proposition:R/I}, there exists a regular maximal 
 	left ideal 
-	$I$ such that $M\simeq R/I$. Then $P=\Ann_R(R/I)=\{x\in
-	R:xR\subseteq I\}$. 
+	$I$ such that $M\simeq R/I$. Then 
+    \[
+    P=\Ann_R(R/I)=\{x\in
+	R:xR\subseteq I\}.
+    \]
 
 	Conversely, let $I$ be a regular maximal left ideal. By
 	Proposition~\ref{proposition:R/I}, $R/I$ is a simple $R$-module. Then

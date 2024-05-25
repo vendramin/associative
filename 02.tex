@@ -68,7 +68,8 @@ then each $n_j$ is uniquely determined.
 \end{theorem}
 
 \begin{proof}
-	Since each $S_j$ is simple and $S_i\not\simeq S_j$ if $i\ne j$, 
+	Since each $S_j$ is a simple module 
+    and $S_i\not\simeq S_j$ if $i\ne j$, 
     Schur's lemma implies that 
 	$\Hom_A(S_i,S_j)=\{0\}$ whenever $i\ne j$. 
 	For each $j\in\{1,\dots,k\}$, routine calculations show that 
@@ -102,7 +103,10 @@ $A$ is commutative if and only if $A=A^{\op}$.
 	Note that $\End_A(A)=\{\rho_a:a\in A\}$, where $\rho_a\colon
 	A\to A$, $x\mapsto xa$. Indeed, if $f\in\End_A(A)$, then 
 	$f(1)=a\in A$. Moreover, $f(b)=f(b1)=bf(1)=ba$ and hence 
-	$f=\rho_a$. The map $A^{\op}\to \End_A(A)$, $a\mapsto\rho_a$, 
+	$f=\rho_a$. The map 
+    \[
+    A^{\op}\to \End_A(A),\quad a\mapsto\rho_a,
+    \]
 	is bijective and it is an algebra homomorphism, as 
     \[
 		\rho_a\rho_b(x)=\rho_a(\rho_b(x))=\rho_a(xb)=x(ba)=\rho_{ba}(x).\qedhere

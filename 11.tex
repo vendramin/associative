@@ -120,10 +120,17 @@ The following proposition is extremely useful:
 
 \begin{proof}
 	Since $U\times V\to V\otimes U$, $(u,v)\mapsto v\otimes u$, is bilinear, there exists 
-	a linear map $U\otimes V\to V\otimes U$, $u\otimes
-	v\mapsto v\otimes u$. Similarly, there exists a linear map 
-	$V\otimes U\to U\otimes V$, $v\otimes u\mapsto
-	u\otimes v$. Thus $U\otimes V\simeq V\otimes U$.
+	a linear map 
+    \[
+    U\otimes V\to V\otimes U,\quad u\otimes
+	v\mapsto v\otimes u.
+    \]
+    Similarly, there exists a linear map 
+	\[
+    V\otimes U\to U\otimes V,\quad  v\otimes u\mapsto
+	u\otimes v.
+    \]
+    Thus $U\otimes V\simeq V\otimes U$.
 \end{proof}
 
 \begin{exercise}
@@ -178,7 +185,9 @@ The following proposition is extremely useful:
 \begin{proof}
 	The $u_i\otimes v_j$ are generators of $U\otimes V$, as  
     $u=\sum_i\lambda_iu_i$ and $v=\sum_j\mu_jv_j$ imply 
-	$u\otimes v=\sum_{i,j}\lambda_i\mu_ju_i\otimes v_j$. 
+	\[
+    u\otimes v=\sum_{i,j}\lambda_i\mu_ju_i\otimes v_j.
+    \]
 	We now prove that the $u_i\otimes v_j$ are linearly independent. We need to show that
 	each finite subset of the $u_i\otimes v_j$
 	is linearly independent. If $\sum_k\sum_l\lambda_{kl}u_{i_k}\otimes
@@ -200,8 +209,8 @@ If $U$ and $V$ are finite-dimensional vector spaces, then
 \end{corollary}
 
 \begin{proof}
-	Every element of $U\otimes V$ is a finite sum 
-	$\sum_i x_i\otimes y_i$, where $x_i\in U$ and $y_i\in V$. If  
+	Every element of the tensor product $U\otimes V$ is a finite sum 
+	of the form $\sum_i x_i\otimes y_i$, where $x_i\in U$ and $y_i\in V$. If  
 	$x_i=\sum_j\lambda_{ij}u_j$, then 
 	\[
 		\sum_i x_i\otimes y_i=\sum_i\left(\sum_j\lambda_{ij}u_j\right)\otimes y_i		
@@ -281,7 +290,7 @@ Some examples:
 \end{proposition}
 
 \begin{proof}
-	Each element of $A\otimes K[X]$ can be written uniquely as a finite sum of
+	Each element of the tensor product $A\otimes K[X]$ can be written uniquely as a finite sum of
 	the form $\sum a_i\otimes X^i$. Routine calculations show that 
 	$A\otimes K[X]\mapsto A[X]$, $\sum a_i\otimes X^i\mapsto \sum a_iX^i$, is a 
 	linear algebra isomorphism. 
