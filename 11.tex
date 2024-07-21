@@ -22,13 +22,20 @@ $v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
 
 \begin{theorem}
 	Let $U$ and $V$ be vector spaces. Then there exists a bilinear map 
-	$U\times V\to U\otimes V$, $(u,v)\mapsto u\otimes v$, such that 
+	\[
+    U\times V\to U\otimes V,\quad (u,v)\mapsto u\otimes v,
+    \]
+    such that 
 	each element of $U\otimes V$ is a finite sum of the form 
 	\[
 		\sum_{i=1}^N u_i\otimes v_i
 	\]
 	for some $u_1,\dots,u_N\in U$ and $v_1,\dots,v_N\in V$. 
-	Moreover, if $W$ is a vector space and $\beta\colon U\times V\to W$ is a bilinear map, 
+	Moreover, if $W$ is a vector space and 
+ \[
+ \beta\colon U\times V\to W
+ \]
+ is a bilinear map, 
 	there exists a linear map 
 	$\overline{\beta}\colon U\otimes V\to W$ such that $\overline{\beta}(u\otimes
 	v)=\beta(u,v)$ for all $u\in U$ and $v\in V$.
@@ -161,7 +168,11 @@ The following proposition is extremely useful:
 	0 & \text{otherwise}.
 	\end{cases}
 	\]
-	Since the map $U\times V\to V$, $(u,v)\mapsto f_i(u)v$, is bilinear, there exists 
+	Since the map 
+ \[
+ U\times V\to V,\quad (u,v)\mapsto f_i(u)v,
+ \]
+ is bilinear, there exists 
 	a linear map 
 	$\alpha_i\colon U\otimes V\to V$ such that $\alpha_i(u\otimes
 	v)=f_i(u)v$. Thus
@@ -192,7 +203,9 @@ The following proposition is extremely useful:
 	each finite subset of the $u_i\otimes v_j$
 	is linearly independent. If $\sum_k\sum_l\lambda_{kl}u_{i_k}\otimes
 	v_{j_l}=0$, then 
-	$0=\sum_{k}u_{i_k}\otimes\left(\sum_{l}\lambda_{kl}v_{j_l}\right)$. Since  
+	\[
+0=\sum_{k}u_{i_k}\otimes\left(\sum_{l}\lambda_{kl}v_{j_l}\right).\]
+    Since  
 	the $u_{i_k}$ are linearly independent, Proposition~\ref{pro:U_LI}
 	implies that $\sum_{l}\lambda_{kl}v_{j_l}=0$. Thus $\lambda_{kl}=0$ for all 
 	$k,l$, as the $v_{j_l}$ are linearly independent. 
