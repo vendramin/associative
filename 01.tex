@@ -8,7 +8,7 @@ prove Artin--Wedderburn theorem.
 
 \begin{definition}
 	\index{Algebra}
-	An \textbf{algebra} (over the field $K$) is a vector space (over $K$) 
+	An \emph{algebra} (over the field $K$) is a vector space (over $K$) 
 	with an associative multiplication $A\times A\to A$ such that
 	\[
     a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)\quad\text{and}\quad 
@@ -32,11 +32,11 @@ such that $1_K\to 1_A$.
 
 \begin{definition}
 	\index{Algebra!commutative}
-	An algebra $A$ is \textbf{commutative} if $ab=ba$ for all $a,b\in A$. 
+	An algebra $A$ is \emph{commutative} if $ab=ba$ for all $a,b\in A$. 
 \end{definition}
 
 \index{Algebra!dimension}
-The \textbf{dimension} of an algebra $A$ is the dimension of $A$ as a vector space. This is why we want to consider algebras, as 
+The \emph{dimension} of an algebra $A$ is the dimension of $A$ as a vector space. This is why we want to consider algebras, as 
 they are a linear version of rings. Often, our arguments will use the dimension of the underlying vector space.  
 
 \begin{example}
@@ -64,7 +64,7 @@ are examples of algebras over $K$.
 
 \begin{example}
 	Let $n\in\Z_{>0}$. Then $K[X]/(X^n)$ is a finite-dimensional algebra. 
-    It is the \textbf{truncated polynomial algebra}.  
+    It is the \emph{truncated polynomial algebra}.  
 \end{example}
 
 \begin{example}
@@ -77,7 +77,7 @@ are examples of algebras over $K$.
 	\] 	
 	Note that $\dim\C[G]=|G|$ and
 	$\C[G]$ is commutative if and only $G$ is abelian. 
-	This is the \textbf{complex group algebra} of $G$. 
+	This is the \emph{complex group algebra} of $G$. 
 \end{example}
 
 If $G$ is an infinite group, the complex group algebra $\C[G]$ 
@@ -88,7 +88,7 @@ with the usual operations.
 \begin{definition}
     \index{Homomorphism!of algebras}
     Let $K$ be a field and $A$ and $B$ be $K$-algebras. 
-    An algebra \textbf{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a $K$-linear map. 
+    An algebra \emph{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a $K$-linear map. 
 \end{definition}
 
 The complex conjugation map  
@@ -113,7 +113,7 @@ of units of $A$.
 
 \begin{definition}
  	\index{Algebra!ideal}
- 	An \textbf{ideal} of an algebra is an ideal of the underlying ring.
+ 	An \emph{ideal} of an algebra is an ideal of the underlying ring.
 \end{definition}
 
 Similarly, one defines left and right ideals of an algebra.
@@ -136,7 +136,7 @@ $A\to A/I$, $a\mapsto a+I$, is a surjective algebra homomorphism with kernel~$I$
     \index{Algebraic element}
     \index{Algebra!algebraic}
     Let $A$ be an algebra over the field $K$. An element $a\in A$ is 
-    \textbf{algebraic} over $K$ if there exists a non-zero polynomial $f\in K[X]$
+    \emph{algebraic} over $K$ if there exists a non-zero polynomial $f\in K[X]$
     such that $f(a)=0$. 
 \end{definition}
 
@@ -157,16 +157,16 @@ In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}
 
 \begin{definition}
 \index{Module}
-    A \textbf{module} over an algebra $A$ is a module 
+    A \emph{module} over an algebra $A$ is a module 
     over the ring $A$.
 \end{definition}
 
-Similarly, one defines \textbf{submodules} of $A$-modules. 
+Similarly, one defines \emph{submodules} of $A$-modules. 
 
 \begin{definition}
 \index{Module!homomorphism}
 Let $A$ be a $K$-algebra. 
-A \textbf{homomorphism} of $A$-modules 
+A \emph{homomorphism} of $A$-modules 
 $f\colon M\to N$ is a $K$-linear map such that $f(a\cdot m)=a\cdot f(m)$ for all
 $a\in A$ and $m\in M$.  
 \end{definition}
@@ -201,13 +201,13 @@ $\lambda\in K$ and $m\in M$.
 
 \begin{example}
 An algebra  $A$ is a module over $A$ with left multiplication, that is $a\cdot b=ab$, $a,b\in A$.
-This module is the (left) \textbf{regular representation} of $A$ and it will be denoted by $\prescript{}{A}{A}$. 
+This module is the (left) \emph{regular representation} of $A$ and it will be denoted by $\prescript{}{A}{A}$. 
 \end{example}
 
 \begin{definition}
 \index{Module!simple}
 	Let $A$ be an algebra and $M$ be a module over $A$. Then 
-	$M$ is \textbf{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
+	$M$ is \emph{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
 	are the only submodules of $M$.	
 \end{definition}
 
@@ -215,7 +215,7 @@ This module is the (left) \textbf{regular representation} of $A$ and it will be 
 \index{Module!semisimple}
 	Let $A$ be a finite-dimensional 
 	algebra and $M$ be a finite-dimensional module over $A$. Then 
-	$M$ is \textbf{semisimple} if $M$ is a direct sum of 
+	$M$ is \emph{semisimple} if $M$ is a direct sum of 
 	finitely many simple submodules.  
 \end{definition}
 
@@ -313,7 +313,7 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 
 \begin{definition}
 \index{Algebra!semisimple}
-    An algebra $A$ is \textbf{semisimple} if every finitely generated $A$-module is semisimple. 
+    An algebra $A$ is \emph{semisimple} if every finitely generated $A$-module is semisimple. 
 \end{definition}
 
 \begin{proposition}
