@@ -1,0 +1,50 @@
+\section{Hurewicz' theorem}
+
+\begin{theorem}[Hurewicz]
+    \label{thm:Hurewicz}
+    \index{Hurewicz' theorem}
+    Let $G$ be a group and $I$ be the augmentation ideal of $\Z[G]$. 
+    Then $G/[G,G]\simeq I/I^2$ as (abelian) groups. 
+\end{theorem}
+
+\begin{proof}
+    Let $\varphi\colon G\to I/I^2$, $g\mapsto g-1_G+I^2$. Since $g-1_G\in I$ for all $g\in G$, $\varphi$ is well-defined. The map $\varphi$ is a group homomorphism. Since 
+    $(g-1_G)(h-1_G)\in I^2$, 
+    \begin{align*}
+    \varphi(gh) &= gh-1_G+I^2\\
+    &=gh-1_G-(g-1_G)(h-1_G)+I^2+I^2\\
+    &=g-1_G+h-1_G+I^2\\
+    &=\varphi(g)+\varphi(h)
+    \end{align*}
+    holds for all $g,h\in G$. 
+
+    Since $[G,G]\subseteq\ker\varphi$, there exists a group homomorphism
+    \[
+    \overline{\varphi}\colon G/[G,G]\to I/I^2,\quad 
+    g[G,G]\mapsto g-1_G+I^2.
+    \]
+    We claim that $\overline{\varphi}$ is an isomorphism. 
+    Let us construct the inverse of $\overline{\varphi}$. Let 
+    \[
+    \psi\colon I\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    Since $G/[G,G]$ is abelian, the map $\psi$ is well-defined, that is
+    the order of the factors in $\prod_{g\in G}g^{m_g}$ does not matter. Note that 
+    $I^2\subseteq\ker\psi$, as 
+    $\{(g-1_G)(h-1_G):g,h\in G\}$ generates the additive group $I^2$ 
+    and 
+    \begin{align*}
+        \psi((g-1_G)(h-1_G))&=\psi( (gh-1_G)-(g-1_G)-(h-1_G))\\
+        &=(ghg^{-1}h^{-1})[G,G]\\
+        &=[G,G].
+    \end{align*}
+    Therefore there exists a group homomorphism
+    \[
+    \overline{\psi}\colon I/I^2\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)+I^2\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    A direct calculation shows that $\overline{\psi}$ is the inverse 
+    of $\overline{\varphi}$. 
+\end{proof}
+
