@@ -1,0 +1,243 @@
+\section{An analytic proof of Rickart's theorem}
+
+We will present a different proof 
+of Rickart's theorem \ref{thm:Rickart}. 
+
+\begin{definition}
+	\index{Ring!with an involution}
+	\index{Involution}
+	Let $R$ be a ring. An \emph{involution} 
+    in $R$ is an additive map  
+    $R\to R$, $x\mapsto x^*$, such that $x^{**}=x$ and  $(xy)^*=y^*x^*$ for all 
+	$x,y\in R$.
+\end{definition}
+
+It follows that if $R$ is a unitary ring, then 
+$1^*=1$.
+
+\begin{example}
+	The conjugation $z\mapsto\overline{z}$ is an 
+    involution of $\C$.
+\end{example}
+
+\begin{example}
+	The transpose map $X\mapsto X^T$ is an involution of $M_n(K)$.
+\end{example}
+
+\begin{example}
+	Let $G$ be a group. 
+    Then \[
+    \left(\sum_{g\in G}\alpha_gg\right)^*=\sum_{g\in G}\overline{\alpha_g}g^{-1}
+    \]
+	is an involution of the group ring $\C[G]$.
+\end{example}
+
+For a group $G$, one defines the \emph{trace} 
+of an element 
+\[
+\alpha=\sum_{g\in G}\alpha_gg\in K[G]
+\]
+as $\trace(\alpha)=\alpha_1$. One proves that 
+the map 
+\[
+\trace\colon K[G]\to K,\quad 
+\alpha\mapsto\trace(\alpha)
+\]
+is $K$-linear such that   
+$\trace(\alpha\beta)=\trace(\beta\alpha)$ for 
+all $\alpha,\beta\in K[G]$. 
+
+\begin{exercise}
+	Let $G$ be a finite group and $K$ 
+ be a field of characteristic not dividing the 
+ order of $G$.
+	Prove the following statements: 
+	\begin{enumerate}
+		\item If $\alpha\in K[G]$ is nilpotent, then $\trace(\alpha)=0$.
+		\item If $\alpha\in K[G]$ is idempotent, then $\trace(\alpha)=\dim
+			(K[G]\alpha)/|G|$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Prove that  
+	$\langle\alpha,\beta\rangle=\trace(\alpha\beta^*)$, $\alpha,\beta\in\C[G]$, 
+	defines an inner product in $\C[G]$.
+\end{exercise}
+
+\begin{lemma}
+	\label{lem:algebraico}
+	Let $G$ be a group. Prove that if $J(\C[G])\ne 0$, then there exists $\alpha\in J(\C[G])$ such that  
+	$\trace(\alpha^{2^m})\in\R_{\geq1}$ 
+	for all $m\geq1$.
+\end{lemma}
+
+\begin{proof}
+	Let $\alpha=\sum_{g\in G}\alpha_gg\in\C[G]$. Then 
+	\[
+		\trace(\alpha^*\alpha)
+		=\sum_{g\in G}\overline{\alpha_g}\alpha_g
+		=\sum_{g\in G}|\alpha_g|^2\geq|\alpha_1|^2
+		=|\trace(\alpha)|^2.
+	\]
+	By induction, one proves that, if 
+    $\alpha$ is such that $\alpha^*=\alpha$, then  
+    \[
+    \trace(\alpha^{2^m})\geq|\trace(\alpha)|^{2^m}
+    \]
+	for all $m\geq1$. 
+
+	Let $\beta=\sum_{g\in G}\beta_gg\in J(\C[G])$ be such that $\beta\ne0$. Since 
+	$\trace(\beta^*\beta)=\sum_{g\in G}|\beta_g|^2\ne0$ and $J(\C[G])$ is an ideal, 
+	\[
+		\alpha=\frac{\beta^*\beta}{\trace(\beta^*\beta)}\in J(\C[G]).
+	\]
+	Then $\alpha$ is such that $\alpha^*=\alpha$ and $\trace(\alpha)=1$.
+	Hence $\trace(\alpha^{2^m})\geq 1$  for all $m\geq1$.
+\end{proof}
+
+Exercise~\ref{exa:norma} implies that $\C[G]$ with 
+$\operatorname{dist}(\alpha,\beta)=|\alpha-\beta|$ is a metric space. In this metric space, the map 
+$\C[G]\to\C$, $\alpha\mapsto \trace(\alpha)$, is a continuous map. 
+
+\begin{lemma}
+	\label{lem:phi_diferenciable}
+	Let $\alpha\in J(\C[G])$. The map 
+	\[
+		\varphi\colon\C\to\C[G],\quad
+		\varphi(z)=(1-z\alpha)^{-1},
+	\]
+	is continuous, differentiable and $\varphi(z)=\sum_{n\geq0}\alpha^nz^n\in\C[G]$ if  $|z|$
+	is sufficiently small. 
+\end{lemma}
+
+\begin{proof}	
+	Let $y,z\in\C$. Since $\varphi(y)$ and $\varphi(z)$ commute, 
+	\begin{equation}
+		\label{eq:Rickart}
+		\begin{aligned}
+			\varphi(y)-\varphi(z)&=\left( (1-z\alpha)-(1-y\alpha)\right)(1-y\alpha)^{-1}(1-z\alpha)^{-1}\\
+			&=(y-z)\alpha\varphi(y)\varphi(z).
+		\end{aligned}
+	\end{equation}
+	Hence $|\varphi(y)|\leq|\varphi(z)|+|y-z||\alpha\varphi(y)||\varphi(z)|$ and therefore 
+	\[
+		|\varphi(y)|\left( 1-|y-z||\alpha\varphi(z)|\right)\leq|\varphi(z)|.
+	\]
+	Fix $z$ and choose $y$ sufficiently close to $z$ in such a way that $1-|y-z||\alpha\varphi(z)|\geq1/2$. Then
+	$|\varphi(y)|\leq2|\varphi(z)|$. Using~\eqref{eq:Rickart} one obtains that 
+	$|\varphi(y)-\varphi(z)|\leq2|y-z||\alpha||\varphi(z)|^2$. 
+	Hence $\varphi$ is continuous. By~\eqref{eq:Rickart}, 
+	\[
+	\varphi'(z)
+	=\lim_{y\to z}\frac{\varphi(y)-\varphi(z)}{y-z}
+	=\lim_{y\to z}\alpha\varphi(y)\varphi(z)
+	=\alpha\varphi(z)^2
+	\]
+	for all $z\in\C$.
+
+	If $z$ is such that $|z||\alpha|=|z\alpha|<1$, then  
+	\[
+		\varphi(z)-\sum_{n=0}^Nz^n\alpha^n
+		=\varphi(z)\left(1-(1-z\alpha)\sum_{n=0}^Nz^n\alpha^n\right)
+		=\varphi(z)(z\alpha)^{N+1}.
+	\]
+	Then 
+	\[
+		\left|\varphi(z)-\sum_{n=0}^Nz^n\alpha^n\right|\leq|\varphi(z)||z\alpha|^{N+1}.
+	\]
+	Since $\varphi(z)$ is bounded close to $z=0$, we conclude that 
+	\[
+ \left|\varphi(z)-\sum_{n=0}^Nz^n\alpha^n\right|\to0
+ \]
+ if $N\to\infty$.
+\end{proof}
+
+We now provide an alternative proof of Rickart's theorem: 
+
+\begin{theorem}[Rickart]
+	\index{Rickart's theorem}
+	If $G$ is a group, then $J(\C[G])=\{0\}$.
+\end{theorem}
+
+\begin{proof}
+	Let $\alpha\in J(\C[G])$ and $\varphi(z)=(1-\alpha z)^{-1}$. Let 
+	$f\colon\C\to \C$, 
+	$f(z)=\trace\varphi(z)=\trace\left((1-z\alpha)^{-1}\right)$. By Lemma~\ref{lem:phi_diferenciable},
+	$f(z)$ is an entire function such that  $f'(z)=\trace(\alpha\varphi(z)^2)$ and 
+	\begin{equation}
+		\label{eq:Taylor}
+		f(z)=\sum_{n=0}^\infty z^n\trace(\alpha^n)
+	\end{equation}
+	if $|z|$ is sufficiently small. In particular,~\eqref{eq:Taylor} is the Taylor series of $f(z)$ around the origin. This implies that the series converges to $f(z)$ for all $z\in\C$. In particular,
+	\begin{equation}
+		\label{eq:limite}
+		\lim_{n\to\infty}\trace(\alpha^n)=0.
+	\end{equation}
+	On the other hand, if $\alpha\ne0$, Lemma~\ref{lem:algebraico} implies that 
+	$\trace(\alpha^{2^m})\geq1$ for all $m\geq0$. This contradicts the limit computed in~\eqref{eq:limite}. Hence $\alpha=0$.
+\end{proof}
+
+For a corollary, we need two lemmas. 
+
+\begin{lemma}[Nakayama]
+	\label{lem:Nakayama}
+	\index{Nakayama's lemma}
+	Let $R$ be a unitary ring and $M$ be 
+    a finitely generated $R$-module. 
+    If $J(R)M=M$, then $M=\{0\}$.
+\end{lemma}
+
+\begin{proof}
+	Assume that $M$ is generated by 
+    $x_1,\dots,x_n$. Since $x_n\in M=J(R)M$, 
+	there exist $r_1,\dots,r_n\in J(R)$ such that  $x_n=r_1x_1+\cdots+r_nx_n$, that is 
+	$(1-r_n)x_n=\sum_{j=1}^{n-1}r_jx_j$. 
+	Since $1-r_n$ is invertible, there exists 
+    $s\in R$ such that $s(1-r_n)=1$. Then
+	$x_n=\sum_{j=1}^{n-1}sr_jx_j$ 
+	and hence $M$ is generated by $x_1,\dots,x_{n-1}$. After repeating this procedure sufficiently many times (finitely many times), one gets $M=\{0\}$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:Rickart}
+    Let $R$ and $S$ be unitary rings and 
+	$\iota\colon R\to S$ be a ring homomorphism. If  
+	\[
+	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+	\]
+	where each $x_j$ is such that
+    $x_jy=yx_j$ for all $y\in\iota(R)$, then
+	$\iota(J(R))\subseteq J(S)$.
+\end{lemma}
+
+\begin{proof}
+	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+	Let $M$ be a simple $S$-module. Write 
+    $M=Sm$ for some $m\ne0$. Then $M$ is 
+    an $R$-module with $r\cdot m=\iota(r)m$. Since 
+    \[
+		M=Sm=(\iota(R)x_1+\cdots+\iota(R)x_n)m=\iota(R)(x_1m)+\cdots+\iota(R)(x_nm),
+	\]
+	$M$ is finitely generated as an $\iota(R)$-module. Moreover, $J(R)\cdot
+	M=JM=\iota(J)M$ is an $S$-submodule of $M$, as 
+	\[
+		x_j(JM)=(x_jJ)M=(Jx_j)M=J(x_jM)\subseteq JM.
+	\]
+	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. Since 
+	$M$ is a simple $S$-module, we conclude that 
+    $J(R)M=\{0\}$.
+\end{proof}
+
+\begin{corollary}
+	If $G$ is a group, then $J(\R[G])=\{0\}$. 
+\end{corollary}
+
+\begin{proof}
+	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+ 	\[
+	\C[G]=\R[G]+i\R[G],
+	\]
+	Now Lemma \ref{lem:Rickart} and Rickart's theorem imply that 
+	$\iota(J(\R[G]))\subseteq J(\C[G])=\{0\}$. We conclude that $J(\R[G])=0$, as the map $\iota$ is injective. 
+\end{proof}
