@@ -33,14 +33,12 @@ Department of Mathematics and Data Sciences. \end{abstract}
 \include{11}
 \include{12}
 
-\renewcommand\sectionname{Topic}
-
-\pagestyle{plain}
+\pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{Associative algebras}
-\fancyhead[RE,LO]{Final projects}
-\fancyfoot[CE,CO]{\leftmark}
-\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[R]{\thepage}
+\fancyhead[L]{\course}
+\fancyhead[R]{Final projects}
+\setlength{\headheight}{14pt}
 
 \include{topics}
 
@@ -52,8 +50,10 @@ Department of Mathematics and Data Sciences. \end{abstract}
 \include{A06}
 \include{A07}
 \include{A08}
+\include{A09}
 
-\addcontentsline{}{}{}
+\pagestyle{plain}
+
 \bibliographystyle{abbrv}
 \bibliography{refs}
 \printindex
