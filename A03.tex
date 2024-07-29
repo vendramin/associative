@@ -1,4 +1,30 @@
-\section*{Project: Hurewicz' theorem}
+\section{Hurewicz' theorem}
+
+Let $R$ be a unitary commutative ring and $G$ be a group. Recall that \emph{group ring} is a free $R$-module which is also a ring. As a free $R$-module, $G$ is a basis for $R[G]$. Thus every element $\alpha\in R[G]$ can be written uniquely as 
+a sum of the form 
+\[
+\alpha=\sum_{g\in G}r_gg,\quad r_g\in R.
+\]
+Note that the elements of $R$ (more precisely, the elements of the form $r1_G$ for $r\in R$) are central in $R[G]$. 
+
+\begin{exercise}
+\label{xca:augmentation_ideal}
+    Let $R$ be a commutative ring and $G$ be a group. Let 
+    \[
+    f\colon R[G] \to R,\quad 
+    \sum_{g \in G} r_g g\mapsto \sum_{g \in G} r_g.
+    \]
+    Prove the following statements:
+    \begin{enumerate}
+        \item $f$ is a surjective ring
+            homomorphism. 
+        \item $\{g - 1_G: 1_G\ne g \in G\}$ is a    basis for the free $R$-module $\ker f$.
+    \end{enumerate}
+\end{exercise}
+
+The kernel of the homomorphism of Exercise \ref{xca:augmentation_ideal} is 
+called the \emph{augmentation ideal} of
+the group ring. We used this ideal before (e.g. Propositions \ref{pro:KGsemisimple} and Appendix \ref{section:local}). 
 
 \begin{theorem}[Hurewicz]
     \label{thm:Hurewicz}
