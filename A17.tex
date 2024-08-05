@@ -92,7 +92,7 @@ each $I_j$ is an ideal of $A_j$.
 Now we prove another nice result of Wedderburn:
 
 \begin{theorem}[Wedderburn]
-\label{thm:Wedderburn}
+\label{thm:Wedderburn_nilpotent}
 \index{Wedderburn's theorem}
     Let $A$ be a complex finite-dimensional 
     algebra. If $A$ is generated (as a vector space) 
@@ -130,7 +130,7 @@ the theorem can be extended to any algebraically closed field. We
 state and prove Wedderburn's theorem in the case of complex numbers
 to simplify the presentation. 
 
-\begin{proof}[Proof of Theorem \ref{thm:Wedderburn}]
+\begin{proof}[Proof of Theorem \ref{thm:Wedderburn_nilpotent}]
     We proceed by induction on $\dim A$. If $\dim A=1$ and 
     there exists a nilpotent element $a\in A$ such that 
     $\{a\}$ is a basis of $A$, then $A$ is nilpotent, 
@@ -147,7 +147,10 @@ to simplify the presentation.
     $\dim A/J(A)<\dim A$ and hence 
     $A/J(A)$ is nilpotent by 
     the inductive hypothesis, 
-    say $(A/J(A))^m=\{0\}$. Let $\pi\colon A\to A/J(A)$ be the canonical map and 
+    say $(A/J(A))^m=\{0\}$. Let \[
+    \pi\colon A\to A/J(A)
+    \]
+    be the canonical map and 
     $N=nm$. We claim that $A^N=\{0\}$. Let $a_1,\dots,a_N\in A$. Write
     $a_1\cdots a_N=x_1\cdots x_n$ for some $x_1\cdots x_n\in A$. For example,
     \begin{align*}
@@ -187,7 +190,7 @@ to simplify the presentation.
 If $(V_1,\dots,V_n)$ is a complete flag, then $\dim V_i=i$ for all 
 $i\in\{1,\dots,n\}$. 
 Let $\{e_1,\dots,e_n\}$ be the standard basis of $\C^n$. 
-The \emph{standard flag} is the sequence $(E_1,\dots,E_n)$, where
+The \emph{standard flag} is defined as the sequence $(E_1,\dots,E_n)$, where
 $E_i=\langle e_1,\dots,e_i\rangle$ for all $i\in\{1,\dots,n\}$.  
 
 Note that $\GL_n(\C)$ acts on the set of complete flags of $V$ 
@@ -200,7 +203,10 @@ where $T_g\colon V\to V$, $x\mapsto gx$.
 The action is \emph{transitive}, 
 which means that if $(V_1,\dots,V_n)$ 
 is a complete flag, then there exists 
-$g\in\GL_n(\C)$ such that $g\cdot (E_1,\dots,E_n)=(V_1,\dots,V_n)$. 
+$g\in\GL_n(\C)$ such that 
+\[
+g\cdot (E_1,\dots,E_n)=(V_1,\dots,V_n).
+\]
 In fact, 
 the matrix $g=(v_1|v_2|\cdots|v_n)$, where
 $\{v_1,\dots,v_n\}$ is a basis of $V$, 
@@ -398,8 +404,6 @@ to some subgroup of $U_n(\C)$.
     \]
     Therefore, $G\subseteq G_{(W_0,\dots,W_{n-1})}$. 
 \end{proof}
-
-\subsection{Some comments}
 
 The ideas behind the theorem are somewhat connected to Sylow's theory. The key is to consider an explicit version of Sylow's theorem for the group $\GL_n(p)$ of invertible matrices 
 with coefficients in the field $\F_p$ with $p$ elements. 
