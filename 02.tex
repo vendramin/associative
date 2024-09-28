@@ -290,12 +290,18 @@ application of semisimplicity.
 
 % \begin{sol}{xca:matrices}
 % 	Let $f\colon M_n(\R)\to M_m(\R)$ be an 
-% 	algebra homomorphism. Then 
-% 	$M_m(\R)$ is an $M_n(\R)$-module 
-% 	with $a\cdot m=f(a)\cdot m$, $a\in M_n(\R)$, $m\in M_m(\R)$. 
+% 	algebra homomorphism. Then every $M_m(\R)$-module
+%   is an $M_n(\R)$-module with 
+% 	$a\cdot m=f(a)\cdot m$, where $a\in M_n(\R)$ and $m\in M$. 
 % 	Since $M_n(\R)$ is a semisimple algebra, 
 % 	every $M_n(\R)$-module is semisimple. In particular,
-% 	$\R^n$ is a semisimple $M$ 
+% 	$\R^m$ is a semisimple $M_n(\R)$ (it is naturally 
+%   $\M_m(\R)$-module by left multiplication). The simple 
+%   modules of $M_n(\R)$ are all isomorphic and 
+%   of the form $\R^n$. Thus $\R^m\simeq k\R^n$ for
+%   some positive integer $k$. Since our modules are in particular 
+%   real vector spaces, taking dimension we obtain that 
+%   $m=kn$, that is $n$ divides $m$. 
 % \end{sol}
 
 
@@ -304,297 +310,79 @@ application of semisimplicity.
 %     $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
 % \end{exercise}
 
-\subsection{Group algebras}
+\subsection{Simple algebras and Wedderburn's theorem}
 
-Let $K$ be a field, and $G$ be a group. The \emph{group algebra} $K[G]$ 
-is the vector space (over $K$) with basis $\{g:g\in G\}$ 
-and the algebra structure is given by the multiplication
-\[
-	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
-	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
-\]
-Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
+\begin{definition}
+\index{Algebra!simple}  
+    An algebra $A$ is said to be \emph{simple} if $A\ne\{0\}$ and $\{0\}$ and $A$ are the only ideals of $A$. 
+\end{definition}
 
-\begin{exercise}
-\label{xc:K[G]notsimple}
-    If $G$ is non-trivial, then $K[G]$ is not simple. 
-\end{exercise}
+\begin{proposition}
+	Let $A$ be a finite-dimensional simple algebra. There exists a non-zero left ideal 
+	$I$ of minimal dimension. This ideal is a simple 
+	$A$-module, and every simple $A$-module is isomorphic to $I$.
+\end{proposition}
 
-\begin{exercise}
-\label{xca:K_cyclic}
-	Let $G=C_n$ be the (multiplicative) cyclic group of order $n$. Prove that 
-	$K[G]\simeq K[X]/(X^n-1)$. 
-\end{exercise}
-
-\begin{exercise}
-\label{xca:abelian=>domain}
-	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
-	$K[G]$ is a domain. 
-\end{exercise}
-
-
-
-\begin{exercise}
-	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
-	The \emph{support} of $\alpha$ is the set 
+\begin{proof}
+	Since $A$ is finite-dimensional and $A$ is a left ideal of $A$, there exists a non-zero left ideal of minimal dimension. The minimality 
+	of $\dim I$ implies that $I$ is a simple $A$-module. 
+	
+	Let $M$ be a simple $A$-module. In particular, $M\ne\{0\}$. 
+	Since  
 	\[
-		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
+	\Ann_A(M)=\{a\in A:a\cdot M=\{0\}\}
 	\]
-	Prove that if $g\in G$, then 
-	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
-\end{exercise}
-
-\begin{exercise}
-\label{xca:invertible_subgroups}
-	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
-    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
-	$\alpha$ is invertible (resp. a left zero divisor) in
-	$K[G]$.
-\end{exercise}
-
-% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
-% grupo de un grupo finito. Comenzamos con un ejemplo:
-
-\begin{exercise}
-	Let $G=C_2=\langle g\rangle\simeq\Z/2$ the (multiplicative) 
-	group with two elements. Note that every element of $K[G]$ is of the form
-	$a+bg$ for some $a,b\in K$. Prove the following statements:
-	\begin{enumerate}
-	    \item If the characteristic of $K$ is different from two, then 
-	    \[
-		K[G]\to K\times K,
-		\quad
-		a1+bg\mapsto (a+b,a-b),
-	\]
-	is an algebra isomorphism. 
-	\item If the characteristic of $K$ is two, then 
+	is an ideal of $A$ and $1\in A\setminus\Ann_A(M)$, the simplicity of $A$ implies that 
+	$\Ann_A(M)=\{0\}$ and hence $I\cdot M\ne\{0\}$ (because $I\cdot m= 0$ for all $m\in M$ yields  
+	$I\subseteq\Ann_A(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
+	that $I\cdot m\ne\{0\}$. The map 
 	\[
-	K[G]\to \begin{pmatrix}
-			K & K\\
-			0 & K
-		\end{pmatrix},
-		\quad
-		a1+bg\mapsto\begin{pmatrix}
-			a+b & b\\
-			0 & a+b
-		\end{pmatrix},
+	\varphi\colon I\to M,\quad
+	x\mapsto x\cdot m,
 	\]
-	is an algebra isomorphism. 
-	\end{enumerate}
-\end{exercise}
+	is a module homomorphism. Since $I\cdot m\ne\{0\}$, the map $\varphi$ is non-zero. 
+	Since both $I$ and $M$ are simple, Schur's lemma implies that $\varphi$ is an isomorphism. 
+\end{proof}
 
-If $A$ is an algebra over $K$ and $\rho\colon G\to \mathcal{U}(A)$
-is a group homomorphism, where $\mathcal{U}(A)$ is the group of units of $A$, then 
-the map \[
-	K[G]\to A,\quad 
-\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g),
-\]
-is an algebra homomorphism. 
+If $D$ is a division algebra, then $M_n(D)$ is a simple algebra. The previous proposition
+implies that the algebra $M_n(D)$ has a unique isomorphism class of simple modules. Each simple module
+is isomorphic to $D^n$. 
 
-\begin{exercise}
-	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
-	$\R[G]\simeq\R\times\C$.
-% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
-% 	\[
-% 		\varphi\colon\R[G]\to\R\times\C,
-% 		\quad
-% 		g\mapsto (1,\omega),
-% 	\]
-% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
-% 	$\varphi$ es inyectivo pues
-% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
-% 	Luego $\varphi$ es un isomorfismo pues
-% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
-\end{exercise}
+\begin{proposition}
+    Let $A$ be a finite-dimensional algebra. 
+    If $A$ is simple, then $A$ is semisimple. 
+\end{proposition}
 
-\begin{exercise}
-\label{xca:isos_dihedral}
-	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
-	Prove the following statements:
-	\begin{enumerate}
-	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
-	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
-	\end{enumerate}  
-% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
-% 	\[
-% 		R=\begin{pmatrix}
-% 			\omega & 0\\
-% 			0 & \omega^2
-% 		\end{pmatrix},
-% 		\quad
-% 		S=\begin{pmatrix}
-% 			0 & 1\\
-% 			1 & 0
-% 		\end{pmatrix}.
-% 	\]
-% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
-% 	\[
-% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
-% 		r\mapsto (1,1,R),\quad
-% 		s\mapsto (1,-1,S).
-% 	\]
-% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
-% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
-% 	basta ver que $\varphi$ es inyectivo. Si 
-% 	\[
-% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
-% 	\]
-% 	entonces 
-% 	\[
-% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
-% 	\]
-% 	donde
-% 	\begin{align*}
-% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
-% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
-% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
-% 	\end{align*}
-% 	Un cálculo sencillo muestra que estas ecuaciones implican que
-% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
-\end{exercise}
+\begin{proof}
+	Let $S$ be the sum of the simple submodules appearing in the regular representation of $A$. 
+	We claim that $S$ is an ideal of $A$. We know that $S$ is a left ideal, as the submodules of the regular representation
+	are exactly the left ideals of $A$. To show that $Sa\subseteq S$ for all $a\in A$ we need to prove that 
+	$Ta\subseteq S$ for all simple submodule $T$ of $A$ and $a\in A$. 
+	If $T\subseteq A$ is a simple submodule and $a\in A$, 
+	let $f\colon T\to Ta$, $t\mapsto ta$. Since $f$ is a surjective 
+	module homomorphism and $T$ is simple, it follows that
+	either $\ker f=\{0\}$ or $\ker T=T$. If $\ker T=T$, then 
+	$f(T)=Ta=\{0\}\subseteq S$. If $\ker f=\{0\}$, then $T\simeq f(T)=Ta$ and hence $Ta$ is simple. Hence $Ta\subseteq S$. 
+	
+	Since $S$ is an ideal of $A$ and $A$
+	is a simple algebra, it follows either $S=\{0\}$ or $S=A$.  Since $S\ne\{0\}$, because  
+	there exists a non-zero left ideal $I$ of $A$ such that $I\ne\{0\}$ is of minimal dimension, 
+	it follows that $S=A$, that is, the regular representation of $A$ is semisimple (because it is a sum of simple submodules). Therefore 
+	$A$ is semisimple. 
+\end{proof}
 
-
-
-Maschke's theorem states that, if $G$ is a finite group, 
-then the group algebra $\C[G]$ is semisimple. By Mollien's theorem, 
-\[
-\C[G]\simeq \prod_{i=1}^k M_{n_i}(\C),
-\]
-where $k$ is the number of (isomorphism classes of) 
-simple $\C[G]$-modules. Moreover, 
-\[
-|G|=\dim\C[G]=\sum_{i=1}^k n_i^2.
-\]
-
-\begin{theorem}
-    Let $G$ be a finite group. The number of simple 
-    modules of $\C[G]$ coincides with the number of conjugacy classes of $G$. 
+\begin{theorem}[Wedderburn]
+\index{Wedderburn's theorem}
+	Let $A$ be a finite-dimensional algebra. If $A$ is simple, then 
+	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some division algebra $D$. 
 \end{theorem}
 
 \begin{proof}
-    By Mollien's theorem, $\C[G]\simeq\prod_{i=1}^kM_{n_i}(\C)$. Thus 
-    \[
-		Z(\C[G])\simeq\prod_{i=1}^kZ(M_{n_i}(\C))\simeq\C^k.
-	\]
-	In particular, $\dim Z(\C[G])=k$. If $\alpha=\sum_{g\in
-	G}\lambda_gg\in Z(\C[G])$, then $h^{-1}\alpha h=\alpha$ for all $h\in
-	G$. Thus 
-	\[
-		\sum_{g\in G}\lambda_{hgh^{-1}}g=
-		\sum_{g\in g}\lambda_g h^{-1}gh=\sum_{g\in G}\lambda_gg
-	\]
-	and hence $\lambda_{g}=\lambda_{hgh^{-1}}$ for all $g,h\in G$. A basis for 
-	$Z(\C[G])$ is given by elements of the form 
-	\[
-		\sum_{g\in K}g,
-	\]
-	where $K$ is a conjugacy class of $G$. Therefore $\dim Z(\C[G])$ is equal to 
-	the number of conjugacy classes of $G$.
+	Since $A$ is simple, it follows that $A$ is semisimple. Artin--Wedderburn theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
+	for some $n_1,\dots,n_k$ and some division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
+	$k$ isomorphism classes of simple modules. Since $A$ is simple,
+	$A$ has only one isomorphism class of simple modules. Thus $k=1$ and hence 
+	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some division algebra~$D$. 
 \end{proof}
 
-\subsection{Which algebras are group algebras?}
 
-\begin{example}
-\label{exa:C4}
-    Let $G=C_4$ be the cyclic group of order four. Then
-    $G$ has four simple modules and 
-    $\C[G]\simeq\C^4$. 
-\end{example}
-
-\begin{example}
-\label{exa:S3}
-    Let $G=\Sym_3$. Then $G$ has three simple modules and
-    \[
-    \C[G]\simeq\C\times\C\times M_2(\C).
-    \]
-\end{example}
-
-\begin{problem}[Brauer]
-\index{Brauer's problem}
-    Which algebras are group algebras? 
-\end{problem}
-
-This question might be impossible to answer, but it is extremely interesting. 
-Examples \ref{exa:C4} and \ref{exa:S3} show
-that $\C^4$ and $\C^2\times M_2(\C)$ are complex group algebras. 
-
-\begin{exercise}
-    Is $\C^2\times M_2(\C)\times M_3(\C)$ a complex group algebra?  
-\end{exercise}
-
-% No. Let $G$ be a group of order 15. Since groups of order 15 are abelian,
-% $G$ has 15 conjugacy classes. 
-
-\subsection{The isomorphism problem for group algebras}
-
-
-Recall that if $R$ is a unitary commutative ring 
-and $G$ is a group, then one defines the group ring $R[G]$ (see Appendix \ref{section:Hurewicz}). 
-% More precisely,
-% $R[G]$ is the set of finite linear combinations
-% \[
-%     \sum_{g\in G}\lambda_gg
-% \]
-% where $\lambda_g\in R$ and $\lambda_g=0$ for all but finitely many $g\in G$.
-% One easily proves that $R[G]$ is a ring with
-% addition
-% \[
-% \left(\sum_{g\in G}\lambda_gg\right)+\left(\sum_{g\in G}\mu_gg\right)
-% =\sum_{g\in G}(\lambda_g+\mu_g)(g)
-% \]
-% and multiplication
-% \[
-% \left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
-% =\sum_{g,h\in G}\lambda_g\mu_h(gh).
-% \]
-Note that $R[G]$ is a left $R$-module with
-\[
-\lambda\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\lambda\lambda_g)g.
-\]
-
-In this section, we will briefly discuss the
-following natural problem: 
-
-\begin{question}[The isomorphism problem]
-\label{question:iso}
- Let $R$ be a ring and $G$ and $H$ be groups. Assume
- that $R[G]\simeq R[H]$ (as $R$-algebras). Does $G\simeq H$?
-\end{question}
-
-For general information on Question \ref{question:iso} we refer to the survey paper \cite{MR4472590}.
-
-\begin{exercise}
-    Prove that if $G$ and $H$ are isomorphic groups, then $K[G]\simeq K[H]$.
-\end{exercise}
-
-\begin{exercise}
-    Let $G$ and $H$ be groups. Prove that if
-    $\Z[G]\simeq\Z[H]$, then $R[G]\simeq R[H]$ for any commutative ring $R$.
-\end{exercise}
-
-The previous exercise suggest the importance of the following 
-instance of Question \ref{question:iso}:
-
-\begin{question}
-\label{question:IP}
-    Let $G$ and $H$ be groups. Does $\Z[G]\simeq\Z[H]$ imply $G\simeq H$?
-\end{question}
-
-Although there are several cases where
-the isomorphism problem has an affirmative answer (e.g. abelian groups,
-metabelian groups, nilpotent groups, nilpotent-by-abelian groups, simple groups,
-abelian-by-nilpotent groups), it is false in general. In 2001
-Hertweck found a counterexample of order $2^{21}97^{28}$, see \cite{MR1847590}.
-
-\begin{question}[The modular isomorphism problem]
-\label{question:MIP}
-    Let $p$ be a prime number. Let
-    $G$ and $H$ be finite $p$-groups and let $K$ be a field of characteristic $p$.
-    Does $K[G]\simeq K[H]$ imply $G\simeq H$?
-\end{question}
-
-Question \ref{question:MIP} has an affirmative answer in several cases. However,
-this is not true in general. This question was recently answered by Garc\'ia, Margolis and
-del R\'io \cite{MR4373245}. They found two non-isomorphic groups $G$ and $H$ both of order $512$
-such that $K[G]\simeq K[H]$ for all field $K$
-of characteristic two.
