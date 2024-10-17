@@ -1,4 +1,4 @@
-\section{Lecture: 10/10/2024}
+\section{Lecture: 17/10/2024}
 \label{03}
 
 \subsection{Group algebras}
@@ -458,7 +458,7 @@ module, then $M$ is unitary.
 \begin{definition}
 \index{Minimal left ideal}
 A left ideal $L$ of a ring $R$ is said to be \emph{minimal} if $L\ne\{0\}$ and 
-$L$ does not strictly contain other left ideals of $R$. 
+$L$ does not properly contain non-zero left ideals of $R$. 
 \end{definition}
 
 Similarly one defines
@@ -488,7 +488,7 @@ If $R$ is a ring with identity, every left (or right) ideal is regular.
 \index{Ideal!maximal}
 \index{Left ideal!maximal}
 A left (resp. right) ideal $I$ of $R$ is said to be \emph{maximal} if $I\ne R$ and $I$ is not properly contained 
-in any other left (resp. right) ideal of $R$. 
+in a proper left (resp. right) ideal of $R$. 
 \end{definition}
 
 Similarly, one defines maximal ideals. 
@@ -525,11 +525,11 @@ that every unitary ring contains a maximal left (or right) ideal.
     $R/I$ has no non-zero proper submodules. 
     
     We claim that 
-    $R\cdot (R/I)\ne0$. If $R\cdot (R/I)=\{0\}$ and $r\in R$, then 
-    the regularity of $I$ implies that 
+    $R\cdot (R/I)\ne\{0_{R/I}\}$. Assume that $R\cdot (R/I)=\{0_{R/I}\}$ and let $r\in R$. 
+    The regularity of $I$ implies that 
     there exists $e\in R$ such that $r-re\in I$. Hence $r\in I$, as  
 	\[
-	0=r\cdot (e+I)=re+I=r+I,
+	I=r\cdot (e+I)=re+I=r+I,
 	\]
 	a contradiction to the maximality of $I$. 
 \end{proof}
