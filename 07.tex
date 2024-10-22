@@ -517,47 +517,18 @@ Modules over division rings are usually called vector spaces over division rings
 	a vector space over a division ring.
 \end{theorem}
 
-We shall need the following lemma. 
-
-\begin{lemma}
-	\label{lem:ideal_denso}
-	Let $D$ be a division ring and $V$ be a $D$-vector space. 
-	If $R$ is dense in $V$ and $I$ is a non-zero ideal of $R$, then 
-	$I$ is dense on $V$. 
-\end{lemma}
-
 \begin{proof}
-    Fix $n\in\Z_{>0}$. Let 
-    $\{u_1,\dots,u_n\}\subseteq V$ be a linearly independent set 
-	and let $\{v_1,\dots,v_n\}\subseteq V$. We want to find $\gamma\in I$ such that 
-	$\gamma(u_i)=v_i$ for all $i$. Since $I\ne\{0\}$, there exists 
-	$h\in I\setminus\{0\}$. This means that 
-	$h(u)=v\ne0$ for some $u\ne 0$. Since $R$ is 
-	dense on $V$, there exist $g_1,\dots,g_n\in R$ such that 
-	\[
-	g_i(u_j)=\begin{cases} 
-	u & \text{if $i=j$},\\
-	0 & \text{otherwise}.
-	\end{cases}
-	\]
-	Further, since $\{v\}$ is a linearly independent subset of $V$, 
-	there exist $f_1,\dots,f_n\in R$ such that 
-	$f_i(v)=v_i$ for all $i$. Thus $\gamma=\sum_{i=1}^n f_ihg_i\in I$ is such that 
-	$\gamma(u_j)=v_j$ for all $j\in\{1,\dots,n\}$.
-\end{proof}
-
-Now we are ready to prove Jacobson's density theorem. 
-
-\begin{proof}[Proof of Theorem \ref{thm:density}]
     Let $R$ be a ring. 
-	If $R$ is isomorphic to a dense ring in $V$, where
+    If $R$ is isomorphic to a dense ring in $V$, where
 	$V$ is a $D$-vector space for some division ring $D$, then $R$
 	is primitive, as $V$ is a simple and faithful $R$-module. Why faithful? If 
 	$f\in\Ann_R(V)$, then $f=0$ since $f(v)=0$ for all $v\in V$. Why simple? 
 	If $W\subseteq V$ is a non-zero submodule, let $v\in V$ and $w\in
 	W\setminus\{0\}$. There exists $f\in R$ such that $v=f(w)\in W$. 
 
-	Now assume that $R$ is primitive. Let $V$ be a simple faithful module.
+   Assume now that $R$ is a primitive ring. We further assume that $R$ 
+   has a unit (the proof, with minor variations, also works for non-unital rings). 
+   Let $V$ be a simple faithful module.
 	Schur's lemma implies that $D=\End_R(V)$ is a division ring. Thus $V$ is
 	a $D$-vector space with 
 	\[
@@ -576,73 +547,205 @@ Now we are ready to prove Jacobson's density theorem.
 	$rv=\gamma_r(v)=\gamma_s(v)=sv$ for all $v\in V$ and hence $r=s$, as
 	$(r-s)v=0$ for all $v\in V$.
 
-	\begin{claim}
-		If $U$ is a finite-dimensional subspace of $V$, 
-		for each $w\in V\setminus U$ there exists $r\in R$ such that 
-		$\gamma_r(U)=\{0\}$ and $\gamma_r(w)\ne0$.
-	\end{claim}
+    To prove that $R$ is dense we proceed by induction on $n$. Assume first that
+    $n=1$. Since $V$ is simple, $Rx_1=V$ since $x_1\ne 0$. Then there
+    exists $r\in R$ such that $rx_1=y_1$. 
 
-	Suppose the claim is not true. Let $U$ be a counterexample of minimal  
-	dimension. Then
-	$\dim_DU\geq1$, as the claim holds for the zero subspace. (For this, we only
-        need to show that for each non-zero $v\in V$, there exists $r\in R$ such that $rv\ne 0$. 
-        Since $V$ is simple, $V=(v)$. If $rv=0$ for all $r\in R$, then 
-        $V=\{0\}$, a contradiction to the simplicity of $V$.) Let now 
-	$U_0$ be a subspace of $U$ such that 
-	$\dim U_0=\dim U-1$ and let 
-	\[
-		L=\{l\in R:\gamma_l(U_0)=\{0\}\}.
-	\]
-	The minimality of the dimension of $U$ shows that the claim is true for $U_0$, so
-	any $v\in V\setminus U_0$ is such that $Lv=V$. Since there exists $l\in
-	L$ such that $lv=\gamma_l(v)\ne 0$ and $L$ is a left ideal of $R$, it follows
-	that $Lv\subseteq V$ is a submodule and the claim follows from the simplicity of
-	$V$.
-	
-	Let $w\in V\setminus U$ be such that the claim is not true. Let $u\in
-	U\setminus U_0$. The map  
-	\[
-		\delta\colon V\to V,\quad
-		v\mapsto lw,
-	\]
-	where $v=lu\in Lu=V$ (that depends both on $u$ and $w$) 
-	is well-defined: if $l_1,l_2\in L$ are such that 
-	$v=l_1u=l_2u$, then $(l_1-l_2)u=0$ and thus 
-	\[
-		0=(l_1-l_2)w=l_1w-l_2w,
-	\]
-        as for all $r\in R$, if $rU=\{0\}$, then $rw=0$. 
-	Further, $\delta$ is a homomorphism of modules over $R$, as if 
-	$l\in L$ is such that $v=lu$, then 
-	\[
-		\delta(rv)=\delta(r(lu))=\delta( (rl)u)=(rl)w=r(lw)=r\delta(v)
-	\]
-	for all $r\in R$.
+    Assume now that the theorem holds for all sets of size $\leq n$. 
 
-	For every $l\in L$,  
-	\[
-		l(\delta(u)-w)=l\delta(u)-lw=\delta(lu)-lw=0.
-	\]
-	Thus $L(\delta(u)-w)=\{0\}$. This implies that $\delta(u)-w\not\in V\setminus U_0$, 
-	that is $\delta(u)-w\in U_0$. Therefore  
-	\[
-		w=\delta(u)-(\delta(u)-w)\in Du+U_0=U,
-	\]
-	a contradiction.
-	
-	Now the theorem follows from the claim. Let 
-	$u_1,\dots,u_n\in V$ be linearly independent vectors and let 
-	$v_1,\dots,v_n\in V$ arbitrary vectors. Fix $i\in\{1,\dots,n\}$. 
-	The previous claim with 
-	\[
-		U=\langle u_1,\dots,u_{i-1},u_{i+1},\dots,u_n\rangle
-	\]
-	and $w=u_i$ implies that there exists $r_i\in R$ such that $\gamma_{r_i}(u_j)=0$ if 
-	$j\ne i$ and $\gamma_{r_i}(u_i)\ne 0$. Since there exists $s_i\in R$ such that 
-	$\gamma_{s_i}\gamma_{r_i}(u_i)=v_i$, it follows that 
-	$r=\sum_{j=1}^n s_jr_j\in R$ is such that $\gamma_r(u_i)=v_i$ for all 
-	$i\in\{1,\dots,n\}$.
+    \begin{claim}
+        There exist $\lambda_1,\dots,\lambda_n\in R$ such 
+        that $\lambda_i\cdot x_i\ne 0$ for all $i\in\{1,\dots,n\}$ and 
+        $\lambda_i\cdot x_j=0$ for all $i,j\in\{1,\dots,n\}$ with $i\ne j$. 
+    \end{claim}
+
+    We first note that the claim implies the theorem. As the theorem holds for $n=1$, 
+    for each $i\in\{1,\dots,n\}$ 
+    there exists $r_i\in R$ such that $r_i\lambda_ix_i=y_i$. Let 
+    $r=r_1\lambda_1+\cdots+r_n\lambda_n\in R$. Then
+    \[
+    rx_i=(r_1\lambda_1+\cdots+r_n\lambda_n)x_i=r_i\lambda_ix_i=y_i
+    \]
+    for all $i\in\{1,\dots,n\}$. 
+
+    It remains to prove the claim. To prove it, suppose that it is not true. Then
+    $\lambda x_i=0$ for all $i\in\{1,\dots,n-1\}$ implies that 
+    $\lambda x_n=0$. By the inductive hypothesis, given $z_1,\dots,z_{n-1}\in R$, 
+    there exists $r\in R$ such that
+    $rx_i=z_i$ for all $i\in\{1,\dots,n-1\}$. Let 
+    \[
+    \phi\colon V^{n-1}\to V,\quad \phi(z_1,\dots,z_{n-1})=rx_n.
+    \]
+    
+    The map $\phi$ is well-defined: if $sx_i=z_i$ for all $i\in\{1,\dots,n-1\}$, then, since 
+    $(r-s)x_i=0$ for all $i\in\{1,\dots,n-1\}$, it follows that
+    $(r-s)x_n=0$. Hence $rx_n=sx_n$. Moreover, a direct calculation shows
+    that $\phi$ is an $R$-module homomorphism. 
+
+    For $i\in\{1,\dots,n-1\}$, let 
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJNIl0sWzEsMCwiTV57bi0xfSJdLFsyLDAsIk0iXSxbMCwxLCJcXGlvdGFfaSJdLFsxLDIsIlxccGhpIl1d
+\[\begin{tikzcd}
+	\xi_i\colon V & {V^{n-1}} & V,
+	\arrow["{\iota_i}", from=1-1, to=1-2]
+	\arrow["\phi", from=1-2, to=1-3]
+\end{tikzcd}\]
+    where the map $\iota_i\colon V\to V^{n-1}$ denotes the inclusion in the $i$-th component. By the inductive hypothesis, 
+    for $j\in\{1,\dots,n-1\}$, there exists $r_j\in R$ such that 
+    \[
+    r_jx_i=\begin{cases}
+        x_i & \text{if $i=j$,}\\
+        0 & \text{otherwise.}
+        \end{cases}
+    \]
+    In particular, for example, 
+    \[
+    \xi_1(x_1)=\phi(x_1,0,\dots,0)=\phi(r_1x_1,\dots,r_1x_{n-1})=r_1x_n.
+    \]
+    More generally, $\xi_j(x_j)=r_jx_n$ for all $j\in\{1,\dots,n-1\}$. Note that, on the one hand, 
+    \begin{align*}
+        \phi(x_1,\dots,x_{n-1}) &= \phi(r_1x_1,r_2x_2,\dots,r_{n-1}x_{n-1})
+        =\xi_1x_1+\cdots+\xi_{n-1}x_{n-1}.
+    \end{align*}
+    On the other hand, 
+    \[
+    x_n=1x_n=\phi(x_1,\dots,x_{n-1})=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1},
+    \]
+    a contradiction to the linear independence of the set $\{x_1,\dots,x_{n-1}\}$. 
 \end{proof}
+
+\begin{exercise}
+	\label{xca:ideal_denso}
+ Let $D$ be a division ring and $V$ be a $D$-vector space. Prove that 
+	if $R$ is dense in $V$ and $I$ is a non-zero ideal of $R$, then 
+	$I$ is dense on $V$. 
+\end{exercise}
+
+% We shall need the following lemma. 
+
+% \begin{lemma}
+% 	\label{lem:ideal_denso}
+% 	Let $D$ be a division ring and $V$ be a $D$-vector space. 
+% 	If $R$ is dense in $V$ and $I$ is a non-zero ideal of $R$, then 
+% 	$I$ is dense on $V$. 
+% \end{lemma}
+
+% \begin{proof}
+%     Fix $n\in\Z_{>0}$. Let 
+%     $\{u_1,\dots,u_n\}\subseteq V$ be a linearly independent set 
+% 	and let $\{v_1,\dots,v_n\}\subseteq V$. We want to find $\gamma\in I$ such that 
+% 	$\gamma(u_i)=v_i$ for all $i$. Since $I\ne\{0\}$, there exists 
+% 	$h\in I\setminus\{0\}$. This means that 
+% 	$h(u)=v\ne0$ for some $u\ne 0$. Since $R$ is 
+% 	dense on $V$, there exist $g_1,\dots,g_n\in R$ such that 
+% 	\[
+% 	g_i(u_j)=\begin{cases} 
+% 	u & \text{if $i=j$},\\
+% 	0 & \text{otherwise}.
+% 	\end{cases}
+% 	\]
+% 	Further, since $\{v\}$ is a linearly independent subset of $V$, 
+% 	there exist $f_1,\dots,f_n\in R$ such that 
+% 	$f_i(v)=v_i$ for all $i$. Thus $\gamma=\sum_{i=1}^n f_ihg_i\in I$ is such that 
+% 	$\gamma(u_j)=v_j$ for all $j\in\{1,\dots,n\}$.
+% \end{proof}
+
+% Now we are ready to prove Jacobson's density theorem. 
+
+% \begin{proof}[Proof of Theorem \ref{thm:density}]
+%     Let $R$ be a ring. 
+% 	If $R$ is isomorphic to a dense ring in $V$, where
+% 	$V$ is a $D$-vector space for some division ring $D$, then $R$
+% 	is primitive, as $V$ is a simple and faithful $R$-module. Why faithful? If 
+% 	$f\in\Ann_R(V)$, then $f=0$ since $f(v)=0$ for all $v\in V$. Why simple? 
+% 	If $W\subseteq V$ is a non-zero submodule, let $v\in V$ and $w\in
+% 	W\setminus\{0\}$. There exists $f\in R$ such that $v=f(w)\in W$. 
+
+% 	Now assume that $R$ is primitive. Let $V$ be a simple faithful module.
+% 	Schur's lemma implies that $D=\End_R(V)$ is a division ring. Thus $V$ is
+% 	a $D$-vector space with 
+% 	\[
+% 	D\times V\to V,\quad
+% 	(\delta,v)\mapsto \delta v=\delta(v).
+% 	\]
+% 	For $r\in R$ let  
+% 	\[
+% 		\gamma_r\colon V\to V,\quad
+% 		v\mapsto rv.
+% 	\]
+% 	A straightforward calculation shows that $\gamma_r\in\End_D(V)$ and that
+%     $\gamma\colon R\to\End_D(V)$,
+% 	$r\mapsto\gamma_r$, is a ring homomorphism. Since $V$ is faithful,
+% 	$R\simeq\gamma(R)=\{\gamma_r:r\in R\}$. In fact, if $\gamma_r=\gamma_s$, then 
+% 	$rv=\gamma_r(v)=\gamma_s(v)=sv$ for all $v\in V$ and hence $r=s$, as
+% 	$(r-s)v=0$ for all $v\in V$.
+
+% 	\begin{claim}
+% 		If $U$ is a finite-dimensional subspace of $V$, 
+% 		for each $w\in V\setminus U$ there exists $r\in R$ such that 
+% 		$\gamma_r(U)=\{0\}$ and $\gamma_r(w)\ne0$.
+% 	\end{claim}
+
+% 	Suppose the claim is not true. Let $U$ be a counterexample of minimal  
+% 	dimension. Then
+% 	$\dim_DU\geq1$, as the claim holds for the zero subspace. (For this, we only
+%         need to show that for each non-zero $v\in V$, there exists $r\in R$ such that $rv\ne 0$. 
+%         Since $V$ is simple, $V=(v)$. If $rv=0$ for all $r\in R$, then 
+%         $V=\{0\}$, a contradiction to the simplicity of $V$.) Let now 
+% 	$U_0$ be a subspace of $U$ such that 
+% 	$\dim U_0=\dim U-1$ and let 
+% 	\[
+% 		L=\{l\in R:\gamma_l(U_0)=\{0\}\}.
+% 	\]
+% 	The minimality of the dimension of $U$ shows that the claim is true for $U_0$, so
+% 	any $v\in V\setminus U_0$ is such that $Lv=V$. Since there exists $l\in
+% 	L$ such that $lv=\gamma_l(v)\ne 0$ and $L$ is a left ideal of $R$, it follows
+% 	that $Lv\subseteq V$ is a submodule and the claim follows from the simplicity of
+% 	$V$.
+	
+% 	Let $w\in V\setminus U$ be such that the claim is not true. Let $u\in
+% 	U\setminus U_0$. The map  
+% 	\[
+% 		\delta\colon V\to V,\quad
+% 		v\mapsto lw,
+% 	\]
+% 	where $v=lu\in Lu=V$ (that depends both on $u$ and $w$) 
+% 	is well-defined: if $l_1,l_2\in L$ are such that 
+% 	$v=l_1u=l_2u$, then $(l_1-l_2)u=0$ and thus 
+% 	\[
+% 		0=(l_1-l_2)w=l_1w-l_2w,
+% 	\]
+%         as for all $r\in R$, if $rU=\{0\}$, then $rw=0$. 
+% 	Further, $\delta$ is a homomorphism of modules over $R$, as if 
+% 	$l\in L$ is such that $v=lu$, then 
+% 	\[
+% 		\delta(rv)=\delta(r(lu))=\delta( (rl)u)=(rl)w=r(lw)=r\delta(v)
+% 	\]
+% 	for all $r\in R$.
+
+% 	For every $l\in L$,  
+% 	\[
+% 		l(\delta(u)-w)=l\delta(u)-lw=\delta(lu)-lw=0.
+% 	\]
+% 	Thus $L(\delta(u)-w)=\{0\}$. This implies that $\delta(u)-w\not\in V\setminus U_0$, 
+% 	that is $\delta(u)-w\in U_0$. Therefore  
+% 	\[
+% 		w=\delta(u)-(\delta(u)-w)\in Du+U_0=U,
+% 	\]
+% 	a contradiction.
+	
+% 	Now the theorem follows from the claim. Let 
+% 	$u_1,\dots,u_n\in V$ be linearly independent vectors and let 
+% 	$v_1,\dots,v_n\in V$ arbitrary vectors. Fix $i\in\{1,\dots,n\}$. 
+% 	The previous claim with 
+% 	\[
+% 		U=\langle u_1,\dots,u_{i-1},u_{i+1},\dots,u_n\rangle
+% 	\]
+% 	and $w=u_i$ implies that there exists $r_i\in R$ such that $\gamma_{r_i}(u_j)=0$ if 
+% 	$j\ne i$ and $\gamma_{r_i}(u_i)\ne 0$. Since there exists $s_i\in R$ such that 
+% 	$\gamma_{s_i}\gamma_{r_i}(u_i)=v_i$, it follows that 
+% 	$r=\sum_{j=1}^n s_jr_j\in R$ is such that $\gamma_r(u_i)=v_i$ for all 
+% 	$i\in\{1,\dots,n\}$.
+% \end{proof}
 
 %\begin{exercise}
 %	Sea $R$ un anillo denso en $V$. Demuestre que $R$ es artiniano a izquierda
