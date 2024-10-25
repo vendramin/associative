@@ -58,27 +58,46 @@ There are several characterizations of radical rings.
 	\[
 	A=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}.
 	\]
-	Then $A$ is a radical ring, as the inverse of the element $\frac{2x}{2y+1}$
-	with respect to the circle operation 
-	$\circ$ is 
-	\[
+	Then $A$ is a radical ring, as the inverse of an arbitrary element of the form $\frac{2x}{2y+1}$
+	with respect to the Jacboson circle operation 
+	is 
+    \[
 	\left(\frac{2x}{2y+1}\right)'=\frac{-2x}{2(x+y)+1}.
 	\]
 \end{example}
 
 \subsection{Commutative rings with no maximal ideals}
 
-There are rings with no maximal ideals. 
+There are (non-unitary) rings with no maximal ideals. An easy example is given in the following exercise: 
 
-\begin{exercise}
+\begin{exercise}\
 \label{xca:Q_no_maximals}
-    Prove that the additive group of rational numbers is an abelian group
-with no maximal subgroups.
+    \begin{enumerate}
+        \item Prove that the additive group of rational numbers is an abelian group
+            with no maximal subgroups.
+        \item Prove that the additive group $\Q$ of rationals with  
+            zero multiplication (that is, $xy=0$ for all $x,y\in\Q$) is a ring with no maximal ideals. 
+    \end{enumerate}
 \end{exercise}
 
-One can turn the additive group $\Q$ of rational into a non-unitary 
-ring by considering the zero multiplication $xy=0$ for all $x,y\in\Q$. This 
-ring has no maximal ideals. 
+\index{Characteristic of a ring}
+Recall that the \emph{characteristic of a ring} is defined as the least positive
+integer $n$ such that $nx=0$ for all $x$. If no such $n$ exists, 
+then we say that the ring is of \emph{characteristic zero}. 
+
+\begin{exercise}
+\label{xca:characteristic}
+    % Let $R$ be a ring and $n=\lcm\{ |x|:x\in R\}$, where 
+    % $|x|$ denotes the additive order of $x$. If $n<\infty$, then 
+    % $R$ has characteristic $n$. If $n=\infty$, then $R$ has characteristic zero. 
+    % is the least common multiple of 
+    % the additive orders of the elements of $R$, then  
+    Let $R$ be a ring and $p$ be a prime number. 
+    If $px=0$ for all $x\in R$, then $R$ has characteristic $p$. 
+\end{exercise}
+
+We now characterize commutative rings with no maximal ideals.
+We begin with some exercises. 
 
 % Let $R$ be a commutative ring with no non-zero proper ideals. 
 % Prove that if $R$ is not a field, then there exists a prime number $p$ 
@@ -100,21 +119,7 @@ ring has no maximal ideals.
     such that $R/M$ is a field. 
 \end{exercise}
 
-\index{Characteristic of a ring}
-Recall that the \emph{characteristic of a ring} is defined as the least positive
-integer $n$ such that $nx=0$ for all $x$. If no such $n$ exists, 
-then we say that the ring is of characteristic zero. 
-
-\begin{exercise}
-\label{xca:characteristic}
-    % Let $R$ be a ring and $n=\lcm\{ |x|:x\in R\}$, where 
-    % $|x|$ denotes the additive order of $x$. If $n<\infty$, then 
-    % $R$ has characteristic $n$. If $n=\infty$, then $R$ has characteristic zero. 
-    % is the least common multiple of 
-    % the additive orders of the elements of $R$, then  
-    Let $R$ be a ring such and $p$ be a prime number. 
-    If $px=0$ for all $x\in R$, then $R$ has characteristic $p$. 
-\end{exercise}
+The following result appeared in~\cite{MR0424776}.
 
 % \begin{sol}{xca:characteristic}
 %     Let $n$ be the characteristic of $R$. 
@@ -138,8 +143,6 @@ then we say that the ring is of characteristic zero.
 % If $p\nmid n$, then 
 % $n=pm$. Then $px=$
 
-We now characterize commutative rings with no maximal ideals.
-The result appeared in~\cite{MR0424776}. 
 
 \begin{theorem}[Henriksen]
 \label{thm:Henriksen}
