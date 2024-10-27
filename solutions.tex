@@ -151,6 +151,58 @@ Let $X$ be the set of elements $y\in Q$ such that $Qy=\{0\}$. Note that $X$ is a
 	$M$ is primitive. 
 \end{sol}
 
+\begin{sol}{xca:Nakayama}\
+\begin{enumerate}
+    \item To solve the exercise we need to apply Nakayama's lemma to the $R$-module $M/N$. 
+        So the only thing we need to do is to note that 
+        \[
+        M/N\subseteq J(R)\cdot M/N\Longleftrightarrow M\subseteq J(R)\cdot M+N.
+        \]
+    \item To solve the exercise we just need to apply the previous item to the submodule $N=(m_1,\dots,m_k)$. 
+    We only need to 
+    prove that 
+    $M\subseteq N+J(R)\cdot M$. Let $m\in M$. Then $\pi(m)=\sum_{i+1}^kr_i\cdot\pi(m_i)$ 
+    for some $r_1,\dots,r_k\in R$. Since
+    \begin{align*}
+      \pi(m)&=\sum_{i+1}^kr_i\cdot\pi(m_i)\\
+    &=\sum_{i+1}^kr_i\cdot (m_i+J(R)\cdot M)\\
+    &=\sum_{i+1}^kr_i\cdot m_i+J(R)\cdot M\in N+J(R)\cdot M,
+    \end{align*}
+    the previous item implies that $N=M$. 
+\end{enumerate}
+\end{sol}
+
+\begin{sol}{xca:idempotents_decomposition}
+    We first prove $(1)\implies (2)$. Since $R=I_1\oplus\cdots\oplus I_n$, 
+    it follows that $1=e_1+\cdots+e_n$ for $e_j\in I_j$. Since 
+    \[
+    e_1=e_11=e_1^2+e_1e_2+\cdots+e_1e_n
+    \]
+    and $R=I_1\oplus\cdots\oplus I_n$, it follows that $e_1^2=e_1$ and
+    $e_1e_j=0$ for all $j\in\{2,\dots,n\}$. Similarly, 
+    \[
+    e_ie_j=\begin{cases}
+        e_i & \text{if $i=j$},\\
+        0 & \text{if $i\ne j$.}
+        \end{cases}
+    \]
+    
+    We now prove that $(2)\implies (1)$. For $j\in\{1,\dots,n\}$, let $I_j=Re_j$. Then 
+    $I_1,\dots,I_n$ are left ideals of $R$. Since $1=e_1+\cdots+e_n$, it follows that 
+    $R=I_1+\cdots+I_n$. To prove that the sum is direct, we need to show
+    that $I_i\cap (I_1+\cdots+I_{i-1}+I_{i+1}+\cdots+I_n)=\{0\}$ for all $i\in\{1,\dots,n\}$. 
+    Without loss of generality, we may assume that $x\in I_1\cap (I_{2}+\cdots+I_n)$. Then 
+    \[
+    x=r_1e_1=r_2e_2+\cdots+r_ne_n
+    \]
+    for some $r_1,\dots,r_n\in R$. Since $e_je_1=0$ for all $j\in\{2,\dots,n\}$ and
+    $e_1^2=e_1$,  
+    \begin{align*}
+        & xe_1=r_1e_1^2=r_1e_1=x,\\
+        & xe_1=r_2e_2e_1+\cdots+r_ne_ne_1=0.
+    \end{align*}
+    Hence $x=0$ and therefore $R=I_1\oplus\cdots\oplus I_n$.     
+\end{sol}
 
 
 
