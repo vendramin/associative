@@ -750,31 +750,31 @@ for some simple $R$-module $M$.
 
 As we work with left modules, our definition of primitive rings refers to \emph{left primitive rings}. Of course, one can also define right primitive rings. As Bergman showed, there exist rings that are right primitive but not left primitive; see \cite{MR175940,MR167497}. 
 
-\begin{lemma}
-	\label{lemma:primitivo}
+\begin{exercise}
+	\label{xca:primitivo}
 	Let $R$ be a ring and $P$ be an ideal of $R$. Then $P$ is primitive if and only if 
 	$R/P$ is a primitive ring.
-\end{lemma}
+\end{exercise}
 
-\begin{proof}
-	Assume that $P=\Ann_R(M)$ for some $R$-module $M$. Then $M$ is a simple 
-	$(R/P)$-module with 
-	\[
-	(r+P)\cdot m=r\cdot m,\quad r\in R,\;m\in M. 
-	\]
-	This operation 
-	is well-defined, as 
-	$P=\Ann_R(M)$. Since $M$ is a simple $R$-module, it follows that $M$ is 
-	a simple $(R/P)$-module. Moreover, $\Ann_{R/P}M=\{0\}$. Indeed, if 
-	$(r+P)\cdot M=\{0\}$, then $r\in\Ann_RM=P$ and hence $r+P=P$.
+% \begin{proof}
+% 	Assume that $P=\Ann_R(M)$ for some $R$-module $M$. Then $M$ is a simple 
+% 	$(R/P)$-module with 
+% 	\[
+% 	(r+P)\cdot m=r\cdot m,\quad r\in R,\;m\in M. 
+% 	\]
+% 	This operation 
+% 	is well-defined, as 
+% 	$P=\Ann_R(M)$. Since $M$ is a simple $R$-module, it follows that $M$ is 
+% 	a simple $(R/P)$-module. Moreover, $\Ann_{R/P}M=\{0\}$. Indeed, if 
+% 	$(r+P)\cdot M=\{0\}$, then $r\in\Ann_RM=P$ and hence $r+P=P$.
 
-	Assume now that $R/P$ is primitive. Let $M$ be a faithful simple $(R/P)$-module. 
-	Then 
-    \[
-    r\cdot m=(r+P)\cdot m, \quad r\in R,\; m\in M,
-    \]
-    turns $M$ into an $R$-module. It follows that $M$ is simple and that $P=\Ann_R(M)$. 
-\end{proof}
+% 	Assume now that $R/P$ is primitive. Let $M$ be a faithful simple $(R/P)$-module. 
+% 	Then 
+%     \[
+%     r\cdot m=(r+P)\cdot m, \quad r\in R,\; m\in M,
+%     \]
+%     turns $M$ into an $R$-module. It follows that $M$ is simple and that $P=\Ann_R(M)$. 
+% \end{proof}
 
 %\begin{example}
 %	Si $I$ es un ideal maximal de un anillo unitario $R$, entonces $I$ es
