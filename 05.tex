@@ -230,12 +230,26 @@ exists $n=n(x)$ such that $x^n=0$.
 	If $R$ is radical, the result is trivial. Suppose then that 
 	$J(R)\ne R$. Let $M$ be a simple $R$-module. Then $M$ is 
 	a simple module over $R/J(R)$ with 
-	\[
-		(x+J(R))\cdot m=x\cdot m,\quad
+	\begin{equation}
+	    \label{eq:R/J(R)-module}
+     	(x+J(R))\cdot m=x\cdot m,\quad
 		x\in R,\,m\in M.
-	\]
-	If $x+J(R)\in J(R/J(R))$, then  $x\cdot M=(x+J(R))\cdot M=\{0\}$. Then $x\in J(R)$, as 
-	$x$ annihilates any simple module over $R$.
+	\end{equation}
+ 
+    Let us prove first that \eqref{eq:R/J(R)-module} is well-defined: If $r,s\in R$ are such that $r+J(R)=s+J(R)$, then 
+    $r-s\in J(R)$. Since $J(R)$ is the intersection
+    of the annihilators of simple $R$-modules (see Definition~\ref{def:J}) and $M$ is a simple $R$-module, 
+    $(r-s)\cdot M=\{0\}$. Thus $(r-s)\cdot m=0$ for all $m\in M$. Hence $r\cdot m=s\cdot m$ for all $m\in M$. 
+
+    We now prove that $M$ is a simple $R/J(R)$-module. In fact, 
+    if $N$ is a submodule of the $R/J(R)$-module $M$, then 
+    \[
+    (r+J(R))\cdot N\subseteq N
+    \]
+    for all $r\in R$. Thus $r\cdot N\subseteq N$ for all $r\in R$. Thus $N$ is a submodule of the $R$-module $M$. Since $M$ is simple, either $N=\{0\}$ or $N=M$. 
+
+    Finally, if $r+J(R)\in J(R/J(R))$, then  $r\cdot M=(r+J(R))\cdot M=\{0\}$. Then $r\in J(R)$, as 
+	$r$ annihilates any simple module over $R$.
 \end{proof}
 
 \begin{theorem}
