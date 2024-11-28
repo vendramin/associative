@@ -166,11 +166,17 @@ We now prove the theorem.
 
 \begin{proof}
 	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
-	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. The implications $2)\implies3)$
-	and $4)\implies3)$ are both trivial. Let us prove that $3)\implies4)$.  If
+	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. 
+    
+    The implications $2)\implies3)$
+	and $4)\implies3)$ are both trivial. 
+    
+    Let us prove that $3)\implies4)$.  If
 	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
 	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
-	contradiction.  Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
+	contradiction.  
+    
+    Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
 	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. Thus 
 	$RaR=\{0\}$. This means that $Ra$ and $aR$ are ideals such that
 	$(Ra)R=R(aR)=\{0\}$ (for example, $R(aR)\subseteq RaR=\{0\}\subseteq aR$). 
@@ -561,11 +567,11 @@ We now prove Herstein's theorem.
 	\[
 	b_0+b_1\alpha+\cdots+b_{n+1}\alpha^{n+1}=0,
 	\]
-	where $b_{n+1}\ne 0$. Since $K$ has characteristic zero, we can rewrite this as 
+	where $b_{n+1}\ne 0$. We can rewrite this as 
 	\[
 		\alpha^{n+1}=a_0+a_1\alpha+\cdots+a_n\alpha^n
 	\]
-	for some $a_0,\dots,x_n\in K$. 
+	for some $a_0,\dots,a_n\in K$. 
 	Note that 
 	\[
 		\alpha^{k}=(x_1+\cdots+x_m)^{k}
@@ -585,84 +591,5 @@ We now prove Herstein's theorem.
 	$w\in\supp(\alpha^j)$ for some $j\in\{0,\dots,n\}$. Thus each
 	word in the letters $x_j$ of length $n+1$ can be written as a word in the letters $x_j$ of 
 	length $\leq n$. Therefore $H$ is finite and hence $G$ is locally finite. 
-\end{proof}
-
-\subsection{Formanek's theorem, I}
-
-We start with some exercises. 
-
-\begin{exercise}
-\label{xca:invertible_algebraic}
-	Let $K$ be a field. Let $A$ be a $K$-algebra algebraic over $K$ and $a\in A$.
-	\begin{enumerate}
-		\item $a$ is a left zero divisor if and only if $a$ is a right zero divisor.
-		\item $a$ is left invertible if and only if $a$ is right invertible.
-		\item $a$ is invertible if and only if $a$ is not a zero divisor.
-	\end{enumerate}
-\end{exercise}
-
-\begin{exercise}
-	\label{exa:norma}
-	For $\alpha=\sum_{g\in G}\alpha_gg\in\C[G]$ let $|\alpha|=\sum_{g\in
-	G}|\alpha_g|\in\R$. Prove the following statements:
-	\begin{enumerate}
-		%\item $|\trace(\alpha)|\leq |\alpha|$, 
-		\item $|\alpha+\beta|\leq|\alpha|+|\beta|$, and 
-		\item $|\alpha\beta|\leq|\alpha||\beta|$ 
-	\end{enumerate}
-	for all $\alpha,\beta\in\C[G]$.
-\end{exercise}
-
-\begin{theorem}[Formanek]
-	\label{thm:FormanekQ}
-	\index{Formanek's theorem}
-	Let $G$ be a group. If every element of $\Q[G]$ is invertible or 
-	a zero divisor, then $G$ is locally finite. 
-\end{theorem}
-
-\begin{proof}
-	Let $\{x_1,\dots,x_n\}$ be a finite subset of $G$. Adding inverses if needed, we may assume that 
-	$\{x_1,\dots,x_n\}$ generates the subgroup
-	$H=\langle x_1,\dots,x_n\rangle$ as a semigroup. Let 
-	\[
-		\alpha=\frac{1}{2n}(x_1+\cdots+x_n)\in\Q[G]
-	\]
-    Note that $|\alpha|\leq 1/2$. 
-	We claim that $1-\alpha\in\Q[G]$ is invertible. If not, then it is a zero divisor. If there exists 
-	$\delta\in\Q[G]$ such that $\delta(1-\alpha)=0$, then 
-	$\delta=\delta\alpha$. Since  
-	\[
-		|\delta|=|\delta\alpha|\leq|\delta||\alpha|\leq|\delta|/2,
-	\]
-	it follows that $\delta=0$. Similarly, $(1-\alpha)\delta=0$ implies
-	$\delta=0$. 
-	
-	Let $\beta=(1-\alpha)^{-1}\in\Q[G]$.  For each $k$ let  
-	\[
-		\gamma_k=(1+\alpha+\cdots+\alpha^k)-\beta.
-	\]
-	Then 
-	\begin{align*}
-		\gamma_k(1-\alpha)&=(1+\alpha+\cdots+\alpha^k-\beta)(1-\alpha)\\
-		&=(1+\alpha+\cdots+\alpha^k)(1-\alpha)-\beta(1-\alpha)=-\alpha^{k+1}
-	\end{align*}
-	and thus  
-	$\gamma_k=-\alpha^{k+1}\beta$. Since  
-	\[
-		|\gamma_k|=|-\alpha^{k+1}\beta|\leq|\beta||\alpha^{k+1}|\leq\frac{|\beta|}{2^{k+1}},
-	\]
-	it follows that $\lim_{k\to\infty}|\gamma_k|=0$. 
-
-	We now prove that $H\subseteq\supp\beta$. This will finish the proof of the theorem, 
-	as $\supp\beta$ is a finite subset of $G$ by definition. If
-	$H\not\subseteq\supp\beta$, let $h\in H\setminus\supp\beta$.  Assume that 
-    $h=x_{i_1}\cdots x_{i_m}$ is a word in the letters $x_j$ of length $m$. Let 
-    $c_j$ be the coefficient of $h$ in $\alpha^j$. Then $c_0+\cdots+c_k$ is the 
-	coefficient of $h$ in $\gamma_k$, but 
-	\[
-		|\gamma_k|\geq c_0+c_1+\cdots+c_k\geq c_m>0
-	\]
-	for all $k\geq m$, as each $c_j$ is non-negative, a contradiction to 
-	$|\gamma_k|\to 0$ si $k\to\infty$.
 \end{proof}
 
