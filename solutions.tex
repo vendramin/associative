@@ -430,6 +430,21 @@ Let $X$ be the set of elements $y\in Q$ such that $Qy=\{0\}$. Note that $X$ is a
 \end{enumerate}
 \end{sol}
 
+\begin{sol}{xca:x32^n=x}
+    Since $1=(-1)^{3\cdot 2^n}=-1$, $R$ is of characteristic two. Let $x\in R$. Since $R$ is of characteristic two,  
+    \[
+    x+1=(x+1)^{3\cdot 2^n}=(x^{2^n}+1)^3
+    =x^{3\cdot 2^n}+x^{2\cdot 2^n}+x^{2^n}+1.
+    \]
+    Since $x^{3\cdot 2^n}=x$ and $R$ has characteristic two, 
+    the previous equality becomes $x^{2\cdot 2^n}=x^{2^n}$.
+    Now 
+    \[
+    x^2=(x^2)^{3\cdot 2^n}=(x^3)^{2\cdot 2^n}=(x^3)^{2^n}=x^{3\cdot 2^n}=x.
+    \]
+    Thus $R$ is commutative by Exercise~\ref{xca:x^2=x}.
+\end{sol}
+
 %\section*{Lecture 9}
 %\section*{Lecture 10}
 %\section*{Lecture 11}
