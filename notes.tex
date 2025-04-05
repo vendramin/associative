@@ -5,12 +5,12 @@
 
 \begin{document}
 
-%\begin{abstract}
-%The notes correspond to the master  
-%course \textbf{Associative Algebra} of the 
-%Vrije Universiteit Brussel, 
-%Faculty of Sciences, 
-%Department of Mathematics and Data Sciences. \end{abstract}
+\begin{abstract}
+The notes correspond to the master  
+course \textbf{Associative Algebra} of the 
+Vrije Universiteit Brussel, 
+Faculty of Sciences, 
+Department of Mathematics and Data Sciences. \end{abstract}
 
 \maketitle
 
@@ -19,12 +19,13 @@
 
 \pagestyle{plain}
 
-\include{introduction}
 %\include{subsections}
 
 \pagestyle{fancy}
 
 %\part{Core course}
+\TOCpart{Part 1}
+\include{introduction}
 
 \include{01}
 \include{02}
@@ -39,18 +40,21 @@
 \include{11}
 \include{12}
 
+\TOCpart{Part 2}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[R]{\thepage}
 \fancyhead[L]{\course}
 \fancyhead[R]{Final projects}
 \setlength{\headheight}{14pt}
+\newpage
 
 %\include{topics}
 
 %\appendix
 %\part{Final projects}
-\include{T_Rickart}
+\input{T_Rickart}
 \include{T_Hurewicz}
 %\include{T_Clifford}
 \include{T_Dedekind}
@@ -69,8 +73,11 @@
 \include{T_UP}
 \include{T_braids}
 
-\pagestyle{plain}
+\TOCpart{Part 3}
+\newpage
+\input{topics}
 
+\newpage
 \bibliographystyle{abbrv}
 \bibliography{refs}
 \printindex

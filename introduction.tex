@@ -1,32 +1,32 @@
-\thispagestyle{plain}
-\section*{Introduction}
+% \thispagestyle{plain}
+% \section*{Introduction}
 
-The notes correspond to the master  
-course \textbf{Associative Algebra} of the 
-Vrije Universiteit Brussel, 
-Faculty of Sciences, 
-Department of Mathematics and Data Sciences. The course
-is divided into twelve two-hour lectures. 
+% The notes correspond to the master  
+% course \textbf{Associative Algebra} of the 
+% Vrije Universiteit Brussel, 
+% Faculty of Sciences, 
+% Department of Mathematics and Data Sciences. The course
+% is divided into twelve two-hour lectures. 
 
-% \bigskip 
-% \textbf{Exercises}
-\subsection*{Mandatory and bonus exercises}
+% % \bigskip 
+% % \textbf{Exercises}
+% \subsection*{Mandatory and bonus exercises}
 
-The notes include many exercises, some with full detailed solutions. Mandatory exercises have a \colorbox{green!5!white}{green background}, while optional ones (bonus exercises) have a \colorbox{yellow!15!white}{yellow background}.
+% The notes include many exercises, some with full detailed solutions. Mandatory exercises have a \colorbox{green!5!white}{green background}, while optional ones (bonus exercises) have a \colorbox{yellow!15!white}{yellow background}.
 
-\subsection*{Prerequisites and bibliography}
+% \subsection*{Prerequisites and bibliography}
 
-The reader should have a solid understanding of an undergraduate-level abstract algebra course. For reference, you can review my notes for the VUB courses: \href{https://github.com/vendramin/group}{Group Theory} and \href{https://github.com/vendramin/rings}{Ring and Module Theory}.
+% The reader should have a solid understanding of an undergraduate-level abstract algebra course. For reference, you can review my notes for the VUB courses: \href{https://github.com/vendramin/group}{Group Theory} and \href{https://github.com/vendramin/rings}{Ring and Module Theory}.
 
-The content presented here draws heavily from \cite{MR3308118}, \cite{MR1449137}, 
-and \cite{MR798076}. Additionally, I have 
-followed the outstanding \href{https://ysharifi.wordpress.com}{blog} on 
-abstract algebra by Yaghoub Sharif.
+% The content presented here draws heavily from \cite{MR3308118}, \cite{MR1449137}, 
+% and \cite{MR798076}. Additionally, I have 
+% followed the outstanding \href{https://ysharifi.wordpress.com}{blog} on 
+% abstract algebra by Yaghoub Sharif.
 
 
-\subsection*{Final projects} 
+% \subsection*{Final projects} 
 
-The document contains various topics for final projects, including some that could be expanded into bachelor's or master's theses. Here are some additional topics.
+% The document contains various topics for final projects, including some that could be expanded into bachelor's or master's theses. Here are some additional topics.
 
 % \subsection*{Rickart's theorem}
 
@@ -67,83 +67,45 @@ The document contains various topics for final projects, including some that cou
 % in the 
 % VUB course \href{https://github.com/vendramin/representation}{Representation theory of algebras}.
 
-\subsubsection*{The double centralizer theorem}
 
-Let $R$ be a ring. 
-The \emph{centralizer} of a subring $S$ of $R$ 
-is 
-$C_R(S)=\{r\in R: rs=sr\text{ for all $s\in S$}\}$. 
-Clearly, $C_R(C_R(S))\supseteq S$, but equality does not always hold. 
-The double centralizer theorem give conditions under which one can conclude that the equality occurs; see \cite[Chapter 4]{MR3308118}. 
+\thispagestyle{plain}
+\section*{Introduction}
 
-\subsubsection*{The Amitsur--Levitzki theorem}
+The notes correspond to the master  
+course \emph{Associative Algebra} of the 
+Vrije Universiteit Brussel, 
+Faculty of Sciences, 
+Department of Mathematics and Data Sciences. The course
+is divided into twelve two-hour lectures. 
 
-The theorem states that 
-if $A$ is a commutative algebra, then 
-the matrix algebra 
-$M_n(K)$ satisfies the identity 
-\[
-s_{2n}(a_{1},\dots ,a_{2n})=0,
-\]
-where 
-\[
-s_{n}(X_1,\dots,X_n)=\sum_{\sigma\in\Sym_n}\sgn(\sigma)X_{\sigma(1)}\cdots X_{\sigma(n)}.
-\]
-See \cite[Theorem 6.39]{MR3308118} for the beautiful 
-proof found by Rosset. 
+The reader should have a solid understanding of an undergraduate-level abstract algebra course. For reference, you can review my notes for the VUB courses: \href{https://github.com/vendramin/group}{Group Theory} and \href{https://github.com/vendramin/rings}{Ring and Module Theory}.
 
-\subsubsection*{Non-commutative Hilbert's basis theorem}
+The content presented here draws heavily from \cite{MR3308118}, \cite{MR1449137}, 
+and \cite{MR798076}. Additionally, I have 
+followed the outstanding \href{https://ysharifi.wordpress.com}{blog} on 
+abstract algebra by Yaghoub Sharif.
 
-There exists a non-commutative version of the celebrated
-Hilbert's basis theorem. It is based on the theory of Ore's extensions (also known as \emph{skew polynomial rings}). The theorem
-appears in \cite[I.8.3]{MR1321145}; see \cite[I.7]{MR1321145} 
-for the basic theory of Ore's extensions. 
 
-\subsubsection*{The Golod--Shafarevich theorem}
 
-This is an important theorem of non-commutative algebra
-with several interesting applications, for example, in group theory. 
-A quick proof (and some applications) can be found in the book \cite{MR1449137} of Herstein. 
+The notes include many exercises, some with full detailed solutions. Mandatory exercises have a \colorbox{green!5!white}{green background}, while optional ones
+(bonus exercises) have a \colorbox{yellow!15!white}{yellow background}.
 
-% \subsection*{The Brauer group}
+The notes also include some additional comments. While these are entirely optional, I hope they offer further insight. They are highlighted with a \colorbox{red!5!white}{pink background}.
 
-% The Brauer group is a helpful tool to classify division algebras over fields. It can also be defined in terms of Galois cohomology. 
-% See \cite{MR1233388} for the definition and some properties. 
+The notes include Magma code, which we use to verify examples and offer alternative solutions to certain exercises. Magma \cite{zbMATH01077111} is a powerful software tool designed for working with algebraic structures. There is a free \href{https://magma.maths.usyd.edu.au/calc/}{online} version of Magma available.
 
-\subsubsection*{The Weyl algebra}
-
-The Weyl algebra is the quotient of the free algebra on two generators
-$X$ and $Y$ by the ideal generated by the element
-$YX-XY-1$. The Weyl algebra is a simple ring that is 
-not a matrix ring over a division ring. It is also a non-commutative domain and an Ore extension. See \cite{MR1838439} for more information. 
-In 1968, Dixmier conjectured that any 
-endomorphism of a Weyl algebra is an automorphism; the conjecture
-is still open. 
-
-\subsubsection*{The Jacobson--Herstein theorem}
-
-There exist more theorems similar to 
-the Jacobson's commutativity theorem; see \cite{MR1838439} and \cite{MR2319575}. For example, 
-the Jacobson--Herstein theorem states that  
-if $R$ is a ring
-such that for every $x,y\in R$ there exists some
-$n(x,y)\geq2$ such that 
-\[
-(xy-yx)^{n(x,y)}=xy-yx,
-\]
-then $R$ is commutative.
-% Herstein--Kaplansky?
-
-\subsection*{Acknowledgments}
 
 Thanks go to Ilaria Colazzo, 
 Luca Descheemaeker, 
 Mathijs Dingemans, 
 Silvia Properzi, Lukas Simons.   
 
-\bigskip 
 This version 
 was compiled on \today~at~\currenttime.
-Please send comments and corrections to me at \url{Leandro.Vendramin@vub.be}. 
+
+
+ \begin{figure}[b]
+     \includegraphics[scale=0.2]{VUB.jpg}
+ \end{figure}
 
 
