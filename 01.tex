@@ -151,7 +151,7 @@ In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}
 
 \begin{proof}
    Let $A$ be an algebra with $\dim A=n$ and let $a\in A$. Since  
-	$\{1,a,a^2,\dots,a^n\}$ has $n+1$ elements, it is a linearly dependent set. Thus there exists 
+	$\{1,a,a^2,\dots,a^n\}$ is linearly dependent (because if it does not have repetitions, has $n+1$ elements), there exists 
 	a non-zero polynomial $f\in K[X]$ such that $f(a)=0$.
 \end{proof}
 
@@ -256,7 +256,7 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 
 \begin{proposition}
 \label{pro:semisimple}
-	Let $M$ be a finite-dimensional module. The following statements are equivalent.
+	Let $A$ be a finite-dimensional algebra and $M$ a finite-dimensional $A$-module. The following statements are equivalent:
 	\begin{enumerate}
 		\item $M$ is semisimple.
 		\item $M=\sum_{i=1}^k S_i$, where each $S_i$ is a simple submodule of $M$. 
@@ -333,13 +333,13 @@ The map
 \]
 is a surjective homomorphism of modules, where $A$ is considered as a module with the regular
 representation. Since 
-$A$ is semisimple, it follows that $\oplus_{i=1}^kA$ is semisimple. 
+$A$ is semisimple, it follows that $\bigoplus_{i=1}^kA$ is semisimple. 
 Thus $M$ is semisimple, as it is isomorphic to the quotient of a semisimple module.
 \end{proof}
 
 \begin{theorem}
 Let $A$ be a finite-dimensional semisimple algebra. 
-Assume that the regular representation can be decomposed as $\prescript{}{A}A=\oplus_{i=1}^k S_i$ where each $S_i$ is a simple submodule.  
+Assume that the regular representation can be decomposed as $A=\bigoplus_{i=1}^k S_i$ where each $S_i$ is a simple submodule.  
 If $S$ is a simple module, then $S\simeq S_i$ for some $i\in\{1,\dots,k\}$. 
 \end{theorem}
 
