@@ -256,84 +256,85 @@ exists $n=n(x)$ such that $x^n=0$.
 \end{proof}
 
 
+% \begin{theorem}
+% 	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
+% \end{theorem}
+
+% \begin{proof}
+% 	We first prove that $J(M_n(R))\subseteq M_n(J(R))$. 
+% 	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
+% 	$J=J(R)$. 
+% 	If $M$ is a simple $R$-module, then $M^n$ is a simple $M_n(R)$-module with the usual multiplication. 
+% 	Let $x=(x_{ij})\in J(M_n(R))$ and $m_1,\dots,m_n\in M$. Then
+% 	\[
+% 		x\colvec{3}{m_1}{\vdots}{m_n}=0.
+% 	\]
+% 	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,\dots,n\}$. Hence 
+% 	$x\in M_n(J)$. 
+
+% 	We now prove that $M_n(J)\subseteq J(M_n(R))$. Let 
+% 	\[
+% 		J_1=\begin{pmatrix}
+% 			J & 0 & \cdots & 0\\
+% 			J & 0 & \cdots & 0\\
+% 			\vdots & \vdots & \ddots & \vdots\\
+% 			J & 0 & \cdots & 0
+% 		\end{pmatrix}
+% 		\quad\text{and}\quad
+% 		x=\begin{pmatrix}
+% 			x_1 & 0 & \cdots & 0\\
+% 			x_2 & 0 & \cdots & 0\\
+% 			\vdots & \vdots & \ddots & \vdots\\
+% 			x_n & 0 & \cdots & 0
+% 		\end{pmatrix}\in J_1.
+% 	\]
+% 	Since $x_1$ is quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
+% 	If
+% 	\[
+% 		y=\begin{pmatrix}
+% 			y_1 & 0 & \cdots & 0\\
+% 			0 & 0 & \cdots & 0\\
+% 			\vdots & \vdots & \ddots & \vdots\\
+% 			0 & 0 & \cdots & 0
+% 		\end{pmatrix}, 
+% 	\]
+% 	then $u=x+y+xy$ is lower triangular, as  
+% 	\[
+% 		u=\begin{pmatrix}
+% 			0 & 0 & \cdots & 0\\
+% 			x_2y_1 & 0 & \cdots & 0\\
+% 			x_3y_1 & 0 & \cdots & 0\\
+% 			\vdots & \vdots & \ddots & \vdots\\
+% 			x_ny_1 & 0 & \cdots & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Since  
+% 	$u^n=0$, the element
+% 	\[
+% 	v=-u+u^2-u^3+\cdots+(-1)^{n-1} u^{n-1}
+% 	\]
+% 	is such that 
+% 	$u+v+uv=0$. Thus $x$ is right quasi-regular, as  
+% 	\begin{align*}
+% 		x+(y+v+yv)+x(y+v+yv)&=0,
+% 	\end{align*}
+% 	and therefore $J_1$ is right quasi-regular. Similarly one proves that 
+% 	each $J_i$ is right quasi-regular and hence $J_i\subseteq J(M_n(R))$ for all 
+% 	$i\in\{1,\dots,n\}$. In conclusion, 
+% 	\[
+% 	J_1+\cdots+J_n\subseteq J(M_n(R))
+% 	\]
+% 	and therefore $M_n(J)\subseteq J(M_n(R))$.
+% \end{proof}
+
 \begin{theorem}
 	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
 \end{theorem}
 
 \begin{proof}
-	We first prove that $J(M_n(R))\subseteq M_n(J(R))$. 
-	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
-	$J=J(R)$. 
-	If $M$ is a simple $R$-module, then $M^n$ is a simple $M_n(R)$-module with the usual multiplication. 
-	Let $x=(x_{ij})\in J(M_n(R))$ and $m_1,\dots,m_n\in M$. Then
-	\[
-		x\colvec{3}{m_1}{\vdots}{m_n}=0.
-	\]
-	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,\dots,n\}$. Hence 
-	$x\in M_n(J)$. 
-
-	We now prove that $M_n(J)\subseteq J(M_n(R))$. Let 
-	\[
-		J_1=\begin{pmatrix}
-			J & 0 & \cdots & 0\\
-			J & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			J & 0 & \cdots & 0
-		\end{pmatrix}
-		\quad\text{and}\quad
-		x=\begin{pmatrix}
-			x_1 & 0 & \cdots & 0\\
-			x_2 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			x_n & 0 & \cdots & 0
-		\end{pmatrix}\in J_1.
-	\]
-	Since $x_1$ is quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
-	If
-	\[
-		y=\begin{pmatrix}
-			y_1 & 0 & \cdots & 0\\
-			0 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			0 & 0 & \cdots & 0
-		\end{pmatrix}, 
-	\]
-	then $u=x+y+xy$ is lower triangular, as  
-	\[
-		u=\begin{pmatrix}
-			0 & 0 & \cdots & 0\\
-			x_2y_1 & 0 & \cdots & 0\\
-			x_3y_1 & 0 & \cdots & 0\\
-			\vdots & \vdots & \ddots & \vdots\\
-			x_ny_1 & 0 & \cdots & 0
-		\end{pmatrix}.
-	\]
-	Since  
-	$u^n=0$, the element
-	\[
-	v=-u+u^2-u^3+\cdots+(-1)^{n-1} u^{n-1}
-	\]
-	is such that 
-	$u+v+uv=0$. Thus $x$ is right quasi-regular, as  
-	\begin{align*}
-		x+(y+v+yv)+x(y+v+yv)&=0,
-	\end{align*}
-	and therefore $J_1$ is right quasi-regular. Similarly one proves that 
-	each $J_i$ is right quasi-regular and hence $J_i\subseteq J(M_n(R))$ for all 
-	$i\in\{1,\dots,n\}$. In conclusion, 
-	\[
-	J_1+\cdots+J_n\subseteq J(M_n(R))
-	\]
-	and therefore $M_n(J)\subseteq J(M_n(R))$.
-\end{proof}
-
-\begin{theorem}
-	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
-\end{theorem}
-
-\begin{proof}
-    To simplify the presentation, we will prove the case $n=3$. 
-	We first prove that $J(M_3(R))\subseteq M_3(J(R))$. 
+    For clarity, we will prove the result for $n = 3$. 
+    The extension to general $n$ is straightforward and left as an exercise for the reader.
+    We first prove that $J(M_3(R))\subseteq M_3(J(R))$. 
 	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
 	$J=J(R)$. 
 	If $M$ is a simple $R$-module, then $M^3$ is a simple $M_3(R)$-module with the usual multiplication. 
