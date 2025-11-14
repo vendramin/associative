@@ -1,4 +1,6 @@
-\section{Lecture: Week 5}
+%\section{Lecture: Week 5}
+
+\section{Radical rings} 
 
 \begin{definition}
 \index{Ring!radical}
@@ -66,7 +68,7 @@ There are several characterizations of radical rings.
 	\]
 \end{example}
 
-\subsection{Commutative rings with no maximal ideals}
+\section{Henriksen's theorem}
 
 There are (non-unitary) rings with no maximal ideals. An easy example is given in the following exercise: 
 
@@ -92,7 +94,7 @@ then we say that the ring is of \emph{characteristic zero}.
     % $R$ has characteristic $n$. If $n=\infty$, then $R$ has characteristic zero. 
     % is the least common multiple of 
     % the additive orders of the elements of $R$, then  
-    Let $R$ be a ring and $p$ be a prime number. 
+    Let $R$ be a non-zero ring and $p$ be a prime number. 
     If $px=0$ for all $x\in R$, then $R$ has characteristic $p$. 
 \end{exercise}
 
@@ -175,7 +177,7 @@ $J(R)=R$ and $R^2+pR=R$ for all prime number $p$.
     \gamma\colon R/I\to A,\quad 
     x=\sum \lambda_{\alpha}x_{\alpha}\mapsto \lambda_{\beta}
     \]
-    is a ring homomorphism. 
+    is a surjective ring homomorphism. 
     The composition $f=\gamma\pi\colon R\to R/I\to A$ is a ring homomorphism. By Exercise~\ref{xca:R/I_field_or_zero}, $\ker f$ is a maximal ideal, a contradiction. 
 
     Conversely, let $M$ be a maximal ideal of $R$. If $R/M$ is a field, 
@@ -253,6 +255,7 @@ exists $n=n(x)$ such that $x^n=0$.
 	$r$ annihilates any simple module over $R$.
 \end{proof}
 
+
 \begin{theorem}
 	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
 \end{theorem}
@@ -323,6 +326,77 @@ exists $n=n(x)$ such that $x^n=0$.
 	\]
 	and therefore $M_n(J)\subseteq J(M_n(R))$.
 \end{proof}
+
+\begin{theorem}
+	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
+\end{theorem}
+
+\begin{proof}
+    To simplify the presentation, we will prove the case $n=3$. 
+	We first prove that $J(M_3(R))\subseteq M_3(J(R))$. 
+	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
+	$J=J(R)$. 
+	If $M$ is a simple $R$-module, then $M^3$ is a simple $M_3(R)$-module with the usual multiplication. 
+	Let $x=(x_{ij})\in J(M_3(R))$ and $m_1,m_2,m_3\in M$. Then
+	\[
+		x\colvec{3}{m_1}{m_2}{m_3}=0.
+	\]
+	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,2,3\}$. Hence 
+	$x\in M_3(J)$. 
+
+	We now prove that $M_3(J)\subseteq J(M_3(R))$. Let 
+	\[
+		J_2=\begin{pmatrix}
+			0 & J & 0\\
+			0 & J & 0\\
+			0 & J & 0
+		\end{pmatrix}
+		\quad\text{and}\quad
+		x=\begin{pmatrix}
+			0 & x_1 & 0\\
+			0 & x_2 & 0\\
+			0 & x_3 & 0
+		\end{pmatrix}\in J_2.
+	\]
+	Since $x_2$ is quasi-regular, there exists $y_2\in R$ such that $x_2+y_2+x_2y_2=0$.
+	For 
+	\[
+		y=\begin{pmatrix}
+			0 & 0 & 0\\
+			0 & y_2 & 0\\
+			0 & 0 & 0
+		\end{pmatrix}, 
+	\]
+	let 
+    \[
+		u=x+y+xy=\begin{pmatrix}
+			0 & x_1+x_1y_2 & 0\\
+			0 & x_2+y_2+x_2y_2 & 0\\
+			0 & x_3+x_3y_2 & 0
+		\end{pmatrix}
+        =\begin{pmatrix}
+			0 & x_1+x_1y_2 & 0\\
+			0 & 0 & 0\\
+			0 & x_3+x_3y_2 & 0
+		\end{pmatrix}.
+	\]
+	Since  
+	$u^2=0$, $x$ is right quasi-regular, as  
+	\begin{align*}
+		x+(y-u-yu)+x(y-u-uy)=0,
+	\end{align*}
+	and therefore $J_2$ is right quasi-regular. Similarly one proves that 
+	both $J_1$ and $J_3$ are right quasi-regular. Thus $J_i\subseteq J(M_3(R))$ for all 
+	$i\in\{1,2,3\}$. In conclusion, 
+	\[
+	J_1+J_2+J_3\subseteq J(M_3(R))
+	\]
+	and therefore $M_3(J)\subseteq J(M_3(R))$.
+\end{proof}
+
+\begin{exercise}
+ 	Let $R$ be a ring and $n\in\Z_{>0}$. Prove that $J(M_n(R))=M_n(J(R))$. 
+\end{exercise}
 
 \begin{exercise}
 	Let $R$ be a unitary ring. Then  
@@ -488,7 +562,7 @@ with the Jacobson radical of the underlying ring.
 % 	intersección de los ideales a izquierda maximales y regulares.
 % \end{proof}
 
-\subsection{Amitsur's theorem}
+\section{Amitsur's theorem}
 
 We now prove an important result of Amitsur that
 has several interesting applications. We first need a lemma. 
@@ -562,7 +636,7 @@ An application:
 	\[
 		f(X)=\sum_{i=1}^n\beta_i\prod_{j\ne i}(X-\lambda_j)
 	\]
-	is non-zero, as, for example, if $\beta_1\ne1$, then  
+	is non-zero, as, for example, if $\beta_1\ne0$, then  
 	$f(\lambda_1)=\beta_1(\lambda_1-\lambda_2)\cdots(\lambda_1-\lambda_n)\ne0$
 	and $f(a)=0$. Since $a\in J(A)$ is algebraic, it follows
 	$a$ is nilpotent by Lemma~\ref{lemma:algebraico=nil}.
@@ -583,7 +657,7 @@ $J(A)$ is the largest nil ideal of $A$.
 %We now finish the lecture with some big open problems. 
 
 
-\subsection{Jacobson's conjecture}
+\section{Jacobson's conjecture}
 
 We now conclude the lecture
 with two big open problems related to the Jacobson radical. The first
@@ -617,7 +691,7 @@ J(D) & \Q\\
 $J(R)^n\supseteq\begin{pmatrix}0&\Q\\0&0\end{pmatrix}$ and hence $\bigcap_nJ(R)^n$ is non-zero. 
 \end{exercise}
 
-\subsection{K\"othe's conjecture}
+\section{K\"othe's conjecture}
 
 The following problem is maybe the most important open 
 problem in non-commutative ring theory. 
