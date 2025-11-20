@@ -309,6 +309,7 @@ application of semisimplicity.
 \end{definition}
 
 \begin{proposition}
+\label{pro:unique_simple}
 	Let $A$ be a finite-dimensional simple algebra. There exists a non-zero left ideal 
 	$I$ of minimal dimension. This ideal is a simple 
 	$A$-module, and every simple $A$-module is isomorphic to $I$.
@@ -371,10 +372,10 @@ is isomorphic to $D^n$.
 \end{theorem}
 
 \begin{proof}
-	Since $A$ is simple, it follows that $A$ is semisimple. Artin--Wedderburn theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
-	for some $n_1,\dots,n_k$ and some division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
+	Since $A$ is simple, it follows that $A$ is semisimple. The Artin--Wedderburn theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ 
+	for some $n_1,\dots,n_k$ and division algebras $D_1,\dots,D_k$. Moreover, $A$ has 
 	$k$ isomorphism classes of simple modules. Since $A$ is simple,
-	$A$ has only one isomorphism class of simple modules. Thus $k=1$ and hence 
+	$A$ has only one isomorphism class of simple modules (Proposition~\ref{pro:unique_simple}). Thus $k=1$ and hence 
 	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some division algebra~$D$. 
 \end{proof}
 
