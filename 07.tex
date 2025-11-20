@@ -513,12 +513,12 @@ they are often called \emph{vector spaces over division rings}.
 \begin{theorem}[Jacobson]
 	\label{thm:density}
 	\index{Jacobson's density theorem}
-	A ring is primitive if and only if it is isomorphic to a dense ring on 
+	A unitary ring is primitive if and only if it is isomorphic to a dense ring on 
 	a vector space over a division ring.
 \end{theorem}
 
 \begin{proof}
-    Let $R$ be a ring. 
+    Let $R$ be a unitary ring. 
     If $R$ is isomorphic to a dense ring in $V$, where
 	$V$ is a $D$-vector space for some division ring $D$, then $R$
 	is primitive, as $V$ is a simple and faithful $R$-module. Why faithful? If 
@@ -526,8 +526,9 @@ they are often called \emph{vector spaces over division rings}.
 	If $W\subseteq V$ is a non-zero submodule, let $v\in V$ and $w\in
 	W\setminus\{0\}$. There exists $f\in R$ such that $v=f(w)\in W$. 
 
-   Assume now that $R$ is a primitive ring. We further assume that $R$ 
-   has a unit (the proof, with minor variations, also works for non-unital rings). 
+   Assume now that $R$ is a primitive ring. 
+   % We further assume that $R$ 
+   % has a unit (the proof, with minor variations, also works for non-unital rings). 
    Let $V$ be a simple faithful module.
 	Schur's lemma implies that $D=\End_R(V)$ is a division ring. Thus $V$ is
 	a $D$-vector space with 
@@ -614,6 +615,10 @@ they are often called \emph{vector spaces over division rings}.
     \]
     a contradiction to the linear independence of the set $\{x_1,\dots,x_{n}\}$. 
 \end{proof}
+
+\begin{bonus}
+    Prove Jacobson's density theorem for non-unitary rings. 
+\end{bonus}
 
 \begin{exercise}
 	\label{xca:ideal_denso}
@@ -885,7 +890,17 @@ $G$ does not contain non-trivial finite normal subgroups.
 
 \section{Wedderburn's theorem}
 
-We studied minimal left ideals of rings in Lecture \ref{03} (see Definition~\ref{def:minimal_left_ideal}).  
+We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_left_ideal}).  
+
+% \begin{definition}
+%     Let $R$ be a ring. A left ideal $L$ is said to be \emph{minimal}
+%     if $L\ne\{0\}$ and there is no left ideal $L_1$
+%     such that $\{0\}\subsetneq L_1\subsetneq L$.
+% \end{definition}
+
+% The ring $\Z$ contains no minimal left ideals. If $I$ is a non-zero 
+% left ideal of $\Z$, then
+% $I=(n)$ for some $n>0$ and $I=(n)\supsetneq (2n)$. 
 
 \begin{lemma}
 	\label{lem:primoizqmin=>prim}
@@ -943,8 +958,8 @@ We studied minimal left ideals of rings in Lecture \ref{03} (see Definition~\ref
 	Now we prove that $3)\implies4)$. If $R$ is primitive, by 
 	Jacobson's density theorem we may assume that there is a division ring $D$ and a $D$-vector space $V$ such that 
     $R\subseteq\End_D(V)$ is dense in $V$. 
-	Since $R$ is left artinian, Lemma~\ref{lem:denso_artiniano} implies that  
-	$R=\End_D(V)\simeq M_n(D)$, as $\dim_DV<\infty$. 
+	Now Lemma~\ref{lem:denso_artiniano} and Proposition~\ref{pro:unique_dense} 
+    imply that $R=\End_D(V)\simeq M_n(D)$, as $\dim_DV<\infty$. 
 
 	Finally, $4)\implies1)$ is trivial, as $M_n(D)$ is simple. 
 \end{proof}

@@ -43,13 +43,13 @@ the ring $R/I$ is prime.
 % no necesito hacerlo para artiniano
 
 \begin{proof}
-    Since $I$ is primitive, then $R/I$ is primitive. By Wedderburn theorem, 
+    Since $I$ is primitive, then $R/I$ is primitive (Exercise~\ref{xca:primitivo}). By Wedderburn theorem, 
     $R/I$ is prime and hence $I$ is prime. 
 \end{proof}
 
 \begin{theorem}[Artin--Wedderburn]
 \label{thm:ArtinWedderburn_version2}
-\index{Artin--Wedderburn's theorem}
+\index{Artin--Wedderburn theorem}
     Let $R$ be a semiprimitive left artinian unitary ring. Then
     $R\simeq\prod_{i=1}^kM_{n_i}(D_i)$ for finitely many
     division rings $D_1,\dots,D_k$. 
@@ -70,6 +70,7 @@ We shall need the following lemmas.
 \end{proof}
 
 \begin{lemma}
+\label{lem:I2...In}
     Let $R$ be a left artinian unitary ring.
     Let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
     Then $I_2\cdots I_k\not\subseteq I_1$.   
@@ -83,11 +84,13 @@ We shall need the following lemmas.
     there exists $y\in I_k\setminus I_1$, as 
     $I_k\ne I_1$. 
     Then 
-    $(xR)y\subseteq II_k\subseteq I_1$. Note that $I_1$ is prime: if $xy\in xRy\subseteq I_1$ and $x\not\in I_1$, 
-    then $(x,M)=R$. Thus $1=rx+m$ for some $r\in R$ and $m\in M$. By multiplying by $y$ on the left, 
-    $y=r(xy)+my\in M$. Now that we know that $I_1$ is prime, 
+    $(xR)y\subseteq II_k\subseteq I_1$. Since $I_1$ is prime (this is left as an exercise), 
     it follows that either $x\in I_1$ or $y\in I_1$, a contradiction.   
 \end{proof}
+
+\begin{exercise}
+    Complete the proof of Lemma~\ref{lem:I2...In}. 
+\end{exercise}
 
 \begin{lemma}
 \label{lem:Rartinian_finite_primitives}
@@ -137,18 +140,25 @@ Now we are ready to prove the theorem.
     for all $j\in\{2,\dots,k\}$. 
     Thus 
     \[
-    \varphi(x_1)=(x+I_1,x+I_2,\dots,x+I_k)=(1+I_1,I_2,\dots, I_k).
+    \varphi(x_1)=(x_1+I_1,x_1+I_2,\dots,x_1+I_k)=(x_1+I_1,I_2,\dots, I_k).
     \]
     Similarly,
-    there exists $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
+    there exist $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
     \begin{align*}
-    \varphi(x_2)&=(I_1,1+I_2,\dots,I_k),\\
+    \varphi(x_2)&=(I_1,x_2+I_2,\dots,I_k),\\
     &\vdots\\
-    \varphi(x_k)&=(I_1,I_2,\dots,1+I_k).
+    \varphi(x_k)&=(I_1,I_2,\dots,x_k+I_k).
     \end{align*}
-    From this, it follows that $\varphi$ is surjective. Each $R/I_i$ 
+    From this, it follows that $\varphi$ is surjective: if $(x_1+I_1,\dots,x_k+I_k)\in\prod_{j=1}^kR/I_j$, then
+    \begin{align*}
+        \varphi(x_1+\cdots+x_k) &= \varphi(x_1)+\cdots+\varphi(x_k)\\
+        &=(x_1+I_1,I_2,\dots,I_k)+\cdots+(I_1,I_2,\dots,x_k+I_k)\\
+        &=(x_1+I_1,\dots,x_k+I_k).
+    \end{align*}
+    
+    Each $R/I_i$ 
     is primitive and hence isomorphic to $M_{n_i}(D_i)$ for some 
-    $n_i$ and some division ring $D_i$. Therefore
+    $n_i$ and some division ring $D_i$ (by Wedderburn's theorem). Therefore
     \[
     R\simeq R/I_1\times\cdots\times R/I_k\simeq \prod_{i=1}^kM_{n_i}(D_i).\qedhere 
     \]
@@ -164,16 +174,6 @@ In the first lectures, we studied semisimple modules over finite-dimensional
 algebras. Let us now review the theory of semisimple modules over rings. 
 A (finitely generated) module $M$ (over a ring $R$) is \emph{semisimple} 
 if it is isomorphic to a (finite) direct sum of simple modules. 
-
-\begin{definition}
-    Let $R$ be a ring. A left ideal $L$ is said to be \emph{minimal}
-    if $L\ne\{0\}$ and there is no left ideal $L_1$
-    such that $\{0\}\subsetneq L_1\subsetneq L$.
-\end{definition}
-
-The ring $\Z$ contains no minimal left ideals. If $I$ is a non-zero 
-left ideal of $\Z$, then
-$I=(n)$ for some $n>0$ and $I=(n)\supsetneq (2n)$. 
 
 \begin{proposition}
     Let $R$ be a left artinian ring. 
@@ -317,18 +317,19 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
     such that $R\simeq L_1\oplus\cdots\oplus L_k$. We claim that
     for each $i\in\{1,\dots,k\}$, the left ideal
     $M_i=\sum_{j\ne i}L_j$ of $R$ is maximal. For example, let us prove
-    that $M_1$ is maximal. If not, there exists a left ideal $I$ of $R$ 
+    that $M_1$ is maximal. If not, there exists a proper left ideal $I$ of $R$ 
     such that $M_1\subsetneq I$. Let $x\in I\setminus M_1$ and write 
     \[
     x=x_1+x_2+\cdots+x_k
     \]
     for $x_j\in L_j$. Since $x_2+\cdots+x_k\in M_1\subseteq I$, 
-    it follows that $x_1\in I\cap L_1$, a contradiction. Now the claim follows, as
+    it follows that $x_1\in I\cap L_1$. Thus $I\cap L_1$ is a non-zero left ideal contained in the minimal left ideal $L_1$, a contradiction. Now the claim follows, as
     $J(R)\subseteq M_1\cap\cdots\cap M_k=\{0\}$. 
     
     Conversely, if $R$ is left artinian and $J(R)=\{0\}$, then
     $R\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)$ 
-    for division rings $D_1,\dots,D_k$, this is Artin--Wedderburn theorem. 
+    for division rings $D_1,\dots,D_k$, this is the 
+    Artin--Wedderburn theorem. 
     Since each $M_{n_j}(D_j)$ 
     is semisimple, it follows that $R$ is semisimple. 
 \end{proof}
