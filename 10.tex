@@ -232,6 +232,7 @@ we need a lemma. This is similar to one of the implications proved in Propositio
 in the arbitrary setting we are considering, we need to use Zorn's lemma. 
 
 \begin{lemma}
+\label{lem:direct_summand}
     Let $M$ be a semisimple module and $N$ be a submodule. 
     Then $N$ is a direct summand.
 \end{lemma}
@@ -264,7 +265,7 @@ complex group algebras of infinite groups are never semisimple.
 	\[
 	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
 	\]
-	By the previous lemma, 
+	By Lemma~\ref{lem:direct_summand}, 
 	there exists a non-zero left ideal $J$ such that 
 	$R=I\oplus J$. Since $R$ is unitary, there exist $e\in I$ and $f\in J$ such that
 	$1=e+f$. If
@@ -273,8 +274,8 @@ complex group algebras of infinite groups are never semisimple.
 	that $f^2=f$. Moreover, $ef=0$, as $ef\in I\cap J=\{0\}$.  Since $I$ 
 	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$ 
  (note that $I=Re$ because $x=xe$ for all $x\in I$), we conclude that
-	$(g-1)f=0$
-	for all $g\in G$, as $g-1\in I$ for all $g\in G$. If $f=\sum_{h\in
+	$(g-1_G)f=0$
+	for all $g\in G$, as $g-1_G\in I$ for all $g\in G$. If $f=\sum_{h\in
 	G}\lambda_hh$ (finite sum) and $g\in G$, then  
 	\[
 	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
@@ -492,55 +493,69 @@ has finite order. Locally finite groups are torsion groups.
 	$|H|\leq m|U|$. 
 \end{proof}
 
-\index{Group!solvable}
-A group $G$ is
-\emph{solvable} if there exists a sequence
-of subgroups 
-\begin{equation}
-	\label{eq:resoluble}
-	\{1\}=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
-\end{equation}
-where each $G_i$ is normal in $G_{i+1}$ and each 
-quotient $G_i/G_{i-1}$ is
-abelian.
+% \index{Group!solvable}
+% A group $G$ is
+% \emph{solvable} if there exists a sequence
+% of subgroups 
+% \begin{equation}
+% 	\label{eq:resoluble}
+% 	\{1\}=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
+% \end{equation}
+% where each $G_i$ is normal in $G_{i+1}$ and each 
+% quotient $G_i/G_{i-1}$ is
+% abelian.
 
-\begin{example}
-    Abelian groups are solvable. 
-\end{example}
+% \begin{example}
+%     Abelian groups are solvable. 
+% \end{example}
 
-Subgroups and quotients of solvable groups are solvable. 
+% Subgroups and quotients of solvable groups are solvable. 
 
-\begin{example}
-    Groups of order $<60$ are solvable.
-\end{example}
+% \begin{example}
+%     Groups of order $<60$ are solvable.
+% \end{example}
 
-\begin{example}
-    $\Alt_5$ and $\Sym_5$ are not solvable. 
-\end{example}
+% \begin{example}
+%     $\Alt_5$ and $\Sym_5$ are not solvable. 
+% \end{example}
 
-\index{Burnside's theorem}
-\index{Feit--Thompson's theorem}
-A famous theorem of Burnside states that 
-groups of order $p^aq^b$ for prime numbers $p$ and $q$ are solvable 
-A much harder theorem proved by Feit and Thompson states that
-groups of odd order are solvable.
+% \index{Burnside's theorem}
+% \index{Feit--Thompson's theorem}
+% A famous theorem of Burnside states that 
+% groups of order $p^aq^b$ for prime numbers $p$ and $q$ are solvable 
+% A much harder theorem proved by Feit and Thompson states that
+% groups of odd order are solvable.
 
-\begin{proposition}
-	If $G$ is a solvable torsion group, 
-	then $G$ is locally finite. 
-\end{proposition}
+% \begin{proposition}
+% 	If $G$ is a solvable torsion group, 
+% 	then $G$ is locally finite. 
+% \end{proposition}
 
-\begin{proof}
-	We proceed by induction on $n$, the length of the sequence~\eqref{eq:resoluble}. 
-	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
-	Now assume the result holds for solvable groups of length $n-1$ and let
-	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. Since $G_{n-1}$ is 
-	a solvable torsion group, the inductive hypothesis implies that 
-	$G_{n-1}$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
-	it is locally finite. The result now follows from Proposition \ref{pro:exact_LI}.
-\end{proof}
+% \begin{proof}
+% 	We proceed by induction on $n$, the length of the sequence~\eqref{eq:resoluble}. 
+% 	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
+% 	Now assume the result holds for solvable groups of length $n-1$ and let
+% 	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. Since $G_{n-1}$ is 
+% 	a solvable torsion group, the inductive hypothesis implies that 
+% 	$G_{n-1}$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
+% 	it is locally finite. The result now follows from Proposition \ref{pro:exact_LI}.
+% \end{proof}
 
-We now prove Herstein's theorem.
+\begin{bonus}
+    \label{bonus:solvable=>LF}
+    Prove that solvable torsion groups are locally finite.  
+\end{bonus}
+
+% \begin{sol}{bonus:solvable=>LF}
+% 	We proceed by induction on $n$, the length of the filtration. 
+% 	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
+% 	Now assume the result holds for solvable groups of length $n-1$ and let
+% 	$G$ be a solvable group with a filtration of length $n$. Since $G_{n-1}$ is 
+% 	a solvable torsion group, the inductive hypothesis implies that 
+% 	$G_{n-1}$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
+% 	it is locally finite. The result now follows from Proposition \ref{pro:exact_LI}.
+% \end{proof}
+
 
 \begin{theorem}[Herstein]
 \index{Herstein's theorem}
