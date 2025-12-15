@@ -54,6 +54,14 @@ Some examples:
 	n,d<n}\Phi_d(X)\in\Z[X]$.
 \end{proof}
 
+\begin{exercise}
+\label{xca:gcd}
+  Let $a,n,m$ be positive integers. Prove that 
+  \[
+  \gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1.
+  \]
+\end{exercise}
+
 \begin{theorem}[Wedderburn]
 \label{thm:Wedderburn} 
 	\index{Wedderburn's little theorem}
@@ -87,7 +95,12 @@ Some examples:
 		q^n-1=q-1+\sum_{j=1}^m \frac{q^n-1}{q^{d_j}-1},
 	\end{equation}
 	where $1<\frac{q^n-1}{q^{d_j}-1}\in\Z$ for all $j\in\{1,\dots,m\}$. 
-	Since $d^{d_j}-1$ divides $q^n-1$, each $d_j$ divides $n$. In particular,
+    In fact, each centralizer, including the zero element, 
+    is a vector space over $K$ and hence has $q^{d_j}$ elements for some $d_j$. 
+    By the fundamental counting principle, the orbit has size $(q^n-1)/(q^{d_j}-1)$. 
+       
+	Since $d^{d_j}-1$ divides $q^n-1$ (see Exercise~\ref{xca:gcd}), 
+    each $d_j$ divides $n$. In particular,
 	~\eqref{eq:ciclotomico} implies that 
 	\begin{equation}
 		\label{eq:trick_ciclotomico}
