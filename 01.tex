@@ -1,10 +1,7 @@
-%\section{Lecture: Week 1}
-
 \section{Semisimple algebras}
 
-We will study  
-finite-dimensional semisimple algebras. The main goal of the first two lectures is to
-prove the Artin--Wedderburn theorem. 
+We will study  finite-dimensional semisimple algebras. The main goal of the
+first two lectures is to prove the Artin--Wedderburn theorem. 
 
 \begin{definition}
 	\index{Algebra}
@@ -14,21 +11,17 @@ prove the Artin--Wedderburn theorem.
     a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)\quad\text{and}\quad 
 	(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)
  \]
-    for all $a,b,c\in A$, and 
-	that contains an element $1_A\in A$ such that 
+    for all $a,b,c\in A$ and $\lambda,\mu\in K$, and 
+	contains an element $1_A\in A$ such that 
  \[
  1_Aa=a1_A=a
  \]
  for all $a\in A$.
  \end{definition}
 
-Note that a ring $A$ is an algebra over $K$ 
-if and only if 
-there is a ring homomorphism $K\to Z(A)$, where $Z(A)=\{a\in A:ab=ba\text{ for all $b\in A$}\}$ is the \emph{center} of $A$, 
-such that $1_K\to 1_A$. 
-% n algebra $A$ over $K$ is, in particular, a ring $A$ 
-% such that is a vector space
-% (over $K$) such that the map $K\to A$, $\lambda\mapsto \lambda1_A$, is injective. 
+Note that a ring $A$ is an algebra over $K$ if and only if there is a ring
+homomorphism $\iota\colon K\to Z(A)$, where $Z(A)=\{a\in A:ab=ba\text{ for all $b\in A$}\}$
+is the \emph{center} of $A$, such that $\iota(1_K)=1_A$. 
 
 \begin{definition}
 	\index{Algebra!commutative}
@@ -54,12 +47,12 @@ Similarly, the polynomial ring $K[X,Y]$ and the ring $K[\![X]\!]$ of power serie
 are examples of algebras over $K$. 
 
 \begin{example}
-	If $A$ is an algebra, then  $M_n(A)$ is an algebra. 
+	Let $n\geq1$. If $A$ is an algebra, then  $M_n(A)$ is an algebra. 
 \end{example}
 
 \begin{example}
 	The set of continuous maps $[0,1]\to\R$ is a real algebra with the usual
-	point-wise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
+	pointwise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
 \end{example}
 
 \begin{example}
@@ -76,7 +69,7 @@ are examples of algebras over $K$.
 	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
 	\] 	
 	Note that $\dim\C[G]=|G|$ and
-	$\C[G]$ is commutative if and only $G$ is abelian. 
+	$\C[G]$ is commutative if and only if $G$ is abelian. 
 	This is the \emph{complex group algebra} of $G$. 
 \end{example}
 
@@ -87,12 +80,13 @@ with the usual operations.
 
 \begin{definition}
     \index{Homomorphism!of algebras}
-    Let $K$ be a field and $A$ and $B$ be $K$-algebras. 
-    An algebra \emph{homomorphism} is a ring homomorphism $f\colon A\to B$ that is also a $K$-linear map. 
+    Let $K$ be a field and $A$ and $B$ be $K$-algebras.  An algebra
+    \emph{homomorphism} is a unital ring homomorphism $f\colon A\to B$ that is
+    also a $K$-linear map. 
 \end{definition}
 
-The complex conjugation map  
-$\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebra homomorphism over $\C$. 
+The complex conjugation map  $\C\to \C$, $z\mapsto\overline{z}$, is a ring
+homomorphism that is not an algebra homomorphism over $\C$. 
  
 \begin{exercise}
 \label{xca:G_zero_divisors}
@@ -100,14 +94,14 @@ $\C\to \C$, $z\mapsto\overline{z}$, is a ring homomorphism that is not an algebr
 	Then $\C[G]$ has zero divisors. 
 \end{exercise}
 
-If $A$ is an algebra, then $\mathcal{U}(A)$ is the set 
+If $A$ is an algebra, then $\mathcal{U}(A)$ is the group  
 of units of $A$. 
 
 \begin{exercise}
 \label{xca:units_UP}
 	Let $A$ be a $K$-algebra and $G$ be a finite group. 
 	If $f\colon G\to\mathcal{U}(A)$ is a group homomorphism, 
-	then there exists an algebra homomorphism 
+	then there exists a unique algebra homomorphism 
 	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
 \end{exercise}
 
@@ -140,24 +134,33 @@ $A\to A/I$, $a\mapsto a+I$, is a surjective algebra homomorphism with kernel~$I$
     such that $f(a)=0$. 
 \end{definition}
 
-If every element of $A$ is algebraic, then $A$ is said to be \emph{algebraic} 
+If every element of $A$ is algebraic, then $A$ is said to be \emph{algebraic}. 
 
-In the algebra $\R$ over $\Q$, the element $\sqrt{2}$ is algebraic, as $\sqrt{2}$ is a root of the polynomial $X^2-2\in\Q[X]$. A famous theorem of Lindemann proves that $\pi$ is not algebraic over $\Q$. Every element of the real algebra $\R$ is algebraic.
+$\R$ is not algebraic as a $\Q$-algebra. 
+%The element $\sqrt{2}$ is algebraic, as
+%$\sqrt{2}$ is a root of the polynomial $X^2-2\in\Q[X]$. 
+A famous theorem of Lindemann proves that $\pi$ is not algebraic over $\Q$.
+Every element of $\R$, regarded as an $\R$-algebra, is algebraic over $\R$.
 
 \begin{proposition}
-	\label{lem:algebraic}
+	\label{pro:algebraic}
 	Every finite-dimensional algebra is algebraic.
 \end{proposition}
 
 \begin{proof}
-   Let $A$ be an algebra with $\dim A=n$ and let $a\in A$. Since  
-	$\{1,a,a^2,\dots,a^n\}$ is linearly dependent (because if it does not have repetitions, has $n+1$ elements), there exists 
+  Let $A$ be an algebra with $\dim A=n$ and let $a\in A$. Since the 
+  $n+1$ elements 
+	$1,a,a^2,\dots,a^n$ are linearly dependent, 
+  there exists 
 	a non-zero polynomial $f\in K[X]$ such that $f(a)=0$.
 \end{proof}
 
+Throughout Lectures 1 and 2, all modules are unital left modules unless
+otherwise stated.
+
 \begin{definition}
 \index{Module}
-    A \emph{module} over an algebra $A$ is a module 
+    A \emph{module} over an algebra $A$ is a unital left module 
     over the ring $A$.
 \end{definition}
 
@@ -223,7 +226,7 @@ This module is the (left) \emph{regular representation} of $A$ and it will be de
 \end{definition}
 
 By definition, the zero module is semisimple. Moreover, 
-any finite direct sum of semisimples is semisimple. 
+any finite direct sum of semisimple modules is semisimple. 
 
 % The zero module is semisimple.  
 
@@ -241,16 +244,16 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 \end{proof}
 
 \begin{proposition}
-    If $A$ is a finite-dimensional algebra and $S$ is a simple $A$-module, then $S$ is finite-dimensional. 
+    If $A$ is a finite-dimensional algebra and $S$ is a simple $A$-module, then
+    $S$ is finite-dimensional. 
 \end{proposition}
 
 \begin{proof}
-    Let $s\in S\setminus\{0\}$. Since $S$ is simple, $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective 
-    module homomorphism. 
-    In particular, by the first isomorphism theorem, 
-    $A/\ker\varphi\simeq S$ and hence 
+    Let $s\in S\setminus\{0\}$. Since $S$ is simple, $\varphi\colon A\to S$,
+    $a\mapsto a\cdot s$, is a surjective module homomorphism.  In particular,
+    by the first isomorphism theorem, $A/\ker\varphi\simeq S$ and hence 
     \[
-    \dim S=\dim (A/\ker\varphi)\leq \dim A.\qedhere
+    \dim_K S=\dim_K (A/\ker\varphi)\leq \dim_K A.\qedhere
     \]
 \end{proof}
 
@@ -265,7 +268,7 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 \end{proposition}
 
 \begin{proof}
-	We first prove that $2)\implies3)$.
+  We first prove that $2)\implies3)$. If $N=\{0\}$, take $T=M$. 
 	Let $N\ne\{0\}$ be a submodule of $M$. Since $N\ne\{0\}$ and $\dim M<\infty$, there exists a submodule 
 	$T$ of $M$ of maximal dimension such that 
 	$N\cap T=\{0\}$. If $S_i\subseteq N\oplus T$ for all $i\in\{1,\dots,k\}$, then, as $M$ is the sum of the $S_i$, it follows that
@@ -277,32 +280,39 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 	
 	The implication  $1)\implies2)$ is trivial. 
 	
-	Finally, we prove that $3)\implies1)$. 
-	We proceed by induction on $\dim M$. The result is clear if $\dim M=1$. Assume that $\dim M\geq2$ and   
-	let $S$ be a non-zero submodule of $M$ of minimal dimension. In particular, $S$ is simple. 
-    By assumption, there exists a submodule $T$ of $M$ such that $M=S\oplus T$. We claim that $T$ satisfies the assumptions. 
-	If $X$ is a submodule of $T$, then, since $T$ is also a submodule of $M$, there exists a submodule $Y$ of $M$ such that 
-	$M=X\oplus Y$. Thus  
+  Finally, we prove that $3)\implies1)$.  We proceed by induction on $\dim M$.
+  The result is clear if $\dim M\leq1$. Assume that $\dim M\geq2$ and let $S$
+  be a non-zero submodule of $M$ of minimal dimension. In particular, $S$ is
+  simple.  By assumption, there exists a submodule $T$ of $M$ such that
+  $M=S\oplus T$. We claim that $T$ satisfies the assumptions.  If $X$ is a
+  submodule of $T$, then, since $T$ is also a submodule of $M$, there exists a
+  submodule $Y$ of $M$ such that $M=X\oplus Y$. Thus  
 	\[
 	T=T\cap M=T\cap (X\oplus Y)=X\oplus (T\cap Y),
 	\]
-	as $X\subseteq T$. 
-	Since $\dim T<\dim M$ and $T\cap Y$ is a submodule of $T$, the inductive hypothesis implies 
-	that $T$ is a direct sum of simple submodules. Hence $M$ is a direct sum of simple submodules. 
+  as $X\subseteq T$. Thus every submodule of $T$ has a complement in $T$. 
+  Since $\dim T<\dim M$ and $T\cap Y$ is a submodule of
+  $T$, the inductive hypothesis implies that $T$ is a direct sum of simple
+  submodules. Hence $M$ is a direct sum of simple submodules. 
 \end{proof}
 
 \begin{proposition}
-    If $M$ is a semisimple module and $N$ is a submodule, then $N$ and $M/N$ are semisimple.	
+    If $M$ is a semisimple module and $N$ is a submodule, then $N$ and $M/N$
+    are semisimple.	
 \end{proposition}
 
 \begin{proof}
-	Assume that $M=S_1+\cdots+ S_k$, where each $S_i$ is a simple submodule. If $\pi\colon M\to M/N$ 
-	is the canonical map, the techniques used in Schur's lemma imply that each restriction $\pi|_{S_i}$ 
-	is either zero or an isomorphism with the image. Since  
+  Assume that $M=S_1+\cdots+ S_k$, where each $S_i$ is a simple submodule. If
+  $\pi\colon M\to M/N$ is the canonical map, the techniques used in Schur's
+  lemma imply that each restriction $\pi|_{S_i}$ is either zero or an
+  isomorphism with the image. Since  
 	\[
-	M/N=\pi(M)=\sum_{i=1}^k(\pi|_{S_i})(S_i),
+	M/N=\pi(M)=\sum_{i=1}^k(\pi|_{S_i})(S_i)
 	\]
-	it follows that $M/N$ is a direct sum of finitely many simples. 
+  is a sum of finitely many simple submodules, 
+	it follows from 
+  Proposition~\ref{pro:semisimple} 
+  that $M/N$ is a direct sum of finitely many simple modules.  
 	
 	We now prove that $N$ is semisimple. By assumption, 
 	there exists a submodule $T$ of $M$ such that 
@@ -316,25 +326,28 @@ is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple.
 
 \begin{definition}
 \index{Algebra!semisimple}
-    An algebra $A$ is \emph{semisimple} if every finitely generated $A$-module is semisimple. 
+    A finite-dimensional algebra $A$ is \emph{semisimple} if every finitely
+    generated $A$-module is semisimple. 
 \end{definition}
 
 \begin{proposition}
-Let $A$ be a finite-dimensional algebra. Then $A$ is semisimple if and only if 
+Let $A$ be a finite-dimensional algebra. Then $A$ is semisimple if and only if
 the regular representation of $A$ is semisimple. 
 \end{proposition}
 
 \begin{proof}
-Let us prove the non-trivial implication. Let $M$ be a finitely generated module, say $M=(m_1,\dots,m_k)$. 
-The map
+Let us prove the non-trivial implication. 
+Assume that the regular left module ${}_AA$ is semisimple.
+Let $M$ be a finitely generated
+module, say $M=(m_1,\dots,m_k)$.  The map
 \[
 \bigoplus_{i=1}^k A\to M,\quad
 (a_1,\dots,a_k)\mapsto \sum_{i=1}^k a_i\cdot m_i,
 \]
-is a surjective homomorphism of modules, where $A$ is considered as a module with the regular
-representation. Since 
-$A$ is semisimple, it follows that $\bigoplus_{i=1}^kA$ is semisimple. 
-Thus $M$ is semisimple, as it is isomorphic to the quotient of a semisimple module.
+is a surjective homomorphism of modules, where $A$ is considered as a module
+with the regular representation. It follows that
+$\bigoplus_{i=1}^kA$ is semisimple.  Thus $M$ is semisimple, as it is
+isomorphic to the quotient of a semisimple module.
 \end{proof}
 
 \begin{theorem}
@@ -345,7 +358,7 @@ If $S$ is a simple module, then $S\simeq S_i$ for some $i\in\{1,\dots,k\}$.
 
 \begin{proof}
 Let $s\in S\setminus\{0\}$. The map $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective module homomorphism. Since 
-$\varphi\ne 0$, there exists $i\in\{1,\dots,k\}$ such that some restriction 
+$\varphi\ne 0$, there exists $i\in\{1,\dots,k\}$ such that the restriction 
 $\varphi|_{S_i}\colon S_i\to S$ is non-zero. By Schur's lemma, it follows that  
 $\varphi|_{S_i}$ is an isomorphism.   	
 \end{proof}

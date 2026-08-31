@@ -1,7 +1,7 @@
 %\section{Lecture: Week 3}
-\label{03}
 
 \section{Group algebras}
+\label{03}
 
 Let $K$ be a field, and $G$ be a group. The \emph{group algebra} $K[G]$ 
 is the vector space (over $K$) with basis $\{g:g\in G\}$ 
@@ -19,13 +19,13 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 
 \begin{exercise}
 \label{xca:K_cyclic}
-	Let $n\geq2$ and $G=C_n$ the (multiplicative) cyclic group of order $n$. Prove that 
-	$K[G]\simeq K[X]/(X^n-1)$. 
+  For $n\geq2$ let $G=C_n$ be the (multiplicative) cyclic group of order $n$.
+  Prove that $K[G]\simeq K[X]/(X^n-1)$. 
 \end{exercise}
 
 \begin{exercise}
 \label{xca:abelian=>domain}
-	Let $G$ be a finitely-generated torsion-free abelian group. Prove that 
+	Let $G$ be a finitely generated torsion-free abelian group. Prove that 
 	$K[G]$ is a domain. 
 \end{exercise}
 
@@ -53,15 +53,15 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 % grupo de un grupo finito. Comenzamos con un ejemplo:
 
 \begin{exercise}
-	Let $G=C_2=\langle g\rangle\simeq\Z/2$, the (multiplicative) 
-	group with two elements. Note that every element of $K[G]$ is of the form
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$, the (multiplicative) cyclic group 
+  of order two. Note that every element of $K[G]$ is of the form
 	$a+bg$ for some $a,b\in K$. Prove the following statements:
 	\begin{enumerate}
 	    \item If the characteristic of $K$ is different from two, then 
 	    \[
 		K[G]\to K\times K,
 		\quad
-		a1+bg\mapsto (a+b,a-b),
+    a1_{K[G]}+bg\mapsto (a+b,a-b),
 	\]
 	is an algebra isomorphism. 
 	\item If the characteristic of $K$ is two, then 
@@ -76,7 +76,7 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 			0 & a+b
 		\end{pmatrix},
 	\]
-	is an algebra isomorphism. 
+	is an algebra isomorphism onto its image. 
 	\end{enumerate}
 \end{exercise}
 
@@ -89,7 +89,7 @@ the map \[
 is an algebra homomorphism. 
 
 \begin{exercise}
-	Let $G=C_3$ be the (multiplicative) group of three elements. Prove that
+	Let $G=C_3$ be the (multiplicative) cyclic group of order three. Prove that
 	$\R[G]\simeq\R\times\C$.
 % 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
 % 	\[
@@ -153,7 +153,7 @@ is an algebra homomorphism.
 
 
 Maschke's theorem states that, if $G$ is a finite group, 
-then the group algebra $\C[G]$ is semisimple. By Mollien's theorem, 
+then the group algebra $\C[G]$ is semisimple. By Molien's theorem, 
 \[
 \C[G]\simeq \prod_{i=1}^k M_{n_i}(\C),
 \]
@@ -164,12 +164,12 @@ simple $\C[G]$-modules. Moreover,
 \]
 
 \begin{theorem}
-    Let $G$ be a finite group. The number of simple 
-    modules of $\C[G]$ coincides with the number of conjugacy classes of $G$. 
+    Let $G$ be a finite group. The number of simple modules of $\C[G]$
+    coincides with the number of conjugacy classes of $G$. 
 \end{theorem}
 
 \begin{proof}
-    By Mollien's theorem, $\C[G]\simeq\prod_{i=1}^kM_{n_i}(\C)$. Thus 
+    By Molien's theorem, $\C[G]\simeq\prod_{i=1}^kM_{n_i}(\C)$. Thus 
     \[
 		Z(\C[G])\simeq\prod_{i=1}^kZ(M_{n_i}(\C))\simeq\C^k.
 	\]
@@ -178,15 +178,18 @@ simple $\C[G]$-modules. Moreover,
 	G$. Thus 
 	\[
 		\sum_{g\in G}\lambda_{hgh^{-1}}g=
-		\sum_{g\in g}\lambda_g h^{-1}gh=\sum_{g\in G}\lambda_gg
+		\sum_{g\in G}\lambda_g h^{-1}gh=\sum_{g\in G}\lambda_gg
 	\]
-	and hence $\lambda_{g}=\lambda_{hgh^{-1}}$ for all $g,h\in G$. A basis for 
+	and hence $\lambda_{g}=\lambda_{hgh^{-1}}$ for all $g,h\in G$. 
+  Note that 
+  coefficients constant on conjugacy classes give a central element. Thus 
+  a basis for 
 	$Z(\C[G])$ is given by elements of the form 
 	\[
 		\sum_{g\in K}g,
 	\]
-	where $K$ is a conjugacy class of $G$. Therefore $\dim Z(\C[G])$ is equal to 
-	the number of conjugacy classes of $G$.
+  where $K$ is a conjugacy class of $G$. Therefore $\dim Z(\C[G])$ is equal to
+  the number of conjugacy classes of $G$.
 \end{proof}
 
 \section{Which algebras are group algebras?}
@@ -208,10 +211,10 @@ simple $\C[G]$-modules. Moreover,
 
 \begin{problem}[Brauer]
 \index{Brauer's problem}
-    Which algebras are group algebras? 
+    Which complex algebras are group algebras of finite groups? 
 \end{problem}
 
-This question might be impossible to answer, but it is extremely interesting. 
+The problem remains only partially understood. 
 Examples \ref{exa:C4} and \ref{exa:S3} show
 that $\C^4$ and $\C^2\times M_2(\C)$ are complex group algebras. 
 
@@ -224,9 +227,8 @@ that $\C^4$ and $\C^2\times M_2(\C)$ are complex group algebras.
 
 \section{The isomorphism problem for group algebras}
 
-
 Recall that if $R$ is a unitary commutative ring 
-and $G$ is a group, then one defines the group ring $R[G]$ (see Appendix \ref{section:Hurewicz}). 
+and $G$ is a group, then one defines the group ring $R[G]$. 
 % More precisely,
 % $R[G]$ is the set of finite linear combinations
 % \[
@@ -246,7 +248,7 @@ and $G$ is a group, then one defines the group ring $R[G]$ (see Appendix \ref{se
 % \]
 Note that $R[G]$ is a left $R$-module with
 \[
-\lambda\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\lambda\lambda_g)g.
+\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
 \]
 
 In this section, we will briefly discuss the
@@ -254,8 +256,9 @@ following natural problem:
 
 \begin{question}[The isomorphism problem]
 \label{question:iso}
- Let $R$ be a ring and $G$ and $H$ be groups. Assume
- that $R[G]\simeq R[H]$ (as $R$-algebras). Does $G\simeq H$?
+ Let $R$ be a unitary commutative ring and let 
+ $G$ and $H$ be groups. Assume that $R[G]\simeq R[H]$ as
+ unital $R$-algebras. Does $G\simeq H$?
 \end{question}
 
 For general information on Question \ref{question:iso} we refer to the survey paper \cite{MR4472590}.
@@ -265,11 +268,11 @@ For general information on Question \ref{question:iso} we refer to the survey pa
 \end{exercise}
 
 \begin{exercise}
-    Let $G$ and $H$ be groups. Prove that if
-    $\Z[G]\simeq\Z[H]$, then $R[G]\simeq R[H]$ for any commutative ring $R$.
+    Let $G$ and $H$ be groups. Prove that if $\Z[G]\simeq\Z[H]$, then
+    $R[G]\simeq R[H]$ for any commutative ring $R$.
 \end{exercise}
 
-The previous exercise suggest the importance of the following 
+The previous exercise suggests the importance of the following 
 instance of Question \ref{question:iso}:
 
 \begin{question}
@@ -277,11 +280,10 @@ instance of Question \ref{question:iso}:
     Let $G$ and $H$ be groups. Does $\Z[G]\simeq\Z[H]$ imply $G\simeq H$?
 \end{question}
 
-Although there are several cases where
-the isomorphism problem has an affirmative answer (e.g. abelian groups,
-metabelian groups, nilpotent groups, nilpotent-by-abelian groups, simple groups,
-abelian-by-nilpotent groups), it is false in general. In 2001
-Hertweck found a counterexample of order $2^{21}97^{28}$, see \cite{MR1847590}.
+For finite groups, the isomorphism problem has an affirmative answer in several
+important cases, including abelian, metabelian, and nilpotent groups. However,
+it is false in general. In 2001 Hertweck found a counterexample of order
+$2^{21}97^{28}$, see \cite{MR1847590}.
 
 \begin{question}[The modular isomorphism problem]
 \label{question:MIP}
@@ -290,21 +292,21 @@ Hertweck found a counterexample of order $2^{21}97^{28}$, see \cite{MR1847590}.
     Does $K[G]\simeq K[H]$ imply $G\simeq H$?
 \end{question}
 
-Question \ref{question:MIP} has an affirmative answer in several cases. However,
-this is not true in general. This question was recently answered by Garc\'ia, Margolis and
-del R\'io \cite{MR4373245}. They found two non-isomorphic groups $G$ and $H$ both of order $512$
-such that $K[G]\simeq K[H]$ for all field $K$
-of characteristic two.
+Question \ref{question:MIP} has an affirmative answer in several cases.
+However, this is not true in general. This question was answered by
+Garc\'ia-Lucas, Margolis and del R\'io \cite{MR4373245}. They found two
+non-isomorphic groups $G$ and $H$ both of order $512$ such that $K[G]\simeq
+K[H]$ for every field $K$ of characteristic two.
 
 \section{Primitive rings}
 \label{Primitive rings}
 
-We will consider (possibly non-unitary) rings. Thus  
-a \emph{ring} is an abelian group $R$ with an associative multiplication 
-$(x,y)\mapsto xy$ such that $(x+y)z=xz+yz$ and $x(y+z)=xy+xz$ for all $x,y,z\in
-R$. If there is an element $1\in R$ such that $x1=1x=x$ for all $x\in R$, we 
-say that $R$ is a \emph{unitary ring}.  A \emph{subring} $S$ of $R$ is an additive
-subgroup of $R$ closed under multiplication. 
+We will consider (possibly non-unitary) rings. Thus  a \emph{ring} is an
+abelian group $R$ with an associative multiplication $(x,y)\mapsto xy$ such
+that $(x+y)z=xz+yz$ and $x(y+z)=xy+xz$ for all $x,y,z\in R$. If there is an
+element $1\in R$ such that $x1=1x=x$ for all $x\in R$, we say that $R$ is a
+\emph{unitary ring}.  A \emph{subring} $S$ of $R$ is an additive subgroup of
+$R$ closed under multiplication. 
 
 \begin{example}
     $\Z$ is a (unitary) ring and 
@@ -320,10 +322,13 @@ $rI\subseteq I$ (resp. $Ir\subseteq I$) for all $r\in R$. An \emph{ideal}
  \[
  I+J=\{x+y:x\in I,y\in J\}
  \]
- and
-	the intersection $I\cap J$ are both ideals of $R$. The product $IJ$, defined as the additive
-	subgroup of $R$ generated by $\{xy:x\in I,y\in J\}$, is also an ideal of $R$. 
+ and the intersection $I\cap J$ are both ideals of $R$. The product $IJ$,
+ defined as the additive subgroup of $R$ generated by $\{xy:x\in I,y\in J\}$,
+ is also an ideal of $R$. 
 \end{example}
+
+In the nonunital setting, $R^2=RR$ normally means the additive subgroup
+generated by all products $xy$ for $x,y\in R$. 
 
 \begin{example}
 	If $R$ is a ring, the set $Ra =\{xa: x\in R\}$ is a left ideal
@@ -353,7 +358,8 @@ for arbitrary rings.
     \]
 \end{bonus}
 
-In the previous exercise, the condition $R=I_j+R^2$ trivially holds in the case of rings with one. 
+In the previous exercise, the condition $R=I_j+R^2$ trivially holds in the case
+of rings with identity. 
 
 \begin{definition}
 \index{Ring!simple}
@@ -361,8 +367,8 @@ A ring $R$ is said to be \emph{simple} if $R^2\ne\{0\}$ and the only ideals of
 $R$ are $\{0\}$ and~$R$.  
 \end{definition}
 
-The condition $R^2\ne\{0\}$ is trivially satisfied in the case of rings
-with identity, as 
+The condition $R^2\ne\{0\}$ is trivially satisfied in the case of non-zero
+rings with identity, as 
 \[
 1\in R^2=\{r_1r_2:r_1,r_2\in R\}.
 \]
@@ -371,9 +377,9 @@ with identity, as
 	Division rings are simple.
 \end{example}
 
-Let $S$ be a unitary ring. Recall that $M_n(S)$ is the ring of $n\times n$ square matrices 
-with entries in $S$.  If $A=(a_{ij})\in M_n(S)$ and $E_{ij}$ is the matrix
-such that $(E_{ij})_{kl}=\delta_{ik}\delta_{jl}$, then
+Let $S$ be a unitary ring. Recall that for $n\geq1$, $M_n(S)$ is the ring of $n\times n$
+square matrices with entries in $S$.  If $A=(a_{ij})\in M_n(S)$ and $E_{ij}$ is
+the matrix such that $(E_{ij})_{kl}=\delta_{ik}\delta_{jl}$, then
 \begin{equation}
 	\label{eq:trick}
 E_{ij}AE_{kl}=a_{jk}E_{il}
@@ -388,7 +394,7 @@ Let $R$ be a ring. A left $R$-module (or module, for short)
 is an abelian group $M$ together with a map $R\times M\to M$, $(r,m)\mapsto r\cdot m$, such that
 \begin{align*}
 	&(r+s)\cdot m=r\cdot m+s\cdot m, &&
-	r\cdot (m+n)=r\cdot m+r\cdot s, && r\cdot (s\cdot m)=(rs)\cdot m    
+	r\cdot (m+n)=r\cdot m+r\cdot n, && r\cdot (s\cdot m)=(rs)\cdot m    
 \end{align*}
 for all $r,s\in R$, $m,n\in M$.  If $R$ has an identity 
 $1$ and $1\cdot m=m$ holds for all $m\in M$, the module $M$ is said to be 
@@ -408,7 +414,7 @@ Let $R$ be a simple unitary ring.
 % It follows that $x\in\mathcal{U}(R)$.
 
 \begin{definition}
-\label{Module!simple}
+\index{Module!simple}
     A module $M$ is said to be 
     \emph{simple} if $R\cdot M\ne\{0\}$ and 
     the only submodules of $M$ are $\{0\}$ and $M$.
@@ -437,8 +443,9 @@ module, then $M$ is unitary.
 \end{proof} 
 
 \begin{example}
-	Let $D$ be a division ring and let $V$ be a non-zero vector space (over $D$). If 
-	$R=\End_D(V)$, then $V$ is a simple $R$-module with $fv=f(v)$, $f\in R$.
+	Let $D$ be a division ring and let $V$ be a non-zero right vector space over $D$. If 
+	$R=\End_D(V)$, then $V$ is a simple $R$-module with $fv=f(v)$ for
+  $f\in R$ and 
 	$v\in V$. 
 % 	Para ver que $V$ es simple como $R$-módulo basta ver que $Rv=V$ para todo
 % 	$v\ne0$. Sean $v,w\in V$, $v\ne0$.  Al completar $v\ne0$ a una base de $V$,
@@ -463,10 +470,10 @@ $L$ does not properly contain non-zero left ideals of $R$.
 \end{definition}
 
 Similarly one defines
-right minimal ideals and minimal ideals. 
+minimal right ideals and minimal ideals. 
 
 \begin{example}
-	Let $D$ be a division ring and let $R=M_n(D)$. Then $L=RE_{11}$ 
+	Let $n\geq1$, $D$ a division ring and $R=M_n(D)$. Then $L=RE_{11}$ 
 	is a minimal left ideal.
 \end{example}
 
@@ -494,8 +501,8 @@ in a proper left (resp. right) ideal of $R$.
 
 Similarly, one defines maximal ideals. 
 
-A standard application of Zorn's lemma proves 
-that every unitary ring contains a maximal left (or right) ideal.  
+A standard application of Zorn's lemma proves that every non-zero unitary ring
+contains a maximal left ideal and a maximal right ideal. 
 
 \begin{proposition}
 	\label{proposition:R/I}
@@ -508,8 +515,7 @@ that every unitary ring contains a maximal left (or right) ideal.
 	Lemma~\ref{lemma:simple}. The map $\phi\colon R\to M$, $r\mapsto r\cdot m$, 
 	is a surjective homomorphism of $R$-modules, 
 	so the first isomorphism theorem implies that 
-	$M\simeq R/\ker\phi$. Since $\ker\phi$ is an ideal of $R$, it is 
-	in particular a left ideal of $R$. 
+	$M\simeq R/\ker\phi$. 
 	
 	We claim that $I=\ker\phi$ is a maximal left ideal. 
 	The correspondence theorem 
@@ -517,9 +523,9 @@ that every unitary ring contains a maximal left (or right) ideal.
 	maximal left ideal (because each left ideal $J$ such that 
 	$I\subseteq J$ yields a submodule of $R/I$).
 
-	We claim that $I$ is regular. Since $M=R\cdot m$, there exists $e\in R$ such that $m=e\cdot m$. If
-	$r\in R$, then $r-re\in I$ since 
-	$\phi(r-re)=\phi(r)-\phi(re)=r\cdot m-r\cdot (e\cdot m)=0$.
+  We claim that $I$ is regular. Since $M=R\cdot m$, there exists $e\in R$ such
+  that $m=e\cdot m$. If $r\in R$, then $r-re\in I$ since
+  $\phi(r-re)=\phi(r)-\phi(re)=r\cdot m-r\cdot (e\cdot m)=0$.
 
     Now assume that $I$ is a maximal left ideal that is regular. 
     The correspondence theorem implies that 
@@ -530,145 +536,10 @@ that every unitary ring contains a maximal left (or right) ideal.
     The regularity of $I$ implies that 
     there exists $e\in R$ such that $r-re\in I$. Hence $r\in I$, as  
 	\[
-	I=r\cdot (e+I)=re+I=r+I,
+    0_{R/I}=r\cdot (e+I)=re+I=r+I,
 	\]
 	a contradiction to the maximality of $I$. 
 \end{proof}
-
-
-%\section{Nilpotencia}
-%
-%Recordemos que si $I$ es un ideal de un anillo $R$, se define $I^n$ como el
-%subgrupo aditivo generado por el conjunto $\{y_1\dots y_n:y_j\in I\}$. 
-%
-%\begin{definition}
-%	Un ideal $I$ de un anillo $R$ se dice \emph{nilpotente} si $I^n=0$ para
-%	algún $n\in\N$.
-%\end{definition}
-%
-%Recordemos que un elemento $x$ de un anillo $R$ se dice \emph{nilpotente} si
-%existe $n\in\N$ tal que $x^n=0$. 
-%
-%\begin{definition}
-%	Un ideal $I$ de un anillo $R$ se dice \emph{nil} si todo elemento de $I$
-%	es nilpotente.
-%\end{definition}
-%
-%\begin{remark}
-%	Un ideal nilpotente es nil. 
-%\end{remark}
-%
-%\begin{example}
-%	Sea $R=\C[x_1,x_2,\dots]/(x_1,x_2^2,x_3^3,\dots)$. El ideal
-%	$I=(x_1,x_2,x_3,\dots)$ es nil en $R$ pues está generado por elementos
-%	nilpotentes pero no es nilpotente. Si lo fuera, existiría $k\in\N$ tal que
-%	$I^k=0$, y luego $x_i^k=0$ para todo $i$, una contradicción pues
-%	$x_{k+1}^k\ne0$. 	
-%\end{example}
-%
-%% example 2.7 del libro de springer
-%% problema de kothe 
-%
-%\begin{lemma}
-%	Si $I$ y $J$ son ideales nilpotentes, $I+J$ es nilpotente.
-%\end{lemma}
-%
-%\begin{proof}
-%	
-%\end{proof}
-%
-%Un ideal $N$ de un anillo $R$ se dice \emph{maximal-nilpotente} si $N$ es
-%nilpotente y no está propiamente contenido en ningún ideal nilpotente de $R$.
-%
-%\begin{lemma}
-%	Si el anillo $R$ contiene un ideal maximal-nilpotente $N$ entonces todo
-%	ideal nilpotente está contenido en $N$.
-%\end{lemma}
-%
-%\begin{proof}
-%	
-%\end{proof}
-%
-%\section{Anillos primos y semiprimos}
-%
-%\index{Dominio}
-%Recordemos que un anillo $R$ se dice un \emph{dominio} si para todo $a,b\in
-%R$ tales que $ab=0$ se tiene $a=0$ o $b=0$.
-%Una generalización al caso no conmutativo es la siguiente:
-%
-%\begin{definition}
-%	\index{Anillo!primo}
-%	Un anillo $R$ se dice \emph{primo} si para todo $a,b\in R$ tales que
-%	$aRb=0$ se tiene $a=0$ o $b=0$.
-%\end{definition}
-%
-%\begin{lemma}
-%	Sea $R$ un anillo. Las siguientes propiedades son equivalentes:
-%	\begin{enumerate}
-%		\item $R$ es primo.
-%		\item Si $I,J\subseteq R$ son ideales a izquierda tales que $IJ=0$
-%			entonces $I=0$ o $J=0$.
-%%		\item Si $I,J\subseteq R$ son ideales a derecha tales que $IJ=0$ 
-%%			entonces $I=0$ o $J=0$.
-%		\item Si $I,J\subseteq R$ son ideales tales que $IJ=0$ entonces $I=0$ o
-%			$J=0$.
-%	\end{enumerate}
-%\end{lemma}
-%
-%\begin{proof}
-%	Vamos a demostrar que $(1)\implies(2)\implies(4)\implies(1)$. 
-%	La implicación $(2)\implies(4)$ es trivial.
-%
-%	Veamos que $(4)\implies(1)$. Sean $a,b\in R$ tales que $aRb=0$.
-%	Como entonces $(RaR)(RbR)=R(aRb)R=0$, $RaR=0$ o bien $RbR=0$. Supongamos
-%	sin pérdida de generalidad que $RaR=0$. Entonces $Ra$ y $aR$ son ideales
-%	biláteros tales que $(Ra)R=R(aR)=0$. Al aplicar la hipótesis, $Ra=aR=0$.
-%	Como $\Z a$ es un ideal de $R$ tal que $(\Z a)R=0$, se concluye al aplicar
-%	la hipótesis que $a=0$.
-%
-%	Veamos que $(1)\implies(2)$. Supongamos que $J\ne 0$, sea $y\in
-%	J\setminus\{0\}$ y sea $x\in I$. Como 
-%	$xRy\subseteq IRJ=I(RJ)\subseteq IJ=0$, 
-%	se concluye, al usar la hipótesis, que $x=0$. 
-%\end{proof}
-%
-%\begin{proposition}
-%	Un anillo conmutativo es primo si y sólo si es un dominio. 
-%\end{proposition}
-%
-%\begin{proof}
-%	Supongamos que $R$ es un anillo primo. Si $a,b\in R$ son tales que $ab=0$
-%	entonces $aRb=(ab)R=0$ y luego $a=0$ o bien $b=0$. Supongamos ahora que $R$
-%	es un dominio. Si $a,b\in R$ son tales que $aRb=0$ entonces $(ab)R=0$ y
-%	luego $a=0$ o bien $b=0$ pues $ab=0$. 
-%\end{proof}
-%
-%\begin{definition}
-%	\index{Anillo!semiprimo}
-%	Un anillo $R$ se dice \emph{semiprimo} si para todo $a\in R$ tal que
-%	$aRa=0$ se tiene $a=0$.
-%\end{definition}
-%
-%\begin{lemma}
-%	Sea $R$ un anillo. Las siguientes aifrmaciones son equivalentes:
-%	\begin{enumerate}
-%		\item $R$ es semiprimo.
-%		\item Si $I$ es un ideal a izquierda tal que $I^2=0$ entonces $I=0$.
-%		\item Si $I$ es un ideal tal que $I^2=0$ entonces $I=0$.
-%		\item $R$ no tiene ideales nilpotentes no nulos.
-%	\end{enumerate}
-%\end{lemma}
-%
-%\begin{proof}
-%	Primero vamos a demostrar que $(1)\implies(2)\implies(3)\implies(1)$ 
-%
-%	La implicación $(5)\implies(4)$ es trivial.	
-%	Demostremos entonces que
-%	$(4)\implies(5)$. Sea $I$ un ideal nilpotente no nulo y sea $n\in\N$ el
-%	mínimo tal que $I^n=0$. Como $(I^{n-1})^2=0$, por hipótesis se tiene que
-%	$I^{n-1}=0$, una contradicción.
-%\end{proof}
-%
 
 Let $R$ be a ring and $M$ be a left $R$-module. For a 
 subset $N\subseteq M$
@@ -682,27 +553,10 @@ we define the \emph{annihilator} of $N$ as the subset
 \end{example}
 
 \begin{exercise}
-    Let $R$ be a ring and $M$ be a module. If $N\subseteq M$ is a subset, then 
-	$\Ann_R(N)$ is a left ideal of $R$. If $N\subseteq M$ is a submodule of $R$, then 
-	$\Ann_R(N)$ is an ideal of $R$. 
+    Let $R$ be a ring and $M$ be a module. If $N\subseteq M$ is a subset, then
+    $\Ann_R(N)$ is a left ideal of $R$. If $N\subseteq M$ is a submodule of
+    $M$, then $\Ann_R(N)$ is an ideal of $R$. 
 \end{exercise}
-
-% \begin{lemma}
-% 	\label{lemma:Ann}
-% 	Let $R$ be a ring and $M$ be a module. If $N\subseteq M$ is a subset, then 
-% 	$\Ann_R(N)$ is a left ideal of $R$. If $N\subseteq M$ is a submodule of $R$, then 
-% 	$\Ann_R(N)$ is an ideal of $R$. 
-% \end{lemma}
-
-% \begin{proof}
-% 	We left as an exercise to prove that $\Ann_R(N)$ is an additive subgroup of $R$. Then $\Ann_R(N)$
-% 	is a left ideal, as $R\Ann_R(N)\subseteq\Ann_R(N)$. Indeed, if $r\in R$,
-% 	$s\in\Ann_R(N)$ and $n\in N$, then $(rs)n=r(sn)=r0=0$. 
-	
-% 	If $N$ is a submodule, $\Ann_R(N)R\subseteq\Ann_R(N)$ since if 
-% 	$s\in\Ann_R(N)$, $r\in R$ and $n\in N$, $rn\in\Ann_R(N)$, then
-% 	$(sr)n=s(rn)=0$.
-% \end{proof}
 
 \begin{definition}
 \index{Module!faithful}
@@ -714,7 +568,8 @@ A module $M$ is said to be \emph{faithful} if $\Ann_R(M)=\{0\}$.
 \end{example}
 
 \begin{example}
-	If $V$ is vector space over a field $K$, then $V$ is faithful unitary $\End_K(V)$-module.
+  If $V$ is a vector space over a field $K$, then $V$ is a faithful unitary
+  $\End_K(V)$-module.
 \end{example}
 
 \begin{definition}
@@ -722,12 +577,9 @@ A module $M$ is said to be \emph{faithful} if $\Ann_R(M)=\{0\}$.
 A ring $R$ is said to be \emph{primitive} if there exists a faithful simple $R$-module.  
 \end{definition}
 
-Since 
-we are considering left modules, our definition of primitive rings is that of left primitive rings.
-By convention, a primitive ring
-will always mean a left primitive ring. 
-The use 
-of right modules yields to the notion of right primitive rings.  
+Since we work with left modules, ``primitive ideal'' means ``left primitive
+ideal''. Right primitive ideals are defined similarly using simple right
+modules.
 
 \begin{exercise}
 	\label{xca:simple=>prim}
@@ -749,7 +601,10 @@ An ideal $P$ of a ring $R$ is said to be \emph{primitive} if $P=\Ann_R(M)$
 for some simple $R$-module $M$. 
 \end{definition}
 
-As we work with left modules, our definition of primitive rings refers to \emph{left primitive rings}. Of course, one can also define right primitive rings. As Bergman showed, there exist rings that are right primitive but not left primitive; see \cite{MR175940,MR167497}. 
+As we work with left modules, our definition of primitive rings refers to
+\emph{left primitive rings}. Of course, one can also define right primitive
+rings. As Bergman showed, there exist rings that are right primitive but not
+left primitive; see \cite{MR175940,MR167497}. 
 
 \begin{exercise}
 	\label{xca:primitivo}
@@ -791,7 +646,7 @@ As we work with left modules, our definition of primitive rings refers to \emph{
 %\end{example}
 
 \begin{example}
-	Let $R_1,\dots,R_n$ be primitive rings and $R=R_1\times\cdots\times
+	Let $n\geq1$ and $R_1,\dots,R_n$ be primitive rings and $R=R_1\times\cdots\times
 	R_n$. Then each 
     \[
     P_i=R_1\times\cdots\times R_{i-1}\times\{0\}\times
@@ -854,6 +709,7 @@ As we work with left modules, our definition of primitive rings refers to \emph{
 
 \begin{bonus}
 \label{xca:M_n(R)primitive}
+  Let $n\geq1$. 
     Prove that $M_n(R)$ is primitive if and only if $R$ is primitive.
 \end{bonus}
 

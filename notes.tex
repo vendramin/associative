@@ -1,7 +1,16 @@
 \documentclass[12pt]{amsproc}
+\usepackage{mynotes}
+%\usepackage{lecturenotes}
 
-\newcommand{\course}{Associative algebra}
-\input{mystuff}
+\renewcommand{\course}{Associative algebra}
+
+\title{\course}
+\author{Leandro Vendramin}
+\address{Department of Mathematics and Data
+Science, Vrije Universiteit Brussel, Pleinlaan 2, 1050 Brussel}
+\email{Leandro.Vendramin@vub.be}
+\thanks{}
+\date{}
 
 \begin{document}
 
@@ -10,18 +19,29 @@ The notes correspond to the master
 course \textbf{Associative Algebra} of the 
 Vrije Universiteit Brussel, 
 Faculty of Sciences, 
-Department of Mathematics and Data Sciences. \end{abstract}
+Department of Mathematics and Data Sciences. 
+\end{abstract}
 
 \maketitle
 
+%\begin{figure}[h]
+%    \includegraphics[scale=0.5]{hungerford.png}
+%\end{figure}
+
+\thispagestyle{empty}
+
 \setcounter{tocdepth}{1}
-\pagestyle{empty}
-\tableofcontents 
 
-\TOCpart{Part 1}
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
 \include{introduction}
-\pagestyle{fancy}
 
+% 
 \input{01}
 \input{02}
 \input{03}
@@ -35,47 +55,10 @@ Department of Mathematics and Data Sciences. \end{abstract}
 \input{11}
 \input{12}
 
-\TOCpart{Part 2}
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[R]{\thepage}
-\fancyhead[L]{\course}
-\fancyhead[R]{Final projects}
-\setlength{\headheight}{14pt}
-\newpage
-
-%\include{topics}
-
-%\appendix
-%\part{Final projects}
-\input{T_Rickart}
-\include{T_Hurewicz}
-%\include{T_Clifford}
-\include{T_Dedekind}
-\include{T_SkolemNoether}
-\include{T_Brauer}
-\include{T_AndrunakevicRjabuhin}
-\include{T_Kolchin}
-\include{T_Passman}
-\include{T_Gardam}
-\include{T_prime}
-\include{T_local}
-\include{T_reduced}
-\include{T_BO}
-\include{T_LI}
-\include{T_LO}
-\include{T_UP}
-\include{T_braids}
-
-\TOCpart{Part 3}
-\newpage
-\input{topics}
-
-\newpage
+%\input{solutions}
 \bibliographystyle{abbrv}
 \bibliography{refs}
+
 \printindex
 
 \end{document}
-

@@ -8,7 +8,17 @@ These are lecture notes for the course _Associative algebra_, taught by Leandro 
 at Vrije Universiteit Brussel.
 
 ## PDF
+
 [Here](https://github.com/vendramin/associative/blob/main/notes.pdf) is the PDF. [Here](https://github.com/vendramin/associative/blob/main/dyslexic.pdf) is a dyslexic-friendly version. 
+
+## Compiling 
+
+- **`make`** — builds notes.pdf and dyslexic.pdf
+- **`make notes`** — just buid the original file
+- **`make dyslexic`** — just build the dyslexic version
+- **`make clean`** — remove aux/log/idx files, keep the PDFs
+
+
 
 ## License
 
