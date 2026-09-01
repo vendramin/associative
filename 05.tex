@@ -1,5 +1,5 @@
-%\section{Lecture: Week 5}
 
+\begin{optional}
 \section{Radical rings} 
 
 \begin{definition}
@@ -30,9 +30,9 @@ There are several characterizations of radical rings.
 	\end{enumerate}
 \end{theorem}
 
-\begin{exercise}
+\begin{xca}
     Prove Theorem \ref{theorem:anillo_radical}. 
-\end{exercise}
+\end{xca}
 %\begin{proof}
 %	The equivalence $(1)\Longleftrightarrow(5)$ follows from 
 %	Theorem~\ref{thm:casireg_eq}. 
@@ -68,9 +68,41 @@ There are several characterizations of radical rings.
 	\]
 \end{example}
 
+\begin{definition}
+A pair $(X,r)$ is a \emph{solution} to the Yang--Baxter equation (YBE) if $X$
+is a non-empty set and $r\colon X\times X\to X\times X$ is a bijective map such
+that  
+\[
+	(r\times\id)\circ (\id\times r)\circ (r\times\id)
+	=(\id\times r)\circ (r\times\id)\circ (\id\times r).
+\]
+\end{definition}
+
+If $(X,r)$ is a solution (to the YBE), 
+by convention we write 
+\[
+	r(x,y)=(\sigma_x(y),\tau_y(x)).
+\]
+
+We say that a solution $(X,r)$ is \emph{involutive} 
+if $r^2=\id$, and \emph{non-degenerate} if the maps 
+$\sigma_x\colon X\to X$ and 
+$\tau_x\colon X\to X$ are bijective for all $x\in X$.
+
+\begin{xca}
+  Let $R$ be a radical ring. Prove that the map 
+  \[
+    r\colon R\times R\to R\times R,\quad
+    r(x,y)=(-x+x\circ y,(-x+x\circ y)'\circ x\circ y),
+  \]
+  is an involutive non-degenerate solution to the YBE. 
+\end{xca}
+\end{optional}
+
 \section{Henriksen's theorem}
 
-There are (non-unitary) rings with no maximal ideals. An easy example is given in the following exercise: 
+There are (non-unitary) rings with no maximal ideals. An easy example is given
+in the following exercise: 
 
 \begin{exercise}\
 \label{xca:Q_no_maximals}
@@ -151,7 +183,7 @@ The following result appeared in~\cite{MR0424776}.
 \index{Henriksen's theorem}
 Let $R$ be a commutative ring. Then $R$ has
 no maximal ideals if and only if 
-$J(R)=R$ and $R^2+pR=R$ for all prime number $p$. 
+$J(R)=R$ and $R^2+pR=R$ for every prime number $p$. 
 \end{theorem}
 
 \begin{proof}
@@ -196,8 +228,9 @@ the field of fractions $\R(X)$ of the real polynomial ring $\R[X]$.
 
 \begin{exercise}
     \label{xca:example}
-    Let $R$ be the set of rational real functions of the form 
-    $f(X)/g(X)$, where $f(X),g(X)\in\R(X)$ and $g(0)\ne 0$.  Prove the following statements:
+    Let $R$ be the subring of $\R(X)$ consisting of the rational functions
+    $f(X)/g(X)$, where $f(X),g(X)\in\R[X]$ and $g(0)\ne0$.
+    Prove the following statements:
     \begin{enumerate}
         \item $R$ is an integral domain with a unique maximal ideal $M=XR$.
         \item $M$ has no maximal ideals. 
@@ -231,7 +264,7 @@ exists $n=n(x)$ such that $x^n=0$.
 
 \begin{proof}
 	If $R$ is radical, the result is trivial. Suppose then that 
-	$J(R)\ne R$. Let $M$ be a simple $R$-module. Then $M$ is 
+	$J(R)\ne R$. Let $M$ be an arbitrary simple $R$-module. Then $M$ is 
 	a simple module over $R/J(R)$ with 
 	\begin{equation}
 	    \label{eq:R/J(R)-module}
@@ -239,20 +272,27 @@ exists $n=n(x)$ such that $x^n=0$.
 		x\in R,\,m\in M.
 	\end{equation}
  
-    Let us prove first that \eqref{eq:R/J(R)-module} is well-defined: If $r,s\in R$ are such that $r+J(R)=s+J(R)$, then 
-    $r-s\in J(R)$. Since $J(R)$ is the intersection
-    of the annihilators of simple $R$-modules (see Definition~\ref{def:J}) and $M$ is a simple $R$-module, 
-    $(r-s)\cdot M=\{0\}$. Thus $(r-s)\cdot m=0$ for all $m\in M$. Hence $r\cdot m=s\cdot m$ for all $m\in M$. 
+  Let us prove first that \eqref{eq:R/J(R)-module} is well-defined: If
+  $r,s\in R$ are such that $r+J(R)=s+J(R)$, then $r-s\in J(R)$. Since $J(R)$
+  is the intersection of the annihilators of simple $R$-modules (see
+  Definition~\ref{def:J}) and $M$ is a simple $R$-module, $(r-s)\cdot
+  M=\{0\}$. Thus $(r-s)\cdot m=0$ for all $m\in M$. Hence $r\cdot m=s\cdot m$
+  for all $m\in M$. 
 
-    We now prove that $M$ is a simple $R/J(R)$-module. In fact, 
-    if $N$ is a submodule of the $R/J(R)$-module $M$, then 
-    \[
+  We now prove that $M$ is a simple $R/J(R)$-module. 
+  Note first that 
+  \[
+    (R/J(R))\cdot M=R\cdot M\ne\{0\}.
+  \]
+  Now if $N$ is a submodule of the $R/J(R)$-module $M$, then 
+  \[
     (r+J(R))\cdot N\subseteq N
-    \]
-    for all $r\in R$. Thus $r\cdot N\subseteq N$ for all $r\in R$. Thus $N$ is a submodule of the $R$-module $M$. Since $M$ is simple, either $N=\{0\}$ or $N=M$. 
+  \]
+  for all $r\in R$. Thus $r\cdot N\subseteq N$ for all $r\in R$. Thus $N$ is a submodule of the $R$-module $M$. Since $M$ is simple, either $N=\{0\}$ or $N=M$. 
 
-    Finally, if $r+J(R)\in J(R/J(R))$, then  $r\cdot M=(r+J(R))\cdot M=\{0\}$. Then $r\in J(R)$, as 
-	$r$ annihilates any simple module over $R$.
+  Finally, if $r+J(R)\in J(R/J(R))$, then  $r\cdot M=(r+J(R))\cdot M=\{0\}$.
+  Since $M$ was arbitrary, $r$ annihilates every simple $R$-module.  Thus $r\in
+  J(R)$.
 \end{proof}
 
 
@@ -328,73 +368,181 @@ exists $n=n(x)$ such that $x^n=0$.
 % \end{proof}
 
 \begin{theorem}
-	Let $R$ be a ring and $n\in\Z_{>0}$. Then $J(M_n(R))=M_n(J(R))$. 
+    Let $R$ be a ring. Then
+    \[
+    J(M_3(R))=M_3(J(R)).
+    \]
 \end{theorem}
 
 \begin{proof}
-    For clarity, we will prove the result for $n = 3$. 
-    The extension to general $n$ is straightforward and left as an exercise for the reader.
-    
-    We first prove that $J(M_3(R))\subseteq M_3(J(R))$. 
-	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
-	$J=J(R)$. 
-	If $M$ is a simple $R$-module, then $M^3$ is a simple $M_3(R)$-module with the usual multiplication. 
-	Let $x=(x_{ij})\in J(M_3(R))$ and $m_1,m_2,m_3\in M$. Then
-	\[
-		x\colvec{3}{m_1}{m_2}{m_3}=0.
-	\]
-	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,2,3\}$. Hence 
-	$x\in M_3(J)$. 
-
-	We now prove that $M_3(J)\subseteq J(M_3(R))$. Let 
-	\[
-		J_2=\begin{pmatrix}
-			0 & J & 0\\
-			0 & J & 0\\
-			0 & J & 0
-		\end{pmatrix}
-		\quad\text{and}\quad
-		x=\begin{pmatrix}
-			0 & x_1 & 0\\
-			0 & x_2 & 0\\
-			0 & x_3 & 0
-		\end{pmatrix}\in J_2.
-	\]
-	Since $x_2$ is quasi-regular, there exists $y_2\in R$ such that $x_2+y_2+x_2y_2=0$.
-	For 
-	\[
-		y=\begin{pmatrix}
-			0 & 0 & 0\\
-			0 & y_2 & 0\\
-			0 & 0 & 0
-		\end{pmatrix}, 
-	\]
-	let 
+    Let $J=J(R)$. We first prove that
     \[
-		u=x+y+xy=\begin{pmatrix}
-			0 & x_1+x_1y_2 & 0\\
-			0 & x_2+y_2+x_2y_2 & 0\\
-			0 & x_3+x_3y_2 & 0
-		\end{pmatrix}
-        =\begin{pmatrix}
-			0 & x_1+x_1y_2 & 0\\
-			0 & 0 & 0\\
-			0 & x_3+x_3y_2 & 0
-		\end{pmatrix}.
-	\]
-	Since  
-	$u^2=0$, $x$ is right quasi-regular, as  
-	\begin{align*}
-		x+(y-u-yu)+x(y-u-uy)=0,
-	\end{align*}
-	and therefore $J_2$ is right quasi-regular. Similarly one proves that 
-	both $J_1$ and $J_3$ are right quasi-regular. Thus $J_i\subseteq J(M_3(R))$ for all 
-	$i\in\{1,2,3\}$. In conclusion, 
-	\[
-	J_1+J_2+J_3\subseteq J(M_3(R))
-	\]
-	and therefore $M_3(J)\subseteq J(M_3(R))$.
+    J(M_3(R))\subseteq M_3(J).
+    \]
+    If $J=R$, this inclusion is immediate. Otherwise, let $M$ be an
+    arbitrary simple $R$-module. Then $M^3$ is a simple
+    $M_3(R)$-module with the usual matrix operation. 
+
+    Let $x=(x_{ij})\in J(M_3(R))$. Since $x$ annihilates $M^3$,
+    \[
+    x\colvec{3}{m_1}{m_2}{m_3}=0
+    \]
+    for all $m_1,m_2,m_3\in M$. By taking all coordinates except the
+    $j$-th one to be zero, it follows that
+    \[
+    x_{ij}\cdot M=\{0\}
+    \]
+    for every $i,j\in\{1,2,3\}$. Since $M$ was arbitrary,
+    $x_{ij}\in J(R)$ for all $i,j$. Hence
+    $x\in M_3(J)$.
+
+    We now prove that
+    \[
+    M_3(J)\subseteq J(M_3(R)).
+    \]
+    Let
+    \[
+    J_2=
+    \begin{pmatrix}
+        0 & J & 0\\
+        0 & J & 0\\
+        0 & J & 0
+    \end{pmatrix}
+    \]
+    and let
+    \[
+    x=
+    \begin{pmatrix}
+        0 & x_1 & 0\\
+        0 & x_2 & 0\\
+        0 & x_3 & 0
+    \end{pmatrix}
+    \in J_2.
+    \]
+    Since $x_2\in J$, there exists $y_2\in R$ such that
+    \[
+    x_2+y_2+x_2y_2=0.
+    \]
+    Moreover,
+    \[
+    y_2=-x_2-x_2y_2\in J.
+    \]
+    Set
+    \[
+    y=
+    \begin{pmatrix}
+        0 & 0 & 0\\
+        0 & y_2 & 0\\
+        0 & 0 & 0
+    \end{pmatrix}
+    \in J_2
+    \]
+    and let
+    \[
+    u=x\circ y=x+y+xy.
+    \]
+    Then
+    \[
+    u=
+    \begin{pmatrix}
+        0 & x_1+x_1y_2 & 0\\
+        0 & 0 & 0\\
+        0 & x_3+x_3y_2 & 0
+    \end{pmatrix},
+    \]
+    so $u^2=0$.
+
+    Put
+    \[
+    z=y\circ(-u)=y-u-yu.
+    \]
+    Since $y,u\in J_2$ and $J_2$ is closed under the circle
+    operation, $z\in J_2$. By associativity of the circle operation,
+    \[
+    x\circ z
+    =x\circ\bigl(y\circ(-u)\bigr)
+    =(x\circ y)\circ(-u)
+    =u\circ(-u)
+    =-u^2
+    =0.
+    \]
+    Thus every element of $J_2$ has a right circle inverse in $J_2$.
+
+    Since $(J_2,\circ)$ is a monoid in which every element has a
+    right inverse, it is a group. Hence $J_2$ is quasi-regular.
+    Therefore
+    \[
+    J_2\subseteq J(M_3(R)).
+    \]
+
+    The same argument applies to the analogous column ideals
+    $J_1$ and $J_3$. Consequently,
+    \[
+    M_3(J)=J_1+J_2+J_3\subseteq J(M_3(R)).
+    \]
 \end{proof}
+
+%\begin{theorem}
+%	Let $R$ be a ring. Then $J(M_3(R))=M_3(J(R))$. 
+%\end{theorem}
+%
+%\begin{proof}
+%	Let $x=(x_{ij})\in J(M_3(R))$ and $m_1,m_2,m_3\in M$. Then
+%	\[
+%		x\colvec{3}{m_1}{m_2}{m_3}=0.
+%	\]
+%	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,2,3\}$. Hence 
+%	$x\in M_3(J)$. 
+%
+%	We now prove that $M_3(J)\subseteq J(M_3(R))$. Let 
+%	\[
+%		J_2=\begin{pmatrix}
+%			0 & J & 0\\
+%			0 & J & 0\\
+%			0 & J & 0
+%		\end{pmatrix}
+%		\quad\text{and}\quad
+%		x=\begin{pmatrix}
+%			0 & x_1 & 0\\
+%			0 & x_2 & 0\\
+%			0 & x_3 & 0
+%		\end{pmatrix}\in J_2.
+%	\]
+%  Since $x_2$ is quasi-regular, there exists $y_2\in R$ such that
+%  $x_2+y_2+x_2y_2=0$.  For 
+%	\[
+%		y=\begin{pmatrix}
+%			0 & 0 & 0\\
+%			0 & y_2 & 0\\
+%			0 & 0 & 0
+%		\end{pmatrix}, 
+%	\]
+%	let 
+%    \[
+%		u=x+y+xy=\begin{pmatrix}
+%			0 & x_1+x_1y_2 & 0\\
+%			0 & x_2+y_2+x_2y_2 & 0\\
+%			0 & x_3+x_3y_2 & 0
+%		\end{pmatrix}
+%        =\begin{pmatrix}
+%			0 & x_1+x_1y_2 & 0\\
+%			0 & 0 & 0\\
+%			0 & x_3+x_3y_2 & 0
+%		\end{pmatrix}.
+%	\]
+%	Since  
+%	$u^2=0$, $x$ is right quasi-regular, as  
+%	\begin{align*}
+%		x+(y-u-yu)+x(y-u-uy)=0,
+%	\end{align*}
+%  and therefore $J_2$ is right quasi-regular. Similarly one proves that both
+%  $J_1$ and $J_3$ are right quasi-regular. Thus $J_i\subseteq J(M_3(R))$ for
+%  all $i\in\{1,2,3\}$. In conclusion, 
+%	\[
+%	J_1+J_2+J_3\subseteq J(M_3(R))
+%	\]
+%	and therefore $M_3(J)\subseteq J(M_3(R))$.
+%\end{proof}
 
 \begin{exercise}
  	Let $R$ be a ring and $n\in\Z_{>0}$. Prove that $J(M_n(R))=M_n(J(R))$. 
@@ -403,7 +551,7 @@ exists $n=n(x)$ such that $x^n=0$.
 \begin{exercise}
 	Let $R$ be a unitary ring. Then  
 	\[
-	J(R)=\bigcap\{M:\text{$M$ is a left maximal ideal}\}.
+	J(R)=\bigcap\{M:\text{$M$ is a maximal left ideal}\}.
 	\]
 \end{exercise}
 
@@ -413,76 +561,22 @@ exists $n=n(x)$ such that $x^n=0$.
 	following statements are equivalent: 
 	\begin{enumerate}
 		\item $x\in J(R)$.
-		\item $x\cdot M=\{0\}$ for all simple $R$-module $M$.
-		\item $x\in P$ for all primitive left ideal $P$.
+		\item $x\cdot M=\{0\}$ for every simple $R$-module $M$.
+		\item $x\in P$ for every left primitive ideal $P$. % primitive left?
 		\item $1+rx$ is invertible for all $r\in R$.
 		\item $1+\sum_{i=1}^n r_ixs_i$ is invertible 
-		    for all $n$ and all $r_i,s_i\in R$.
-		\item $x$ belongs to every maximal ideal maximal. 
+		    for all $n\geq1$ and all $r_i,s_i\in R$.
+		\item $x$ belongs to every maximal left ideal. 
 	\end{enumerate}
 \end{exercise}
 
-The following exercise is entirely optional. 
-It somewhat shows a recent application of radical rings
-to solutions of the celebrated Yang--Baxter equation. 
-
-\begin{bonus}
-A pair $(X,r)$ is a \emph{solution} to the 
-Yang--Baxter equation if $X$ is a set and
-$r\colon X\times X\to X\times X$ is a bijective map such that  
-\[
-	(r\times\id)\circ (\id\times r)\circ (r\times\id)
-	=(\id\times r)\circ (r\times\id)\circ (\id\times r).
-\]
-The solution $(X,r)$ is said to be \emph{involutive} 
-if $r^2=\id$. By convention, we write 
-\[
-	r(x,y)=(\sigma_x(y),\tau_y(x)).
-\]
-The solution $(X,r)$ is said to be \emph{non-degenerate}  
-$\sigma_x\colon X\to X$ and 
-$\tau_x\colon X\to X$ are bijective for all $x\in X$.
-
-\begin{enumerate}
-    \item Let $X$ be a set and $\sigma\colon X\to X$ be a bijective map. Prove that  
-          the pair $(X,r)$, where 
-          $r(x,y)=(\sigma(y),\sigma^{-1}(x))$, is an involutive non-degenerate solution. 
-\end{enumerate}
-Let $R$ be a radical ring. For $x,y\in R$ let 
-\begin{align*}
-	&\lambda_x(y)=-x+x\circ y=xy+y,\\
-	&\mu_y(x)=\lambda_x(y)'\circ x\circ y=(xy+y)'x+x
-\end{align*}
-Prove the following statements:
-\begin{enumerate}
-    \setcounter{enumi}{1}
-		\item $\lambda\colon (R,\circ)\to\Aut(R,+)$, $x\mapsto
-			\lambda_x$, is a group homomorphism.
-		\item $\mu\colon (R,\circ)\to\Aut(R,+)$, $y\mapsto\mu_y$,
-    		is a group antihomomorphism.
-	    \item The map 
-    	\[
-	        r\colon R\times R\to R\times R,\quad
-	        r(x,y)=(\lambda_x(y),\mu_y(x)),
-	    \]
-	is an involutive non-degenerate solution to the Yang--Baxter equation. 
-\end{enumerate}
-\end{bonus}
-
-%\begin{exercise}
-%	Sea $A$ un anillo radical. Para $a,b\in A$ se define 
-%	\[
-%		\mu_b(a)=\lambda_a(b)'\circ a\circ b=(ab+b)'a+a.
-%	\]
-%	Demuestre que la función $\mu\colon (A,\circ)\to\Aut(A,+)$,
-%	$b\mapsto\mu_b$, está bien definida y es un antimorfismo de grupos.
-%\end{exercise}
-
 \begin{exercise}
-    If $D$ is a division ring and $R=D[X_1,\dots,X_n]$, then
+    Let $D$ be a division ring and $R=D[X_1,\dots,X_n]$, 
+    where $X_1,\ldots,X_n$ are commuting central indeterminates. 
+    Prove that 
     $J(R)=\{0\}$. 
 %     Como las unidades de $R$ son los elementos no nulos de $D$,
-% 	$J(R)$ es un ideal de $D$. Como $D$ es simple, $J(R)\in\{0,D\}$. Si
+% 	$J(R)$ es un ideal de $R$. Como $D$ es simple, $J(R)\in\{0,D\}$. Si
 % 	$J(R)=D$, entonces existe  $f\in R$ tal que $-1+f+(-1)f=0$ y luego $-1=0$,
 % 	una contradicción. Luego $J(R)=0$.
 \end{exercise}
@@ -495,7 +589,7 @@ Prove the following statements:
 	If $R$ is a local ring and $M$ is its maximal ideal, then $J(R)=M$. Some particular cases: 
 	\begin{enumerate}
 		\item If $K$ is a field and $R=K[\![X]\!]$, then $J(R)=(X)$. 
-		\item If $p$ is a prime number and $R=\Z/p^n$, then $J(R)=(p)$. 
+		\item If $n\geq1$, $p$ is a prime number and $R=\Z/p^n$, then $J(R)=(p)$. 
 	\end{enumerate}
 \end{example}
 
@@ -576,7 +670,9 @@ has several interesting applications. We first need a lemma.
 \end{lemma}
 
 \begin{proof}
-    Since $x$ is algebraic, there exist $a_0,\dots,a_n\in K$ 
+    If $x$ is nilpotent, then it is algebraic. Conversely, assume that
+    $x$ is algebraic.
+    Then there exist $a_0,\dots,a_n\in K$ 
     not all zero such that 
     \[
 		a_0+a_1x+\cdots+a_nx^n=0.
@@ -585,8 +681,9 @@ has several interesting applications. We first need a lemma.
 	\[
 		x^r(1+b_1x+\cdots+b_mx^m)=0,
 	\]
-	for some $b_1,\dots,b_m\in K$. Since $1+b_1x+\cdots+b_mx^m$ is a unit by 
-	Exercise~\ref{xca:Jcon1}, it follows that $x^r=0$.
+	for some $b_1,\dots,b_m\in K$. Since $J(A)$ is an ideal,
+  $1+b_1x+\cdots+b_mx^m\in J(A)$ and a unit by 
+	Exercise~\ref{xca:Jcon1}. Thus $x^r=0$.
 \end{proof}
 
 An application:
@@ -618,7 +715,7 @@ An application:
 	\[
 		a-\lambda=-\lambda(1-\lambda^{-1}a)
 	\]
-	is invertible for all $\lambda\in K\setminus\{0\}$. Let
+  is invertible for all $\lambda\in K\setminus\{0\}$.  Let
 	$S=\{(a-\lambda)^{-1}:\lambda\in K\setminus\{0\}\}$. Since 
 	\[
 	(a-\lambda)^{-1}=(a-\mu)^{-1}\Longleftrightarrow\lambda=\mu,
@@ -630,6 +727,8 @@ An application:
 		\label{eq:Amitsur}
 		\sum_{i=1}^n \beta_i(a-\lambda_i)^{-1}=0.
 	\end{equation}
+   Note that all the
+  elements $a-\lambda_i$ and their inverses commute with one another. 
 	Multiplying~\eqref{eq:Amitsur} by $\prod_{i=1}^n(a-\lambda_i)$ we get 
 	\[
 		\sum_{i=1}^n\beta_i\prod_{j\ne i}(a-\lambda_j)=0.
@@ -640,14 +739,16 @@ An application:
 	\]
 	is non-zero, as, for example, if $\beta_1\ne0$, then  
 	$f(\lambda_1)=\beta_1(\lambda_1-\lambda_2)\cdots(\lambda_1-\lambda_n)\ne0$
-	and $f(a)=0$. Since $a\in J(A)$ is algebraic, it follows
-	$a$ is nilpotent by Lemma~\ref{lemma:algebraico=nil}.
+	and $f(a)=0$. Since $a\in J(A)$ is algebraic, it follows that 
+	$a$ is nilpotent by Lemma~\ref{lemma:algebraico=nil}. 
+  Thus $J(A)$ is a nil ideal. Since every nil ideal is contained in $J(A)$ by
+  Proposition~\ref{pro:nilJ}, $J(A)$ is the largest nil ideal.
 \end{proof}
 
 Amitsur's theorem implies the following result. 
 
 \begin{corollary}
-Let $K$ be a non-countable field. If $A$ is an algebra
+Let $K$ be an uncountable field. If $A$ is an algebra
 over $K$ with a countable basis, then 
 $J(A)$ is the largest nil ideal of $A$.
 \end{corollary}
@@ -659,13 +760,14 @@ $J(A)$ is the largest nil ideal of $A$.
 %We now finish the lecture with some big open problems. 
 
 
+\begin{optional} 
 \section{Jacobson's conjecture}
 
 We now conclude the lecture
 with two big open problems related to the Jacobson radical. The first
 one is \emph{Jacobson's conjecture}. 
 
-\begin{problem}[Jacobson]
+\begin{open}[Jacobson]
 \label{prob:Jacobson}
 \index{Jacobson's conjecture}
 \index{Jacobson--Herstein conjecture}
@@ -673,14 +775,14 @@ Let $R$ be a noetherian ring. Is then
 \[
 \bigcap_{n\geq1}J(R)^n=\{0\}?
 \]
-\end{problem}
+\end{open}
 
 Open problem \ref{prob:Jacobson} was originally formulated by Jacobson in 1956 \cite{MR0222106} 
 for one-sided noetherian rings. In 1965 Herstein \cite{MR188253} found a counterexample
 in the case of one-sided noetherian rings 
 and reformulated the conjecture as it appears here. 
 
-\begin{exercise}[Herstein]
+\begin{xca}[Herstein]
 Let $D$ be the ring of rationals with odd denominators. Let
 $R=\begin{pmatrix}
     D & \Q\\
@@ -691,19 +793,21 @@ J(D) & \Q\\
 0 & 0
 \end{pmatrix}$. Prove that 
 $J(R)^n\supseteq\begin{pmatrix}0&\Q\\0&0\end{pmatrix}$ and hence $\bigcap_nJ(R)^n$ is non-zero. 
-\end{exercise}
+\end{xca}
+\end{optional}
 
+\begin{optional}
 \section{K\"othe's conjecture}
 
-The following problem is maybe the most important open 
-problem in non-commutative ring theory. 
+The following is one of the central open problems in noncommutative ring
+theory.
 
-\begin{problem}[K\"othe]
+\begin{open}[K\"othe]
 \label{prob:Koethe}
 \index{K\"othe conjecture}
 Let $R$ be a ring. Is the sum 
 of two arbitrary nil left ideals of $R$ nil?
-\end{problem}
+\end{open}
 
 Open problem~\ref{prob:Koethe} is the well-known \emph{K\"othe's conjecture}. 
 The conjecture was first formulated in 1930, see \cite{MR1545158}. It is known to be true
@@ -724,4 +828,4 @@ This counterexample suggests that K\"othe's conjecture might be false.
 A simplification of Smoktunowicz' example
 appears in~\cite{MR3169522}. See \cite{MR1879880,MR2275597} for more
 information on K\"othe's conjecture and related topics. 
-
+\end{optional}

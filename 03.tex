@@ -49,9 +49,6 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 	$K[G]$.
 \end{exercise}
 
-% El objetivo de esta sección es calcular el radical de Jacobson del álgebra de
-% grupo de un grupo finito. Comenzamos con un ejemplo:
-
 \begin{exercise}
 	Let $G=C_2=\langle g\rangle\simeq\Z/2$, the (multiplicative) cyclic group 
   of order two. Note that every element of $K[G]$ is of the form
@@ -231,8 +228,97 @@ that $\C^4$ and $\C^2\times M_2(\C)$ are complex group algebras.
 \begin{project}{The isomorphism problem for group algebras}
 %\section{The isomorphism problem for group algebras}
 
-Recall that if $R$ is a unitary commutative ring 
-and $G$ is a group, then one defines the group ring $R[G]$. 
+\subsection{Group rings}
+
+Let $R$ be a unitary commutative ring and $G$ be a group. Recall that
+\emph{group ring} is a free $R$-module which is also a ring. As a free
+$R$-module, $G$ is a basis for $R[G]$. Thus every element $\alpha\in R[G]$ can
+be written uniquely as a sum of the form 
+\[
+\alpha=\sum_{g\in G}r_gg,\quad r_g\in R.
+\]
+Note that the elements of $R$ (more precisely, the elements of the form $r1_G$
+for $r\in R$) are central in $R[G]$. 
+
+\begin{xca}
+\label{xca:augmentation_ideal}
+    Let $R$ be a commutative ring and $G$ be a group. Let 
+    \[
+    f\colon R[G] \to R,\quad 
+    \sum_{g \in G} r_g g\mapsto \sum_{g \in G} r_g.
+    \]
+    Prove the following statements:
+    \begin{enumerate}
+        \item $f$ is a surjective ring
+            homomorphism. 
+        \item $\{g - 1_G: 1_G\ne g \in G\}$ is a    basis for the free $R$-module $\ker f$.
+    \end{enumerate}
+\end{xca}
+
+The kernel of the homomorphism of Exercise \ref{xca:augmentation_ideal} is
+called the \emph{augmentation ideal} of the group ring. 
+%We used this ideal
+%before (e.g. Propositions \ref{pro:KGsemisimple} and Appendix
+%\ref{section:local}). 
+
+Note that $R[G]$ is a left $R$-module with
+\[
+\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
+\]
+
+\subsection{Hurewicz' theorem}
+
+\begin{theorem}[Hurewicz]
+    \label{thm:Hurewicz}
+    \index{Hurewicz' theorem}
+    Let $G$ be a group and $I$ be the augmentation ideal of $\Z[G]$. 
+    Then $G/[G,G]\simeq I/I^2$ as (abelian) groups. 
+\end{theorem}
+
+\begin{proof}
+    Let $\varphi\colon G\to I/I^2$, $g\mapsto g-1_G+I^2$. Since $g-1_G\in I$ for all $g\in G$, $\varphi$ is well-defined. The map $\varphi$ is a group homomorphism. Since 
+    $(g-1_G)(h-1_G)\in I^2$, 
+    \begin{align*}
+    \varphi(gh) &= gh-1_G+I^2\\
+    &=gh-1_G-(g-1_G)(h-1_G)+I^2+I^2\\
+    &=g-1_G+h-1_G+I^2\\
+    &=\varphi(g)+\varphi(h)
+    \end{align*}
+    holds for all $g,h\in G$. 
+
+    Since $[G,G]\subseteq\ker\varphi$, there exists a group homomorphism
+    \[
+    \overline{\varphi}\colon G/[G,G]\to I/I^2,\quad 
+    g[G,G]\mapsto g-1_G+I^2.
+    \]
+    We claim that $\overline{\varphi}$ is an isomorphism. 
+    Let us construct the inverse of $\overline{\varphi}$. Let 
+    \[
+    \psi\colon I\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    Since $G/[G,G]$ is abelian, the map $\psi$ is well-defined, that is
+    the order of the factors in $\prod_{g\in G}g^{m_g}$ does not matter. Note that 
+    $I^2\subseteq\ker\psi$, as 
+    $\{(g-1_G)(h-1_G):g,h\in G\}$ generates the additive group $I^2$ 
+    and 
+    \begin{align*}
+        \psi((g-1_G)(h-1_G))&=\psi( (gh-1_G)-(g-1_G)-(h-1_G))\\
+        &=(ghg^{-1}h^{-1})[G,G]\\
+        &=[G,G].
+    \end{align*}
+    Therefore there exists a group homomorphism
+    \[
+    \overline{\psi}\colon I/I^2\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)+I^2\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    A direct calculation shows that $\overline{\psi}$ is the inverse 
+    of $\overline{\varphi}$. 
+\end{proof}
+
+\subsection{The isomorphism problem}\
+%Recall that if $R$ is a unitary commutative ring 
+%and $G$ is a group, then one defines the group ring $R[G]$. 
 % More precisely,
 % $R[G]$ is the set of finite linear combinations
 % \[
@@ -250,51 +336,53 @@ and $G$ is a group, then one defines the group ring $R[G]$.
 % \left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
 % =\sum_{g,h\in G}\lambda_g\mu_h(gh).
 % \]
-Note that $R[G]$ is a left $R$-module with
-\[
-\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
-\]
+%Note that $R[G]$ is a left $R$-module with
+%\[
+%\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
+%\]
+%
+%In this section, we will briefly discuss the
+%following natural problem: 
 
-In this section, we will briefly discuss the
-following natural problem: 
-
-\begin{question}[The isomorphism problem]
+\begin{que}[The isomorphism problem]
 \label{question:iso}
+\index{The isomorphism problem}
  Let $R$ be a unitary commutative ring and let 
  $G$ and $H$ be groups. Assume that $R[G]\simeq R[H]$ as
  unital $R$-algebras. Does $G\simeq H$?
-\end{question}
+\end{que}
 
-For general information on Question \ref{question:iso} we refer to the survey paper \cite{MR4472590}.
+For general information on Question \ref{question:iso} we refer to the survey
+paper \cite{MR4472590}.
 
-\begin{exercise}
+\begin{xca}
     Prove that if $G$ and $H$ are isomorphic groups, then $K[G]\simeq K[H]$.
-\end{exercise}
+\end{xca}
 
-\begin{exercise}
+\begin{xca}
     Let $G$ and $H$ be groups. Prove that if $\Z[G]\simeq\Z[H]$, then
     $R[G]\simeq R[H]$ for any commutative ring $R$.
-\end{exercise}
+\end{xca}
 
 The previous exercise suggests the importance of the following 
 instance of Question \ref{question:iso}:
 
-\begin{question}
+\begin{que}
 \label{question:IP}
     Let $G$ and $H$ be groups. Does $\Z[G]\simeq\Z[H]$ imply $G\simeq H$?
-\end{question}
+\end{que}
 
 For finite groups, the isomorphism problem has an affirmative answer in several
 important cases, including abelian, metabelian, and nilpotent groups. However,
 it is false in general. In 2001 Hertweck found a counterexample of order
 $2^{21}97^{28}$, see \cite{MR1847590}.
 
-\begin{question}[The modular isomorphism problem]
+\begin{que}[The modular isomorphism problem]
 \label{question:MIP}
     Let $p$ be a prime number. Let
     $G$ and $H$ be finite $p$-groups and let $K$ be a field of characteristic $p$.
     Does $K[G]\simeq K[H]$ imply $G\simeq H$?
-\end{question}
+\end{que}
 
 Question \ref{question:MIP} has an affirmative answer in several cases.
 However, this is not true in general. This question was answered by
