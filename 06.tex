@@ -1,0 +1,1477 @@
+\section{Local rings}
+
+In this section, we will consider arbitrary rings with one. 
+
+\begin{definition}
+    \index{Ring!local}
+    A ring is said to be \emph{local} if it contains only one maximal left ideal. 
+\end{definition}
+
+Division rings are local rings. 
+
+% \begin{exercise}
+%     Let $R$ be a commutative ring with one and $P$ be a prime ideal. Let  
+%     $S=R\setminus P$. Then the localization $S^{-1}R$ is a local ring with maximal ideal $S^{-1}P$. 
+% \end{exercise}
+
+\begin{theorem}
+\label{thm:local}
+    Let $R$ be a ring and $I=R\setminus\mathcal{U}(R)$. The following
+    statements are equivalent:
+    \begin{enumerate}
+        \item $R$ is local.
+        \item $R/J(R)$ is a division ring.
+        \item $I=J(R)$.
+        \item $I$ is an ideal of $R$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We first prove $1)\implies2)$. Let $M$ be the maximal left ideal of $R$. Then $J(R)=M$. 
+    Let $x\not\in M$. Then $R=Rx+M$, so $1=rx+m$ for some $r\in R$ and $m\in M$. Thus  
+    $r+M$ is a left inverse of $x+M$. In particular, 
+    $r\not\in M$. Since $R=Rr+M$, there exists $y\in R$ such that $1=yr$. Therefore
+    $y+M$ is a left inverse of $r+M$. Thus 
+    \begin{align*}
+    y+M&=(y+M)(1+M)=(y+M)(r+M)(x+M)\\
+    &=(yr+M)(x+M)=(1+M)(x+M)=x+M
+    \end{align*}
+    and hence $x+M$ is invertible. 
+
+    Now we prove $2)\implies3)$. Clearly $J(R)\subseteq I$. 
+    
+    Conversely, let $x\in I$. If $x\not\in J(R)$, then
+    $x+J(R)\ne J(R)$. Since $R/J(R)$ is a division ring, 
+    $x+J(R)\in\mathcal{U}(R/J(R))$. In particular, $1-xy\in J(R)$ and hence 
+    $xy=1-(1-xy)\in\mathcal{U}(R)$. Thus $1=(xy)z=x(yz)$ for some $z\in R$ and therefore $x\not\in I$, a contradiction. 
+    
+    It is trivial that $3)\implies4)$. 
+
+    Finally, we prove $4)\implies 1)$. 
+    Let $M$ be a maximal left ideal of $R$. Then $M\subseteq I$. Since $M$ 
+    is maximal and $I$ is in particular a left ideal of $R$, 
+    it follows that $M=I$. 
+\end{proof}
+
+\begin{definition}
+    \index{Idempotent}
+    An element $x$ of a ring is said to be \emph{idempotent} 
+    if $x^2=x$.   
+\end{definition}
+
+\index{Trivial idempotent}
+Examples of idempotents are 0 and 1. 
+An idempotent $x$ is said to be \emph{non-trivial} if $x\not\in\{0,1\}$. 
+
+\begin{exercise}
+\label{xca:idempotents_modpm}
+    Let $p$ be a prime number and $m>0$. 
+    Prove that the only idempotents of $\Z/p^m$ are 0 and 1. 
+\end{exercise}
+
+
+\begin{exercise}
+    \label{xca:idempotents_modn}
+    How many idempotents does $\Z/n$ have?
+\end{exercise}
+
+\begin{exercise}
+\label{xca:lifting_idempotents}
+    Let $R$ be a ring with one and $I$ be an ideal of $R$. 
+    We say that an idempotent $x\in R/I$ can be lifted if $x=e+I$ for
+    some idempotent $e$ of $R$. 
+    Prove that if every element of $I$ is nilpotent, then every 
+    idempotent of $R/I$ can be lifted. 
+\end{exercise}
+
+The previous exercise shows that if $R$ is left artinian, 
+every idempotent of $R/J(R)$ can be lifted to $R$. 
+
+\begin{lemma}
+\label{lem:J(R)_nil}
+    Let $R$ be a left artinian ring. Then $J(R)$ is nil. 
+\end{lemma}
+
+\begin{proof}
+    Let $x\in J(R)$. The sequence $Rx\supseteq Rx^2\supseteq\cdots$ stabilizes, so
+    $Rx^n=Rx^{n+1}$ for some $n$. In particular, there exists $r\in R$ 
+    such that $x^n=rx^{n+1}$. This implies that $(1-rx)x^n=0$. Since $x\in J(R)$, 
+    the element $1-rx$ is invertible. Hence $x^n=0$.  
+\end{proof}
+
+\begin{theorem}
+\label{thm:local_idempotent}
+    Let $R$ be a left artinian ring. Then $R$ is local if and only if 
+    $R$ has no non-trivial idempotents. 
+\end{theorem}
+
+\begin{proof}
+    Let us first prove $\implies$. For this implication, we do not need to use that 
+    $R$ is left artinian. Let $x\in R$ be an idempotent. Then $x(1-x)=0$. If $x\in\mathcal{U}(R)$, then 
+    $x=1$. If $1-x\in\mathcal{U}(R)$, then $x=0$. If $x\not\in \mathcal{U}(R)$ and $1-x\not\in\mathcal{U}(R)$, 
+    then, since $R\setminus\mathcal{U}(R)$ is an ideal of $R$, 
+    it follows that 
+    $1=x+1-x\not\in\mathcal{U}(R)$, a contradiction. 
+
+    Now we prove $\impliedby$. By the previous lemma, $J(R)$ is nil. 
+    By the previous exercise, every idempotent of $R/J(R)$ can be lifted. Thus $R/J(R)$ has 
+    no non-trivial idempotents. On the other hand, by Artin--Wedderburn theorem, 
+    \[
+    R/J(R)\simeq\prod_{i=1}^kM_{n_i}(D_i)
+    \]
+    for some $n_1,\dots,n_k\geq1$ and division rings $D_1,\dots,D_k$. Then 
+    $k=n_1=1$, as $R/J(R)$ has no non-trivial idempotents. Since $R/J(R)$ is a division ring, 
+    $R$ is local by the previous theorem. 
+\end{proof}
+
+\begin{theorem}
+    The center of a local ring is local. 
+\end{theorem}
+
+\begin{proof}
+    Let $R$ be a local ring. By Theorem \ref{thm:local}, $J(R)=R\setminus\mathcal{U}(R)$.  
+    We need to prove that $Z(R)\setminus\mathcal{U}(Z(R))=J(Z(R))$. 
+    We first note that
+    \begin{equation}
+    \label{eq:U(Z(R))}
+        \mathcal{U}(Z(R))=Z(R)\cap\mathcal{U}(R).
+    \end{equation}
+    
+    We claim that $Z(R)\cap J(R)\subseteq J(Z(R))$.  
+    Let $x\in Z(R)\cap J(R)$. Let $z\in Z(R)$. Since $x\in J(R)$, $1-zx\in\mathcal{U}(R)$.
+    Moreover, $1-zx\in Z(R)$. Thus 
+    \[
+    1-zx\in Z(R)\cap\mathcal{U}(R)=\mathcal{U}(Z(R)).
+    \]
+    Hence $x\in J(Z(R))$. 
+
+    To prove the theorem it is enough to show that 
+    $Z(R)\setminus\mathcal{U}(Z(R))=J(Z(R))$. Let us prove the non-trivial inclusion. 
+    Let $x\in Z(R)\setminus\mathcal{U}(Z(R))$.  Then 
+    \eqref{eq:U(Z(R))} implies that 
+    $x\not\in\mathcal{U}(R)$. 
+    By Theorem \ref{thm:local}, 
+    $x\in J(R)$. Then $x\in J(R)\cap Z(R)\subseteq J(Z(R))$. 
+\end{proof}
+
+\begin{exercise}
+\label{eq:local_center}
+    Let $R$ be a local ring. Prove that 
+    $Z(R)\cap J(R)=J(Z(R))$.  
+\end{exercise}
+
+\begin{exercise}
+\label{xca:local_right}
+    Prove that a ring is local if and only if it contains only one maximal right ideal.
+\end{exercise}
+
+\begin{exercise}
+\label{xca:non_local1}
+    Find a non-local ring with a unique maximal ideal. 
+\end{exercise}
+
+% M_n(\C)
+
+\begin{exercise}
+\label{xca:non_local2}
+    Let $R$ be a ring with at least three elements. 
+    If $|\mathcal{U}(R)|=1$, then $R$ is not local. 
+\end{exercise}
+
+
+\begin{exercise}
+\label{xca:VonNeumann_local}
+\index{Ring!Von Neumann regular}
+    A ring $R$ is said to be \emph{Von Neumann regular} if  
+    for every non-zero $r\in R$, $r=rxr$ for some $x\in R$. 
+    Prove that a local Von Neumann ring is a division ring. 
+\end{exercise}
+
+\begin{exercise}
+\label{xca:nilp_or_unit}
+    Let $R$ be a ring such that every element of $R$ is either 
+    nilpotent or a unit. Prove that $R$ is local. 
+\end{exercise}
+
+\begin{bonus}
+\label{xca:semilocal}
+  \index{Ring!semilocal}
+    A ring $R$ is said to be \emph{semilocal} if $R/J(R)$ is left artinian. 
+    Prove the following statements:
+    \begin{enumerate}
+        \item Every local ring is semilocal.
+        \item $R$ is semilocal if and only if $R/J(R)$ is semisimple.
+        \item If $R$ has finitely many maximal left ideals, then $R$ is semilocal. 
+        \item If $R_1,\dots,R_k$ are rings, then $\bigoplus_{i=1}^k R_i$ is semilocal
+            if and only if each $R_i$ is semilocal. 
+    \end{enumerate}
+\end{bonus}
+
+\begin{bonus}
+\label{xca:semilocal_commutative}
+    Let $R$ be a ring such that $R/J(R)$ is commutative. Prove
+    that $R$ is semilocal if and only if $R$ has finitely many maximal ideals. 
+\end{bonus}
+
+
+% \section{*Hurewicz' theorem}
+
+% \begin{theorem}[Hurewicz]
+%     \label{thm:Hurewicz}
+%     \index{Hurewicz' theorem}
+%     Let $G$ be a group and $I$ be the augmentation ideal of $\Z[G]$. 
+%     Then $G/[G,G]\simeq I/I^2$ as (abelian) groups. 
+% \end{theorem}
+
+% \begin{proof}
+%     Let $\varphi\colon G\to I/I^2$, $g\mapsto g-1_G+I^2$. Since $g-1_G\in I$ for all $g\in G$, $\varphi$ is well-defined. The map $\varphi$ is a group homomorphism. Since 
+%     $(g-1_G)(h-1_G)\in I^2$, 
+%     \begin{align*}
+%     \varphi(gh) &= gh-1_G+I^2\\
+%     &=gh-1_G-(g-1_G)(h-1_G)+I^2+I^2\\
+%     &=g-1_G+h-1_G+I^2\\
+%     &=\varphi(g)+\varphi(h)
+%     \end{align*}
+%     holds for all $g,h\in G$. 
+
+%     Since $[G,G]\subseteq\ker\varphi$, there exists a group homomorphism
+%     \[
+%     \overline{\varphi}\colon G/[G,G]\to I/I^2,\quad 
+%     g[G,G]\mapsto g-1_G+I^2.
+%     \]
+%     We claim that $\overline{\varphi}$ is an isomorphism. 
+%     Let us construct the inverse of $\overline{\varphi}$. Let 
+%     \[
+%     \psi\colon I\to G/[G,G],\quad 
+%     \sum_{g\in G}m_g(g-1_G)\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+%     \]
+%     Since $G/[G,G]$ is abelian, the map $\psi$ is well-defined, that is
+%     the order of the factors in $\prod_{g\in G}g^{m_g}$ does not matter. Note that 
+%     $I^2\subseteq\ker\psi$, as 
+%     $\{(g-1_G)(h-1_G):g,h\in G\}$ generates the additive group $I^2$ 
+%     and 
+%     \begin{align*}
+%         \psi((g-1_G)(h-1_G))&=\psi( (gh-1_G)-(g-1_G)-(h-1_G))\\
+%         &=(ghg^{-1}h^{-1})[G,G]\\
+%         &=[G,G].
+%     \end{align*}
+%     Therefore there exists a group homomorphism
+%     \[
+%     \overline{\psi}\colon I/I^2\to G/[G,G],\quad 
+%     \sum_{g\in G}m_g(g-1_G)+I^2\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+%     \]
+%     A direct calculation shows that $\overline{\psi}$ is the inverse 
+%     of $\overline{\varphi}$. 
+% \end{proof}
+
+
+% \section{*When a group algebra is reduced?}
+% \
+% \begin{exercise}
+%     Is the ring $\C[\Z/2]$ reduced? 
+% \end{exercise}
+
+% % Let $G=\langle g:g^2=1\rangle$. If $(a+bg)^2=0$, then
+% % $(a^2+b^2)+(2ab)g=0$. Thus $a=b=0$. 
+
+% \begin{problem}
+% \label{prob:reduced}
+%     Let $G$ be a torsion-free group. Is
+%     $K[G]$ is reduced?
+% \end{problem}
+
+% Problem \ref{prob:reduced} is related to other important
+% open problems about group algebras 
+% (e.g. zero-divisors, units, 
+% indempotents and semisimplicity of group
+% rings).
+
+% \begin{exercise}
+% \label{xca:reduced_central}
+%     Prove that idempotents of reduced rings are central. 
+% \end{exercise}
+
+% The previous exercise is used to solve the following problem.
+
+% \begin{exercise}
+% \label{xca:x^3=x}
+%     Let $R$ be a ring such that $x^3=x$ for all $x\in R$. Prove that
+%     $R$ is commutative. 
+% \end{exercise}
+
+% Exercise \ref{xca:x^3=x} is hard. 
+% Even harder is the following exercise:
+
+% \begin{exercise}
+% \label{xca:x^4=x}
+%     Let $R$ be a ring such that $x^4=x$ for all $x\in R$. Prove
+%     that $R$ is commutative. 
+% \end{exercise}
+
+% %Other exercises about reduced rings. 
+
+% %\begin{exercise}
+% %\label{xca:reduced}
+% %    Prove that a ring is reduced if 
+% %    and only it has no non-zero nilpotent elements. 
+% %\end{exercise}
+
+% \begin{exercise}
+% \label{xca:reduced=>semiprime}
+%     Reduced rings are semiprime.
+% \end{exercise}
+ 
+% \begin{theorem}
+% \label{thm:reduced}
+%     Let $K$ be a field and $G$ be a group. If $K[G]$
+%     is reduced, then every finite subgroup of $G$ is normal. 
+% \end{theorem}
+
+% \begin{proof}
+%     Let $H=\{h_1,\dots,h_n\}$ be a finite normal subgroup of $G$. 
+%     We claim that $n=|H|$ is invertible in $K$. If $\ch K=0$, this 
+%     is clear. If $\ch K=p>0$ and $n$ is not invertible in $K$, 
+%     then $p$ divides $n=|H|$. By Cauchy's theorem, 
+%     there exists an element $h\in H$ of order $n$, that is 
+%     $|h|=n$. Since $(1-h)^p=1-h^p=0$ and $K[G]$ is reduced,
+%     $h=1$, a contradiction. 
+    
+%     Let $\alpha=\frac{1}{n}\sum_{i=1}^nh_i\in K[G]$. Then
+%     \[
+%     \alpha^2=\frac{1}{n^2}\sum_{i=1}^n\sum_{j=1}^nh_ih_j
+%     =\frac{1}{n^2}\sum_{i=1}^nn\alpha=\alpha.
+%     \]
+%     Thus $\alpha$ is idempotent. As idempotent 
+%     element of reduced rings are central (Exercise \ref{xca:reduced_central}), 
+%     $g\alpha g^{-1}=\alpha$ for all $g\in G$. If $g\in G$, 
+%     then 
+%     \[
+%     \sum_{i=1}^n gh_ig^{-1}=\sum_{i=1}^n h_i.
+%     \]
+%     It follows that $H$ is normal in $G$, 
+%     as for each $i\in\{1,\dots,n\}$ 
+%     there exists $j\in\{1,\dots,n\}$ such that 
+%     $gh_ig^{-1}=h_j\in H$. 
+% \end{proof}
+
+% \begin{example}
+%     If $K$ is a field, then $K[\Sym_3]$ is not reduced. 
+%     In fact, 
+%     if 
+%     \[
+%     \alpha=(12)+(123)-(132)-(13),
+%     \]
+%     then 
+%     $\alpha^2=0$. 
+% \end{example}
+
+% \begin{exercise}
+%     Prove that the converse of Theorem \ref{thm:reduced} 
+%     does not hold. 
+% \end{exercise}
+
+\section{Gustafson's theorem}
+
+In 1905, Schur proved that the maximum number of linearly independent 
+$n\times n$ complex matrices is $\lfloor n^2/4\rfloor+1$, where $x\mapsto \lfloor x\rfloor$ is the 
+greatest integer function. We will prove Schur's theorem by representation-theoretic methods.
+
+\begin{theorem}[Gustafson]
+\index{Gustafson's theorem}
+\label{thm:Gustafson}
+    Let $R$ be a complex commutative finite-dimensional algebra 
+    and $M$ be a faithful $n$-dimensional $R$-module. Then
+    \[
+    \dim_{\C}R\leq\left\lfloor\frac{n^2}{4}\right\rfloor+1.
+    \]
+\end{theorem}
+
+Recall that the \emph{floor function} is the function that takes an element $x\in\R$ 
+and returns 
+\[
+    \lfloor x\rfloor = \max\{m\in\Z:m\leq x\}.
+\]
+Thus $x-1<\lfloor x\rfloor\leq x$. 
+
+\begin{exercise}
+    \label{xca:floor}
+    For $n\geq1$, let $a_n=\lfloor n^2/4\rfloor+1$. Then 
+    \[
+    a_{n_1+\cdots+n_k}\geq a_{n_1}+\cdots+a_{n_k}.
+    \]
+\end{exercise}
+
+% We proceed by induction on $n$. 
+% Let us show that $a_{n+m}\geq a_n+a_m$ for all $n,m\geq1$. 
+% Assume first that $n=2k$ and $m=2l+1$. On the one hand, $a_{n+m}=(k+l)^2+(k+l)+1$. On the other hand, 
+% $a_n+a_m=k^2+l^2+l+2$. Then the inequality clearly holds. The other cases are similar. 
+
+We now need some exercises on commutative artinian 
+unitary rings.
+
+\begin{exercise}
+    Let $R$ be a commutative artinian unitary ring. 
+    Prove that $R$ has finitely many maximal ideals. 
+\end{exercise}
+
+% Let $\mathcal{S}$ be the set of all finite intersections of maximal ideals of $R$. 
+% Since $R$ is artinian, $\mathcal{S}$ admits a minimal element, say 
+% I=M_1\cap\cdots\cap M_k$, for maximal ideals $M_1,\dots,M_k$. Let $M$ be a maximal ideal of $R$.
+% Since $I\cap M\in\mathcal{S}$, $I\subseteq I\cap M\subseteq M$ by the minimality of $I$. 
+% We claim that $M_i\subseteq M$ for some $i\in\{1,\dots,k\}$. If 
+% $M_i\not\subseteq M$ for all $i\in\{1,\dots,k\}$, then 
+% $M_1\cap\cdots M_k$
+
+\begin{lemma}
+\label{lem:artinian_local}
+    Let $R$ be a commutative artinian unitary ring. Then 
+    $R\simeq R_1\times\cdots\times R_k$ for local rings $R_1,\dots,R_k$. 
+\end{lemma}
+
+
+\begin{proof}
+    By Lemma~\ref{lem:Rartinian_finite_primitives}, $R$ has finitely many primitive ideals, say 
+    $I_1,\dots,I_k$. 
+    Each $I_j$ is a maximal ideal by 
+    Lemma~\ref{lem:primitive=>maximal}. 
+    Moreover, $J(R)=I_1\cap\cdots\cap I_k$. 
+    Since $R$ is artinian, $J(R)$ is nilpotent by Theorem~\ref{thm:Jnilpotente}. Thus
+    \[
+    \{0\}=J(R)^m=(I_1\cap\cdots\cap I_k)^m=I_1^m\cap\cdots\cap I_k^m
+    \]
+    for some $m\geq1$. By the Chinese remainder theorem, 
+    \[
+    R\simeq R/(I_1^m\cdots I_k^m)\simeq \prod_{j=1}^k R/I_j^m.
+    \]
+    For $j\in\{1,\dots,k\}$, let $R_j=R/I_j^m$ and 
+    $\pi_j\colon R\to R_j$ be the canonical map. 
+    We claim that each $R_j$ is a local ring 
+    with maximal ideal $\pi(I_j)$. 
+    By the correspondence theorem, the maximal ideals of $R_j$ are in bijective 
+    correspondence with
+    the maximal ideals of $R$ containing $I_j^m$. 
+    Let $M$ be a maximal ideal of $R_j$. We want to prove that $M=\pi(I_j)$. 
+    If $x\in I_j$, then $x^m\in I_j^m\subseteq\pi^{-1}(M)$. Since $\pi^{-1}(M)$ is a maximal ideal, 
+    it is a prime ideal of $R$. Thus $x\in\pi^{-1}(M)$, that is $\pi(x)\in M$. 
+    Since $\pi(I_j)\subseteq M$ and $\pi(I_j)$ is a maximal ideal of $R$, it follows
+    that $\pi(I_j)=M$. 
+\end{proof}
+
+We also need the following very useful lemma:
+
+\begin{lemma}[Nakayama]
+	\label{lem:Nakayama}
+	\index{Nakayama's lemma}
+	Let $R$ be a unitary ring and $M$ be 
+    a finitely generated $R$-module. 
+    If $J(R)\cdot M=M$, then $M=\{0\}$.
+\end{lemma}
+
+\begin{proof}
+	Assume that $M$ is generated by 
+    $x_1,\dots,x_n$. Since $x_n\in M=J(R)\cdot M$, 
+	there exist $r_1,\dots,r_n\in J(R)$ such that  $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+	Since $1-r_n$ is invertible, there exists 
+    $s\in R$ such that $s(1-r_n)=1$. Then
+	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+	and hence $M$ is generated by $x_1,\dots,x_{n-1}$. After repeating this procedure sufficiently many times (finitely many times), one gets $M=\{0\}$.
+\end{proof}
+
+\begin{exercise}
+\label{xca:Nakayama}
+    Let $R$ be a unitary ring and $M$ be a finitely
+    generated module. 
+    \begin{enumerate}
+        \item If $N$ be a submodule of $M$ such that $J(R)\cdot M/N=M/N$, then $M=N$. 
+        \item If $\pi\colon M\to M/(J(R)\cdot M)$ be the canonical map and 
+            $M/(J(R)\cdot M)$ is generated by $\{\pi(m_1),\dots,\pi(m_k)\}$ for some 
+            $m_1,\dots,m_k\in M$, then $M$ is generated by $\{m_1,\dots,m_k\}$. 
+    \end{enumerate}
+\end{exercise}
+
+\index{Central idempotent}
+Recall that an idempotent of a ring $R$ is an element $e\in R$ such that $e^2=e$. Two idempotents 
+$e$ and $f$ are said to be \emph{orthogonal} if $ef=fe=0$. 
+
+\begin{exercise}
+    \label{xca:idempotents_decomposition}
+    Let $R$ be a unitary ring. Prove that the following statements are equivalent: 
+    \begin{enumerate}
+%        \item $R\simeq R_1\times\cdots\times R_n$ as a product of rings $R_1,\dots,R_n$.
+        \item $R = I_1 \oplus \ldots \oplus I_n$ as a direct sum of left ideals $I_1,\dots,I_n$ of $R$. 
+        \item $1=e_1+\cdots+e_n$ for some orthogonal idempotents $e_1,\dots,e_n$.
+    \end{enumerate}
+\end{exercise}
+
+
+We are ready to prove Gustafson's theorem. 
+
+\begin{proof}[Proof of Theorem~\ref{thm:Gustafson}]
+    Assume first that $R$ is a local ring and let $I$ be its maximal ideal. Then 
+    $F=R/I$ is a field. Note that $F$ is a finite extension of $\C$, so it is an algebraic extension. 
+    Since $\C$ is algebraically closed, $F\simeq\C$. Moreover, 
+    $M/(I\cdot M)$ is a vector space over $\C$. 
+    % (the 
+    % operation $(R/I)\times M\to M$, $(r+I,m)\mapsto 
+    % (r+I)\cdot m=r\cdot m$, is well-defined because $I\cdot M=\{0\}$). 
+    Let $k\in\Z$ be such that 
+    $k=\dim (I\cdot M)$. Then 
+    $\dim M/(I\cdot M)=n-k$. Let  
+    \[
+        \{m_1+I\cdot M,\dots,m_{n-k} +I\cdot M\}
+    \]
+    be a basis of $M/(I\cdot M)$. 
+    Since $I=J(R)$, it follows from Exercise~\ref{xca:Nakayama} that $M$ is generated by 
+    $\{m_1,\dots,m_{n-k}\}$. Let $V$ be the complex vector space 
+    generated by $m_1,\dots,m_{n-k}$ and $W$ be the set of complex linear maps 
+    $V\to I\cdot M$. Then 
+    \[
+    \dim_{\C}W=\dim_{\C}(I\cdot M)\dim_{\C}V\leq k(n-k).
+    \]
+    Let $f\colon I\to W$, $r\mapsto (v\mapsto r\cdot v)$. Then $f$ is a well-defined complex linear map. 
+    
+    We claim that 
+    $f$ is injective: if $r\in\ker f$, then $f(r)=0$. Thus $r\cdot v=0$ for all $v\in V$. In particular, since 
+    $r\cdot m_i=0$ for all $i\in\{1,\dots,n-k\}$, it follows that $r\cdot m=0$ for all $m\in M$. 
+    Since $M$ is faithful, $r=0$. 
+
+    Since $f$ is injective, 
+    \[
+    \dim_{\C} I\leq\dim_{\C}W\leq k(n-k)=\frac{n^2}{4}-\left(\frac{n}{2}-k\right)^2\leq\frac{n^2}{4}.
+    \]
+    Hence $\dim_{\C}I\leq\lfloor n^2/4\rfloor$. Now 
+    \[
+    \dim_{\C}R=\dim_{\C}I+\dim_{\C}(R/I)\leq \left\lfloor n^2/4\right\rfloor+1. 
+    \]
+
+    Assume now that $R$ is a commutative artinian ring. By Lemma~\ref{lem:artinian_local}, we may assume
+    that $R=\bigoplus_{i=1}^k R_i$, where $R_1,\dots,R_k$ are local artinian rings and ideals of $R$. Since $R$ is unitary, $1=e_1+\cdots+e_k$ 
+    for orthogonal idempotents $e_1\in R_1,\dots,e_k\in R_k$ 
+    (see Exercise~\ref{xca:idempotents_decomposition}). 
+    In particular,  
+    $M=\sum_{j=1}^k e_j\cdot M$. 
+
+    We claim that $M=\bigoplus_{j=1}^k e_j\cdot M$. For example, let $x\in e_1\cdot M\cap (e_2\cdot M+\cdots+e_k\cdot M)$. Then 
+    $x=e_1\cdot m_1=e_2\cdot m_2+\cdots+e_k\cdot m_k$ 
+    for some $m_1,\dots,m_k\in M$. Since $e_1^2=e_1$ and 
+    $e_1e_j=0$ for all $j\in\{2,\dots,k\}$, we obtain that 
+    \begin{align*}
+        &e_1\cdot x=e_1^2\cdot m_1=e_1\cdot m_1=x,\\
+        &e_1\cdot x=(e_1e_2)\cdot m_2+\cdots+(e_1e_k)\cdot m_k=0.
+    \end{align*}
+    Then $x=0$. In this way we prove that $M=\bigoplus_{j=1}^k e_j\cdot M$. 
+    
+    Each $e_j\cdot M$ is a faithful $R_j$-module. It is trivial to see that each 
+    $e_j\cdot M$ is an $R_j$-module. 
+    Let us show that, for example, $e_1\cdot M$ is faithful. Let $r\in\Ann_{R_1}(e_1\cdot M)$. Then
+    \[
+    (re_1)\cdot m=r\cdot (e_1\cdot m)=0
+    \]
+    for all $m\in M$. Thus $re_1=0$, as $re_1\in\Ann_R(M)=\{0\}$ since $M$ is faithful. Moreover, 
+    \[
+    r=r1=r(e_1+\cdots+e_k)=re_1+re_2+\cdots+re_k=re_2+\cdots+re_k.
+    \]
+    Thus $r\in R_1\cap (R_2+\cdots+R_k)=\{0\}$. Similarly one proves that each $e_j\cdot M$ is a faithful $R_j$-module. 
+    For $j\in\{1,\dots,k\}$, let $n_j=\dim_{\C}e_j\cdot M$. Then 
+    \[
+    n=\dim_{\C}M=\sum_{j=1}^k\dim_{\C}(e_j\cdot M)=\sum_{j=1}^kn_j.
+    \]
+    Using Exercise~\ref{xca:floor} and the previous case, 
+    \begin{align*}
+    \dim_{\C}R&=\sum_{j=1}^k\dim_{\C}R_j
+    \leq\sum_{j=1}^k \left(\left\lfloor \frac{n_j^2}{4}\right\rfloor+1\right)\\
+    &\leq\left\lfloor\frac{(n_1+\cdots+n_k)^2}{4}\right\rfloor+1
+    =\left\lfloor\frac{n^2}{4}\right\rfloor+1.\qedhere     
+    \end{align*}
+\end{proof}
+
+The proof of Gustafson's theorem we presented 
+can be easily adapted for arbitrary algebraically closed fields. Using the technique of \emph{extensions 
+of scalars} (see Theorem~\ref{thm:extensions_scalars}), 
+we can get the result for other fields. Let $K$ be a field and $\overline{K}$ be its algebraic closure. 
+If $R$ is a finite-dimensional commutative 
+$K$-algebra and $M$ is a faithful $R$-module with $\dim_KM=n<\infty$, then 
+$\overline{R}=R\otimes_K\overline{K}$ is a commutative $\overline{K}$-algebra and
+$\dim_{\overline{K}}\overline{R}=\dim_KR$. Moreover, $\overline{M}=M\otimes_K\overline{K}$ is a faithful
+$\overline{R}$-module with 
+$\dim_{\overline{K}}\overline{M}=\dim_KM$. By Gustafson's theorem, 
+\[
+\dim_KR=\dim_{\overline{K}}\overline{R}\leq\left\lfloor\frac{n^2}{4}\right\rfloor+1.
+\]
+
+\section{Schur's theorem}
+
+We now present an application. For that purpose, we need a lemma.
+
+\begin{lemma}
+\label{lem:Gustafson}
+    Let $\{A_1,\dots,A_m\}\subseteq M_n(\C)$ be a maximal linearly independent set of
+    commuting matrices. If $R$ is the complex vector space
+    generated by $\{A_1,\dots,A_m\}$, then $R$ 
+    is a commutative finite-dimensional complex 
+    algebra and $\C^n$ is a faithful module. 
+\end{lemma}
+
+\begin{proof}
+    Let $B\in M_n(\C)$ be such that $BA_i=A_iB$ for all $i\in\{1,\dots,m\}$. 
+    The set $\{A_1,\dots,A_m,B\}$ is linearly dependent, by the 
+    maximality of $\{A_1,\dots,A_m\}$. There exist $\mu,\lambda_1,\dots,\lambda_{m}\in\C$ not all zero
+    such that 
+    \[
+    \lambda_1A_1+\cdots+\lambda_mA_m+\mu B=0.
+    \]
+    Taking $B=A_iA_j$ for $i,j\in\{1,\dots,m\}$ we see that 
+    all products of the form $A_iA_j$ belong to $R$. Moreover, taking $B=I$ (the $n\times n$ 
+    identity matrix), we see that $I\in R$. A direct calculation now shows that 
+    $R$ is a commutative finite-dimensional complex algebra.
+
+    To see that $\C^n$ is a faithful $R$-module, let 
+    \[
+    A=\begin{pmatrix}
+      a_{11} & a_{12} & \cdots & a_{1n}\\
+      a_{21} & a_{22} & \cdots & a_{2n}\\
+      \vdots & \vdots & \ddots & \vdots\\
+      a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{pmatrix}\in\Ann_R(\C^n).
+    \]
+    Then $Av=0$ for all $v\in\C^n$.  In particular, 
+    \[
+    \colvec{4}{a_{11}}{a_{21}}{\vdots}{a_{n1}}=A\colvec{4}{1}{0}{\vdots}{0}=\colvec{4}{0}{0}{\vdots}{0}.
+    \]
+    Thus the first column of $Av$ is zero. Similarly one proves that 
+    all the other columns of $A$ need to be zero. 
+\end{proof}
+
+
+\begin{theorem}[Schur]
+\label{thm:Schur_matrices}
+\index{Schur's theorem}
+    Let $S$ be a linearly independent set of commuting matrices of $M_n(\C)$. Then
+    \[
+    |S|\leq \left\lfloor\frac{n^2}{4}\right\rfloor+1.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Let $T=\{A_1,\dots,A_m\}$ be a maximal set of linearly independent commuting $n\times n$ complex matrices. Let $R$ 
+    be the complex vector space generated by $A_1,\dots,A_m$. By Lemma~\ref{lem:Gustafson}, 
+    $R$ is a finite-dimensional commutative
+    complex algebra and $M=\C^n$ is a faithful $R$-module. Then
+    \[
+    |S|\leq |T|=m=\dim_{\C}R\leq\left\lfloor\frac{n^2}{4}\right\rfloor+1,
+    \]
+    by Gustafson's theorem. 
+\end{proof}
+
+There are other proofs of Schur's inequality. For example, Mirzakhani found a short and 
+elementary proof, see~\cite{zbMATH01234865}.
+
+\section{Wedderburn's little theorem}
+
+\begin{definition}
+	The $n$-th cyclotomic polynomial 
+	is defined as the polynomial
+	\begin{equation}
+		\label{eq:ciclotomico}
+		\Phi_n(X)=\prod(X-\zeta),
+	\end{equation}
+	where the product is taken over all 
+	$n$-th primitive roots of unity. 
+\end{definition}
+
+Some examples:
+	\begin{align*}
+		&\Phi_2=X-1,\\
+		&\Phi_3=X^2+X+1,\\
+		&\Phi_4=X^2+1,\\
+		&\Phi_5=X^4+X^3+X^2+X+1,\\
+		&\Phi_6=X^2-X+1,\\
+		&\Phi_7=X^6+X^5+\cdots+X+1.
+	\end{align*}
+
+\begin{lemma}
+	If $n\in\Z_{>0}$, then
+	\[
+		X^n-1=\prod_{d\mid n}\Phi_d(X).
+	\]
+\end{lemma}
+
+\begin{proof}
+	Write 
+	\[
+		X^n-1=\prod_{j=1}^n (X-e^{2\pi ij/n})
+		=\prod_{d\mid n}\prod_{\substack{1\leq j\leq n\\\gcd(j,n)=d}}(X-e^{2\pi ij/n})
+		=\prod_{d\mid n}\Phi_d(X).\qedhere 
+	\]
+\end{proof}
+
+\begin{lemma}
+	If $n\in\Z_{>0}$, then $\Phi_n(X)\in\Z[X]$.
+\end{lemma}
+
+\begin{proof}
+	We proceed by induction on $n$. The case $n=1$ is trivial, as 
+	$\Phi_1(X)=X-1$. Assume that $\Phi_d(X)\in\Z[X]$ for all $d<n$.
+	Then 
+	\[
+		\prod_{d\mid n,d\ne n}\Phi_d(X)\in\Z[X]
+	\]
+	is a monic polynomial. Thus $\Phi_n(X)/\prod_{d\mid
+	n,d<n}\Phi_d(X)\in\Z[X]$.
+\end{proof}
+
+\begin{exercise}
+\label{xca:gcd}
+  Let $a,n,m$ be positive integers. Prove that 
+  \[
+  \gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1.
+  \]
+\end{exercise}
+
+\begin{theorem}[Wedderburn]
+\label{thm:Wedderburn} 
+	\index{Wedderburn's little theorem}
+	Every finite division ring is a field. 
+\end{theorem}
+
+\begin{proof}
+    Let $D$ be a finite division ring   
+	and $K=Z(D)$. Then $K$ is a finite field, say $|K|=q$. 
+	We claim that $|q-\zeta|>q-1$ for all $n$-th 
+	root of one $\zeta\ne 1$.  In fact, write $\zeta=\cos\theta+i\sin\theta$. Then 
+	$\cos\theta<1$ and 
+	\[
+	|q-\zeta|^2=q^2-(2\cos\theta)q+1>(q-1)^2.
+	\]
+	
+	Note that
+	$D$ is a $K$-vector space. Let 
+	$n=\dim_KD$.  We claim that $n=1$. If $n>1$, the 
+	class equation for the group 
+	$D^\times=D\setminus\{0\}$ 
+        % is 
+        % \[
+        % |D^\times|=|Z(D)\setminus\{0\}|+\sum_{j=1}^m (G:C_D(x_j)),
+        % \]
+        % where $x_1,\dots,x_m\in D$ and $(D^{\times}:C_{D^\times}(x_j))>1$ for all $j$. 
+        % ver Nicholson page 370
+        implies that 
+	\begin{equation}
+		\label{eq:clases}
+		q^n-1=q-1+\sum_{j=1}^m \frac{q^n-1}{q^{d_j}-1},
+	\end{equation}
+	where $1<\frac{q^n-1}{q^{d_j}-1}\in\Z$ for all $j\in\{1,\dots,m\}$. 
+    In fact, each centralizer, including the zero element, 
+    is a vector space over $K$ and hence has $q^{d_j}$ elements for some $d_j$. 
+    By the fundamental counting principle, the orbit has size $(q^n-1)/(q^{d_j}-1)$. 
+       
+	Since $d^{d_j}-1$ divides $q^n-1$ (see Exercise~\ref{xca:gcd}), 
+    each $d_j$ divides $n$. In particular,
+	~\eqref{eq:ciclotomico} implies that 
+	\begin{equation}
+		\label{eq:trick_ciclotomico}
+		X^n-1=\Phi_n(X)(X^{d_j}-1)h(X)
+	\end{equation}
+	for some $h(X)\in\Z[X]$. 
+	By evaluating~\eqref{eq:trick_ciclotomico} in $X=q$  
+	we obtain that $\Phi_n(q)$ divides $q^n-1$ and that $\Phi_n(q)$
+	divides $\frac{q^n-1}{q^{d_j}-1}$. By~\eqref{eq:clases}, 
+	$\Phi_n(q)$ divides $q-1$. 
+	Thus  
+	\[
+		q-1\geq |\Phi_n(q)|=\prod |q-\zeta|>q-1,
+	\]
+	as each $|q-\zeta|>q-1$, 
+	a contradiction. 
+\end{proof}
+
+There are several proofs of Wedderburn's theorem. 
+For example, \cite{MR360687} contains a proof that uses only 
+elementary linear algebra. In \cite[Chapter 14]{MR896269}
+the theorem is proved using group theory. 
+
+\begin{theorem}
+\label{thm:division}
+    Let $D$ be a division ring of characteristic $p>0$. 
+    If $G$ is a subgroup of $D\setminus\{0\}$, then 
+    $G$ is cyclic. 
+\end{theorem}
+
+We shall need a lemma. The lemma 
+uses a well-known result from elementary number theory:
+If $\varphi$ is the Euler function that 
+counts the positive integers up to a given integer $n$ 
+that are relatively prime to $n$, then 
+\[
+\sum_{d\mid n}\varphi(d)=n.
+\]
+Let us present a quick group-theoretical proof. 
+Let $G=\langle g\rangle$ be the cyclic group of order $n$.
+Then 
+\[
+n=|G|=\sum_{1\leq d\leq n}|\{g\in G:|g|=d\}|
+=\sum_{d\mid n}|\{g\in G:|g|=d\}|
+\]
+by Lagrange's Theorem. Since $G$ is cyclic, 
+for each $d\mid n$, 
+$\langle g^{n/d}\rangle$ is the 
+unique subgroup of $G$ of order $d$. Now the claim follows, 
+as each subgroup
+of the form $\langle g^{n/d}\rangle$ has $\varphi(d)$ 
+generators. 
+
+\begin{lemma}
+    Let $K$ be a field. 
+    Any finite subgroup of $K\setminus\{0\}$ is cyclic. 
+\end{lemma}
+
+\begin{proof}
+    Let $G$ be a finite subgroup of $K\setminus\{0\}$ and
+    $n=|G|$. For a divisor $d$ of $n$, let
+    $f(d)$ be the number of elements of $G$ of order $d$. 
+    Then 
+    \begin{equation}
+    \label{eq:sum_f}
+    \sum_{d\mid n}f(d)=n.
+    \end{equation}
+    
+    We claim that if $d\mid n$ is such that
+    $f(d)\ne0$, then $f(d)=\varphi(d)$, where $\varphi$ is
+    the Euler function. In fact, if $f(d)\ne 0$, 
+    then there exists $g\in G$ such that $|g|=d$. Let 
+    $H=\langle g\rangle$ be the subgroup of $G$ generated by $g$.
+    Every element of $H$ is a root of the polynomial
+    $p(X)=X^d-1\in K[X]$. Since $p(X)$ has at most $d$ roots, 
+    $H$ is the set of roots of $p(X)$. In particular, 
+    $g^m\in H$ and $|g^m|=d$ if and only if $\gcd(m,d)=1$. Hence
+    $f(d)=\varphi(d)$.
+
+    Since $\sum_{d\mid n}\varphi(d)$ and \eqref{eq:sum_f}, 
+    it follows that $f(n)=\varphi(n)\ne0$.
+    Hence there exists $g\in G$ such that 
+    $|g|=n=|G|$ and $G$ is cyclic.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:division}]
+    Let $F=\sum_{g\in G}(\Z/p)g$. Then $F$ is a finite 
+    subring of $D$. Since $D$ is a domain, $F$ is a domain. 
+    Let $\alpha\in F\setminus\{0\}$. 
+    Then 
+    $\{\lambda\alpha:\lambda\in F\}=F$. Since $\lambda\alpha=1$
+    for some $\lambda\in F$, $F$ is a division ring. By Wedderburn's 
+    theorem, $F$ is a field. Note that $G\subseteq F$. 
+    Therefore $G$ is cyclic by the previous lemma. 
+\end{proof}
+
+% todo:  (draw a picture of $q$ and $\zeta$ in the complex plane)
+% explicar mejor!
+
+% Veamos como corolario una aplicación al último teorema de Fermat en anillos
+% finitos. Demostraremos el siguiente resultado:
+
+% \begin{theorem}
+% 	Sea $R$ un anillo unitario finito. Entonces para todo $n\geq1$ existen $x,y,z\in
+% 	R\setminus\{0\}$ tales que $x^n+y^n=z^n$ si y sólo si $R$ no es un anillo
+% 	de división.
+% \end{theorem}
+
+% \begin{proof}
+% 	Supongamos primero que $R$ es de división. Por el teorema de Wedderburn,
+% 	$R$ es entonces un cuerpo finito, digamos $|R|=q$. Como entonces
+% 	$x^{q-1}=1$ para todo $x\in R\setminus\{0\}$, se concluye que la ecuación
+% 	$x^{q-1}+y^{q-1}=z^{q-1}$ no tiene solución.
+
+% 	Supongamos ahora que $R$ no es de división. Como entonces, en particular,
+% 	$R$ no es un cuerpo, $|R|>2$ y luego $x+y=z$ tiene solución en
+% 	$R\setminus\{0\}$ (tomar por ejemplo $x=1$, $y=z-1$ y $z\not\in\{0,1\}$).
+% 	Como $R$ es finito, $R$ es artiniano a izquierda y entonces el radical de
+% 	Jacobson $J(R)$ es nilpotente. Si $J(R)\ne 0$, existe entonces $a\in
+% 	R\setminus\{0\}$ tal que $a^2=0$ y luego $a^n=0$ para todo $n\geq2$. En
+% 	este caso, la ecuación $x^n+y^n=z^n$ tiene solución en $R\setminus\{0\}$ si
+% 	$n\geq 2$ (tomar por ejemplo $x=a$, $y=z=1$). Si $J(R)=0$, entonces, $R$ es
+% 	semisimple y luego, por el teorema de Wedderburn,
+% 	\[
+% 		R\simeq \prod_{i=1}^k M_{n_i}(D_i)
+% 	\]
+% 	donde los $D_i$ son cuerpos finitos (por ser anillos de división finitos).
+% 	Como $R$ no es un cuerpo, hay dos posibilidades: o bien $n_i>1$ para algún
+% 	$i\in\{1,\dots,k\}$, o bien $k\geq 2$ y $n_i=1$ para todo
+% 	$i\in\{1,\dots,k\}$. En el primer caso, como $M_{n_i}(D_i)$ tiene elementos
+% 	no nulos cuyo cuadrado es cero, $R$ también los tiene, y luego, tal como se
+% 	hizo antes, vemos que $x^n+y^n=z^n$ tiene solución. En el segundo caso,
+% 	$x=(1,0,0,\dots,0)$, $y=(0,1,0,\dots,0)$ y $z=(1,1,0,\dots,0)$ es una
+% 	solución de $x^n+y^n=z^n$.
+% \end{proof}
+
+\begin{graybox}
+  \project
+  \section{Zsigmondy's theorem}
+
+  One of Wedderburn's original proof of Theorem \ref{thm:Wedderburn} 
+  uses a 
+  result proved
+  by Zsigmondy \cite{MR1546236}. Zsigmondy's theorem is 
+  quite popular in mathematical contests. 
+
+  %Let $a>b\geq1$ be such that $\gcd(a,b)=1$. Let $n\geq2$. 
+  %We say that
+  %a prime divisor $p$ is a primitive divisor 
+  %of $a^n-b^n$ if $p\mid a^n-b^n$ and 
+  %$p\nmid a^k-b^k$ for all $k\in\{1,\dots,n-1\}$. 
+
+  \begin{theorem}[Zsigmondy]
+    \index{Zsigmondy's theorem}
+    Let $a>b\geq1$ be such that $\gcd(a,b)=1$ and $n\geq2$. 
+    Then there exists a prime divisor of $a^n-b^n$ that does not
+    divide $a^k-b^k$ for all $k\in\{1,\dots,n-1\}$ except 
+    when $n=2$ and $a+b$ is a power of two or $(a,b,n)=(2,1,6)$. 
+  \end{theorem}
+
+  % https://angyansheng.github.io/blog/an-elementary-proof-of-zsigmondys-theorem
+
+  \begin{proof}
+    See for example \cite{MR3172590}. 
+  \end{proof}
+
+  We now quickly sketch a proof of Wedderburn's theorem \ref{thm:Wedderburn} 
+  based on Zsigmondy's theorem.  
+
+  Let $D$ be a division ring of dimension $n$ over $\Z/p$ for a prime
+  number $p$. Assume 
+  first that there exists a prime number $q$ such that 
+  $q\nmid p$ and the order of $p$ modulo $q$ is $n$. Let $x\in D\setminus\{0\}$ be an element of order $q$ and $F$ be the subring
+  of $D$ generated by $g$. Note that $F$ is a finite-dimensional
+  $(\Z/p)$-vector space. Let $m=\dim F$. 
+  Since $g^{p^m-1}=1$, $q$ divides $p^m-1$. Thus $m=n$ and
+  hence $D=F$ is commutative. 
+
+  Assume now that there is no prime number $q$ such that 
+  $q\nmid p$ and the order of $p$ modulo $q$ is $n$. By Zsigmondy's 
+  theorem, $n=2$ or $n=6$ and $p=2$. If $n=2$, then 
+  $D$ is commutative, as it is the subring generated by
+  any element of $D\setminus \Z/p$. If $n=6$ and $p=2$, then 
+  the order of 2 modulo 9 is 6. Since $D\setminus\{0\}$ contains
+  a subgroup of order 9 and all groups of order 9 are abelian, 
+  we can use the previous argument to complete the proof. 
+\end{graybox}
+
+\section{Fermat's last theorem in finite rings}
+
+\begin{theorem}
+\index{Fermat's last theorem for finite rings}
+    Let $K$ be a finite field and $A$ be a finite-dimensional $K$-algebra.
+    For $n\geq1$, there exist $x,y,z\in A\setminus\{0\}$ 
+    such that $x^n+y^n=z^n$ if and only if 
+    $A$ is not a division algebra.
+\end{theorem}
+
+\begin{proof}
+    Assume first that $A$ is a division algebra. By Wedderburn's theorem, 
+    $A$ is a finite field, say $|A|=q$. Then $x^{q-1}=1$ for all $x\in A\setminus\{0\}$.
+    Hence $x^n+y^n=z^n$ does not have a solution. 
+    
+    Conversely, assume that $A$ is not a division algebra. In particular, 
+    $A$ is not a field and $|A|>2$. The equation $x+y=z$ has a solution in $A\setminus\{0\}$ (for example, $x=1$, $y=z-1$ and $z\not\in\{0,1\}$ is a solution). Since
+    $\dim A<\infty$, the Jacobson radical $J(A)$ is nilpotent. There are two 
+    cases to consider. 
+    
+    If $J(A)\ne\{0\}$, 
+    then there exists $a\in A\setminus\{0\}$ such that $a^2=0$. Thus $a^n=0$ 
+    for all $n\geq2$. Hence $x^n+y^n=z^n$ has a non-trivial
+    solution in $A\setminus\{0\}$ for all $n\geq2$ (for example, take 
+    $x=a$ and $y=z=1$).
+    
+    If $J(A)=\{0\}$, then $A$ is semisimple and 
+    $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ for (finite) division rings $D_1,\dots,D_k$
+    and integers $n_1,\dots,n_k$. By Wedderburn's theorem, each $D_i$ is a finite
+    field. We consider two possible cases. 
+    
+    If there exists $i\in\{1,\dots,k\}$ such that $n_i>1$, then
+    $M_{n_i}(D_i)$ has non-zero elements such that their squares are zero. Thus 
+    there exists $x\in A\setminus\{0\}$ such that $x^2=0$. In particular, 
+    $x^n+y^n=z^n$ has a solution. 
+    
+    If $k\geq 2$, then $x=(1,0,0,\dots,0)$, $y=(0,1,0,\dots,0)$ 
+    and $z=(1,1,0,\dots,0)$ is a solution of $x^n+y^n=z^n$.
+\end{proof}
+
+
+\section{Frobenius's theorem}
+
+\begin{theorem}[Frobenius]
+	\label{thm:Frobenius}
+	\index{Frobenius'!theorem}
+	Every finite-dimensional real division algebra is isomorphic to $\R$, $\C$
+	or $\mathbb{H}$.
+\end{theorem}
+
+We present an elementary proof. We shall need some lemmas. 
+
+\begin{lemma}
+	\label{lem:trick_frobenius1}
+	Let $D$ be a real division algebra such that $\dim D=n$. If $x\in D$, then
+	there exists $\lambda\in\R$ such that $x^2+\lambda x\in\R$.
+\end{lemma}
+
+\begin{proof}
+	Since $\dim D=n$, the set $\{1,x,x^2,\dots,x^n\}$ is linearly dependent. So
+	there exists a non-zero polynomial $f(X)\in\R[X]$ of degree $\leq n$ such
+	that $f(x)=0$. Without loss of generality, we may assume that the leading
+	coefficient of $f(X)$ is one. Then we can write $f(X)$ as a product of
+	polynomials of degree $\leq2$, say 
+	\[
+		f(X)=(X-\alpha_1)\cdots (X-\alpha_r)(X^2+\lambda_1 X+\mu_1)\cdots (X^2+\lambda_s X+\mu_s).
+	\]
+	Since $D$ is a division algebra and $f(x)=0$, some factor of $f(X)$ is
+	zero at $x$. If $x-\lambda_j\ne 0$ for all $j$, then $x$ is a root of some
+	$X^2+\lambda_k X+\mu_k$. In any case, there exists $\lambda\in\R$ such that
+	$x^2+\lambda x\in\R$. 
+\end{proof}
+
+\begin{lemma}
+	\label{lem:trick_frobenius2}
+	Let $D$ be a real division algebra of dimension $n$. Then
+	\[
+		V=\{x\in D:x^2\in\R_{\leq0}\}
+		%,x^2\leq 0\}
+	\]
+	is a subspace of $D$ such that $D=\R\oplus V$.
+\end{lemma}
+
+\begin{proof}
+	If $x\in D\setminus V$ is such that $x^2\in\R$, 
+    then, since $x^2>0$, it follows
+	that $x^2=\alpha^2$ for some $\alpha\in\R$. Thus $x=\pm\alpha\in\R$, as $D$
+	is a division algebra and 
+ \[
+ (x-\alpha)(x+\alpha)=x^2-\alpha^2=0.
+ \]
+
+	We claim that $V$ is a subspace of $D$.  Note that $0\in V$ and 
+	that if $x\in V$, then $\lambda x\in V$ for all $\lambda\in\R$.  Let 
+	$x,y\in V$. If $\{x,y\}$ is linearly dependent, then $x+y\in V$.
+	If not, we claim that 
+	$\{1,x,y\}$ is linearly independent. If there exist 
+	$\alpha,\beta,\gamma\in\R$ such that $\alpha x+\beta y+\gamma=0$, then 
+	\[
+	\alpha^2x^2=\beta^2y^2+2\beta\gamma y+\gamma^2=(-\beta y-\gamma)^2.
+	\]
+	This implies that $2\beta\gamma y\in\R$ and thus $\beta\gamma=0$, as
+        $0\leq 4\beta^2\gamma^2y^2\leq 0$. Hence 
+	$\alpha=\beta=\gamma=0$. (If $\beta=0$, then $0\leq\gamma^2=\alpha^2x^2\leq 0$. If $\gamma=0$, then $\alpha=\beta=0$ because $\{x,y\}$ is linearly independent.) The previous lemma implies that there exist 
+	$\lambda,\mu\in\R$ such that 
+	\[
+		(x+y)^2+\lambda(x+y)\in\R,\quad
+		(x-y)^2+\mu(x-y)\in\R.
+	\]
+	Since 
+	\[
+		(x+y)^2+(x-y)^2=2x^2+2y^2\in\R,
+	\]
+	it follows that $(\lambda+\mu)x+(\lambda-\mu)y\in\R$. Since  $\{1,x,y\}$ is linearly 
+	independent, 
+	$\lambda=\mu=0$. Thus $(x+y)^2\in\R$. If 
+	$x+y\not\in V$, then, the first paragraph of the proof implies that 
+	$x+y\in\R$, a contradiction. 
+
+	Clearly, $\R\cap V=\{0\}$. If $x\in D\setminus\R$, then the previous lemma 
+	implies that $x^2+\lambda x\in\R$ for some 
+	$\lambda\in\R$. We claim that $x+\lambda/2\in V$. If not, since 
+	\[
+	(x+\lambda/2)^2=x^2+\lambda x+(\lambda/2)^2\in\R,
+	\]
+	it follows that $x+\lambda/2\in\R$ and thus $x\in\R$, a contradiction. Hence 
+	\[
+ x=-\lambda/2+(x+\lambda/2)\in\R\oplus V.\qedhere
+ \]
+\end{proof}
+
+\begin{lemma}
+	\label{lem:trick_frobenius3}
+	Let $D$ be a real division algebra of (real) dimension $n$. If $n>2$, then
+	there exist $i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent and 
+	\begin{align}
+	\label{eq:H}
+	&i^2=j^2=k^2=-1, && ij=-ji=k, && ki=-ik=j, && jk=-kj=i.
+	\end{align}
+\end{lemma}
+
+\begin{proof}
+	Let $V=\{x\in D:x^2\in\R,x^2\leq 0\}$ be the subspace of Lemma~\ref{lem:trick_frobenius2}. 
+	For $x,y\in V$ let $x*
+	y=xy+yx=(x+y)^2-x^2-y^2\in\R$. If $x\ne0$, then $x*
+	x=2x^2\ne0$. Since $\dim V=n-1$, there exist $y,z\in V$ such that $\{y,z\}$ is 
+	linearly independent. Let 
+	\[
+		x=z-\frac{z* y}{y* y}y.
+	\]
+	Since $\{y,z\}$ is linearly independent, $x\ne0$. Moreover, since 
+	\[
+		x* y
+		=\left(z-\frac{z* y}{y* y}\right)* y
+		=zy-\frac{z* y}{y* y}y^2+yz-\frac{z* y}{y* y}y^2
+		=z* y-\frac{z* y}{y* y}y* y=0,
+	\]
+	it follows that $xy=-yx$. 
+	Let  
+	\[
+		i=\frac{1}{\sqrt{-x^2}}x,
+		\quad
+		j=\frac{1}{\sqrt{-y^2}}y,
+		\quad
+		k=ij. 
+	\]
+	A direct calculation shows that the formulas of ~\eqref{eq:H} hold. For example, 
+	\[
+		ji=\frac{1}{\sqrt{-y^2}}\frac{1}{\sqrt{-x^2}}yx=\frac{1}{\sqrt{-x^2}}\frac{1}{\sqrt{-y^2}}(-xy)=-k.\qedhere
+	\]
+\end{proof}
+
+Now we are finally 
+ready to prove the theorem: 
+
+\begin{proof}[Proof of \ref{thm:Frobenius}]
+	Let $D$ be a real division algebra and let $n=\dim D$. If $n=1$, then 
+	$D\simeq\R$. If $n=2$, the subspace $V$ of Lemma~\ref{lem:trick_frobenius2} 
+	is non-zero and thus there exists $i\in D$ such that 
+	$i^2=-1$. Hence $D\simeq\C$. Lemma~\ref{lem:trick_frobenius3}
+	implies that $n\ne3$. If $n=4$, then $D\simeq\mathbb{H}$. Suppose that 
+	$n>4$.  By Lemma~\ref{lem:trick_frobenius3} there exist
+	$i,j,k\in D$ such that $\{1,i,j,k\}$ is linearly independent 
+	and that the formulas of~\eqref{eq:H} hold. Let 
+	\[
+		V=\{x\in D:x^2\in\R_{\leq0}\}.
+	\]
+	By Lemma~\ref{lem:trick_frobenius2}, $\dim V=n-1$. Thus there exists 
+	$x\in V\setminus\langle i,j,k\rangle$. Let 
+	\[
+		e=x+\frac{i* x}{2}i+\frac{j* x}{2}j+\frac{k* x}{2}k\in V\setminus\{0\}.
+	\]
+	A direct calculation shows that $i* e=j* e=k* e=0$. Then 
+	\[
+		ek=e(ij)=(ei)j=-(ie)j=-i(ej)=i(je)=(ij)e=ke,
+	\]
+	a contradiction. 
+\end{proof}
+
+\section{Jacobson's commutativity theorem}
+
+We start with an easy exercise. 
+
+\begin{exercise}
+    \index{Ring!boolean}
+    \label{xca:x^2=x}
+    A ring $R$ is \emph{boolean} if $x^2=x$ for all $x\in R$. 
+    Prove that boolean rings are commutative. 
+\end{exercise}
+
+To prove this fact, note that $1=(-1)^2=-1$. This means that $R$ has
+characteristic two. Let $x,y\in R$. Since $x+y=(x+y)^2=x^2+xy+yx+y^2$. 
+it follows that $0=xy+yx$ and hence $xy=yx$.
+
+%\begin{definition}
+%	\index{Ring!reduced}
+%	A ring $R$ is \emph{reduced} if $x^2=0$ implies $x=0$. 
+%\end{definition}
+%
+%For example, boolean rings and domains are reduced. Moreover, the ring 
+%$\Z^n$ with point-wise multiplication is reduced (and has zero divisors).
+
+\begin{exercise}
+\label{xca:x32^n=x}
+Let $n\geq1$ and $R$ be a ring 
+such that $x^{3\cdot 2^n}=x$ for all $x\in R$. 
+Prove that $R$ is commutative. 
+\end{exercise}
+
+Hint: Note that $R$ has characteristic two and 
+that 
+$x^{2^{n+1}}=x^{2^n}$ for all $x\in R$. Thus 
+$R$ is a boolean ring. 
+
+\begin{proposition}
+\label{pro:Jacobson}
+    Let $R$ be a finite ring such that 
+    for each $x\in R$ there exists $n(x)\geq2$ such that 
+    $x^{n(x)}=x$. Then $R$ is commutative. 
+\end{proposition}
+
+\begin{proof}
+    Since $R$ is finite, $R$ is artinian and hence $J(R)$ is nil. 
+    Since $R$ is reduced, $J(R)=\{0\}$. 
+    By the Artin--Wedderburn theorem, $R\simeq\prod_{i=1}^k M_{n_i}(D_i)$ for some division rings $D_1,\dots,D_k$. 
+    Since $R$ is finite, each $D_i$ is finite. By Wedderburn's theorem,
+    every $D_i$ is a field. Again, since $R$ is reduced, 
+    $n_i=1$ for all $i$. Therefore $R$ is commutative, as it is 
+    a direct product of finitely many fields.
+\end{proof}
+
+In this lecture, we will extend the 
+result of 
+Proposition \ref{pro:Jacobson} to arbitrary 
+(i.e. non-finite) rings. 
+
+\begin{theorem}[Jacobson]
+\label{thm:commutativity}
+\index{Jacobson's commutativity theorem}
+	Let $R$ be a ring such that 
+	for each $x\in R$ there exists $n(x)\geq2$ such that 
+	$x^{n(x)}=x$. Then $R$ is commutative. 
+\end{theorem}
+
+We shall need the following lemma.
+
+% The structure 
+% of reduced rings is described by the following result:
+
+% \begin{theorem}[Andrnakievich--Ryabukhin]
+% \index{Andrnakievich--Ryabukhin's theorem}
+% 	Let $R$ be a non-zero ring. Then $R$ is reduced if and only if
+% 	$R$ is a subdirect product of domains. 
+% \end{theorem}
+%https://ysharifi.wordpress.com/2010/06/04/about-reduced-rings-2/
+% \begin{proof}
+% 	Supongamos que $R$ es reducido.\framebox{?}
+
+% 	Supongamos ahora que $R$ es producto subdirecto de la familia $\{R_i:i\in I\}$ de dominios. Sea 
+% 	$f\colon R\to \prod_{i\in I}R_i$, $f(x)=(x_i)_{i\in I}$, el morfismo inyectivo. 
+% 	Si $x\in R$ es tal que $x^2=0$ entonces 
+% 	\[
+% 		(0)_{i\in I}=f(0)=f(x^2)=f(x)^2=(x_i^2)_{i\in I}
+% 	\]
+% 	y luego, como cada $R_i$ es un dominio, se concluye que $x_i=0$ para todo
+% 	$i\in I$.
+% \end{proof}
+
+% Let x,y \in R. Suppose that R is a domain. Then R is reduced and if xRy=(0), then xy=0 and thus, since R is a domain, either x=0 or y=0. So R is a prime ring. Now suppose that R is both prime and reduced and xy=0. Then, by Remark 1, yRx=(0) and so, since R is prime, either y=0 or x=0. To prove that every reduced ring is semiprime, suppose that xRx=(0) for some x \in R. Then x^2 \in xRx =(0) and so x=0. \ \Box    
+
+% \begin{lemma}
+% 	\label{lem:reducido}
+% 	Todo idempotente de un anillo reducido es central.
+% \end{lemma}
+
+% \begin{proof}
+% 	Sea $e\in R$ tal que $e^2=e$ y sea $x\in R$. Como
+% 	\[
+% 	(ex-exe)^2=exex-exexe-exex+exexe=0
+% 	\]
+% 	y el anillo $R$ es reducido, $ex=exe$. 
+% 	Similarmente la igualdad 
+% 	$(xe-exe)^2=0$ implica que $xe=exe$. Luego $ex=exe=xe$ para todo $x\in R$.
+% \end{proof}
+
+
+% \begin{proposition}
+% 	Sea $R$ un anillo tal que $x^3=x$ para todo $x\in R$. Entonces $R$ es
+% 	conmutativo.
+% \end{proposition}
+
+% \begin{proof}
+% 	El anillo $R$ es reducido pues si $x^2=0$ entonces $x=x^3=0$.  Como en $R$
+% 	todo cuadrado es idempotente (pues $x^2=x^4=(x^2)^2$ para todo $x\in R$),
+% 	el lema~\ref{lem:reducido} implica que todo cuadrado es central. 
+% 	Si $x\in R$, entonces 
+% 	$2x=(x^2+x)-2x^2$ 
+% 	es central. Como además 
+% 	\[
+% 		1+x=(1+x)^3=1+3x+3x^2+x,
+% 	\]
+% 	se tiene que $3x=-3x^2$ es un elemento central. Luego $x=3x-2x$ es central.
+% \end{proof}
+
+
+
+% \begin{proposition}
+% 	Sea $R$ un anillo tal que $x^4=x$ para todo $x\in R$. Entonces $R$ es conmutativo.
+% \end{proposition}
+
+% \begin{proof}
+% 	El anillo $R$ es reducido pues si $x^2=0$ entonces $x=x^4=0$.  Como
+% 	$x=x^4=(-x)^4=-x$ para todo $x\in R$, el anillo $R$ tiene característica
+% 	dos. Todo elemento de la forma $z^2+z$ es idempotente pues
+% 	$(z^2+z)^2=z^4+2z^3+z^2=z^2+z$. Luego, por el 
+% 	lema~\ref{lem:reducido}, todo elemento de la forma $z^2+z$ es central. Si $x,y\in R$, entonces 
+% 	\[
+% 		x^2y+yx^2=(x^2+y)^2-(x^2+y)-(x^2+x)-(y^2+y)
+% 	\]
+% 	es central. Como entonces $x^2(x^2y+yx^2)=(x^2y+yx^2)x^2$, se concluye que $xy=yx$.
+% \end{proof}
+
+% Parece difícil poder extender los resultados anteriores a otros exponentes. Antes 
+% de enunciar y demostrar un teorema de Jacobson que generaliza los resultados mencionados, necesitamos
+% dos lemas:
+
+\begin{lemma}
+	\label{lem:k_finito}
+	Let $K$ be a finite field of characteristic $p>0$. There exists 
+	$n\in\Z_{>0}$ such that $|K|=p^n$ and $x^{p^n}=x$ for all $x\in K$. Moreover, 
+	if $K\setminus\{0\}=\{x_1,\dots,x_{p^n-1}\}$, then 
+	$X^{p^n}-X=(X-x_1)\cdots(X-x_{p^n-1})X$. 
+\end{lemma}
+
+\begin{proof}
+	The field $K$ is a $(\Z/p)$-vector space. If $\dim_{\Z/p} K=n$, then 
+	$|K|=p^n$. In particular, $K\setminus\{0\}$ is an abelian
+	group of order $p^{n}-1$ and hence, by Lagrange's theorem, 
+	$x^{p^n-1}=1$ for all $x\in K\setminus\{0\}$. Thus $x^{p^n}=x$ for all $x\in K$
+	and hence every $x\in K$ is a root of the polynomial 
+	$X^{p^n}-X$ of degree $p^n$. 
+\end{proof}
+
+Let $R$ be a ring. For each $r\in R$ the map $\operatorname{ad}{r}\colon
+R\to R$, $x\mapsto rx-xr$, is a derivation. This means that
+$\operatorname{ad}(xy)=(\operatorname{ad} x)y+x(\operatorname{ad} y)$ for all $x,y\in R$. 
+By induction one proves that 
+\begin{equation}
+	\label{eq:Leibniz}
+	(\operatorname{ad}{r})^n(x)=\sum_{k=0}^n(-1)^k\binom{n}{k}r^{n-k}xr^k
+\end{equation}
+for all $x\in R$ and $n\in\Z_{>0}$. If $p$ 
+is a prime number, 
+$p$ divides $\binom{p}{k}$ for all $k\in\{1,\dots,p-1\}$. This fact
+is needed to solve the following exercise:
+
+\begin{exercise}
+    Let $p$ be a prime number and $R$ be a ring of characteristic $p$. 
+    Prove that $(\operatorname{ad}{r})^{p^n}=\operatorname{ad}{r^{p^n}}$. 
+\end{exercise}
+
+% \begin{lemma}
+% 	\label{lem:Jacobson}
+% 	Sean $p$ un primo, 
+% 	$R$ un anillo de característica $p$ y $r\in R$. 
+% 	Entonces $(\operatorname{ad}{r})^{p^n}=\operatorname{ad}{r^{p^n}}$. 
+% \end{lemma}
+
+% \begin{proof}
+% 	Procederemos por inducción en $n$. Supongamos que $n=1$. Si $k\in\{1,\dots,p-1\}$, entonces 
+% 	$p$ no divide a $k!(p-k)!$ y luego $p$ divide a $\binom{p}{k}$. La igualdad~\eqref{eq:Leibniz} se
+% 	transforma entonces en\dots
+% \end{proof}
+
+Now we are ready to prove Jacobson's commutativity theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:commutativity}]
+    We divide the proof into several steps and claims. We may assume that 
+    $R$ is non-zero. 
+    
+    \begin{claim}
+        $J(R)=\{0\}$. 
+    \end{claim}
+    
+    Let $x\in J(R)$ and $n=n(x)$. Since $-x^{n-1}\in J(R)$, 
+    there exists $y\in R$ such that $-x^{n-1}\circ y=-x^{n-1}+y-x^{n-1}y=0$. Thus
+    \[
+    -x^{n-1}+y=x^{n-1}y\implies
+    -x+xy=x(-x^{n-1}+y)=x^ny=xy.
+    \]
+    This implies that $x=0$.
+    
+    \begin{claim}
+        Without loss of generality, we may assume that $R$ is primitive. 
+    \end{claim}
+	
+	Let $\{P_i:i\in I\}$ be the collection of primitive ideals of $R$. 
+	The map 
+	$R\to \prod_{i\in I}R/P_i$, $r\mapsto (r+P_i)_{i\in I}$, 
+	is an injective homomorphism, since
+	its kernel is 
+	\[
+	\bigcap_{i\in I} P_i=J(R)=\{0\}.
+	\]
+	Note that
+	$R$ is commutative if each $R/P_i$ is commutative.        Moreover, 
+	each $R/P_i$ 
+	satisfies the assumption, that is 
+	$(x+P_i)^{n(x)}=x^{n(x)}+P_i=x+P_i$, and 
+	and is a primitive ring. 
+	
+    \begin{claim}
+        $R$ is a division ring. 
+    \end{claim}
+
+    By Jacobson's density theorem,
+    there exists a division ring $D$ and 
+    a $D$-vector space $V$ such that 
+    $R$ is dense in $V$. We claim that $\dim_DV=1$. If $\dim_DV\geq 2$, 
+    let $\{v_1,v_2\}\subseteq V$ be a linearly independent set. Then
+    there exists $f\in R$ such that $f(v_1)=v_2$ and $f(v_2)=0$. This implies
+    that $f^{k}(v_1)=0$ for all $k\geq 2$ and $f(v_1)\ne 0$. This contradicts
+    the fact that $f^{n}=f$ for $n=n(f)$. Thus $R\simeq D^{\op}$, 
+    a division ring. 
+    
+    \begin{claim}
+        $R$ has positive characteristic. 
+    \end{claim}
+
+    Since $R$ is a division ring, $2=1+1\in R$. There exists $n\geq2$ 
+    such that $2^n=2$. In particular, 
+    $2(2^{n-1}-1)=0$. This implies the claim. 
+    
+    \begin{claim}
+        Every non-zero subring of $R$ is a division ring. 
+    \end{claim}
+    
+    Let $S\subseteq R$ is a non-zero subring of $R$. If $x\in S\setminus\{0\}$, 
+    then 
+    $x^{n(x)}=x$. In particular, 
+    \[
+    x^{-1}=x^{n(x)-2}\in S.
+    \]
+    
+    \begin{claim}
+        $R$ is commutative.
+    \end{claim}
+    
+    Let us assume that $R$ is not commutative. Let $x\in R\setminus Z(R)$. 
+    Since $R$ has positive characteristic, there exists $m>0$ such that 
+    $mx=0$. Moreover, since $R$ is a division ring and 
+    $x^{n(x)}=x$, it follows that $x^{n(x)-1}=1$. These facts imply that
+    the subring $K$ of $R$ generated by
+    $x$ is finite. By Wedderburn's theorem, $K$ is 
+    a finite field. 
+    Thus 
+    $|K|=p^k$ for some prime number $p$ and some $k>0$ and 
+    \[
+    x^{p^k}=x.
+    \]
+    Note that $R$ is a $K$-vector space
+    and $\delta=\operatorname{ad} x\colon R\to R$, $y\mapsto xy-yx$, is a $K$-linear map. Moreover, 
+    by the exercise, 
+    \[
+    \delta^{p^k}=(\operatorname{ad} x)^{p^k}=\operatorname{ad} \left(x^{p^k}\right)=\operatorname{ad} x=\delta
+    \]
+    and 
+    \begin{equation}
+        \label{eq:delta}
+        \delta(\delta-x_1\id)\cdots (\delta-x_{p^{k-1}}\id)=0
+    \end{equation}
+    if $K=\{0,x_1,\dots,x_{p^k-1}\}$. Since $x$ is not central, 
+    $\delta$ is non-zero. So there exists $y\in R$ such that $\delta(y)\ne 0$. 
+    Evaluating \eqref{eq:delta} in $y$ and using that $R$ is a division ring, 
+    we obtain that 
+    \[
+    x_iy=\delta(y)=xy-yx
+    \]
+    for some $i$. Let $R_0$ be the subring of $R$ generated by $x$ and $y$. 
+    Since $xy-yx=\delta(y)\ne 0$, the ring $R_0$ is a 
+    non-commutative division ring. Note that 
+    $yx=(x-x_i)y\in Ky$, as $x\in K$ and $x_i\in K$. By induction one proves
+    that $yx^j\subseteq Ky$ for all $j\geq 1$ and hence
+    $y^iK\subseteq Ky^i$ for
+    all $i\geq1$. This implies that
+    \[
+    K+Ky+\cdots+Ky^{n(y)-2}\subseteq R
+    \]
+    is a subring. It follows that $K+Ky+\cdots+Ky^{n(y)-2}=R_0$, 
+    as it is a subring of $R$ included in $R_0$ 
+    that contains $x$ and $y$. Since 
+    $R_0$ is a finite division ring, it is a field 
+    by Wedderburn's theorem, a contradiction since
+    it is non-commutative.
+\end{proof}
+
+There are elementary proofs of Jacobson's commutativity theorem.
+See for example \cite{MR347890}. 
+

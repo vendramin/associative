@@ -1,0 +1,1453 @@
+\section{Semisimple algebras}
+\lecture\label{lec:semisimple}
+
+We will study finite-dimensional semisimple algebras. The main goal of the
+first two lectures is to prove the Artin--Wedderburn theorem. 
+
+\begin{definition}
+	\index{Algebra}
+	An \emph{$K$-algebra} (or an algebra over the field $K$) is a $K$-vector space $A$ 
+	with an associative multiplication $A\times A\to A$ such that
+	\[
+    a(\lambda b+\mu c)=\lambda(ab)+\mu(ac)\quad\text{and}\quad 
+	(\lambda a+\mu b)c=\lambda(ac)+\mu (bc)
+ \]
+    for all $a,b,c\in A$ and $\lambda,\mu\in K$. In addition, $A$ 
+	contains an element $1_A\in A$ such that 
+ \[
+ 1_Aa=a1_A=a
+ \]
+ for all $a\in A$.
+ \end{definition}
+
+ \index{Algebra!center of}
+Note that a ring $A$ is an algebra over $K$ if and only if there is a ring
+homomorphism $\iota\colon K\to Z(A)$, where $Z(A)=\{a\in A:ab=ba\text{ for all $b\in A$}\}$
+is the \emph{center} of $A$, such that $\iota(1_K)=1_A$. 
+
+\begin{definition}
+	\index{Algebra!commutative}
+	An algebra $A$ is \emph{commutative} if $ab=ba$ for all $a,b\in A$. 
+\end{definition}
+
+\index{Algebra!dimension}
+The \emph{dimension} of an algebra $A$ is the dimension of $A$ as a vector space. This is why we want to consider algebras, as 
+they are a linear version of rings. Often, our arguments will use the dimension of the underlying vector space.  
+
+\begin{example}
+	The field $\R$ is a real algebra and  
+	$\C$ is a complex algebra. Moreover, $\C$ is a real algebra. 
+\end{example}
+
+Any field $K$ is an algebra over $K$.
+
+\begin{example}
+	If $K$ is a field, then $K[X]$ is an algebra over $K$. 
+\end{example}
+
+Similarly, the polynomial ring $K[X,Y]$ and the ring $K[\![X]\!]$ of formal
+power series are examples of algebras over $K$. 
+
+\begin{example}
+	Let $n\geq1$. If $A$ is an algebra, then  $M_n(A)$ is an algebra. 
+\end{example}
+
+\begin{example}
+	The set of continuous maps $[0,1]\to\R$ is a real algebra with the usual
+	pointwise operations $(f+g)(x)=f(x)+g(x)$ and $(fg)(x)=f(x)g(x)$. 
+\end{example}
+
+\begin{example}
+  \index{Truncated polynomial algebra}
+	Let $n\in\Z_{>0}$. Then $K[X]/(X^n)$ is a finite-dimensional $K$-algebra. 
+    It is the \emph{truncated polynomial algebra}.  
+\end{example}
+
+\begin{example}
+  \index{Algebra!group}
+	Let $G$ be a finite group. The vector space 
+	$\C[G]$ with basis $\{g:g\in G\}$
+	is an algebra with multiplication
+	\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+	\] 	
+	Note that $\dim\C[G]=|G|$ and
+	$\C[G]$ is commutative if and only if $G$ is abelian. 
+	This is the \emph{complex group algebra} of $G$. 
+\end{example}
+
+If $G$ is an infinite group, the complex group algebra $\C[G]$ 
+is defined as the set 
+of finite linear combinations of elements of $G$ 
+with the usual operations. The same construction over any field $K$ defines the
+\emph{group algebra} $K[G]$.
+
+\begin{definition}
+    \index{Homomorphism!of algebras}
+    \index{Algebra!homomorphism}
+    Let $K$ be a field and $A$ and $B$ be $K$-algebras.  An algebra
+    \emph{homomorphism} is a unital ring homomorphism $f\colon A\to B$ that is
+    also a $K$-linear map. 
+\end{definition}
+
+The complex conjugation map  $\C\to \C$, $z\mapsto\overline{z}$, is a ring
+homomorphism that is not an algebra homomorphism over $\C$. 
+ 
+\begin{exercise}
+\label{xca:G_zero_divisors}
+	Let $G$ be a non-trivial finite group. 
+	Then $\C[G]$ has zero divisors. 
+\end{exercise}
+
+\index{Algebra!unit group of}
+If $A$ is an algebra, then $\mathcal{U}(A)$ is the group  
+of units of $A$. 
+
+\begin{exercise}
+\label{xca:units_UP}
+	Let $A$ be a $K$-algebra and $G$ be a finite group. 
+	If $f\colon G\to\mathcal{U}(A)$ is a group homomorphism, 
+	then there exists a unique algebra homomorphism 
+	$\varphi\colon K[G]\to A$ such that $\varphi|_G=f$.   	
+\end{exercise}
+
+\begin{definition}
+ 	\index{Algebra!ideal}
+ 	An \emph{ideal} of an algebra is an ideal of the underlying ring.
+\end{definition}
+
+Similarly, one defines left and right ideals of an algebra.\index{Ideal!left}\index{Ideal!right}
+
+If $A$ is an algebra, then every left ideal of the ring $A$ is a vector space.  
+Indeed, if $I$ is a left ideal of $A$ 
+and $\lambda\in K$ and $x\in I$, then 
+\[
+	\lambda x=\lambda (1_Ax)=(\lambda 1_A)x.
+\]
+Since $\lambda 1_A\in A$, it follows that  $\lambda I=(\lambda
+1_A)I\subseteq I$. 
+Similarly, every right ideal of the ring $A$ is a vector space. 
+
+If $A$ is an algebra and $I$ is an ideal of $A$, then the quotient ring $A/I$ has a unique algebra
+structure such that the canonical map  
+$A\to A/I$, $a\mapsto a+I$, is a surjective algebra homomorphism with kernel~$I$. 
+
+\begin{definition}
+    \index{Algebraic element}
+    \index{Algebra!algebraic}
+    Let $A$ be an algebra over the field $K$. An element $a\in A$ is 
+    \emph{algebraic} over $K$ if there exists a non-zero polynomial $f\in K[X]$
+    such that $f(a)=0$. 
+\end{definition}
+
+If every element of $A$ is algebraic, then $A$ is said to be \emph{algebraic}. 
+
+$\R$ is not algebraic as a $\Q$-algebra. 
+%The element $\sqrt{2}$ is algebraic, as
+%$\sqrt{2}$ is a root of the polynomial $X^2-2\in\Q[X]$. 
+A famous theorem of Lindemann proves that $\pi$ is not algebraic over $\Q$.
+Every element of $\R$, regarded as an $\R$-algebra, is algebraic over $\R$.
+
+\begin{proposition}
+	\label{pro:algebraic}
+	Every finite-dimensional algebra is algebraic.
+\end{proposition}
+
+\begin{proof}
+  Let $A$ be an algebra with $\dim A=n$ and let $a\in A$. Since the 
+  $n+1$ elements 
+	$1,a,a^2,\dots,a^n$ are linearly dependent, 
+  there exists 
+	a non-zero polynomial $f\in K[X]$ such that $f(a)=0$.
+\end{proof}
+
+Throughout Lectures 1 and 2, all modules are unital left modules unless
+otherwise stated.
+
+\begin{definition}
+\index{Module}
+    A \emph{module} over an algebra $A$ is a unital left module 
+    over the ring $A$.
+\end{definition}
+
+\index{Module!submodule}
+Similarly, one defines \emph{submodules} of $A$-modules. 
+
+\begin{definition}
+\index{Module!homomorphism}
+\index{Homomorphism!of modules}
+Let $A$ be a $K$-algebra. 
+A \emph{homomorphism} of $A$-modules 
+$f\colon M\to N$ is a $K$-linear map such that $f(a\cdot m)=a\cdot f(m)$ for all
+$a\in A$ and $m\in M$.  
+\end{definition}
+
+It is a straightforward exercise to 
+prove the isomorphism theorems. 
+
+Let $A$ be a finite-dimensional $K$-algebra. 
+If $M$ is a module over the ring $A$, then $M$ is a vector space with  
+\[
+\lambda m=(\lambda 1_A)\cdot m, 
+\]
+where $\lambda\in K$ and $m\in M$. 
+Moreover, $M$ is finitely generated if and only if $M$ is finite-dimensional.  
+
+\begin{example}
+If $M$ is a module over a $K$-algebra $A$, one defines $\End_A(M)$\index{Endomorphism algebra} as the set
+of $A$-module homomorphisms $M\to M$. The set  
+$\End_A(M)$ is indeed a $K$-algebra with 
+\[
+(f+g)(m)=f(m)+g(m),\quad 
+(\lambda f)(m)=\lambda f(m)
+\quad\text{and}
+\quad 
+(fg)(m)=f(g(m))
+\]
+for all $f,g\in\End_A(M)$, 
+$\lambda\in K$ and $m\in M$. 
+\end{example}
+
+% In this chapter we will work with finitely generated modules. 
+
+\begin{example}
+  \index{Module!regular}
+  \index{Regular representation}
+An algebra  $A$ is a module over $A$ with left multiplication, that is 
+\[
+a\cdot b=ab,\quad a,b\in A.
+\]
+This module is the (left) \emph{regular representation} of $A$ and it will be denoted by $\prescript{}{A}{A}$. 
+\end{example}
+
+\begin{definition}
+\index{Module!simple}
+	Let $A$ be an algebra and $M$ be a module over $A$. Then 
+	$M$ is \emph{simple} if $M\ne\{0\}$ and $\{0\}$ and $M$ 
+	are the only submodules of $M$.	
+\end{definition}
+
+\begin{definition}
+\index{Module!semisimple}
+	Let $A$ be a finite-dimensional 
+	algebra and $M$ be a finite-dimensional module over $A$. Then 
+	$M$ is \emph{semisimple} if $M$ is a direct sum of 
+	finitely many simple submodules, allowing the empty direct sum.  
+\end{definition}
+
+By definition, the zero module is semisimple. Moreover, 
+any finite direct sum of semisimple modules is semisimple. 
+
+% The zero module is semisimple.  
+
+\begin{lemma}[Schur]
+\index{Schur's lemma}
+	Let $A$ be an algebra. If $S$ and $T$ are
+	simple modules and $f\colon S\to T$ is a non-zero $A$-module homomorphism, 
+	then $f$ is an isomorphism. 
+\end{lemma}
+
+\begin{proof}
+Since $f\ne 0$, $\ker f$ is a proper submodule of $S$. Since $S$ is simple, it follows 
+that $\ker f=\{0\}$. Similarly, $f(S)$ 
+is a non-zero submodule of $T$ and hence $f(S)=T$, as $T$ is simple. 	
+\end{proof}
+
+\begin{proposition}
+    If $A$ is a finite-dimensional algebra and $S$ is a simple $A$-module, then
+    $S$ is finite-dimensional. 
+\end{proposition}
+
+\begin{proof}
+    Let $s\in S\setminus\{0\}$. Since $S$ is simple, $\varphi\colon A\to S$,
+    $a\mapsto a\cdot s$, is a surjective module homomorphism.  In particular,
+    by the first isomorphism theorem, $A/\ker\varphi\simeq S$ and hence 
+    \[
+    \dim_K S=\dim_K (A/\ker\varphi)\leq \dim_K A.\qedhere
+    \]
+\end{proof}
+
+\begin{proposition}
+\label{pro:semisimple}
+	Let $A$ be a finite-dimensional algebra and $M$ a finite-dimensional $A$-module. The following statements are equivalent:
+	\begin{enumerate}
+		\item $M$ is semisimple.
+		\item $M=\sum_{i=1}^k S_i$, where each $S_i$ is a simple submodule of $M$. 
+		\item If $S$ is a submodule of $M$, then there is a submodule $T$ of $M$ such that $M=S\oplus T$.    
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  We first prove that $2)\implies3)$. If $N=\{0\}$, take $T=M$. 
+	Let $N\ne\{0\}$ be a submodule of $M$. Since $N\ne\{0\}$ and $\dim M<\infty$, there exists a submodule 
+	$T$ of $M$ of maximal dimension such that 
+	$N\cap T=\{0\}$. If $S_i\subseteq N\oplus T$ for all $i\in\{1,\dots,k\}$, then, as $M$ is the sum of the $S_i$, it follows that
+	$M=N\oplus T$. 
+	If, however, there exists $i\in\{1,\dots,k\}$ such that $S_i\not\subseteq N\oplus T$, then $S_i\cap (N\oplus T)\subseteq S_i$. 
+	Since the module $S_i$ is simple,
+	it follows that $S_i\cap (N\oplus T)=\{0\}$. Thus $N\cap (S_i\oplus T)=\{0\}$, a contradiction to the maximality of
+	$\dim T$.  
+	
+	The implication  $1)\implies2)$ is trivial. 
+	
+  Finally, we prove that $3)\implies1)$.  We proceed by induction on $\dim M$.
+  The result is clear if $\dim M\leq1$. Assume that $\dim M\geq2$ and let $S$
+  be a non-zero submodule of $M$ of minimal dimension. In particular, $S$ is
+  simple.  By assumption, there exists a submodule $T$ of $M$ such that
+  $M=S\oplus T$. We claim that $T$ satisfies the assumptions.  If $X$ is a
+  submodule of $T$, then, since $T$ is also a submodule of $M$, there exists a
+  submodule $Y$ of $M$ such that $M=X\oplus Y$. Thus  
+	\[
+	T=T\cap M=T\cap (X\oplus Y)=X\oplus (T\cap Y),
+	\]
+  as $X\subseteq T$. Thus every submodule of $T$ has a complement in $T$. 
+  Since $\dim T<\dim M$ and $T\cap Y$ is a submodule of
+  $T$, the inductive hypothesis implies that $T$ is a direct sum of simple
+  submodules. Hence $M$ is a direct sum of simple submodules. 
+\end{proof}
+
+\begin{proposition}
+    If $M$ is a semisimple module and $N$ is a submodule, then $N$ and $M/N$
+    are semisimple.	
+\end{proposition}
+
+\begin{proof}
+  Assume that $M=S_1+\cdots+ S_k$, where each $S_i$ is a simple submodule. If
+  $\pi\colon M\to M/N$ is the canonical map, the techniques used in Schur's
+  lemma imply that each restriction $\pi|_{S_i}$ is either zero or an
+  isomorphism with the image. Since  
+	\[
+	M/N=\pi(M)=\sum_{i=1}^k(\pi|_{S_i})(S_i)
+	\]
+  is, after discarding zero summands, a sum of finitely many simple submodules,
+  it follows from 
+  Proposition~\ref{pro:semisimple} 
+  that $M/N$ is a direct sum of finitely many simple modules.  
+	
+	We now prove that $N$ is semisimple. By assumption, 
+	there exists a submodule $T$ of $M$ such that 
+	$M=N\oplus T$. The quotient
+	$M/T$ is semisimple by the previous paragraph, so it follows that 
+	\[
+	N\simeq N/\{0\}=N/(N\cap T)\simeq (N\oplus T)/T=M/T
+	\]
+	is also semisimple.     
+\end{proof}
+
+\begin{definition}
+\index{Algebra!semisimple}
+    A finite-dimensional algebra $A$ is \emph{semisimple} if every finitely
+    generated $A$-module is semisimple. 
+\end{definition}
+
+For a module $M$ and an integer $n\geq0$, write $nM=\oplus_{i=1}^nM$. 
+In particular, $0M=\{0\}$.
+
+\begin{proposition}
+  \label{pro:regular_semisimple}
+  Let $A$ be a finite-dimensional algebra. Then $A$ is semisimple if and only if
+  the regular representation of $A$ is semisimple. 
+\end{proposition}
+
+\begin{proof}
+Let us prove the non-trivial implication. 
+Assume that the regular left module ${}_AA$ is semisimple.
+Let $M$ be a finitely generated
+module, say $M=(m_1,\dots,m_k)=\sum_{i=1}^k A\cdot m_i$.  The map
+\[
+\bigoplus_{i=1}^k A\to M,\quad
+(a_1,\dots,a_k)\mapsto \sum_{i=1}^k a_i\cdot m_i,
+\]
+is a surjective homomorphism of modules, where $A$ is considered as a module
+with the regular representation. It follows that
+$\bigoplus_{i=1}^kA$ is semisimple.  Thus $M$ is semisimple, as it is
+isomorphic to the quotient of a semisimple module.
+\end{proof}
+
+\begin{theorem}
+Let $A$ be a finite-dimensional semisimple algebra. 
+Assume that the regular representation can be decomposed as $A=\bigoplus_{i=1}^k S_i$ where each $S_i$ is a simple submodule.  
+If $S$ is a simple module, then $S\simeq S_i$ for some $i\in\{1,\dots,k\}$. 
+\end{theorem}
+
+\begin{proof}
+Let $s\in S\setminus\{0\}$. The map $\varphi\colon A\to S$, $a\mapsto a\cdot s$, is a surjective module homomorphism. Since 
+$\varphi\ne 0$, there exists $i\in\{1,\dots,k\}$ such that the restriction 
+$\varphi|_{S_i}\colon S_i\to S$ is non-zero. By Schur's lemma, it follows that  
+$\varphi|_{S_i}$ is an isomorphism.   	
+\end{proof}
+
+As a corollary, a finite-dimensional semisimple algebra admits 
+only finitely many isomorphism classes of simple modules. When we say that 
+the $S_1,\dots,S_k$ are the simple modules of an algebra, this means that the $S_i$ are the representatives
+of isomorphism classes of all simple modules of the algebra, that is, each simple module is isomorphic to
+some $S_i$ and, moreover,  
+$S_i\not\simeq S_j$ whenever $i\ne j$. 
+
+\begin{exercise}
+If $A$ and $B$ are algebras, $M$ is a module over $A$ and $N$ is a module over $B$, then 
+    $M\oplus N$ is a module over $A\times B$ with 
+    \[
+    (a,b)\cdot (m,n)=(a\cdot m,b\cdot n).
+    \]
+\end{exercise}
+
+\index{Division algebra}
+\index{Algebra!division}
+
+\lecture\label{lec:ArtinWedderburn}
+A \emph{division algebra} $D$ is a non-zero algebra such that every non-zero
+element is invertible, that is, for all $x\in D\setminus\{0\}$ there exists
+$y\in D$ such that $xy=yx=1_D$.  Modules over division algebras are very much
+like vector spaces.  For example, every finitely generated module $M$ over a
+division algebra has a basis.  Moreover, every linearly independent subset of
+$M$ can be extended to a basis of $M$. 
+
+\begin{proposition}
+  Let $D$ be a division algebra, $V$ a non-zero finite-dimensional module over
+  $D$. Then $V$ is a simple $\End_D(V)$-module and there exists
+  $n\in\Z_{>0}$ such that ${}_{\End_D(V)}\End_D(V)\simeq nV$. 
+\end{proposition}
+
+%\framebox{FIXME}
+%\begin{proof}[Sketch of the proof]
+%	Let $\{v_1,\dots,v_n\}$ be a basis of $V$. A direct calculation shows that the map 
+%	\[
+%		\End_D(V)\to\bigoplus_{i=1}^nV=nV,\quad
+%		f\mapsto (f(v_1),\dots,f(v_n)),
+%	\]
+%	is an injective homomorphism of $\End_D(V)$-modules.
+%	Since
+%	\[
+%	\dim_D\End_D(V)=n^2=\dim_D(nV),
+%	\]
+%	it follows that the map is an isomorphism. 
+%	Thus 
+%	\[
+%		\End_D(V)\simeq \bigoplus_{i=1}^nV.
+%	\]
+%	
+%  It remains to show that $V$ is simple. It is enough to prove that
+%  $V=\End_D(V)\cdot v=(v)$ for all $v\in V\setminus\{0\}$. Let $v\in
+%  V\setminus\{0\}$. If $w\in V$, then there exists $f\in\End_D(V)$ such that
+%  $f\cdot v=f(v)=w$.  Thus $w\in (v)$ and therefore $V=(v)$.  
+%\end{proof}
+%
+%The proposition states that if $D$ is a division algebra, then  $D^{n}$ is a
+%simple $M_n(D)$-module and that $M_n(D)\simeq n (D^n)$ as $M_n(D)$-modules. 
+%
+%{\color{blue}
+%\begin{proof}
+%  Let $v_1,\dots,v_n$ be a basis of $V$. The evaluation map
+%  \[
+%    \psi\colon \End_D(V)\longrightarrow\bigoplus_{i=1}^n V,\qquad
+%    f\longmapsto(f(v_1),\dots,f(v_n)),
+%  \]
+%  is a homomorphism of $\End_D(V)$-modules. It is injective, because  
+%  \[ 
+%    \psi(f)=0\implies f(v_1)=\cdots=f(v_n)=0\implies f=0, 
+%  \]
+%  as $v_1,\dots,v_n$ is basis of $V$. Now we prove that 
+%  $\psi$ is surjective: let 
+%  $w_1,\dots,w_n\in V$. Then 
+%  \[
+%    f\colon V\to V,\quad 
+%    f\left(\sum_{i=1}^n d_i v_i\right)=\sum_{i=1}^n d_i w_i, 
+%  \]
+%  is a homomorphism of $D$-modules such that 
+%  $\psi(f)=(w_1,\dots,w_n)$.
+%  Thus $\psi$ is surjective. 
+%
+%%  Finally, let $v\ne0$ and $w\in V$. Extend $v$ to a basis of $V$ 
+%%  and define a $D$-linear map sending $v$ to $w$.
+%%  Hence $\End_D(V)v=V$, proving simplicity.
+%  It remains to show that $V$ is simple. It is enough to prove that
+%  $V=\End_D(V)\cdot v=(v)$ for all $v\in V\setminus\{0\}$. Let $v\in
+%  V\setminus\{0\}$. Let $w\in V$. Extending $v$ to a basis of $V$, one sees that
+%  there exists $f\in\End_D(V)$ such that
+%  $f(v)=w$. Thus $w\in (v)$ and therefore $V=(v)$.  
+%\end{proof}
+
+There is also a useful matrix version. With its usual left matrix action,
+$D^n$ is a simple $M_n(D)$-module: any non-zero column vector can be
+sent to any other column vector by a suitable matrix. Moreover, taking
+columns gives an $M_n(D)$-module isomorphism
+\[
+  {}_{M_n(D)}M_n(D)\simeq n(D^n).
+\]
+Here no identification of $\End_D(V)$ with $M_n(D)$ for left
+$D$-vector spaces is being made.
+
+\begin{exercise}
+    Let $M$, $N$, and $X$ be $A$-modules. Prove that 
+    \begin{align*}
+        \Hom_A(M\oplus N,X)\simeq\Hom_A(M,X)\times\Hom_A(N,X).
+    \end{align*}
+\end{exercise}
+
+\begin{theorem}
+Let $A$ be a finite-dimensional algebra, and let 
+$S_1,\dots,S_k$ be pairwise non-isomorphic simple modules over $A$, 
+and $n_1,\dots,n_k\in\Z_{\geq0}$. 
+If 
+\[
+M\simeq n_1S_1\oplus\cdots\oplus n_kS_k,
+\]
+then each $n_j$ is uniquely determined.  
+\end{theorem}
+
+\begin{proof}
+	Since each $S_j$ is a simple module 
+    and $S_i\not\simeq S_j$ if $i\ne j$, 
+    Schur's lemma implies that 
+	$\Hom_A(S_i,S_j)=\{0\}$ whenever $i\ne j$. 
+	For each $j\in\{1,\dots,k\}$, routine calculations show that 
+	\begin{align*}
+		\Hom_A(M,S_j) &\simeq \Hom_A\left(\bigoplus_{i=1}^k n_i S_i,S_j\right)
+		\simeq n_j\Hom_A(S_j,S_j). 
+	\end{align*} 
+	Since $M$ and $S_j$ are finite-dimensional vector spaces, it follows that
+	$\Hom_A(M,S_j)$ and $\Hom_A(S_j,S_j)$ 
+	are both finite-dimensional vector spaces.  
+	Moreover, the identity $\id\colon S_j\to S_j$ 
+	is a module homomorphism and hence  
+	$\dim\Hom_A(S_j,S_j)\geq 1$. 
+	Thus each $n_j$ is uniquely determined, as  
+	\[ 
+	n_j=\frac{\dim_K\Hom_A(M,S_j)}{\dim_K\Hom_A(S_j,S_j)}.\qedhere
+	\]
+\end{proof}
+
+\begin{definition}
+    \index{Algebra!opposite}    
+If $A$ is an algebra, the \emph{opposite algebra} $A^{\op}$ is the vector space 
+$A$ with multiplication $A\times A\to A$, $(a,b)\mapsto a\cdot_{\op}b=ba$. 
+\end{definition}
+
+An algebra $A$ is commutative if and only if $A=A^{\op}$. 
+
+\begin{lemma}
+	\label{lem:A^op}
+    If $A$ is an algebra, then $A^{\op}\simeq\End_A(A)$ as algebras.  
+\end{lemma}
+
+\begin{proof}
+	Note that $\End_A(A)=\{\rho_a:a\in A\}$, where $\rho_a\colon
+	A\to A$, $x\mapsto xa$. Indeed, if $f\in\End_A(A)$, then 
+	$f(1)=a\in A$. Moreover, $f(b)=f(b1)=bf(1)=ba$ and hence 
+	$f=\rho_a$. The map 
+    \[
+    A^{\op}\to \End_A(A),\quad a\mapsto\rho_a,
+    \]
+	is bijective and it is an algebra homomorphism, as 
+    \[
+		\rho_a\rho_b(x)=\rho_a(\rho_b(x))=\rho_a(xb)=x(ba)=\rho_{ba}(x).\qedhere
+    \]
+\end{proof}
+
+\begin{lemma}
+	\label{lem:Mn_op}
+	If $A$ is an algebra and $n\in\Z_{>0}$, then $M_n(A)^{\op}\simeq
+	M_n(A^{\op})$ as algebras.   
+\end{lemma}
+
+\begin{proof}
+	Let $\psi\colon M_n(A)^{\op}\to M_n(A^{\op})$, $X\mapsto X^T$,
+	where $X^T$ is the transpose matrix of $X$. Since $\psi$ is a bijective linear map, it is enough
+	to see that $\psi$ is a homomorphism. If $i,j\in\{1,\dots,n\}$, $a=(a_{ij})$ and $b=(b_{ij})$, then 
+	\begin{align*}
+		(\psi(a)\psi(b))_{ij}&=\sum_{k=1}^n \psi(a)_{ik}\psi(b)_{kj}=\sum_{k=1}^n a_{ki}\cdot_{\op}b_{jk}\\
+		&=\sum_{k=1}^n b_{jk}a_{ki}=(ba)_{ji}=((ba)^T)_{ij}=\psi(a\cdot_{\op}b)_{ij}.\qedhere
+	\end{align*}
+\end{proof}
+
+\begin{lemma}
+	\label{lem:simple}
+	If $S$ is a simple module and $n\in\Z_{>0}$, then  
+	\[
+		\End_A(nS)\simeq M_n(\End_A(S))
+	\]
+	as algebras.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+	Let $(\varphi_{ij})$ be a matrix with entries in $\End_A(S)$. We define a map
+	$nS\to nS$ as follows:
+	\[
+	\begin{pmatrix}
+	x_1\\
+	\vdots\\
+	x_n	
+	\end{pmatrix}
+	\mapsto 
+		\begin{pmatrix}
+			\varphi_{11} & \cdots & \varphi_{1n}\\
+			\vdots & \ddots & \vdots\\
+			\varphi_{n1} & \cdots & \varphi_{nn}
+		\end{pmatrix}
+		\begin{pmatrix}
+		x_1\\
+		\vdots\\
+		x_n	
+		\end{pmatrix}
+		=\begin{pmatrix}
+			\varphi_{11}(x_1)+\cdots+\varphi_{1n}(x_n)\\
+			\vdots\\
+			\varphi_{n1}(x_1)+\cdots+\varphi_{nn}(x_n)
+		\end{pmatrix}.
+	\]
+	The reader should prove that the map  
+	\[
+		M_n(\End_A(S))\to\End_A(nS)
+	\]
+	is an injective algebra homomorphism. 
+	It is surjective. Indeed, if $\psi\in\End_A(nS)$ and 
+	$i,j\in\{1,\dots,n\}$ one defines $\psi_{ij}$ by 
+	\[
+		\psi\begin{pmatrix}
+		x\\
+		0\\
+		\vdots\\
+		0	
+		\end{pmatrix}
+		=\begin{pmatrix}
+		\psi_{11}(x)\\
+		\psi_{21}(x)\\
+		\vdots\\
+		\psi_{n1}(x)
+		\end{pmatrix},\dots,
+		\psi\begin{pmatrix}
+		0\\
+		0\\
+		\vdots\\
+		x	
+		\end{pmatrix}
+		=\begin{pmatrix}
+		\psi_{1n}(x)\\
+		\psi_{2n}(x)\\
+		\vdots\\
+		\psi_{nn}(x)
+		\end{pmatrix}.\qedhere
+	\]
+\end{proof}
+
+\begin{exercise}
+    Fill in the details of the proof of Lemma~\ref{lem:simple}.
+\end{exercise}
+
+\section{The Artin--Wedderburn theorem for algebras}
+
+\begin{exercise}
+    Let $M$, $N$, and $X$ be $A$-modules. Prove that 
+    \begin{align*}
+        \Hom_A(X,M\oplus N)\simeq\Hom_A(X,M)\times\Hom_A(X,N).
+    \end{align*}
+\end{exercise}
+
+By convention, the empty product of algebras is equal to 
+the zero algebra. 
+
+\begin{theorem}[Artin--Wedderburn]
+\index{Artin--Wedderburn theorem}
+Let $A$ be a finite-dimensional semisimple algebra with  
+$k$ isomorphism classes of simple modules. Then 
+\[
+A\simeq M_{n_1}(D_1)\times\cdots\times M_{n_k}(D_k)
+\]
+for some $n_1,\dots,n_k\in\Z_{>0}$ and some finite-dimensional 
+division algebras $D_1,\dots,D_k$.
+\end{theorem}
+
+\begin{proof}
+    We may assume $A\ne\{0\}$. 
+    Decompose the regular representation as a sum of simple modules and
+    gather the simples by isomorphism classes to get 	
+    \[
+	A\simeq\bigoplus_{i=1}^k n_iS_i,
+	\]
+	where each $S_i$ is simple and $S_i\not\simeq S_j$ whenever 
+	$i\ne j$. Schur's lemma implies that  
+	\begin{align*}
+		\End_A(A)\simeq\End_A\left(\bigoplus_{i=1}^kn_iS_i\right)
+		\simeq \prod_{i=1}^k\End_A(n_iS_i)
+		\simeq\prod_{i=1}^kM_{n_i}(\End_A(S_i)), 
+	\end{align*}
+	where each $E_i=\End_A(S_i)$ is a division algebra by Schur's lemma. 
+    Thus
+    \[
+		\End_A(A)\simeq\prod_{i=1}^kM_{n_i}(E_i).
+	\]
+	Since $\End_A(A)\simeq
+	A^{\op}$, it follows that  
+	\begin{align*}
+		A=(A^{\op})^{\op}\simeq \prod_{i=1}^kM_{n_i}(E_i)^{\op}\simeq \prod_{i=1}^kM_{n_i}(E_i^{\op}).
+	\end{align*}
+  Since each $E_i$ is a division algebra, each $E_i^{\op}$ is also a division
+  algebra. Setting $D_i=E_i^{\op}$ for all $i\in\{1,\dots,k\}$, the theorem 
+  is proved. 
+\end{proof}
+
+\begin{corollary}[Molien]
+\index{Molien's theorem}
+	If $A$ is a finite-dimensional complex semisimple algebra
+	with $k$ isomorphism classes of simple modules, 
+	then 
+	\[
+	A\simeq\prod_{i=1}^k M_{n_i}(\C)
+	\]  
+	for some $n_1,\dots,n_k\in\Z_{>0}$. 
+\end{corollary}
+
+\begin{proof}
+	By the Artin--Wedderburn theorem,  
+	\[
+	A\simeq \prod_{i=1}^k M_{n_i}(\End_A(S_i)^{\op}),
+	\]
+	where $S_1,\dots,S_k$ are representatives of the isomorphism classes of simple modules
+	and each $\End_A(S_i)$ is a division algebra. We claim that 
+	\[
+	\End_A(S_i)=\{\lambda\id:\lambda\in\C\}\simeq\C
+	\]
+	for all $i\in\{1,\dots,k\}$. If  
+	$f\in\End_A(S_i)$, then $f$ has an eigenvalue $\lambda\in\C$. Since  
+	$f-\lambda\id$ is not invertible (and hence not an isomorphism), Schur's lemma implies that $f-\lambda\id=0$, 
+	that is $f=\lambda\id$. Thus $\End_A(S_i)\to\C$, $f\mapsto\lambda$, 
+	is an algebra isomorphism. In particular,  
+	\[
+	A\simeq \prod_{i=1}^k M_{n_i}(\C).\qedhere
+	\]
+\end{proof}
+
+We conclude this section with a nice
+application of semisimplicity.
+
+\begin{exercise}
+	\label{xca:matrices}
+  Let $m,n\geq1$. 
+	There exists a unital 
+	homomorphism $M_n(\R)\to M_m(\R)$ of $\R$-algebras 
+	if and only 
+	if $n$ divides $m$. 
+\end{exercise}
+
+
+
+
+% \begin{exercise}
+%     Let $A$ and $B$ be algebras. Prove that the ideals of $A\times B$ are of the form 
+%     $I\times J$, where $I$ is an ideal of $A$ and $J$ is an ideal of $B$.
+% \end{exercise}
+
+\section{Simple algebras}
+
+\begin{definition}
+\index{Algebra!simple}  
+    An algebra $A$ is said to be \emph{simple} if $A\ne\{0\}$ and $\{0\}$ and $A$ are the only ideals of $A$. 
+\end{definition}
+
+\begin{proposition}
+\label{pro:unique_simple}
+	Let $A$ be a finite-dimensional simple algebra. There exists a non-zero left ideal 
+	$I$ of minimal dimension. This ideal is a simple 
+	$A$-module, and every simple $A$-module is isomorphic to $I$.
+\end{proposition}
+
+\begin{proof}
+	Since $A$ is finite-dimensional and $A$ is a left ideal of $A$, there exists a non-zero left ideal of minimal dimension. The minimality 
+	of $\dim I$ implies that $I$ is a simple $A$-module. 
+	
+	Let $M$ be a simple $A$-module. In particular, $M\ne\{0\}$. 
+	Since  
+	\[
+	\Ann_A(M)=\{a\in A:a\cdot M=\{0\}\}
+	\]
+	is an ideal of $A$ and $1\in A\setminus\Ann_A(M)$, the simplicity of $A$ implies that 
+	$\Ann_A(M)=\{0\}$ and hence $I\cdot M\ne\{0\}$ (because $I\cdot m= 0$ for all $m\in M$ yields  
+	$I\subseteq\Ann_A(M)$ and $I$ is non-zero, a contradiction). Let $m\in M$ be such 
+	that $I\cdot m\ne\{0\}$. The map 
+	\[
+	\varphi\colon I\to M,\quad
+	x\mapsto x\cdot m,
+	\]
+	is a module homomorphism. Since $I\cdot m\ne\{0\}$, the map $\varphi$ is non-zero. 
+	Since both $I$ and $M$ are simple, Schur's lemma implies that $\varphi$ is an isomorphism. 
+\end{proof}
+
+If $D$ is a finite-dimensional division algebra, then $M_n(D)$ is a simple
+algebra. The previous proposition implies that the algebra $M_n(D)$ has a
+unique isomorphism class of simple modules. Each simple module is isomorphic to
+$D^n$. 
+
+\begin{proposition}
+    Let $A$ be a finite-dimensional algebra. 
+    If $A$ is simple, then $A$ is semisimple. 
+\end{proposition}
+
+\begin{proof}
+  Let $S$ be the sum of all simple submodules of the regular
+  representation of $A$.  We claim that $S$ is an ideal of $A$. We know that
+  $S$ is a left ideal, as the submodules of the regular representation are
+  exactly the left ideals of $A$. To show that $Sa\subseteq S$ for all $a\in A$
+  we need to prove that $Ta\subseteq S$ for every simple submodule $T$ of $A$ and
+  $a\in A$.  If $T\subseteq A$ is a simple submodule and $a\in A$, let $f\colon
+  T\to Ta$, $t\mapsto ta$. Since $f$ is a surjective module homomorphism and
+  $T$ is simple, it follows that either $\ker f=\{0\}$ or $\ker f=T$. If $\ker
+  f=T$, then $f(T)=Ta=\{0\}\subseteq S$. If $\ker f=\{0\}$, then $T\simeq
+  f(T)=Ta$ and hence $Ta$ is simple. Hence $Ta\subseteq S$. 
+	
+  Since $S$ is an ideal of $A$ and $A$ is a simple algebra, it follows that either
+  $S=\{0\}$ or $S=A$.  Since $S\ne\{0\}$, because  there exists a non-zero left
+  ideal $I$ of $A$ of minimal dimension, it follows
+  that $S=A$. Since $A$ is finite-dimensional, it is a 
+  finite sum of simple submodules. 
+  Thus the regular module is semisimple by Proposition~\ref{pro:semisimple},
+  and $A$ is semisimple by Proposition~\ref{pro:regular_semisimple}. 
+%  $A$ is semisimple by Proposition~\ref{pro:semisimple}. 
+\end{proof}
+
+\section{Wedderburn's theorem for algebras}
+
+\begin{theorem}[Wedderburn]
+\index{Wedderburn's theorem!simple algebras}
+	Let $A$ be a finite-dimensional algebra. If $A$ is simple, then 
+	$A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and a division algebra $D$. 
+\end{theorem}
+
+\begin{proof}
+  Since $A$ is simple, it follows that $A$ is semisimple. The Artin--Wedderburn
+  theorem implies that $A\simeq\prod_{i=1}^k M_{n_i}(D_i)$ for some
+  $n_1,\dots,n_k\geq1$ and division algebras $D_1,\dots,D_k$. Moreover, $A$ has $k$
+  isomorphism classes of simple modules. Since $A$ is simple, $A$ has only one
+  isomorphism class of simple modules (Proposition~\ref{pro:unique_simple}).
+  Thus $k=1$ and hence $A\simeq M_n(D)$ for some $n\in\Z_{>0}$ and some
+  division algebra~$D$. 
+\end{proof}
+
+\begin{graybox}
+  \project 
+
+  \section{Kolchin's theorem}
+  \label{Kolchin}
+
+  In this section it will be useful to consider 
+  non-unital algebras. 
+  Homomorphisms between
+  possibly non-unital algebras are linear multiplicative maps and are
+  not required to preserve identities, as identities are not 
+  part of the structure of our objects. 
+  An ideal of a possibly non-unital $K$-algebra is a $K$-vector
+  subspace stable under multiplication on both sides by elements
+  of the algebra.
+
+  \begin{definition}
+    \index{Nil!element}
+    \index{Nilpotent!element}
+    \index{Nil!algebra}
+    Let $A$ be an algebra (possibly without an identity). An element $a\in A$
+    is said to be \textbf{nilpotent} if 
+    $a^n=0$ for some $n\geq1$. The algebra $A$ is said to be
+    \textbf{nil} if every element $a\in A$ is nilpotent. 
+  \end{definition}
+
+  Nilpotent elements are also called nil elements.  
+
+  \begin{example}
+    Let $A=M_2(\R)$. Then $a=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ is nilpotent. 
+  \end{example}
+
+  \begin{definition}
+    \index{Algebra!nilpotent}
+    An algebra $A$ is said to be \textbf{nilpotent} if there exists
+    $n\geq1$ such that every product 
+    $a_1a_2\cdots a_n$
+    of $n$ elements of $A$ is zero. 
+  \end{definition}
+
+  Nilpotent algebras are trivially nil, whereas nil algebras may not be nilpotent.
+
+  \begin{xca}
+    Give an example of an infinite-dimensional nil algebra that is not nilpotent. 
+  \end{xca}
+
+  A non-zero nil algebra cannot be unital. 
+
+  \begin{xca}
+    \label{xca:unit}
+%    Let $A$ be an algebra. There exists an algebra $B$ 
+%    with an identity $1_B$ and an ideal $I$ of $B$ 
+%    such that $B/I\simeq\C$ and $I\simeq A$. 
+    Let $A$ be a $K$-algebra, possibly without an identity.
+    Construct a unital $K$-algebra $B$ and an ideal $I$ of $B$
+    such that $B/I\simeq K$ and $I\simeq A$.
+    Use the vector space $B=K\oplus A$ with multiplication
+    \[
+      (\lambda,a)(\mu,b)=(\lambda\mu,\lambda b+\mu a+ab).
+    \]
+    Show also that $\dim_K B=1+\dim_K A$ when $A$ is
+    finite-dimensional.
+  \end{xca}
+
+  % \begin{proof}[Sketch of the proof]
+  %     Let $B=\C\times A$. The multiplication  
+  %     \[
+  %     (\lambda,u)(\mu,v)=(\lambda\mu,\lambda v+\mu u+uv)
+  %     \]
+  %     turns $B$ into an algebra with identity $(1,0)$. The subset
+  %     $I=\{(0,a):a\in A\}$ is an ideal of $B$. Then $I\simeq A$ 
+  %     and $B/I\simeq\C$. 
+  % \end{proof}
+
+  \begin{xca}
+    Let $A_1,\dots,A_k$ be unital algebras. 
+    Prove that the ideals of $A_1\times\cdots\times A_k$ 
+    are of the form $I_1\times\cdots\times I_k$, where
+    each $I_j$ is an ideal of $A_j$.  
+  \end{xca}
+
+  % If the algebras are not unital, not true. 
+  % $E=\C e$ with zero multiplication. Then $E\times E$ has zero multiplication.
+  % $I=\{(\lambda e,\lambda e):\lambda\in\C\} is an ideal. 
+  % If $I=I_1\times I_2$, then coordinate projections are all of $E$
+  % but $I\ne E\times E$. 
+
+  \begin{xca}
+    \label{xca:matrices_unit}
+    Prove that the non-zero ideals of 
+    $\prod_{i=1}^k M_{n_i}(\C)$ are unital algebras.  
+%    $\prod_{i=1}^k M_{n_i}(\C)$ have their own multiplicative identities, 
+%    which need not equal the identity of the ambient product.  
+  \end{xca}
+
+  \begin{proposition}
+    Let $A$ be a nonzero finite-dimensional complex algebra, possibly without
+    an identity. If $A$ has no nonzero nilpotent ideals, then $A$ has an
+    identity.
+%    Let $A$ be non-zero algebra (possibly without one). If $A$ 
+%    does not have non-zero nilpotent 
+%    ideals, then $A$ is a unitary algebra. 
+  \end{proposition}
+
+  \begin{proof}
+    Let $B$ be a unital algebra such that there exists
+    an ideal $I$ of $B$ with $B/I\simeq\C$ and $I\simeq A$ 
+    (see Exercise \ref{xca:unit}). Let $J$ be 
+    a nilpotent ideal of $B$. Since $J\cap I\subseteq I$ is a nilpotent
+    ideal of $A$, 
+    $J\cap I=\{0\}$. Thus 
+    \[
+      J\simeq J/(J\cap I)\simeq (I+J)/I
+    \]
+    is a nilpotent ideal of $B/I\simeq\C$. Thus $J=\{0\}$ 
+    and hence $B$ is semisimple. By the Artin--Wedderburn theorem, 
+    $B\simeq\prod_{i=1}^k M_{n_i}(\C)$. Since $A$ is isomorphic to an ideal of 
+    $B$, Exercise \ref{xca:matrices_unit} shows
+    that $A$ is a unital algebra. 
+  \end{proof}
+
+  % What if the dimension is infinite? 
+  % Take A=X\C[X] with the usual polynomial multiplication 
+  % $A$ is not unital: $eX=X$ implies $e=1$ 
+  % $A$ has no non-zero nilpotent ideals: Let $I$ be non-zero and nilpotent, say
+  % $I^k=\{0\}$. For $0\ne f\in I$, 
+  % $f^j\ne 0$ for all $j$ and in particular $f^k\in I^k=\{0\}$. 
+
+  Now we prove another nice result of Wedderburn:
+
+  \begin{theorem}[Wedderburn]
+    \label{thm:Wedderburn_nilpotent}
+    \index{Wedderburn's theorem!nilpotent algebras}
+    Let $A$ be a complex finite-dimensional 
+    algebra. If $A$ is spanned 
+    by nilpotent elements, then $A$ is nilpotent. 
+  \end{theorem}
+
+  We shall need a lemma.
+
+  \begin{lemma}
+%    The vector space $M_n(\C)$ does not have a basis of nilpotent matrices. 
+    For $n\geq1$, $M_n(\C)$ does not have a basis of nilpotent matrices. 
+  \end{lemma}
+
+  \begin{proof}
+    If $\{A_1,\dots,A_{n^2}\}$ is a basis of 
+    $M_n(\C)$ consisting of nilpotent matrices, 
+    then there exist $\lambda_1,\dots,\lambda_{n^2}\in\C$ such that 
+    \begin{equation}
+      \label{eq:nilpotent}
+      E_{11}=\begin{pmatrix}
+        1&0&\cdots&0\\
+        0&0&\cdots&0\\
+        \vdots&\vdots&\ddots&\vdots\\
+        0&0&\cdots&0
+      \end{pmatrix}
+      =\sum_{i=1}^{n^2}\lambda_iA_i.
+    \end{equation}
+    Note $\trace(A_i)=0$ for all $i\in\{1,\dots,n^2\}$, as 
+    every $A_i$ is nilpotent. 
+    Apply trace to \eqref{eq:nilpotent} to 
+    obtain that $1=\trace(E_{11})=\sum\lambda_i\trace(A_i)=0$, a contradiction. 
+  \end{proof}
+
+  We need some basic properties of the \textbf{Jacobson 
+  radical} of finite-dimensional algebras. These properties
+  will be studied later. 
+
+  \begin{xca}
+  For a non-zero finite-dimensional unital algebra
+  $A$, the Jacobson radical is defined as
+  \[
+    J(A)=\bigcap\{\Ann_A(S):S\text{ simple $A$-module}\}.
+  \]
+  Prove that $J(A)$ is nilpotent, contains every nilpotent ideal and $A/J(A)$ is
+  semisimple. 
+  \end{xca}
+
+  The exercise will be solved later in more generality. 
+  See Theorems~\ref{thm:Jnilpotente} 
+  and~\ref{thm:J(R/J)=0}.
+
+  %  Because $\dim A<\infty$, the sequence 
+  %  $$\dim(J(A)) \ge \dim(J(A)^2) \ge \dim(J(A)^3) \ge \dots$$ 
+  % stabilizes. In particular, there is $k$ where $J(A)^k = J(A)^{k+1}$. Let $I=J(A)^k$. 
+  %  Since $I \subseteq J(A)$, 
+  %  $J(A) \cdot I = I$ 
+  %  By Nakayama's Lemma, if $J(A) \cdot I = I$ for a finitely generated $A$-module $I$, then $I=0$. 
+
+  \begin{xca}
+  For a possibly non-unital finite-dimensional $K$-algebra $A$, let $B=K\oplus
+  A$ be the unital algebra of Exercise~\ref{xca:unit}. Identify $A$ with the
+  ideal $0\oplus A$ of $B$ and let 
+  \[
+    J(A)=A\cap J(B).
+  \]
+  With this convention, the same three radical properties hold.   
+  \end{xca}
+
+  Now we prove Wedderburn's theorem. Note that
+  the theorem can be extended to any algebraically closed field. We 
+  state and prove Wedderburn's theorem in the case of complex numbers
+  to simplify the presentation. 
+
+  \begin{proof}[Proof of Theorem \ref{thm:Wedderburn_nilpotent}]
+    We proceed by induction on $\dim A$. 
+    If $A=\{0\}$, the result is immediate. 
+    If $\dim A=1$ and 
+    there exists a nilpotent element $a\in A$ such that 
+    $\{a\}$ is a basis of $A$. Then $A$ is nilpotent. In fact, 
+    since $a^r=0$ for some $r$, 
+    \[
+      (\lambda_1a)(\lambda_2a)\cdots(\lambda_ra)=(\lambda_1\lambda_2\cdots\lambda_r)a^r=0
+    \]
+    for all $\lambda_1,\lambda_2,\dots,\lambda_r\in K$. Thus $A^r=\{0\}$. 
+    Assume now that $\dim A>1$. Since $J(A)$ is nilpotent, $J(A)^n=\{0\}$ 
+    for some $n$. 
+
+    If $J(A)=A$, the result trivially holds. 
+
+    If $J(A)\ne\{0\}$, 
+    $\dim A/J(A)<\dim A$ and hence 
+    $A/J(A)$ is nilpotent by 
+    the inductive hypothesis, 
+    say $(A/J(A))^m=\{0\}$. Let \[
+      \pi\colon A\to A/J(A)
+    \]
+    be the canonical map and 
+    $N=nm$. We claim that $A^N=\{0\}$. Let $a_1,\dots,a_N\in A$. Write
+    $a_1\cdots a_N=x_1\dots x_n$ for some $x_1,\dots,x_n\in A$. For example,
+    \begin{align*}
+      x_1&=a_1a_2\cdots a_m,\\
+      x_2&=a_{m+1}a_{m+2}\cdots a_{2m},\\
+         &\vdots
+    \end{align*}
+    Since 
+    \[
+      \pi(x_1)=\pi(a_1a_2\cdots a_m)=\pi(a_1)\pi(a_2)\cdots\pi(a_m)=0,
+    \]
+    it follows that $x_1\in J(A)$. Similarly, 
+    $x_j\in J(A)$
+    for every $j\in\{1,\dots,n\}$. Thus,
+    \[
+      a_1a_2\cdots a_N=x_1x_2\cdots x_n\in J(A)^n=\{0\}. 
+    \]
+    Thus $A$ is nilpotent. 
+
+    If $J(A)=\{0\}$, then 
+    $A$ is semisimple. By Artin--Wedderburn, 
+    $A\simeq\prod_{i=1}^k M_{n_i}(\C)$, a contradiction to 
+    the previous lemma. 
+  \end{proof}%add: onto any matrix factor. That factor would be spanned by nilpotent matrices, and therefore would have a basis selected from those matrices, contradicting your lemma.
+  
+
+  \begin{definition}
+    \index{Flag!complete}
+    Let $V=\C^{n}$ (column vectors). A \textbf{complete flag} in $V$ 
+    is a sequence $(V_1,V_2,\dots,V_n)$ of vector subspaces of $V$ 
+    such that 
+    \[
+      \{0\}\subsetneq V_1\subsetneq V_2\subsetneq\cdots\subsetneq V_n=V.
+    \]
+  \end{definition}
+
+  If $(V_1,\dots,V_n)$ is a complete flag, then $\dim V_i=i$ for all 
+  $i\in\{1,\dots,n\}$. 
+  Let $\{e_1,\dots,e_n\}$ be the standard basis of $\C^n$. 
+  The \textbf{standard flag}\index{Flag!standard}
+  is defined as the sequence $(E_1,\dots,E_n)$, where
+  $E_i=\langle e_1,\dots,e_i\rangle$ for all $i\in\{1,\dots,n\}$.  
+
+  Note that $\GL_n(\C)$ acts on the set of complete flags of $V$ 
+  by 
+  \[
+    g\cdot (V_1,\dots,V_n)=(T_g(V_1),\dots,T_g(V_n)),
+  \]
+  where $T_g\colon V\to V$, $x\mapsto gx$. 
+
+  The action is \textbf{transitive}, 
+  which means that if $(V_1,\dots,V_n)$ 
+  is a complete flag, then there exists 
+  $g\in\GL_n(\C)$ such that 
+  \[
+    g\cdot (E_1,\dots,E_n)=(V_1,\dots,V_n).
+  \]
+  In fact, 
+  the matrix $g=(v_1|v_2|\cdots|v_n)$, where
+  $\{v_1,\dots,v_n\}$ is chosen so that 
+  $V_i=\langle v_1,\dots,v_i\rangle$ for every $i$,
+  %$\{v_1,\dots,v_n\}$ is a basis of $V$, 
+  satisfies $ge_i=v_i$ for all $i\in\{1,\dots,n\}$. 
+
+  \label{Borel subgroup}
+  Let $B_n(\C)$ be the stabilizer    
+  \begin{align*}
+    %G_{(E_1,\dots,E_n)}=
+    \operatorname{Stab}_{\GL_n(\C)}(E_1,\dots,E_n)
+&=\{g\in\GL_n(\C):T_g(E_i)=E_i\text{ for all $i$}\}\\
+&=\{(b_{ij})\in\GL_n(\C):b_{ij}=0\text{ if $i>j$}\}
+  \end{align*}
+  of the standard flag. Then $B_n(\C)$ is 
+  known as the \textbf{Borel subgroup}
+  \index{Borel subgroup}.
+
+  Let $U_n(\C)$ be the subgroup of $\GL_n(\C)$ 
+  of matrices $(u_{ij})$ such that 
+  \[
+    u_{ij}=\begin{cases}
+      1&\text{if $i=j$},\\
+    0&\text{if $i>j$}.\end{cases}
+  \]
+  Let $T_n(\C)$ be the subgroup of $\GL_n(\C)$ consisting of diagonal matrices. 
+
+  \begin{proposition}
+    $B_n(\C)=U_n(\C)\rtimes T_n(\C)$. 
+  \end{proposition}
+
+  \begin{proof}
+    It is trivial that $U_n(\C)\cap T_n(\C)=\{I\}$, where $I$ is the 
+    $n\times n$ identity matrix. Clearly, $U_n(\C)$ is a subgroup of $B_n(\C)$.
+    To prove that 
+    $U_n(\C)$ is normal in $B_n(\C)$ note that $U_n(\C)$ is the kernel
+    of the group homomorphism
+    \[
+      f\colon B_n(\C)\to T_n(\C),\quad
+      (b_{ij})\mapsto\begin{pmatrix}
+        b_{11}\\
+        &b_{22}\\
+        &&\ddots\\
+        &&&b_{nn}
+      \end{pmatrix}.
+    \]
+    It remains to show that $B_n(\C)=U_n(\C)T_n(\C)$.
+    Let us prove that  $B_n(\C)\subseteq U_n(\C)T_n(\C)$, as the other inclusion is trivial. 
+    Let $b\in B_n(\C)$. Then
+    $bf(b)^{-1}\in \ker f=U_n(\C)$ and therefore  
+    $b=(bf(b)^{-1})f(b)\in U_n(\C)T_n(\C)$. 
+  \end{proof}
+
+  \begin{definition}
+    \index{Unipotent!element}
+    A matrix $a\in\GL_n(\C)$ is said to be \textbf{unipotent} 
+    if its characteristic polynomial is of the form 
+    $(X-1)^n$. 
+  \end{definition}
+
+  The matrix $\begin{pmatrix}1&1\\0&1\end{pmatrix}$ is unipotent, 
+  as its characteristic polynomial is $(X-1)^2$. 
+
+  \begin{definition}
+    \index{Unipotent!group}
+    A subgroup $G$ of $\GL_n(\C)$ is said to be \textbf{unipotent} if
+    each $g\in G$ is unipotent. 
+  \end{definition}
+
+  Now an application of Wedderburn's theorem:
+
+  \begin{proposition}
+    \label{pro:unipotent}
+    Let $G$ be a unipotent subgroup of $\GL_n(\C)$. 
+    Then there exists a non-zero 
+    $v\in\C^{n}$ such that $gv=v$ for all $g\in G$. 
+  \end{proposition}
+
+  \begin{proof}
+    Without loss of generality, we may assume that $G$ is non-trivial. 
+    Let $V$ be the subspace of $\C^{n\times n}$ 
+    generated by $\{g-I:g\in G\}$. If $g\in G$, then 
+    $(g-I)^n=0$, as $g$ is unipotent. Thus
+    $V$ is spanned by nilpotent elements. If $g,h\in G$, 
+    then 
+    \[
+      (g-I)(h-I)=(gh-I)-(g-I)-(h-I)\in V.
+    \]
+    This means that $V$ is closed under multiplication and
+    hence $V$ is an algebra generated (as a vector space)
+    by nilpotent elements. By Wedderburn's theorem, 
+    $V$ is nilpotent. Let $m$ be minimal 
+    such that 
+    $(g_1-I)\cdots (g_m-I)=0$ 
+    for all $g_1,\dots,g_m\in G$. The minimality of $m$ implies that  
+    there exist $h_1,\dots,h_{m-1}\in G$ such that 
+    \[
+      (h_1-I)\cdots (h_{m-1}-I)\ne 0.
+    \]
+    In particular, there exists a non-zero 
+    $w\in\C^{n}$ such that 
+    $v=(h_1-I)\cdots (h_{m-1}-I)w\ne 0$. For every 
+    $g\in G$, 
+    \[
+      (g-I)v=(g-I)(h_1-I)\cdots (h_{m-1}-I)w=0
+    \]
+    and hence $gv=v$. 
+  \end{proof}
+
+  \begin{theorem}[Kolchin]
+    \label{thm:Kolchin}
+    \index{Kolchin's theorem}
+    Every unipotent subgroup of $\GL_n(\C)$ is conjugate
+    to some subgroup of $U_n(\C)$. 
+  \end{theorem}
+
+  \begin{proof}
+    Let $G$ be an unipotent subgroup of $\GL_n(\C)$. 
+    Assume first that there exists
+    a complete flag $(V_1,\dots,V_n)$ of $\C^n$
+    such that $G\subseteq\operatorname{Stab}_{G}(V_1,\dots,V_n)$. 
+    %G_{(V_1,\dots,V_n)}$. 
+    Let $g\in\GL_n(\C)$ be such that 
+    $g\cdot (E_1,\dots,E_n)=(V_1,\dots,V_n)$. Then 
+    \begin{align*}
+      G&\subseteq
+      \operatorname{Stab}_{\GL_n(\C)}(V_1,\dots,V_n)\\
+       &=g\operatorname{Stab}_{\GL_n(\C)}(E_1,\dots,E_n)g^{-1}\\
+       &=gB_n(\C)g^{-1}.
+    \end{align*}
+%    \begin{gather*}
+%      G\subseteq 
+%      \operatorname{Stab}_{G}(E_1,\dots,E_n)
+%%      G_{g\cdot (E_1,\dots,E_n)}
+%%      =g G_{(E_1,\dots,E_n)}g^{-1}
+%      =g\operatorname{Stab}_{G}(E_1,\dots,E_n)g^{-1}
+%      =gB_n(\C)g^{-1}.
+%    \end{gather*}
+    Since every unipotent element of $B_n(\C)$ 
+    belongs to $U_n(\C)$, it follows that 
+    \[
+      G\subseteq gU_n(\C)g^{-1}.
+    \]
+
+    We claim that $G\subseteq\operatorname{Stab}_{G}(V_1,\dots,V_n)$ 
+    %G_{(V_1,\dots,V_n)}$ 
+    for
+    some complete flag $(V_1,\dots,V_n)$. We proceed by induction on $n$. If $n=1$, the result is trivial. Assume the result holds for 
+    $n-1$. By the previous proposition, there exists a non-zero $v\in\C^n$ 
+    such that $gv=v$ for all $g\in G$. Let $Q=\C^n/\langle v\rangle$ and $\pi\colon \C^n\to Q$ be the canonical map. Then $\dim Q=n-1$. The group $G$ 
+    acts on $Q$ by
+    \[
+      g\cdot (w+\langle v\rangle)=gw+\langle v\rangle.
+    \]
+    The action is well-defined: if $w+\langle v\rangle=w_1+\langle v\rangle$, then 
+    $w-w_1=\lambda v$ for some $\lambda\in\C$. This implies
+    that 
+    \[
+      gw-gw_1=g(w-w_1)=\lambda(gv)=\lambda v\in \langle v\rangle
+    \]
+    and hence $gw+\langle v\rangle=gw_1+\langle v\rangle$. 
+
+    We claim that the image $\rho(G)$ is unipotent.
+    The action of $G$ on $Q$ induces a group homomorphism 
+    $\rho\colon G\to\mathrm{GL}(Q)$, $\rho_g(x)=g\cdot x$.
+    Let $g\in G$. Since $g$ is unipotent, the Cayley--Hamilton
+    theorem gives $(g-I)^n=0$. For every $w\in\C^n$,
+    \[
+      (\rho_g-\rho_I)^n(w+\langle v\rangle)
+      =(g-I)^n w+\langle v\rangle
+      =\langle v\rangle
+      =0_Q.
+    \]
+    Thus $(\rho_g-\rho_I)^n=0$ and hence 
+    $\rho_g$ is unipotent. Therefore $\rho(G)$ is unipotent.
+
+    By the inductive hypothesis, $G$ stabilizes
+    a complete flag $(Q_1,\dots,Q_{n-1})$, where
+    \[
+      Q_1=\langle\pi(v_1)\rangle,
+      \quad
+      Q_2=\langle\pi(v_1),\pi(v_2)\rangle,
+      \quad
+      \dots
+      \quad
+      Q_{n-1}=\langle\pi(v_1),\dots,\pi(v_{n-1})\rangle.
+    \]
+    Let 
+    \[
+      W_0=\langle v\rangle,
+      \quad
+      W_1=\langle v,v_1\rangle,
+      \quad
+      W_2=\langle v,v_1,v_2\rangle,
+      \quad\dots\quad 
+      W_{n-1}=\langle v,v_1,\dots,v_{n-1}\rangle.
+    \]
+    Since $(Q_1,\dots,Q_{n-1})$ is a complete flag, 
+    the set $\{\pi(v_j):1\leq j\leq n-1\}$ is linearly
+    independent. We claim that 
+    $\{v,v_1,\dots,v_{n-1}\}$ is linearly independent. In fact, since $v\ne 0$, one obtains that 
+    \[
+      \sum_{i=1}^{n-1}\lambda_iv_i+\lambda v=0
+      \implies
+      \sum_{i=1}^{n-1}\lambda_i\pi(v_i)=0
+      \implies 
+      \lambda_1=\cdots=\lambda_{n-1}=0
+      \implies
+      \lambda=0.
+    \]
+    Thus $\dim W_i=i+1$ for all $i$. 
+
+    Let $g\in G$. 
+    Clearly, 
+    $gW_0\subseteq W_0$, as $gv=v$. Let $j\in\{1,\dots,n-1\}$.
+    There exist $\lambda_1,\dots,\lambda_j\in\C$ 
+    such that 
+    $\pi(gv_j)=\sum_{i\leq j}\lambda_i\pi(v_i)$. This means
+    that 
+    \[
+      gv_j-\sum_{i\leq j}\lambda_iv_i=\lambda v\in\langle v\rangle
+    \]
+    for some $\lambda\in\C$. In particular, 
+    \[
+      gv_j=\sum_{i\leq j}\lambda_iv_i+\lambda v\in\langle v,v_1,\dots,v_{j}\rangle=W_j.
+    \]
+    Therefore, $G\subseteq \operatorname{Stab}_G(W_0,\dots,W_{n-1})$. 
+  \end{proof}
+
+  The ideas behind the theorem are somewhat connected to Sylow's theory. The
+  key is to consider an explicit version of Sylow's theorem for the group
+  $\GL_n(p)$ of invertible matrices 
+%  with coefficients in the field $\F_p$ with $p$ elements. 
+  with coefficients in the field $\F_p$, where $p$ is prime.
+  Write $\GL_n(p)=\GL_n(\F_p)$, and define $U_n(p)$ and $B_n(p)$
+  over $\F_p$ just as over $\C$.
+ 
+  A group $G$ acts linearly on a $K$-vector space $V$ 
+  if $g\cdot (\lambda v+w)=\lambda(g\cdot v)+g\cdot w$
+  for all $\lambda\in K$, $g\in G$, $v,w\in V$. 
+  Proposition \ref{pro:unipotent} has the following
+  version:
+
+  \begin{proposition}
+    Let $P$ be a finite $p$-group acting on a non-zero finite-dimensional 
+    $\F_p$-vector
+    space $V$ linearly. Then there exists a non-zero $v\in V$ such that $x\cdot
+    v=v$ for all $x\in P$. 
+  \end{proposition}
+
+  \begin{proof}
+    Let $n=\dim V$. There are $p^n-1$ non-zero vectors 
+    in $V$. Since the action is linear, 
+    $P$ acts  
+    on $X=V\setminus\{0\}$. We decompose $X$ into orbits
+    and collect those orbits with only one element, say 
+    \[
+      X=X_0\cup O(v_1)\cup \cdots\cup O(v_m),
+    \]
+    where $|O(v_j)|\geq 2$ for all $j\in\{1,\dots,m\}$. 
+    Since 
+    $p$ divides the order of each $O(v_j)$ and 
+    $|X|=p^n-1$ is not divisible by $p$, 
+    it follows that $X_0\ne\emptyset$. In particular, 
+    there exists $v\in X$ such that $x\cdot v=v$ for
+    all $x\in P$. 
+  \end{proof}
+
+  The analog of Kolchin's theorem is the following result:
+
+  \begin{proposition}
+    \label{pro:Kolchin}
+    Every $p$-subgroup of $\GL_n(p)$ is conjugate to a subgroup
+    of the unipotent subgroup $U_n(p)$. 
+  \end{proposition}
+
+  \begin{proof}[Sketch of the proof]
+    Let $P$ be a $p$-subgroup of $\GL_n(p)$. 
+    Then $P$ acts linearly on an $n$-dimensional 
+    $\F_p$-vector space $V$ by left multiplication. 
+    The previous
+    proposition implies that there exists a non-zero
+    $v_1\in V$
+    such that $xv_1=v_1$ for all $x\in P$. Let $V_0=\{0\}$, 
+    $V_1=\langle v_1\rangle$.
+    If $n=1$, we are done. Assume that $n\geq2$. 
+    The group $P$ 
+    acts on the $(n-1)$-dimensional vector space 
+    $V/V_1$ by 
+    \[
+      x\cdot (v+V_1)=xv+V_1.
+    \]
+    This action is well-defined.
+    As before, there exists a non-zero 
+    vector of $V/V_1$ fixed by $P$. Thus 
+    there exists $v_2\in V\setminus V_1$ such that 
+    $xv_2+V_1=v_2+V_1$. Note that $\{v_1,v_2\}$ is linearly
+    independent, as applying the canonical
+    map $V\to V/V_1$ to 
+    $\alpha v_1+\beta v_2=0$ one obtains
+    that $\beta=0$ and therefore $\alpha=0$. This process
+    produces a basis $\{v_1,\dots,v_n\}$ 
+    of $V$ and a sequence $\{0\}\subsetneq V_1\subsetneq V_2\subsetneq\cdots\subsetneq V_n=V$, where 
+    $V_j=\langle v_1,\dots,v_j\rangle$ for all $j\in\{1,\dots,n\}$. Moreover,  
+    $PV_j\subseteq V_j$  and 
+    $Pv_j\subseteq v_j+V_{j-1}$ for all $j$. This
+    means precisely that in the basis 
+    $\{v_1,\dots,v_n\}$ 
+    every element of $P$ is an upper triangular
+    matrix with ones on the main diagonal. 
+  \end{proof}
+
+  \index{Sylow's theorems}
+  Proposition \ref{pro:Kolchin} is deeply 
+  connected to Sylow's theorems. 
+
+  \begin{xca}
+    Prove that the normalizer of $U_n(p)$ in $\GL_n(p)$ is the
+    Borel subgroup $B_n(p)$ of invertible upper triangular matrices. 
+  \end{xca}
+
+  Now we have the following explicit Sylow theory for
+  $\GL_n(p)$. The first two Sylow theorems 
+  appear in the following result. 
+
+  \begin{xca}
+    Prove that  $U_n(p)$ is a Sylow $p$-subgroup of $\GL_n(p)$. 
+  \end{xca}
+
+  What about Sylow's third theorem? 
+  First, note that the number $n_p$
+  of conjugates of $U_n(p)$ in $\GL_n(p)$ 
+  is the number of complete flags 
+  in $\F_p^n$.
+
+  \begin{xca}
+    Prove that $n_p\equiv1\bmod p$. 
+  \end{xca}
+
+\end{graybox}

@@ -1,0 +1,1715 @@
+\section{Group algebras}
+\label{03}
+
+Let $K$ be a field, and $G$ be a group. The \emph{group algebra} $K[G]$ 
+is the vector space (over $K$) with basis $\{g:g\in G\}$ 
+and the algebra structure is given by the multiplication
+\[
+	\left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+	=\sum_{g,h\in G}\lambda_g\mu_h(gh).
+\]
+Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
+
+\begin{exercise}
+\label{xc:K[G]notsimple}
+    If $G$ is non-trivial, then $K[G]$ is not simple. 
+\end{exercise}
+
+\begin{exercise}
+\label{xca:K_cyclic}
+  For $n\geq2$ let $G=C_n$ be the (multiplicative) cyclic group of order $n$.
+  Prove that $K[G]\simeq K[X]/(X^n-1)$. 
+\end{exercise}
+
+\begin{exercise}
+\label{xca:abelian=>domain}
+	Let $G$ be a finitely generated torsion-free abelian group. Prove that 
+	$K[G]$ is a domain. 
+\end{exercise}
+
+
+
+\begin{exercise}
+	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
+	The \emph{support} of $\alpha$ is the set 
+	\[
+		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
+	\]
+	Prove that if $g\in G$, then 
+	$\supp(g\alpha)=g(\supp\alpha)$ and $\supp(\alpha g)=(\supp\alpha)g$.
+\end{exercise}
+
+\begin{exercise}
+\label{xca:invertible_subgroups}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Let $\alpha\in K[H]$. Prove that 
+    $\alpha$ is invertible (resp. a left zero divisor) in $K[H]$ if and only if 
+	$\alpha$ is invertible (resp. a left zero divisor) in
+	$K[G]$.
+\end{exercise}
+
+\begin{exercise}
+	Let $G=C_2=\langle g\rangle\simeq\Z/2$, the (multiplicative) cyclic group 
+  of order two. Note that every element of $K[G]$ is of the form
+	$a+bg$ for some $a,b\in K$. Prove the following statements:
+	\begin{enumerate}
+	    \item If the characteristic of $K$ is different from two, then 
+	    \[
+		K[G]\to K\times K,
+		\quad
+    a1_{K[G]}+bg\mapsto (a+b,a-b),
+	\]
+	is an algebra isomorphism. 
+	\item If the characteristic of $K$ is two, then 
+	\[
+	K[G]\to \begin{pmatrix}
+			K & K\\
+			0 & K
+		\end{pmatrix},
+		\quad
+		a1+bg\mapsto\begin{pmatrix}
+			a+b & b\\
+			0 & a+b
+		\end{pmatrix},
+	\]
+	is an algebra isomorphism onto its image. 
+	\end{enumerate}
+\end{exercise}
+
+If $A$ is an algebra over $K$ and $\rho\colon G\to \mathcal{U}(A)$
+is a group homomorphism, where $\mathcal{U}(A)$ is the group of units of $A$, then 
+the map \[
+	K[G]\to A,\quad 
+\sum_{g\in G}\lambda_gg\mapsto\sum_{g\in G}\lambda_g\rho(g),
+\]
+is an algebra homomorphism. 
+
+\begin{exercise}
+	Let $G=C_3$ be the (multiplicative) cyclic group of order three. Prove that
+	$\R[G]\simeq\R\times\C$.
+% 	Escribamos $G=\langle g:g^3=1\rangle$ y sea 
+% 	\[
+% 		\varphi\colon\R[G]\to\R\times\C,
+% 		\quad
+% 		g\mapsto (1,\omega),
+% 	\]
+% 	donde $\omega$ es una raíz cúbica primitiva de la unidad. Entonces
+% 	$\varphi$ es inyectivo pues
+% 	$0=\varphi(a1+bg+cg^2)=(a+b+c,a+b\omega+c\omega^2)$ implica que $a=b=c=0$.
+% 	Luego $\varphi$ es un isomorfismo pues
+% 	$\dim_\R\R[G]=\dim_\R(\R\times\C)=3$. 
+\end{exercise}
+
+\begin{exercise}
+\label{xca:isos_dihedral}
+	Let $G=\langle r,s:r^3=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group of six elements. 
+	Prove the following statements:
+	\begin{enumerate}
+	    \item $\C[G]\simeq\C\times\C\times M_2(\C)$.
+	    \item $\Q[G]\simeq\Q\times\Q\times M_2(\Q)$.
+	\end{enumerate}  
+% 	Sea $\omega$ una raíz cúbica de la unidad y sean  
+% 	\[
+% 		R=\begin{pmatrix}
+% 			\omega & 0\\
+% 			0 & \omega^2
+% 		\end{pmatrix},
+% 		\quad
+% 		S=\begin{pmatrix}
+% 			0 & 1\\
+% 			1 & 0
+% 		\end{pmatrix}.
+% 	\]
+% 	Un cálculo sencillo muestra que $R^2=S^2=I$ y que $SRS=R^{-1}$. Sea
+% 	\[
+% 		\varphi\colon\C[G]\to\C\times\C\times M_2(\C),\quad
+% 		r\mapsto (1,1,R),\quad
+% 		s\mapsto (1,-1,S).
+% 	\]
+% 	Es fácil ver que $\varphi$ es un morfismo de álgebras. Veamos que es
+% 	biyectivo. Como $\dim_{\C}\C[G]=\dim_{\C}(\C\times\C\times M_2(\C))=6$,
+% 	basta ver que $\varphi$ es inyectivo. Si 
+% 	\[
+% 		\alpha=a_0+a_1r+a_2r^2+(b_0+b_1r+b_2r^2)s\in\ker\varphi,
+% 	\]
+% 	entonces 
+% 	\[
+% 		0=\varphi(\alpha)=\left(u,v,\begin{pmatrix} \alpha_{11} & \alpha_{12}\\\alpha_{21}&\alpha_{22}\end{pmatrix}\right), 
+% 	\]
+% 	donde
+% 	\begin{align*}
+% 		&u = a_0+a_1+a_2+b_0+b_1+b_2, && v = a_0+a_1+a_2-b_0-b_1-b_2,\\
+% 		&\alpha_{11}=a_0+a_1\omega+a_2\omega^2, && \alpha_{12}=b_0+b_1\omega+b_2\omega^2,\\
+% 		&\alpha_{21}=b_0+b_2\omega+b_1\omega^2, && \alpha_{22}=a_0+a_2\omega+a_1\omega^2.
+% 	\end{align*}
+% 	Un cálculo sencillo muestra que estas ecuaciones implican que
+% 	$\alpha=0$ y luego $\varphi$ es inyectiva.  
+\end{exercise}
+
+
+
+Maschke's theorem states that, if $G$ is a finite group, 
+then the group algebra $\C[G]$ is semisimple. By Molien's theorem, 
+\[
+\C[G]\simeq \prod_{i=1}^k M_{n_i}(\C),
+\]
+where $k$ is the number of (isomorphism classes of) 
+simple $\C[G]$-modules. Moreover, 
+\[
+|G|=\dim\C[G]=\sum_{i=1}^k n_i^2.
+\]
+
+\begin{theorem}
+    Let $G$ be a finite group. The number of simple modules of $\C[G]$
+    coincides with the number of conjugacy classes of $G$. 
+\end{theorem}
+
+\begin{proof}
+    By Molien's theorem, $\C[G]\simeq\prod_{i=1}^kM_{n_i}(\C)$. Thus 
+    \[
+		Z(\C[G])\simeq\prod_{i=1}^kZ(M_{n_i}(\C))\simeq\C^k.
+	\]
+	In particular, $\dim Z(\C[G])=k$. If $\alpha=\sum_{g\in
+	G}\lambda_gg\in Z(\C[G])$, then $h^{-1}\alpha h=\alpha$ for all $h\in
+	G$. Thus 
+	\[
+		\sum_{g\in G}\lambda_{hgh^{-1}}g=
+		\sum_{g\in G}\lambda_g h^{-1}gh=\sum_{g\in G}\lambda_gg
+	\]
+	and hence $\lambda_{g}=\lambda_{hgh^{-1}}$ for all $g,h\in G$. 
+  Note that 
+  coefficients constant on conjugacy classes give a central element. Thus 
+  a basis for 
+	$Z(\C[G])$ is given by elements of the form 
+	\[
+		\sum_{g\in K}g,
+	\]
+  where $K$ is a conjugacy class of $G$. Therefore $\dim Z(\C[G])$ is equal to
+  the number of conjugacy classes of $G$.
+\end{proof}
+
+%\begin{project}{Which algebras are group algebras?}
+\begin{optional}
+
+\section{Which algebras are group algebras?}
+
+\begin{example}
+\label{exa:C4}
+    Let $G=C_4$ be the cyclic group of order four. Then
+    $G$ has four simple modules and 
+    $\C[G]\simeq\C^4$. 
+\end{example}
+
+\begin{example}
+\label{exa:S3}
+    Let $G=\Sym_3$. Then $G$ has three simple modules and
+    \[
+    \C[G]\simeq\C\times\C\times M_2(\C).
+    \]
+\end{example}
+
+\begin{open}[Brauer]
+\index{Brauer's problem}
+    Which complex algebras are group algebras of finite groups? 
+\end{open}
+
+The problem remains only partially understood. 
+Examples \ref{exa:C4} and \ref{exa:S3} show
+that $\C^4$ and $\C^2\times M_2(\C)$ are complex group algebras. 
+
+\begin{xca}
+    Is $\C^2\times M_2(\C)\times M_3(\C)$ a complex group algebra?  
+\end{xca}
+
+% No. Let $G$ be a group of order 15. Since groups of order 15 are abelian,
+% $G$ has 15 conjugacy classes. 
+\end{optional} 
+
+\begin{graybox}
+\project 
+\section{The isomorphism problem for group algebras}
+\label{project:isomorphism_problem}
+
+\subsection{Group rings}
+
+Let $R$ be a unitary commutative ring and $G$ be a group. Recall that
+\emph{group ring} is a free $R$-module which is also a ring. As a free
+$R$-module, $G$ is a basis for $R[G]$. Thus every element $\alpha\in R[G]$ can
+be written uniquely as a sum of the form 
+\[
+\alpha=\sum_{g\in G}r_gg,\quad r_g\in R.
+\]
+Note that the elements of $R$ (more precisely, the elements of the form $r1_G$
+for $r\in R$) are central in $R[G]$. 
+
+\begin{xca}
+\label{xca:augmentation_ideal}
+    Let $R$ be a commutative ring and $G$ be a group. Let 
+    \[
+    f\colon R[G] \to R,\quad 
+    \sum_{g \in G} r_g g\mapsto \sum_{g \in G} r_g.
+    \]
+    Prove the following statements:
+    \begin{enumerate}
+        \item $f$ is a surjective ring
+            homomorphism. 
+        \item $\{g - 1_G: 1_G\ne g \in G\}$ is a    basis for the free $R$-module $\ker f$.
+    \end{enumerate}
+\end{xca}
+
+The kernel of the homomorphism of Exercise \ref{xca:augmentation_ideal} is
+called the \emph{augmentation ideal} of the group ring. 
+%We used this ideal
+%before (e.g. Propositions \ref{pro:KGsemisimple} and Appendix
+%\ref{section:local}). 
+
+Note that $R[G]$ is a left $R$-module with
+\[
+\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
+\]
+
+\subsection{Hurewicz' theorem}
+
+\begin{theorem}[Hurewicz]
+    \label{thm:Hurewicz}
+    \index{Hurewicz' theorem}
+    Let $G$ be a group and $I$ be the augmentation ideal of $\Z[G]$. 
+    Then $G/[G,G]\simeq I/I^2$ as (abelian) groups. 
+\end{theorem}
+
+\begin{proof}
+    Let $\varphi\colon G\to I/I^2$, $g\mapsto g-1_G+I^2$. Since $g-1_G\in I$ for all $g\in G$, $\varphi$ is well-defined. The map $\varphi$ is a group homomorphism. Since 
+    $(g-1_G)(h-1_G)\in I^2$, 
+    \begin{align*}
+    \varphi(gh) &= gh-1_G+I^2\\
+    &=gh-1_G-(g-1_G)(h-1_G)+I^2+I^2\\
+    &=g-1_G+h-1_G+I^2\\
+    &=\varphi(g)+\varphi(h)
+    \end{align*}
+    holds for all $g,h\in G$. 
+
+    Since $[G,G]\subseteq\ker\varphi$, there exists a group homomorphism
+    \[
+    \overline{\varphi}\colon G/[G,G]\to I/I^2,\quad 
+    g[G,G]\mapsto g-1_G+I^2.
+    \]
+    We claim that $\overline{\varphi}$ is an isomorphism. 
+    Let us construct the inverse of $\overline{\varphi}$. Let 
+    \[
+    \psi\colon I\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    Since $G/[G,G]$ is abelian, the map $\psi$ is well-defined, that is
+    the order of the factors in $\prod_{g\in G}g^{m_g}$ does not matter. Note that 
+    $I^2\subseteq\ker\psi$, as 
+    $\{(g-1_G)(h-1_G):g,h\in G\}$ generates the additive group $I^2$ 
+    and 
+    \begin{align*}
+        \psi((g-1_G)(h-1_G))&=\psi( (gh-1_G)-(g-1_G)-(h-1_G))\\
+        &=(ghg^{-1}h^{-1})[G,G]\\
+        &=[G,G].
+    \end{align*}
+    Therefore there exists a group homomorphism
+    \[
+    \overline{\psi}\colon I/I^2\to G/[G,G],\quad 
+    \sum_{g\in G}m_g(g-1_G)+I^2\mapsto \left(\prod_{g\in G}g^{m_g}\right)[G,G].
+    \]
+    A direct calculation shows that $\overline{\psi}$ is the inverse 
+    of $\overline{\varphi}$. 
+\end{proof}
+
+\subsection{The isomorphism problem}\
+%Recall that if $R$ is a unitary commutative ring 
+%and $G$ is a group, then one defines the group ring $R[G]$. 
+% More precisely,
+% $R[G]$ is the set of finite linear combinations
+% \[
+%     \sum_{g\in G}\lambda_gg
+% \]
+% where $\lambda_g\in R$ and $\lambda_g=0$ for all but finitely many $g\in G$.
+% One easily proves that $R[G]$ is a ring with
+% addition
+% \[
+% \left(\sum_{g\in G}\lambda_gg\right)+\left(\sum_{g\in G}\mu_gg\right)
+% =\sum_{g\in G}(\lambda_g+\mu_g)(g)
+% \]
+% and multiplication
+% \[
+% \left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
+% =\sum_{g,h\in G}\lambda_g\mu_h(gh).
+% \]
+%Note that $R[G]$ is a left $R$-module with
+%\[
+%\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
+%\]
+%
+%In this section, we will briefly discuss the
+%following natural problem: 
+
+\begin{que}[The isomorphism problem]
+\label{question:iso}
+\index{The isomorphism problem}
+ Let $R$ be a unitary commutative ring and let 
+ $G$ and $H$ be groups. Assume that $R[G]\simeq R[H]$ as
+ unital $R$-algebras. Does $G\simeq H$?
+\end{que}
+
+For general information on Question \ref{question:iso} we refer to the survey
+paper \cite{MR4472590}.
+
+\begin{xca}
+    Prove that if $G$ and $H$ are isomorphic groups, then $K[G]\simeq K[H]$.
+\end{xca}
+
+\begin{xca}
+    Let $G$ and $H$ be groups. Prove that if $\Z[G]\simeq\Z[H]$, then
+    $R[G]\simeq R[H]$ for any commutative ring $R$.
+\end{xca}
+
+The previous exercise suggests the importance of the following 
+instance of Question \ref{question:iso}:
+
+\begin{que}
+\label{question:IP}
+    Let $G$ and $H$ be groups. Does $\Z[G]\simeq\Z[H]$ imply $G\simeq H$?
+\end{que}
+
+For finite groups, the isomorphism problem has an affirmative answer in several
+important cases, including abelian, metabelian, and nilpotent groups. However,
+it is false in general. In 2001 Hertweck found a counterexample of order
+$2^{21}97^{28}$, see \cite{MR1847590}.
+
+\begin{que}[The modular isomorphism problem]
+\label{question:MIP}
+    Let $p$ be a prime number. Let
+    $G$ and $H$ be finite $p$-groups and let $K$ be a field of characteristic $p$.
+    Does $K[G]\simeq K[H]$ imply $G\simeq H$?
+\end{que}
+
+Question \ref{question:MIP} has an affirmative answer in several cases.
+However, this is not true in general. This question was answered by
+Garc\'ia-Lucas, Margolis and del R\'io \cite{MR4373245}. They found two
+non-isomorphic groups $G$ and $H$ both of order $512$ such that $K[G]\simeq
+K[H]$ for every field $K$ of characteristic two.
+\end{graybox}
+
+\section{Rickart's theorem}
+
+We now consider Jacobson's semisimplicity problem. 
+
+\begin{question}
+\label{Jacobson's semisimplicity problem}
+Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
+\end{question}
+
+As an application of Amitsur's theorem \ref{thm:Amitsur}, 
+we prove that 
+complex group algebras have null Jacobson radical.
+This is known as 
+Rickart's theorem. The original proof found by Rickart 
+uses complex analysis. Here, however, 
+we present an algebraic proof. 
+
+\begin{theorem}[Rickart]
+\index{Rickart's theorem}
+\label{thm:Rickart}
+    Let $G$ be a group. Then $J(\C[G])=\{0\}$.
+\end{theorem}
+
+To prove the theorem, we need a lemma.
+
+\begin{lemma}
+Let $G$ be a group. Then $J(\C[G])$ is nil.        
+\end{lemma}
+
+\begin{proof}
+    We need to show that every element of $J(\C[G])$ is nilpotent. 
+    If $G$ is countable, then the result follows from Amitsur's theorem \ref{thm:Amitsur}. So assume that 
+    $G$ is not countable. Let $\alpha\in J(\C[G])$, say
+    \[
+    \alpha=\sum_{i=1}^n\lambda_ig_i,
+    \]
+    where $\lambda_1,\dots,\lambda_n\in\C$ and $g_1,\dots,g_n\in G$. Let $H=\langle g_1,\dots,g_n\rangle$.
+    Then $\alpha\in \C[H]$ and $H$ is countable. We claim that $\alpha\in J(\C[H])$. Decompose
+    $G$ as a disjoint union 
+    \[
+    G=\bigcup_\lambda x_\lambda H
+    \]
+    of cosets of $H$ in $G$. Then $\C[G]=\bigoplus_\lambda x_\lambda\C[H]$ and
+    hence $\C[G]=\C[H]\oplus K$ for some right module $K$ over $\C[H]$ (this follows
+    from the fact that one of the cosets is that of $H$). Since $\alpha\in J(\C[G])$, for each 
+    $\beta\in\C[H]$ there exists $\gamma\in\C[G]$ such that 
+    $\gamma(1-\beta\alpha)=1$. Write $\gamma=\gamma_1+\kappa$ for $\gamma_1\in\C[H]$ and $\kappa\in K$. Then
+    \[
+    1=\gamma(1-\beta\alpha)=\gamma_1(1-\beta\alpha)+\kappa(1-\beta\alpha)
+    \]
+    and hence $\kappa(1-\beta\alpha)\in K\cap \C[H]=\{0\}$, as $\beta\in\mathbb{C}[H]$. 
+    Since $1=\gamma_1(1-\beta\alpha)$, it follows that
+    $\alpha\in J(\C[H])$ and the lemma follows from Amitsur's theorem \ref{thm:Amitsur}.  
+\end{proof}
+
+We now prove the theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:Rickart}]
+    For $\alpha=\sum_{i=1}^n\lambda_ig_i\in\C[G]$ let 
+    \[
+    \alpha^*=\sum_{i=1}^n\overline{\lambda_i}g_i^{-1}.
+    \]
+    Then $\alpha\alpha^*=0$ if and only if $\alpha=0$ and, moreover, 
+    $(\alpha\beta)^*=\beta^*\alpha^*$ for all $\beta\in\C[G]$. 
+    Assume that $J(\C[G])\ne\{0\}$ and let $\alpha\in J(\C[G])\setminus\{0\}$. Then
+    $\beta=\alpha\alpha^*\in J(\C[G])$, as $J(\C[G])$ is an ideal of $\C[G]$. Moreover, the previous 
+    lemma implies that $\beta$ is nilpotent. Note that $\beta\ne 0$, as $\alpha\ne0$. Since $\beta^*=\beta$,  
+    \[
+    (\beta^m)^*=(\beta^*)^m=\beta^m
+    \]
+    for all $m\geq1$. If there exists $k\geq2$ such that $\beta^k=0$ and $\beta^{k-1}\ne 0$, then
+    \[
+    \beta^{k-1}\left(\beta^{k-1}\right)^*=\beta^{2k-2}=0
+    \]
+    and hence $\beta^{k-1}=0$, a contradiction. Thus $\beta=0$ and therefore $\alpha=0$. 
+\end{proof}
+
+\begin{exercise}
+	If $G$ is a group, then $J(\R[G])=0$. 
+\end{exercise}
+
+% To obtain a consequence of Rickart's theorem we need two lemmas. 
+
+% \begin{lemma}[Nakayama]
+% 	\label{lem:Nakayama}
+% 	\index{Nakayama's lemma}
+% 	Let $R$ be a unitary ring and $M$ be a finitely generated module. If 
+% 	$J(R)\cdot M=M$, then $M=\{0\}$.
+% \end{lemma}
+
+% \begin{proof}
+%     Since $M$ is finitely generated, we may assume that 
+% 	$M=(x_1,\dots,x_n)$. Since $x_n\in M=J(R)\cdot M$, 
+% 	there exist $r_1,\dots,r_n\in J(R)$ such that $x_n=r_1\cdot x_1+\cdots+r_n\cdot x_n$, that is 
+% 	$(1-r_n)\cdot x_n=\sum_{j=1}^{n-1}r_j\cdot x_j$. 
+% 	Since $1-r_n$ is invertible, there exists $s\in R$ such that $s(1-r_n)=1$. Thus 
+% 	$x_n=\sum_{j=1}^{n-1}(sr_j)\cdot x_j$ 
+% 	and hence $M=(x_1,\dots,x_{n-1})$. Repeating this procedure several times 
+% 	one obtains $M=\{0\}$.
+% \end{proof}
+
+% \begin{lemma}
+% 	\label{lem:Rickart}
+% 	Let $\iota\colon R\to S$ be a homomorphism of unitary rings. If	
+% 	\[
+% 	S=\iota(R)x_1+\cdots+\iota(R)x_n,
+% 	\]
+% 	where each $x_j$ is such that $x_jy=yx_j$ for all $y\in\iota(R)$, then 
+% 	$\iota(J(R))\subseteq J(S)$.
+% \end{lemma}
+
+% \begin{proof}
+% 	We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+% 	If is $M$ is a simple module over $S$, then, in particular, $M=S\cdot m$ for some $m\ne0$. 
+% 	Now $M$ is a module over $R$ with $r\cdot m=\iota(r)\cdot m$. Since 
+% 	\[
+% 		M=S\cdot m=(\iota(R)x_1+\cdots+\iota(R)x_n)\cdot m=\iota(R)\cdot (x_1\cdot m)+\cdots+\iota(R)\cdot (x_n\cdot m),
+% 	\]
+% 	it follows that 
+% 	$M$ is finitely generated as a module over $\iota(R)$. Moreover, 
+% 	\[
+% 	J(R)\cdot
+% 	M=J\cdot M=\iota(J)\cdot M
+% 	\]
+% 	is an $S$-submodule of $M$, as 
+% 	\[
+% 		x_j\cdot (J\cdot M)=(x_j J)\cdot M=(J x_j)\cdot M=J\cdot (x_j\cdot M)\subseteq J\cdot M.
+% 	\]
+% 	Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. The simplicity of 
+% 	the $S$-module $M$ implies that $J(R)\cdot M=\{0\}$.
+% \end{proof}
+
+% We now obtain the following consequence of Rickart's theorem. 
+
+% \begin{theorem}
+% 	If $G$ is a group, then $J(\R[G])=0$. 
+% \end{theorem}
+
+% \begin{proof}
+% 	Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+% 	\[
+% 	\C[G]=\R[G]+i\R[G],
+% 	\]
+% 	Lemma~\ref{lem:Rickart} and Rickart's theorem imply that 
+% 	$\iota(J(\R[G]))\subseteq J(\C[G])=0$. Thus $J(\R[G])=0$, as $\iota$ is injective. 
+% \end{proof}
+
+
+\begin{definition}
+	\index{Ring!semiprime}
+	A ring $R$ \emph{semiprime} if 
+	$aRa=\{0\}$ implies $a=0$.
+\end{definition}
+
+\begin{proposition}
+	Let $R$ be a ring. The following statements are equivalent: 
+	\begin{enumerate}
+		\item $R$ is semiprime.
+		\item If $I$ is a left ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item If $I$ is an ideal such that $I^2=\{0\}$, then $I=\{0\}$.
+		\item $R$ does not contain non-zero nilpotent ideals.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
+	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. 
+    
+    The implications $2)\implies3)$
+	and $4)\implies3)$ are both trivial. 
+    
+    Let us prove that $3)\implies4)$.  If
+	$I$ is a non-zero nilpotent ideal, let $n\in\Z_{>0}$ be minimal such that
+	$I^n=\{0\}$.  Since $(I^{n-1})^2=\{0\}$, it follows that $I^{n-1}=\{0\}$, a
+	contradiction.  
+    
+    Finally, we prove that $3)\implies1)$. Let $a\in R$ be such
+	that $aRa=\{0\}$. Then $I=RaR$ is an ideal of $R$ such that $I^2=\{0\}$. Thus 
+	$RaR=\{0\}$. This means that $Ra$ and $aR$ are ideals such that
+	$(Ra)R=R(aR)=\{0\}$ (for example, $R(aR)\subseteq RaR=\{0\}\subseteq aR$). 
+	Moreover, since $(Ra)(Ra)=\{0\}$ and $(aR)(aR)=\{0\}$, it follows that
+	$aR=Ra=\{0\}$. 
+	This implies that $\Z a$ is an ideal of $R$, as $R(\Z a)\subseteq \Z(Ra)=\{0\}$ and 
+	$(\Z a)R\subseteq aR=\{0\}$. Now $(\Z a)(\Z a)\subseteq (\Z a)R=\{0\}$ and hence
+	$a=0$, as $\Z a=\{0\}$. 
+\end{proof}
+
+Two consequences:
+
+\begin{exercise}
+	A commutative ring is semiprime if and only if it does not contain non-zero
+	nilpotent elements. 
+\end{exercise}
+
+% tomar $\alpha$ tal que $\alpha^2=0$ y sea $A=K[G]\alpha$. Como $A^2=0$, $A=0$ y entonces $\alpha=0$.
+
+\begin{exercise}
+\label{xca:D_semiprime_semiprimitive}
+	Let $D$ be a division ring. 
+	\begin{enumerate}
+		\item $D[X]$ is semiprime and semiprimitive.
+		\item $D[\![X]\!]$ is semiprime and it is not semiprimitive.
+	\end{enumerate}
+\end{exercise}
+
+% We will prove 
+% in Lecture \ref{09} (Corollary \ref{cor:C[G]_semiprime}) 
+% that the if $G$ is a group, 
+% then the ring $\C[G]$ is semiprime. 
+
+\begin{corollary}
+\label{cor:C[G]_semiprime}
+	The ring $\C[G]$ is semiprime.
+\end{corollary}
+
+\begin{proof}
+	Since $J(\C[G])=\{0\}$ by Rickart's theorem and the Jacobson radical
+	contains every nil ideal by Proposition~\ref{pro:nilJ}, it follows that
+	$\C[G]$ does not contain non-trivial nil ideals. Thus $\C[G]$ does not
+	contain non-trivial nilpotent ideals and hence $\C[G]$ is semiprime.
+\end{proof}
+
+\begin{exercise}
+	Prove that $Z(\C[G])$ is semiprime.
+\end{exercise}
+
+We now characterize when complex group algebras 
+are left artinian. For that purpose,
+we need a lemma. This is similar to one of the implications proved in Proposition \ref{pro:semisimple}. However,
+in the arbitrary setting we are considering, we need to use Zorn's lemma. 
+
+\begin{lemma}
+\label{lem:direct_summand}
+    Let $M$ be a semisimple module and $N$ be a submodule. 
+    Then $N$ is a direct summand.
+\end{lemma}
+
+\begin{proof}[Sketch of the proof]
+    Let $M=\oplus_{i\in I}M_i$ be a direct sum of simple submodules. 
+    Since each $N\cap M_i$ is a submodule of $M_i$ and $M_i$ is simple, it follows
+    that $N\cap M_i=\{0\}$ or $N\cap M_i=M_i$. If
+    $N\cap M_i=M_i$ for all $i\in I$, then $N=M$ and the lemma is proved. So we may assume
+    that there exists $i\in I$ such that $N\cap M_i=\{0\}$. Let $X$ be the set
+    of subsets $J$ of $I$ such that $N\cap (\oplus_{j\in J}M_j)=\{0\}$. Our assumptions
+    imply that $X$ is non-empty. Zorn's lemma implies the existence of 
+    a maximal element $K$. Let $N_1=\oplus_{k\in K}M_k$. We claim that
+    $N\bigoplus N_1=M$. If not, there exists $i\in I$ such that
+    $M_i\not\subseteq N\oplus N_1$. The simplicity of $M_i$ implies that
+    $M_i\cap (N\oplus N_1)=\{0\}$, which contradicts the maximality of $K$. 
+\end{proof}
+
+A direct application of the lemma proves that
+complex group algebras of infinite groups are never semisimple. 
+
+\begin{proposition}
+    \label{pro:KGsemisimple}
+    If $G$ is an infinite group, then $\C[G]$ is not semisimple. 
+\end{proposition}
+
+\begin{proof}
+	Assume that $R=\C[G]$ is semisimple.  Let $I$ 
+	be the augmentation ideal of $R$, that is
+	\[
+	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
+	\]
+	By Lemma~\ref{lem:direct_summand}, 
+	there exists a non-zero left ideal $J$ such that 
+	$R=I\oplus J$. Since $R$ is unitary, there exist $e\in I$ and $f\in J$ such that
+	$1=e+f$. If
+	$x\in I$, then $x=xe+xf$ and hence $xf=x-xe\in I\cap J=\{0\}$. Since 
+	$x=xe$ for all $x\in I$, it follows that $e=e^2$. Similarly, one proves
+	that $f^2=f$. Moreover, $ef=0$, as $ef\in I\cap J=\{0\}$.  Since $I$ 
+	is the augmentation ideal of $R$ and $If=(Re)f=R(ef)=\{0\}$ 
+ (note that $I=Re$ because $x=xe$ for all $x\in I$), we conclude that
+	$(g-1_G)f=0$
+	for all $g\in G$, as $g-1_G\in I$ for all $g\in G$. If $f=\sum_{h\in
+	G}\lambda_hh$ (finite sum) and $g\in G$, then  
+	\[
+	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+	G}\lambda_{g^{-1}h}h.
+	\]
+        Thus $\lambda_h=\lambda_{g^{-1}h}$ for all $g,h\in G$. Since $G$ 
+	is infinite, some $\lambda_g=0$ and hence $f=0$. Thus $e=1$ and $I=\C[G]$, a contradiction. 
+% 	If $f=0$, then $e=1$ and $I=\C[G]$, a contradiction.  
+% 	, a contradiction because 
+% 	$f\ne 0$ implies that the sum that defines $f$ should be an infinite sum.
+\end{proof}
+
+% The ideal $I(G)$ used in the proof of the previous proposition 
+% is known as the \emph{augmentation ideal} 
+% of $\C[G]$.
+
+\begin{theorem}
+	Let $G$ be a group. Then $\C[G]$ 
+	is left artinian if and only if 
+	$G$ is finite. 
+\end{theorem}
+
+\begin{proof}
+    If $G$ is finite, then $\C[G]$ is left artinian because $\dim\C[G]=|G|<\infty$. So assume that 
+    $G$ is infinite. By Rickart's theorem,   
+	$J(\C[G])=0$. Moreover, $\C[G]$
+	is not semisimple by the previous proposition. Thus
+	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
+\end{proof}
+
+\begin{graybox}
+  \project 
+  \section{Another proof of Rickart's theorem}
+
+  We will present a different proof 
+  of Rickart's theorem \ref{thm:Rickart}. 
+
+  \begin{definition}
+    \index{Ring!with an involution}
+    \index{Involution}
+    Let $R$ be a ring. An \emph{involution} 
+    in $R$ is an additive map  
+    $R\to R$, $x\mapsto x^*$, such that $x^{**}=x$ and  $(xy)^*=y^*x^*$ for all 
+    $x,y\in R$.
+  \end{definition}
+
+  It follows that if $R$ is a unitary ring, then 
+  $1^*=1$.
+
+  \begin{example}
+    The conjugation $z\mapsto\overline{z}$ is an 
+    involution of $\C$.
+  \end{example}
+
+  \begin{example}
+    The transpose map $X\mapsto X^T$ is an involution of $M_n(K)$.
+  \end{example}
+
+  \begin{example}
+    Let $G$ be a group. 
+    Then \[
+      \left(\sum_{g\in G}\alpha_gg\right)^*=\sum_{g\in G}\overline{\alpha_g}g^{-1}
+    \]
+    is an involution of the group ring $\C[G]$.
+  \end{example}
+
+  For a group $G$, one defines the \emph{trace} 
+  of an element 
+  \[
+    \alpha=\sum_{g\in G}\alpha_gg\in K[G]
+  \]
+  as $\trace(\alpha)=\alpha_1$. One proves that 
+  the map 
+  \[
+    \trace\colon K[G]\to K,\quad 
+    \alpha\mapsto\trace(\alpha)
+  \]
+  is $K$-linear such that   
+  $\trace(\alpha\beta)=\trace(\beta\alpha)$ for 
+  all $\alpha,\beta\in K[G]$. 
+
+  \begin{xca}
+    Let $G$ be a finite group and $K$ 
+    be a field of characteristic not dividing the 
+    order of $G$.
+    Prove the following statements: 
+    \begin{enumerate}
+      \item If $\alpha\in K[G]$ is nilpotent, then $\trace(\alpha)=0$.
+      \item If $\alpha\in K[G]$ is idempotent, then $\trace(\alpha)=\dim
+        (K[G]\alpha)/|G|$.
+    \end{enumerate}
+  \end{xca}
+
+  \begin{xca}
+    Prove that  
+    $\langle\alpha,\beta\rangle=\trace(\alpha\beta^*)$, $\alpha,\beta\in\C[G]$, 
+    defines an inner product in $\C[G]$.
+  \end{xca}
+
+  \begin{lemma}
+    \label{lem:algebraico}
+    Let $G$ be a group. Prove that if $J(\C[G])\ne 0$, then there exists $\alpha\in J(\C[G])$ such that  
+    $\trace(\alpha^{2^m})\in\R_{\geq1}$ 
+    for all $m\geq1$.
+  \end{lemma}
+
+  \begin{proof}
+    Let $\alpha=\sum_{g\in G}\alpha_gg\in\C[G]$. Then 
+    \[
+      \trace(\alpha^*\alpha)
+      =\sum_{g\in G}\overline{\alpha_g}\alpha_g
+      =\sum_{g\in G}|\alpha_g|^2\geq|\alpha_1|^2
+      =|\trace(\alpha)|^2.
+    \]
+    By induction, one proves that, if 
+    $\alpha$ is such that $\alpha^*=\alpha$, then  
+    \[
+      \trace(\alpha^{2^m})\geq|\trace(\alpha)|^{2^m}
+    \]
+    for all $m\geq1$. 
+
+    Let $\beta=\sum_{g\in G}\beta_gg\in J(\C[G])$ be such that $\beta\ne0$. Since 
+    $\trace(\beta^*\beta)=\sum_{g\in G}|\beta_g|^2\ne0$ and $J(\C[G])$ is an ideal, 
+    \[
+      \alpha=\frac{\beta^*\beta}{\trace(\beta^*\beta)}\in J(\C[G]).
+    \]
+    Then $\alpha$ is such that $\alpha^*=\alpha$ and $\trace(\alpha)=1$.
+    Hence $\trace(\alpha^{2^m})\geq 1$  for all $m\geq1$.
+  \end{proof}
+
+  Exercise~\ref{exa:norma} implies that $\C[G]$ with 
+  $\operatorname{dist}(\alpha,\beta)=|\alpha-\beta|$ is a metric space. In this metric space, the map 
+  $\C[G]\to\C$, $\alpha\mapsto \trace(\alpha)$, is a continuous map. 
+
+  \begin{lemma}
+    \label{lem:phi_diferenciable}
+    Let $\alpha\in J(\C[G])$. The map 
+    \[
+      \varphi\colon\C\to\C[G],\quad
+      \varphi(z)=(1-z\alpha)^{-1},
+    \]
+    is continuous, differentiable and $\varphi(z)=\sum_{n\geq0}\alpha^nz^n\in\C[G]$ if  $|z|$
+    is sufficiently small. 
+  \end{lemma}
+
+  \begin{proof}	
+    Let $y,z\in\C$. Since $\varphi(y)$ and $\varphi(z)$ commute, 
+    \begin{equation}
+      \label{eq:Rickart}
+      \begin{aligned}
+        \varphi(y)-\varphi(z)&=\left( (1-z\alpha)-(1-y\alpha)\right)(1-y\alpha)^{-1}(1-z\alpha)^{-1}\\
+                             &=(y-z)\alpha\varphi(y)\varphi(z).
+      \end{aligned}
+    \end{equation}
+    Hence $|\varphi(y)|\leq|\varphi(z)|+|y-z||\alpha\varphi(y)||\varphi(z)|$ and therefore 
+    \[
+      |\varphi(y)|\left( 1-|y-z||\alpha\varphi(z)|\right)\leq|\varphi(z)|.
+    \]
+    Fix $z$ and choose $y$ sufficiently close to $z$ in such a way that $1-|y-z||\alpha\varphi(z)|\geq1/2$. Then
+    $|\varphi(y)|\leq2|\varphi(z)|$. Using~\eqref{eq:Rickart} one obtains that 
+    $|\varphi(y)-\varphi(z)|\leq2|y-z||\alpha||\varphi(z)|^2$. 
+    Hence $\varphi$ is continuous. By~\eqref{eq:Rickart}, 
+    \[
+      \varphi'(z)
+      =\lim_{y\to z}\frac{\varphi(y)-\varphi(z)}{y-z}
+      =\lim_{y\to z}\alpha\varphi(y)\varphi(z)
+      =\alpha\varphi(z)^2
+    \]
+    for all $z\in\C$.
+
+    If $z$ is such that $|z||\alpha|=|z\alpha|<1$, then  
+    \[
+      \varphi(z)-\sum_{n=0}^Nz^n\alpha^n
+      =\varphi(z)\left(1-(1-z\alpha)\sum_{n=0}^Nz^n\alpha^n\right)
+      =\varphi(z)(z\alpha)^{N+1}.
+    \]
+    Then 
+    \[
+      \left|\varphi(z)-\sum_{n=0}^Nz^n\alpha^n\right|\leq|\varphi(z)||z\alpha|^{N+1}.
+    \]
+    Since $\varphi(z)$ is bounded close to $z=0$, we conclude that 
+    \[
+      \left|\varphi(z)-\sum_{n=0}^Nz^n\alpha^n\right|\to0
+    \]
+    if $N\to\infty$.
+  \end{proof}
+
+  We now provide an alternative proof of Rickart's theorem: 
+
+  \begin{theorem}[Rickart]
+    \index{Rickart's theorem}
+    If $G$ is a group, then $J(\C[G])=\{0\}$.
+  \end{theorem}
+
+  \begin{proof}
+    Let $\alpha\in J(\C[G])$ and $\varphi(z)=(1-\alpha z)^{-1}$. Let 
+    \[
+      f\colon\C\to \C,\quad  
+      f(z)=\trace\varphi(z)=\trace\left((1-z\alpha)^{-1}\right).
+    \]
+    By Lemma~\ref{lem:phi_diferenciable},
+    $f(z)$ is an entire function such that  $f'(z)=\trace(\alpha\varphi(z)^2)$ and 
+    \begin{equation}
+      \label{eq:Taylor}
+      f(z)=\sum_{n=0}^\infty z^n\trace(\alpha^n)
+    \end{equation}
+    if $|z|$ is sufficiently small. In particular,~\eqref{eq:Taylor} is the Taylor series of $f(z)$ around the origin. This implies that the series converges to $f(z)$ for all $z\in\C$. In particular,
+    \begin{equation}
+      \label{eq:limite}
+      \lim_{n\to\infty}\trace(\alpha^n)=0.
+    \end{equation}
+    On the other hand, if $\alpha\ne0$, Lemma~\ref{lem:algebraico} implies that 
+    $\trace(\alpha^{2^m})\geq1$ for all $m\geq0$. This contradicts the limit computed in~\eqref{eq:limite}. Hence $\alpha=0$.
+  \end{proof}
+
+  For a corollary, we need a consequence of 
+  Nakayama's lemma \ref{lem:Nakayama}.
+
+
+  \begin{lemma}
+    \label{lem:Rickart}
+    Let $R$ and $S$ be unitary rings and 
+    $\iota\colon R\to S$ be a ring homomorphism. If  
+    \[
+      S=\iota(R)x_1+\cdots+\iota(R)x_n,
+    \]
+    where each $x_j$ is such that
+    $x_jy=yx_j$ for all $y\in\iota(R)$, then
+    $\iota(J(R))\subseteq J(S)$.
+  \end{lemma}
+
+  \begin{proof}
+    We claim that $J=\iota(J(R))$ acts trivially on each simple $S$-module $M$.
+    Let $M$ be a simple $S$-module. Write 
+    $M=Sm$ for some $m\ne0$. Then $M$ is 
+    an $R$-module with $r\cdot m=\iota(r)m$. Since 
+    \[
+      M=Sm=(\iota(R)x_1+\cdots+\iota(R)x_n)m=\iota(R)(x_1m)+\cdots+\iota(R)(x_nm),
+    \]
+    $M$ is finitely generated as an $\iota(R)$-module. Moreover, $J(R)\cdot
+    M=JM=\iota(J)M$ is an $S$-submodule of $M$, as 
+    \[
+      x_j(JM)=(x_jJ)M=(Jx_j)M=J(x_jM)\subseteq JM.
+    \]
+    Since $M\ne\{0\}$, Nakayama's lemma implies that $J(R)\cdot M\subsetneq M$. Since 
+    $M$ is a simple $S$-module, we conclude that 
+    $J(R)M=\{0\}$.
+  \end{proof}
+
+  \begin{corollary}
+    If $G$ is a group, then $J(\R[G])=\{0\}$. 
+  \end{corollary}
+
+  \begin{proof}
+    Let $\iota\colon \R[G]\to\C[G]$ be the canonical inclusion. Since 
+    \[
+      \C[G]=\R[G]+i\R[G],
+    \]
+    Now Lemma \ref{lem:Rickart} and Rickart's theorem imply that 
+    $\iota(J(\R[G]))\subseteq J(\C[G])=\{0\}$. We conclude that $J(\R[G])=0$, as the map $\iota$ is injective. 
+  \end{proof}
+\end{graybox}
+
+
+\section{Maschke's theorem}
+
+We now present another instance of the semisimplicity problem.
+In this case, our result is for finite groups. 
+
+\begin{theorem}[Maschke]
+\index{Maschke's theorem}
+	Let $G$ be a finite group. Then $J(K[G])=\{0\}$ if and only 
+	if the characteristic of $K$ is zero 
+	or does not divide the order of $G$. 
+\end{theorem}
+
+\begin{proof}
+	Assume that $G=\{g_1,\dots,g_n\}$, where $g_1=1$. Let 
+	\[
+	\rho\colon K[G]\to K,
+	\quad
+	\alpha\mapsto\trace(L_{\alpha}),
+	\]
+	where 
+	$L_{\alpha}(\beta)=\alpha\beta$. Then 
+	\[
+	\rho(g_i)=\begin{cases}
+	    n & \text{if $i=1$,}\\
+	    0 & \text{if $2\leq i\leq n$},
+	\end{cases}
+	\]
+	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$ if $i\ne j$ and hence the matrix of 
+	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal.
+
+	Assume that $J=J(K[G])$ is non-zero and let 
+	$\alpha=\sum_{i=1}^n\lambda_ig_i\in J\setminus\{0\}$. Without loss of generality
+	we may assume that $\lambda_1\ne 0$ (if $\lambda_1=0$ there exists some 
+	$\lambda_i\ne 0$ and we need to take $g_i^{-1}\alpha\in J$). Then 
+	\[
+		\rho(\alpha)=\sum_{i=1}^n \lambda_i\rho(g_i)=n\lambda_1.
+	\]
+	Since $G$ is finite, $K[G]$ is a finite-dimensional algebra and hence 
+	$K[G]$ is left artinian. Since $J$ is a nilpotent ideal, 
+	in particular, $\alpha$ is a nilpotent element. Then 
+	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
+	the characteristic of the field $K$ divides $n$. 
+
+	Conversely, let $K$ be a field of prime characteristic and that this prime divides 
+	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
+	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
+	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
+	\[
+		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0
+	\]
+	in the field $K$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
+	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
+\end{proof}
+
+Since the Jacobson radical of a group algebra of a finite group contains 
+every nil left ideal, the following consequence of the theorem follows immediately:
+
+\begin{corollary}
+	\label{cor:GfinitoNOnil}
+	Let $G$ be a finite group. Then $K[G]$ does not contain non-zero nil left ideals. 
+\end{corollary}
+
+
+% \begin{proof}
+% 	Es consecuencia inmediata del teorema de Maschke ya que $J(K[G])$ contiene a
+% 	todo ideal a izquierda nil.	
+% \end{proof}
+
+%\index{Anillo!semisimple}
+%Recordemos que un anillo unitario $R$ se dice \emph{semisimple} si para cada
+%ideal $I$ de $R$ existe un ideal $J$ de $R$ tal que $R=I\oplus J$.
+%
+%%\begin{corollary}
+%%	Sea $G$ un grupo finito y $K$ un cuerpo de característica coprima con el
+%%	orden de $G$. Entonces $K[G]$ es semisimple.
+%%\end{corollary}
+%%
+%%\begin{proof}
+%%	
+%%\end{proof}
+%
+%\begin{theorem}
+%	Si $G$ es un grupo infinito, entonces $K[G]$ nunca es semisimple.
+%\end{theorem}
+%
+%\begin{proof}
+%	Sea $R=K[G]$ y supongamos que $R$ es semisimple.  Si $I$ es el ideal de
+%	aumentación de $R$, existe un ideal no nulo $J$ de $R$ tal que $R=I\oplus
+%	J$. Como $R$ es unitario, existen $e\in I$, $f\in J$ tales que $1=e+f$. Si
+%	$x\in I$, entonces $x=xe+xf$ y luego $xf=x-xe\in I\cap J=\{0\}$. Como
+%	entonces $x=xe$ para todo $x\in I$, en particular $e_1=e_1^2$. Análogamente
+%	vemos que $e_2^2=e_2$. Además $ef=0$ pues $ef\in I\cap J=\{0\}$.  Como $I$
+%	es el ideal de aumentación y $If=(Re)f=R(ef)=0$, se concluye que $(g-1)f=0$
+%	para todo $g\in G$ pues $g-1\in I$. Si suponemos que $f=\sum_{h\in
+%	G}\lambda_hh$, entonces 
+%	\[
+%	f=gf=\sum_{h\in G}\lambda_h(gh)=\sum_{h\in
+%	G}\lambda_{g^{-1}h}h.
+%	\]
+%	Luego $\lambda_h=\lambda_{g^{-1}h}$ para todo $g,h\in G$, una contradicción
+%	pues como $f\ne 0$ la suma que define a $f$ es infinita. 
+%\end{proof}
+
+
+\section{Herstein's theorem}
+
+Our aim now is to answer the following question: When
+a group algebra is algebraic? Herstein's theorem provides
+a solution in the case of fields of characteristic zero. In prime characteristic,
+the problem is still open. 
+
+\begin{definition}
+\index{Group!locally finite}
+	A group $G$ is \emph{locally finite} if every finitely generated 
+	subgroup of $G$ is finite. 
+\end{definition}
+
+If $G$ is a locally finite group, then every element $g\in G$ has finite order, as
+the subgroup $\langle g\rangle$ is finite because it is finitely generated.
+
+\begin{example}
+    Every finite group is locally finite
+\end{example}
+
+\begin{example}
+    The group $\Z$ is not locally finite because it is torsion-free.
+\end{example}
+
+\begin{example}
+\index{Pr\"ufer's group}
+	Let $p$ be a prime number. 
+	The \emph{Pr\"ufer's group}  
+	\[
+		\Z(p^{\infty})=\{z\in\C:z^{p^n}=1\text{ for some $n\in\Z_{>0}$}\}, 
+	\]
+	is locally finite. 
+\end{example}
+
+\begin{example}
+	Let $X$ be an infinite set and $\Sym_X$ be the set of bijective maps $X\to
+	X$ moving only finitely many elements of $X$. Then 
+	$\Sym_X$ is locally finite.
+\end{example}
+
+\index{Group!torsion}
+A group $G$ is a \emph{torsion} group if every element of $G$
+has finite order. Locally finite groups are torsion groups. 
+
+\begin{example}
+    Abelian torsion groups are locally finite. Let $G$ be a locally finite abelian group 
+    and $H$ be a finitely generated subgroup. Since $G$ is an abelian torsion group, so is $H$. Thus
+    $H$ is finite by the structure theorem of abelian groups. 
+\end{example}
+
+\begin{proposition}
+\label{pro:exact_LI}
+	Let $G$ be a group and $N$ be a normal subgroup of $G$. If $N$ and $G/N$
+	are locally finite, then $G$ is locally finite.
+\end{proposition}
+
+\begin{proof}
+	Let $\pi\colon G\to G/N$ be the canonical map and $\{g_1,\dots,g_n\}$ be a finite subset of $G$. 
+	Since $G/N$ is locally finite, the subgroup $Q$ of $G/N$ generated by 
+	$\pi(g_1),\dots,\pi(g_n)$ is finite, say
+	\[
+		Q=\{\pi(g_1),\dots,\pi(g_n),\pi(g_{n+1}),\dots,\pi(g_m)\}
+	\]
+	for some $g_{n+1},\dots,g_m\in G$. 
+	
+	For each $i,j\in\{1,\dots,n\}$ there exist $u_{ij}\in N$ and 
+	$k\in\{1,\dots,m\}$ such that \[
+	g_ig_j=u_{ij}g_k.
+	\]
+	Let $U$ be the subgroup of $N$
+	generated by $\{u_{ij}:1\leq i,j\leq n\}$. Since $N$ is locally finite, $U$ is finite. Moreover, since 
+	each $g_ig_jg_l$ can be written as 
+	\[
+		g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
+	\]
+	for some $u\in U$ and $t\in\{1,\dots,m\}$, it follows that the subgroup 
+	$H$ of $G$ generated by $\{g_1,\dots,g_n\}$ is finite, as 
+	$|H|\leq m|U|$. 
+\end{proof}
+
+% \index{Group!solvable}
+% A group $G$ is
+% \emph{solvable} if there exists a sequence
+% of subgroups 
+% \begin{equation}
+% 	\label{eq:resoluble}
+% 	\{1\}=G_0\subsetneq G_1\subsetneq \cdots\subsetneq G_n=G
+% \end{equation}
+% where each $G_i$ is normal in $G_{i+1}$ and each 
+% quotient $G_i/G_{i-1}$ is
+% abelian.
+
+% \begin{example}
+%     Abelian groups are solvable. 
+% \end{example}
+
+% Subgroups and quotients of solvable groups are solvable. 
+
+% \begin{example}
+%     Groups of order $<60$ are solvable.
+% \end{example}
+
+% \begin{example}
+%     $\Alt_5$ and $\Sym_5$ are not solvable. 
+% \end{example}
+
+% \index{Burnside's theorem}
+% \index{Feit--Thompson's theorem}
+% A famous theorem of Burnside states that 
+% groups of order $p^aq^b$ for prime numbers $p$ and $q$ are solvable 
+% A much harder theorem proved by Feit and Thompson states that
+% groups of odd order are solvable.
+
+% \begin{proposition}
+% 	If $G$ is a solvable torsion group, 
+% 	then $G$ is locally finite. 
+% \end{proposition}
+
+% \begin{proof}
+% 	We proceed by induction on $n$, the length of the sequence~\eqref{eq:resoluble}. 
+% 	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
+% 	Now assume the result holds for solvable groups of length $n-1$ and let
+% 	$G$ be a solvable group with a sequence~\eqref{eq:resoluble}. Since $G_{n-1}$ is 
+% 	a solvable torsion group, the inductive hypothesis implies that 
+% 	$G_{n-1}$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
+% 	it is locally finite. The result now follows from Proposition \ref{pro:exact_LI}.
+% \end{proof}
+
+\begin{bonus}
+    \label{bonus:solvable=>LF}
+    Prove that solvable torsion groups are locally finite.  
+\end{bonus}
+
+% \begin{sol}{bonus:solvable=>LF}
+% 	We proceed by induction on $n$, the length of the filtration. 
+% 	If $n=1$, then $G$ is finite because it is abelian and a torsion group.
+% 	Now assume the result holds for solvable groups of length $n-1$ and let
+% 	$G$ be a solvable group with a filtration of length $n$. Since $G_{n-1}$ is 
+% 	a solvable torsion group, the inductive hypothesis implies that 
+% 	$G_{n-1}$ is locally finite. Since $G/G_{n-1}$ is an abelian torsion group, 
+% 	it is locally finite. The result now follows from Proposition \ref{pro:exact_LI}.
+% \end{proof}
+
+
+\begin{theorem}[Herstein]
+\index{Herstein's theorem}
+	If $G$ is a locally finite group, then $K[G]$ is algebraic. Conversely, if 
+	$K[G]$ is algebraic and $K$ has characteristic zero, then $G$ 
+	is locally finite. 
+\end{theorem}
+
+\begin{proof}
+	Assume that $G$ is locally finite. Let $\alpha\in K[G]$. The subgroup 
+	$H=\langle\supp\alpha\rangle$ is finite, as it is finitely generated. Since 
+	$\alpha\in K[H]$ and $\dim_KK[H]<\infty$, the set 
+	$\{1,\alpha,\alpha^2,\dots\}$ is linearly dependent. Thus $\alpha$ is
+	algebraic over $K$.
+
+	Let $\{x_1,\dots,x_m\}$ be a finite subset of $G$. Adding inverses if needed,
+	we may assume that $\{x_1,\dots,x_m\}$ generates the subgroup 
+	$H=\langle x_1,\dots,x_m\rangle$ as a semigroup. Let 
+	\[
+	\alpha=x_1+\dots+x_m\in K[G].
+	\]
+	Since $\alpha$ is algebraic over $K$, 
+	there exist $b_0,b_1,\dots,b_{n+1}\in K$ such that 
+	\[
+	b_0+b_1\alpha+\cdots+b_{n+1}\alpha^{n+1}=0,
+	\]
+	where $b_{n+1}\ne 0$. We can rewrite this as 
+	\[
+		\alpha^{n+1}=a_0+a_1\alpha+\cdots+a_n\alpha^n
+	\]
+	for some $a_0,\dots,a_n\in K$. 
+	Note that 
+	\[
+		\alpha^{k}=(x_1+\cdots+x_m)^{k}
+		=\sum x_{i_1}\cdots x_{i_{k}}
+	\]
+	for all $k$. 
+	Two words $x_{i_1}\cdots x_{i_{k}}$ and 
+	$x_{j_1}\cdots x_{j_{l}}$ could represent the same element of the group $H$. In this case, 
+	the coefficient of $x_{i_1}\cdots x_{i_{k}}=x_{j_1}\cdots x_{j_{l}}$ 
+	in $\alpha^{k}$ will be a positive integer $\geq2$. 
+ 
+        Let $w=x_{i_1}\cdots
+	x_{i_{n+1}}\in H$ be a word of length $n+1$. 
+		Since $K$
+	is of characteristic zero, it follows that $w\in\supp(\alpha^{n+1})$. Since, moreover,  
+	$\alpha^{n+1}=\sum_{j=0}^na_j\alpha^j$, it follows that 
+	$w\in\supp(\alpha^j)$ for some $j\in\{0,\dots,n\}$. Thus each
+	word in the letters $x_j$ of length $n+1$ can be written as a word in the letters $x_j$ of 
+	length $\leq n$. Therefore $H$ is finite and hence $G$ is locally finite. 
+\end{proof}
+
+
+\section{Formanek's theorem, I}
+
+We start with some exercises. 
+
+\begin{exercise}
+\label{xca:invertible_algebraic}
+	Let $K$ be a field. Let $A$ be a $K$-algebra algebraic over $K$ and $a\in A$.
+	\begin{enumerate}
+		\item $a$ is a left zero divisor if and only if $a$ is a right zero divisor.
+		\item $a$ is left invertible if and only if $a$ is right invertible.
+		\item $a$ is invertible if and only if $a$ is not a zero divisor.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\label{exa:norma}
+	For $\alpha=\sum_{g\in G}\alpha_gg\in\C[G]$ let $|\alpha|=\sum_{g\in
+	G}|\alpha_g|\in\R$. Prove the following statements:
+	\begin{enumerate}
+		%\item $|\trace(\alpha)|\leq |\alpha|$, 
+		\item $|\alpha+\beta|\leq|\alpha|+|\beta|$, and 
+		\item $|\alpha\beta|\leq|\alpha||\beta|$ 
+	\end{enumerate}
+	for all $\alpha,\beta\in\C[G]$.
+\end{exercise}
+
+\begin{theorem}[Formanek]
+	\label{thm:FormanekQ}
+	\index{Formanek's theorem}
+	Let $G$ be a group. If every element of $\Q[G]$ is invertible or 
+	a zero divisor, then $G$ is locally finite. 
+\end{theorem}
+
+\begin{proof}
+	Let $\{x_1,\dots,x_n\}$ be a finite subset of $G$. Adding inverses if needed, we may assume that 
+	$\{x_1,\dots,x_n\}$ generates the subgroup
+	$H=\langle x_1,\dots,x_n\rangle$ as a semigroup. Let 
+	\[
+		\alpha=\frac{1}{2n}(x_1+\cdots+x_n)\in\Q[G]
+	\]
+    Note that $|\alpha|\leq 1/2$. 
+	We claim that $1-\alpha\in\Q[G]$ is invertible. If not, then it is a zero divisor. If there exists 
+	$\delta\in\Q[G]$ such that $\delta(1-\alpha)=0$, then 
+	$\delta=\delta\alpha$. Since  
+	\[
+		|\delta|=|\delta\alpha|\leq|\delta||\alpha|\leq|\delta|/2,
+	\]
+	it follows that $\delta=0$. Similarly, $(1-\alpha)\delta=0$ implies
+	$\delta=0$. 
+	
+	Let $\beta=(1-\alpha)^{-1}\in\Q[G]$.  For each $k$ let  
+	\[
+		\gamma_k=(1+\alpha+\cdots+\alpha^k)-\beta.
+	\]
+	Then 
+	\begin{align*}
+		\gamma_k(1-\alpha)&=(1+\alpha+\cdots+\alpha^k-\beta)(1-\alpha)\\
+		&=(1+\alpha+\cdots+\alpha^k)(1-\alpha)-\beta(1-\alpha)=-\alpha^{k+1}
+	\end{align*}
+	and thus  
+	$\gamma_k=-\alpha^{k+1}\beta$. Since  
+	\[
+		|\gamma_k|=|-\alpha^{k+1}\beta|\leq|\beta||\alpha^{k+1}|\leq\frac{|\beta|}{2^{k+1}},
+	\]
+	it follows that $\lim_{k\to\infty}|\gamma_k|=0$. 
+
+	We now prove that $H\subseteq\supp\beta$. This will finish the proof of the theorem, 
+	as $\supp\beta$ is a finite subset of $G$ by definition. If
+	$H\not\subseteq\supp\beta$, let $h\in H\setminus\supp\beta$.  Assume that 
+    $h=x_{i_1}\cdots x_{i_m}$ is a word in the letters $x_j$ of length $m$. Let 
+    $c_j$ be the coefficient of $h$ in $\alpha^j$. Then $c_0+\cdots+c_k$ is the 
+	coefficient of $h$ in $\gamma_k$, but 
+	\[
+		|\gamma_k|\geq c_0+c_1+\cdots+c_k\geq c_m>0
+	\]
+	for all $k\geq m$, as each $c_j$ is non-negative, a contradiction to 
+	$|\gamma_k|\to 0$ if $k\to\infty$.
+\end{proof}
+
+
+
+\section{Tensor products}
+
+The \emph{tensor product} of the vector spaces (over $K$) $U$ and $V$ 
+is the quotient vector space $K[U\times V]/T$, where $K[U\times V]$ 
+is the vector space with basis 
+\[
+\{(u,v):u\in U,v\in V\}
+\]
+and $T$ is the subspace 
+generated by elements of the form 
+\[
+		(\lambda u+\mu u',v)-\lambda(u,v)-\mu(u',v),\quad
+		(u,\lambda v+\mu v')-\lambda(u,v)-\mu(u,v')
+	\]
+for $\lambda,\mu\in K$, $u,u'\in U$ and $v,v'\in V$.
+The tensor product of $U$ and $V$ will be denoted by $U\otimes_KV$ or 
+$U\otimes V$ when the base field is clear from the context. For $u\in U$ and 
+$v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
+
+\begin{theorem}
+	Let $U$ and $V$ be vector spaces. Then there exists a bilinear map 
+	\[
+    U\times V\to U\otimes V,\quad (u,v)\mapsto u\otimes v,
+    \]
+    such that 
+	each element of $U\otimes V$ is a finite sum of the form 
+	\[
+		\sum_{i=1}^N u_i\otimes v_i
+	\]
+	for some $u_1,\dots,u_N\in U$ and $v_1,\dots,v_N\in V$. 
+	Moreover, if $W$ is a vector space and 
+ \[
+ \beta\colon U\times V\to W
+ \]
+ is a bilinear map, 
+	there exists a linear map 
+	$\overline{\beta}\colon U\otimes V\to W$ such that $\overline{\beta}(u\otimes
+	v)=\beta(u,v)$ for all $u\in U$ and $v\in V$.
+\end{theorem}
+
+\begin{proof}
+    By definition, the map
+    \[
+	U\times V\to U\otimes V,\quad
+	(u,v)\mapsto u\otimes v,
+	\]
+	is bilinear. From the definitions, it follows that
+	$U\otimes V$ is a finite linear combination of elements of the form 
+	$u\otimes v$, where $u\in U$ and $v\in V$. Since $\lambda(u\otimes
+	v)=(\lambda u)\otimes v$ for all $\lambda\in K$, the first claim follows.
+
+	Since the elements of $U\times V$ form a basis of $K[U\times V]$, there exists
+	a linear map 
+	\[
+		\gamma\colon K[U\times V]\to W,\quad
+	\gamma(u,v)=\beta(u,v). 
+	\]
+	Since $\beta$ is bilinear by assumption, $T\subseteq\ker\gamma$. It follows that there exists 
+	a linear map $\overline{\beta}\colon U\otimes V\to
+	W$ such that  
+	\[
+	\begin{tikzcd}
+		K[U\times V] \arrow[r]\arrow[d] & W \\
+		U\otimes V\arrow[ur, dashrightarrow]
+	\end{tikzcd}
+	\]
+	commutes. In particular, $\overline{\beta}(u\otimes v)=\beta(u,v)$. 
+\end{proof}
+
+\begin{exercise}
+	\label{xca:tensorial_unicidad}
+	Prove that the properties of the previous theorem characterize tensor products up to isomorphism. 
+\end{exercise}
+
+Some properties:
+%Observemos
+%que todo elemento de $U\otimes V$ es una suma finita
+%de la forma 
+%\[
+%	\sum_{i=1}^N u_i\otimes v_i
+%\]
+%para $N\in\N$, $u_i\in U$ y $v_i\in V$. Esta expresión no es única. Vale además
+%que $u\otimes 0=0=0\otimes v$ para todo $u\in U$ y $v\in V$.
+
+\begin{proposition}
+	Let $\varphi\colon U\to U_1$ and $\psi\colon V\to V_1$ be linear maps. There
+	exists a unique linear map 
+	$\varphi\otimes\psi\colon U\otimes V\to U_1\otimes V_1$ such that
+	\[
+		(\varphi\otimes\psi)(u\otimes v)=\varphi(u)\otimes\psi(v)
+	\]
+	for all $u\in U$ and $v\in V$.
+\end{proposition}
+
+\begin{proof}
+	Since $U\times V\to U_1\otimes V_1$,
+	$(u,v)\mapsto\varphi(u)\otimes\psi(v)$, is bilinear, there exists a linear map
+	$U\otimes V\to U_1\otimes V_1$, $u\otimes
+	v\to\varphi(u)\otimes\psi(v)$. Thus 
+	\[
+		\sum u_i\otimes v_i\mapsto\sum\varphi(u_i)\otimes\psi(v_i)
+	\]
+	is well-defined. 
+\end{proof}
+
+\begin{exercise}
+    Prove the following statements:
+	\begin{enumerate}
+		\item $(\varphi\otimes\psi)(\varphi'\otimes\psi')=(\varphi\varphi')\otimes(\psi\psi')$.
+		\item If $\varphi$ and $\psi$ are isomorphisms, then 
+			$\varphi\otimes\psi$ is an isomorphism. 
+		\item $(\lambda\varphi+\lambda'\varphi')\otimes\psi=\lambda\varphi\otimes\psi+\lambda'\varphi'\otimes\psi$.
+		\item $\varphi\otimes(\lambda\psi+\lambda'\psi')=\lambda\varphi\otimes\psi+\lambda'\varphi\otimes\psi'$.
+		\item If $U\simeq U_1$ and $V\simeq V_1$, then $U\otimes V\simeq U_1\otimes V_1$.
+	\end{enumerate}
+\end{exercise}
+
+The following proposition is extremely useful:
+
+\begin{proposition}
+	If $U$ and $V$ are vector spaces, then  
+	$U\otimes V\simeq V\otimes U$.
+\end{proposition}
+
+\begin{proof}
+	Since $U\times V\to V\otimes U$, $(u,v)\mapsto v\otimes u$, is bilinear, there exists 
+	a linear map 
+    \[
+    U\otimes V\to V\otimes U,\quad u\otimes
+	v\mapsto v\otimes u.
+    \]
+    Similarly, there exists a linear map 
+	\[
+    V\otimes U\to U\otimes V,\quad  v\otimes u\mapsto
+	u\otimes v.
+    \]
+    Thus $U\otimes V\simeq V\otimes U$.
+\end{proof}
+
+\begin{exercise}
+	\label{xca:UxVxW}
+    Prove that $(U\otimes V)\otimes W\simeq U\otimes(V\otimes W)$.
+\end{exercise}
+
+\begin{exercise}
+	\label{xca:UxK}
+	Prove that $U\otimes K\simeq U\simeq K\otimes U$.
+\end{exercise}
+
+\begin{proposition}
+	\label{pro:U_LI}
+	Let $U$ and $V$ be vector spaces. 
+	If $\{u_1,\dots,u_n\}$ is a linearly independent subset of $U$ and 
+	$v_1,\dots,v_n\in V$ is such that $\sum_{i=1}^n u_i\otimes v_i=0$, then 
+    $v_i=0$ for all $i\in\{1,\dots,n\}$.
+\end{proposition}
+
+\begin{proof}
+	Let $i\in\{1,\dots,n\}$ and 
+	\[
+	f_i\colon U\to K,
+	\quad
+	f_i(u_j)=\delta_{ij}=\begin{cases}
+	1 & \text{if $i=j$},\\
+	0 & \text{otherwise}.
+	\end{cases}
+	\]
+	Since the map 
+ \[
+ U\times V\to V,\quad (u,v)\mapsto f_i(u)v,
+ \]
+ is bilinear, there exists 
+	a linear map 
+	$\alpha_i\colon U\otimes V\to V$ such that $\alpha_i(u\otimes
+	v)=f_i(u)v$. Thus
+	\[
+		v_i=\sum_{j=1}^n\alpha_i(u_j\otimes v_j)=\alpha_i\left(\sum_{j=1}^nu_j\otimes v_j\right)=0.\qedhere
+	\]
+\end{proof}
+
+\begin{exercise}
+	\label{xca:uxv=0}
+	Prove that $u\otimes v=0$ and $v\ne 0$ imply $u=0$.
+\end{exercise}
+
+\begin{theorem}
+    Let $U$ and $V$ be vector spaces. 
+	If $\{u_i:i\in I\}$ is a basis of $U$ and $\{v_j:j\in J\}$ is a basis of $V$, then 
+	$\{u_i\otimes v_j:i\in I,j\in J\}$ is a basis of $U\otimes
+	V$.
+\end{theorem}
+
+\begin{proof}
+	The $u_i\otimes v_j$ are generators of $U\otimes V$, as  
+    $u=\sum_i\lambda_iu_i$ and $v=\sum_j\mu_jv_j$ imply 
+	\[
+    u\otimes v=\sum_{i,j}\lambda_i\mu_ju_i\otimes v_j.
+    \]
+	We now prove that the $u_i\otimes v_j$ are linearly independent. We need to show that
+	each finite subset of the $u_i\otimes v_j$
+	is linearly independent. If $\sum_k\sum_l\lambda_{kl}u_{i_k}\otimes
+	v_{j_l}=0$, then 
+	\[
+0=\sum_{k}u_{i_k}\otimes\left(\sum_{l}\lambda_{kl}v_{j_l}\right).\]
+    Since  
+	the $u_{i_k}$ are linearly independent, Proposition~\ref{pro:U_LI}
+	implies that $\sum_{l}\lambda_{kl}v_{j_l}=0$. Thus $\lambda_{kl}=0$ for all 
+	$k,l$, as the $v_{j_l}$ are linearly independent. 
+\end{proof}
+
+If $U$ and $V$ are finite-dimensional vector spaces, then 
+\[
+	\dim(U\otimes V)=(\dim U)(\dim V).
+\]
+
+\begin{corollary}
+	If $\{u_i:i\in I\}$ is a basis of $U$, then every element of $U\otimes V$
+	can be written uniquely as a finite sum $\sum_{i}u_i\otimes v_i$.
+\end{corollary}
+
+\begin{proof}
+	Every element of the tensor product $U\otimes V$ is a finite sum 
+	of the form $\sum_i x_i\otimes y_i$, where $x_i\in U$ and $y_i\in V$. If  
+	$x_i=\sum_j\lambda_{ij}u_j$, then 
+	\[
+		\sum_i x_i\otimes y_i=\sum_i\left(\sum_j\lambda_{ij}u_j\right)\otimes y_i		
+		=\sum_j u_j\otimes\left(\sum_i\lambda_{ij}y_i\right).\qedhere 
+	\]
+\end{proof}
+
+%\begin{corollary}
+%	Todo elemento no nulo de $U\otimes V$ puede escribirse como una suma finita
+%	$\sum_{i=1}^N u_i\otimes v_i$ para un conjuntos $\{u_i:1\leq i\leq
+%	N\}\subseteq U$ y $\{v_i:1\leq i\leq N\}\subseteq V$ linealmente
+%	independientes.
+%\end{corollary}
+%
+%\begin{proof}
+%	tomar $N$ minimal	
+%\end{proof}
+
+\begin{exercise}
+\label{xca:tensor_algebras}
+    Let $A$ and $B$ be algebras. Prove that $A\otimes B$ 
+    is an algebra with 
+	\[
+		(a\otimes b)(x\otimes y)=ax\otimes by.
+	\]
+\end{exercise}
+
+% \begin{proof}
+% 	Para $x\in A$, $y\in B$ consideramos $R_x\otimes R_y\in\End_K(A\otimes B)$.
+% 	Como la función $A\times B\to\End_K(A\otimes B)$, $(x,y)\mapsto R_x\otimes
+% 	R_y$, es bilineal, existe una función lineal $\varphi\colon A\otimes
+% 	B\to\End_K(A\otimes B)$, $\varphi(x\otimes y)=R_x\otimes R_y$. Para $u,v\in A\otimes B$ definimos
+% 	\[
+% 		uv=\varphi(v)(u).
+% 	\]
+% 	Esta operación es bilineal pues por ejemplo
+% 	\[
+% 		u(v+w)=\varphi(v+w)(u)=(\varphi(v)+\varphi(w))(u)=\varphi(v)(u)+\varphi(w)(u)=uv+uw.
+% 	\]
+% 	Además
+% 	$(a\otimes b)(x\otimes y)=\varphi(x\otimes y)(a\otimes b)=(R_x\otimes R_y)(a\otimes b)=ax\otimes by$.
+% 	Un cálculo sencillo muestra que este producto es asociativo.
+% \end{proof}
+
+\begin{exercise}
+    Let $K$ be a field and $A,B,C$ be $K$-algebras. 
+    Prove the following statements:
+	\begin{enumerate}
+		\item $A\otimes B\simeq B\otimes A$.
+		\item $(A\otimes B)\otimes C\simeq A\otimes(B\otimes C)$.
+		\item $A\otimes K\simeq A\simeq K\otimes A$.
+		\item If $A\simeq A_1$ and $B\simeq B_1$, then $A\otimes B\simeq A_1\otimes B_1$.
+	\end{enumerate}
+\end{exercise}
+
+Some examples:
+
+\begin{proposition}
+	If $G$ and $H$ are groups, then $K[G]\otimes K[H]\simeq K[G\times H]$.
+\end{proposition}
+
+\begin{proof}
+	The set $\{g\otimes h:g\in G,h\in H\}$ is a basis of $K[G]\otimes K[H]$ and 
+	the elements of $G\times H$ form a basis of $K[G\times H]$. There exists a linear isomorphism 
+	\[
+	K[G]\otimes K[H]\to K[G\times H], 
+	\quad 
+	g\otimes h\mapsto (g,h),
+	\]
+	that is multiplicative. Thus $K[G]\otimes K[H]\simeq K[G\times H]$
+	as algebras. 
+\end{proof}
+
+\begin{proposition}
+\label{pro:AKX=AX}
+	If $A$ is an algebra, then $A\otimes K[X]\simeq A[X]$.	
+\end{proposition}
+
+\begin{proof}
+	Each element of the tensor product $A\otimes K[X]$ can be written uniquely as a finite sum of
+	the form $\sum a_i\otimes X^i$. Routine calculations show that 
+	$A\otimes K[X]\mapsto A[X]$, $\sum a_i\otimes X^i\mapsto \sum a_iX^i$, is a 
+	linear algebra isomorphism. 
+\end{proof}
+
+\begin{exercise}
+\label{xca:AM=MA}
+	Prove that if $A$ is an algebra, then $A\otimes M_n(K)\simeq M_n(A)$. In
+	particular, $M_n(K)\otimes M_m(K)\simeq M_{nm}(K)$.
+\end{exercise}
+
+Proposition \ref{pro:AKX=AX} and Exercise \ref{xca:AM=MA} 
+are examples of a procedure known as \emph{scalar extensions}. 
+
+\begin{theorem}
+\label{thm:extensions_scalars}
+	Let $A$ be an algebra over $K$ and $E$ be an extension of $K$ (this just simply means that
+	$K$ is a subfield of $E$). Then 
+	$A^E=E\otimes_KA$ is an algebra over $E$ with respect to
+	the scalar multiplication 
+	\[
+		\lambda(\mu\otimes a)=(\lambda\mu)\otimes a,
+	\]
+	for all $\lambda,\mu\in E$ and $a\in A$.
+\end{theorem}
+
+\begin{proof}
+	Let $\lambda\in E$. Since $E\times A\to E\otimes_KA$,
+	$(\mu,a)\mapsto (\lambda\mu)\otimes a$, is $K$-bilinear, there exists 
+	a linear map $E\otimes_KA\to E\otimes_KA$, $\mu\otimes a\mapsto
+	(\lambda\mu)\otimes a$. The scalar multiplication is then well-defined and 
+	\[
+	\lambda(u+v)=\lambda u+\lambda v
+	\]
+	for all $\lambda\in E$ and $u,v\in E\otimes_KA$. Moreover, 
+	\[
+	(\lambda+\mu)u=\lambda u+\mu u,
+	\quad
+	(\lambda\mu)u=\lambda(\mu u),
+	\quad
+	\lambda(uv)=(\lambda u)v=u(\lambda v)
+	\]
+	for all $u,v\in E\otimes_KA$ and $\lambda,\mu\in E$.
+\end{proof}
+
+\begin{exercise}
+    Prove the following statements:
+    \begin{enumerate}
+		\item $\{1\}\otimes A$ is a subalgebra of $A^E$ isomorphic to $A$.
+		\item If $\{a_i:i\in I\}$ is a basis of $A$, then $\{1\otimes a_i:i\in
+			I\}$ is a basis of $A^E$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Prove that if $G$ is a group and $K$ is a subfield of $E$, then
+	\[
+	E\otimes_K K[G]\simeq E[G].
+	\]
+\end{exercise}
+
+\section{Formanek's theorem, II}
+
+The combination of technique known as extensions of scalars we have seen in the previous section
+and Formanek's theorem for rational group algebras 
+yield the following general result. 
+
+\begin{theorem}[Formanek]
+	\index{Formanek's theorem}
+	Let $K$ be a field of characteristic zero and let $G$ be a group. 
+	If every element of $K[G]$ is invertible or a zero divisor, 
+	then $G$ is locally finite. 
+\end{theorem}
+
+\begin{proof}
+	Since $K$ is of characteristic zero, $\Q\subseteq K$. Then $K[G]\simeq
+	K\otimes_{\Q}\Q[G]$. Note that each $\beta\in K\otimes_{\Q}\Q[Q]$ can be written
+	uniquely as 
+	\[
+		\beta=1\otimes\beta_0+\sum k_i\otimes\beta_i,
+	\]
+	where $\{1,k_1,k_2,\dots,\}$ is a basis of $K$ as a $\Q$-vector space. 
+	Let $\alpha\in\Q[G]\subseteq K[G]$. By assumption, every element of $K[G]$ is 
+    invertible or a zero divisor. Assume first that $\alpha$ is invertible. 
+    Let $\beta\in K[G]\simeq K\otimes_{\Q}\Q[Q]$ be such that $\alpha\beta=1$. Since
+	\[
+	1\otimes 1=(1\otimes\alpha)\beta=1\otimes \alpha\beta_0+\sum k_i\otimes \alpha\beta_i,
+	\]
+	it follows that $\alpha\beta_0=1$. Thus $\alpha$ is invertible in $\Q[G]$. Similarly, if
+    $\alpha$ is a zero divisor, then 
+	$\alpha\beta=0$ and $\alpha\beta_j=0$ for all $j$. Thus $\alpha$ is a zero divisor in $\Q[G]$. 
+    Hence 
+	each $\alpha\in\Q[G]$ is invertible or a zero divisor, so Formanek's theorem 
+	for $\Q$ applies.
+\end{proof}
+
+

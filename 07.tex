@@ -1,0 +1,1353 @@
+\section{Passman's theorem}
+\label{section:Passman}
+
+% We now describe some other well-known problems
+% in the theory of group rings.
+
+\index{Trivial units in group algebras}
+Let $K$ be a field and $G$ be a group. A unit $u\in K[G]$ is said
+to be \emph{trivial} if $u=\lambda g$ for some $\lambda\in K\setminus\{0\}$ an
+d
+$g\in G$.
+
+\begin{exercise}
+\label{xca:non_trivial:C2andC5}
+        Prove that $\C[C_2]$ and $\C[C_5]$ have non-trivial units.
+\end{exercise}
+
+The following question is usually attributed to Kaplansky.
+
+\begin{question}[Units in groups algebras]
+        \label{question:units}
+        Let $K$ be a field and $G$ be a torsion-free group. Is it true that all
+        units of $K[G]$ are
+        trivial?
+\end{question}
+
+Question \ref{question:units} was negatively answered by Gardam.
+
+\begin{graybox}
+  \project
+  \begin{theorem}[Gardam]
+    \label{thm:Gardam_char2}
+    \index{Gardam's theorem}
+    Let $\F_2$ be the field of two elements. Consider the elements
+    $x=a^2$, $y=b^2$ and $z=(ab)^2$ of $P$ and let
+    \begin{align*}
+        &p=(1+x)(1+y)(1+z^{-1}),
+        &&q = x^{-1}y^{-1}+x+y^{-1}z+z,\\
+        &r = 1+x+y^{-1}z+xyz,
+        &&s=1+(x+x^{-1}+y+y^{-1})z^{-1}.
+    \end{align*}
+    Then $u=p+qa+rb+sab$ is a non-trivial unit in $\F_2[P]$.
+  \end{theorem}
+
+  \begin{proof}
+    See \cite{MR4334981}.
+  \end{proof}
+  % Also for F_p and cyclotomics. 
+\end{graybox}
+
+\begin{definition}
+\index{Ring!reduced}
+A ring $R$ is \emph{reduced} if for all $r\in R$ such that 
+$r^2=0$ one has $r=0$.
+\end{definition}
+
+Integral domains and boolean rings are reduced. The ring $\Z/8$ of integers
+modulo eight 
+and $M_2(\R)$ are not reduced. 
+
+\begin{example}
+    The ring over the abelian group $\Z^n$ with multiplication  \[
+    (a_1,\dots,a_n)(b_1,\dots,b_n)=(a_1b_1,\dots,a_nb_n)\]
+    is reduced. 
+\end{example}
+
+The structure of 
+reduced rings is described by the 
+Andrunakevic--Rjabuhin theorem. It states
+that a ring is reduced if and only if
+it is a subdirect products of domains. See
+\cite[3.20.5]{MR2015465} for a proof. 
+
+\begin{question}[Reduced group algebras]
+	\label{question:reduced}
+	Let $K$ be a field and $G$ be a torsion-free group. Is it true that 
+	$K[G]$ is reduced? 
+\end{question}
+
+Recall that if $R$ is a unitary ring, one proves that 
+the Jacobson radical $J(R)$ is 
+the set of elements $x$ such that
+$1+\sum_{i=1}^n r_ixs_i$ is invertible 
+for all $n$ and all $r_i,s_i\in R$.
+
+\begin{question}[Semisimple group algebras]
+	\label{question:J}
+	Let $K$ be a field and $G$ be a torsion-free group. It is true that 
+	$J(K[G])=\{0\}$ if $G$ is non-trivial?
+\end{question}
+
+\index{Idempotent}
+Recall that an element $e$ of a ring is said to be \emph{idempotent} 
+if $e^2=e$. Examples of idempotents are $0$ and $1$ and 
+these are known as the \emph{trivial idempotents}. 
+
+\begin{question}[Idempotents in group algebras]
+	\label{question:idempotente}
+	Let $G$ be a torsion-free group and $\alpha\in K[G]$ be an idempotent. 
+	Is it true that $\alpha\in\{0,1\}$?
+\end{question}
+
+\begin{exercise}
+	Prove that if $K[G]$ has no zero-divisors and $\alpha\in K[G]$ is an
+	idempotent, then $\alpha\in\{0,1\}$.
+\end{exercise}
+
+\begin{exercise}
+    Let $K$ be a field of characteristic two. 
+	Prove that $K[C_4]$ contains non-trivial zero divisors and every
+	idempotent of $K[C_4]$ is trivial. What happens if the characteristic of $K$ is not two?
+\end{exercise}
+
+For completeness, let us 
+recall the following important question. 
+%restate Conjecture~\ref{conjecture:zero} as follows:
+
+\begin{question}[Zero divisors in group algebras]
+    \label{question:zero}
+ 	Let $K$ be a field and 
+  $G$ be a torsion-free group. Is it true that 
+ 	$K[G]$ is a domain?
+\end{question}
+
+Our goal is the prove
+the following implications:
+\[
+\ref{question:J}\Longleftarrow\ref{question:units}
+\Longrightarrow\ref{question:reduced}
+\Longleftrightarrow\ref{question:zero}
+\]
+
+We first prove that an affirmative solution to Question~\ref{question:units} 
+yields a solution to Question~\ref{question:reduced}. 
+
+\begin{theorem}
+\label{thm:units=>reduced}
+    Let $K$ be a field of characteristic $\ne2$ 
+	and $G$ be a non-trivial group. Assume that $K[G]$ has only trivial units.
+	Then $K[G]$ is reduced. 
+\end{theorem}
+
+\begin{proof}
+	Let $\alpha\in K[G]$ be such that $\alpha^2=0$. We claim that 
+	$\alpha=0$. Since $\alpha^2=0$, 
+	\[
+		(1-\alpha)(1+\alpha)=1-\alpha^2=1, 
+	\]
+	it follows that $1-\alpha$ is a unit of $K[G]$. Since units of $K[G]$ are 
+	trivial, there exist $\lambda\in K\setminus\{0\}$ and $g\in G$ such that 
+	$1-\alpha=\lambda g$. We claim that $g=1$. If not, 
+	\[
+		0=\alpha^2=(1-\lambda g)^2=1-2\lambda g+\lambda^2g^2,
+	\]
+	a contradiction. Therefore $g=1$ and hence $\alpha=1-\lambda\in K$. Since
+	$K$ is a field, one concludes that $\alpha=0$.
+\end{proof}
+
+\begin{exercise}
+    What happens in Theorem \ref{thm:units=>reduced} if $K$ is a field of characteristic two?
+\end{exercise}
+
+We now prove that an affirmative solution to Question~\ref{question:units} 
+also yields a solution to Question~\ref{question:J}. 
+
+\begin{theorem}
+	Let $K$ be a field and $G$ be a non-trivial group. Assume that $K[G]$ has only trivial units. 
+	If $|K|>2$ or $|G|>2$, then $J(K[G])=\{0\}$.
+\end{theorem}
+
+\begin{proof}
+	Let $\alpha\in J(K[G])$. There exist $\lambda\in K\setminus\{0\}$ and $g\in
+	G$ such that $1-\alpha=\lambda g$. We claim that $g=1$. Assume $g\ne 1$. 
+	If $|K|\geq3$,
+	then there exist $\mu\in K\setminus\{0,1\}$ such that
+	\[
+		1-\alpha\mu=1-\mu+\lambda\mu g 
+	\]
+	is a non-trivial unit, a contradiction.
+	If $|G|\geq3$, there exists $h\in G\setminus\{1,g^{-1}\}$ such that
+	\[
+        1-\alpha h=1-h+\lambda gh
+    \]
+    is a non-trivial unit, a contradiction.  Thus
+	$g=1$ and hence $\alpha=1-\lambda\in K$. Therefore $1+\alpha h$ is a
+	trivial unit for all $h\ne 1$ and hence 	$\alpha=0$.
+\end{proof}
+
+\begin{exercise}
+	Prove that if $G=\langle g\rangle\simeq\Z/2$, then 
+	$J(\F_2[G])=\{0,g-1\}\ne\{0\}$. 
+\end{exercise}
+
+
+We now want to prove that an affirmative answer to 
+Question~\ref{question:reduced} yields an affirmative answer to Question~\ref{question:zero}. We first need some preliminaries. 
+
+For a group $G$ we consider
+\[
+        \Delta(G)=\{g\in G:(G:C_G(g))<\infty\}.
+\]
+
+\begin{exercise}
+    Prove that $\Delta(\Delta(G))=\Delta(G)$.
+\end{exercise}
+
+\begin{proposition}
+    If $G$ is a group, then $\Delta(G)$
+    is a characteristic subgroup of $G$.
+\end{proposition}
+
+\begin{proof}
+        We first prove that $\Delta(G)$ is a subgroup of $G$. If $x,y\in\Delta(G)$
+        and $g\in G$, then 
+        \[
+        g(xy^{-1})g^{-1}=(gxg^{-1})(gyg^{-1})^{-1}.
+        \]
+        Moreover,
+        $1\in\Delta(G)$. Let us show now that $\Delta(G)$ is characteristic in $G$. If
+        $f\in\Aut(G)$ and $x\in G$, then, since
+        \[
+        f(gxg^{-1})=f(g)f(x)f(g)^{-1},
+        \]
+        it follows that $f(x)\in\Delta(G)$.
+\end{proof}
+
+
+\begin{exercise}
+        Prove that if $G=\langle r,s:s^2=1,srs=r^{-1}\rangle$ is the
+        infinite dihedral group, then $\Delta(G)=\langle r\rangle$.
+\end{exercise}
+
+The following exercise uses the transfer map and
+is need 
+in Proposition \ref{pro:FCabeliano}. 
+
+\begin{exercise}
+        \label{xca:center}
+        If $G$ is a group such that $Z(G)$ has finite index $n$, then
+        $(gh)^n=g^nh^n$ for all $g,h\in G$.
+\end{exercise}
+
+\begin{proposition}
+	\label{pro:FCabeliano}
+	If $G$ is a torsion-free group such 
+	that $\Delta(G)=G$, then $G$ is abelian.
+\end{proposition}
+
+\begin{proof}
+	Let $x,y\in G=\Delta(G)$ and $S=\langle x,y\rangle$. The group $Z(S)=C_S(x)\cap C_S(y)$ has 
+	finite index, say $n$, in $S$. By Exercise~\ref{xca:center}, 
+	the map $S\to Z(S)$, $s\mapsto s^n$, is a group homomorphism. Thus  
+	\[
+		[x,y]^n=(xyx^{-1}y^{-1})^n=x^ny^nx^{-n}y^{-n}=1
+	\]
+	as $x^n\in Z(S)$. Since $G$ is torsion-free, $[x,y]=1$.
+\end{proof}
+
+\begin{lemma}[Neumann]
+	\index{Neumann's!lemma}
+	\label{lem:Neumann}
+	Let $H_1,\dots,H_m$ be subgroups of $G$. 
+	Assume there are finitely many elements
+	$a_{ij}\in G$, $1\leq i\leq m$, $1\leq j\leq n$, such that 
+	\[
+		G=\bigcup_{i=1}^m\bigcup_{j=1}^n H_ia_{ij}.
+	\]
+	Then some $H_i$ has finite index in $G$.
+\end{lemma}
+
+\begin{proof}
+	We proceed by induction on $m$. The case $m=1$ is trivial. 
+	Let us assume that $m\geq2$. If $(G:H_1)=\infty$, there exists $b\in G$
+	such that 
+	\[
+		H_1b\cap\left(
+	\bigcup_{j=1}^nH_1a_{1j}\right)=\emptyset.
+	\]
+	Since $H_1b\subseteq\bigcup_{i=2}^m\bigcup_{j=1}^n H_ia_{ij}$, 
+	it follows that 
+	\[
+		H_1a_{1k}\subseteq \bigcup_{i=2}^m\bigcup_{j=1}^n H_ia_{ij}b^{-1}a_{1k}.
+	\]
+	Hence $G$ can be covered by finitely many cosets of $H_2,\dots,H_m$. By the inductive hypothesis, 
+	some of these $H_j$ has finite index in $G$.
+\end{proof}
+
+We now consider a projection operator of group algebras. If $G$ 
+is a group and $H$ is a subgroup of $G$, let 
+\[
+	\pi_H\colon K[G]\to K[H],\quad
+	\pi_H\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in H}\lambda_gg.
+\]
+
+If $R$ and $S$ are rings, a $(R,S)$-bimodule is an abelian group
+$M$ that is both a left $R$-module and a right $S$-module 
+and the compatibility condition 
+\[
+(rm)s = r(ms)
+\]
+holds for all $r\in R$, $s\in S$ and $m\in M$.
+
+\begin{exercise}
+	Let $G$ be a group and $H$ be a subgroup of $G$. Prove that
+	if $\alpha\in
+	K[G]$, then $\pi_H$ is a $(K[H],K[H])$-bimodule homomorphism
+	with usual left and right multiplications,
+	\[
+		\pi_H(\beta\alpha\gamma)=\beta\pi_H(\alpha)\gamma
+	\]
+	for all $\beta,\gamma\in K[H]$.
+\end{exercise}
+
+%\begin{proof}
+%	Supongamos que $\alpha=\sum_{g\in G}\lambda_gg=\alpha_1+\alpha_2$, donde
+%	$\alpha_1=\sum_{g\not\in H}\lambda_gg$ y $\alpha_2=\sum_{g\in
+%	H}\lambda_gg=\pi_H(\alpha)$. Entonces
+%	$\beta\alpha\gamma=\beta\alpha_1\gamma+\beta\alpha_2\gamma$, donde
+%	$\beta\alpha_1\gamma\not\in K[H]$ y $\beta\alpha_2\gamma\in K[H]$.
+%\end{proof}
+
+\begin{lemma}
+	\label{lem:escritura}
+	Let $X$ be a left transversal of $H$ in $G$. Every $\alpha\in K[G]$ can be written
+	uniquely as 
+	\[
+	\alpha=\sum_{x\in X}x\alpha_x,
+	\]
+	where $\alpha_x=\pi_H(x^{-1}\alpha)\in K[H]$.
+\end{lemma}
+
+\begin{proof}
+	Let $\alpha\in K[G]$. Since $\supp\alpha$ is finite, $\supp\alpha$ is contained 
+    in finitely many cosets of $H$, say $x_1H,\dots,x_nH$, where each 
+	$x_j$ belongs to $X$. Write $\alpha=\alpha_1+\cdots+\alpha_n$,
+	where $\alpha_i=\sum_{g\in x_iH}\lambda_gg$. If $g\in x_iH$, then 
+	$x_i^{-1}g\in H$ and hence 
+	\[
+		\alpha=\sum_{i=1}^n x_i(x_i^{-1}\alpha_i)=\sum_{x\in X}x\alpha_x
+	\]
+	with $\alpha_x\in K[H]$ for all $x\in X$. For the uniqueness, note that 
+	for each  $x\in X$ the previous exercise implies that  
+	\[
+		\pi_H(x^{-1}\alpha)
+		=\pi_H\left(\sum_{y\in X}x^{-1}y\alpha_y\right)
+		=\sum_{y\in X}\pi_H(x^{-1}y)\alpha_y=\alpha_x, 
+	\]
+	as  
+	\[
+		\pi_H(x^{-1}y)=\begin{cases}
+		1 & \text{if $x=y$},\\
+		0 & \text{if $x\ne y$}.
+	\end{cases}\qedhere 
+	\]
+\end{proof}
+
+\begin{lemma}
+	\label{lem:ideal_pi}
+	Let $G$ be a group and $H$ be a subgroup of $G$. If $I$ is a non-zero 
+	left ideal
+	of $K[G]$, then  $\pi_H(I)\ne\{0\}$.
+\end{lemma}
+
+\begin{proof}
+	Let $X$ be a left transversal of $H$ in $G$ and $\alpha\in I\setminus\{0\}$. By Lemma
+	\ref{lem:escritura} we can write $\alpha=\sum_{x\in
+	X}x\alpha_x$ with $\alpha_x=\pi_H(x^{-1}\alpha)\in K[H]$ for all $x\in X$.
+	Since $\alpha\ne0$, there exists $y\in X$ such that $0\ne
+	\alpha_y=\pi_H(y^{-1}\alpha)\in\pi_H(I)$ ($y^{-1}\alpha\in I$ since $I$ is 
+    a left ideal).
+\end{proof}
+
+Lemma \ref{lem:ideal_pi} 
+can also be proved directly, without using Lemma~\ref{lem:escritura}. The proof goes as follows: if $\alpha\ne 0$, then by taking $g$ in the
+support of $\alpha$, we have that $\pi_H (g^{-1}\alpha)\ne0$. 
+
+\begin{exercise}
+	Let $G$ be a group, $H$ be a subgroup of $G$ and $\alpha\in K[H]$. The following statements hold:
+	\begin{enumerate}
+		\item $\alpha$ is invertible in $K[H]$ if and only if $\alpha$ is
+			invertible in $K[G]$.
+		\item $\alpha$ is a zero divisor of $K[H]$ if and only if $\alpha$ is  
+			a zero divisor of $K[G]$.
+	\end{enumerate}
+\end{exercise}
+
+% \begin{sol}
+% 	If $\alpha$ is invertible in $K[G]$, there exists $\beta\in K[G]$ such that 
+% 	$\alpha\beta=\beta\alpha=1$. Apply $\pi_H$ and use that $\pi_H$ 
+% 	is a $(K[H],K[H])$-bimodule homomorphism to obtain  
+% 	\[
+% 		\alpha\pi_H(\beta)=\pi_H(\alpha\beta)=\pi_H(1)=1=\pi_H(1)=\pi_H(\beta\alpha)=\pi_H(\beta)\alpha.
+% 	\]
+	
+% 	Assume now that $\alpha\beta=0$ for some $\beta\in K[G]\setminus\{0\}$. Let $g\in G$
+% 	be such that $1\in\supp(\beta g)$. Since $\alpha(\beta g)=0$, 
+% 	\[
+% 		0=\pi_H(0)=\pi_H(\alpha(\beta g))=\alpha\pi_H(\beta g),
+% 	\]
+% 	where $\pi_H(\beta g)\in K[H]\setminus\{0\}$, as $1\in\supp(\beta g)$. 
+% \end{sol}
+
+\begin{lemma}[Passman]
+	\index{Passman's!lemma}
+	\label{lem:Passman}
+	Let $G$ be a group and $\gamma_1,\gamma_2\in K[G]$ be such that 
+  \[ 
+    \gamma_1K[G]\gamma_2=\{0\}.
+  \]
+	Then $\pi_{\Delta(G)}(\gamma_1)\pi_{\Delta(G)}(\gamma_2)=\{0\}$.
+\end{lemma}
+
+\begin{proof}
+	It is enough to show that $\pi_{\Delta(G)}(\gamma_1)\gamma_2=\{0\}$, 
+	as in this case
+	\[
+		\{0\}=\pi_{\Delta(G)}(\pi_{\Delta(G)}(\gamma_1)\gamma_2)=\pi_{\Delta}(\gamma_1)\pi_{\Delta(G)}(\gamma_2).
+	\]
+	Write $\gamma_1=\alpha_1+\beta_1$, where 
+	\begin{align*}
+		&\alpha_1=a_1u_1+\cdots+a_ru_r, && u_1,\dots,u_r\in\Delta(G),\\
+		&\beta_1=b_1v_1+\cdots+b_sv_s, && v_1,\dots,v_s\not\in\Delta(G),\\
+		&\gamma_2=c_1w_1+\cdots+c_tw_t,&& w_1,\dots,w_t\in G.
+	\end{align*}
+	The subgroup $C=\bigcap_{i=1}^rC_G(u_i)$ has finite index in $G$.
+	Assume that 
+	\[
+		0\ne \pi_{\Delta}(\gamma_1)\gamma_2=\alpha_1\gamma_2. 
+	\]
+	Let $g\in\supp(\alpha_1\gamma_2)$. 
+	If $v_i$ is a conjugate in $G$ of some 
+	$gw_j^{-1}$, let $g_{ij}\in G$ be such that
+	$g_{ij}^{-1}v_ig_{ij}=gw_j^{-1}$. If $v_i$ and $gw_j^{-1}$ 
+	are not conjugate, 
+	we take $g_{ij}=1$. 
+
+	For every $x\in C$ it follows that
+	$\alpha_1\gamma_2=(x^{-1}\alpha_1x)\gamma_2$. Since  
+	\[
+		x^{-1}\gamma_1x\gamma_2\in x^{-1}\gamma_1K[G]\gamma_2=0,
+	\]
+	it follows that
+	\begin{align*}
+		(a_1u_1+\cdots+a_ru_r)\gamma_2&=
+		\alpha_1\gamma_2=x^{-1}\alpha_1x\gamma_2=-x^{-1}\beta_1x\gamma_2\\
+		&=-x^{-1}(b_1v_1+\cdots+b_sv_r)x(c_1w_1+\cdots+c_tw_t).
+	\end{align*}
+	Now $g\in\supp(\alpha_1\gamma_2)$ implies that there exist $i,j$ such that
+	$g=x^{-1}v_ixw_j$.
+	Thus $v_i$ and $gw_j^{-1}$ are conjugate and hence
+	$x^{-1}v_ix=gw_j^{-1}=g_{ij}^{-1}v_ig_{ij}$, that is
+	$x\in C_G(v_i)g_{ij}$. This proves that 
+	\[
+		C\subseteq\bigcup_{i,j}C_G(v_i)g_{ij}. 
+	\]
+	Since $C$ has finite index in $G$, it follows that 
+	$G$ can be covered by finitely many cosets of 
+	the $C_G(v_i)$. Every $v_i\not\in\Delta(G)$, so 
+	each $C_G(v_i)$ has infinite index in $G$, a contradiction 
+	to Neumann's lemma.
+\end{proof}
+
+
+\begin{exercise}
+    Let $K$ be a field and $G$ be a torsion-free abelian group. Prove that 
+    $K[G]$ has no non-zero divisors. 
+\end{exercise}
+
+
+\begin{theorem}[Passman]
+\index{Passman's!theorem}
+\label{thm:Passman}
+	Let $K$ be a field and $G$ be a torsion-free group. If 
+	$K[G]$ is reduced, then $K[G]$ is a domain.
+\end{theorem}
+
+\begin{proof}
+	Assume that $K[G]$ is not a domain. Let $\gamma_1,\gamma_2\in K[G]\setminus\{0\}$
+	be such that $\gamma_2\gamma_1=0$. If $\alpha\in K[G]$, then
+	\[
+		(\gamma_1\alpha\gamma_2)^2=\gamma_1\alpha\gamma_2\gamma_1\alpha\gamma_2=0
+	\]
+	and thus $\gamma_1\alpha\gamma_2=0$, as $K[G]$ is reduced. In particular, 
+	$\gamma_1K[G]\gamma_2=\{0\}$. Let $I$ be the left ideal of $K[G]$ generated 
+	by $\gamma_2$. Since $I\ne\{0\}$, it follows
+	from Lemma~\ref{lem:ideal_pi} that 
+	$\pi_{\Delta(G)}(I)\ne\{0\}$. Hence 
+	$\pi_{\Delta(G)}(\beta\gamma_2)\ne\{ 0\}$ for some $\beta\in K[G]$. 
+	Similarly, 
+	$\pi_{\Delta(G)}(\gamma_1\alpha)\ne\{ 0\}$ for some $\alpha\in K[G]$. Since 
+	\[
+		\gamma_1\alpha K[G]\beta\gamma_2\subseteq \gamma_1 K[G]\gamma_2=\{0\},
+	\]
+    it follows that $\pi_{\Delta(G)}(\gamma_1\alpha)\pi_{\Delta(G)}(\beta\gamma_2)=\{0\}$
+    by Passman's lemma. Hence $K[\Delta(G)]$ has zero divisors, a contradictions
+    since $\Delta(G)$ is an abelian group.
+\end{proof}
+
+
+\begin{graybox}
+\project
+\section{Bi-ordered groups}
+
+%Based on Example~\ref{example:k[Z]} we will study 
+%some properties of groups. 
+
+Recall that a \emph{total order} is a partial order in which any two elements are comparable. This
+means that a total order is a binary relation $\leq$ on some set $X$ 
+such that for all $x,y,z\in X$ one has 
+the following properties: 
+\begin{enumerate}
+    \item $x\leq x$.
+    \item $x\leq y$ and $y\leq z$ imply $x\leq z$.
+    \item $x\leq y$ and $y\leq x$ imply $x=y$.
+    \item $x\leq y$ or $y\leq x$. 
+\end{enumerate}
+A set equipped with a total order is a \emph{totally ordered set}. 
+
+\begin{definition}
+	\index{Group!bi-ordered}
+	A group $G$ is \emph{bi-ordered} if there exists a total order 
+	$<$ in $G$
+	such that $x<y$ implies that $xz<yz$ and $zx<zy$ for all $x,y,z\in G$.
+\end{definition}
+
+\begin{example}
+	The group $\R_{>0}$ of positive real numbers is bi-ordered. 
+\end{example}
+
+The multiplicative group $\R\setminus\{0\}$ is not bi-ordered. Why?
+
+\begin{xca}
+	Let $G$ be a bi-ordered group and $x,x_1,y,y_1\in G$. Prove that
+	$x<y$ and $x_1<y_1$ imply $xx_1<yy_1$.
+\end{xca}
+
+Clearly, bi-orderability is preserved under taking subgroups. 
+
+\begin{xca}
+	Let $G$ be a bi-ordered group and $g,h\in G$. Prove that $g^n=h^n$
+	for some $n>0$ implies $g=h$.
+\end{xca}
+
+The following result goes back to Neumann.
+
+\begin{xca}
+    Let $G$ be a bi-ordered group and $g,h\in G$. Prove that $g^n\in C_G(h)$ if 
+    and only if $g\in C_G(h)$.
+\end{xca}
+
+Bi-ordered groups do not behave nicely under extensions:
+
+\begin{xca}
+\label{xca:BO_sequence}
+    Let $1\to K\to G\to Q\to 1$ be an exact sequence of groups. Assume that $K$ and $Q$ 
+    are bi-ordered. Prove that $G$ is bi-ordered if and only if 
+    $x<y$ implies $gxg^{-1}<gyg^{-1}$ for all $x,y\in K$ and $g\in G$. 
+\end{xca}
+
+\begin{definition}
+	Let $G$ be a bi-ordered group. The \emph{positive cone} of $G$  
+	is the set $P(G)=\{x\in
+	G:1<x\}$.
+\end{definition}
+
+\begin{proposition}
+	\label{pro:biordenableP1}
+	Let $G$ be a bi-ordered group and let $P$ be its positive cone. 
+	\begin{enumerate}
+		\item $P$ is closed under multiplication, i.e. $PP\subseteq P$. 
+		\item $G=P\cup P^{-1}\cup \{1\}$ (disjoint union).
+		\item $xPx^{-1}=P$ for all $x\in G$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	If $x,y\in P$ and $z\in G$, then, since $1<x$ and $1<y$, it follows that 
+	$1<xy$.  Thus $1=z1z^{-1}<zxz^{-1}$. It remains to prove the second claim.  
+	If $g\in G$, then $g=1$ or $g>1$ or $g<1$. Note that $g<1$ if and only if 
+	$1<g^{-1}$, so the claim follows. 
+\end{proof}
+
+The previous proposition admits a converse statement. 
+
+\begin{proposition}
+	\label{pro:biordenableP2}
+	Let $G$ be a group and $P$ be a subset of $G$ such that 
+	$P$ is closed under multiplication, $G=P\cup P^{-1}\cup \{1\}$ (disjoint union) and
+	$xPx^{-1}=P$ for all $x\in G$. Let $x<y$ whenever  
+	$yx^{-1}\in P$. Then $G$ is bi-ordered with positive
+	cone is $P$.
+\end{proposition}
+
+\begin{proof}
+	Let $x,y\in G$. Since $yx^{-1}\in G$ and $G=P\cup
+	P^{-1}\cup\{1\}$ (disjoint union), 
+	either $yx^{-1}\in P$ or $xy^{-1}=(yx^{-1})^{-1}\in
+	P$ or $yx^{-1}=1$. Thus either $x<y$ or $y<x$ or $x=y$. If $x<y$ and $z\in
+	G$, then $zx<zy$, as $(zy)(zx)^{-1}=z(yx^{-1})z^{-1}\in P$ and  
+	$zPz^{-1}=P$. Moreover, $xz<yz$ since $(yz)(xz)^{-1}=yx^{-1}\in P$. To prove
+	that $P$ is the positive cone of $G$ note that 
+	$x1^{-1}=x\in P$ if and only if $1<x$. 
+\end{proof}
+
+An important property:
+
+\begin{proposition}
+	\label{pro:BOsintorsion}
+	Bi-ordered groups are torsion-free.
+\end{proposition}
+
+\begin{proof}
+	Let $G$ be a bi-ordered group and $g\in G\setminus\{1\}$. 
+	If $g>1$, then
+	$1<g<g^2<\cdots$. If $g<1$, then $1>g>g^2>\cdots$. Hence $g^n\ne 1$ 
+	for all $n\ne 0$. 
+\end{proof}
+
+The converse of the previous proposition does not hold. 
+
+\begin{xca}
+Let $G=\langle x,y:yxy^{-1}=x^{-1}\rangle$. 
+\begin{enumerate}
+    \item Prove that $x$ and $y$ are torsion-free. 
+    \item Prove that $G$ is torsion-free. 
+    \item Prove that $G\simeq \langle a,b:a^2=b^2\rangle$.
+\end{enumerate}
+\end{xca}
+
+% To prove that $x$ is torsion-free, use the group homomorphism $G\to\Z$
+% given by $x\mapsto 1$, $y\mapsto 0$. To prove that $y$ is torsion-free
+% use the group homomorphism $x\mapsto\begin{pmatrix}-1&0\\0&1\end{pmatrix}$,
+% $y\mapsto\begin{pmatrix}1&1\\0&1\end{pmatrix}$. 
+
+% 	We first show that $G\simeq\langle a,b:a^2=b^2\rangle$. For that purpose, 
+% 	it is enough to check that 
+% 	the map $G\to \langle a,b:a^2=b^2\rangle$, $x\mapsto a$, $y\mapsto ab^{-1}$, 
+% 	is a well-defined group homomorphism with inverse
+% 	$\langle a,b:a^2=b^2\rangle\to G$, $a\mapsto x$, $b\mapsto y^{-1}x$. 
+
+\begin{example}
+	The torsion-free group $G=\langle x,y:yxy^{-1}=x^{-1}\rangle$ is not bi-ordered. 
+	If not, let $P$ 
+	be the positive cone. If $x\in P$, 
+	then $yxy^{-1}=x^{-1}\in P$, a contradiction. Hence $x^{-1}\in P$
+	and $x=y^{-1}x^{-1}y\in P$, a contradiction.
+\end{example}
+
+Bi-ordered groups provide 
+an answer to Kaplansky's unit problem (see Question \ref{question:units}).
+
+\begin{theorem}
+	\label{thm:BO}
+	Let $G$ be a bi-ordered group. Then $K[G]$ is a domain such that
+	only has trivial units. Moreover, if $G$ is non-trivial, 
+	then $J(K[G])=\{0\}$. 
+\end{theorem}
+
+\begin{proof}
+	Let $\alpha,\beta\in K[G]$ be such that  
+	\begin{align*}
+		\alpha&=\sum_{i=1}^m a_ig_i, && g_1<g_2<\cdots<g_m,&& a_i\ne 0 && \forall i\in\{1,\dots,m\},\\
+		\beta&=\sum_{j=1}^n b_jh_j, && h_1<h_2<\cdots<h_n, && b_j\ne 0 && \forall j\in\{1,\dots,n\}.
+	\end{align*}
+	Then 
+	\[
+		g_1h_1\leq g_ih_j\leq g_mh_n
+	\]
+	for all $i,j$. Moreover, $g_1h_1=g_ih_j$ if and only if $i=j=1$. The
+	coefficient of $g_1h_1$ in $\alpha\beta$ is $a_1b_1\ne 0$. In particular, 
+	$\alpha\beta\ne0$. If $\alpha\beta=\beta\alpha=1$, then the coefficient of
+	$g_mh_n$ in $\alpha\beta$ is $a_mb_n$. Hence $m=n=1$ and therefore 
+	$\alpha=a_1g_1$ and $\beta=b_1h_1$ with $a_1b_1=b_1a_1=1$ in $K$ and $g_1h_1=1$
+	in $G$.
+\end{proof}
+
+\begin{theorem}[Levi]
+	\label{thm:Levi}
+	\index{Levi's theorem}
+	Let $A$ be an abelian group. Then $A$ is bi-ordered if and only
+	if $A$ is torsion-free.
+\end{theorem}
+
+\begin{proof}
+	If $A$ is bi-ordered, then $A$ is torsion-free. Let us prove the non-trivial implication, 
+	so assume that
+	$A$ is torsion-free abelian. Let $\mathcal{S}$ be the class 
+	of subsets $P$ of $A$ such that $0\in P$, are closed under 
+	the addition of
+	$A$ and satisfy the following property: if $x\in P$ and $-x\in P$,
+	then $x=0$.
+	Clearly, $\mathcal{S}\ne\emptyset$, as 
+	$\{0\}\in\mathcal{S}$.  The inclusion turns $\mathcal{S}$ into a partially ordered set  
+	and $\bigcup_{i\in I}P_i$ is an upper bound for the chain 
+	$\{P_i:i\in I\}$. By Zorn's lemma, 
+	$\mathcal{S}$ admits a maximal element $P\in\mathcal{S}$.
+
+	\begin{claim}
+		If $x\in A$ is such that $kx\in P$ for some $k>0$, then  $x\in P$.		
+	\end{claim}
+
+	Let $Q=\{x\in A:kx\in P\text{ for some 
+	$k>0$}\}$. We will show that $Q\in\mathcal{S}$.  Clearly, $0\in Q$. Moreover, $Q$
+	is closed under addition, as $k_1x_1\in P$ and $k_2x_2\in P$ imply 
+	$k_1k_2(x_1+x_2)\in P$. Let $x\in A$ be such that $x\in Q$ and $-x\in Q$. Thus 
+	$kx\in P$ and $l(-x)\in P$ for some $l>0$. Since $klx\in P$ and 
+	$kl(-x)\in P$, it follows that $klx=0$, a contradiction since $A$ is torsion-free. 
+	Hence $x\in Q\subseteq P$. 
+
+	\begin{claim}
+		If $x\in A$ is such that $x\not\in P$, then $-x\in P$. 	
+	\end{claim}
+
+	Assume that $-x\not\in P$ and let $P_1=\{y+nx:y\in P,\,n\geq0\}$. We will
+	show that  $P_1\in\mathcal{S}$.  Clearly, $0\in P_1$ and $P_1$ is closed under
+	addition. If $P_1\not\in S$, there exists 
+	\[
+		0\ne y_1+n_1x=-(y_2+n_2x),
+	\]
+	where $y_1,y_2\in P$ and $n_1,n_2\geq0$. Thus $y_1+y_2=-(n_1+n_2)x$. If 
+	$n_1=n_2=0$, then $y_1=-y_2\in P$ and $y_1=y_2=0$, so it follows that
+	$y_1+n_1x=0$, a contradiction. If $n_1+n_2>0$, then, since 
+	\[
+		(n_1+n_2)(-x)=y_1+y_2\in P,
+	\]
+	it follows from the first claim that $-x\in P$, a contradiction. 
+	Let us show that $P_1\in\mathcal{S}$. 
+	Since $P\subseteq P_1$, the maximality of $P$ implies that 
+	$x\in P=P_1$.
+
+	\medskip
+	By Proposition~\ref{pro:biordenableP2}, 
+	$P^*=P\setminus\{0\}$ is the positive cone of a bi-order in $A$. 
+	In fact, $P^*$ is closed under addition, as $x,y\in
+	P^*$ implies that $x+y\in P$ and $x+y=0$ implies $x=y=0$, as $x=-y\in P$. Moreover,
+	$G=P^*\cup -P^*\cup\{0\}$ (disjoint union), as 
+	the second claim states that $x\not\in P^*$ implies 
+	$-x\in P$. 
+\end{proof}
+
+Our proof of Passman's theorem (see Theorem \ref{thm:Passman}) 
+used the fact that the group algebra $K[G]$ of
+a torsion-free abelian group $G$ has no non-zero divisors. 
+
+\begin{xca}
+\label{xca:domain_G_abelian}
+	Let $A$ be a non-trivial torsion-free abelian group. Prove that $K[A]$ 
+	is a domain that only admits trivial units and $J(K[A])=\{0\}$. 
+\end{xca}
+
+% \begin{proof}
+% 	Apply Levi's theorem and Theorem~\ref{thm:BO}.
+% \end{proof}
+
+% The first one is a variation on Exercise \ref{xca:BO_sequence}.
+
+\begin{xca}
+    Let $N$ be a central subgroup of $G$. If $N$ and $G/N$ are bi-ordered, 
+    then $G$ is bi-ordered. Prove with an example that $N$ needs to be central, normal 
+    is not enough. 
+\end{xca}
+
+\begin{xca}
+    Let $G$ be a group that admits 
+    a sequence 
+    \[
+    \{1\}=G_0\subseteq G_1\subseteq\cdots\subseteq G_n=G
+    \]
+    such that
+    each $G_k$ is normal in $G_{k+1}$ and each quotient $G_{k+1}/G_k$ is 
+    torsion-free abelian. Prove that if $G$ is nilpotent, then $G$ is bi-ordered.  
+\end{xca}
+
+\begin{xca}
+    Prove that torsion-free nilpotent groups are bi-ordered. 
+\end{xca}
+\end{graybox}
+
+\begin{graybox}
+  \project 
+\section{Left-ordered groups}
+
+\begin{definition}
+	\index{Group!left-ordered}
+	A group $G$ is \emph{left-ordered} if there is a total order 
+	$<$ in $G$ such that $x<y$ implies $zx<zy$ for all $x,y,z\in G$.
+\end{definition}
+
+If $G$ is left-ordered, the \emph{positive cone} of $G$ is defined as $P(G)=\{x\in G:1<x\}$. 
+
+\begin{xca}
+	Let $G$ be left-ordered with positive cone $P$. Prove that 
+	$P$ is closed under multiplication and that 
+	$G=P\cup P^{-1}\cup \{1\}$ (disjoint union).
+\end{xca}
+
+\begin{xca}
+\label{xca:LO_cone}
+	Let $G$ be a group and $P$ be a subset closed under multiplication. Assume that 
+	$G=P\cup P^{-1}\cup \{1\}$ (disjoint union). Prove that $x<y$ if and only if
+	$x^{-1}y\in P$ turns $G$ into a left-ordered group with positive cone $P$.
+\end{xca}
+
+Left-ordered groups behave nicely with respect to extensions. Let $G$ be a group
+and $N$ be a left-ordered normal subgroup of $G$. If $\pi\colon G\to G/N$ is the 
+canonical map and $G/N$ is left-ordered, then
+$G$ is left-ordered with
+$x<y$ if and only if either $\pi(x)<\pi(y)$ or $\pi(x)=\pi(y)$ and $1<x^{-1}y$. 
+
+
+\begin{proposition}
+	Let $G$ be a group and $N$ be a normal subgroup of $G$. 
+	If $N$ and $G/N$ are left-ordered, then so is $G$.
+\end{proposition}
+
+\begin{proof}
+	Since $N$ and $G/N$ are both left-ordered, there exist positive cones 
+	$P(N)$ and $P(G/N)$. Let $\pi\colon G\to G/N$ be the canonical map and 
+	\[
+		P(G)=\{x\in G:\pi(x)\in P(G/N)\text{ or }x\in P(N)\}.
+	\]	
+	A routine calculation shows that $P(G)$ is closed under multiplication 
+	and that $G$ decomposes as $G=P(G)\cup P(G)^{-1}\cup \{1\}$ (disjoint union). It follows
+	from Exercise \ref{xca:LO_cone} that 
+	$G$ is left-ordered. 
+\end{proof}
+
+
+%
+%\begin{theorem}
+%	\label{theorem:}
+%	Si $G$ tiene una serie finita subnormal $1=G_0\triangleleft
+%	G_1\triangleleft\cdots\triangleleft G_n=G$ y cada cociente $G_{i+1}/G_i$ es
+%	abeliano libre de torsión, entonces $G$ es ordenable a derecha. Si además
+%	$G$ es libre de torsión y nilpotente, entonces $G$ es biordenable.
+%\end{theorem}
+
+We now present a criterion for detecting left-ordered groups. We shall need 
+a lemma. 
+
+\begin{lemma}
+	\label{lem:fg}
+	Let $G$ be a finitely generated group. If $H$ is a finite-index subgroup, 
+	then $H$ is finitely generated. 
+\end{lemma}
+
+\begin{proof}
+	Assume that $G$ is generated by $\{g_1,\dots,g_m\}$. Assume that
+	for each $i$ there exists $k$ such that $g_i^{-1}=g_k$. Let $\{t_1,\dots,t_n\}$ be
+	a transversal of $H$ in $G$. For $i\in\{1,\dots,n\}$ and 
+	$j\in\{1,\dots,m\}$ write 
+	\[
+		t_ig_j=h(i,j)t_{k(i,j)}.
+	\]
+	We claim that $H$ is generated by the $h(i,j)$. For $x\in H$, write 
+	\begin{align*}
+	x &=g_{i_1}\cdots g_{i_s}\\
+	&= (t_1g_{i_1})g_{i_2}\cdots g_{i_s}\\
+	&= h(1,i_1)t_{k_1}g_{i_2}\cdots g_{i_s}\\
+	&= h(1,i_1)h(k_1,i_2)t_{k_2}g_{i_3}\cdots g_{i_s}\\
+	&= h(1,i_1)h(k_1,i_2)\cdots h(k_{s-1},g_{i_s})t_{k_s},
+	\end{align*}
+	where $k_1,\dots,k_{s-1}\in\{1,\dots,n\}$. Since $t_{k_s}\in H$, it follows that 
+	$t_{k_s}=t_1\in H$.
+\end{proof}
+
+Now the theorem.
+
+\begin{theorem}
+	Let $G$ be a finitely generated torsion-free group. If $A$ is an abelian normal
+	subgroup such that $G/A$ is finite and cyclic, then $G$ is left-ordered. 
+\end{theorem}
+
+\begin{proof}
+	Note that if $A$ is trivial, then so is $G$. Let us assume that $A\ne\{1\}$. 
+    Since $(G:A)$ is finite, $A$ is finitely generated by the previous lemma. 
+    We proceed by induction on the number of generators of $A$. Since 
+    $G/A$ is cyclic, there exists $x\in G$ such that $G=\langle A,x\rangle$. Then
+    $[x,A]=\langle [x,a]:a\in A\rangle$ is a normal subgroup of $G$ such that 
+    $A/C_A(x)\simeq [x,A]$ (because $a\mapsto [x,a]$ is a group homomorphism $A\to A$
+    with image $[x,A]$ and kernel $C_A(x)$). If $\pi\colon G\to G/[x,A]$ is the canonical map, then
+    $G/[x,A]=\langle \pi(A),\pi(x)\rangle$ and thus $G/[x,A]$ is abelian, as 
+    $[\pi(x),\pi(A)]=\pi[x,A]=1$. Moreover, $G/[x,A]$ is finitely generated, as $G$
+    is finitely generated. Since $(G:A)=n$ and $G$ is torsion-free, it follows that 
+    $1\ne x^n\in A$. Hence $x^n\in C_A(x)$ and therefore $1\leq \rank C_A(x)<\rank A$ (if $\rank
+    C_A(x)=\rank A$, then $[x,A]$ would be a torsion subgroup of $A$, a contradiction
+    since $x\not\in A$). So 
+    \[
+    \rank[x,A]=\rank (A/C_A(x))\leq\rank A-1
+    \]
+    and hence $\rank (A/[x,A])\geq 1$. We proved that $A/[x,A]$ is infinite and hence 
+    $G/[x,A]$ is infinite. 
+
+    Since $G/[x,A]$ is infinite, abelian and finitely generated, there exists a normal subgroup
+    $H$ of $G$ such that $[x,A]\subseteq H$ and $G/H\simeq\Z$. The subgroup 
+    $B=A\cap H$ is abelian, normal in $H$ and such that $H/B$ is cyclic
+    (because it is isomorphic to a subgroup of $G/A$). Since $\rank B<\rank A$, the inductive hypothesis implies that $H$ is left-ordered. Hence $G$ is left-ordered. 
+\end{proof}
+
+\index{Lagrange--Rhemtulla's theorem} 
+Lagrange and Rhemtulla proved that the integral isomorphism problem 
+has an affirmative solution for left-ordered groups. More precisely,
+if $G$ is left-ordered and $H$ is a group such that $\Z[G]\simeq\Z[H]$, then
+$G\simeq H$, see \cite{MR240183}.
+
+\begin{theorem}[Malcev--Neumann]
+	\index{Malcev--Neumann theorem}
+	Let $G$ be left-ordered group. Then $K[G]$ has no zero divisors 
+	and no non-trivial units. 
+\end{theorem}
+
+\begin{proof}
+	If $\alpha=\sum_{i=1}^na_ig_i\in K[G]$ and
+	$\beta=\sum_{j=1}^mb_jh_j\in K[G]$, then 
+	\begin{equation}
+		\label{eq:producto}
+		\alpha\beta=\sum_{i=1}^n\sum_{j=1}^ma_ib_j(g_ih_j).
+	\end{equation}
+	Without loss of generality we may assume that $a_i\ne 0$ for
+	all $i$ and $b_j\ne 0$ for all $j$. Moreover, we may assume that 
+	$g_1<g_2<\cdots<g_n$. Let $i,j$ be such that 
+	\[
+		g_ih_j=\min\{g_ih_j:1\leq i\leq n,1\leq j\leq m\}.
+	\]
+	Then $i=1$, as $i>1$ implies
+	$g_1h_j<g_ih_j$, a contradiction. Since $g_1h_j\ne g_1h_k$ whenever 
+	$k\ne j$, there exists a unique minimal element in the left hand side of Equality~\eqref{eq:producto}. The same argument shows that there is a unique
+	maximal element in~\eqref{eq:producto}. Thus 
+	$\alpha\beta\ne 0$, as $a_1b_j\ne 0$, and therefore $K[G]$ has no zero divisors. 
+	If, moreover, $n>1$ or $m>1$, then~\eqref{eq:producto} contains at least two
+	terms than cancel out and thus  
+	$\alpha\beta\ne1$. It follows that units of $K[G]$ are trivial. 
+\end{proof}
+
+\index{Formanek's theorem}
+\index{Farkas--Snider theorem}
+\index{Brown's theorem}
+Formanek proved that the zero divisors conjecture is true 
+in the case of torsion-free super solvable. Brown and, independently, 
+Farkas and Snider proved that the conjecture is true 
+in the case of groups algebras (over fields of characteristic zero) of 
+polycyclic-by-finite torsion-free groups. These results
+can be found in Chapter 13 of
+Passman's book~\cite{MR798076}. 
+\end{graybox}
+
+\begin{graybox}
+\project
+\section{Unique product groups}
+\label{section:UP}
+
+Let $G$ be a group and $A,B\subseteq G$ be non-empty subsets. 
+An element $g\in G$ is a \emph{unique product} in $AB$ if $g=ab=a_1b_1$ for some
+$a,a_1\in
+A$ and $b,b_1\in B$ implies that $a=a_1$ and $b=b_1$.
+
+\begin{definition}
+	\index{Group!unique product}
+	A group $G$ has the \emph{unique product property} if 
+	for every finite non-empty subsets $A,B\subseteq G$ there exists at least one
+	unique product in $AB$.
+\end{definition}
+
+\begin{proposition}
+    Left-ordered groups have the unique product property.
+\end{proposition}
+
+\begin{proof}
+    Let $G$ be a left-ordered group. 
+	Let $A$ be a non-empty finite subset of $G$ and $B=\{b_1,\dots,b_n\}\subseteq G$. 
+	Assume that $b_1<b_2<\cdots<b_n$. Let $c\in A$ be such that $cb_1$ is the 
+	minimum of $Ab_1=\{ab_1:a\in A\}$. We claim that $cb_1$ admits a unique
+	representation of the form $\alpha\beta$ with $\alpha\in A$ and 
+	$\beta\in B$. If $cb_1=ab$, then, since $ab=cb_1\leq ab_1$, it follows that 
+	$b\leq b_1$. Hence $b=b_1$ and $a=c$. 
+\end{proof}
+
+\begin{xca}
+	Prove that groups with the unique product property are
+	torsion-free.
+\end{xca}
+
+The converse does not hold. 
+Promislow's group is a celebrated counterexample.
+
+\begin{theorem}[Promislow]
+\index{Promislow's theorem}
+    The group $G=\langle a,b:a^{-1}b^2a=b^{-2},b^{-1}a^2b=a^{-2}\rangle$
+    does not have the unique product property.
+\end{theorem}
+
+\begin{proof}[Sketch of the proof]
+    Let 
+    \begin{multline}
+    \label{eq:Promislow}
+    S=\{ a^2b,
+    b^2a,
+    aba^{-1},
+    (b^2a)^{-1},
+    (ab)^{-2},
+    b,
+    (ab)^2a,
+    (ab)^2,
+    (aba)^{-1},\\
+    bab,
+    b^{-1},
+    a,
+    aba,
+    a^{-1}
+    \}.
+    \end{multline}
+    We use the representation $G\to\GL_4(\Q)$ given by 
+    \[
+a\mapsto\begin{pmatrix}
+1 & 0 & 0 & 1/2\\
+0 & -1 & 0 & 1/2\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix},
+\quad
+b\mapsto\begin{pmatrix}
+-1 & 0 & 0 & 0\\
+0 & 1 & 0 & 1/2\\
+0 & 0 & -1 & 1/2\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+    to check that 
+    $G$ does not have
+    unique product property, as each 
+    \[
+    s\in S^2=\{s_1s_2:s_1,s_2\in S\}
+    \]
+    admits at least two different decompositions of the 
+    form $s=xy=uv$ for $x,y,u,v\in S$. 
+%    We first create the matrix representations of $a$ and $b$.
+%\begin{lstlisting}
+%gap> a := [[1,0,0,1/2],[0,-1,0,1/2],[0,0,-1,0],[0,0,0,1]];;
+%gap> b := [[-1,0,0,0],[0,1,0,1/2],[0,0,-1,1/2],[0,0,0,1]];;
+%\end{lstlisting}
+%    Now we create
+%    a function that produces the set $S$.
+%\begin{lstlisting}
+%gap> Promislow := function(x, y)
+%> return Set([
+%> x^2*y,
+%> y^2*x,
+%> x*y*Inverse(x),
+%> (y^2*x)^(-1),
+%> (x*y)^(-2),
+%> y,
+%> (x*y)^2*x,
+%> (x*y)^2,
+%> (x*y*x)^(-1),
+%> y*x*y,
+%> y^(-1),
+%> x,
+%> x*y*x,
+%> x^(-1)
+%]);
+%end;;
+%\end{lstlisting}
+%So the set $S$ of \eqref{eq:Promislow} 
+%will be \lstinline{Promislow(a,b)}. We now
+%create a function that checks whether
+%every element of a Promislow subset 
+%admits more than one representation.
+%\begin{lstlisting}
+%gap> is_UPP := function(S)
+%> local l,x,y;
+%> l := [];
+%> for x in S do
+%> for y in S do
+%> Add(l,x*y);
+%> od;
+%> od;
+%> if ForAll(Collected(l), x->x[2] <> 1) then
+%> return false;
+%> else
+%> return fail;
+%> fi;
+%> end;;
+%\end{lstlisting}
+%Finally, we check whether every element of 
+%$S^2$ admits more than one representation.
+%\begin{lstlisting}
+%gap> S := Promislow(a,b);;
+%gap> is_UPP(S);
+%false
+%\end{lstlisting}
+%This completes the proof. 
+\end{proof}
+
+\begin{xca}
+\label{xca:A1Bm}
+    Let $G$ be a group and $A,B\subseteq G$ be finite non-empty subsets. Prove that 
+    if $|A|=1$, then $AB$ contains a unique product. 
+\end{xca}
+
+
+
+
+The size of the set $A$ can be extended. 
+
+\begin{xca}
+\label{xca:gABh}
+    Let $G$ be a group and $A,B\subseteq G$ be finite non-empty subsets. Prove that
+    $AB$ has no unique products 
+    if and only if $(gA)(Bh)$ has no unique product for all $g,h\in G$. 
+\end{xca}
+
+
+\begin{xca}
+\label{xca:A2Bm}
+    Let $G$ be a torsion-free group and $A,B\subseteq G$ be finite non-empty subsets. Prove that 
+    if $|A|=2$, then $AB$ contains a unique product. 
+\end{xca}
+
+The case where the set $A$ has size three is still open. One can prove, for example, 
+that if $|A|=3$, then $|B|\geq7$. 
+
+% There are other examples. 
+
+% \begin{exercise}
+%     Let $G=\langle x,y:x^{-1}y^2xy^2=x^{-2}yx^{-2}y^3=1\rangle$. 
+%     \begin{enumerate}
+%         \item Prove that the subgroup $N$ generated by 
+%         \[
+%         [y*x*Inverse(x*y), y^2, x^4]
+%         \]
+%         is a normal subgroup of index eight. 
+%         \item Prove that 
+%         \[
+%         N=\langle x_1,x_2,x_3:[x_1,x_2]=[x_1,x_3]=1,\,x_3x_2=x_2x_3x_1^8\rangle.
+%         \]
+
+%     \end{enumerate}
+% \end{exercise}
+
+% Let $G=\langle x,y:x^{-1}y^2xy^2=x^{-2}yx^{-2}y^3=1\rangle$. 
+% We first construct the group and a certain normal
+% subgroup $N$ of index eight. 
+
+% \begin{lstlisting}
+% gap> f := FreeGroup(2);;
+% gap> x := f.1;;
+% gap> y := f.2;;
+% gap> rels := [Inverse(x)*y^2*x*y^2, Inverse(x^2)*y*Inverse(x^2)*y^3];;
+% gap> G := f/rels;;
+% gap> x := G.1;;
+% gap> y := G.2;;
+% gap> N := Subgroup(G, [y*x*Inverse(x*y), y^2, x^4]);
+% gap> IsNormal(N,G);
+% true
+% gap> StructureDescription(G/N);
+% "C4 x C2"
+% \end{lstlisting}
+% The subgroup $N$ has a nice presentation. It can be presented
+% as the group 
+% \[
+% N=\langle x_1,x_2,x_3:[x_1,x_2]=[x_1,x_3]=1,\,x_3x_2=x_2x_3x_1^8\rangle.
+% \]
+% \begin{lstlisting}
+% gap> g := IsomorphismFpGroup(N);
+% gap> RelatorsOfFpGroup(Image(g));
+% [ F3*F1*F3^-1*F1^-1, F2*F1*F2^-1*F1^-1, F1*F3^-1*F1^5*F2*F1^2*F3*F2^-1 ]
+% \end{lstlisting}
+% From these relations
+% one proves by induction that 
+% \begin{align}
+%     x_3^bx_2^a=x_2^ax_3^bx_1^{8ab}
+% \end{align}
+% for all $a,b\in\Z$. 
+% % First induction in $n_1$, then induction in $n_2$. 
+% It follows that every element of $N$ 
+% is of the form $x_1^{n_1}x_2^{n_2}x_3^{n_3}$ 
+% for $n_1,n_2,n_3\in\Z$. Moreover, 
+% \[
+% (x_1^{n_1}x_2^{n_2}x_3^{n_3})^k=x_1^{kn_1+(k-1)8n_2n_3}x_2^{kn_2}x_3^{kn_3}
+% \]
+% for all $k\in\Z$. Note that $x_1^8$ is a commutator. Moreover, 
+% $N/[N,N]\simeq\Z\times\Z\times\Z/8$. This implies that
+% $N$ is torsion-free. Let us prove that $G$ is torsion-free. 
+% Let $\pi\colon G\to G/N$ be the canonical map. Let 
+% $g\in G$ be a torsion element, in particular $g\not\in N$
+% and hence $\pi(g)\ne 1$. So $\pi(g)$ has order two 
+% or four. Without loss of generality we may assume that
+% $\pi(g)$ has order two.  
+% Then $\pi(g^2)=\pi(g)^2=y^2=1$ and hence 
+% $g^2\in N$. Since $N$ is torsion free, it follows that $g=1$. 
+
+\begin{definition}
+\index{Group!double unique product}
+	A group $G$ has the \emph{double property of unique products} 
+	if for every finite non-empty subsets $A,B\subseteq G$ such that 
+	$|A|+|B|>2$ there are at least two unique products in $AB$.
+\end{definition}
+
+\begin{theorem}[Strojnowski]
+	\label{theorem:Strojnowski}
+	\index{Strojonowski's theorem}
+	Let $G$ be a group. The following statements are equivalent:
+	\begin{enumerate}
+		\item $G$ has the double property of unique products. 
+		\item Every non-empty finite subset $A\subseteq G$ contains at least one unique product 
+			in 
+   \[
+   AA=\{a_1a_2:a_1,a_2\in A\}.
+   \]
+		\item $G$ has the unique product property.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	The implication $(1)\implies(2)$ is trivial.  
+	
+	We now prove that $(2)\implies(3)$. Suppose that $G$ satisfies $(2)$. Let  $A,B$ be finite non-empty subsets of $G$. Let $C=BA$.  By $(2)$, there exist a unique $g\in G$ such that $g=(b_1a_1)(b_2a_2)$ for unique $b_1a_1,b_2a_2\in C$, where $a_1,a_2\in A$ and $b_1,b_2\in B$. Note that this implies that $a_1b_2=ab$ for $a\in A$ and $b\in B$ if and only if $a=a_1$ and $b=b_2$. Hence $G$ satisfies the unique product property.
+	
+	We finally prove that $(3)\implies(1)$. Suppose that  $G$ satisfies the unique product property but not the double unique product property. Thus there exist finite non-empty subsets $A,B\subseteq G$ with $|A|+|B|>2$ and there is a unique $g\in G$ such that $g=ab$ for unique elements $a\in A$ and $b\in B$.
+	Let $C=a^{-1}A$ and $D=Bb^{-1}$. Then $1\in C\cap D$. Note that if $c\in C$, $d\in D$ and $cd\neq 1$, then there exist $a_1\in A$ and $b_1\in B$ such that $c=a^{-1}a_1$, $d=b_1b^{-1}$ and $ab\neq a_1b_1$. Hence there exist $a_2\in A\setminus\{ a_1\}$ and $b_2\in B\setminus\{ b_1\}$ such that $a_1b_1=a_2b_2$. Let $c_1=a^{-1}a_2$ and $d_1=b_2b^{-1}$. We have that $c\neq c_1$, $d\neq d_1$ and 
+	\[ cd=a^{-1}a_1b_1b^{-1}=a^{-1}a_2b_2b^{-1}=c_1d_1.\]
+	Let $E=D^{-1}C$ and $F=DC^{-1}$. Every element of $EF$ is of the form $(d_1^{-1}c_1)(d_2c_2^{-1})$, where $c_1,c_2\in C$ and $d_1,d_2\in D$. Suppose that $c_1d_2\ne 1$. We have seen that then there exist $c_3\in C\setminus \{ c_1\}$ and $d_3\in D\setminus\{ d_2\}$ such that $c_1d_2=c_3d_3$. Hence $d_1^{-1}c_3\in E\setminus \{ d_1^{-1}c_1\}$, $d_3c_2^{-1}\in F\setminus\{ d_2c_2^{-1}\}$
+	and
+	\[ (d_1^{-1}c_1)(d_2c_2^{-1})=(d_1^{-1}c_3)(d_3c_2^{-1}).\]
+	Suppose that $c_2d_1\neq 1$. Then there exist $c_4\in C\setminus \{ c_2\}$ and $d_4\in D\setminus\{ d_1\}$ such that $c_2d_1=c_4d_4$. Hence $d_4^{-1}\cdot 1\in E\setminus \{ d_1^{-1}\cdot 1\}$, $1\cdot c_4^{-1}\in F\setminus\{ 1\cdot c_2^{-1}\}$
+	and
+	\[ (d_1^{-1}\cdot 1)(1\cdot c_2^{-1})=(d_4^{-1}\cdot 1)(1\cdot c_4^{-1}).\]
+	Since $|C|+|D|=|A|+|B|>2$, either there exists $c\in C\setminus\{ 1\}$ or there exists $d\in D\setminus\{ 1\}$. In the first case, we have
+	\[ (1\cdot 1)(1\cdot 1)=(1\cdot c)(1\cdot c^{-1}),\]
+	and in the second case, we have 
+		\[ (1\cdot 1)(1\cdot 1)=(d^{-1} \cdot 1)(d\cdot 1).\]
+	Thus, we have found two finite non-empty subsets $E,F\subseteq G$ such that for every $e\in E$ and $f\in F$, there exist $e_1\in E\setminus\{ e\}$ and $f_1\in F\setminus\{ f\}$ such that
+	$ef=e_1f_1$, a contradiction, because $G$ satisfies the unique product property. Therefore $G$ also satisfies the double unique product property.
+\end{proof}
+
+% passman lema 1.9 pag 589
+\begin{xca}
+	Prove that if a group $G$ satisfies the unique product property, then 
+    $K[G]$ contains only trivial units.
+\end{xca}
+\end{graybox}
+
+\begin{optional}
+\section{Diffuse groups}
+
+In general it is extremely hard to check whether a given group
+has the unique product property. As a geometrical way to 
+attack this problem, Bowditch introduced \textbf{diffuse groups}. If
+$G$ is a torsion-free group and 
+$A\subseteq G$ is a subset, we say that $A$ is \textbf{antisymmetric}  
+if $A\cap A^{-1}\subseteq\{1\}$, where $A^{-1}=\{a^{-1}:a\in
+A\}$. The set of \textbf{extremal elements} of $A$ is defined as 
+$\Delta(A)=\{a\in A:Aa^{-1}\text{ is antisymmetric}\}$. 
+Thus 
+\[
+	a\in A\setminus\Delta(A)
+	\Longleftrightarrow
+	\text{there existes $g\in G\setminus\{1\}$ such that $ga\in A$ and $g^{-1}a\in A$}.
+\]
+
+\begin{definition}
+	\index{Group!diffuse}
+	A group $G$ is \textbf{diffuse} if for every finite subset $A\subseteq
+	G$ such that $2\leq |A|<\infty$ one has $|\Delta(A)|\geq2$.
+\end{definition}
+
+This means that a group $G$ is diffuse if for every finite non-empty subset $A\subseteq G$ there exists 
+$a\in A$ such that for all $g\in G\setminus\{1\}$ either $ga\not\in A$ or $g^{-1}a\not\in A$. 
+
+\begin{proposition}
+	Left-ordered groups are diffuse.	
+\end{proposition}
+
+\begin{proof}
+    Let $G$ be a left-ordered group and $A=\{a_1,\dots,a_n\}$ be such that
+    \[
+    a_1<a_2<\cdots<a_n.
+    \]
+    We claim that 
+	$\{a_1,a_n\}\subseteq\Delta(A)$. If $a_1\in
+	A\setminus\Delta(A)$, there exists $g\in G\setminus\{1\}$ such that $ga_1\in A$ and
+	$g^{-1}a_1\in A$. Thus  $a_1\leq ga_1$ and $a_1\leq g^{-1}a_1$. It follows that
+	$1\leq a^{-1}ga_1$ and $1\leq a_1^{-1}g^{-1}a_1=(a_1^{-1}ga_1)^{-1}$, 
+	a contradiction. Similarly, $a_n\in \Delta(A)$.
+\end{proof}
+
+There are diffuse groups that are not left-ordered, see
+\cite{MR3548136}. 
+
+\begin{proposition}
+	\label{pro:difuso=>2up}
+    Diffuse groups have double unique products.  
+\end{proposition}
+
+\begin{proof}
+    Let $G$ be a diffuse group that does not have double unique products. 
+    There exist non-empty subsets $A,B\subseteq G$ with $|A|+|B|>2$ such that 
+	$C=AB$ admits at most one unique product. Then $|C|\geq2$. Since $G$ is diffse, 
+	$|\Delta(C)|\geq2$. If $c\in\Delta(C)$, then $c$ admits a unique 
+	expression of the form $c=ab$ with $a\in A$ and $b\in B$ (otherwise, if 
+	$c=a_0b_0=a_1b_1$ with $a_0\ne a_1$ and $b_0\ne b_1$). If $g=a_0a_1^{-1}$,
+	then $g\ne 1$, 
+	\[
+	gc=a_0a_1^{-1}a_1b_1=a_0b_1\in C.
+	\]
+	Moreover, 
+	$g^{-1}c=a_1a_0^{-1}a_0b_0=a_1b_0\in C$. Hence $c\not\in\Delta(c)$, a contradiction.
+\end{proof}
+
+\begin{open}
+	Find a non-diffuse group with the unique product property.
+\end{open}
+
+%Un grupo $G$ se dice \emph{débilmente difuso} si para todo subconjunto
+%finito $A\subseteq G$ no vacío se tiene $\Delta(A)\ne\emptyset$. La técnica
+%usada para demostrar el lema~\ref{lemma:difuso=>2up} puede usarse para
+%demostrar que un grupo débilmente difuso posee la propiedad del producto
+%único. El teorema~\ref{theorem:Strojnowski} sugiere entonces la siguiente
+%pregunta: 
+%
+%\begin{problem}
+%	¿Existe un grupo débilmente difuso que no sea difuso?
+%\end{problem}
+%
+%\section{El grupo de Promislow}
+%
+%Veremos un ejemplo concreto de un grupo sin torsión que no es ordenable, no es
+%difuso y no tiene la propiedad del producto único.
+%
+%\begin{exercise}
+%	\label{exercise:Dinfty}
+%	Demuestre que $G=\langle x,y:x^2=y^2=1\rangle$ es isomorfo al grupo diedral infinito.
+%\end{exercise}
+%
+%\begin{definition}
+%	Se define el grupo de Promislow como 
+%	\[
+%		G=\langle x,y:x^{-1}y^2x=y^{-2},\,y^{-1}x^2y=x^{-2}\rangle.
+%	\]
+%\end{definition}
+%
+%\begin{proposition}
+%	\label{proposition:Promislow}
+%	El grupo de Promislow es libre de torsión y no satisface la propiedad del
+%	producto único. 
+%\end{proposition}
+%
+%\begin{proof}
+%	
+%\end{proof}
+\end{optional}
+
+
