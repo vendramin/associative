@@ -1,5 +1,16 @@
-\documentclass[12pt]{amsproc}
+\documentclass[12pt,oneside]{amsproc}
 \usepackage{mynotes}
+
+\makeatletter
+% Define a label that attaches custom text
+\newcommand{\customlabel}[2]{%
+  \protected@edef\@currentlabel{#2}% Set the current label value to your text
+  \label{#1}% Standard LaTeX label mechanism
+}
+\makeatother
+
+% Create a clean shortcut for referencing
+\newcommand{\customref}[1]{\ref{#1}}
 
 \renewcommand{\course}{Associative algebra}
 
@@ -8,22 +19,23 @@
 \address{Department of Mathematics and Data
 Science, Vrije Universiteit Brussel, Pleinlaan 2, 1050 Brussel}
 \email{Leandro.Vendramin@vub.be}
-\thanks{}
-\date{}
 
 \begin{document}
 
 \begin{abstract}
 The notes correspond to the master  course \textbf{Associative Algebra} of the
 Vrije Universiteit Brussel, Faculty of Sciences, Department of Mathematics and
-Data Sciences. 
+Data Science. 
 \end{abstract}
 
 \maketitle
 
-%\begin{figure}[h]
-%    \includegraphics[scale=0.5]{hungerford.png}
-%\end{figure}
+\listoflectures
+
+\vspace{5cm}
+\begin{figure}[h]
+    \includegraphics[scale=0.2]{VUB.jpg}
+\end{figure}
 
 \thispagestyle{empty}
 
@@ -35,28 +47,55 @@ Data Sciences.
 
 \newpage
 \pagenumbering{arabic}
-
+\thispagestyle{empty}
 \include{introduction}
 
-\input{01}
-\input{02}
-\input{03}
-\input{04}
-\input{05}
-\input{06}
-\input{07}
-\input{08}
-\input{09}
-\input{10}
-\input{11}
-\input{12}
+\part{Semisimple finite-dimensional algebras}
+
+In this first part, we study semisimple finite-dimensional algebras. Our aim is
+to prove the celebrated Artin-Wedderburn theorem.
+
+\input{p01}
+%\input{01}
+%\input{02}
+%\input{03}
+
+\part{The Jacobson radical}
+\input{p02}
+%\input{04}
+%\input{05}
+
+\part{Chain conditions}
+\input{p03}
+%\input{06}
+
+\part{Semisimple rings}
+\input{p04}
+%\input{07}
+
+\part{Group algebras}
+\input{p05}
+%\input{08}
+\input{p07}
+
+\part{Some nice theorems}
+\input{p06}
+%\input{09}
+%\input{10}
+%\input{11}
+%\input{12}
 
 \newpage
 \section*{List of projects}
 \small
-\projectlist
+
+\customref{pro:2connel}\hfill\pageref{pro:2connel}
+\customref{pro:2connel}\hfill\pageref{pro:2connel}
+
+%\projectlist
 
 %\input{solutions}
+\newpage 
 \bibliographystyle{abbrv}
 \bibliography{refs}
 
