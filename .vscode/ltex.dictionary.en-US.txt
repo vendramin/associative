@@ -4,3 +4,15 @@ noetherian
 artinian
 Artin
 minimality
+Connel
+nilpotent
+Schur
+maximality
+Rickart
+Amitsur
+Hurewicz
+Maschke
+Molien
+Promislow
+Formanek
+Passman
