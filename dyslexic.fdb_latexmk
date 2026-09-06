@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex dyslexic"] 1788690036.22022 "dyslexic.aux" "dyslexic.bbl" "dyslexic" 1788690455.43069 0
+["bibtex dyslexic"] 1788690036.22022 "dyslexic.aux" "dyslexic.bbl" "dyslexic" 1788690994.43527 0
   "./refs.bib" 1788672045.49209 21534 e5bd65ec30f7b0db2372e1af3ceb9c50 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "dyslexic.aux" 1788690455.11692 23552 a405208cdcc006f76a43444212027593 "pdflatex"
-  "introduction.aux" 1788690453.10586 1202 90caedc670596312948717849ff9116d "pdflatex"
+  "dyslexic.aux" 1788690994.14132 23552 a405208cdcc006f76a43444212027593 "pdflatex"
+  "introduction.aux" 1788690992.25853 1202 90caedc670596312948717849ff9116d "pdflatex"
   (generated)
   "dyslexic.bbl"
   "dyslexic.blg"
   (rewritten before read)
-["pdflatex"] 1788690452.16841 "/Users/leandro/Desktop/associative/dyslexic.tex" "dyslexic.pdf" "dyslexic" 1788690455.4309 0
+["pdflatex"] 1788690991.27734 "/Users/leandro/Desktop/associative/dyslexic.tex" "dyslexic.pdf" "dyslexic" 1788690994.43549 0
   "/Users/leandro/Desktop/associative/dyslexic.tex" 1788674651.38247 1766 9f9ca192c37a9e7622e7e0181faaa38f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -276,22 +276,22 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1766264480 5541377 0af08d58b046ada1f2a2c7d4825ab417 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1766264694 3635728 b6aead05c0533d34fbe1690345674684 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "01.tex" 1788690366.93658 49562 0601c8b06b3834de90a1bf0712a34418 ""
+  "01.tex" 1788690991.0717 49559 cf6cad3014dea6be5591d7f3a99761f0 ""
   "02.tex" 1788690451.98122 61831 239c0d19f5e71ccd635a86d84c8fa84e ""
-  "03.tex" 1788689979.06946 18151 d5185df76f8190dbd0f9891eda3faa29 ""
+  "03.tex" 1788690526.74967 18150 686305fb9fe03a00114402b973c4abd6 ""
   "04.tex" 1788672045.48403 61613 cb1371c2e2eee5ad47aa5763904e1add ""
   "05.tex" 1788672045.48422 57402 9de2f1b88999f338598e30472d147308 ""
   "06.tex" 1788672045.48475 53146 d282cb79ba8cab3055f14119c94cb343 ""
   "07.tex" 1788672045.48523 46312 9d512d62fe8c5e2719af11a6b60d345a ""
   "VUB.jpg" 1788672045.48729 76445 4661c426434d7bcf06ebe122089b5e95 ""
-  "dyslexic.aux" 1788690455.11692 23552 a405208cdcc006f76a43444212027593 "pdflatex"
+  "dyslexic.aux" 1788690994.14132 23552 a405208cdcc006f76a43444212027593 "pdflatex"
   "dyslexic.bbl" 1788690036.31372 5597 590a459fee5fbaca792f5b462f1b4de0 "bibtex dyslexic"
   "dyslexic.ind" 0 -1 0 ""
-  "dyslexic.lec" 1788690455.11992 151 646b2f55632956b233982f7557c8078a "pdflatex"
-  "dyslexic.out" 1788690455.1197 9486 915479291bc429c636fcafb3eb431061 "pdflatex"
+  "dyslexic.lec" 1788690994.14422 151 646b2f55632956b233982f7557c8078a "pdflatex"
+  "dyslexic.out" 1788690994.14401 9486 915479291bc429c636fcafb3eb431061 "pdflatex"
   "dyslexic.tex" 1788674651.38247 1766 9f9ca192c37a9e7622e7e0181faaa38f ""
-  "dyslexic.toc" 1788690455.11994 5268 70df227fe63f635971e4d798aec22d93 "pdflatex"
-  "introduction.aux" 1788690453.10586 1202 90caedc670596312948717849ff9116d "pdflatex"
+  "dyslexic.toc" 1788690994.14425 5268 70df227fe63f635971e4d798aec22d93 "pdflatex"
+  "introduction.aux" 1788690992.25853 1202 90caedc670596312948717849ff9116d "pdflatex"
   "introduction.tex" 1788672045.48957 4769 547c0c7c7a523d3a4644bf1ad0e16d6d ""
   "sty/mynotes.sty" 1788672060.09534 15900 835c6db645b187c0e543e975f42c1459 ""
   (generated)
