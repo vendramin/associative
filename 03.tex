@@ -233,7 +233,7 @@ Similarly one defines right artinian rings\index{Right!right artinian}.
 \begin{definition}
 \index{Module!composition series}
 \index{Composition series}
-	\label{def:serie_de_composicion}
+\label{def:composition_series}
 	A \emph{composition series} of the module $M$ is a sequence 
 	\[
 		\{0\}=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots\subsetneq M_n=M
@@ -244,10 +244,11 @@ Similarly one defines right artinian rings\index{Right!right artinian}.
 	$n$ is the length of the composition series.
 \end{definition}
 
-This definition also applies to modules over non-unitary rings.
+In Definition~\ref{def:serie_de_composicion}, we allow $n=0$: the zero module has the one-term composition series $\{0\}$, of length zero. 
+
+The definition also applies to modules over non-unitary rings.
 We require each factor to be non-zero with no non-zero proper
-submodules, but do not require the action of $R$ on that factor
-to be non-zero.
+submodules, but do not require the action of $R$ on that factor to be non-zero.
 
 \begin{theorem}
 	\label{thm:serie_de_composicion}
@@ -255,11 +256,12 @@ to be non-zero.
 \end{theorem}
 
 \begin{proof}
+	If $M=\{0\}$, both series have length zero and the result is trivial.
 	Let $M$ be a non-zero module and let $\{0\}=M_0\subsetneq
 	M_1\subsetneq\cdots\subsetneq M_n=M$ be a composition series for $M$.
 	We claim that each $M_i$ is artinian and noetherian. We proceed by induction on $i$. The case
 	$i=0$ is trivial. Let us assume that $M_i$ is artinian and noetherian. Since 
-	$M_i/M_{i-1}$ has no non-zero proper submodules and the sequence 
+	$M_{i+1}/M_{i}$ has no non-zero proper submodules and the sequence 
 	\[
 	\begin{tikzcd}
 		0 \arrow{r}
@@ -280,9 +282,9 @@ to be non-zero.
 	\[
 		\{0\}=M_0\subsetneq M_1\subsetneq M_2\subsetneq\cdots
 	\]
-	of submodules of $M$, where each $M_{i+1}/M_i$ is non-zero and admits no
-	proper submodules. Since $M$ is noetherian, the sequence stabilizes and
-	hence it follows that $M_n=M$ for some $n$. 
+	of submodules of $M$, where each $M_{i+1}/M_i$ is non-zero and admits no non-zero
+	proper submodules. Since $M$ is noetherian, this process must terminate, and it can
+	terminate only when $M_n=M$. 
 \end{proof}
 
 \begin{definition}
@@ -337,8 +339,10 @@ to be non-zero.
 	\]  
 	Since $V_1$ has a composition series, $V_1$ is artinian and
 	noetherian by Theorem~\ref{thm:serie_de_composicion}. The submodule $U=V_1\cap W_1$ is also 
-	artinian and noetherian and hence, by Theorem~\ref{thm:serie_de_composicion}, 
-	admits a composition series 
+	artinian and noetherian. 
+	If $U=\{0\}$, take its composition series of length $r=0$.
+	Otherwise, by Theorem~\ref{thm:serie_de_composicion}, 
+	$U$ admits a composition series 
 	\[
 		U=U_0\supsetneq U_1\supsetneq\cdots\supsetneq U_r=\{0\}.
 	\]

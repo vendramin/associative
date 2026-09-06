@@ -438,36 +438,33 @@ $M$ can be extended to a basis of $M$.
 %simple $M_n(D)$-module and that $M_n(D)\simeq n (D^n)$ as $M_n(D)$-modules. 
 %
 %{\color{blue}
-%\begin{proof}
-%  Let $v_1,\dots,v_n$ be a basis of $V$. The evaluation map
-%  \[
-%    \psi\colon \End_D(V)\longrightarrow\bigoplus_{i=1}^n V,\qquad
-%    f\longmapsto(f(v_1),\dots,f(v_n)),
-%  \]
-%  is a homomorphism of $\End_D(V)$-modules. It is injective, because  
-%  \[ 
-%    \psi(f)=0\implies f(v_1)=\cdots=f(v_n)=0\implies f=0, 
-%  \]
-%  as $v_1,\dots,v_n$ is basis of $V$. Now we prove that 
-%  $\psi$ is surjective: let 
-%  $w_1,\dots,w_n\in V$. Then 
-%  \[
-%    f\colon V\to V,\quad 
-%    f\left(\sum_{i=1}^n d_i v_i\right)=\sum_{i=1}^n d_i w_i, 
-%  \]
-%  is a homomorphism of $D$-modules such that 
-%  $\psi(f)=(w_1,\dots,w_n)$.
-%  Thus $\psi$ is surjective. 
-%
-%%  Finally, let $v\ne0$ and $w\in V$. Extend $v$ to a basis of $V$ 
-%%  and define a $D$-linear map sending $v$ to $w$.
-%%  Hence $\End_D(V)v=V$, proving simplicity.
-%  It remains to show that $V$ is simple. It is enough to prove that
-%  $V=\End_D(V)\cdot v=(v)$ for all $v\in V\setminus\{0\}$. Let $v\in
-%  V\setminus\{0\}$. Let $w\in V$. Extending $v$ to a basis of $V$, one sees that
-%  there exists $f\in\End_D(V)$ such that
-%  $f(v)=w$. Thus $w\in (v)$ and therefore $V=(v)$.  
-%\end{proof}
+\begin{proof}
+ Let $v_1,\dots,v_n$ be a basis of $V$. The evaluation map
+ \[
+   \psi\colon \End_D(V)\longrightarrow\bigoplus_{i=1}^n V,\qquad
+   f\longmapsto(f(v_1),\dots,f(v_n)),
+ \]
+ is a homomorphism of $\End_D(V)$-modules. It is injective, because  
+ \[ 
+   \psi(f)=0\implies f(v_1)=\cdots=f(v_n)=0\implies f=0, 
+ \]
+ as $v_1,\dots,v_n$ is basis of $V$. Now we prove that 
+ $\psi$ is surjective: let 
+ $w_1,\dots,w_n\in V$. Then 
+ \[
+   f\colon V\to V,\quad 
+   f\left(\sum_{i=1}^n d_i v_i\right)=\sum_{i=1}^n d_i w_i, 
+ \]
+ is a homomorphism of $D$-modules such that 
+ $\psi(f)=(w_1,\dots,w_n)$.
+ Thus $\psi$ is surjective. 
+
+ It remains to show that $V$ is simple. It is enough to prove that
+ $V=\End_D(V)\cdot v=(v)$ for all $v\in V\setminus\{0\}$. Let $v\in
+ V\setminus\{0\}$. Let $w\in V$. Extending $v$ to a basis of $V$, one sees that
+ there exists $f\in\End_D(V)$ such that
+ $f(v)=w$. Thus $w\in (v)$ and therefore $V=(v)$.  
+\end{proof}
 
 There is also a useful matrix version. With its usual left matrix action,
 $D^n$ is a simple $M_n(D)$-module: any non-zero column vector can be
@@ -1032,14 +1029,14 @@ $D^n$.
   \begin{proof}[Proof of Theorem \ref{thm:Wedderburn_nilpotent}]
     We proceed by induction on $\dim A$. 
     If $A=\{0\}$, the result is immediate. 
-    If $\dim A=1$ and 
+    If $\dim A=1$, then 
     there exists a nilpotent element $a\in A$ such that 
     $\{a\}$ is a basis of $A$. Then $A$ is nilpotent. In fact, 
     since $a^r=0$ for some $r$, 
     \[
       (\lambda_1a)(\lambda_2a)\cdots(\lambda_ra)=(\lambda_1\lambda_2\cdots\lambda_r)a^r=0
     \]
-    for all $\lambda_1,\lambda_2,\dots,\lambda_r\in K$. Thus $A^r=\{0\}$. 
+    for all $\lambda_1,\lambda_2,\dots,\lambda_r\in\C$. Thus $A^r=\{0\}$. 
     Assume now that $\dim A>1$. Since $J(A)$ is nilpotent, $J(A)^n=\{0\}$ 
     for some $n$. 
 
@@ -1228,7 +1225,7 @@ $D^n$.
   \end{theorem}
 
   \begin{proof}
-    Let $G$ be an unipotent subgroup of $\GL_n(\C)$. 
+    Let $G$ be a unipotent subgroup of $\GL_n(\C)$. 
     Assume first that there exists
     a complete flag $(V_1,\dots,V_n)$ of $\C^n$
     such that $G\subseteq\operatorname{Stab}_{G}(V_1,\dots,V_n)$. 
