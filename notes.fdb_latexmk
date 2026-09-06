@@ -1,14 +1,15 @@
 # Fdb version 4
-["bibtex notes"] 1788674634.49631 "notes.aux" "notes.bbl" "notes" 1788674637.60917 0
+["bibtex notes"] 1788674634.49631 "notes.aux" "notes.bbl" "notes" 1788678150.41138 0
   "./refs.bib" 1788672045.49209 21534 e5bd65ec30f7b0db2372e1af3ceb9c50 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "introduction.aux" 1788674635.447 1202 90caedc670596312948717849ff9116d "pdflatex"
-  "notes.aux" 1788674637.31809 23554 2451540e87fa6b2d67f6290e1084c8c5 "pdflatex"
+  "introduction.aux" 1788678148.25014 1202 90caedc670596312948717849ff9116d "pdflatex"
+  "notes.aux" 1788678150.12849 23554 2451540e87fa6b2d67f6290e1084c8c5 "pdflatex"
   (generated)
   "notes.bbl"
   "notes.blg"
   (rewritten before read)
-["pdflatex"] 1788674634.58521 "notes.tex" "notes.pdf" "notes" 1788674637.60936 0
+["pdflatex"] 1788678147.31691 "/Users/leandro/Desktop/associative/notes.tex" "notes.pdf" "notes" 1788678150.41159 0
+  "/Users/leandro/Desktop/associative/notes.tex" 1788672045.49199 1766 9f9ca192c37a9e7622e7e0181faaa38f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcbx1200.tfm" 1136768653 1536 c09172c8f235393e6235bb4758357c41 ""
@@ -275,23 +276,23 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1766264480 5541377 0af08d58b046ada1f2a2c7d4825ab417 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1766264694 3635728 b6aead05c0533d34fbe1690345674684 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "01.tex" 1788674514.97679 49779 4aef93cc8a6e9ee9d3f107e087923692 ""
+  "01.tex" 1788675028.60127 49779 4aef93cc8a6e9ee9d3f107e087923692 ""
   "02.tex" 1788672045.4835 61819 72dd30f2bb28601d030c9b4ad0fdd04d ""
-  "03.tex" 1788672045.48381 17162 8b864c7ee9f215da368a0cb6c5e210c2 ""
+  "03.tex" 1788678147.20067 17530 8105cfa5928b105f7d225178d7dbb4dc ""
   "04.tex" 1788672045.48403 61613 cb1371c2e2eee5ad47aa5763904e1add ""
   "05.tex" 1788672045.48422 57402 9de2f1b88999f338598e30472d147308 ""
   "06.tex" 1788672045.48475 53146 d282cb79ba8cab3055f14119c94cb343 ""
   "07.tex" 1788672045.48523 46312 9d512d62fe8c5e2719af11a6b60d345a ""
   "VUB.jpg" 1788672045.48729 76445 4661c426434d7bcf06ebe122089b5e95 ""
-  "introduction.aux" 1788674635.447 1202 90caedc670596312948717849ff9116d "pdflatex"
+  "introduction.aux" 1788678148.25014 1202 90caedc670596312948717849ff9116d "pdflatex"
   "introduction.tex" 1788672045.48957 4769 547c0c7c7a523d3a4644bf1ad0e16d6d ""
-  "notes.aux" 1788674637.31809 23554 2451540e87fa6b2d67f6290e1084c8c5 "pdflatex"
+  "notes.aux" 1788678150.12849 23554 2451540e87fa6b2d67f6290e1084c8c5 "pdflatex"
   "notes.bbl" 1788674634.58176 5615 d2d710d34a2f0c9c3bbd1eafe901dc6f "bibtex notes"
   "notes.ind" 0 -1 0 ""
-  "notes.lec" 1788674637.32124 151 646b2f55632956b233982f7557c8078a "pdflatex"
-  "notes.out" 1788674637.32088 9486 915479291bc429c636fcafb3eb431061 "pdflatex"
+  "notes.lec" 1788678150.13139 151 646b2f55632956b233982f7557c8078a "pdflatex"
+  "notes.out" 1788678150.13113 9486 915479291bc429c636fcafb3eb431061 "pdflatex"
   "notes.tex" 1788672045.49199 1766 9f9ca192c37a9e7622e7e0181faaa38f ""
-  "notes.toc" 1788674637.32128 5268 70df227fe63f635971e4d798aec22d93 "pdflatex"
+  "notes.toc" 1788678150.13141 5268 70df227fe63f635971e4d798aec22d93 "pdflatex"
   "sty/mynotes.sty" 1788672060.09534 15900 835c6db645b187c0e543e975f42c1459 ""
   (generated)
   "introduction.aux"
