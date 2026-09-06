@@ -3,5 +3,7 @@
 *.log
 *.toc
 *.fls
+*.lec
+*.bbl
 *.fdb_latexmk
 *.synctex.gz
