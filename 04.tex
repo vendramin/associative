@@ -128,7 +128,7 @@ Direct products and direct sums of rings are all examples of subdirect products 
 	The ring homomorphism 
 	\[
 		\phi\colon R\to\prod_{i\in I}R/P_i,\quad
-		r\mapsto \{\lambda_i(r):i\in I\},
+		r\mapsto (\lambda_i(r))_{i\in I},
 	\]
 	is injective and satisfies $\pi_j\phi(R)=R/P_j$ for all 
 	$j$.
@@ -419,15 +419,15 @@ Direct products and direct sums of rings are all examples of subdirect products 
 
 \section{Jacobson's density theorem}
 
-At this point, it is convenient to recall that
-modules over division rings are pretty much as vector spaces over fields. For that reason, 
+At this point, it is convenient to recall that unitary 
+modules over division rings behave much like vector spaces over fields. For that reason, 
 they are often called \emph{vector spaces over division rings}. 
 
 \begin{definition}
 	\index{Dense ring of linear operators}
 	Let $D$ be a division ring, and $V$ be a non-zero vector space over $D$. A subring 
 	$R\subseteq\End_D(V)$ is a \emph{dense ring of linear operators} 
-	of $V$ (or simple, \emph{dense} in $V$) if for every  
+	of $V$ (or simply, \emph{dense} in $V$) if for every  
 	$n\in\Z_{>0}$, every linearly independent set $\{x_1,\dots,x_n\}\subseteq V$ 
 	and every (not necessarily linearly independent) subset $\{y_1,\dots,y_n\}\subseteq V$ 
 	there exists $f\in R$ such that $f(x_j)=y_j$ for all 
@@ -937,13 +937,13 @@ We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_
 \end{proof}
 
 \begin{theorem}[Wedderburn]
-	\index{Wedderburn's theorem}
+	\index{Wedderburn's theorem!simple artinian rings}
 	Let $R$ be a left artinian ring. The following statements are equivalent:
 	\begin{enumerate}
 		\item $R$ is simple.
 		\item $R$ is prime.
 		\item $R$ is primitive.
-		\item $R\simeq M_n(D)$ for some $n$ and some division ring $D$.
+		\item $R\simeq M_n(D)$ for some $n\geq1$ and some division ring $D$.
 	\end{enumerate}
 \end{theorem}
 
@@ -1006,7 +1006,7 @@ the ring $R/I$ is prime.
 \end{lemma}
 
 \begin{proof}
-    Since $I$ is primitive, then $R/I$ is primitive (Exercise~\ref{xca:primitivo}). By Wedderburn's theorem, 
+    Since $I$ is primitive, $R/I$ is primitive (Exercise~\ref{xca:primitivo}). By Wedderburn's theorem, 
     $R/I$ is prime and hence $I$ is prime. 
 \end{proof}
 
@@ -1035,7 +1035,7 @@ We shall need the following lemmas.
 \begin{lemma}
 \label{lem:I2...In}
     Let $R$ be a left artinian unitary ring.
-    Let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
+    For $k\geq2$, let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
     Then $I_2\cdots I_k\not\subseteq I_1$.   
 \end{lemma}
 
@@ -1062,7 +1062,7 @@ We shall need the following lemmas.
 \end{lemma}
 
 \begin{proof}
-    If $I_1,I_2\dots$ are infinitely many distinct primitive ideals. 
+    Assume that $I_1,I_2,\dots$ are infinitely many distinct primitive ideals. 
     Since $R$ is left artinian, the sequence 
     $I_1\supseteq I_1I_2\supseteq\cdots$ stabilizes, so there
     exists $n$ such that 
@@ -1217,6 +1217,7 @@ $\prescript{}{R}{R}$ is semisimple.
 \end{proposition}
 
 \begin{proof}
+	Assume that $R\ne\{0\}$, otherwise the result is trivial. 
     Write $R$ as a direct sum $R=L_1\oplus\cdots\oplus L_n$ of minimal left ideals. Since 
     each $L_j$ is a simple submodule of $\prescript{}{R}{R}$, it follows that 
     \[
@@ -1285,6 +1286,7 @@ Both these column spaces are indeed minimal left ideals of $M_2(\R)$.
 \end{theorem}
 
 \begin{proof}
+	If $R=\{0\}$, the result is trivial. So assume that $R\ne\{0\}$. 
     If $R$ is semisimple, then $R$ is left artinian by the previous proposition. 
     Moreover, 
     there are finitely many 
@@ -1394,8 +1396,10 @@ Both these column spaces are indeed minimal left ideals of $M_2(\R)$.
 \end{theorem}
 
 \begin{proof}
+	If $R=\{0\}$, the result is trivial. So assume that $R\ne\{0\}$. 
 	Let $J=J(R)$. Since $R$ is left artinian, $J$ is a nilpotent ideal 
-	by Theorem~\ref{thm:Jnilpotente}. Let $n$ be such that $J^n=\{0\}$. Now consider the sequence 
+	by Theorem~\ref{thm:Jnilpotente}. Let $n$ be such that $J^n=\{0\}$. 
+	Now consider the sequence 
 	\[
 		R\supsetneq J\supseteq J^2\supseteq\cdots\supseteq J^{n-1}\supseteq J^n=\{0\}
 	\]
@@ -1409,9 +1413,21 @@ Both these column spaces are indeed minimal left ideals of $M_2(\R)$.
 	Thus each  
 	$J^i/J^{i+1}$ is a module over $R/J$. Since $R/J$ is left artinian and 
 	$J(R/J)=\{0\}$ by Theorem \ref{thm:J(R/J)=0}, it follows that $R/J$ is semisimple. 
+	% For $0\leq i<n$, the module $J^i/J^{i+1}$ is a unitary
+	% $(R/J)$-module, so it is semisimple. It is also artinian
+	% as an $R$-module, being a subquotient of the artinian
+	% module $\prescript{}{R}R$. Since its $R$-submodules and
+	% $(R/J)$-submodules coincide, it is artinian as an
+	% $(R/J)$-module. An artinian semisimple module is a finite
+	% direct sum of simple modules. Hence each $J^i/J^{i+1}$
+	% is noetherian as an $R$-module.
 	In particular, since every unitary $(R/J)$-module is semisimple,  
 	each $J^{i}/J^{i+1}$ 
-	is semisimple and hence it is left noetherian. 
+	is semisimple. Moreover, each $J^{i}/J^{i+1}$ is 
+	artinian (because it is a subquotient of $\prescript{}{R}R$). 
+	An artinian semisimple module is a finite
+	direct sum of simple modules, and hence each 
+	$J^{i}/J^{i+1}$ is noetherian as an $R$-module.  
 	
 	Now suppose that $R$ is not left noetherian. Let $m$ be the largest non-negative integer
 	such that $J^m$ is not left noetherian. Note that $0\leq m<n$. The sequence

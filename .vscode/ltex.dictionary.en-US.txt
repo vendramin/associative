@@ -1,0 +1,6 @@
+surjective
+Wedderburn
+noetherian
+artinian
+Artin
+minimality
