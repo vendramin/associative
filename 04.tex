@@ -5,6 +5,8 @@
 \section{Semiprimitive rings}
 
 \begin{definition}
+	\index{Ring!semiprimitive}
+	\index{Jacobson semisimple ring|see{Ring, semiprimitive}}
 	A ring $R$ is \emph{semiprimitive} (or Jacobson semisimple) if  $J(R)=\{0\}$.
 \end{definition}
 
@@ -41,7 +43,7 @@ $\Z$ is semiprimitive, as $J(\Z)=\bigcap_{p}p\Z=\{0\}$.
 \end{example}
 
 We proved in Theorem~\ref{thm:J(R/J)=0} (Lecture \ref{04}) 
-that $R/J(R)$ is semiprimive. 
+that $R/J(R)$ is semiprimitive. 
 
 %El teorema de densidad de Jacobson nos permite entonces obtener el siguiente resultado:
 %
@@ -96,9 +98,12 @@ Direct products and direct sums of rings are all examples of subdirect products 
     \quad
     r\mapsto (r+I_i)_i.
     \]
-    For each
-    $i$, let $R_i=R/I_i$. Then $R$ is a subdirect product
-    of the $R_i$ if and only if $f$ is injective. 
+	The canonical map $f$ exhibits $R$ as a subdirect product
+	of the $R/I_i$ if and only if $f$ is injective, equivalently
+	if and only if $\bigcap_i I_i=\{0\}$.		
+    % For each
+    % $i$, let $R_i=R/I_i$. Then $R$ is a subdirect product
+    % of the $R_i$ if and only if $f$ is injective. 
 \end{example}
 
 
@@ -419,7 +424,8 @@ modules over division rings are pretty much as vector spaces over fields. For th
 they are often called \emph{vector spaces over division rings}. 
 
 \begin{definition}
-	Let $D$ be a division ring, and $V$ be a vector space over $D$. A subring 
+	\index{Dense ring of linear operators}
+	Let $D$ be a division ring, and $V$ be a non-zero vector space over $D$. A subring 
 	$R\subseteq\End_D(V)$ is a \emph{dense ring of linear operators} 
 	of $V$ (or simple, \emph{dense} in $V$) if for every  
 	$n\in\Z_{>0}$, every linearly independent set $\{x_1,\dots,x_n\}\subseteq V$ 
@@ -451,7 +457,7 @@ they are often called \emph{vector spaces over division rings}.
 \begin{proposition}
 	\label{pro:unique_dense}
 	Let $D$ be a division ring and 
-    $V$ be a finite-dimensional $D$-vector space.  
+    $V$ be a non-zero finite-dimensional $D$-vector space.  
 	Then $\End_D(V)$ is the only dense ring of $V$.
 \end{proposition}
 
@@ -552,7 +558,7 @@ they are often called \emph{vector spaces over division rings}.
     $n=1$. Since $V$ is simple, $Rx_1=V$ since $x_1\ne 0$. Then there
     exists $r\in R$ such that $rx_1=y_1$. 
 
-    Let $n\geq1$ and assume that the theorem holds for all sets of size $\leq n-1$. 
+    Let $n\geq2$ and assume that the theorem holds for all sets of size $\leq n-1$. 
     Let $\{x_1,\dots,x_{n}\}$ be a linearly independent subset of $V$ and 
     $\{y_1,\dots,y_{n}\}$ be a subset of $V$. 
 
@@ -571,9 +577,10 @@ they are often called \emph{vector spaces over division rings}.
     \]
     for all $i\in\{1,\dots,n\}$. 
 
-    It remains to prove the claim. To prove it, suppose that it is not true. Then
-    $\lambda x_i=0$ for all $i\in\{1,\dots,n-1\}$ implies that 
-    $\lambda x_n=0$. By the inductive hypothesis, given $z_1,\dots,z_{n-1}\in R$, 
+    It remains to prove the claim. To prove it, suppose that it is not true. After relabeling the $x_i$, 
+	we may assume that 
+	$\lambda x_i=0$ for all $i\in\{1,\dots,n-1\}$ implies  
+    $\lambda x_n=0$. By the inductive hypothesis, given $z_1,\dots,z_{n-1}\in V$, 
     there exists $r\in R$ such that
     $rx_i=z_i$ for all $i\in\{1,\dots,n-1\}$. This allows us to define a map  
     \[
@@ -762,8 +769,8 @@ they are often called \emph{vector spaces over division rings}.
 % hungerford pag 419
 
 \begin{corollary}
-	If $R$ is a primitive ring, then either there exists a division ring $D$
-	such that $R\simeq\End_D(V)$ for some finite-dimensional vector space $V$ over $D$ or 
+	If $R$ is a primitive ring, there exists a division ring $D$ such that either 
+	$R\simeq\End_D(V)$ for some finite-dimensional vector space $V$ over $D$ or 
 	for all $m\in\Z_{>0}$ there exists a subring $R_m$ of 
 	$R$ and a surjective ring homomorphism $R_m\to\End_D(V_m)$ for some vector space  
 	$V_m$ over $D$ such that $\dim_DV_m=m$.
@@ -793,23 +800,23 @@ they are often called \emph{vector spaces over division rings}.
 
 In commutative algebra, domains play a fundamental role. In non-commutative
 algebra, certain things could be quite different. 
-For example, the ring $M_n(\C)$ is not a domain.
+For example, the ring $M_n(\C)$ is not a domain for $n\geq2$.
 We need a non-commutative generalization of domains.
 
 \begin{definition}
 	\index{Ring!prime} 
-	Let $R$ be a ring (not necessarily with one). Then $R$ is
+	Let $R$ be a non-zero ring, not necessarily with identity. Then $R$ is
 	\emph{prime} if for $x,y\in R$ such that $xRy=\{0\}$ it follows that $x=0$ or 
 	$y=0$.
 \end{definition}
 
 \index{Domain}
-A ring $R$ is a \emph{domain} if $xy=0$ implies
+A non-zero ring $R$ is a \emph{domain} if $xy=0$ implies
 $x=0$ or $y=0$. Each domain is trivially a prime ring.
 
 \begin{example}
-    A commutative ring is prime if and only if it is a domain, as $ab=0$ 
-    if and only if $aRb=\{0\}$.
+    A commutative ring is prime if and only if it is a domain. If $R$ is commutative and prime, 
+	then $ab=0$ implies $aRb=\{0\}$, so $a=0$ or $b=0$. Conversely, every domain is prime. 
 \end{example}
 
 \begin{example}
@@ -841,7 +848,7 @@ A characterization of prime rings:
 \begin{proof}
 	We first prove that $1)\implies2)$. Let $I$ and $J$ be left ideals such that
 	$IJ=\{0\}$. Then $IRJ=I(RJ)\subseteq IJ=\{0\}$. If $J\ne
-	\{0\}$, $u\in I$ and $v\in J\setminus\{0\}$, then $uRv\in IRJ=\{0\}$. Hence 
+	\{0\}$, $u\in I$ and $v\in J\setminus\{0\}$, then $uRv\subseteq IRJ=\{0\}$. Hence 
 	$u=0$.
 
 	The implication $2)\implies3)$ is trivial. 
@@ -866,7 +873,7 @@ Simple rings are trivially prime. The converse is not true. For example,
 $\Z$ is a domain, so it is a prime ring but is not simple.
 
 \begin{example}
-	If $R_1$ and $R_2$ are rings, $R=R_1\times R_2$ is not prime, as 
+	If $R_1$ and $R_2$ are non-zero rings, $R=R_1\times R_2$ is not prime, as 
 	$I=R_1\times\{0\}$ and $J=\{0\}\times R_2$ are non-zero ideals such that $IJ=\{0\}$.
 \end{example}
 
@@ -1012,7 +1019,7 @@ If $G$ is a group, let
         \index{Dietzmann's theorem}
         \label{xca:Dietzmann}
         Let $G$ be a group and $X\subseteq G$ be a finite subset of $G$ closed by
-        conjugation. If there exists $n$ such that $x^n=1$ for all $x\in X$, then
+        conjugation. If there exists $n\geq1$ such that $x^n=1$ for all $x\in X$, then
         $\langle X\rangle$ is a finite subgroup of $G$.
 \end{exercise}
 
@@ -1024,7 +1031,7 @@ If $G$ is a group, let
 \begin{proof}
 	Clearly, $1\in\Delta^+(G)$. 
 	Let $x,y\in\Delta^+(G)$ and $H$ be the subgroup of $G$ generated by the set 
-	$C$ formed by all finite conjugates of $x$ and $y$. If $|x|=n$ and 
+	$C$ formed by all conjugates of $x$ and $y$. If $|x|=n$ and 
 	$|y|=m$, then $c^{nm}=1$ for all $c\in C$. 
 	Since $C$ is finite and closed under conjugation, Dietzmann's theorem (Exercise \ref{xca:Dietzmann})
 	implies that $H$ is finite and hence 
@@ -1043,19 +1050,19 @@ To prove Connel's theorem we need a lemma.
 
 \begin{proof}
 	Let $H$ be the subgroup generated by the conjugates of $x$. Since $x$ has finitely many conjugates, 
-	$H$ is finitely generated. Moreover, $H$ is normal in $G$ and it is generated by torsion elements. 
+	$H$ is finitely generated. Moreover, $H$ is normal in $G$, and it is generated by torsion elements. 
 	All these generators of $H$ have the same order, say $n$. By Dietzmann's theorem (Exercise \ref{xca:Dietzmann}), 
 	$H$ is finite. 
 \end{proof}
 
 \index{Ring!prime}
-Recall that a ring $R$ is said to be \emph{prime} 
+Recall that a non-zero ring $R$ is said to be \emph{prime} 
 if for $x,y\in R$ such that $xRy=\{0\}$ it follows that $x=0$ or $y=0$. Prime rings
 are non-commutative analogs of domains. 
 
 \begin{theorem}[Connell]
 	\label{thm:Connel}
-	\index{Connel's theorem}
+	\index{Connel's theorem!prime group algebras}
 	Let $K$ be a field of characteristic zero. Let 
 	$G$ be a group. The following statements are equivalent: 
 	\begin{enumerate}
@@ -1101,12 +1108,12 @@ are non-commutative analogs of domains.
 	$K[\Delta(G)]$ has no zero divisors and therefore $\alpha=0$. 
 \end{proof}
 
-\index{Hopkins--Levitzky's theorem}
-We now need to recall Hopkins--Levitzky's theorem. The theorem
+\index{Hopkins--Levitzky theorem}
+We now need to recall the Hopkins--Levitzky theorem. The theorem
 states that unitary left artinian rings are left noetherian.
 
 \begin{theorem}[Connel]
-\index{Connel's theorem}
+\index{Connel's theorem!artinian group algebras}
 	Let $K$ be a field of characteristic zero. If $G$ is a group, then 
 	$K[G]$ is left artinian if and only if $G$ is finite.
 \end{theorem}
@@ -1122,7 +1129,7 @@ states that unitary left artinian rings are left noetherian.
 
 	Since $K[G]$ is left artinian, it is left noetherian by the Hopkins--Levitzky theorem. Thus $K[G]$
 	admits a composition series. We proceed by induction on the length of this composition series of 
-	$K[G]$. If the length is one, $\{0\}$ is the only ideal of $K[G]$ and hence the result follows as 
+	$K[G]$. If the length is one, $\{0\}$ is the only proper left ideal of $K[G]$ and hence the result follows as 
 	$K[G]$ is prime. If we assume the result holds for length $n$ and $K[G]$ is not prime, then, 
 	Connel's theorem implies that $G$ contains a finite non-trivial normal subgroup $H$. The canonical map
 	$K[G]\to K[G/H]$ implies that $K[G/H]$ is left artinian and has length 
@@ -1135,16 +1142,6 @@ states that unitary left artinian rings are left noetherian.
 
 We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_left_ideal}).  
 
-% \begin{definition}
-%     Let $R$ be a ring. A left ideal $L$ is said to be \emph{minimal}
-%     if $L\ne\{0\}$ and there is no left ideal $L_1$
-%     such that $\{0\}\subsetneq L_1\subsetneq L$.
-% \end{definition}
-
-% The ring $\Z$ contains no minimal left ideals. If $I$ is a non-zero 
-% left ideal of $\Z$, then
-% $I=(n)$ for some $n>0$ and $I=(n)\supsetneq (2n)$. 
-
 \begin{lemma}
 	\label{lem:primoizqmin=>prim}
 	Let $R$ be a prime ring and $L$ be a minimal left ideal of $R$.
@@ -1152,9 +1149,10 @@ We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_
 \end{lemma}
 
 \begin{proof}
-	Since $L$ is a minimal left ideal, it is simple as a module over $R$. 
+	Let $y\in L\setminus\{0\}$. Then $0\ne yRy\subseteq RL$. Since $L$ is a minimal left ideal, 
+	it follows that $L$ is a simple $R$-module.  
 	We claim that $L$ is faithful. Let $y\in L\setminus\{0\}$ and
-	$x\in\Ann_R(L)$. Since $xRy\in xRL\subseteq xL=\{0\}$, it follows that 
+	$x\in\Ann_R(L)$. Since $xRy\subseteq xRL\subseteq xL=\{0\}$, it follows that 
 	$x=0$.
 \end{proof}
 
@@ -1165,9 +1163,9 @@ We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_
 \end{lemma}
 
 \begin{proof}
-	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots,\}$ be a linearly independent set. 
+	Assume that $\dim_DV=\infty$ and let $\{u_1,u_2,\dots\}$ be a linearly independent set. 
 	Since $R\subseteq\End_D(V)$, it follows that 
-	$V$ is a module over $R$ with $f\cdot v=f(v)$, where $f\in R$ y $v\in V$. 
+	$V$ is a module over $R$ with $f\cdot v=f(v)$, where $f\in R$ and $v\in V$. 
 	For $n\in\Z_{>0}$ let 
 	\[
 		I_n=\Ann_R(\{u_1,\dots,u_n\}).
@@ -1202,16 +1200,18 @@ We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_
 	Jacobson's density theorem we may assume that there is a division ring $D$ and a $D$-vector space $V$ such that 
     $R\subseteq\End_D(V)$ is dense in $V$. 
 	Now Lemma~\ref{lem:denso_artiniano} and Proposition~\ref{pro:unique_dense} 
-    imply that $R=\End_D(V)\simeq M_n(D)$, as $\dim_DV<\infty$. 
+    imply that $R=\End_D(V)\simeq M_n(D^{\op})$. Since 
+	$D^{\op}$ is a division ring, the claim follows. 
+	% as $\dim_DV<\infty$. 
 
 	Finally, $4)\implies1)$ is trivial, as $M_n(D)$ is simple. 
 \end{proof}
 
 \section{The Artin--Wedderburn theorem for rings}
 
-We now prove Artin--Wedderburn theorem. We will assume that our ring
-is a unitary left artinian ring. One could prove
-Artin--Wedderburn's theorem for arbitrary rings --see for example \cite{MR600654}--  
+We now prove the Artin--Wedderburn theorem. We will assume that our ring
+is a unitary left artinian ring. One could prove the 
+theorem for arbitrary rings --see for example \cite{MR600654}--  
 but when dealing with unitary rings, the proof 
 is simpler. We will prove
 that left artinian semiprimitive unitary rings
@@ -1233,7 +1233,7 @@ implies that the map is in fact surjective.
 
 \begin{definition}
 \index{Ideal!prime}
-    An ideal $I$ of $R$ is \emph{prime} if $xRy\subseteq I$ implies
+    A proper ideal $I$ of $R$ is \emph{prime} if $xRy\subseteq I$ implies
     $x\in I$ or $y\in I$.
 \end{definition}
 
@@ -1247,10 +1247,8 @@ the ring $R/I$ is prime.
     $I$ is prime. 
 \end{lemma}
 
-% no necesito hacerlo para artiniano
-
 \begin{proof}
-    Since $I$ is primitive, then $R/I$ is primitive (Exercise~\ref{xca:primitivo}). By Wedderburn theorem, 
+    Since $I$ is primitive, then $R/I$ is primitive (Exercise~\ref{xca:primitivo}). By Wedderburn's theorem, 
     $R/I$ is prime and hence $I$ is prime. 
 \end{proof}
 
@@ -1306,7 +1304,7 @@ We shall need the following lemmas.
 \end{lemma}
 
 \begin{proof}
-    If $I_1,I_2\dots$ are infinitely many primitive ideals. 
+    If $I_1,I_2\dots$ are infinitely many distinct primitive ideals. 
     Since $R$ is left artinian, the sequence 
     $I_1\supseteq I_1I_2\supseteq\cdots$ stabilizes, so there
     exists $n$ such that 
@@ -1320,8 +1318,9 @@ We shall need the following lemmas.
 Now we are ready to prove the theorem. 
 
 \begin{proof}[Proof of Theorem \ref{thm:ArtinWedderburn_version2}]
-    Let $I_1,\dots,I_k$ be the (distinct) primitive ideals of $R$. 
-    We know that each $I_i$ is a maximal ideal. Thus $I_i+I_j=R$ for
+    Let $I_1,\dots,I_k$ be the (distinct) primitive ideals of $R$. If $k=1$, then $I_1=J(R)=\{0\}$ and 
+	the theorem holds. So assume that $k\geq2$. 
+    Each $I_i$ is a maximal ideal. Thus $I_i+I_j=R$ for
     $i\ne j$. Since $R$ is semiprimitive, 
     $I_1\cap\cdots\cap I_k=J(R)=\{0\}$. Let 
     \[
@@ -1342,7 +1341,7 @@ Now we are ready to prove the theorem.
     Since $I_1+( I_2\cdots I_k) = R$, 
     there exists $x_1\in \prod_{j=2}^kI_j$ such that $1\in x_1+I_1$. Note that
     \[
-    x_1=(1+I_1)\cap (I_2\cdots I_k)\subseteq I_j
+    x_1\in (1+I_1)\cap (I_2\cdots I_k)\subseteq I_j
     \]
     for all $j\in\{2,\dots,k\}$. 
     Thus 
@@ -1356,12 +1355,20 @@ Now we are ready to prove the theorem.
     &\vdots\\
     \varphi(x_k)&=(I_1,I_2,\dots,x_k+I_k).
     \end{align*}
-    From this, it follows that $\varphi$ is surjective: if $(x_1+I_1,\dots,x_k+I_k)\in\prod_{j=1}^kR/I_j$, then
-    \begin{align*}
-        \varphi(x_1+\cdots+x_k) &= \varphi(x_1)+\cdots+\varphi(x_k)\\
-        &=(x_1+I_1,I_2,\dots,I_k)+\cdots+(I_1,I_2,\dots,x_k+I_k)\\
-        &=(x_1+I_1,\dots,x_k+I_k).
-    \end{align*}
+    From this, it follows that $\varphi$ is surjective: 
+	let $(a_1+I_1,\dots,a_k+I_k)\in\prod_{j=1}^kR/I_j$.  
+	Then
+	\[
+  		\varphi\left(\sum_{i=1}^k a_i x_i\right)
+  		=(a_1+I_1,\dots,a_k+I_k).
+	\]
+	Thus $\varphi$ is surjective.
+	% if $(x_1+I_1,\dots,x_k+I_k)\in\prod_{j=1}^kR/I_j$, then
+    % \begin{align*}
+    %     \varphi(x_1+\cdots+x_k) &= \varphi(x_1)+\cdots+\varphi(x_k)\\
+    %     &=(x_1+I_1,I_2,\dots,I_k)+\cdots+(I_1,I_2,\dots,x_k+I_k)\\
+    %     &=(x_1+I_1,\dots,x_k+I_k).
+    % \end{align*}
     
     Each $R/I_i$ 
     is primitive and hence isomorphic to $M_{n_i}(D_i)$ for some 
@@ -1375,12 +1382,14 @@ Now we are ready to prove the theorem.
 
 \section{Semisimple modules}
 
-% todo: va antes de la densidad de Jacboson
-
+\index{Module!semisimple}
 In the first lectures, we studied semisimple modules over finite-dimensional 
 algebras. Let us now review the theory of semisimple modules over rings. 
 A (finitely generated) module $M$ (over a ring $R$) is \emph{semisimple} 
 if it is isomorphic to a (finite) direct sum of simple modules. 
+% An $R$-module is \emph{semisimple} if it is isomorphic to
+% a direct sum of simple modules. A finitely generated
+% semisimple module is a finite direct sum of simple modules.
 
 \begin{proposition}
     Let $R$ be a left artinian ring. 
@@ -1464,7 +1473,7 @@ that every semisimple ring is both left artinian and left noetherian.
 
 \begin{exercise}
 \label{xca:semisimple}
-    If $R$ is a semisimple ring, every $R$-module is semisimple. 
+    If $R$ is a semisimple ring, every unitary $R$-module is semisimple. 
 \end{exercise}
 
 % \begin{proof}
@@ -1506,9 +1515,9 @@ b&0
 \left\{\begin{pmatrix}
 0&c\\
 0&d
-\end{pmatrix}\right\}\simeq D\oplus D
+\end{pmatrix}\right\}.
 \]
-and $D$ is a minimal left ideal of $M_2(\R)$. 
+Both these column spaces are indeed minimal left ideals of $M_2(\R)$. 
 
 \begin{theorem}
 	\label{thm:SSartin=J}
@@ -1530,7 +1539,13 @@ and $D$ is a minimal left ideal of $M_2(\R)$.
     x=x_1+x_2+\cdots+x_k
     \]
     for $x_j\in L_j$. Since $x_2+\cdots+x_k\in M_1\subseteq I$, 
-    it follows that $x_1\in I\cap L_1$. Thus $I\cap L_1$ is a non-zero left ideal contained in the minimal left ideal $L_1$, a contradiction. Now the claim follows, as
+    it follows that $x_1\in I\cap L_1$. Since $x\notin M_1$, we have $x_1\ne0$. Thus $I\cap L_1$
+	is non-zero, and the minimality of $L_1$ gives $I\cap L_1=L_1$.
+	Hence $R=M_1+L_1\subseteq I$, contradicting the fact that
+	$I$ is proper.
+	%Thus $I\cap L_1$ is a non-zero left ideal contained in the 
+	%minimal left ideal $L_1$, a contradiction. 
+	Now the claim follows, as
     $J(R)\subseteq M_1\cap\cdots\cap M_k=\{0\}$. 
     
     Conversely, if $R$ is left artinian and $J(R)=\{0\}$, then
