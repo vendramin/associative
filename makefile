@@ -28,7 +28,7 @@ notes:
 	latexmk -pdf -interaction=nonstopmode $(NOTES).tex
 
 dyslexic:
-	latexmk -pdf -interaction=nonstopmode $(DYSLEXIC).tex
+	latexmk -xelatex -interaction=nonstopmode $(DYSLEXIC).tex
 
 clean:
 	latexmk -c $(NOTES).tex

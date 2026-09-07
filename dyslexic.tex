@@ -12,6 +12,20 @@
 % Create a clean shortcut for referencing
 \newcommand{\customref}[1]{\ref{#1}}
 
+% This is the special dyslexic-friendly configuration
+\overfullrule=0mm
+\geometry{margin=1.2in}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{sfmath}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{ragged2e}
+\RaggedRight
+\thickmuskip=6mu plus 3mu
+\medmuskip=5mu plus 2mu minus 1mu
+
 \renewcommand{\course}{Associative algebra}
 
 \title{\course}

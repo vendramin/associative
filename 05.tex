@@ -1,7 +1,6 @@
 \section{Group algebras}
-\label{03}
 
-Let $K$ be a field, and $G$ be a group. The \emph{group algebra} $K[G]$ 
+Let $K$ be a field, and $G$ be a group. The \emph{group algebra}\index{Group algebra} $K[G]$ 
 is the vector space (over $K$) with basis $\{g:g\in G\}$ 
 and the algebra structure is given by the multiplication
 \[
@@ -31,7 +30,7 @@ Every element of $K[G]$ is a finite sum of the form $\sum_{g\in G}\lambda_gg$.
 
 \begin{exercise}
 	Let $G$ be a group and $\alpha=\sum_{g\in G}\lambda_gg\in K[G]$.  
-	The \emph{support} of $\alpha$ is the set 
+	The \emph{support}\index{Support!of a group algebra element} of $\alpha$ is the set 
 	\[
 		\supp\alpha=\{g\in G:\lambda_g\ne 0\}.
 	\]
@@ -159,7 +158,7 @@ simple $\C[G]$-modules. Moreover,
 \]
 
 \begin{theorem}
-    Let $G$ be a finite group. The number of simple modules of $\C[G]$
+    Let $G$ be a finite group. The number of isomorphism classes of simple modules of $\C[G]$
     coincides with the number of conjugacy classes of $G$. 
 \end{theorem}
 
@@ -195,13 +194,13 @@ simple $\C[G]$-modules. Moreover,
 \begin{example}
 \label{exa:C4}
     Let $G=C_4$ be the cyclic group of order four. Then
-    $G$ has four simple modules and 
+    $G$ has four isomorphism classes of simple modules and 
     $\C[G]\simeq\C^4$. 
 \end{example}
 
 \begin{example}
 \label{exa:S3}
-    Let $G=\Sym_3$. Then $G$ has three simple modules and
+    Let $G=\Sym_3$. Then $G$ has three isomorphism classes of simple modules and
     \[
     \C[G]\simeq\C\times\C\times M_2(\C).
     \]
@@ -231,18 +230,20 @@ that $\C^4$ and $\C^2\times M_2(\C)$ are complex group algebras.
 
 \subsection{Group rings}
 
-Let $R$ be a unitary commutative ring and $G$ be a group. Recall that
-\emph{group ring} is a free $R$-module which is also a ring. As a free
+Let $R$ be a unitary commutative ring and $G$ be a group. Recall that the \emph{group ring}\index{Group ring} $R[G]$ is a free $R$-module which is also a ring. As a free
 $R$-module, $G$ is a basis for $R[G]$. Thus every element $\alpha\in R[G]$ can
 be written uniquely as a sum of the form 
 \[
-\alpha=\sum_{g\in G}r_gg,\quad r_g\in R.
+\alpha=\sum_{g\in G}r_gg,\quad r_g\in R,
 \]
+where all but finitely many coefficients are zero. 
 Note that the elements of $R$ (more precisely, the elements of the form $r1_G$
 for $r\in R$) are central in $R[G]$. 
 
 \begin{xca}
 \label{xca:augmentation_ideal}
+\index{Augmentation map}
+\index{Augmentation ideal}
     Let $R$ be a commutative ring and $G$ be a group. Let 
     \[
     f\colon R[G] \to R,\quad 
@@ -317,37 +318,12 @@ Note that $R[G]$ is a left $R$-module with
     of $\overline{\varphi}$. 
 \end{proof}
 
-\subsection{The isomorphism problem}\
-%Recall that if $R$ is a unitary commutative ring 
-%and $G$ is a group, then one defines the group ring $R[G]$. 
-% More precisely,
-% $R[G]$ is the set of finite linear combinations
-% \[
-%     \sum_{g\in G}\lambda_gg
-% \]
-% where $\lambda_g\in R$ and $\lambda_g=0$ for all but finitely many $g\in G$.
-% One easily proves that $R[G]$ is a ring with
-% addition
-% \[
-% \left(\sum_{g\in G}\lambda_gg\right)+\left(\sum_{g\in G}\mu_gg\right)
-% =\sum_{g\in G}(\lambda_g+\mu_g)(g)
-% \]
-% and multiplication
-% \[
-% \left(\sum_{g\in G}\lambda_gg\right)\left(\sum_{h\in G}\mu_hh\right)
-% =\sum_{g,h\in G}\lambda_g\mu_h(gh).
-% \]
-%Note that $R[G]$ is a left $R$-module with
-%\[
-%\mu\left(\sum_{g\in G}\lambda_gg\right)=\sum_{g\in G}(\mu\lambda_g)g.
-%\]
-%
-%In this section, we will briefly discuss the
-%following natural problem: 
+\subsection{The isomorphism problem}
+\leavevmode
 
 \begin{que}[The isomorphism problem]
 \label{question:iso}
-\index{The isomorphism problem}
+\index{Isomorphism problem!for group rings}
  Let $R$ be a unitary commutative ring and let 
  $G$ and $H$ be groups. Assume that $R[G]\simeq R[H]$ as
  unital $R$-algebras. Does $G\simeq H$?
@@ -370,6 +346,7 @@ instance of Question \ref{question:iso}:
 
 \begin{que}
 \label{question:IP}
+\index{Isomorphism problem!integral}
     Let $G$ and $H$ be groups. Does $\Z[G]\simeq\Z[H]$ imply $G\simeq H$?
 \end{que}
 
@@ -379,6 +356,7 @@ it is false in general. In 2001 Hertweck found a counterexample of order
 $2^{21}97^{28}$, see \cite{MR1847590}.
 
 \begin{que}[The modular isomorphism problem]
+\index{Isomorphism problem!modular}
 \label{question:MIP}
     Let $p$ be a prime number. Let
     $G$ and $H$ be finite $p$-groups and let $K$ be a field of characteristic $p$.
@@ -397,13 +375,13 @@ K[H]$ for every field $K$ of characteristic two.
 We now consider Jacobson's semisimplicity problem. 
 
 \begin{question}
-\label{Jacobson's semisimplicity problem}
-Let $G$ be a group and $K$ be a field. When $J(K[G])=\{0\}$?
+\label{Jacobson semisimplicity problem}
+Let $G$ be a group and $K$ be a field. When does $J(K[G])=\{0\}$ hold?
 \end{question}
 
 As an application of Amitsur's theorem \ref{thm:Amitsur}, 
 we prove that 
-complex group algebras have null Jacobson radical.
+complex group algebras have zero Jacobson radical.
 This is known as 
 Rickart's theorem. The original proof found by Rickart 
 uses complex analysis. Here, however, 
@@ -542,7 +520,7 @@ We now prove the theorem.
 
 \begin{definition}
 	\index{Ring!semiprime}
-	A ring $R$ \emph{semiprime} if 
+	A ring $R$ is \emph{semiprime} if 
 	$aRa=\{0\}$ implies $a=0$.
 \end{definition}
 
@@ -557,7 +535,7 @@ We now prove the theorem.
 \end{proposition}
 
 \begin{proof}
-	We first prove that $1)\implies2)$. If $I^2=\{0\}$ y $x\in I$, then
+	We first prove that $1)\implies2)$. If $I^2=\{0\}$ and $x\in I$, then
 	$xRx\subseteq I^2=\{0\}$ and thus $x=0$. 
     
     The implications $2)\implies3)$
@@ -706,8 +684,8 @@ complex group algebras of infinite groups are never semisimple.
   of Rickart's theorem \ref{thm:Rickart}. 
 
   \begin{definition}
-    \index{Ring!with an involution}
     \index{Involution}
+	\index{Ring!involution}
     Let $R$ be a ring. An \emph{involution} 
     in $R$ is an additive map  
     $R\to R$, $x\mapsto x^*$, such that $x^{**}=x$ and  $(xy)^*=y^*x^*$ for all 
@@ -734,7 +712,7 @@ complex group algebras of infinite groups are never semisimple.
     is an involution of the group ring $\C[G]$.
   \end{example}
 
-  For a group $G$, one defines the \emph{trace} 
+  For a group $G$, one defines the \emph{trace}\index{Trace!of a group algebra element} 
   of an element 
   \[
     \alpha=\sum_{g\in G}\alpha_gg\in K[G]
@@ -769,7 +747,7 @@ complex group algebras of infinite groups are never semisimple.
 
   \begin{lemma}
     \label{lem:algebraico}
-    Let $G$ be a group. Prove that if $J(\C[G])\ne 0$, then there exists $\alpha\in J(\C[G])$ such that  
+    Let $G$ be a group. If $J(\C[G])\ne 0$, then there exists $\alpha\in J(\C[G])$ such that  
     $\trace(\alpha^{2^m})\in\R_{\geq1}$ 
     for all $m\geq1$.
   \end{lemma}
@@ -863,7 +841,13 @@ complex group algebras of infinite groups are never semisimple.
   \end{theorem}
 
   \begin{proof}
-    Let $\alpha\in J(\C[G])$ and $\varphi(z)=(1-\alpha z)^{-1}$. Let 
+	
+	Assume that $J(\C[G])\ne\{0\}$. Choose
+	$\alpha\in J(\C[G])$ as in Lemma~\ref{lem:algebraico}, so that
+	$\trace(\alpha^{2^m})\geq1$ for every $m\geq1$.
+	Let $\varphi(z)=(1-z\alpha)^{-1}$ and define
+	%$f(z)=\trace(\varphi(z))$.
+    %Let $\alpha\in J(\C[G])$ and $\varphi(z)=(1-\alpha z)^{-1}$. Let 
     \[
       f\colon\C\to \C,\quad  
       f(z)=\trace\varphi(z)=\trace\left((1-z\alpha)^{-1}\right).
@@ -879,8 +863,14 @@ complex group algebras of infinite groups are never semisimple.
       \label{eq:limite}
       \lim_{n\to\infty}\trace(\alpha^n)=0.
     \end{equation}
-    On the other hand, if $\alpha\ne0$, Lemma~\ref{lem:algebraico} implies that 
-    $\trace(\alpha^{2^m})\geq1$ for all $m\geq0$. This contradicts the limit computed in~\eqref{eq:limite}. Hence $\alpha=0$.
+    % On the other hand, if $\alpha\ne0$, Lemma~\ref{lem:algebraico} implies that 
+    % $\trace(\alpha^{2^m})\geq1$ for all $m\geq0$. 
+	%This contradicts the limit computed in~\eqref{eq:limite}. Hence $\alpha=0$.
+	% This contradicts $\trace(\alpha^{2^m})\geq1$ for every $m\geq1$.
+	% Therefore $J(\C[G])=\{0\}$.
+	The limit in~\eqref{eq:limite} contradicts the choice of
+	$\alpha$, since $\trace(\alpha^{2^m})\geq1$ for every $m\geq1$.
+	Therefore $J(\C[G])=\{0\}$.
   \end{proof}
 
   For a corollary, we need a consequence of 
@@ -908,7 +898,7 @@ complex group algebras of infinite groups are never semisimple.
       M=Sm=(\iota(R)x_1+\cdots+\iota(R)x_n)m=\iota(R)(x_1m)+\cdots+\iota(R)(x_nm),
     \]
     $M$ is finitely generated as an $\iota(R)$-module. Moreover, $J(R)\cdot
-    M=JM=\iota(J)M$ is an $S$-submodule of $M$, as 
+    M=JM$ is an $S$-submodule of $M$, as 
     \[
       x_j(JM)=(x_jJ)M=(Jx_j)M=J(x_jM)\subseteq JM.
     \]
@@ -926,7 +916,7 @@ complex group algebras of infinite groups are never semisimple.
     \[
       \C[G]=\R[G]+i\R[G],
     \]
-    Now Lemma \ref{lem:Rickart} and Rickart's theorem imply that 
+    Lemma \ref{lem:Rickart} and Rickart's theorem imply that 
     $\iota(J(\R[G]))\subseteq J(\C[G])=\{0\}$. We conclude that $J(\R[G])=0$, as the map $\iota$ is injective. 
   \end{proof}
 \end{graybox}
@@ -959,7 +949,7 @@ In this case, our result is for finite groups.
 	    0 & \text{if $2\leq i\leq n$},
 	\end{cases}
 	\]
-	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$ if $i\ne j$ and hence the matrix of 
+	as $L_{g_i}(g_j)=g_{i}g_j\ne g_j$ if $i\ne 1$ and hence the matrix of 
 	$L_{g_i}$ in the basis $\{g_1,\dots,g_n\}$ contains zeros in the main diagonal.
 
 	Assume that $J=J(K[G])$ is non-zero and let 
@@ -975,14 +965,14 @@ In this case, our result is for finite groups.
 	$L_{\alpha}$ is nilpotent and hence $0=\rho(\alpha)=n\lambda_1$. This implies that
 	the characteristic of the field $K$ divides $n$. 
 
-	Conversely, let $K$ be a field of prime characteristic and that this prime divides 
-	$n$. Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
+	Conversely, assume that $K$ has characteristic $p>0$ and that $p$ divides $n$.
+	Let $\alpha=\sum_{i=1}^ng_i$. Since $\alpha
 	g_j=g_j\alpha=\alpha$ for all $j\in\{1,\dots,n\}$, the set 
 	$I=K[G]\alpha$ is an ideal of $K[G]$. Since, moreover,   
 	\[
 		\alpha^2=\sum_{i=1}^n g_i\alpha=n\alpha=0
 	\]
-	in the field $K$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
+	in $K[G]$, it follows that $I$ is a nilpotent non-zero ideal. Thus $J(K[G])\ne\{0\}$, 
 	as Proposition~\ref{pro:nilJ} yields $I\subseteq J(K[G])$.
 \end{proof}
 
@@ -991,7 +981,10 @@ every nil left ideal, the following consequence of the theorem follows immediate
 
 \begin{corollary}
 	\label{cor:GfinitoNOnil}
-	Let $G$ be a finite group. Then $K[G]$ does not contain non-zero nil left ideals. 
+	Let $G$ be a finite group,
+	and suppose that the characteristic
+  	of $K$ is zero or does not divide $|G|$. 
+    Then $K[G]$ does not contain non-zero nil left ideals. 
 \end{corollary}
 
 
@@ -1038,8 +1031,8 @@ every nil left ideal, the following consequence of the theorem follows immediate
 
 \section{Herstein's theorem}
 
-Our aim now is to answer the following question: When
-a group algebra is algebraic? Herstein's theorem provides
+Our aim now is to answer the following question: When is 
+a group algebra algebraic? Herstein's theorem provides
 a solution in the case of fields of characteristic zero. In prime characteristic,
 the problem is still open. 
 
@@ -1053,7 +1046,7 @@ If $G$ is a locally finite group, then every element $g\in G$ has finite order, 
 the subgroup $\langle g\rangle$ is finite because it is finitely generated.
 
 \begin{example}
-    Every finite group is locally finite
+    Every finite group is locally finite.
 \end{example}
 
 \begin{example}
@@ -1061,9 +1054,9 @@ the subgroup $\langle g\rangle$ is finite because it is finitely generated.
 \end{example}
 
 \begin{example}
-\index{Pr\"ufer's group}
+\index{Prufer group@Pr\"ufer group}
 	Let $p$ be a prime number. 
-	The \emph{Pr\"ufer's group}  
+	The \emph{Pr\"ufer group}  
 	\[
 		\Z(p^{\infty})=\{z\in\C:z^{p^n}=1\text{ for some $n\in\Z_{>0}$}\}, 
 	\]
@@ -1081,7 +1074,7 @@ A group $G$ is a \emph{torsion} group if every element of $G$
 has finite order. Locally finite groups are torsion groups. 
 
 \begin{example}
-    Abelian torsion groups are locally finite. Let $G$ be a locally finite abelian group 
+    Abelian torsion groups are locally finite. Let $G$ be an abelian torsion group
     and $H$ be a finitely generated subgroup. Since $G$ is an abelian torsion group, so is $H$. Thus
     $H$ is finite by the structure theorem of abelian groups. 
 \end{example}
@@ -1093,7 +1086,8 @@ has finite order. Locally finite groups are torsion groups.
 \end{proposition}
 
 \begin{proof}
-	Let $\pi\colon G\to G/N$ be the canonical map and $\{g_1,\dots,g_n\}$ be a finite subset of $G$. 
+	Let $\pi\colon G\to G/N$ be the canonical map and $\{g_1,\dots,g_n\}$ be a finite subset of $G$. Without loss of generality, we may assume that $1\in\{g_1,\dots,g_n\}$. Let $H$ be the subgroup of $G$ generated
+	by $\{g_1,\dots,g_n\}$. 
 	Since $G/N$ is locally finite, the subgroup $Q$ of $G/N$ generated by 
 	$\pi(g_1),\dots,\pi(g_n)$ is finite, say
 	\[
@@ -1101,19 +1095,30 @@ has finite order. Locally finite groups are torsion groups.
 	\]
 	for some $g_{n+1},\dots,g_m\in G$. 
 	
-	For each $i,j\in\{1,\dots,n\}$ there exist $u_{ij}\in N$ and 
+	For each $i,j\in\{1,\dots,m\}$ choose $u_{ij}\in N$ and 
 	$k\in\{1,\dots,m\}$ such that \[
 	g_ig_j=u_{ij}g_k.
 	\]
 	Let $U$ be the subgroup of $N$
-	generated by $\{u_{ij}:1\leq i,j\leq n\}$. Since $N$ is locally finite, $U$ is finite. Moreover, since 
-	each $g_ig_jg_l$ can be written as 
+	generated by $\{u_{ij}:1\leq i,j\leq m\}$. Since $N$ is locally finite, $U$ is finite.
+	By induction on word
+	length, every positive word in $g_1,\dots,g_n$ has the form $ug_k$, with $u\in U$ and $1\leq k\leq m$: if a word has this form, then
 	\[
-		g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
+ 	(ug_k)g_j=u u_{kj}g_l.
 	\]
-	for some $u\in U$ and $t\in\{1,\dots,m\}$, it follows that the subgroup 
-	$H$ of $G$ generated by $\{g_1,\dots,g_n\}$ is finite, as 
-	$|H|\leq m|U|$. 
+	Let $S$ be the set of positive words in $g_1,\dots,g_n$.
+	Then $S\subseteq\bigcup_{k=1}^m Ug_k$, so $S$ is finite.
+	Since a finite submonoid of a group is a subgroup, $S=H$.
+	Thus $H\subseteq\bigcup_{k=1}^m Ug_k$, and
+	$|H|\leq m|U|<\infty$.	
+	% Moreover, since 
+	% each $g_ig_jg_l$ can be written as 
+	% \[
+	% 	g_ig_jg_l=u_{ij}g_kg_l=u_{ij}u_{kl}g_t=ug_t
+	% \]
+	% for some $u\in U$ and $t\in\{1,\dots,m\}$, it follows that the subgroup 
+	% $H$ of $G$ generated by $\{g_1,\dots,g_n\}$ is finite, as 
+	% $|H|\leq m|U|$. 
 \end{proof}
 
 % \index{Group!solvable}
@@ -1216,10 +1221,14 @@ has finite order. Locally finite groups are torsion groups.
 		=\sum x_{i_1}\cdots x_{i_{k}}
 	\]
 	for all $k$. 
-	Two words $x_{i_1}\cdots x_{i_{k}}$ and 
-	$x_{j_1}\cdots x_{j_{l}}$ could represent the same element of the group $H$. In this case, 
-	the coefficient of $x_{i_1}\cdots x_{i_{k}}=x_{j_1}\cdots x_{j_{l}}$ 
-	in $\alpha^{k}$ will be a positive integer $\geq2$. 
+	%Two words $x_{i_1}\cdots x_{i_{k}}$ and 
+	%$x_{j_1}\cdots x_{j_{l}}$ could represent the same element of the group $H$. In this case, 
+	% the coefficient of $x_{i_1}\cdots x_{i_{k}}=x_{j_1}\cdots x_{j_{l}}$ 
+	% in $\alpha^{k}$ will be a positive integer $\geq2$. 
+	The coefficient of $h\in H$ in $\alpha^k$ is the number
+	of words of length $k$ in $x_1,\dots,x_m$ that represent $h$.
+	In characteristic zero, this coefficient is non-zero whenever
+	at least one such word exists.
  
         Let $w=x_{i_1}\cdots
 	x_{i_{n+1}}\in H$ be a word of length $n+1$. 
@@ -1311,11 +1320,9 @@ We start with some exercises.
 	$|\gamma_k|\to 0$ if $k\to\infty$.
 \end{proof}
 
-
-
 \section{Tensor products}
 
-The \emph{tensor product} of the vector spaces (over $K$) $U$ and $V$ 
+The \emph{tensor product}\index{Tensor product}\index{Tensor product!of vector spaces} of the vector spaces (over $K$) $U$ and $V$ 
 is the quotient vector space $K[U\times V]/T$, where $K[U\times V]$ 
 is the vector space with basis 
 \[
@@ -1348,9 +1355,9 @@ $v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
  \beta\colon U\times V\to W
  \]
  is a bilinear map, 
-	there exists a linear map 
+	there exists a unique linear map 
 	$\overline{\beta}\colon U\otimes V\to W$ such that $\overline{\beta}(u\otimes
-	v)=\beta(u,v)$ for all $u\in U$ and $v\in V$.
+	v)=\beta(u,v)$ for all $u\in U$ and $v\in V$. 
 \end{theorem}
 
 \begin{proof}
@@ -1359,7 +1366,7 @@ $v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
 	U\times V\to U\otimes V,\quad
 	(u,v)\mapsto u\otimes v,
 	\]
-	is bilinear. From the definitions, it follows that
+	is bilinear. From the definitions, it follows that every element of 
 	$U\otimes V$ is a finite linear combination of elements of the form 
 	$u\otimes v$, where $u\in U$ and $v\in V$. Since $\lambda(u\otimes
 	v)=(\lambda u)\otimes v$ for all $\lambda\in K$, the first claim follows.
@@ -1379,7 +1386,7 @@ $v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
 		U\otimes V\arrow[ur, dashrightarrow]
 	\end{tikzcd}
 	\]
-	commutes. In particular, $\overline{\beta}(u\otimes v)=\beta(u,v)$. 
+	commutes. In particular, $\overline{\beta}(u\otimes v)=\beta(u,v)$. Uniqueness follows because pure tensors span $U\otimes V$. 
 \end{proof}
 
 \begin{exercise}
@@ -1388,14 +1395,6 @@ $v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
 \end{exercise}
 
 Some properties:
-%Observemos
-%que todo elemento de $U\otimes V$ es una suma finita
-%de la forma 
-%\[
-%	\sum_{i=1}^N u_i\otimes v_i
-%\]
-%para $N\in\N$, $u_i\in U$ y $v_i\in V$. Esta expresión no es única. Vale además
-%que $u\otimes 0=0=0\otimes v$ para todo $u\in U$ y $v\in V$.
 
 \begin{proposition}
 	Let $\varphi\colon U\to U_1$ and $\psi\colon V\to V_1$ be linear maps. There
@@ -1415,7 +1414,7 @@ Some properties:
 	\[
 		\sum u_i\otimes v_i\mapsto\sum\varphi(u_i)\otimes\psi(v_i)
 	\]
-	is well-defined. 
+	is well-defined. Uniqueness follows because the pure tensors span $U\otimes V$.
 \end{proof}
 
 \begin{exercise}
@@ -1466,25 +1465,24 @@ The following proposition is extremely useful:
 	\label{pro:U_LI}
 	Let $U$ and $V$ be vector spaces. 
 	If $\{u_1,\dots,u_n\}$ is a linearly independent subset of $U$ and 
-	$v_1,\dots,v_n\in V$ is such that $\sum_{i=1}^n u_i\otimes v_i=0$, then 
+	$v_1,\dots,v_n\in V$ are such that $\sum_{i=1}^n u_i\otimes v_i=0$, then 
     $v_i=0$ for all $i\in\{1,\dots,n\}$.
 \end{proposition}
 
 \begin{proof}
-	Let $i\in\{1,\dots,n\}$ and 
+	Extend $u_1,\dots,u_n$ to a basis of $U$. For each $i$, let $f_i\colon U\to K$ be the linear map satisfying 
 	\[
-	f_i\colon U\to K,
-	\quad
 	f_i(u_j)=\delta_{ij}=\begin{cases}
 	1 & \text{if $i=j$},\\
-	0 & \text{otherwise}.
+	0 & \text{otherwise},
 	\end{cases}
 	\]
+	and vanishing on the additional basis vectors. 
 	Since the map 
- \[
- U\times V\to V,\quad (u,v)\mapsto f_i(u)v,
- \]
- is bilinear, there exists 
+ 	\[
+ 	U\times V\to V,\quad (u,v)\mapsto f_i(u)v,
+ 	\]
+ 	is bilinear, there exists 
 	a linear map 
 	$\alpha_i\colon U\otimes V\to V$ such that $\alpha_i(u\otimes
 	v)=f_i(u)v$. Thus
@@ -1539,8 +1537,10 @@ If $U$ and $V$ are finite-dimensional vector spaces, then
 	$x_i=\sum_j\lambda_{ij}u_j$, then 
 	\[
 		\sum_i x_i\otimes y_i=\sum_i\left(\sum_j\lambda_{ij}u_j\right)\otimes y_i		
-		=\sum_j u_j\otimes\left(\sum_i\lambda_{ij}y_i\right).\qedhere 
+		=\sum_j u_j\otimes\left(\sum_i\lambda_{ij}y_i\right).
 	\]
+	Uniqueness follows from Proposition~\ref{pro:U_LI}, applied
+	to the difference of two such expressions.
 \end{proof}
 
 %\begin{corollary}
@@ -1556,6 +1556,7 @@ If $U$ and $V$ are finite-dimensional vector spaces, then
 
 \begin{exercise}
 \label{xca:tensor_algebras}
+\index{Tensor product!of algebras}
     Let $A$ and $B$ be algebras. Prove that $A\otimes B$ 
     is an algebra with 
 	\[
@@ -1617,8 +1618,8 @@ Some examples:
 \begin{proof}
 	Each element of the tensor product $A\otimes K[X]$ can be written uniquely as a finite sum of
 	the form $\sum a_i\otimes X^i$. Routine calculations show that 
-	$A\otimes K[X]\mapsto A[X]$, $\sum a_i\otimes X^i\mapsto \sum a_iX^i$, is a 
-	linear algebra isomorphism. 
+	$A\otimes K[X]\to A[X]$, $\sum a_i\otimes X^i\mapsto \sum a_iX^i$, is a 
+	$K$-algebra isomorphism. 
 \end{proof}
 
 \begin{exercise}
@@ -1627,11 +1628,15 @@ Some examples:
 	particular, $M_n(K)\otimes M_m(K)\simeq M_{nm}(K)$.
 \end{exercise}
 
-Proposition \ref{pro:AKX=AX} and Exercise \ref{xca:AM=MA} 
-are examples of a procedure known as \emph{scalar extensions}. 
+% Proposition \ref{pro:AKX=AX} and Exercise \ref{xca:AM=MA} 
+% are examples of a procedure known as \emph{scalar extensions}. 
+These are examples of tensor-product constructions.
+A particularly useful case is extension of the base field; the procedure is called 
+\emph{scalar extension}. 
 
 \begin{theorem}
 \label{thm:extensions_scalars}
+\index{Extension of scalars}
 	Let $A$ be an algebra over $K$ and $E$ be an extension of $K$ (this just simply means that
 	$K$ is a subfield of $E$). Then 
 	$A^E=E\otimes_KA$ is an algebra over $E$ with respect to
@@ -1664,9 +1669,11 @@ are examples of a procedure known as \emph{scalar extensions}.
 \begin{exercise}
     Prove the following statements:
     \begin{enumerate}
-		\item $\{1\}\otimes A$ is a subalgebra of $A^E$ isomorphic to $A$.
-		\item If $\{a_i:i\in I\}$ is a basis of $A$, then $\{1\otimes a_i:i\in
-			I\}$ is a basis of $A^E$.
+		\item $\{1\otimes a:a\in A\}$ 
+		%$\{1\}\otimes A$ 
+		is a $K$-subalgebra of $A^E$ isomorphic to $A$.
+		\item If $\{a_i:i\in I\}$ is a $K$-basis of $A$, then $\{1\otimes a_i:i\in
+			I\}$ is an $E$-basis of $A^E$.
 	\end{enumerate}
 \end{exercise}
 
@@ -1679,9 +1686,7 @@ are examples of a procedure known as \emph{scalar extensions}.
 
 \section{Formanek's theorem, II}
 
-The combination of technique known as extensions of scalars we have seen in the previous section
-and Formanek's theorem for rational group algebras 
-yield the following general result. 
+Combining extension of scalars with Formanek's theorem for rational group algebras yields the following result.
 
 \begin{theorem}[Formanek]
 	\index{Formanek's theorem}
@@ -1692,24 +1697,60 @@ yield the following general result.
 
 \begin{proof}
 	Since $K$ is of characteristic zero, $\Q\subseteq K$. Then $K[G]\simeq
-	K\otimes_{\Q}\Q[G]$. Note that each $\beta\in K\otimes_{\Q}\Q[Q]$ can be written
-	uniquely as 
+	K\otimes_{\Q}\Q[G]$. 
+	% $Note that each $\beta\in K\otimes_{\Q}\Q[G]$ can be written
+	% uniquely as 
+	% \[
+	% 	\beta=1\otimes\beta_0+\sum k_i\otimes\beta_i,
+	% \]
+	% where $\{1,k_1,k_2,\dots,\}$ is a basis of $$K$ as a $\Q$-vector space. 
+	Choose a $\Q$-basis $\{1\}\cup\{k_i:i\in I\}$ of $K$.
+	Every $\beta\in K\otimes_{\Q}\Q[G]$ can be written uniquely as
 	\[
-		\beta=1\otimes\beta_0+\sum k_i\otimes\beta_i,
+  	\beta=1\otimes\beta_0+\sum_{i\in I}k_i\otimes\beta_i,
 	\]
-	where $\{1,k_1,k_2,\dots,\}$ is a basis of $K$ as a $\Q$-vector space. 
+	where $\beta_0,\beta_i\in\Q[G]$ and all but finitely many
+	$\beta_i$ are zero.
+
 	Let $\alpha\in\Q[G]\subseteq K[G]$. By assumption, every element of $K[G]$ is 
     invertible or a zero divisor. Assume first that $\alpha$ is invertible. 
-    Let $\beta\in K[G]\simeq K\otimes_{\Q}\Q[Q]$ be such that $\alpha\beta=1$. Since
+    Let $\beta\in K[G]\simeq K\otimes_{\Q}\Q[G]$ be such that $\alpha\beta=1$. Since
 	\[
 	1\otimes 1=(1\otimes\alpha)\beta=1\otimes \alpha\beta_0+\sum k_i\otimes \alpha\beta_i,
 	\]
-	it follows that $\alpha\beta_0=1$. Thus $\alpha$ is invertible in $\Q[G]$. Similarly, if
-    $\alpha$ is a zero divisor, then 
-	$\alpha\beta=0$ and $\alpha\beta_j=0$ for all $j$. Thus $\alpha$ is a zero divisor in $\Q[G]$. 
-    Hence 
-	each $\alpha\in\Q[G]$ is invertible or a zero divisor, so Formanek's theorem 
-	for $\Q$ applies.
+it follows that $\alpha\beta_0=1$.
+Since $\alpha$ is invertible in $K[G]$, this equality implies
+that $\beta_0=\alpha^{-1}$. Thus $\alpha$ is invertible in $\Q[G]$.
+
+Now suppose that $\alpha$ is a zero divisor in $K[G]$.
+If $\alpha\beta=0$ for some $0\ne\beta\in K[G]$, then
+coefficient comparison gives
+\[
+  \alpha\beta_0=0,\qquad
+  \alpha\beta_i=0\quad\text{for every }i\in I.
+\]
+Since $\beta\ne0$, at least one of $\beta_0$ and the $\beta_i$
+is non-zero. Hence $\alpha$ is a zero divisor in $\Q[G]$.
+The case $\beta\alpha=0$ for some $0\ne\beta\in K[G]$
+is analogous.
+
+Therefore every element of $\Q[G]$ is invertible or a zero
+divisor. Theorem~\ref{thm:FormanekQ} implies that $G$ is
+locally finite.
+	% it follows that $\alpha\beta_0=1$. 
+	% Since $\alpha$ is invertible in $K[G]$, the equality $\alpha\beta_0=1$ implies that $\beta_0=\alpha^{-1}$.
+	% Thus $\alpha$ is invertible in $\Q[G]$.
+	% Similarly, if
+    % $\alpha$ is a zero divisor, then 
+	% $\alpha\beta=0$ and $\alpha\beta_j=0$ for all $j$. Thus $\alpha$ is a zero divisor in $\Q[G]$. 
+    % Hence 
+	% each $\alpha\in\Q[G]$ is invertible or a zero divisor, so Formanek's theorem 
+	% for $\Q$ applies.
+	% If $\alpha\beta=0$ for some $0\ne\beta\in K[G]$, then
+ 	% $\alpha\beta_j=0$ for every coefficient $\beta_j$.
+ 	% Since $\beta\ne0$, at least one $\beta_j$ is non-zero,
+ 	% so $\alpha$ is a zero divisor in $\Q[G]$.
+ 	% The argument for $\beta\alpha=0$ is analogous.
 \end{proof}
 
 
