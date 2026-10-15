@@ -430,7 +430,7 @@ have simple left $R$-modules, then $J(R)=R$.
 From the definition, it follows
 that $J(R)$ is an ideal. Moreover, 
 	\[
-		J(R)=\bigcap\{P:\text{$P$ is a left primitive ideal of $R$}\}.
+		J(R)=\bigcap\{P:\text{$P$ is a primitive ideal of $R$}\}.
 	\]
 
 	If $I$ is an ideal of $R$ and $n\in\Z_{>0}$, $I^n$ is the additive subgroup of $R$ 
@@ -490,7 +490,7 @@ $x\in I$.
 	Assume that there is a nil left ideal $I$ such that 
 	$I\not\subseteq J(R)$. There exists a simple $R$-module $M$ such that 
 	$n=x\cdot m\ne 0$ for some $x\in I$ and $m\in M$. Since $M$ is simple,
-	$R\cdot n=M$ and hence there exists $r\in R$ such that $r\cdot n=m$. Since
+    $R\cdot n=M$ by Lemma~\ref{lemma:simple}. Hence there exists $r\in R$ such that $r\cdot n=m$. Since
 	\[
 	(rx)\cdot m=r\cdot (x\cdot m)=r\cdot n=m, 
 	\]
@@ -671,7 +671,7 @@ arbitrary rings is the following.
   Let $\mathcal{S}$ be the set of proper left ideals of $R$ containing $T$
   partially ordered by inclusion. Since $T\in\mathcal{S}$,
   $\mathcal{S}\ne\emptyset$.  If $\{K_i:i\in I\}$ is a chain in $\mathcal{S}$,
-  then $K=\cup_{i\in I}K_i$ is an upper bound for the chain 
+  then $K=\bigcup_{i\in I}K_i$ is an upper bound for the chain 
 	($K$ is proper, as $x\not\in K$). Then Zorn's lemma implies that 
 	$\mathcal{S}$ admits a maximal element $M$. Thus $M$
 	is a maximal left ideal such that $x\not\in M$.
@@ -714,7 +714,7 @@ $x\in R$ be an element that is not left quasi-regular. Prove that $x\not\in J(R)
 	We now prove $(2)\implies(3)$. If
 	$x\not\in J(R)$, by definition, there exists a simple 
 	$R$-module $M$ such that $x\cdot m\ne 0$ for some $m\in M$. The simplicity of $M$ implies
-	that $(Rx)\cdot m=M$. Thus there exists $r\in R$ such that $(rx)\cdot m=-m$. There is an element 
+	that $(Rx)\cdot m=M$ (see Lemma~\ref{lemma:simple}). Thus there exists $r\in R$ such that $(rx)\cdot m=-m$. There is an element 
 	$s\in R$ such that $s+rx+s(rx)=0$ and hence 
 	\[
 	-m=(rx)\cdot m=(-s-srx)\cdot m=-s\cdot m+s\cdot m=0,
@@ -1080,6 +1080,8 @@ $\tau_x\colon X\to X$ are bijective for all $x\in X$.
 \end{optional}
 
 \section{Henriksen's theorem}
+\lecture\label{sec:Henriksen}
+
 
 There are (non-unitary) rings with no maximal ideals. An easy example is given
 in the following exercise: 
