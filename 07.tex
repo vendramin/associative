@@ -6,8 +6,7 @@
 
 \index{Trivial units in group algebras}
 Let $K$ be a field and $G$ be a group. A unit $u\in K[G]$ is said
-to be \emph{trivial} if $u=\lambda g$ for some $\lambda\in K\setminus\{0\}$ an
-d
+to be \emph{trivial} if $u=\lambda g$ for some $\lambda\in K\setminus\{0\}$ and
 $g\in G$.
 
 \begin{exercise}
@@ -17,7 +16,7 @@ $g\in G$.
 
 The following question is usually attributed to Kaplansky.
 
-\begin{question}[Units in groups algebras]
+\begin{question}[Units in group algebras]
         \label{question:units}
         Let $K$ be a field and $G$ be a torsion-free group. Is it true that all
         units of $K[G]$ are
@@ -68,7 +67,7 @@ The structure of
 reduced rings is described by the 
 Andrunakevic--Rjabuhin theorem. It states
 that a ring is reduced if and only if
-it is a subdirect products of domains. See
+it is a subdirect product of domains. See
 \cite[3.20.5]{MR2015465} for a proof. 
 
 \begin{question}[Reduced group algebras]
@@ -85,7 +84,7 @@ for all $n$ and all $r_i,s_i\in R$.
 
 \begin{question}[Semisimple group algebras]
 	\label{question:J}
-	Let $K$ be a field and $G$ be a torsion-free group. It is true that 
+	Let $K$ be a field and $G$ be a torsion-free group. Is it true that 
 	$J(K[G])=\{0\}$ if $G$ is non-trivial?
 \end{question}
 
@@ -122,7 +121,7 @@ recall the following important question.
  	$K[G]$ is a domain?
 \end{question}
 
-Our goal is the prove
+Our goal is to prove
 the following implications:
 \[
 \ref{question:J}\Longleftarrow\ref{question:units}
@@ -172,7 +171,7 @@ also yields a solution to Question~\ref{question:J}.
 	Let $\alpha\in J(K[G])$. There exist $\lambda\in K\setminus\{0\}$ and $g\in
 	G$ such that $1-\alpha=\lambda g$. We claim that $g=1$. Assume $g\ne 1$. 
 	If $|K|\geq3$,
-	then there exist $\mu\in K\setminus\{0,1\}$ such that
+	then there exists $\mu\in K\setminus\{0,1\}$ such that
 	\[
 		1-\alpha\mu=1-\mu+\lambda\mu g 
 	\]
@@ -231,7 +230,7 @@ For a group $G$ we consider
 \end{exercise}
 
 The following exercise uses the transfer map and
-is need 
+is needed 
 in Proposition \ref{pro:FCabeliano}. 
 
 \begin{exercise}
@@ -443,7 +442,7 @@ support of $\alpha$, we have that $\pi_H (g^{-1}\alpha)\ne0$.
 	\begin{align*}
 		(a_1u_1+\cdots+a_ru_r)\gamma_2&=
 		\alpha_1\gamma_2=x^{-1}\alpha_1x\gamma_2=-x^{-1}\beta_1x\gamma_2\\
-		&=-x^{-1}(b_1v_1+\cdots+b_sv_r)x(c_1w_1+\cdots+c_tw_t).
+		&=-x^{-1}(b_1v_1+\cdots+b_sv_s)x(c_1w_1+\cdots+c_tw_t).
 	\end{align*}
 	Now $g\in\supp(\alpha_1\gamma_2)$ implies that there exist $i,j$ such that
 	$g=x^{-1}v_ixw_j$.
@@ -463,7 +462,7 @@ support of $\alpha$, we have that $\pi_H (g^{-1}\alpha)\ne0$.
 
 \begin{exercise}
     Let $K$ be a field and $G$ be a torsion-free abelian group. Prove that 
-    $K[G]$ has no non-zero divisors. 
+    $K[G]$ has no zero divisors. 
 \end{exercise}
 
 
@@ -696,7 +695,7 @@ are non-commutative analogs of domains.
 	Finally, let us prove that $4)\implies1)$. Let $A$ and $B$ be non-zero ideals of 
 	$K[G]$ such that $AB=\{0\}$. Let $0\ne\alpha\in A$ and 
 	$0\ne \beta\in
-	B\setminus$. Choose 
+	B$. Choose 
 	$g\in\supp(\alpha)$ and $h\in\supp(\beta)$. Replacing $\alpha$ by $\alpha g^{-1}$ and 
 	$\beta$ by $\beta h^{-1}$, we may assume that 
 	both have non-zero coefficients at the identity, so 
@@ -797,7 +796,7 @@ Clearly, bi-orderability is preserved under taking subgroups.
 The following result goes back to Neumann.
 
 \begin{xca}
-    Let $G$ be a bi-ordered group and $g,h\in G$. Prove that $g^n\in C_G(h)$ if 
+    Let $G$ be a bi-ordered group and $g,h\in G$. Prove that $g^n\in C_G(h)$ for some $n\geq1$ if 
     and only if $g\in C_G(h)$.
 \end{xca}
 
@@ -841,7 +840,7 @@ The previous proposition admits a converse statement.
 	$P$ is closed under multiplication, $G=P\cup P^{-1}\cup \{1\}$ (disjoint union) and
 	$xPx^{-1}=P$ for all $x\in G$. Let $x<y$ whenever  
 	$yx^{-1}\in P$. Then $G$ is bi-ordered with positive
-	cone is $P$.
+	cone $P$.
 \end{proposition}
 
 \begin{proof}
@@ -966,7 +965,7 @@ an answer to Kaplansky's unit problem (see Question \ref{question:units}).
 
 	Assume that $-x\not\in P$ and let $P_1=\{y+nx:y\in P,\,n\geq0\}$. We will
 	show that  $P_1\in\mathcal{S}$.  Clearly, $0\in P_1$ and $P_1$ is closed under
-	addition. If $P_1\not\in S$, there exists 
+	addition. If $P_1\not\in\mathcal{S}$, there exists 
 	\[
 		0\ne y_1+n_1x=-(y_2+n_2x),
 	\]
@@ -977,7 +976,7 @@ an answer to Kaplansky's unit problem (see Question \ref{question:units}).
 		(n_1+n_2)(-x)=y_1+y_2\in P,
 	\]
 	it follows from the first claim that $-x\in P$, a contradiction. 
-	Let us show that $P_1\in\mathcal{S}$. 
+	Thus $P_1\in\mathcal{S}$. 
 	Since $P\subseteq P_1$, the maximality of $P$ implies that 
 	$x\in P=P_1$.
 
@@ -986,14 +985,14 @@ an answer to Kaplansky's unit problem (see Question \ref{question:units}).
 	$P^*=P\setminus\{0\}$ is the positive cone of a bi-order in $A$. 
 	In fact, $P^*$ is closed under addition, as $x,y\in
 	P^*$ implies that $x+y\in P$ and $x+y=0$ implies $x=y=0$, as $x=-y\in P$. Moreover,
-	$G=P^*\cup -P^*\cup\{0\}$ (disjoint union), as 
+	$A=P^*\cup -P^*\cup\{0\}$ (disjoint union), as 
 	the second claim states that $x\not\in P^*$ implies 
 	$-x\in P$. 
 \end{proof}
 
 Our proof of Passman's theorem (see Theorem \ref{thm:Passman}) 
 used the fact that the group algebra $K[G]$ of
-a torsion-free abelian group $G$ has no non-zero divisors. 
+a torsion-free abelian group $G$ has no zero divisors. 
 
 \begin{xca}
 \label{xca:domain_G_abelian}
@@ -1158,7 +1157,7 @@ $G\simeq H$, see \cite{MR240183}.
 
 \begin{theorem}[Malcev--Neumann]
 	\index{Malcev--Neumann theorem}
-	Let $G$ be left-ordered group. Then $K[G]$ has no zero divisors 
+	Let $G$ be a left-ordered group. Then $K[G]$ has no zero divisors 
 	and no non-trivial units. 
 \end{theorem}
 
@@ -1189,9 +1188,9 @@ $G\simeq H$, see \cite{MR240183}.
 \index{Farkas--Snider theorem}
 \index{Brown's theorem}
 Formanek proved that the zero divisors conjecture is true 
-in the case of torsion-free super solvable. Brown and, independently, 
+in the case of torsion-free supersolvable groups. Brown and, independently, 
 Farkas and Snider proved that the conjecture is true 
-in the case of groups algebras (over fields of characteristic zero) of 
+in the case of group algebras (over fields of characteristic zero) of 
 polycyclic-by-finite torsion-free groups. These results
 can be found in Chapter 13 of
 Passman's book~\cite{MR798076}. 
@@ -1210,7 +1209,7 @@ A$ and $b,b_1\in B$ implies that $a=a_1$ and $b=b_1$.
 \begin{definition}
 	\index{Group!unique product}
 	A group $G$ has the \emph{unique product property} if 
-	for every finite non-empty subsets $A,B\subseteq G$ there exists at least one
+	for every pair of finite non-empty subsets $A,B\subseteq G$ there exists at least one
 	unique product in $AB$.
 \end{definition}
 
@@ -1445,7 +1444,7 @@ that if $|A|=3$, then $|B|\geq7$.
 \begin{definition}
 \index{Group!double unique product}
 	A group $G$ has the \emph{double property of unique products} 
-	if for every finite non-empty subsets $A,B\subseteq G$ such that 
+	if for every pair of finite non-empty subsets $A,B\subseteq G$ such that 
 	$|A|+|B|>2$ there are at least two unique products in $AB$.
 \end{definition}
 
@@ -1533,7 +1532,7 @@ $a\in A$ such that for all $g\in G\setminus\{1\}$ either $ga\not\in A$ or $g^{-1
 	$\{a_1,a_n\}\subseteq\Delta(A)$. If $a_1\in
 	A\setminus\Delta(A)$, there exists $g\in G\setminus\{1\}$ such that $ga_1\in A$ and
 	$g^{-1}a_1\in A$. Thus  $a_1\leq ga_1$ and $a_1\leq g^{-1}a_1$. It follows that
-	$1\leq a^{-1}ga_1$ and $1\leq a_1^{-1}g^{-1}a_1=(a_1^{-1}ga_1)^{-1}$, 
+	$1\leq a_1^{-1}ga_1$ and $1\leq a_1^{-1}g^{-1}a_1=(a_1^{-1}ga_1)^{-1}$, 
 	a contradiction. Similarly, $a_n\in \Delta(A)$.
 \end{proof}
 
@@ -1547,7 +1546,7 @@ There are diffuse groups that are not left-ordered, see
 
 \begin{proof}
     Let $G$ be a diffuse group that does not have double unique products. 
-    There exist non-empty subsets $A,B\subseteq G$ with $|A|+|B|>2$ such that 
+    There exist finite non-empty subsets $A,B\subseteq G$ with $|A|+|B|>2$ such that 
 	$C=AB$ admits at most one unique product. Then $|C|\geq2$. Since $G$ is diffuse, 
 	$|\Delta(C)|\geq2$. If $c\in\Delta(C)$, then $c$ admits a unique 
 	expression of the form $c=ab$ with $a\in A$ and $b\in B$ (otherwise, if 
@@ -1557,7 +1556,7 @@ There are diffuse groups that are not left-ordered, see
 	gc=a_0a_1^{-1}a_1b_1=a_0b_1\in C.
 	\]
 	Moreover, 
-	$g^{-1}c=a_1a_0^{-1}a_0b_0=a_1b_0\in C$. Hence $c\not\in\Delta(c)$, a contradiction.
+	$g^{-1}c=a_1a_0^{-1}a_0b_0=a_1b_0\in C$. Hence $c\not\in\Delta(C)$, a contradiction.
 \end{proof}
 
 \begin{open}
