@@ -279,9 +279,9 @@ A module $M$ is said to be \emph{faithful} if $\Ann_R(M)=\{0\}$.
 A ring $R$ is said to be \emph{primitive} if there exists a faithful simple $R$-module.  
 \end{definition}
 
-Since we work with left modules, ``primitive ideal'' means ``left primitive
-ideal''. Right primitive ideals are defined similarly using simple right
-modules.
+% Since we work with left modules, ``primitive ideal'' means ``left primitive
+% ideal''. Right primitive ideals are defined similarly using simple right
+% modules.
 
 \begin{exercise}
 	\label{xca:simple=>prim}
@@ -1636,6 +1636,8 @@ with the Jacobson radical of the underlying ring.
 % 	intersección de los ideales a izquierda maximales y regulares.
 % \end{proof}
 
+\lecture 
+
 \section{Amitsur's theorem}
 
 We now prove an important result of Amitsur that
@@ -1671,26 +1673,26 @@ An application:
 
 \begin{proposition}
 	\label{pro:algebraica=>Jnil}
-	If $A$ is an algebraic algebra with one, then $J(A)$ is the largest nil ideal of $A$.
+	If $A$ is an algebraic algebra with one, then $J(A)$ is the largest nil left ideal of $A$.
 \end{proposition}
 
 \begin{proof}
-	The previous lemma implies that $J(A)$ is a nil ideal. 
-	Proposition~\ref{pro:nilJ} now implies that $J(A)$ is the largest nil ideal of $A$. 
+	The previous lemma implies that $J(A)$ is a nil left ideal. 
+	Proposition~\ref{pro:nilJ} now implies that $J(A)$ is the largest nil left ideal of $A$. 
 \end{proof}
 
 \begin{theorem}[Amitsur]
 	\label{thm:Amitsur}
 	\index{Amitsur's theorem}
 	Let $A$ be a $K$-algebra with one such that $\dim_KA<|K|$ (as cardinals). Then 
-	$J(A)$ is the largest nil ideal of $A$. 
+	$J(A)$ is the largest nil left ideal of $A$. 
 \end{theorem}
 
 \begin{proof}
     The result is immediate if $A=\{0\}$. Assume that $A\ne\{0\}$.
 
     If $K$ is finite, then $A$ is a finite-dimensional algebra. In particular, $A$ is algebraic and
-	hence $J(A)$ is a nil ideal by Proposition~\ref{pro:algebraica=>Jnil}.
+	hence $J(A)$ is a nil left ideal by Proposition~\ref{pro:algebraica=>Jnil}.
 
 	Assume that $K$ is infinite and let $a\in J(A)$. Exercise~\ref{xca:Jcon1} implies that 
 	every element of the form 
@@ -1705,7 +1707,7 @@ An application:
 	\]
 	it follows that $|S|=|K\setminus\{0\}|=|K|>\dim_KA$. Then $S$  
 	is a linearly dependent set, so there are $\beta_1,\dots,\beta_n\in K$
-	not all zero and distinct elements $\lambda_1,\dots,\lambda_n\in K$ such that 
+	not all zero and distinct non-zero elements $\lambda_1,\dots,\lambda_n\in K$ such that 
 	\begin{equation}
 		\label{eq:Amitsur}
 		\sum_{i=1}^n \beta_i(a-\lambda_i)^{-1}=0.
@@ -1724,8 +1726,8 @@ An application:
 	$f(\lambda_1)=\beta_1(\lambda_1-\lambda_2)\cdots(\lambda_1-\lambda_n)\ne0$
 	and $f(a)=0$. Since $a\in J(A)$ is algebraic, it follows that 
 	$a$ is nilpotent by Lemma~\ref{lemma:algebraico=nil}. 
-  Thus $J(A)$ is a nil ideal. Since every nil ideal is contained in $J(A)$ by
-  Proposition~\ref{pro:nilJ}, $J(A)$ is the largest nil ideal.
+  Thus $J(A)$ is a nil left ideal. Since every nil left ideal is contained in $J(A)$ by
+  Proposition~\ref{pro:nilJ}, $J(A)$ is the largest nil left ideal.
 \end{proof}
 
 Amitsur's theorem implies the following result. 
@@ -1733,7 +1735,7 @@ Amitsur's theorem implies the following result.
 \begin{corollary}
 Let $K$ be an uncountable field and let $A$ be a unital
 $K$-algebra of at most countable dimension. Then $J(A)$
-is the largest nil ideal of $A$.
+is the largest nil left ideal of $A$.
 \end{corollary}
 
 \begin{proof}
