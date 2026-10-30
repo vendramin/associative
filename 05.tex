@@ -244,7 +244,7 @@ for $r\in R$) are central in $R[G]$.
 \label{xca:augmentation_ideal}
 \index{Augmentation map}
 \index{Augmentation ideal}
-    Let $R$ be a commutative ring and $G$ be a group. Let 
+    Let $R$ be a unitary commutative ring and $G$ be a group. Let 
     \[
     f\colon R[G] \to R,\quad 
     \sum_{g \in G} r_g g\mapsto \sum_{g \in G} r_g.
@@ -376,6 +376,7 @@ We now consider Jacobson's semisimplicity problem.
 
 \begin{question}
 \label{Jacobson semisimplicity problem}
+\index{Jacobson's semisimplicity problem}
 Let $G$ be a group and $K$ be a field. When does $J(K[G])=\{0\}$ hold?
 \end{question}
 
@@ -1340,6 +1341,7 @@ $U\otimes V$ when the base field is clear from the context. For $u\in U$ and
 $v\in V$ we write $u\otimes v$ to denote the coset $(u,v)+T$.
 
 \begin{theorem}
+	\index{Tensor product!universal property}
 	Let $U$ and $V$ be vector spaces. Then there exists a bilinear map 
 	\[
     U\times V\to U\otimes V,\quad (u,v)\mapsto u\otimes v,
@@ -1410,7 +1412,7 @@ Some properties:
 	Since $U\times V\to U_1\otimes V_1$,
 	$(u,v)\mapsto\varphi(u)\otimes\psi(v)$, is bilinear, there exists a linear map
 	$U\otimes V\to U_1\otimes V_1$, $u\otimes
-	v\to\varphi(u)\otimes\psi(v)$. Thus 
+	v\mapsto\varphi(u)\otimes\psi(v)$. Thus 
 	\[
 		\sum u_i\otimes v_i\mapsto\sum\varphi(u_i)\otimes\psi(v_i)
 	\]
