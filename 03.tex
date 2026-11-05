@@ -229,7 +229,7 @@ Similarly one defines right artinian rings\index{Ring!right artinian}.
 \end{proof}
 
 \section{The Jordan--H\"older theorem}
-\lecture 
+\lecture\label{section:JordanHolder}
 
 \begin{definition}
 \index{Module!composition series}
@@ -363,9 +363,37 @@ submodules, but do not require the action of $R$ on that factor to be non-zero.
 	\]
     are both composition series for $W_1$ and hence $l-1=r+1$ and these composition 
     series are equivalent. 
-	Therefore $l=k$. The two original series have, up to
-	isomorphism and permutation, the factors $M/V_1$, $M/W_1$,
-	and $U_{j-1}/U_j$ for $1\le j\le r$. Hence they are equivalent.
+	% Therefore $l=k$. The two original series have, up to
+	% isomorphism and permutation, the factors $M/V_1$, $M/W_1$,
+	% and $U_{j-1}/U_j$ for $1\le j\le r$. Hence they are equivalent.
+	Therefore $l=k$. By the inductive hypothesis, the factors of
+the series
+\[
+V_1\supsetneq V_2\supsetneq\cdots\supsetneq V_k=\{0\}
+\]
+are, up to isomorphism and permutation, $V_1/U$ and
+$U_{j-1}/U_j$ for $1\leq j\leq r$. Adding the first factor
+$M/V_1$, we see that the factors of the first original series are
+\[
+M/V_1,\qquad V_1/U,\qquad U_{j-1}/U_j
+\]
+for $j\in\{1,\dots,r\}$. 
+Similarly, the factors of the second original series are
+\[
+M/W_1,\qquad W_1/U,\qquad U_{j-1}/U_j
+\]
+for $j\in\{1,\dots,r\}$. 
+Since $U=V_1\cap W_1$ and $V_1+W_1=M$, the isomorphism
+theorems give
+\[
+V_1/U\simeq M/W_1,
+\qquad
+W_1/U\simeq M/V_1.
+\]
+Thus the first two factors in these lists match in reverse order,
+and all remaining factors match term by term.
+Hence the two original composition series are equivalent.
+If $r=0$, the lists of factors $U_{j-1}/U_j$ are empty.
 \end{proof}
 
 The Jordan--H\"older theorem allows us to define the 

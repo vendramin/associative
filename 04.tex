@@ -114,33 +114,109 @@ Direct products and direct sums of rings are all examples of subdirect products 
 \end{theorem}
 
 \begin{proof}
-	Suppose first that $R$ is semiprimitive and let $\{P_i:i\in I\}$ be the collection of 
-	primitive ideals of $R$. This collection is non-empty, as 
-        $R$ is non-zero and semiprimitive. Each $R/P_j$ is primitive and 
-	\[
- \{0\}=J(R)=\bigcap_{i\in I}P_i.
- \]
- For $j$ let $\lambda_j\colon R\to
-	R/P_j$ and $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ be canonical maps. 
-	The ring homomorphism 
-	\[
-		\phi\colon R\to\prod_{i\in I}R/P_i,\quad
-		r\mapsto (\lambda_i(r))_{i\in I},
-	\]
-	is injective and satisfies $\pi_j\phi(R)=R/P_j$ for all 
-	$j$.
+    Suppose first that $R$ is semiprimitive. Let
+    $\{P_i:i\in I\}$ be the collection of all primitive ideals of $R$.
+    This collection is non-empty: otherwise $J(R)=R$, contradicting
+    $J(R)=\{0\}$ and $R\ne\{0\}$.
 
-	Assume now that $R$ is isomorphic to a subdirect product of primitive rings 
-	$R_j$ and let 
+    For each $i\in I$, let $R_i=R/P_i$. Since $P_i$ is primitive,
+    the ring $R_i$ is primitive by Exercise~\ref{xca:primitivo}.
+    Let 
     \[
-    \varphi\colon R\to\prod_{i\in I}R_i
+        f\colon R\to\prod_{i\in I}R_i,
+        \quad
+        r\mapsto(r+P_i)_{i\in I}.
     \]
-    be an injective homomorphism 
-	such that $\pi_j(\varphi(R))=R_j$ for all $j$. For $j$ 
-	let $P_j=\ker\pi_j\varphi$. Since $R/P_j\simeq R_j$, each $P_j$ is a primitive ideal. 
-	If $x\in\bigcap_{i\in I}P_i$, then $\varphi(x)=0$ and thus $x=0$.
-	Hence $J(R)\subseteq\bigcap_{i\in I} P_i=\{0\}$. 
+    Then $f$ is a ring homomorphism: for $r,s\in R$,
+    \[
+        f(r+s)
+        =(r+s+P_i)_{i\in I}
+        =(r+P_i)_{i\in I}+(s+P_i)_{i\in I}
+        =f(r)+f(s),
+    \]
+    and similarly $f(rs)=f(r)f(s)$.
+
+    We claim that $f$ is injective. Let $r\in R$. Then 
+	$r\in \ker f$ if and only if $r+P_i=P_i$ for every $i\in I$,
+    that is, if and only if $r\in P_i$ for every $i\in I$.
+    Thus 
+    \[
+        \ker f=\bigcap_{i\in I}P_i=J(R)=\{0\}
+    \]
+    and $f$ is injective.
+
+    For each $j\in I$, let
+    \[
+        \pi_j\colon\prod_{i\in I}R_i\to R_j
+    \]
+    be the canonical map. Then
+   	$(\pi_jf)(r)=r+P_j$ 
+    for every $r\in R$. Every element of $R_j=R/P_j$ has this
+    form, so $\pi_jf$ is surjective. Thus $f$ satisfies both
+    conditions in the definition of a subdirect product.
+
+    Conversely, suppose that $R$ is isomorphic to a subdirect
+    product of primitive rings $\{R_i:i\in I\}$. Composing the
+    given isomorphism with the embedding in the definition,
+    we obtain an injective ring homomorphism
+    \[
+        f\colon R\to\prod_{i\in I}R_i
+    \]
+    such that $\pi_jf\colon R\to R_j$ is surjective for every
+    $j\in I$, where $\pi_j$ is the canonical map.
+    For each $j\in I$, let
+    $P_j=\ker(\pi_jf)$. 
+    Since $\pi_jf$ is a surjective ring homomorphism,
+    the first isomorphism theorem gives
+    \[
+        R/P_j\simeq R_j.
+    \]
+    The ring $R_j$ is primitive, so $P_j$ is a primitive ideal
+    of $R$ by Exercise~\ref{xca:primitivo}.
+
+    We claim that $\bigcap_{j\in I}P_j=\{0\}$.
+    Let $r\in\bigcap_{j\in I}P_j$. Then
+    $\pi_j(f(r))=0$ 
+    for every $j\in I$. 
+    This means that every coordinate of $f(r)$ is zero.
+    Hence $f(r)=0$ and therefore $r=0$. 
+
+    Finally, $J(R)$ is the intersection of all primitive ideals
+    of $R$. Since each $P_j$ is primitive, 
+    \[
+        J(R)\subseteq\bigcap_{j\in I}P_j=\{0\}.
+    \]
+    Therefore $J(R)=\{0\}$, so $R$ is semiprimitive.
 \end{proof}
+
+% \begin{proof}
+% 	Suppose first that $R$ is semiprimitive and let $\{P_i:i\in I\}$ be the collection of 
+% 	primitive ideals of $R$. This collection is non-empty, as 
+%         $R$ is non-zero and semiprimitive. Each $R/P_j$ is primitive and 
+% 	\[
+%  \{0\}=J(R)=\bigcap_{i\in I}P_i.
+%  \]
+%  For $j$ let $\lambda_j\colon R\to
+% 	R/P_j$ and $\pi_j\colon \prod_{i\in I}R/P_i\to R/P_j$ be canonical maps. 
+% 	The ring homomorphism 
+% 	\[
+% 		\phi\colon R\to\prod_{i\in I}R/P_i,\quad
+% 		r\mapsto (\lambda_i(r))_{i\in I},
+% 	\]
+% 	is injective and satisfies $\pi_j\phi(R)=R/P_j$ for all 
+% 	$j$.
+
+% 	Assume now that $R$ is isomorphic to a subdirect product of primitive rings 
+% 	$R_j$ and let 
+%     \[
+%     \varphi\colon R\to\prod_{i\in I}R_i
+%     \]
+%     be an injective homomorphism 
+% 	such that $\pi_j(\varphi(R))=R_j$ for all $j$. For $j$ 
+% 	let $P_j=\ker\pi_j\varphi$. Since $R/P_j\simeq R_j$, each $P_j$ is a primitive ideal. 
+% 	If $x\in\bigcap_{i\in I}P_i$, then $\varphi(x)=0$ and thus $x=0$.
+% 	Hence $J(R)\subseteq\bigcap_{i\in I} P_i=\{0\}$. 
+% \end{proof}
 
 %\begin{example}
 %	$\Z$ is isomorphic to a subdirect %product of the fields $\Z/p$, where 
