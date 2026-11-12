@@ -620,12 +620,20 @@ they are often called \emph{vector spaces over division rings}.
 		\gamma_r\colon V\to V,\quad
 		v\mapsto rv.
 	\]
-	A straightforward calculation shows that $\gamma_r\in\End_D(V)$ and that
+	A straightforward calculation shows that $\gamma_r\in\End_D(V)$. For example, 
+    \[
+    \gamma_r(\delta v)=r(\delta v)=\delta(rv)=\delta\gamma_r(v)
+    \]
+    for $r\in R$, $\delta\in D$, and $v\in V$. 
+    Moreover, 
     $\gamma\colon R\to\End_D(V)$,
 	$r\mapsto\gamma_r$, is a ring homomorphism. Since $V$ is faithful,
 	$R\simeq\gamma(R)=\{\gamma_r:r\in R\}$. In fact, if $\gamma_r=\gamma_s$, then 
-	$rv=\gamma_r(v)=\gamma_s(v)=sv$ for all $v\in V$ and hence $r=s$, as
-	$(r-s)v=0$ for all $v\in V$.
+	\[
+    rv=\gamma_r(v)=\gamma_s(v)=sv
+    \] 
+    for all $v\in V$ and hence $r=s$, as
+	$(r-s)v=0$ for all $v\in V$. We identify $R$ with $\gamma(R)\subseteq\End_D(V)$.
 
     To prove that $R$ is dense we proceed by induction on $n$. Assume first that
     $n=1$. Since $V$ is simple, $Rx_1=V$ since $x_1\ne 0$. Then there
@@ -650,10 +658,22 @@ they are often called \emph{vector spaces over division rings}.
     \]
     for all $i\in\{1,\dots,n\}$. 
 
-    It remains to prove the claim. To prove it, suppose that it is not true. After relabeling the $x_i$, 
-	we may assume that 
-	$\lambda x_i=0$ for all $i\in\{1,\dots,n-1\}$ implies  
-    $\lambda x_n=0$. By the inductive hypothesis, given $z_1,\dots,z_{n-1}\in V$, 
+    % It remains to prove the claim. To prove it, suppose that it is not true. After relabeling the $x_i$, 
+	% we may assume that 
+	% $\lambda x_i=0$ for all $i\in\{1,\dots,n-1\}$ implies  
+    % $\lambda x_n=0$. 
+
+    It remains to prove the claim. Suppose that it is false.
+    Then there exists an index $i$ for which no $\lambda\in R$
+    satisfies both $\lambda x_i\ne0$ and $\lambda x_j=0$ for
+    every $j\ne i$. After relabeling the $x_i$, we may assume
+    that this index is $n$. Thus, for every $\lambda\in R$,
+    \[
+        \lambda x_1=\cdots=\lambda x_{n-1}=0
+        \implies 
+        \lambda x_n=0.
+    \]
+    By the inductive hypothesis, given $z_1,\dots,z_{n-1}\in V$, 
     there exists $r\in R$ such that
     $rx_i=z_i$ for all $i\in\{1,\dots,n-1\}$. This allows us to define a map  
     \[
@@ -672,22 +692,29 @@ they are often called \emph{vector spaces over division rings}.
 	\arrow["{\iota_i}", from=1-1, to=1-2]
 	\arrow["\phi", from=1-2, to=1-3]
 \end{tikzcd}\]
-    where the map $\iota_i\colon V\to V^{n-1}$ denotes the inclusion in the $i$-th component. By the inductive hypothesis, 
+    where the map $\iota_i\colon V\to V^{n-1}$ denotes the inclusion in the $i$-th component. Note that 
+    $\xi_j\in D$ for all $j\in\{1,\dots,n-1\}$. By applying the inductive hypothesis $(n-1)$ times with
+    the linearly independent set $\{x_1,\dots,x_{n-1}\}$ and subsets of the form
+    $\{0,\dots,0,x_j,0,\dots,0\}$, we conclude that
     for $j\in\{1,\dots,n-1\}$, there exists $r_j\in R$ such that 
     \[
     r_jx_i=\begin{cases}
         x_i & \text{if $i=j$,}\\
-        0 & \text{otherwise.}
+        0 & \text{otherwise,}
         \end{cases}
     \]
+    where $i\in\{1,\dots,n-1\}$.
     In particular, for example, 
     \[
-    \xi_1(x_1)=\phi(x_1,0,\dots,0)=\phi(r_1x_1,\dots,r_1x_{n-1})=r_1x_n.
+    \xi_1(x_1)=\phi(x_1,0,\dots,0)=r_1x_n.
+    %=\phi(r_1x_1,\dots,r_1x_{n-1})=r_1x_n.
     \]
     More generally, $\xi_j(x_j)=r_jx_n$ for all $j\in\{1,\dots,n-1\}$. Note that, on the one hand, 
     \begin{align*}
-        \phi(x_1,\dots,x_{n-1}) &= \phi(r_1x_1,r_2x_2,\dots,r_{n-1}x_{n-1})
-        =\xi_1x_1+\cdots+\xi_{n-1}x_{n-1}.
+        \phi(x_1,\dots,x_{n-1}) &= \phi(x_1,0,\dots,0)+\cdots+\phi(0,\dots,0,x_{n-1})\\
+        &=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1}.
+        %\phi(r_1x_1,r_2x_2,\dots,r_{n-1}x_{n-1})
+        %=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1}.
     \end{align*}
     On the other hand, 
     \[
@@ -986,9 +1013,9 @@ We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_
 \end{lemma}
 
 \begin{proof}
-	Let $y\in L\setminus\{0\}$. Then $0\ne yRy\subseteq RL$. Since $L$ is a minimal left ideal, 
-	it follows that $L$ is a simple $R$-module.  
-	We claim that $L$ is faithful. Let $y\in L\setminus\{0\}$ and
+	Let $0\ne y\in L$. Since $R$ is prime, $0\ne yRy\subseteq RL$. Since $L$ is a minimal left ideal, 
+	$L$ is a simple $R$-module.  
+	We claim that $L$ is faithful. Let 
 	$x\in\Ann_R(L)$. Since $xRy\subseteq xRL\subseteq xL=\{0\}$, it follows that 
 	$x=0$.
 \end{proof}
