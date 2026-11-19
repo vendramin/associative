@@ -695,33 +695,36 @@ they are often called \emph{vector spaces over division rings}.
 	\arrow["\phi", from=1-2, to=1-3]
 \end{tikzcd}\]
     where the map $\iota_i\colon V\to V^{n-1}$ denotes the inclusion in the $i$-th component. Note that 
-    $\xi_j\in D$ for all $j\in\{1,\dots,n-1\}$. By applying the inductive hypothesis $(n-1)$ times with
-    the linearly independent set $\{x_1,\dots,x_{n-1}\}$ and subsets of the form
-    $\{0,\dots,0,x_j,0,\dots,0\}$, we conclude that
-    for $j\in\{1,\dots,n-1\}$, there exists $r_j\in R$ such that 
-    \[
-    r_jx_i=\begin{cases}
-        x_i & \text{if $i=j$,}\\
-        0 & \text{otherwise,}
-        \end{cases}
-    \]
-    where $i\in\{1,\dots,n-1\}$.
-    In particular, for example, 
-    \[
-    \xi_1(x_1)=\phi(x_1,0,\dots,0)=r_1x_n.
-    %=\phi(r_1x_1,\dots,r_1x_{n-1})=r_1x_n.
-    \]
-    More generally, $\xi_j(x_j)=r_jx_n$ for all $j\in\{1,\dots,n-1\}$. Note that, on the one hand, 
+    $\xi_j\in D$ for all $j\in\{1,\dots,n-1\}$. 
+    % By applying the inductive hypothesis $(n-1)$ times with
+    % the linearly independent set $\{x_1,\dots,x_{n-1}\}$ and subsets of the form
+    % $\{0,\dots,0,x_j,0,\dots,0\}$, we conclude that
+    % for $j\in\{1,\dots,n-1\}$, there exists $r_j\in R$ such that 
+    % \[
+    % r_jx_i=\begin{cases}
+    %     x_i & \text{if $i=j$,}\\
+    %     0 & \text{otherwise,}
+    %     \end{cases}
+    % \]
+    % where $i\in\{1,\dots,n-1\}$.
+    % In particular, for example, 
+    % \[
+    % \xi_1(x_1)=\phi(x_1,0,\dots,0)=r_1x_n.
+    % %=\phi(r_1x_1,\dots,r_1x_{n-1})=r_1x_n.
+    % \]
+    % More generally, $\xi_j(x_j)=r_jx_n$ for all $j\in\{1,\dots,n-1\}$. Note that, on the one hand, 
+    Then 
     \begin{align*}
         \phi(x_1,\dots,x_{n-1}) &= \phi(x_1,0,\dots,0)+\cdots+\phi(0,\dots,0,x_{n-1})\\
         &=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1}.
+        %&=\phi(x_1,\dots,x_{n-1})
         %\phi(r_1x_1,r_2x_2,\dots,r_{n-1}x_{n-1})
         %=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1}.
     \end{align*}
     On the other hand, 
-    \[
-    x_n=1x_n=\phi(x_1,\dots,x_{n-1})=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1},
-    \]
+     \[
+     x_n=1x_n=\phi(x_1,\dots,x_{n-1})=\xi_1x_1+\cdots+\xi_{n-1}x_{n-1},
+     \]
     a contradiction to the linear independence of the set $\{x_1,\dots,x_{n}\}$. 
 \end{proof}
 
@@ -1108,7 +1111,7 @@ an ideal $I$ of $R$ is prime if and only if
 the ring $R/I$ is prime. 
 
 \begin{lemma}
-    If $R$ is left artinian and $I$ is a primitive ideal, then
+    If $R$ is unitary and left artinian and $I$ is a primitive ideal, then
     $I$ is prime. 
 \end{lemma}
 
@@ -1129,19 +1132,19 @@ We shall need the following lemmas.
 
 \begin{lemma}
 \label{lem:primitive=>maximal}
-    Let $R$ be a left artinian ring and $I$ be a primitive ideal. 
+    Let $R$ be a left artinian unitary ring and $I$ be a primitive ideal. 
     Then $I$ is maximal. 
 \end{lemma}
 
 \begin{proof}
     If $I$ is a primitive ideal of $R$, then $R/I$ is a primitive ring
-    by Exercise~\ref{xca:primitivo}. By Wedderburn's theorem, $R/I$ is
-    simple. Thus $I$ is maximal by the correspondence theorem. % before: proposition:R/I
+    (see Exercise~\ref{xca:primitivo}). By Wedderburn's theorem, $R/I$ is
+    simple. Thus $I$ is maximal (for this, use the correspondence theorem).
 \end{proof}
 
 \begin{lemma}
 \label{lem:I2...In}
-    Let $R$ be a left artinian unitary ring.
+    Let $R$ be a unitary ring.
     For $k\geq2$, let $I_1,\dots,I_k$ be finitely many distinct maximal ideals of $R$. 
     Then $I_2\cdots I_k\not\subseteq I_1$.   
 \end{lemma}
@@ -1212,14 +1215,14 @@ Now we are ready to prove the theorem.
     for all $j\in\{2,\dots,k\}$. 
     Thus 
     \[
-    \varphi(x_1)=(x_1+I_1,x_1+I_2,\dots,x_1+I_k)=(x_1+I_1,I_2,\dots, I_k).
+    \varphi(x_1)=(x_1+I_1,x_1+I_2,\dots,x_1+I_k)=(x_1+I_1,I_2,\dots, I_k)=(1+I_1,I_2,\dots, I_k).
     \]
     Similarly,
-    there exist $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
+    //there exist $x_2\in 1+I_2,\dots, x_k\in 1+I_k$ such that 
     \begin{align*}
-    \varphi(x_2)&=(I_1,x_2+I_2,\dots,I_k),\\
+    \varphi(x_2)&=(I_1,1+I_2,\dots,I_k),\\
     &\vdots\\
-    \varphi(x_k)&=(I_1,I_2,\dots,x_k+I_k).
+    \varphi(x_k)&=(I_1,I_2,\dots,1+I_k).
     \end{align*}
     From this, it follows that $\varphi$ is surjective: 
 	let $(a_1+I_1,\dots,a_k+I_k)\in\prod_{j=1}^kR/I_j$.  
@@ -1302,7 +1305,7 @@ if it is isomorphic to a (finite) direct sum of simple modules.
 \end{definition}
 
 Why finitely many minimal left ideals?
-Suppose that $R=\oplus_{i\in I}L_i$, where $\{L_i:i\in I\}$ is a collection of
+Suppose that $R=\bigoplus_{i\in I}L_i$, where $\{L_i:i\in I\}$ is a collection of
 minimal left ideals of $R$. 
 Since $R$ is unitary, $1=\sum_{i\in I}e_i$ (finite sum) for 
 some $e_i\in L_i$. This means that the set $J=\{i\in I:e_i\ne 0\}$ is finite.
