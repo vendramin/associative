@@ -1165,9 +1165,10 @@ We shall need the following lemmas.
     It follows that either $x\in I_1$ or $y\in I_1$, a contradiction.   
 \end{proof}
 
-% \begin{exercise}
-%     Complete the proof of Lemma~\ref{lem:I2...In}. 
-% \end{exercise}
+% Not true for non-unitary rings. Take $R=\mathbb F_2^2$ with zero multiplication and let $I_1,I_2,I_3$ be its three one-dimensional subspaces. They are distinct maximal ideals, but
+% \[
+% I_2I_3=\{0\}\subseteq I_1.
+% \]
 
 \begin{lemma}
 \label{lem:Rartinian_finite_primitives}
@@ -1193,7 +1194,7 @@ Now we are ready to prove the theorem.
 	If $R=\{0\}$, then the result holds with the empty product. So assume that $R\ne\{0\}$. 
     Let $I_1,\dots,I_k$ be the (distinct) primitive ideals of $R$. If $k=1$, then $I_1=J(R)=\{0\}$ and 
 	the theorem holds. So assume that $k\geq2$. 
-    Each $I_i$ is a maximal ideal. Thus $I_i+I_j=R$ for
+    Each $I_i$ is a maximal ideal by Lemma~\ref{lem:primitive=>maximal}. Thus $I_i+I_j=R$ for
     $i\ne j$. Since $R$ is semiprimitive, 
     $I_1\cap\cdots\cap I_k=J(R)=\{0\}$. Let 
     \[
@@ -1258,11 +1259,14 @@ Now we are ready to prove the theorem.
 \index{Module!semisimple}
 In the first lectures, we studied semisimple modules over finite-dimensional 
 algebras. Let us now review the theory of semisimple modules over rings. 
-A (finitely generated) module $M$ (over a ring $R$) is \emph{semisimple} 
-if it is isomorphic to a (finite) direct sum of simple modules. 
-% An $R$-module is \emph{semisimple} if it is isomorphic to
-% a direct sum of simple modules. A finitely generated
-% semisimple module is a finite direct sum of simple modules.
+An $R$-module $M$ is \emph{semisimple} 
+if it is isomorphic to a direct sum of simple modules. 
+
+If $M$ is finitely generated and semisimple, then it is a
+finite direct sum of simple modules. Indeed, each generator
+has only finitely many non-zero components. Thus finitely
+many summands contain all the generators, and their sum
+must be the whole module.
 
 \begin{proposition}
     Let $R$ be a left artinian ring. 
