@@ -1637,7 +1637,7 @@ additional hypotheses.
 
   \node[block] (A)  at (0,-5)     {Left artinian};
   \node[block] (N)  at (4.5,-5)   {Left noetherian};
-  \node[block] (SD) at (9,-5)     {Subdirect product\\of primitive rings};
+  %\node[block] (SD) at (9,-5)     {Subdirect product\\of primitive rings};
 
   % Division rings
   \draw[imp] (D) --
@@ -1683,30 +1683,31 @@ additional hypotheses.
     (11.6,-2.5) -- (Re.east);
 
   % Subdirect products
-  \draw[equiv] (SP) --
-    node[lab,sloped,above] {\ref{thm:subdirecto}} (SD);
+  %\draw[equiv] (SP) --
+  %  node[lab,sloped,above] {\ref{thm:subdirecto}} (SD);
 
   % Implications with additional hypotheses
   \draw[cond] (P.south west) to[bend left=30]
     node[lab,below]
-      {left artinian\\\ref{thm:Wedderburn4rings}}
+      %{left artinian\\
+      {\ref{thm:Wedderburn4rings}}
     (S.south east);
 
   \draw[cond] (Pr.south west) to[bend left=30]
     node[lab,below]
-      {minimal left ideal\\\ref{lem:primoizqmin=>prim}}
+      %{minimal left ideal\\
+      {\ref{lem:primoizqmin=>prim}}
     (P.south east);
 
   \draw[cond] (SP.south west) to[bend left=30]
     node[lab,below]
-      {left artinian\\\ref{thm:SSartin=J}}
+      %{left artinian\\
+      {\ref{thm:SSartin=J}}
     (SS.south east);
 \end{tikzpicture}%
 }
 \caption{Selected implications between classes of non-zero unitary rings.
-Dashed arrows require the indicated additional hypothesis.
-Primitive means left primitive. The descriptions involving dense rings
-and subdirect products are understood up to isomorphism.}
+Dashed arrows require the indicated additional hypothesis.}
 \label{fig:ring-classes}
 \end{figure}
 
