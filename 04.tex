@@ -943,6 +943,29 @@ $x=0$ or $y=0$. Each domain is trivially a prime ring.
 \index{Ring!reduced}
 Rings with no non-zero nilpotent elements are called \emph{reduced}.
 
+\index{Andrunakievich--Ryabukhin theorem}
+\index{Ring!reduced}
+\index{Subdirect product}
+\smallskip 
+\project
+A non-zero ring is reduced if and only if it is isomorphic
+to a subdirect product of domains. Study this theorem
+of Andrunakievich and Ryabukhin and compare it with
+Theorem~\ref{thm:subdirecto};
+see \cite[Theorem~3.20.5]{MR2015465}.
+
+\index{Passman's theorem}
+\index{Group algebra!zero divisors}
+\smallskip 
+\project
+For a field $K$ and a torsion-free group $G$, Passman's theorem
+states that $K[G]$ is a domain if and only if it is reduced.
+Study its proof using the subgroup of elements with finite
+conjugacy classes and the associated projection of group
+algebras; see \cite{MR798076}.
+
+
+
 \begin{proposition}
     Let $R$ be a non-zero ring. The following statements are equivalent:
 	\begin{enumerate}
@@ -986,6 +1009,22 @@ $\Z$ is a domain, so it is a prime ring but is not simple.
 	$I=R_1\times\{0\}$ and $J=\{0\}\times R_2$ are non-zero ideals such that $IJ=\{0\}$.
 \end{example}
 
+\begin{exercise}
+    \label{xca:primitive=>prime}
+    Prove that primitive rings are prime.
+\end{exercise}
+
+% \begin{sol}{xca:primitive=>prime}
+%     Let $V$ be a faithful simple $R$-module, and let $x,y\in R$
+%     be such that $xRy=\{0\}$. If $y\ne0$, then, since 
+%     $V$ is faithful, there exists $v\in V$ such that $yv\ne0$.
+%     By Lemma~\ref{lemma:simple}, $R(yv)=V$.
+%     For every $r\in R$, 
+%     $x(ryv)=(xry)v=0$.
+%     Thus $xV=\{0\}$. Since $V$ is faithful,
+%     $x=0$.
+% \end{sol}
+
 % A theorem of Connell states (see Theorem \ref{thm:Connell}) that 
 % if $K$ is a field of characteristic zero and $G$ 
 % is a group, then $K[G]$ is prime if and only if 
@@ -1004,6 +1043,15 @@ $\Z$ is a domain, so it is a prime ring but is not simple.
 %     See for example \cite[Chapter 4, Theorem 2.10]{MR798076}.
 % \end{proof}
 
+%\section{Connell's theorems}
+\project
+
+\index{Connell's theorem!prime group algebras}
+\index{Connell's theorem!artinian group algebras}
+Connell's theorems characterize when a group algebra is prime
+and when it is left artinian, in terms of finite normal subgroups
+and finiteness of the group, respectively.
+Study these characterizations; see \cite{MR798076}.
 
 \section{Wedderburn's theorem}
 
@@ -1047,6 +1095,7 @@ We studied minimal left ideals of rings before (see Definition~\ref{def:minimal_
 
 \begin{theorem}[Wedderburn]
 	\index{Wedderburn's theorem!simple artinian rings}
+    \label{thm:Wedderburn4rings}
 	Let $R$ be a left artinian ring. The following statements are equivalent:
 	\begin{enumerate}
 		\item $R$ is simple.
@@ -1563,4 +1612,118 @@ Both these column spaces are indeed minimal left ideals of $M_2(\R)$.
 	$J^m$ is noetherian, a contradiction. 
 \end{proof}
 
+\section{Classes of unitary rings: summary}
 
+We have studied several classes of unitary rings and the implications
+among them. Figure~\ref{fig:ring-classes} summarizes these relations
+for non-zero rings. Dashed arrows indicate implications requiring
+additional hypotheses.
+
+\begin{figure}[ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}
+  \node[block] (D)  at (0,2.5)    {Division};
+  \node[block] (De) at (4.5,2.5)  {Dense ring of\\linear operators};
+  \node[block] (Do) at (9,2.5)    {Domain};
+
+  \node[block] (S)  at (0,0)      {Simple};
+  \node[block] (P)  at (4.5,0)    {Primitive};
+  \node[block] (Pr) at (9,0)      {Prime};
+
+  \node[block] (SS) at (0,-2.5)   {Semisimple};
+  \node[block] (SP) at (4.5,-2.5) {Semiprimitive};
+  \node[block] (Re) at (9,-2.5)   {Reduced};
+
+  \node[block] (A)  at (0,-5)     {Left artinian};
+  \node[block] (N)  at (4.5,-5)   {Left noetherian};
+  \node[block] (SD) at (9,-5)     {Subdirect product\\of primitive rings};
+
+  % Division rings
+  \draw[imp] (D) --
+    node[lab,right] {\ref{exa:division=>simple}} (S);
+
+  \draw[imp] (D.west) -- (-2.6,2.5) --
+    node[lab,left] {\ref{xca:M_n(D)_semisimple}}
+    (-2.6,-2.5) -- (SS.west);
+
+  \draw[imp] (D.north) -- (0,4) --
+    node[lab,above] {}%{\ref{exa:division=>domain}}
+    (9,4) -- (Do.north);
+
+  % Simple and primitive rings
+  \draw[imp] (S) --
+    node[lab,above] {\ref{xca:simple=>prim}} (P);
+
+  \draw[imp] (P) --
+    node[lab,above] {\ref{xca:primitive=>prime}} (Pr);
+
+  \draw[imp] (P) --
+    node[lab,right] {\ref{def:J}} (SP);
+
+  \draw[equiv] (P) --
+    node[lab,right] {\ref{thm:density}} (De);
+
+  % Semisimple rings and chain conditions
+  \draw[imp] (SS) --
+    node[lab,above] {\ref{thm:SSartin=J}} (SP);
+
+  \draw[imp] (SS) --
+    node[lab,right] {\ref{thm:SSartin=J}} (A);
+
+  \draw[imp] (A) --
+    node[lab,above] {\ref{thm:Hopkins-Levitzki}} (N);
+
+  % Domains
+  \draw[imp] (Do) --
+    node[lab,right] {\ref{xca:domain<=>prime+reduced}} (Pr);
+
+  \draw[imp] (Do.east) -- (11.6,2.5) --
+    node[lab,right] {\ref{xca:domain<=>prime+reduced}}
+    (11.6,-2.5) -- (Re.east);
+
+  % Subdirect products
+  \draw[equiv] (SP) --
+    node[lab,sloped,above] {\ref{thm:subdirecto}} (SD);
+
+  % Implications with additional hypotheses
+  \draw[cond] (P.south west) to[bend left=30]
+    node[lab,below]
+      {left artinian\\\ref{thm:Wedderburn4rings}}
+    (S.south east);
+
+  \draw[cond] (Pr.south west) to[bend left=30]
+    node[lab,below]
+      {minimal left ideal\\\ref{lem:primoizqmin=>prim}}
+    (P.south east);
+
+  \draw[cond] (SP.south west) to[bend left=30]
+    node[lab,below]
+      {left artinian\\\ref{thm:SSartin=J}}
+    (SS.south east);
+\end{tikzpicture}%
+}
+\caption{Selected implications between classes of non-zero unitary rings.
+Dashed arrows require the indicated additional hypothesis.
+Primitive means left primitive. The descriptions involving dense rings
+and subdirect products are understood up to isomorphism.}
+\label{fig:ring-classes}
+\end{figure}
+
+% \begin{figure}[ht]
+% \centering
+% \begin{tikzpicture}
+%   \node[block] (F) at (0,0)    {Field};
+%   \node[block] (L) at (5,0)    {Local\\(commutative)};
+%   \node[block] (N) at (0,-2)   {Nil};
+%   \node[block] (J) at (5,-2)   {Radical};
+
+%   \draw[imp] (F) --
+%     node[lab,above] {\ref{exa:local}} (L);
+%   \draw[imp] (N) --
+%     node[lab,above] {\ref{pro:nilJ}} (J);
+% \end{tikzpicture}
+% \caption{Two further implications.
+% Nil and radical rings are not assumed to have an identity.}
+% \label{fig:other-ring-classes}
+% \end{figure}
