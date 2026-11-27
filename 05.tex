@@ -572,13 +572,27 @@ in the arbitrary setting we are considering, we need to use Zorn's lemma.
 A direct application of the lemma proves that
 complex group algebras of infinite groups are never semisimple. 
 
-\begin{proposition}
-    \label{pro:KGsemisimple}
-    If $G$ is an infinite group, then $\C[G]$ is not semisimple. 
-\end{proposition}
+% I want a theorem. $\C[G]$ semisimple if and only if $G$ finite. If $G$ is finite, $\dim\C[G]<\infty$. So 
+% $\C[G]$ is left artinian. Since $J(\C[G])=\{0\}$ by
+% Rickart's theorem, $\C[G]$ is semisimple (see...) 
+% Conversely, assume that $G$ is infinite. 
+
+% \begin{proposition}
+%     \label{pro:KGsemisimple}
+%     If $G$ is an infinite group, then $\C[G]$ is not semisimple. 
+% \end{proposition}
+
+\begin{theorem}
+	Let $G$ be a group. Then $\C[G]$ is 
+	semisimple if and only if $G$ is finite. 
+\end{theorem}
 
 \begin{proof}
-	Assume that $R=\C[G]$ is semisimple.  Let $I$ 
+	Assume first that $G$ is finite. Then $\dim\C[G]<\infty$, so $\C[G]$ is left artinian. Since 
+	$J(\C[G])=\{0\}$ by Rickart's theorem, 
+	it follows from Theorem~\ref{thm:SSartin=J} that $\C[G]$ is semisimple. 
+
+	Conversely, assume that $R=\C[G]$ is semisimple and $G$ is infinite. Let $I$ 
 	be the augmentation ideal of $R$, that is
 	\[
 	I=\left\{\alpha=\sum_{g\in G}\lambda_gg\in R:\sum_{g\in G}\lambda_g=0\right\}.
@@ -610,27 +624,33 @@ complex group algebras of infinite groups are never semisimple.
 % is known as the \emph{augmentation ideal} 
 % of $\C[G]$.
 
-\begin{theorem}
-	Let $G$ be a group. Then $\C[G]$ 
-	is left artinian if and only if 
-	$G$ is finite. 
-\end{theorem}
+\begin{exercise}
+	Let $G$ be a group. Prove that 
+	$\C[G]$ is left artinian if and only if $G$ is finite.
+\end{exercise}
 
-\begin{proof}
-    If $G$ is finite, then $\C[G]$ is left artinian because $\dim\C[G]=|G|<\infty$. So assume that 
-    $G$ is infinite. By Rickart's theorem,   
-	$J(\C[G])=0$. Moreover, $\C[G]$
-	is not semisimple by the previous proposition. Thus
-	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
-\end{proof}
+% Should be an exercise? 
+% \begin{theorem}
+% 	Let $G$ be a group. Then $\C[G]$ 
+% 	is left artinian if and only if 
+% 	$G$ is finite. 
+% \end{theorem}
+
+% \begin{proof}
+%     If $G$ is finite, then $\C[G]$ is left artinian because $\dim\C[G]=|G|<\infty$. So assume that 
+%     $G$ is infinite. By Rickart's theorem,   
+% 	$J(\C[G])=0$. Moreover, $\C[G]$
+% 	is not semisimple by the previous proposition. Thus
+% 	$\C[G]$ is not left artinian by Theorem~\ref{thm:SSartin=J}.
+% \end{proof}
 
 \index{Rickart's theorem!analytic proof}
 \project
 There is an alternative analytic 
-proof of Rickart's theorem; see
-\cite{MR1838439}.
+proof of Rickart's theorem; see~\cite{MR1838439}.
 
 \section{Maschke's theorem}
+\lecture 
 
 We now present another instance of the semisimplicity problem.
 In this case, our result is for finite groups. 
